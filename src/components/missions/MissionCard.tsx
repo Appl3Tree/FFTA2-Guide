@@ -5,6 +5,7 @@ import {
     MISSION_TAGS,
     type MissionTag,
 } from "../../data/missions/missionTags";
+import { RETRO_ACHIEVEMENTS_BY_MISSION_ID } from "../../data/retroAchievements";
 
 export function MissionCard({ mission }: { mission: Mission }) {
     const [open, setOpen] = React.useState(false);
@@ -40,10 +41,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
         new Set<string>([...explicitTags, ...overlayTags]),
     );
 
-    // Hide "optional" and any empty strings
-    const visibleTags = allTags.filter(
-        (tag) => tag,
-    );
+    const visibleTags = allTags.filter((tag) => tag);
 
     const hasRequirements =
         (requiredItems && requiredItems.length > 0) ||
@@ -57,6 +55,22 @@ export function MissionCard({ mission }: { mission: Mission }) {
     const hasEnemies = enemies && enemies.length > 0;
     const hasStrategy = strategy && strategy.length > 0;
     const hasNotes = notes && notes.trim().length > 0;
+
+    // Per-mission RetroAchievements
+    const retroAchievements =
+        RETRO_ACHIEVEMENTS_BY_MISSION_ID[id] ?? [];
+    const hasRetroAchievements = retroAchievements.length > 0;
+
+    // How many “primary” mid-row sections exist?
+    const numPrimarySections =
+        (hasRequirements ? 1 : 0) +
+        (hasStrategy ? 1 : 0) +
+        (hasRetroAchievements ? 1 : 0);
+
+    const midGridClass =
+        numPrimarySections <= 1
+            ? "grid grid-cols-1 gap-3 sm:gap-4"
+            : "grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4";
 
     const displayRank = rank != null ? `~${rank}` : "N/A";
 
@@ -230,8 +244,8 @@ export function MissionCard({ mission }: { mission: Mission }) {
                         </section>
                     </div>
 
-                    {/* Requirements + Strategy + Enemies / Notes */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                    {/* Requirements + Strategy + RetroAchievements + Enemies / Notes */}
+                    <div className={midGridClass}>
                         {hasRequirements && (
                             <section className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3">
                                 <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
@@ -355,6 +369,38 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                         <li key={idx}>{line}</li>
                                     ))}
                                 </ul>
+                            </section>
+                        )}
+
+                        {hasRetroAchievements && (
+                            <section className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3">
+                                <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                    <u>RETROACHIEVEMENTS</u>
+                                </h4>
+                                <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-100">
+                                    {retroAchievements.map((ach) => (
+                                        <li key={ach.id}>
+                                            <div className="flex items-center gap-1.5">
+                                                <span className="font-semibold">{ach.name}</span>
+                                                {ach.missable && (
+                                                    <span className="inline-flex items-center rounded-full bg-rose-900/60 border border-rose-500/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-rose-50">
+                                                        Missable
+                                                    </span>
+                                                )}
+                                            </div>
+                                            <div className="text-[0.7rem] sm:text-xs text-zinc-300">
+                                                {ach.description}
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <p className="mt-2 text-[0.65rem] sm:text-[0.7rem] text-zinc-400">
+                                    These are optional challenge conditions from{" "}
+                                    <span className="font-semibold">
+                                        RetroAchievements
+                                    </span>
+                                    .
+                                </p>
                             </section>
                         )}
 

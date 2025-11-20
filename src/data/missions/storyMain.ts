@@ -740,6 +740,90 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             loot: "Prime Pelt ×1"
         },
         tags: ["story", "finale", "boss"]
+    },
+    {
+        id: "EX-01",
+        arc: "EX",
+        name: "The Two Grimoires",
+        rank: 48,
+        region: "The Ruins of Delgantua (Inner Sanctum)",
+        objective: "Defeat Illua once and for all at the heart of the ruins.",
+        law: "Buffs: abilities and actions that raise stats or apply positive status effects are forbidden.",
+        enemies: [
+            {
+                name: "Illua",
+                type: "Boss spellblade",
+                notes: "Returns even stronger than before; high speed, heavy magic and physical damage, and punishing area attacks.",
+            },
+            {
+                name: "Summoned fiends",
+                type: "Assorted monsters",
+                notes: "Monsters supporting Illua; can pressure you if left unchecked while you advance.",
+            },
+        ],
+        battlefield: [
+            "Upper platform deep within the Ruins of Delgantua, continuing directly from the previous battle.",
+            "Illua stands on the far side of the arena with monsters flanking her and blocking direct approach routes.",
+            "One route is a shorter, high-elevation path that favors units with high jump or strong mobility.",
+            "The longer route circles the field and forces you through enemy groups before you reach Illua.",
+        ],
+        strategy: [
+            "Bring your strongest attackers and at least one reliable healer; this is a pure damage and survival check.",
+            "Decide early whether to send agile units along the short high-ground route or take the long path clearing monsters as you go.",
+            "Keep ranged attackers in the back line to pick off monsters as they appear while your frontline advances.",
+            "Once you reach Illua, focus on accurate, high-damage attacks to finish her quickly before her burst damage overwhelms you.",
+            "Consider item-based damage and other ways to bypass the Buffs law, and keep your healer safely away from the front line.",
+        ],
+        rewards: {
+            gil: 0,
+            cp: 0,
+            loot: "Story progression; prepares the way for the battle with Neukhia.",
+        },
+        tags: ["story", "finale", "boss", "ex-mission"],
+    },
+    {
+        id: "EX-02",
+        arc: "EX",
+        name: "From the Rift",
+        rank: 49,
+        region: "The Rift",
+        objective: "Defeat Neukhia by destroying all of its parts.",
+        law: "Reaction Abilities: abilities that trigger as reactions are forbidden.",
+        enemies: [
+            {
+                name: "Neukhia (Wisp)",
+                type: "Boss segment",
+                notes: "Moves around the arena and can vanish between attacks; must be hunted down before you can meaningfully pressure the core.",
+            },
+            {
+                name: "Neukhia (Pod)",
+                type: "Boss segment",
+                notes: "Plays a defensive role but still deals serious damage; must be destroyed along with the Wisp.",
+            },
+            {
+                name: "Neukhia (Core)",
+                type: "Final Boss",
+                notes: "Central body with very high HP; periodically summons crystal structures that must be destroyed quickly.",
+            },
+        ],
+        battlefield: [
+            "Strange arena suspended in the Rift, with Neukhia in the center and its parts positioned around the map.",
+            "The Wisp moves and may disappear after or between attacks, forcing you to spread out in small teams to corner it.",
+            "The Pod holds position and punishes slow play with steady damage.",
+            "The Core is initially protected; its crystal spawns can either be turned against it or allowed to unleash damage on your party.",
+        ],
+        strategy: [
+            "Form small pairs or squads and fan out to quickly track down and destroy the Wisp; you cannot afford to chase it with the whole party.",
+            "Once the Wisp is gone, regroup and focus on the Pod so you are not taking constant chip damage while fighting the Core.",
+            "When the Core becomes vulnerable, unleash your strongest attacks and plan your turns for sustained damage over a long fight.",
+            "When crystals appear, immediately redirect your attacks to destroy them; doing so can damage the Core and prevents them from punishing your team.",
+            "Build a party that can handle long battles, with strong healing, item use, and ways to deal damage even under the Reaction Abilities law.",
+        ],
+        rewards: {
+            gil: 0,
+            cp: 0,
+            loot: "Completion of the main story and access to post-game content.",
+        },
+        tags: ["story", "finale", "boss", "ex-mission"],
     }
 ];
-

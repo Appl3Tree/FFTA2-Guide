@@ -11,6 +11,20 @@ export interface Reward {
     items?: string[];
 }
 
+export interface RetroAchievements {
+    id: string;
+    name: string;
+    description: string;
+    missable?: boolean;
+}
+
+export interface GlobalRetroAchievement {
+    id: string;
+    name: string;
+    description: string;
+    category: string;
+}
+
 export type MissionTag =
     | "story"
     | "optional"
