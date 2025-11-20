@@ -78,11 +78,6 @@ export function Panel({
             >
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
                     <h2 className="text-lg sm:text-xl font-semibold tracking-tight flex items-center gap-2">
-                        {/* <span
-                            className={`inline-flex items-center px-2 py-0.5 rounded-full text-[0.65rem] font-semibold uppercase tracking-wide text-zinc-100 ${t.pill}`}
-                        >
-                            Main
-                        </span> */}
                         <span>{title}</span>
                     </h2>
                     {subtitle && (

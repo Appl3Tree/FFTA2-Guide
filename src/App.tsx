@@ -4,6 +4,7 @@ import { Panel } from "./components/ui/Panel";
 import { IntroPanels } from "./components/meta/IntroPanels";
 import { SystemsPanels } from "./components/meta/SystemsPanels";
 import { RacesPanels } from "./components/meta/RacesPanels";
+import { RetroAchievementsPanels } from "./components/meta/RetroAchievementsPanels";
 import { MissionTabs } from "./components/missions/MissionTabs";
 
 export default function App() {
@@ -38,6 +39,8 @@ export default function App() {
                             <IntroPanels />
                             <RacesPanels />
                             <SystemsPanels />
+                            <RetroAchievementsPanels />
+
                         </header>
 
                         <div className="space-y-4 sm:space-y-5">
