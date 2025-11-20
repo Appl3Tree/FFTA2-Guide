@@ -1,86 +1,91 @@
 # Final Fantasy Tactics A2 Guide
 
-A comprehensive, fan-made reference for **Final Fantasy Tactics A2: Grimoire of the Rift (FFTA2)** — built to make it easier to browse missions, understand story arcs, filter optional content, and track progress throughout the game.
+A fan-made, data-driven reference for **Final Fantasy Tactics A2: Grimoire of the Rift (FFTA2)** — focused on making it easier to browse missions, filter by story arc and tags, and view rich mission details in one place.
 
-🕹️ **Live Site:** [https://appl3tree.github.io/FFTA2-Guide/](https://appl3tree.github.io/FFTA2-Guide/)
+> **GitHub Pages URL:** `https://appl3tree.github.io/FFTA2-Guide/`
 
 ---
 
 ## 🌟 About the Project
 
-This guide is a modern, data-driven companion for *Final Fantasy Tactics A2*. The game’s mission list is massive and full of branching arcs, optional content, and hidden dependencies. Managing all of that with wikis or scattered notes quickly becomes messy.
+This project builds on the earlier **FFTA-Guide** and adapts the approach to *Final Fantasy Tactics A2*. FFTA2 includes a large number of missions and loosely associated arcs, and this guide organizes that information into:
 
-This project centralizes that information into a single organized interface with:
+* A searchable mission list
+* Arc-based filtering (A1–E5)
+* Tag-based filtering
+* Collapsible mission details with structured sections
 
-* structured mission data
-* story arc groupings
-* tag-based filtering
-* expandable mission details
-* local save slots for tracking
-
-It builds on lessons learned from the earlier **FFTA-Guide** project, but redesigned and rebuilt specifically for the much larger FFTA2 mission ecosystem.
+All mission, meta, and race data is stored in TypeScript files under `src/data/` and rendered with React components.
 
 ---
 
 ## 🧭 Features
 
-### ✔️ Mission Browser
+### Mission Browser
 
-Browse the entire mission list with clear structure and metadata, including:
+The mission browser includes story, optional, and mark missions defined in:
 
-* Mission names
-* Categories / tags
-* Arc placement
-* Rewards
-* Requirements
-* Notes
+* `src/data/missions/storyMain.ts`
+* Multiple `storyOptional.*.ts` files
+* `marks.ts`
 
-### ✔️ Story Arc Organization
+Missions can be:
 
-FFTA2 contains numerous multi-mission arcs. This guide organizes arcs into their own sections so you can easily:
+* Searched by name, ID, region, description, rewards, tags, and notes
+* Filtered by arc (`A1`–`E5` or `ALL`)
+* Filtered by tag (as defined in `MissionTag` and `MISSION_TAGS`)
 
-* Understand mission order
-* See where optional branches appear
-* Track your position within any arc
+Each mission card shows, when available:
 
-### ✔️ Tag-Based Filtering
+* ID, name, region
+* Arc label
+* Recommended level (from `rank`)
+* Quest type and party size
+* Contract details (fee, days, dispatch/cancel allowed)
+* Rewards (gil, clan points, loot, items)
+* Requirements (items, talents, recommended jobs)
+* Strategy notes
+* Enemy list
+* Freeform notes
+* Merged tag list
 
-Filter missions by tags to quickly locate:
+Mission detail sections are collapsed by default and expand when clicked.
 
-* Story missions
-* Optional missions
-* Clan trials
-* Race-specific quests
-* Regions
-* Item / skill related missions
+### Search & Filters
 
-The filtering system is fully dynamic and updates the mission list instantly.
+The mission list supports:
 
-### ✔️ Save Slots (LocalStorage)
+* Text search
+* Arc filtering
+* Tag filtering
+* Toggleable filter sections for a cleaner default view
 
-Track your mission progress across multiple playthroughs using built-in save slots.
-No login, no server — everything is stored locally in the browser.
+### Meta, Systems, and Races Panels
 
-### ✔️ Clean, Expandable UI
+The home view includes collapsible informational panels:
 
-Mission details are fully expandable/collapsible so you can avoid spoilers unless you choose to reveal more information.
+* **Intro Panels** using `INTRO_PANELS`
+* **Systems Panels** using `SYSTEMS_PANELS`
+* **Races Panels** using `RACE_JOBS`
 
-### ✔️ Mobile-Friendly Layout
-
-Components are designed with Tailwind to stay readable on both desktop and mobile.
+All use the shared `Panel` component with a collapsible layout and tone-based styling.
 
 ---
 
 ## 🧱 Built With
 
-* **React** (with functional components)
+* **React**
 * **TypeScript**
-* **Vite** for development & builds
-* **TailwindCSS** for layout and styling
-* **GitHub Pages** for hosting
-* **LocalStorage** for client-side save files
+* **Vite** with `@vitejs/plugin-react-swc`
+* **TailwindCSS**
+* **lucide-react** for icons
+* **GitHub Pages** for deployment (`gh-pages` package)
 
-The project follows a fully data-driven structure where missions, arcs, and tags are defined in `/data` and rendered via reusable components.
+Supporting structure includes:
+
+* `src/types/ffta2.ts` for mission, meta, and race types
+* `src/utils/keyify.ts`
+* Global styles in `src/styles/index.css`
 
 ---
 
@@ -88,62 +93,84 @@ The project follows a fully data-driven structure where missions, arcs, and tags
 
 ```
 src/
-  components/
-    missions/        # Mission list, mission details, tag filters
-    ui/              # Shared UI components
-  data/
-    missions/        # Mission definitions split by sections/arcs
-    arcs/            # Story arc data groups
-    tags/            # Tag metadata
-  save/              # LocalStorage save slot logic
   App.tsx
   main.tsx
 
-public/
-  # Public assets
+  components/
+    missions/
+      MissionTabs.tsx
+      MissionCard.tsx
+      MissionList.tsx
+      MissionFilters.tsx
+    meta/
+      IntroPanels.tsx
+      SystemsPanels.tsx
+      RacesPanels.tsx
+    ui/
+      Panel.tsx
+      SectionLabel.tsx
 
-vite.config.ts
-tailwind.config.cjs
-package.json
+  data/
+    missions/
+      storyMain.ts
+      storyOptional.A1.ts
+      storyOptional.A2.ts
+      ...
+      storyOptional.E5.ts
+      marks.ts
+      missionTags.ts
+    meta/
+      introPanels.ts
+      systemsPanels.ts
+    races/
+      raceJobs.ts
+
+  styles/
+    index.css
+
+  types/
+    ffta2.ts
+
+  utils/
+    keyify.ts
 ```
 
-Everything mission-related is modular and easy to extend.
+Arc and tag information is encoded directly in mission data and `MISSION_TAGS`.
 
 ---
 
 ## 💡 Feedback & Contributions
 
-If you find incorrect mission data, missing prerequisites, reward errors, or want to suggest improvements:
+If you find incorrect mission data, missing missions, or UI issues, feel free to:
 
-* **Open an issue**
-* **Submit a pull request**
+* Open an issue
+* Submit a pull request
 
-All contributions are welcome — this is a fan project built for the community.
+All mission and meta data is written in plain TypeScript objects, making contributions straightforward.
 
 ---
 
 ## ⚠️ Spoiler Notice
 
-The guide includes mission names, arc progressions, and rewards.
-All spoiler-heavy details are **collapsed by default**, letting you browse safely.
+Mission names and some metadata are always visible. Detailed strategy, enemies, and notes appear only inside expanded panels, allowing you to control how much information you reveal.
 
 ---
 
 ## 🎮 Acknowledgments
 
-Special thanks to:
+Thanks to:
 
-* The **FFTA2 community** for preserving mission data over the years
-* Wiki contributors and archived forum posts used as reference material
-* The original **FFTA-Guide** project which inspired the structure
-* Square Enix for creating one of the best tactics RPGs ever made
+* The **FFTA2 community** for preserving mission information
+* Wikis and archived forum posts that informed the mission data
+* The earlier **FFTA-Guide** project for structural inspiration
+* Square Enix for creating *Final Fantasy Tactics A2*
 
 ---
 
 ## 📖 License
 
-This is a **fan project**.
+This is a **fan-made project**.
 All content related to *Final Fantasy Tactics A2: Grimoire of the Rift* is © Square Enix.
-This guide is provided strictly for **educational and personal use**.
+This guide is provided for **personal and educational use only**.
 
 ---
