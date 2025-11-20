@@ -5,7 +5,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     // =========================
     // A1 block
     // =========================
-    "A1-01": ["story", "chain"], // Stranger in the Woods – starts the Step chain 
+    "A1-01": ["story"], // Stranger in the Woods – starts the Step chain 
     "A1-02": ["optional", "chain"], // Reagent Run – part of early “farming/harvest” arc with tomatoes, etc. 
     "A1-03": ["optional", "chain"], // The First Step – explicit part of the Step quest line 
     "A1-04": ["optional", "chain"], // The Next Step – Step chain
@@ -14,10 +14,10 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "A1-08": ["optional"], // Kids These Days
     "A1-09": ["optional"], // Watch Your Step
     "A1-10": ["optional"], // The Trappings of Failure (trap gimmick but not flagging as puzzle)
-    "A1-11": ["story", "chain", "law-sensitive"], // The Yellow Wings (House Bowen chain, special Ice law) 
+    "A1-11": ["story",, "law-sensitive"], // The Yellow Wings (House Bowen chain, special Ice law) 
     "A1-14": ["optional"], // A Voice from the Well
     "A1-15": ["optional"], // The Star Seal
-    "A1-16": ["story", "chain"], // You Say Tomato – in the tomato/harvest chain (Sun-Ripened Mayhem etc.) 
+    "A1-16": ["story"], // You Say Tomato – in the tomato/harvest chain (Sun-Ripened Mayhem etc.) 
 
     // =========================
     // A2 block
@@ -208,19 +208,19 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     // =========================
     // C3 block
     // =========================
-    "C3-01": ["story",], // Mountain Watch
+    "C3-01": ["story"], // Mountain Watch
     "C3-03": ["optional"], // Speed Battle, Kupo!
     "C3-04": ["optional"], // For My Love
     "C3-05": ["optional", "protection", "chain"], // Monster Poaching – protect Cluckatrices, follows On the Rampage 
-    "C3-06": ["story",], // Grounded!
+    "C3-06": ["story"], // Grounded!
     "C3-08": ["optional", "chain"], // Cleaning to Ordalia – cleaning/transport chain
     "C3-09": ["optional"], // Stuck in the Muck
     "C3-10": ["optional", "chain", "protection"], // Poachers Spotted – poaching chain
-    "C3-11": ["story",], // Rumours Ahead
+    "C3-11": ["story"], // Rumours Ahead
     "C3-13": ["optional", "job-unlock"], // Kyrra, Dragoon – unlocks Dragoon :contentReference[oaicite:65]{index=65}
     "C3-14": ["optional", "job-unlock"], // Green Dominion – unlocks Green Mage :contentReference[oaicite:66]{index=66}
     "C3-15": ["optional"], // An Unseen Foe
-    "C3-16": ["story",], // Sleepless Nights
+    "C3-16": ["story"], // Sleepless Nights
 
     // =========================
     // C4 block
@@ -297,16 +297,16 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     // =========================
     // D4 block
     // =========================
-    "D4-01": ["story",], // Making Music
+    "D4-01": ["story"], // Making Music
     "D4-04": ["optional"], // Hors D'oeuvre of the Hour
-    "D4-06": ["story",], // Seeking the Stone
+    "D4-06": ["story"], // Seeking the Stone
     "D4-07": ["optional"], // I've Been Had, Kupo!
     "D4-08": ["optional"], // Beneath the Sands
     "D4-09": ["optional", "protection"], // Airship S.O.S.! – protect airship crew
     "D4-11": ["story", "story-cameo", "recruit"], // Wanted: Sky Pirate Vaan – Vaan recruitment chain 
     "D4-12": ["optional"], // A Small Favour
     "D4-14": ["optional", "chain", "timed"], // Ordalia Airships Grounded – airship law/time related 
-    "D4-16": ["story", "chain"], // A Request – heritor chain entry :contentReference[oaicite:97]{index=97}
+    "D4-16": ["story"], // A Request – heritor chain entry :contentReference[oaicite:97]{index=97}
 
     // =========================
     // D5 block
@@ -395,6 +395,6 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "E5-11": ["story", "story-cameo", "recruit"], // Pirate Problems – Vaan/Penelo chain, Montblanc conditions 
     "E5-12": ["optional", "chain"], // Wanted: Friends, Kupo!
     "E5-15": ["optional", "story-cameo", "law-sensitive"], // A Dashing Duel – Al-Cid fight, special Viera law 
-    "E5-16": ["story", "chain"], // The Ritual – heritor/Adelle-related quest 
+    "E5-16": ["story"], // The Ritual – heritor/Adelle-related quest 
 };
 
