@@ -237,26 +237,6 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "C4-13": ["optional", "job-unlock"], // Banbanga! – unlocks Master Monk :contentReference[oaicite:74]{index=74}
     "C4-14": ["optional", "job-unlock"], // The Cat's Meow – unlocks Seer :contentReference[oaicite:75]{index=75}
     "C4-15": ["optional"], // The Storage Shed
-    "C4-15": ["optional"], // (dup id in list; keep once)
-    "C4-15": ["optional"], // The Storage Shed
-    "C4-15": ["optional"], // just ensuring no extra tags
-    "C4-15": ["optional"], 
-    "C4-15": ["optional"], // (you can collapse these in your real file; I'm just being explicit here)
-    "C4-15": ["optional"], 
-    "C4-15": ["optional"], // sorry for the spam; keep a single "C4-15": ["optional"]
-    "C4-15": ["optional"], 
-    "C4-15": ["optional"], 
-    "C4-15": ["optional"], 
-    "C4-15": ["optional"], 
-    "C4-15": ["optional"], 
-    "C4-15": ["optional"],
-    "C4-15": ["optional"], 
-    "C4-15": ["optional"], 
-    "C4-15": ["optional"], 
-    "C4-15": ["optional"], 
-
-    "C4-15": ["optional"], // final, real one: The Storage Shed
-    "C4-15": ["optional"],
 
     "C5-01": ["optional", "chain", "job-unlock"], // Geomancer's Way - Rain :contentReference[oaicite:76]{index=76}
     "C5-02": ["optional", "chain", "job-unlock"], // Geomancer's Way - Sun :contentReference[oaicite:77]{index=77}

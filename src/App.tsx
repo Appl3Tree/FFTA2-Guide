@@ -43,7 +43,7 @@ export default function App() {
                         <div className="space-y-4 sm:space-y-5">
                             <Panel
                                 title="Mission Hub"
-                                subtitle="Switch between story and optional missions."
+                                subtitle="Browse all quests or filter/search for whatever is needed."
                                 tone="blue"
                             >
                                 <MissionTabs />
