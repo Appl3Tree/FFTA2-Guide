@@ -263,7 +263,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
             loot: "High Arcana ×1"
         },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "recruit"]
     },
     {
         id: "B5-08",

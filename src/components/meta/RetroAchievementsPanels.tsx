@@ -11,65 +11,81 @@ import { useProgress } from "../ProgressContext";
 export function RetroAchievementsPanels() {
     const { checked, setCheck } = useProgress();
 
-    // Group global achievements by category
-    const byCategory = GLOBAL_RETRO_ACHIEVEMENTS.reduce<
-        Record<string, GlobalRetroAchievement[]>
-    >((acc, ach) => {
-        if (!acc[ach.category]) acc[ach.category] = [];
-        acc[ach.category].push(ach);
-        return acc;
-    }, {});
+    // Build a set of missable IDs from BOTH sources
+    const MISSABLE_RETRO_IDS = React.useMemo(() => {
+        const s = new Set<string>();
 
-    // Collect ALL mission-based RetroAchievements that are missable
-    const MISSABLE_RETRO_IDS = new Set<string>();
-    Object.values(RETRO_ACHIEVEMENTS_BY_MISSION_ID).forEach((list) => {
-        list.forEach((ach) => {
+        // Global achievements that are missable
+        for (const ach of GLOBAL_RETRO_ACHIEVEMENTS) {
             if (ach.missable) {
-                MISSABLE_RETRO_IDS.add(ach.id);
+                s.add(ach.id);
             }
-        });
-    });
+        }
 
-    const [openCategories, setOpenCategories] = React.useState<
-        Record<string, boolean>
-    >({});
+        // Mission-tied achievements that are missable
+        for (const list of Object.values(RETRO_ACHIEVEMENTS_BY_MISSION_ID)) {
+            for (const ach of list) {
+                if (ach.missable) {
+                    s.add(ach.id);
+                }
+            }
+        }
+
+        return s;
+    }, []);
+
+    // Compute grouped global achievements by category
+    const byCategory = React.useMemo(() => {
+        return GLOBAL_RETRO_ACHIEVEMENTS.reduce<Record<string, GlobalRetroAchievement[]>>(
+            (acc, ach) => {
+                const cat = ach.category ?? "Miscellaneous";
+                if (!acc[cat]) acc[cat] = [];
+                acc[cat].push(ach);
+                return acc;
+            },
+            {},
+        );
+    }, []);
 
     const orderedCategories = Object.keys(byCategory).sort((a, b) =>
         a.localeCompare(b),
     );
 
-    // 🔍 Search state
-    const [query, setQuery] = React.useState("");
+    // Track collapsed/expanded categories
+    const [openCategories, setOpenCategories] = React.useState<
+        Record<string, boolean>
+    >({});
 
-    // Apply search across name/description/category and missable flag
-    const filteredByCategory = React.useMemo(() => {
-        const q = query.trim().toLowerCase();
-        if (!q) return byCategory;
+    // Progress across all global achievements
+    const totalAchievements = GLOBAL_RETRO_ACHIEVEMENTS.length;
+    const completedAchievements = GLOBAL_RETRO_ACHIEVEMENTS.filter((ach) =>
+        checked[`retro:${ach.id}`],
+    ).length;
+    const completionPct =
+        totalAchievements === 0
+            ? 0
+            : Math.round((completedAchievements / totalAchievements) * 100);
 
-        const out: Record<string, GlobalRetroAchievement[]> = {};
-
-        for (const category of orderedCategories) {
-            const list = byCategory[category];
-            const filtered = list.filter((ach) => {
-                const parts: string[] = [];
-                parts.push(category, ach.name, ach.description);
-                if (MISSABLE_RETRO_IDS.has(ach.id)) {
-                    parts.push("missable");
-                }
-                const blob = parts.join(" ").toLowerCase();
-                return blob.includes(q);
-            });
-
-            if (filtered.length > 0) {
-                out[category] = filtered;
-            }
-        }
-
-        return out;
-    }, [byCategory, orderedCategories, query, MISSABLE_RETRO_IDS]);
-
-    const filteredCategories = orderedCategories.filter(
-        (cat) => filteredByCategory[cat]?.length,
+    const headerProgress = (
+        <div className="flex items-center justify-between gap-2 text-xs sm:text-sm">
+            <div className="text-zinc-100/90">
+                <span className="font-semibold">
+                    {completedAchievements} / {totalAchievements}
+                </span>{" "}
+                achievements completed
+            </div>
+            <div className="flex items-center gap-2">
+                <div className="h-1.5 w-28 sm:w-40 rounded-full bg-black/30 overflow-hidden">
+                    <div
+                        className="h-full bg-emerald-300 dark:bg-emerald-300"
+                        style={{ width: `${completionPct}%` }}
+                    />
+                </div>
+                <span className="text-[0.7rem] text-zinc-100/80">
+                    {completionPct}%
+                </span>
+            </div>
+        </div>
     );
 
     return (
@@ -77,30 +93,11 @@ export function RetroAchievementsPanels() {
             title="RetroAchievements"
             subtitle="Optional challenge goals from RetroAchievements."
             tone="red"
+            headerAddon={headerProgress}
         >
-            {/* Search bar */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3 mt-1">
-                <label className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-500 dark:text-zinc-300 uppercase">
-                    Search RetroAchievements
-                </label>
-                <input
-                    type="text"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search by name, description, category..."
-                    className="w-full sm:w-72 rounded-md border border-zinc-300/80 dark:border-zinc-700/80 bg-white/80 dark:bg-zinc-900/70 px-2.5 py-1.5 text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-rose-500/70 focus:border-rose-500/70"
-                />
-            </div>
-
-            <div className="space-y-4 mt-1">
-                {filteredCategories.length === 0 && (
-                    <p className="text-[0.75rem] text-zinc-600 dark:text-zinc-300">
-                        No RetroAchievements match your search.
-                    </p>
-                )}
-
-                {filteredCategories.map((category) => {
-                    const list = filteredByCategory[category];
+            <div className="space-y-4 mt-2">
+                {orderedCategories.map((category) => {
+                    const list = byCategory[category]!;
                     const isOpen = !!openCategories[category];
 
                     return (
@@ -119,46 +116,76 @@ export function RetroAchievementsPanels() {
                                 className="flex w-full items-center justify-between gap-1 mb-2 text-left"
                                 aria-expanded={isOpen}
                             >
-                                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                                    <h3 className="text-sm sm:text-base font-semibold tracking-tight">
-                                        {category}
-                                    </h3>
-                                    <p className="text-xs sm:text-[0.8rem] text-zinc-600 dark:text-zinc-300">
-                                        RetroAchievements tied to this aspect of
-                                        your run.
-                                    </p>
+                                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 w-full">
+                                    <div>
+                                        <h3 className="text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-50">
+                                            {category}
+                                        </h3>
+                                        <p className="text-[0.7rem] sm:text-xs text-zinc-500 dark:text-zinc-400">
+                                            {list.length} achievements
+                                        </p>
+                                    </div>
+                                    <span className="inline-flex items-center gap-1 text-[0.7rem] text-zinc-500 dark:text-zinc-400">
+                                        <span className="hidden sm:inline">
+                                            {isOpen
+                                                ? "Hide achievements"
+                                                : "Show achievements"}
+                                        </span>
+                                        {isOpen ? (
+                                            <ChevronUp className="h-3.5 w-3.5" />
+                                        ) : (
+                                            <ChevronDown className="h-3.5 w-3.5" />
+                                        )}
+                                    </span>
                                 </div>
-                                <span className="ml-2 inline-flex items-center justify-center">
-                                    {isOpen ? (
-                                        <ChevronUp className="h-4 w-4 text-zinc-500" />
-                                    ) : (
-                                        <ChevronDown className="h-4 w-4 text-zinc-500" />
-                                    )}
-                                </span>
                             </button>
 
                             {isOpen && (
-                                <ul className="space-y-1.5 text-xs sm:text-sm">
-                                    {list.map((ach) => (
-                                        <li
-                                            key={ach.id}
-                                            className="relative rounded-xl border border-zinc-300/40 dark:border-zinc-700/40 bg-zinc-50/40 dark:bg-zinc-900/30 px-3 py-2"
-                                        >
-                                            {MISSABLE_RETRO_IDS.has(ach.id) && (
-                                                <span className="absolute -top-1.5 right-2 inline-flex items-center rounded-full bg-rose-700 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-rose-50">
-                                                    Missable
-                                                </span>
-                                            )}
+                                <ul className="space-y-1.5">
+                                    {list.map((ach) => {
+                                        const key = `retro:${ach.id}`;
+                                        const isChecked = !!checked[key];
+                                        const isMissable =
+                                            ach.missable ||
+                                            MISSABLE_RETRO_IDS.has(ach.id);
 
-                                            <div className="font-semibold text-zinc-900 dark:text-zinc-50 sm:w-[14rem]">
-                                                {ach.name}
-                                            </div>
-
-                                            <div className="text-zinc-700 dark:text-zinc-200 mt-1">
-                                                {ach.description}
-                                            </div>
-                                        </li>
-                                    ))}
+                                        return (
+                                            <li
+                                                key={ach.id}
+                                                className="flex items-start gap-2 text-xs sm:text-sm text-zinc-800 dark:text-zinc-100/90"
+                                            >
+                                                <label className="flex items-start gap-2 cursor-pointer">
+                                                    <input
+                                                        type="checkbox"
+                                                        className="mt-0.5 h-3.5 w-3.5 rounded border-zinc-400 text-emerald-500 focus:ring-emerald-500/70"
+                                                        checked={isChecked}
+                                                        onChange={(e) =>
+                                                            setCheck(
+                                                                key,
+                                                                e.target
+                                                                    .checked,
+                                                            )
+                                                        }
+                                                    />
+                                                    <div>
+                                                        <div className="flex flex-wrap items-center gap-1">
+                                                            <span className="font-medium">
+                                                                {ach.name}
+                                                            </span>
+                                                            {isMissable && (
+                                                                <span className="inline-flex items-center rounded-full border border-rose-400/80 bg-rose-50/80 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 px-1.5 py-px text-[0.65rem] uppercase tracking-[0.14em]">
+                                                                    Missable
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                        <p className="text-[0.7rem] sm:text-xs text-zinc-500 dark:text-zinc-400">
+                                                            {ach.description}
+                                                        </p>
+                                                    </div>
+                                                </label>
+                                            </li>
+                                        );
+                                    })}
                                 </ul>
                             )}
                         </section>

@@ -11,7 +11,7 @@ export function RacesPanels() {
     return (
         <Panel
             title="Races & Jobs Overview"
-            subtitle="What each race tends to do well, at a glance."
+            subtitle="Information on each race and its respective jobs."
             tone="yellow"
         >
             <div className="space-y-4 mt-3">

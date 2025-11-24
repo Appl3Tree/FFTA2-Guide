@@ -53,6 +53,12 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Counter",
         description: "Follow up an enemy attack with an attack of the players' own."
     },
+    shieldbearer: {
+        id: "shieldbearer",
+        setId: "passive",
+        name: "Shieldbearer",
+        description: "Allows shield-wielding, regardless of jobs."
+    },
     "first-aid": {
         id: "first-aid",
         setId: "arts-of-war",

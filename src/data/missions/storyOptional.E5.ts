@@ -69,7 +69,7 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
             loot: "Emperor Scale ×1"
         },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "recruit"]
     },
     {
         id: "E5-15",

@@ -1,3 +1,4 @@
+// src/data/retroAchievements.ts (top import unchanged)
 import type { RetroAchievement, GlobalRetroAchievement } from "../types/ffta2";
 
 export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]> = {
@@ -5,255 +6,340 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
         {
             id: "ra-stranger-clear",
             name: "Stranger in the Woods",
-            description:
-                'Clear story mission "Stranger in the Woods".',
+            description: 'Clear story mission "Stranger in the Woods".',
         },
         {
             id: "ra-it-starts",
             name: "It Starts",
             description:
                 'During "Stranger in the Woods", defeat all enemies without Cid dying.',
-            missable: true
+            missable: true,
+        },
+        // NEW: Hard variant
+        {
+            id: "ra-stranger-in-the-woods-hard",
+            name: "Stranger in the Woods (Hard)",
+            description: 'Clear Story Mission "Stranger in the Woods"',
         },
     ],
     "A1-06": [
         {
             id: "ra-paw-clear",
             name: "A Paw Full of Feathers",
-            description:
-                'Clear story mission "A Paw Full of Feathers".',
+            description: 'Clear story mission "A Paw Full of Feathers".',
         },
         {
             id: "ra-kamikaze-cid",
             name: "Kamikaze Cid",
             description:
                 'During "A Paw Full of Feathers", defeat all enemies without Cid taking damage three times.',
-            missable: true
+            missable: true,
+        },
+        // NEW: Hard variant
+        {
+            id: "ra-a-paw-full-of-feathers-clear-hard",
+            name: "A Paw Full of Feathers (Hard)",
+            description: 'Clear Story Mission "A Paw Full of Feathers"',
         },
     ],
     "A1-11": [
         {
             id: "ra-yellow-wings-clear",
             name: "Yellow Wings",
-            description:
-                'Clear story mission "The Yellow Wings".',
+            description: 'Clear story mission "The Yellow Wings".',
         },
         {
             id: "ra-united-we-stand",
             name: "United We Stand",
             description:
                 'During "The Yellow Wings", do not let any of your units die.',
-            missable: true
+            missable: true,
+        },
+        // NEW: Hard variant
+        {
+            id: "ra-yellow-wings-hard",
+            name: "Yellow Wings (Hard)",
+            description: 'Clear Story Mission "Yellow Wings"',
         },
     ],
     "A1-16": [
         {
             id: "ra-you-say-tomato-clear",
             name: "You Say Tomato",
-            description:
-                'Clear story mission "You Say Tomato".',
+            description: 'Clear story mission "You Say Tomato".',
         },
         {
             id: "ra-tomato-paste",
             name: "Tomato Paste",
             description:
                 'During "You Say Tomato", defeat all "Deadly Nightshade" enemies before the "Alraune".',
-            missable: true
+            missable: true,
+        },
+        // NEW: Hard variant
+        {
+            id: "ra-you-say-tomato-hard",
+            name: "You Say Tomato (Hard)",
+            description: 'Clear Story Mission "You Say Tomato"',
         },
     ],
     "B2-01": [
         {
             id: "ra-ughor-clear",
             name: "Wanted: Ugohr!",
-            description:
-                'Clear story mission "Wanted: Ugohr!".',
+            description: 'Clear story mission "Wanted: Ugohr!".',
         },
         {
             id: "ra-turtle-power",
             name: "Turtle Power",
             description:
                 'During "Wanted: Ugohr!", defeat all other enemies before defeating Ugohr.',
-            missable: true
+            missable: true,
+        },
+        // NEW: Hard variant
+        {
+            id: "ra-wanted-ughor-hard",
+            name: "Wanted: Ugohr! (Hard)",
+            description: 'Clear Story Mission "Wanted: Ugohr!"',
         },
     ],
     "B2-06": [
         {
             id: "ra-gilmunto-clear",
             name: "Wanted: Gilmunto!",
-            description:
-                'Clear story mission "Wanted: Gilmunto!".',
+            description: 'Clear story mission "Wanted: Gilmunto!".',
         },
         {
             id: "ra-dragon-force",
             name: "Dragon Force",
             description:
                 'During "Wanted: Gilmunto!", defeat all other enemies before defeating Gilmunto.',
-            missable: true
+            missable: true,
+        },
+        // NEW: Hard variant
+        {
+            id: "ra-wanted-gilmunto-hard",
+            name: "Wanted: Gilmunto! (Hard)",
+            description: 'Clear Story Mission "Wanted: Gilmunto!"',
         },
     ],
     "B2-11": [
         {
             id: "ra-now-thats-fire-clear",
-            name: "Now That\'s Fire!",
-            description:
-                'Clear story mission "Now That\'s Fire!".',
+            name: "Now That's Fire!",
+            description: 'Clear story mission "Now That\'s Fire!".',
         },
         {
             id: "ra-sleeping-death",
             name: "Sleeping Death",
             description:
                 'During "Now That\'s Fire!", defeat all enemies without any party member being Poisoned.',
-            missable: true
+            missable: true,
+        },
+        // NEW: Hard variant
+        {
+            id: "ra-now-thats-fire-hard",
+            name: "Now That\'s Fire! (Hard)",
+            description: 'Clear Story Mission "Now That\'s Fire!"',
         },
     ],
     "B2-16": [
         {
             id: "ra-pearls-clear",
             name: "Pearls in the Deep",
-            description:
-                'Clear story mission "Pearls in the Deep".',
+            description: 'Clear story mission "Pearls in the Deep".',
         },
         {
             id: "ra-sandstorm",
             name: "Sandstorm",
             description:
                 'During "Pearls in the Deep", defeat "Flowsand Lord" while only attacking it when there are two "Pit Beasts" alive.',
-            missable: true
+            missable: true,
+        },
+        // NEW: Hard variant
+        {
+            id: "ra-pearls-in-the-deep-hard",
+            name: "Pearls in the Deep (Hard)",
+            description: 'Clear Story Mission "Pearls in the Deep"',
         },
     ],
     "C3-01": [
         {
             id: "ra-mountain-watch-clear",
             name: "Mountain Watch",
-            description:
-                'Clear story mission "Mountain Watch".',
+            description: 'Clear story mission "Mountain Watch".',
         },
         {
             id: "ra-equivalent-exchange",
             name: "Equivalent Exchange",
             description:
                 'During "Mountain Watch", defeat Ewen while he only gets one turn.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-mountain-watch-hard",
+            name: "Mountain Watch (Hard)",
+            description: 'Clear Story Mission "Mountain Watch"',
         },
     ],
     "C3-06": [
         {
             id: "ra-grounded-clear",
             name: "Grounded!",
-            description:
-                'Clear story mission "Grounded!".',
+            description: 'Clear story mission "Grounded!".',
         },
         {
             id: "ra-law-abiding-citizen",
             name: "Law Abiding Citizen",
             description:
                 'During "Grounded!", clear the mission without breaking the law.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-grounded-hard",
+            name: "Grounded! (Hard)",
+            description: 'Clear Story Mission "Grounded!"',
         },
     ],
     "C3-11": [
         {
             id: "ra-rumors-abound-clear",
             name: "Rumors Abound",
-            description:
-                'Clear story mission "Rumors Abound".',
+            description: 'Clear story mission "Rumors Abound".',
         },
         {
             id: "ra-evil-dead",
             name: "Evil Dead",
             description:
                 'During "Rumors Abound", complete the mission without using any Phoenix Downs.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-rumors-abound-hard",
+            name: "Rumors Abound (Hard)",
+            description: 'Clear Story Mission "Rumors Abound"',
         },
     ],
     "C3-16": [
         {
             id: "ra-sleepless-clear",
             name: "Sleepless Nights",
-            description:
-                'Clear story mission "Sleepless Nights".',
+            description: 'Clear story mission "Sleepless Nights".',
         },
         {
             id: "ra-nightmares",
             name: "Nightmares",
             description:
                 'During "Sleepless Nights", finish the objective without consuming MP.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-sleepless-nights-hard",
+            name: "Sleepless Nights (Hard)",
+            description: 'Clear Story Mission "Sleepless Nights"',
         },
     ],
     "D4-01": [
         {
             id: "ra-making-music-clear",
             name: "Making Music",
-            description:
-                'Clear story mission "Making Music".',
+            description: 'Clear story mission "Making Music".',
         },
         {
             id: "ra-trap-card",
             name: "I Activate My Trap Card!",
             description:
                 'During "Making Music", clear the mission before the Ranger places two traps.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-making-music-hard",
+            name: "Making Music (Hard)",
+            description: 'Clear Story Mission "Making Music"',
         },
     ],
     "D4-06": [
         {
             id: "ra-seeking-stone-clear",
             name: "Seeking the Stone",
-            description:
-                'Clear story mission "Seeking the Stone".',
+            description: 'Clear story mission "Seeking the Stone".',
         },
         {
             id: "ra-slow-and-steady",
             name: "Slow & Steady",
             description:
                 'During "Seeking the Stone", do not let any of your characters take more than two steps in a single turn.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-seeking-the-stone-hard",
+            name: "Seeking the Stone (Hard)",
+            description: 'Clear Story Mission "Seeking the Stone"',
         },
     ],
     "D4-11": [
         {
             id: "ra-sky-pirate-vaan-clear",
             name: "Wanted: Sky Pirate Vaan",
-            description:
-                'Clear story mission "Wanted: Sky Pirate Vaan".',
+            description: 'Clear story mission "Wanted: Sky Pirate Vaan".',
         },
         {
             id: "ra-one-on-one",
             name: "One on One",
             description:
                 'During "Wanted: Sky Pirate Vaan", do not hit more than once in a single turn.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-wanted-sky-pirate-vaan-hard",
+            name: "Wanted: Sky Pirate Vaan (Hard)",
+            description: 'Clear Story Mission "Wanted: Sky Pirate Vaan"',
         },
     ],
     "D4-16": [
         {
             id: "ra-a-request-clear",
             name: "A Request",
-            description:
-                'Clear story mission "A Request".',
+            description: 'Clear story mission "A Request".',
         },
         {
             id: "ra-fire-the-cannon",
             name: "Fire The Cannon!",
             description:
                 'During "A Request", trigger the explosion four times before defeating Neukhia.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-a-request-clear-hard",
+            name: "A Request (Hard)",
+            description: 'Clear Story Mission "A Request"',
         },
     ],
     "E5-01": [
         {
             id: "ra-the-dig-clear",
             name: "The Dig",
-            description:
-                'Clear story mission "The Dig".',
+            description: 'Clear story mission "The Dig".',
         },
         {
             id: "ra-elemental-block",
             name: "Elemental Block",
             description:
                 'During "The Dig", do not use any fire, ice, or lightning attacks, spells, or weapons.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-the-dig-hard",
+            name: "The Dig (Hard)",
+            description: 'Clear Story Mission "The Dig"',
         },
     ],
     "E5-06": [
@@ -268,67 +354,258 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
             name: "So Close, Yet So Far Away",
             description:
                 'During "Through Another\'s Eyes", clear the mission without using ranged weapons.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-through-anothers-eyes-hard",
+            name: "Through Another's Eyes (Hard)",
+            description: 'Clear Story Mission "Through Another\'s Eyes"',
         },
     ],
     "E5-11": [
         {
             id: "ra-pirate-problems-clear",
             name: "Pirate Problems",
-            description:
-                'Clear story mission "Pirate Problems".',
+            description: 'Clear story mission "Pirate Problems".',
         },
         {
             id: "ra-imposter-domination",
             name: "Imposter Domination",
             description:
                 'During "Pirate Problems", defeat "Vaan?" in three hits or fewer.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-pirate-problems-hard",
+            name: "Pirate Problems (Hard)",
+            description: 'Clear Story Mission "Pirate Problems"',
         },
     ],
     "E5-16": [
         {
             id: "ra-the-ritual-clear",
             name: "The Ritual",
-            description:
-                'Clear story mission "The Ritual".',
+            description: 'Clear story mission "The Ritual".',
         },
         {
             id: "ra-my-judge",
             name: "My Judge!",
             description:
                 'During "The Ritual", uphold the law and do not let Illua dismiss the Judge.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-the-ritual-hard",
+            name: "The Ritual (Hard)",
+            description: 'Clear Story Mission "The Ritual"',
         },
     ],
     "EX-01": [
         {
             id: "ra-two-grimoires-clear",
             name: "The Two Grimoires",
-            description:
-                'Clear story mission "The Two Grimoires".',
+            description: 'Clear story mission "The Two Grimoires".',
         },
         {
             id: "ra-the-end",
             name: "The End?",
             description:
                 'During "The Two Grimoires", defeat Illua while upholding the law and collecting the chest.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-the-two-grimoires-hard",
+            name: "The Two Grimoires (Hard)",
+            description: 'Clear Story Mission "The Two Grimoires"',
         },
     ],
     "EX-02": [
         {
             id: "ra-from-the-rift-clear",
             name: "From the Rift",
-            description:
-                'Clear the final mission "From the Rift".',
+            description: 'Clear the final mission "From the Rift".',
         },
         {
             id: "ra-all-or-nothing",
             name: "All or Nothing",
             description:
                 'During "From the Rift", defeat all three parts of Neukhia.',
-            missable: true
+            missable: true,
+        },
+        // NEW
+        {
+            id: "ra-from-the-rift-hard",
+            name: "From the Rift (Hard)",
+            description: 'Clear The Final Mission "From the Rift"',
+        },
+    ],
+
+    // NEW OPTIONAL-MISSION HOOKS
+
+    "C4-04": [
+        {
+            id: "ra-cat-burglar",
+            name: "Cat Burglar",
+            description:
+                'During "The Cat\'s Meow" Obtain both Treasure Chests while avoiding all the traps',
+            missable: true,
+        },
+    ],
+    "C4-06": [
+        {
+            id: "ra-dont-fear-the-moogle",
+            name: "Don't Fear The Moogle",
+            description:
+                'Complete Quest "Of Kupos and Cannons" without Harming a Moogle',
+            missable: true,
+        },
+    ],
+    "B4-04": [
+        {
+            id: "ra-fire-away",
+            name: "Fire Away!",
+            description:
+                'During "The Goug Consortium" Clear all enemies without exceeding 60 tiles moved across all enemy & ally units',
+            missable: true,
+        },
+    ],
+    "C3-14": [
+        {
+            id: "ra-four-x-four",
+            name: "Four x Four",
+            description:
+                'During "Green Dominion" Defeat All 4 "Green Mages" Before any of them take their 4th Turn',
+            missable: true,
+        },
+    ],
+    "C3-13": [
+        {
+            id: "ra-jump",
+            name: "Jump!",
+            description:
+                'During "Kyrra, Dragoon" Every enemy must be killed by "Kyrra"',
+            missable: true,
+        },
+    ],
+    "C4-10": [
+        {
+            id: "ra-king-of-thieves",
+            name: "King of Thieves",
+            description:
+                'During "Sleight of Hand" Do Not Harm an Enemy before you take all the Treasure Chests',
+            missable: true,
+        },
+    ],
+    "C4-05": [
+        {
+            id: "ra-living-dead",
+            name: "Living Dead",
+            description:
+                'During Battle 3 of "Popocho\'s Chocobos" Defeat all enemies without "Ghost" Reviving',
+            missable: true,
+        },
+    ],
+    "C4-07": [
+        {
+            id: "ra-mayhews-devotees",
+            name: "Mayhew's Devotee's",
+            description:
+                'During "Instrument of Inspiration" Clear the Mission without both "Devotee\'s" Dying',
+            missable: true,
+        },
+    ],
+    "C4-13": [
+        {
+            id: "ra-no-freebies",
+            name: "No Freebies",
+            description:
+                'During "Banbanga!" Defeat all Enemies without using any items',
+            missable: true,
+        },
+    ],
+    "B4-12": [
+        {
+            id: "ra-rune-fencer",
+            name: "Rune Fencer",
+            description:
+                'During "To Be a Spellblade" Don\'t let Hana\'s HP go below 100',
+            missable: true,
+        },
+    ],
+    "C5-06": [
+        {
+            id: "ra-tick-tock-tick-tock",
+            name: "Tick Tock... Tick Tock...",
+            description:
+                'During "A Lanista\'s Pride" Kill all enemies within 10 minutes (Timer Starts at Battle Start)',
+            missable: true,
+        },
+    ],
+    "C5-05": [
+        {
+            id: "ra-up-close-and-personal",
+            name: "Up Close & Personal",
+            description:
+                'During "Ravager" Beat the Mission while not targeting anyone or anything that isn\'t next to you',
+            missable: true,
+        },
+    ],
+    "C4-01": [
+        {
+            id: "ra-useless-assassin",
+            name: "Useless Assassin",
+            description:
+                'During "Veis, Assassin" Defeat "Nlogax" Without Veis doing any damage',
+            missable: true,
+        },
+    ],
+    "B3-16": [
+        {
+            id: "ra-stand-guard",
+            name: "Stand Guard",
+            description:
+                'During "Knowing the Beast" successfully hold out for 4 rounds with only 2 party members placed on the field.',
+            missable: true,
+        },
+    ],
+    "B4-08": [
+        {
+            id: "ra-juggernaut",
+            name: "Juggernaut",
+            description:
+                'During "The Eastwatch" kill all enemies without healing or having a unit die.',
+            missable: true,
+        },
+    ],
+    "B4-16": [
+        {
+            id: "ra-hard-hitter",
+            name: "Hard Hitter",
+            description:
+                'During "Lord Grayrl!" defeat "Lord Grayrl" in 5 hits or less (Double Hit Attacks & Dual Cast count as 2).',
+            missable: true,
+        },
+    ],
+    "B5-08": [
+        {
+            id: "ra-shields-up",
+            name: "Shields Up!",
+            description:
+                'During "Geomancer\'s Way - Mist" do not let any unit fall under 100 HP.',
+            missable: true,
+        },
+    ],
+    "C4-02": [
+        {
+            id: "ra-spikey-demise",
+            name: "Spikey Demise",
+            description:
+                'During "To Be A Fighter" clear the level without laying or triggering any traps on your turn.',
+            missable: true,
         },
     ],
 };
@@ -960,10 +1237,10 @@ export const GLOBAL_RETRO_ACHIEVEMENTS: GlobalRetroAchievement[] = [
         category: "Blue Magic & Chocobo Taming",
     },
     {
-    id: "ra-stranger-clear",
-    name: "Stranger in the Woods",
-    description: 'Clear story mission "Stranger in the Woods".',
-    category: "Quest Challenges",
+        id: "ra-stranger-clear",
+        name: "Stranger in the Woods",
+        description: 'Clear story mission "Stranger in the Woods".',
+        category: "Quest Challenges",
     },
     {
         id: "ra-it-starts",
@@ -1252,7 +1529,6 @@ export const GLOBAL_RETRO_ACHIEVEMENTS: GlobalRetroAchievement[] = [
         category: "Quest Challenges",
         missable: true,
     },
-
     {
         id: "ra-from-the-rift-clear",
         name: "From the Rift",
@@ -1265,6 +1541,282 @@ export const GLOBAL_RETRO_ACHIEVEMENTS: GlobalRetroAchievement[] = [
         description: 'During "From the Rift", defeat all three parts of Neukhia.',
         category: "Quest Challenges",
         missable: true,
+    },
+    {
+        id: "ra-a-paw-full-of-feathers-clear-hard",
+        name: "A Paw Full of Feathers (Hard)",
+        description: 'Clear Story Mission "Stranger in the Woods"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-a-request-clear-hard",
+        name: "A Request (Hard)",
+        description: 'Clear Story Mission "A Request"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-cat-burglar",
+        name: "Cat Burglar",
+        description:
+            'During "The Cat\'s Meow" Obtain both Treasure Chests while avoiding all the traps',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-dont-fear-the-moogle",
+        name: "Don't Fear The Moogle",
+        description:
+            'Complete Quest "Of Kupos and Cannons" without Harming a Moogle',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-fire-away",
+        name: "Fire Away!",
+        description:
+            'During "The Goug Consortium" Clear all enemies without exceeding 60 tiles moved across all enemy & ally units',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-four-x-four",
+        name: "Four x Four",
+        description:
+            'During "Green Dominion" Defeat All 4 "Green Mages" Before any of them take their 4th Turn',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-from-the-rift-hard",
+        name: "From the Rift (Hard)",
+        description: 'Clear The Final Mission "From the Rift"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-grounded-hard",
+        name: "Grounded! (Hard)",
+        description: 'Clear Story Mission "Grounded!"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-hard-hitter",
+        name: "Hard Hitter",
+        description:
+            'During "Lord Grayrl!" Defeat "Lord Grayrl" in 5 hits or less (Double Hit Attacks & Dual Cast Count as 2)',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-juggernaut",
+        name: "Juggernaut",
+        description:
+            'During "The Eastwatch" Kill all enemies without healing or having a unit die',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-jump",
+        name: "Jump!",
+        description:
+            'During "Kyrra, Dragoon" Every enemy must be killed by "Kyrra"',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-king-of-thieves",
+        name: "King of Thieves",
+        description:
+            'During "Sleight of Hand" Do Not Harm an Enemy before you take all the Treasure Chests',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-living-dead",
+        name: "Living Dead",
+        description:
+            'During Battle 3 of "Popocho\'s Chocobos" Defeat all enemies without "Ghost" Reviving',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-making-music-hard",
+        name: "Making Music (Hard)",
+        description: 'Clear Story Mission "Making Music"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-mayhews-devotees",
+        name: "Mayhew's Devotee's",
+        description:
+            'During "Instrument of Inspiration" Clear the Mission without both "Devotee\'s" Dying',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-mountain-watch-hard",
+        name: "Mountain Watch (Hard)",
+        description: 'Clear Story Mission "Mountain Watch"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-no-freebies",
+        name: "No Freebies",
+        description:
+            'During "Banbanga!" Defeat all Enemies without using any items',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-now-thats-fire-hard",
+        name: "Now That\'s Fire! (Hard)",
+        description: 'Clear Story Mission "Now That\'s Fire!"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-pearls-in-the-deep-hard",
+        name: "Pearls in the Deep (Hard)",
+        description: 'Clear Story Mission "Pearls in the Deep"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-pirate-problems-hard",
+        name: "Pirate Problems (Hard)",
+        description: 'Clear Story Mission "Pirate Problems"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-rumors-abound-hard",
+        name: "Rumors Abound (Hard)",
+        description: 'Clear Story Mission "Rumors Abound"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-rune-fencer",
+        name: "Rune Fencer",
+        description:
+            'During "To Be a Spellblade" Don\'t let Hana\'s HP go below 100',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-seeking-the-stone-hard",
+        name: "Seeking the Stone (Hard)",
+        description: 'Clear Story Mission "Seeking the Stone"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-shields-up",
+        name: "Shields Up!",
+        description:
+            'During "Geomancer\'s Way - Mist" Do Not let any unit fall under 100 HP',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-sleepless-nights-hard",
+        name: "Sleepless Nights (Hard)",
+        description: 'Clear Story Mission "Sleepless Nights"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-spikey-demise",
+        name: "Spikey Demise",
+        description:
+            'During "To Be A Fighter" Clear the level without laying or triggering any traps on your turn',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-stand-guard",
+        name: "Stand Guard",
+        description:
+            'During "Knowing the Beast" Successfully hold out for 4 Rounds with only 2 Party Members placed on the field.',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-stranger-in-the-woods-hard",
+        name: "Stranger in the Woods (Hard)",
+        description: 'Clear Story Mission "Stranger in the Woods"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-the-dig-hard",
+        name: "The Dig (Hard)",
+        description: 'Clear Story Mission "The Dig"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-the-ritual-hard",
+        name: "The Ritual (Hard)",
+        description: 'Clear Story Mission "The Ritual"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-the-two-grimoires-hard",
+        name: "The Two Grimoires (Hard)",
+        description: 'Clear Story Mission "The Two Grimoires"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-through-anothers-eyes-hard",
+        name: "Through Another's Eyes (Hard)",
+        description: 'Clear Story Mission "Through Another\'s Eyes"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-tick-tock-tick-tock",
+        name: "Tick Tock... Tick Tock...",
+        description:
+            'During "A Lanista\'s Pride" Kill all enemies within 10 minutes (Timer Starts at Battle Start)',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-up-close-and-personal",
+        name: "Up Close & Personal",
+        description:
+            'During "Ravager" Beat the Mission while not targeting anyone or anything that isn\'t next to you',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-useless-assassin",
+        name: "Useless Assassin",
+        description:
+            'During "Veis, Assassin" Defeat "Nlogax" Without Veis doing any damage',
+        category: "Quest Challenges",
+        missable: true,
+    },
+    {
+        id: "ra-wanted-gilmunto-hard",
+        name: "Wanted: Gilmunto! (Hard)",
+        description: 'Clear Story Mission "Wanted: Gilmunto!"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-wanted-sky-pirate-vaan-hard",
+        name: "Wanted: Sky Pirate Vaan (Hard)",
+        description: 'Clear Story Mission "Wanted: Sky Pirate Vaan"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-wanted-ughor-hard",
+        name: "Wanted: Ugohr! (Hard)",
+        description: 'Clear Story Mission "Wanted: Ugohr!"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-yellow-wings-hard",
+        name: "Yellow Wings (Hard)",
+        description: 'Clear Story Mission "Yellow Wings"',
+        category: "Quest Challenges",
+    },
+    {
+        id: "ra-you-say-tomato-hard",
+        name: "You Say Tomato (Hard)",
+        description: 'Clear Story Mission "You Say Tomato"',
+        category: "Quest Challenges",
     },
 ];
 
