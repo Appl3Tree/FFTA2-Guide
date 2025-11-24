@@ -4,53 +4,51 @@ import type { PanelTone } from "../../types/ffta2";
 
 const toneClasses: Record<PanelTone, { border: string; bg: string; header: string; pill: string }> = {
     neutral: {
-        border: "border-zinc-300 dark:border-zinc-600",
-        // lighter on left → darker on right
-        bg: "bg-gradient-to-r from-zinc-700 to-zinc-900 dark:from-zinc-800 dark:to-black",
-        header: "from-zinc-600 to-zinc-900 dark:from-zinc-700 dark:to-black",
-        pill: "bg-zinc-700 dark:bg-zinc-600",
+        border: "border-zinc-300 dark:border-zinc-700/80",
+        bg: "bg-zinc-400 dark:bg-zinc-950/40",
+        ring: "ring-zinc-400 dark:ring-zinc-700/50",
+        pill: "bg-zinc-700 dark:bg-zinc-700",
     },
 
     blue: {
-        border: "border-sky-300 dark:border-sky-600",
-        // light sky → saturated sky
-        bg: "bg-gradient-to-r from-sky-700 to-sky-400 dark:from-sky-700 dark:to-sky-800",
-        header: "from-sky-700 to-sky-400 dark:from-sky-700 dark:to-sky-800",
+        border: "border-sky-300 dark:border-sky-700/80",
+        bg: "bg-sky-400 dark:bg-sky-950/40",
+        ring: "ring-sky-400 dark:ring-sky-700/50",
         pill: "bg-sky-700 dark:bg-sky-700",
     },
 
     green: {
-        border: "border-emerald-300 dark:border-emerald-600",
-        bg: "bg-gradient-to-r from-emerald-700 to-emerald-400 dark:from-emerald-700 dark:to-emerald-800",
-        header: "from-emerald-700 to-emerald-400 dark:from-emerald-700 dark:to-emerald-800",
+        border: "border-emerald-300 dark:border-emerald-700/80",
+        bg: "bg-emerald-400 dark:bg-emerald-950/40",
+        ring: "ring-emerald-400 dark:ring-emerald-700/50",
         pill: "bg-emerald-700 dark:bg-emerald-700",
     },
 
     red: {
-        border: "border-rose-300 dark:border-rose-600",
-        bg: "bg-gradient-to-r from-rose-700 to-rose-400 dark:from-rose-700 dark:to-rose-800",
-        header: "from-rose-700 to-rose-400 dark:from-rose-700 dark:to-rose-800",
+        border: "border-rose-300 dark:border-rose-700/80",
+        bg: "bg-rose-400 dark:bg-rose-950/40",
+        ring: "ring-rose-400 dark:ring-rose-700/50",
         pill: "bg-rose-700 dark:bg-rose-700",
     },
 
     purple: {
-        border: "border-violet-300 dark:border-violet-600",
-        bg: "bg-gradient-to-r from-violet-700 to-violet-400 dark:from-violet-700 dark:to-violet-800",
-        header: "from-violet-700 to-violet-400 dark:from-violet-700 dark:to-violet-800",
+        border: "border-violet-300 dark:border-violet-700/80",
+        bg: "bg-violet-400 dark:bg-violet-950/40",
+        ring: "ring-violet-400 dark:ring-violet-700/50",
         pill: "bg-violet-700 dark:bg-violet-700",
     },
 
     amber: {
-        border: "border-amber-300 dark:border-amber-600",
-        bg: "bg-gradient-to-r from-amber-700 to-amber-400 dark:from-amber-700 dark:to-amber-800",
-        header: "from-amber-700 to-amber-400 dark:from-amber-700 dark:to-amber-800",
+        border: "border-amber-300 dark:border-amber-700/80",
+        bg: "bg-amber-400 dark:bg-amber-950/40",
+        ring: "ring-amber-400 dark:ring-amber-700/50",
         pill: "bg-amber-700 dark:bg-amber-700",
     },
 
     yellow: {
-        border: "border-yellow-300 dark:border-yellow-600",
-        bg: "bg-gradient-to-r from-yellow-700 to-yellow-700 dark:from-yellow-700 dark:to-yellow-700",
-        header: "from-yellow-700 to-yellow-700 dark:from-yellow-700 dark:to-yellow-700",
+        border: "border-yellow-300 dark:border-yellow-700/80",
+        bg: "bg-yellow-400 dark:bg-yellow-950/40",
+        ring: "ring-yellow-400 dark:ring-yellow-700/50",
         pill: "bg-yellow-700 dark:bg-yellow-700",
     },
 };

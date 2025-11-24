@@ -1,7 +1,30 @@
+export type AbilityId = string;
+export type AbilitySetId = string;
+export type EquipmentId = string;
+
+export interface EnemyActionAbilityRef {
+    setId: string;          // AbilitySetId, e.g. "territorialism"
+    abilityIds: string[];   // AbilityId[] — explicit subset
+}
+
+export interface EnemyAbilityLoadout {
+    A1?: EnemyActionAbilityRef; // Action Ability 1
+    A2?: EnemyActionAbilityRef; // Action Ability 2
+    R?: AbilityId;                 // AbilityId for Reaction (if you want full text)
+    P?: AbilityId;                 // AbilityId for Passive
+}
+
+export interface EnemyEquipmentRef {
+    slot: number;
+    itemId: string;
+}
+
 export interface Enemy {
     name: string;
-    type: string;
+    job?: string;
     notes?: string;
+    equipment?: EnemyEquipmentRef[];
+    abilities?: EnemyAbilityLoadout;
 }
 
 export interface Reward {

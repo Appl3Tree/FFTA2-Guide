@@ -7,19 +7,68 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Stranger in the Woods",
         rank: 1,
         region: "Targ Wood",
-        objective: "Drive off Klesta, the marked beast threatening Targ Wood.",
-        law: "Ranged Weapons: attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
+        objective: "Defeat Klesta!",
+        law: "Ranged Weapons: Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
         enemies: [
             {
                 name: "Klesta",
-                type: "Crushatrice (boss)",
-                notes: "High HP; uses Territorial Marking for wide, heavy physical damage."
+                job: "Crushatrice",
+                notes: "A cockatrice of prodigious size. It uses its massive bulk as a weapon.",
+                abilities: {
+                    A1: {
+                        setId: "territorialism",
+                        abilityIds: [
+                            "peck",
+                            "territorial-marking",
+                        ],
+                    },
+                    // A2, R, P can be filled when confirmed
+                    /*Examples:
+                    A2: {
+                        setId: "blade-arts",
+                        abilityIds: [
+                            "oil-blade",
+                        ],
+                    },
+                    R: "counter",
+                    P: "Move +1"*/
+                },
+                equipment: [
+                    /*{ slot: 1, itemId: "broadsword" },
+                    { slot: 2, itemId: "broadsword" },
+                    { slot: 3, itemId: "broadsword" },
+                    { slot: 4, itemId: "broadsword" },
+                    { slot: 5, itemId: "broadsword" },*/
+                ],
             },
             {
-                name: "Cluckatrices",
-                type: "Bird monsters",
-                notes: "Weaker adds; good for early EXP and loot if you feel safe cleaning them up."
-            }
+                name: "Randomized Name",
+                job: "Cockatrice",
+                notes: "An avian creature with a violent temperament. It pecks at its foes with a razor-edged beak.",
+                abilities: {
+                    A1: {
+                        setId: "territorialism",
+                        abilityIds: [
+                            "peck", // this one only has Peck
+                        ],
+                    },
+                },
+                equipment: [],
+            },
+            {
+                name: "Randomized Name",
+                job: "Cockatrice",
+                notes: "An avian creature with a violent temperament. It pecks at its foes with a razor-edged beak.",
+                abilities: {
+                    A1: {
+                        setId: "territorialism",
+                        abilityIds: [
+                            "peck", // also only Peck, for now
+                        ],
+                    },
+                },
+                equipment: [],
+            },
         ],
         battlefield: [
             "Battle takes place in Targ Wood with uneven terrain and some height differences.",
@@ -28,13 +77,13 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         ],
         strategy: [
             "Have Luso and Cid focus on Klesta while a White Mage keeps them patched up.",
-            "Use your Black Mage or other ranged magic to chip the boss from a safe distance without breaking the ranged-weapon law.",
-            "Pick off smaller birds only when it’s safe; the clear condition is pushing Klesta down, not full wipe."
+            "Use your Black Mage to chip away at the boss from a safe distance.",
+            "Pick off smaller birds only when it’s safe; the clear condition is pushing Klesta down, not full wipe (unless attempting the RetroAchievements)."
         ],
         rewards: {
             gil: 250,
             cp: 2,
-            loot: "Gilhet Lead ×2, Faren Pollen ×2"
+            loot: "Gikhet Lead ×2, Faren Pollen ×2"
         },
         tags: ["story", "boss", "early-game"]
     },
@@ -49,12 +98,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Wolves",
-                type: "Beast",
+                job: "Beast",
                 notes: "Mobile melee attackers; they hit hard if allowed to surround your units."
             },
             {
                 name: "Support beasts",
-                type: "Beast",
+                job: "Beast",
                 notes: "A mix of additional monsters that mostly serve to flank and chip down your frontliners."
             }
         ],
@@ -86,12 +135,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Yellow Wings Grunts",
-                type: "Mixed melee",
+                job: "Mixed melee",
                 notes: "Bandits with simple physical jobs like Soldier and Archer; they’re not individually scary but can swarm."
             },
             {
                 name: "Yellow Wings Leader",
-                type: "Human boss",
+                job: "Human boss",
                 notes: "Tougher than the grunts; expect higher HP and slightly stronger attacks."
             }
         ],
@@ -123,12 +172,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Plant monsters",
-                type: "Flan/plant mix",
+                job: "Flan/plant mix",
                 notes: "Resilient to some magic damage types; can inflict status or chip your party."
             },
             {
                 name: "Supporting beasts",
-                type: "Beast",
+                job: "Beast",
                 notes: "Supplement the main enemies with straightforward physical attacks."
             }
         ],
@@ -160,12 +209,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Ughor",
-                type: "Large beast (mark)",
+                job: "Large beast (mark)",
                 notes: "Hits hard with physical attacks and has a lot of HP."
             },
             {
                 name: "Beast escorts",
-                type: "Beast",
+                job: "Beast",
                 notes: "Additional monsters that help Ughor flank and pressure your squishier units."
             }
         ],
@@ -197,12 +246,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Gilmunto",
-                type: "Behemoth-type mark",
+                job: "Behemoth-type mark",
                 notes: "Extremely strong physical damage and high HP; a serious midgame check."
             },
             {
                 name: "Beast allies",
-                type: "Beast",
+                job: "Beast",
                 notes: "Additional monsters that help screen for Gilmunto and punish overextended units."
             }
         ],
@@ -234,12 +283,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Fire-aligned monsters",
-                type: "Elemental beasts",
+                job: "Elemental beasts",
                 notes: "Often resist fire and may exploit fire-element attacks."
             },
             {
                 name: "Support casters",
-                type: "Mage-type enemies",
+                job: "Mage-type enemies",
                 notes: "Provide elemental damage and buffs from the back line."
             }
         ],
@@ -271,12 +320,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Aquatic beasts",
-                type: "Water-aligned monsters",
+                job: "Water-aligned monsters",
                 notes: "Can leverage terrain and may exploit water-adjacent tiles."
             },
             {
                 name: "Support monsters",
-                type: "Mixed",
+                job: "Mixed",
                 notes: "Round out the enemy force with status or ranged pressure."
             }
         ],
@@ -308,12 +357,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Mixed clan units",
-                type: "Humans and monsters",
+                job: "Humans and monsters",
                 notes: "Standard jobs with moderate stats; nothing exotic but they hit hard in groups."
             },
             {
                 name: "Ranged threats",
-                type: "Archers / casters",
+                job: "Archers / casters",
                 notes: "Use elevation and range to chip your squad if left alone."
             }
         ],
@@ -345,12 +394,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Enemy clan members",
-                type: "Humans / moogles",
+                job: "Humans / moogles",
                 notes: "A mixed party that can include ranged and melee jobs."
             },
             {
                 name: "Support casters",
-                type: "Mage-type enemies",
+                job: "Mage-type enemies",
                 notes: "Capable of healing and buffing their allies if not interrupted."
             }
         ],
@@ -382,12 +431,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Marsh monsters",
-                type: "Beast / flan mix",
+                job: "Beast / flan mix",
                 notes: "Use status and elemental attacks that combine well with swamp terrain."
             },
             {
                 name: "Enemy casters",
-                type: "Mage-type enemies",
+                job: "Mage-type enemies",
                 notes: "Can chain actions you might be tempted to copy, baiting law violations."
             }
         ],
@@ -419,12 +468,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Oversoul",
-                type: "Undead boss",
+                job: "Undead boss",
                 notes: "Central threat; can hit hard and may have annoying resistances."
             },
             {
                 name: "Ghosts and undead",
-                type: "Undead",
+                job: "Undead",
                 notes: "Support the Oversoul with status and attrition damage."
             }
         ],
@@ -456,12 +505,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Enemy troupe",
-                type: "Mixed jobs",
+                job: "Mixed jobs",
                 notes: "Includes female enemies you must avoid hurting directly under the law."
             },
             {
                 name: "Male frontliners",
-                type: "Melee units",
+                job: "Melee units",
                 notes: "Safer to target when the law is active."
             }
         ],
@@ -493,12 +542,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Guardians",
-                type: "Mixed melee",
+                job: "Mixed melee",
                 notes: "Protect the stone and try to punish clumped formations."
             },
             {
                 name: "Support mages",
-                type: "Mage-type enemies",
+                job: "Mage-type enemies",
                 notes: "Threaten you with area spells (which you cannot mirror due to the law)."
             }
         ],
@@ -530,12 +579,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Vaan",
-                type: "Sky pirate",
+                job: "Sky pirate",
                 notes: "Agile melee attacker with strong mobility and decent damage."
             },
             {
                 name: "Penelo and crew",
-                type: "Sky pirate allies",
+                job: "Sky pirate allies",
                 notes: "Provide support, healing, and extra damage; treat them as a full clan."
             }
         ],
@@ -567,12 +616,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Thieves and rogues",
-                type: "Steal-focused units",
+                job: "Steal-focused units",
                 notes: "Specialize in stealing gil and items; direct law interaction."
             },
             {
                 name: "Support jobs",
-                type: "Mixed",
+                job: "Mixed",
                 notes: "Help set up steals or soften your units for follow-up attacks."
             }
         ],
@@ -604,12 +653,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Excavation raiders",
-                type: "Mixed clan",
+                job: "Mixed clan",
                 notes: "Balanced group with both melee and magic, trying to disrupt the dig."
             },
             {
                 name: "Elemental casters",
-                type: "Mage-type enemies",
+                job: "Mage-type enemies",
                 notes: "Would normally lean on fire/ice/lightning but the law pushes them to other options."
             }
         ],
@@ -641,12 +690,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Desert raiders",
-                type: "Mixed melee",
+                job: "Mixed melee",
                 notes: "Use the open sands to try to surround your units."
             },
             {
                 name: "Ranged units",
-                type: "Archers / gunners",
+                job: "Archers / gunners",
                 notes: "Exploit distance; you must counter them without using your own forbidden ranged weapons."
             }
         ],
@@ -678,12 +727,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Sky pirates",
-                type: "Mixed jobs",
+                job: "Mixed jobs",
                 notes: "Includes bangaa you must avoid damaging under the law."
             },
             {
                 name: "Non-bangaa support",
-                type: "Humans / moogles / others",
+                job: "Humans / moogles / others",
                 notes: "Safer targets while the law is active."
             }
         ],
@@ -715,12 +764,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Illua",
-                type: "Boss spellblade",
+                job: "Boss spellblade",
                 notes: "Powerful boss with strong magic and sword skills; centerpiece of the encounter."
             },
             {
                 name: "Ritualists and guards",
-                type: "Mixed jobs",
+                job: "Mixed jobs",
                 notes: "Additional enemies that support Illua with damage and utility."
             }
         ],
@@ -752,12 +801,12 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Illua",
-                type: "Boss spellblade",
+                job: "Boss spellblade",
                 notes: "Returns even stronger than before; high speed, heavy magic and physical damage, and punishing area attacks.",
             },
             {
                 name: "Summoned fiends",
-                type: "Assorted monsters",
+                job: "Assorted monsters",
                 notes: "Monsters supporting Illua; can pressure you if left unchecked while you advance.",
             },
         ],
@@ -792,17 +841,17 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Neukhia (Wisp)",
-                type: "Boss segment",
+                job: "Boss segment",
                 notes: "Moves around the arena and can vanish between attacks; must be hunted down before you can meaningfully pressure the core.",
             },
             {
                 name: "Neukhia (Pod)",
-                type: "Boss segment",
+                job: "Boss segment",
                 notes: "Plays a defensive role but still deals serious damage; must be destroyed along with the Wisp.",
             },
             {
                 name: "Neukhia (Core)",
-                type: "Final Boss",
+                job: "Final Boss",
                 notes: "Central body with very high HP; periodically summons crystal structures that must be destroyed quickly.",
             },
         ],

@@ -6,9 +6,21 @@ import {
     type MissionTag,
 } from "../../data/missions/missionTags";
 import { RETRO_ACHIEVEMENTS_BY_MISSION_ID } from "../../data/retroAchievements";
+import { useProgress } from "../ProgressContext";
+import { resolveEnemyLoadout } from "../../utils/resolveAbilities";
+import { resolveEnemyEquipment } from "../../utils/resolveEquipment";
+import { ABILITIES, ABILITY_SETS } from "../../data/abilities/abilities";
 
 export function MissionCard({ mission }: { mission: Mission }) {
     const [open, setOpen] = React.useState(false);
+    const [openEnemies, setOpenEnemies ] = React.useState<Record<number, boolean>>({});
+
+    const toggleEnemyDetails = (index: number) => {
+        setOpenEnemies((prev) => ({
+            ...prev,
+            [index]: !prev[index],
+        }));
+    };
 
     const {
         id,
@@ -32,6 +44,11 @@ export function MissionCard({ mission }: { mission: Mission }) {
         notes,
         tags,
     } = mission;
+
+    const { checked, setCheck } = useProgress();
+
+    const missionKey = `mission:${id}`;
+    const isMissionChecked = !!checked[missionKey];
 
     // Merge tags from the mission data with overlay tags from MISSION_TAGS
     const explicitTags = (tags ?? []) as string[];
@@ -77,40 +94,62 @@ export function MissionCard({ mission }: { mission: Mission }) {
     return (
         <div className="rounded-2xl border border-zinc-800/80 bg-zinc-950/90 overflow-hidden shadow-sm">
             {/* Header */}
-            <button
-                type="button"
-                onClick={() => setOpen((prev) => !prev)}
-                className="w-full flex items-center justify-between gap-4 px-4 sm:px-6 py-3 sm:py-4 bg-slate-900/95 hover:bg-slate-900 transition-colors"
-            >
-                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                    <span className="inline-flex items-center rounded-full bg-slate-800 px-2.5 py-1 text-xs font-mono tracking-tight text-slate-100 border border-slate-700/80">
-                        {id}
-                    </span>
-                    <h3 className="text-sm sm:text-base font-semibold text-slate-50">
-                        {name}
-                    </h3>
-                </div>
+            <div className="flex items-stretch bg-slate-900/95">
+                <button
+                    type="button"
+                    onClick={() => setOpen((prev) => !prev)}
+                    className="flex-1 w-full flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 hover:bg-slate-900 transition-colors text-left"
+                >
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                        <span className="inline-flex items-center rounded-full px-2 py-0.5 text-[0.7rem] sm:text-xs font-mono tracking-tight text-slate-100 border border-slate-700/80">
+                            {id}
+                        </span>
+                        <h3 className="text-sm sm:text-base font-semibold text-slate-50">
+                            {name}
+                        </h3>
+                    </div>
 
-                <div className="flex flex-wrap items-center gap-2 text-[0.7rem] sm:text-xs">
-                    {region && (
-                        <span className="inline-flex items-center rounded-full bg-slate-800/90 text-slate-100 px-2 py-0.5 border border-slate-700/80">
-                            <span className="mr-1 opacity-70">Region:</span>
-                            {region}
-                        </span>
-                    )}
-                    {rank != null && (
-                        <span className="inline-flex items-center rounded-full bg-amber-700/90 text-amber-50 px-2 py-0.5 border border-amber-500/80">
-                            <span className="mr-1 opacity-80">Rec. Lv.</span>
-                            {displayRank}
-                        </span>
-                    )}
-                    {open ? (
-                        <ChevronUp className="h-4 w-4 text-slate-200 shrink-0" />
-                    ) : (
-                        <ChevronDown className="h-4 w-4 text-slate-200 shrink-0" />
-                    )}
+                    <div className="flex flex-wrap items-center gap-2 text-[0.7rem] sm:text-xs">
+                        {region && (
+                            <span className="inline-flex items-center rounded-full bg-slate-800/90 text-slate-100 px-2 py-0.5 border border-slate-700/80">
+                                <span className="mr-1 opacity-70">Region:</span>
+                                {region}
+                            </span>
+                        )}
+                        {rank != null && (
+                            <span className="inline-flex items-center rounded-full bg-amber-700/90 text-amber-50 px-2 py-0.5 border border-amber-500/80">
+                                <span className="mr-1 opacity-80">Rec. Lv.</span>
+                                {displayRank}
+                            </span>
+                        )}
+                        {open ? (
+                            <ChevronUp className="h-4 w-4 text-slate-200 shrink-0" />
+                        ) : (
+                            <ChevronDown className="h-4 w-4 text-slate-200 shrink-0" />
+                        )}
+                    </div>
+                </button>
+
+                <div className="pr-4 sm:pr-5 pl-2 sm:pl-3 py-3 sm:py-4 flex items-start">
+                    <input
+                        type="checkbox"
+                        aria-label="Mark mission complete"
+                        className="mt-0.5 h-4 w-4 accent-emerald-500 dark:accent-emerald-400"
+                        checked={isMissionChecked}
+                        onChange={() => {
+                            setCheck(missionKey);
+                            // If we just marked this as complete, collapse the details.
+                            if (!isMissionChecked) {
+                                setOpen(false);
+                            }
+                        }}
+                        onClick={(e) => {
+                            // Don’t let the checkbox click toggle the card open/closed.
+                            e.stopPropagation();
+                        }}
+                    />
                 </div>
-            </button>
+            </div>
 
             {open && (
                 <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-3 sm:pt-4 space-y-4 bg-zinc-950/95">
@@ -379,17 +418,31 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                 </h4>
                                 <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-100">
                                     {retroAchievements.map((ach) => (
-                                        <li key={ach.id}>
-                                            <div className="flex items-center gap-1.5">
-                                                <span className="font-semibold">{ach.name}</span>
-                                                {ach.missable && (
-                                                    <span className="inline-flex items-center rounded-full bg-rose-900/60 border border-rose-500/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-rose-50">
-                                                        Missable
+                                        <li key={ach.id} className="flex items-start gap-2">
+                                            <input
+                                                type="checkbox"
+                                                aria-label={`Mark RetroAchievement "${ach.name}" complete`}
+                                                className="mt-0.5 h-3.5 w-3.5 accent-indigo-500 dark:accent-indigo-400"
+                                                checked={!!checked[`retro:${ach.id}`]}
+                                                onChange={() => setCheck(`retro:${ach.id}`)}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                }}
+                                            />
+                                            <div className="flex-1">
+                                                <div className="flex items-center gap-1.5">
+                                                    <span className="font-semibold">
+                                                        {ach.name}
                                                     </span>
-                                                )}
-                                            </div>
-                                            <div className="text-[0.7rem] sm:text-xs text-zinc-300">
-                                                {ach.description}
+                                                    {ach.missable && (
+                                                        <span className="inline-flex items-center rounded-full bg-rose-700 text-rose-50 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em]">
+                                                            Missable
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <div className="text-[0.7rem] sm:text-xs text-zinc-300">
+                                                    {ach.description}
+                                                </div>
                                             </div>
                                         </li>
                                     ))}
@@ -409,22 +462,263 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                 <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
                                     <u>ENEMIES</u>
                                 </h4>
-                                <ul className="space-y-1 text-xs sm:text-sm text-zinc-100">
-                                    {enemies.map((enemy, idx) => (
-                                        <li key={idx}>
-                                            {enemy.name && (
-                                                <span className="font-medium">
-                                                    {enemy.name}
-                                                </span>
-                                            )}
-                                            {enemy.notes && (
-                                                <span className="text-zinc-400">
-                                                    {" "}
-                                                    ({enemy.notes})
-                                                </span>
-                                            )}
-                                        </li>
-                                    ))}
+                                <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-100">
+                                    {enemies.map((enemy, idx) => {
+                                        const loadout = resolveEnemyLoadout(enemy.abilities);
+                                        const equip = resolveEnemyEquipment(enemy.equipment);
+
+                                        const hasAbilities =
+                                            !!loadout &&
+                                            !!(loadout.A1 || loadout.A2 || loadout.R || loadout.P);
+
+                                        const hasEquipment = equip.length > 0;
+                                        const hasDetails = hasAbilities || hasEquipment;
+                                        const isOpen = !!openEnemies[idx];
+
+                                        return (
+                                            <li
+                                                key={idx}
+                                                className="rounded-xl border border-zinc-800/80 bg-zinc-950/60 px-2.5 py-2.5 sm:px-3 sm:py-3 space-y-1.5"
+                                            >
+                                                {/* header row */}
+                                                <div className="flex items-center justify-between gap-2">
+                                                    <div className="flex flex-wrap items-baseline gap-2">
+                                                        {enemy.name && (
+                                                            <span className="font-semibold text-zinc-50">
+                                                                {enemy.name}
+                                                            </span>
+                                                        )}
+                                                        {enemy.type && (
+                                                            <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-zinc-300">
+                                                                {enemy.type}
+                                                            </span>
+                                                        )}
+                                                    </div>
+
+                                                    {hasDetails && (
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => toggleEnemyDetails(idx)}
+                                                            className="inline-flex items-center gap-1 text-[0.65rem] uppercase tracking-[0.16em] text-zinc-400"
+                                                        >
+                                                            {isOpen ? "Hide" : "Show"} loadout
+                                                            {isOpen ? (
+                                                                <ChevronUp className="h-3.5 w-3.5" />
+                                                            ) : (
+                                                                <ChevronDown className="h-3.5 w-3.5" />
+                                                            )}
+                                                        </button>
+                                                    )}
+                                                </div>
+
+                                                {/* small notes line */}
+                                                {enemy.notes && (
+                                                    <div className="text-[0.7rem] text-zinc-300">
+                                                        {enemy.notes}
+                                                    </div>
+                                                )}
+
+                                                {/* details: abilities + equipment */}
+                                                {isOpen && hasDetails && (() => {
+                                                    const hasBoth = hasAbilities && hasEquipment;
+                                                    const gridClass = hasBoth
+                                                        ? "grid grid-cols-1 md:grid-cols-2 gap-4"
+                                                        : "grid grid-cols-1 gap-4";
+
+                                                    return (
+                                                        <div className="mt-1.5 text-[0.7rem]">
+                                                            <div className={gridClass}>
+
+                                                                {/* ───────── ABILITIES COLUMN ───────── */}
+                                                                {hasAbilities && loadout && (
+                                                                    <div className="space-y-1.5">
+                                                                        <div className="font-semibold text-zinc-200">
+                                                                            Abilities
+                                                                        </div>
+
+                                                                        {/* A1 */}
+                                                                        {loadout.A1 && (
+                                                                            <div className="
+                                                                                border border-zinc-800/80
+                                                                                rounded-md
+                                                                                bg-zinc-950/50
+                                                                                p-2
+                                                                                space-y-0.5
+                                                                            ">
+                                                                                <div className="font-medium">
+                                                                                    A1 – {loadout.A1.setName}
+                                                                                </div>
+                                                                                {loadout.A1.setDescription && (
+                                                                                    <div className="text-zinc-300">
+                                                                                        {loadout.A1.setDescription}
+                                                                                    </div>
+                                                                                )}
+                                                                                <ul className="list-disc list-inside space-y-0.5">
+                                                                                    {loadout.A1.abilities.map((ab) => (
+                                                                                        <li key={ab.id}>
+                                                                                            <span className="font-medium">{ab.name}</span>
+                                                                                            {ab.description && (
+                                                                                                <span className="text-zinc-300">
+                                                                                                    {": "}
+                                                                                                    {ab.description}
+                                                                                                </span>
+                                                                                            )}
+                                                                                        </li>
+                                                                                    ))}
+                                                                                </ul>
+                                                                            </div>
+                                                                        )}
+
+                                                                        {/* A2 */}
+                                                                        {loadout.A2 && (
+                                                                            <div className="
+                                                                                border border-zinc-800/80
+                                                                                rounded-md
+                                                                                bg-zinc-950/50
+                                                                                p-2
+                                                                                space-y-0.5
+                                                                            ">
+                                                                                <div className="font-medium">
+                                                                                    A2 – {loadout.A2.setName}
+                                                                                </div>
+                                                                                <ul className="list-disc list-inside space-y-0.5">
+                                                                                    {loadout.A2.abilities.map((ab) => (
+                                                                                        <li key={ab.id}>
+                                                                                            <span className="font-medium">{ab.name}</span>
+                                                                                            {ab.description && (
+                                                                                                <span className="text-zinc-300">
+                                                                                                    {": "}
+                                                                                                    {ab.description}
+                                                                                                </span>
+                                                                                            )}
+                                                                                        </li>
+                                                                                    ))}
+                                                                                </ul>
+                                                                            </div>
+                                                                        )}
+
+                                                                        {/* R */}
+                                                                        {loadout.R && (
+                                                                            <div className="
+                                                                                border border-zinc-800/80
+                                                                                rounded-md
+                                                                                bg-zinc-950/50
+                                                                                p-2
+                                                                            ">
+                                                                                <span className="font-medium">
+                                                                                    R – {loadout.R.name}
+                                                                                </span>
+                                                                                {loadout.R.description && (
+                                                                                    <span className="text-zinc-300">
+                                                                                        {": "}
+                                                                                        {loadout.R.description}
+                                                                                    </span>
+                                                                                )}
+                                                                            </div>
+                                                                        )}
+
+                                                                        {/* P */}
+                                                                        {loadout.P && (
+                                                                            <div className="
+                                                                                border border-zinc-800/80
+                                                                                rounded-md
+                                                                                bg-zinc-950/50
+                                                                                p-2
+                                                                            ">
+                                                                                <span className="font-medium">
+                                                                                    P – {loadout.P.name}
+                                                                                </span>
+                                                                                {loadout.P.description && (
+                                                                                    <span className="text-zinc-300">
+                                                                                        {": "}
+                                                                                        {loadout.P.description}
+                                                                                    </span>
+                                                                                )}
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
+                                                                )}
+
+                                                                {/* ───────── EQUIPMENT COLUMN ───────── */}
+                                                                {hasEquipment && (
+                                                                    <div className="space-y-1.5">
+                                                                        <div className="font-semibold text-zinc-200">
+                                                                            Equipment
+                                                                        </div>
+
+                                                                        <ul className="space-y-1.5">
+                                                                            {equip.map((item) => (
+                                                                                <li
+                                                                                    key={item.slot}
+                                                                                    className="
+                                                                                        border border-zinc-800/80
+                                                                                        rounded-md
+                                                                                        bg-zinc-950/50
+                                                                                        p-2
+                                                                                        space-y-0.5
+                                                                                    "
+                                                                                >
+                                                                                    <div>
+                                                                                        <span className="font-medium">
+                                                                                            Slot {item.slot}:
+                                                                                        </span>{" "}
+                                                                                        {item.name}
+                                                                                        {item.category && (
+                                                                                            <span className="ml-1 text-zinc-400">
+                                                                                                ({item.category})
+                                                                                            </span>
+                                                                                        )}
+                                                                                    </div>
+
+                                                                                    {item.description && (
+                                                                                        <div className="text-zinc-400">
+                                                                                            {item.description}
+                                                                                        </div>
+                                                                                    )}
+
+                                                                                    {item.teaches && (
+                                                                                        <div className="ml-4 text-zinc-400 text-[0.65rem]">
+                                                                                            <div className="font-medium text-zinc-300">
+                                                                                                Teaches:
+                                                                                            </div>
+                                                                                            <ul className="list-disc list-inside">
+                                                                                                {Object.entries(item.teaches).map(
+                                                                                                    ([job, abilityIds]) => {
+                                                                                                        const display = abilityIds
+                                                                                                            .map((id) => {
+                                                                                                                const ability = ABILITIES[id];
+                                                                                                                if (!ability) return id;
+                                                                                                                const set = ABILITY_SETS[ability.setId];
+                                                                                                                const setName = set?.name ?? ability.setId;
+                                                                                                                return `${ability.name} (${setName})`;
+                                                                                                            })
+                                                                                                            .join(", ");
+
+                                                                                                        return (
+                                                                                                            <li key={job}>
+                                                                                                                <span className="font-medium text-zinc-200">
+                                                                                                                    {job}:
+                                                                                                                </span>{" "}
+                                                                                                                {display}
+                                                                                                            </li>
+                                                                                                        );
+                                                                                                    },
+                                                                                                )}
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    )}
+                                                                                </li>
+                                                                            ))}
+                                                                        </ul>
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })()}
+                                           </li>
+                                        );
+                                    })}
                                 </ul>
                             </section>
                         )}
