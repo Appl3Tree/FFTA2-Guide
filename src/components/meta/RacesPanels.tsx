@@ -31,16 +31,17 @@ export function RacesPanels() {
                                         [entry.race]: !isOpen,
                                     }))
                                 }
-                                className="flex w-full items-center justify-between gap-1 mb-2 text-left"
-                                aria-expanded={isOpen}
+                                className="w-full flex items-center justify-between gap-3 text-left"
                             >
-                                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                                    <h3 className="text-sm sm:text-base font-semibold tracking-tight">
+                                <div>
+                                    <h3 className="text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-50">
                                         {entry.race}
                                     </h3>
-                                    <p className="text-xs sm:text-[0.8rem] text-zinc-600 dark:text-zinc-300">
-                                        {entry.tagline}
-                                    </p>
+                                    {entry.tagline && (
+                                        <p className="text-xs sm:text-[0.8rem] text-zinc-600 dark:text-zinc-300">
+                                            {entry.tagline}
+                                        </p>
+                                    )}
                                 </div>
                                 <span className="ml-2 inline-flex items-center justify-center">
                                     {isOpen ? (
@@ -52,28 +53,38 @@ export function RacesPanels() {
                             </button>
 
                             {isOpen && (
-                                <ul className="space-y-2 text-xs sm:text-sm">
+                                <ul className="mt-3 space-y-2 text-xs sm:text-sm">
                                     {entry.jobs.map((job) => (
                                         <li
                                             key={`${entry.race}-${job.name}`}
-                                            className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2"
+                                            className="
+                                                border border-zinc-300 dark:border-zinc-700/70 
+                                                rounded-lg 
+                                                bg-white/60 dark:bg-zinc-900/40 
+                                                px-3 py-2 
+                                                grid grid-cols-1 
+                                                sm:grid-cols-[minmax(0,10rem)_minmax(0,13rem)_minmax(0,1fr)]
+                                                gap-x-4 gap-y-1
+                                                sm:items-start
+                                            "
                                         >
                                             {/* Job name */}
-                                            <span className="font-semibold text-zinc-800 dark:text-zinc-100">
+                                            <span className="font-semibold text-zinc-900 dark:text-zinc-100 text-sm">
                                                 {job.name}
                                             </span>
 
-                                            {/* Role */}
-                                            <span className="text-[0.7rem] sm:text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400 w-[11rem] shrink-0">
+                                            {/* Role / short label */}
+                                            <span className="uppercase tracking-wide text-[0.65rem] sm:text-[0.7rem] text-zinc-600 dark:text-zinc-400">
                                                 {job.role}
                                             </span>
 
-                                            {/* Summary */}
-                                            <span className="sm:ml-2 text-zinc-700 dark:text-zinc-200 flex-1">
+                                            {/* Summary / detailed description */}
+                                            <span className="text-zinc-700 dark:text-zinc-200 text-sm leading-snug">
                                                 {job.summary}
                                             </span>
                                         </li>
                                     ))}
+
                                 </ul>
                             )}
                         </section>
@@ -83,3 +94,4 @@ export function RacesPanels() {
         </Panel>
     );
 }
+
