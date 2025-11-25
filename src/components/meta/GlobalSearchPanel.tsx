@@ -860,9 +860,9 @@ export function GlobalSearchPanel() {
                                                                                                 {enemy.name}
                                                                                             </span>
                                                                                         )}
-                                                                                        {enemy.type && (
+                                                                                        {enemy.job && (
                                                                                             <span className="inline-flex items-center rounded-full border border-zinc-600/80 bg-zinc-900/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-zinc-300">
-                                                                                                {enemy.type}
+                                                                                                {enemy.job}
                                                                                             </span>
                                                                                         )}
                                                                                     </div>

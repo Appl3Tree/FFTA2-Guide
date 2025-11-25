@@ -1,4 +1,33 @@
 import type { Mission } from "../../types/ffta2";
+/*
+    Enemy example for copy/paste:
+    enemies: [
+        {
+            name: "",
+            job: ""
+            notes: "",
+            abilities: {
+                A1: {
+                    setId: "",
+                    abilityIds: [
+                    
+                    ]
+                },
+                A2: {
+                    setId: "",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: #, itemId: "" },
+            ]
+        },
+    ]
+*/
 
 export const STORY_MAIN_MISSIONS: Mission[] = [
     {
