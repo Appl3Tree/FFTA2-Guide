@@ -35,9 +35,18 @@ function buildSubtypeLabel(item: EquipmentMeta): string | null {
     return null;
 }
 
-function buildRuleSummary(item: EquipmentMeta): string | null {
+type RuleDetails = {
+    jobs?: string;
+    requiresPassives?: string;
+    hands?: string;
+    dualWield?: string;
+    incompatible?: string;
+    gender?: string;
+};
+
+function buildRuleDetails(item: EquipmentMeta): RuleDetails | null {
     const cat = item.category;
-    let rule: any | undefined = undefined;
+    let rule: any | undefined;
 
     if (cat === "Weapon" && item.weaponType) {
         rule = WEAPON_RULES[item.weaponType];
@@ -48,52 +57,57 @@ function buildRuleSummary(item: EquipmentMeta): string | null {
     } else if (cat === "Shield") {
         rule = SHIELD_RULE;
     } else {
-        return null;
+        rule = undefined;
     }
 
     if (!rule) return null;
 
-    const parts: string[] = [];
+    const details: RuleDetails = {};
 
     if (rule.allowedJobs && rule.allowedJobs.length > 0) {
-        parts.push(`Jobs: ${rule.allowedJobs.join(", ")}`);
+        details.jobs = rule.allowedJobs.join(", ");
     } else if (rule.disallowedJobs && rule.disallowedJobs.length > 0) {
-        parts.push(`Jobs: Everyone except ${rule.disallowedJobs.join(", ")}`);
+        details.jobs = `Everyone except ${rule.disallowedJobs.join(", ")}`;
     }
 
-    if (rule.requiresPassives && rule.requiresPassives.length > 0) {
-        parts.push(`Also via passive: ${rule.requiresPassives.join(", ")}`);
+    // For shields, skip "requires passive" text entirely
+    if (
+        cat !== "Shield" &&
+        rule.requiresPassives &&
+        rule.requiresPassives.length > 0
+    ) {
+        details.requiresPassives = rule.requiresPassives.join(", ");
     }
 
     if (rule.handsRequired) {
-        let handText =
-            rule.handsRequired === 1
-                ? "Hands: 1 (one-handed)"
-                : "Hands: 2 (two-handed)";
+        details.hands =
+            rule.handsRequired === 1 ? "1 (one-handed)" : "2 (two-handed)";
+    }
 
-        if (typeof rule.canDualWield === "boolean") {
-            handText += rule.canDualWield
-                ? ", dual-wield OK"
-                : ", cannot be dual-wielded";
-        }
-
-        parts.push(handText);
+    if (typeof rule.canDualWield === "boolean") {
+        details.dualWield = rule.canDualWield ? "Yes" : "No";
     }
 
     if (rule.incompatiblePassives && rule.incompatiblePassives.length > 0) {
-        parts.push(
-            `Incompatible with: ${rule.incompatiblePassives.join(", ")}`,
-        );
+        details.incompatible = rule.incompatiblePassives.join(", ");
     }
 
     if (rule.genderRestriction === "femaleOnly") {
-        parts.push(
-            "Gender: female only (unless a passive allows otherwise)",
-        );
+        details.gender = "Female only (unless a passive allows)";
     }
 
-    if (parts.length === 0) return null;
-    return parts.join(" • ");
+    if (
+        !details.jobs &&
+        !details.requiresPassives &&
+        !details.hands &&
+        !details.dualWield &&
+        !details.incompatible &&
+        !details.gender
+    ) {
+        return null;
+    }
+
+    return details;
 }
 
 /**
@@ -123,64 +137,56 @@ function getSubcategoryKey(item: EquipmentMeta): string {
 }
 
 /**
- * Build a compact line summarizing numeric stats and range.
+ * Build the list of stats to show, skipping 0 values.
  */
-function buildStatsSummary(item: EquipmentMeta): string | null {
-    const parts: string[] = [];
+function buildStatEntries(
+    item: EquipmentMeta,
+): { label: string; value: string | number }[] {
+    const entries: { label: string; value: string | number }[] = [];
 
-    if (item.atk != null) parts.push(`ATK ${item.atk}`);
-    if (item.def != null) parts.push(`DEF ${item.def}`);
-    if (item.mag != null) parts.push(`MAG ${item.mag}`);
-    if (item.rst != null) parts.push(`RST ${item.rst}`);
-    if (item.eva != null) parts.push(`EVA ${item.eva}`);
-    if (item.spd != null) parts.push(`SPD ${item.spd}`);
-    if (item.jump != null) parts.push(`Jump ${item.jump}`);
-
-    if (item.moveBonus != null) parts.push(`Move +${item.moveBonus}`);
-    if (item.jumpBonus != null) parts.push(`Jump +${item.jumpBonus}`);
+    if ((item.atk ?? 0) > 0) {
+        entries.push({ label: "ATK", value: item.atk as number });
+    }
+    if ((item.def ?? 0) > 0) {
+        entries.push({ label: "DEF", value: item.def as number });
+    }
+    if ((item.mag ?? 0) > 0) {
+        entries.push({ label: "MAG", value: item.mag as number });
+    }
+    if ((item.rst ?? 0) > 0) {
+        entries.push({ label: "RST", value: item.rst as number });
+    }
+    if ((item.eva ?? 0) > 0) {
+        entries.push({ label: "EVA", value: item.eva as number });
+    }
+    if ((item.spd ?? 0) > 0) {
+        entries.push({ label: "SPD", value: item.spd as number });
+    }
+    if ((item.jump ?? 0) > 0) {
+        entries.push({ label: "Jump", value: item.jump as number });
+    }
+    if ((item.moveBonus ?? 0) > 0) {
+        entries.push({
+            label: "Move bonus",
+            value: `+${item.moveBonus as number}`,
+        });
+    }
+    if ((item.jumpBonus ?? 0) > 0) {
+        entries.push({
+            label: "Jump bonus",
+            value: `+${item.jumpBonus as number}`,
+        });
+    }
 
     if (item.rangeMin != null && item.rangeMax != null) {
-        if (item.rangeMin === item.rangeMax) {
-            parts.push(`Range ${item.rangeMin}`);
-        } else {
-            parts.push(`Range ${item.rangeMin}-${item.rangeMax}`);
-        }
+        const rangeValue =
+            item.rangeMin === item.rangeMax
+                ? `${item.rangeMin}`
+                : `${item.rangeMin}-${item.rangeMax}`;
+        entries.push({ label: "Range", value: rangeValue });
     }
 
-    if (parts.length === 0) return null;
-    return parts.join(" • ");
-}
-
-/**
- * Build a compact line summarizing elemental/resist effects and other tags.
- */
-function buildEffectSummary(item: EquipmentMeta): string | null {
-    const parts: string[] = [];
-
-    if (item.immunity && item.immunity.length > 0) {
-        parts.push(`Immune: ${item.immunity.join(", ")}`);
-    }
-    if (item.absorb && item.absorb.length > 0) {
-        parts.push(`Absorb: ${item.absorb.join(", ")}`);
-    }
-    if (item["half-damage"] && item["half-damage"].length > 0) {
-        parts.push(`Half: ${item["half-damage"].join(", ")}`);
-    }
-    if (item.weak && item.weak.length > 0) {
-        parts.push(`Weak: ${item.weak.join(", ")}`);
-    }
-    if (item.element && item.element.length > 0) {
-        parts.push(`Element: ${item.element.join(", ")}`);
-    }
-    if (item.gender) {
-        parts.push(`Gender: ${item.gender}`);
-    }
-    if (item.additionalEffect) {
-        parts.push(item.additionalEffect);
-    }
-
-    if (parts.length === 0) return null;
-    return parts.join(" • ");
+    return entries;
 }
 
 /**
@@ -207,17 +213,21 @@ function itemToSearchBlob(item: EquipmentMeta): string {
         parts.push("absorb");
         parts.push(item.absorb.join(" "));
     }
-    if (item["half-damage"] && item["half-damage"].length > 0) {
-        parts.push("half damage");
-        parts.push(item["half-damage"].join(" "));
+
+    const anyItem = item as any;
+    const halfDamage = anyItem["half-damage"] as string[] | undefined;
+    if (halfDamage && halfDamage.length > 0) {
+        parts.push("half");
+        parts.push(halfDamage.join(" "));
+    }
+
+    if (item.weak && item.weak.length > 0) {
+        parts.push("weak");
+        parts.push(item.weak.join(" "));
     }
     if (item.element && item.element.length > 0) {
         parts.push("element");
         parts.push(item.element.join(" "));
-    }
-    if (item.weak && item.weak.length > 0) {
-        parts.push("weak");
-        parts.push(item.weak.join(" "));
     }
     if (item.gender) parts.push(item.gender);
     if (item.additionalEffect) parts.push(item.additionalEffect);
@@ -236,7 +246,6 @@ function itemToSearchBlob(item: EquipmentMeta): string {
                         parts.push(ab.setId);
                     }
                 } else {
-                    // fallback to raw id if metadata missing
                     parts.push(id);
                 }
             }
@@ -257,7 +266,6 @@ export function EquipmentHub() {
         [],
     );
 
-    // Search filter (like MissionHub-style free text search)
     const filteredItems = React.useMemo(() => {
         const q = query.trim().toLowerCase();
         if (!q) return items;
@@ -281,12 +289,9 @@ export function EquipmentHub() {
         return Object.entries(map).sort(([a], [b]) => a.localeCompare(b));
     }, [filteredItems]);
 
-    // collapsed by default for top-level sections
     const [openSections, setOpenSections] = React.useState<
         Record<string, boolean>
     >({});
-
-    // collapsed/expanded for subcategories (e.g. Weapon::Sword)
     const [openSubsections, setOpenSubsections] = React.useState<
         Record<string, boolean>
     >({});
@@ -460,18 +465,478 @@ export function EquipmentHub() {
                                                             buildSubtypeLabel(
                                                                 item,
                                                             );
-                                                        const ruleSummary =
-                                                            buildRuleSummary(
+                                                        const ruleDetails =
+                                                            buildRuleDetails(
                                                                 item,
                                                             );
-                                                        const statsSummary =
-                                                            buildStatsSummary(
+                                                        const statEntries =
+                                                            buildStatEntries(
                                                                 item,
                                                             );
-                                                        const effectSummary =
-                                                            buildEffectSummary(
-                                                                item,
-                                                            );
+                                                        const hasStats =
+                                                            statEntries.length >
+                                                            0;
+
+                                                        const anyItem =
+                                                            item as any;
+                                                        const halfDamage =
+                                                            anyItem[
+                                                                "half-damage"
+                                                            ] as
+                                                                | string[]
+                                                                | undefined;
+
+                                                        const hasBasics =
+                                                            !!subtypeLabel ||
+                                                            !!item
+                                                                .bazaar_category ||
+                                                            item.price != null;
+
+                                                        const hasEffects =
+                                                            (item.immunity &&
+                                                                item.immunity
+                                                                    .length >
+                                                                    0) ||
+                                                            (item.absorb &&
+                                                                item.absorb
+                                                                    .length >
+                                                                    0) ||
+                                                            (halfDamage &&
+                                                                halfDamage
+                                                                    .length >
+                                                                    0) ||
+                                                            (item.weak &&
+                                                                item.weak
+                                                                    .length >
+                                                                    0) ||
+                                                            (item.element &&
+                                                                item.element
+                                                                    .length >
+                                                                    0) ||
+                                                            !!item.gender ||
+                                                            !!item
+                                                                .additionalEffect;
+
+                                                        const ruleEntries: {
+                                                            label: string;
+                                                            value: string;
+                                                        }[] = [];
+                                                        if (ruleDetails?.jobs) {
+                                                            ruleEntries.push({
+                                                                label: "Jobs",
+                                                                value: ruleDetails.jobs,
+                                                            });
+                                                        }
+                                                        if (
+                                                            ruleDetails?.hands
+                                                        ) {
+                                                            ruleEntries.push({
+                                                                label: "Hands",
+                                                                value: ruleDetails.hands,
+                                                            });
+                                                        }
+                                                        if (
+                                                            ruleDetails?.dualWield
+                                                        ) {
+                                                            ruleEntries.push({
+                                                                label: "Dual-wield",
+                                                                value: ruleDetails.dualWield,
+                                                            });
+                                                        }
+                                                        if (
+                                                            ruleDetails?.requiresPassives
+                                                        ) {
+                                                            ruleEntries.push({
+                                                                label: "Requires passive",
+                                                                value: ruleDetails.requiresPassives,
+                                                            });
+                                                        }
+                                                        if (
+                                                            ruleDetails?.incompatible
+                                                        ) {
+                                                            ruleEntries.push({
+                                                                label: "Incompatible",
+                                                                value: ruleDetails.incompatible,
+                                                            });
+                                                        }
+                                                        if (
+                                                            ruleDetails?.gender
+                                                        ) {
+                                                            ruleEntries.push({
+                                                                label: "Gender",
+                                                                value: ruleDetails.gender,
+                                                            });
+                                                        }
+                                                        const hasRules =
+                                                            ruleEntries.length >
+                                                            0;
+
+                                                        const hasTeaches =
+                                                            !!item.teaches &&
+                                                            Object.keys(
+                                                                item.teaches,
+                                                            ).length > 0;
+
+                                                        const modules: {
+                                                            key: string;
+                                                            content: JSX.Element;
+                                                        }[] = [];
+
+                                                        if (hasBasics) {
+                                                            modules.push({
+                                                                key: "basics",
+                                                                content: (
+                                                                    <>
+                                                                        <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                            <u>
+                                                                                BASICS
+                                                                            </u>
+                                                                        </h4>
+                                                                        <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
+                                                                            {subtypeLabel && (
+                                                                                <div className="flex justify-between gap-2">
+                                                                                    <dt className="text-zinc-400">
+                                                                                        Category
+                                                                                    </dt>
+                                                                                    <dd className="font-medium text-right">
+                                                                                        {
+                                                                                            subtypeLabel
+                                                                                        }
+                                                                                    </dd>
+                                                                                </div>
+                                                                            )}
+                                                                            {item.bazaar_category && (
+                                                                                <div className="flex justify-between gap-2">
+                                                                                    <dt className="text-zinc-400">
+                                                                                        Bazaar
+                                                                                    </dt>
+                                                                                    <dd className="font-medium text-right">
+                                                                                        {
+                                                                                            item.bazaar_category
+                                                                                        }
+                                                                                    </dd>
+                                                                                </div>
+                                                                            )}
+                                                                            {item.price !=
+                                                                                null && (
+                                                                                <div className="flex justify-between gap-2">
+                                                                                    <dt className="text-zinc-400">
+                                                                                        Purchase
+                                                                                    </dt>
+                                                                                    <dd className="font-medium text-right">
+                                                                                        {
+                                                                                            item.price
+                                                                                        }{" "}
+                                                                                        gil
+                                                                                    </dd>
+                                                                                </div>
+                                                                            )}
+                                                                        </dl>
+                                                                    </>
+                                                                ),
+                                                            });
+                                                        }
+
+                                                        if (hasStats) {
+                                                            const useTwoColsStats =
+                                                                statEntries.length >
+                                                                3;
+                                                            const dlStatsClass =
+                                                                useTwoColsStats
+                                                                    ? "grid grid-cols-2 gap-x-4 gap-y-1"
+                                                                    : "space-y-1";
+
+                                                            modules.push({
+                                                                key: "stats",
+                                                                content: (
+                                                                    <>
+                                                                        <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                            <u>
+                                                                                STATS
+                                                                            </u>
+                                                                        </h4>
+                                                                        <dl className={dlStatsClass}>
+                                                                            {statEntries.map(
+                                                                                (
+                                                                                    entry,
+                                                                                ) => (
+                                                                                    <div
+                                                                                        key={
+                                                                                            entry.label
+                                                                                        }
+                                                                                        className="flex justify-between gap-2"
+                                                                                    >
+                                                                                        <dt className="text-zinc-400">
+                                                                                            {
+                                                                                                entry.label
+                                                                                            }
+                                                                                        </dt>
+                                                                                        <dd className="font-medium">
+                                                                                            {
+                                                                                                entry.value
+                                                                                            }
+                                                                                        </dd>
+                                                                                    </div>
+                                                                                ),
+                                                                            )}
+                                                                        </dl>
+                                                                    </>
+                                                                ),
+                                                            });
+                                                        }
+
+                                                        if (hasEffects) {
+                                                            modules.push({
+                                                                key: "effects",
+                                                                content: (
+                                                                    <>
+                                                                        <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                            <u>
+                                                                                EFFECTS
+                                                                            </u>
+                                                                        </h4>
+                                                                        <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
+                                                                            {item.immunity &&
+                                                                                item
+                                                                                    .immunity
+                                                                                    .length >
+                                                                                    0 && (
+                                                                                    <div className="flex justify-between gap-2">
+                                                                                        <dt className="text-zinc-400">
+                                                                                            Immune
+                                                                                        </dt>
+                                                                                        <dd className="font-medium text-right">
+                                                                                            {item.immunity.join(
+                                                                                                ", ",
+                                                                                            )}
+                                                                                        </dd>
+                                                                                    </div>
+                                                                                )}
+                                                                            {item.absorb &&
+                                                                                item
+                                                                                    .absorb
+                                                                                    .length >
+                                                                                    0 && (
+                                                                                    <div className="flex justify-between gap-2">
+                                                                                        <dt className="text-zinc-400">
+                                                                                            Absorb
+                                                                                        </dt>
+                                                                                        <dd className="font-medium text-right">
+                                                                                            {item.absorb.join(
+                                                                                                ", ",
+                                                                                            )}
+                                                                                        </dd>
+                                                                                    </div>
+                                                                                )}
+                                                                            {halfDamage &&
+                                                                                halfDamage
+                                                                                    .length >
+                                                                                    0 && (
+                                                                                    <div className="flex justify-between gap-2">
+                                                                                        <dt className="text-zinc-400">
+                                                                                            Half
+                                                                                        </dt>
+                                                                                        <dd className="font-medium text-right">
+                                                                                            {halfDamage.join(
+                                                                                                ", ",
+                                                                                            )}
+                                                                                        </dd>
+                                                                                    </div>
+                                                                                )}
+                                                                            {item.weak &&
+                                                                                item
+                                                                                    .weak
+                                                                                    .length >
+                                                                                    0 && (
+                                                                                    <div className="flex justify-between gap-2">
+                                                                                        <dt className="text-zinc-400">
+                                                                                            Weak
+                                                                                        </dt>
+                                                                                        <dd className="font-medium text-right">
+                                                                                            {item.weak.join(
+                                                                                                ", ",
+                                                                                            )}
+                                                                                        </dd>
+                                                                                    </div>
+                                                                                )}
+                                                                            {item.element &&
+                                                                                item
+                                                                                    .element
+                                                                                    .length >
+                                                                                    0 && (
+                                                                                    <div className="flex justify-between gap-2">
+                                                                                        <dt className="text-zinc-400">
+                                                                                            Element
+                                                                                        </dt>
+                                                                                        <dd className="font-medium text-right">
+                                                                                            {item.element.join(
+                                                                                                ", ",
+                                                                                            )}
+                                                                                        </dd>
+                                                                                    </div>
+                                                                                )}
+                                                                            {item.gender && (
+                                                                                <div className="flex justify-between gap-2">
+                                                                                    <dt className="text-zinc-400">
+                                                                                        Gender
+                                                                                    </dt>
+                                                                                    <dd className="font-medium text-right">
+                                                                                        {
+                                                                                            item.gender
+                                                                                        }
+                                                                                    </dd>
+                                                                                </div>
+                                                                            )}
+                                                                            {item.additionalEffect && (
+                                                                                <div className="flex justify-between gap-2">
+                                                                                    <dt className="text-zinc-400">
+                                                                                        Other
+                                                                                    </dt>
+                                                                                    <dd className="font-medium text-right">
+                                                                                        {
+                                                                                            item.additionalEffect
+                                                                                        }
+                                                                                    </dd>
+                                                                                </div>
+                                                                            )}
+                                                                        </dl>
+                                                                    </>
+                                                                ),
+                                                            });
+                                                        }
+
+                                                        if (hasRules) {
+                                                            const useTwoColsRules =
+                                                                ruleEntries.length >
+                                                                3;
+                                                            const dlRulesClass =
+                                                                useTwoColsRules
+                                                                    ? "grid grid-cols-2 gap-x-4 gap-y-1"
+                                                                    : "space-y-1";
+
+                                                            modules.push({
+                                                                key: "rules",
+                                                                content: (
+                                                                    <>
+                                                                        <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                            <u>
+                                                                                RULES
+                                                                            </u>
+                                                                        </h4>
+                                                                        <dl className={dlRulesClass}>
+                                                                            {ruleEntries.map(
+                                                                                (
+                                                                                    entry,
+                                                                                ) => (
+                                                                                    <div
+                                                                                        key={
+                                                                                            entry.label
+                                                                                        }
+                                                                                        className="flex justify-between gap-2"
+                                                                                    >
+                                                                                        <dt className="text-zinc-400">
+                                                                                            {
+                                                                                                entry.label
+                                                                                            }
+                                                                                        </dt>
+                                                                                        <dd className="font-medium text-right">
+                                                                                            {
+                                                                                                entry.value
+                                                                                            }
+                                                                                        </dd>
+                                                                                    </div>
+                                                                                ),
+                                                                            )}
+                                                                        </dl>
+                                                                    </>
+                                                                ),
+                                                            });
+                                                        }
+
+                                                        if (hasTeaches) {
+                                                            modules.push({
+                                                                key: "teaches",
+                                                                content: (
+                                                                    <>
+                                                                        <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                            <u>
+                                                                                TEACHES
+                                                                            </u>
+                                                                        </h4>
+                                                                        <div className="mt-0.5 text-[0.7rem] sm:text-xs text-zinc-300">
+                                                                            <ul className="list-disc list-inside space-y-0.5">
+                                                                                {Object.entries(
+                                                                                    item.teaches ??
+                                                                                        {},
+                                                                                ).map(
+                                                                                    ([
+                                                                                        job,
+                                                                                        abilityIds,
+                                                                                    ]) => {
+                                                                                        const display =
+                                                                                            abilityIds
+                                                                                                .map(
+                                                                                                    (
+                                                                                                        id,
+                                                                                                    ) => {
+                                                                                                        const ab =
+                                                                                                            ABILITIES[
+                                                                                                                id
+                                                                                                            ];
+                                                                                                        if (
+                                                                                                            !ab
+                                                                                                        ) {
+                                                                                                            return id;
+                                                                                                        }
+                                                                                                        const set =
+                                                                                                            ABILITY_SETS[
+                                                                                                                ab
+                                                                                                                    .setId
+                                                                                                            ];
+                                                                                                        const setName =
+                                                                                                            set
+                                                                                                                ?.name ??
+                                                                                                            ab.setId;
+                                                                                                        return `${ab.name} (${setName})`;
+                                                                                                    },
+                                                                                                )
+                                                                                                .join(
+                                                                                                    ", ",
+                                                                                                );
+
+                                                                                        return (
+                                                                                            <li
+                                                                                                key={
+                                                                                                    job
+                                                                                                }
+                                                                                            >
+                                                                                                <span className="font-medium text-zinc-100">
+                                                                                                    {
+                                                                                                        job
+                                                                                                    }
+                                                                                                    :
+                                                                                                </span>{" "}
+                                                                                                {
+                                                                                                    display
+                                                                                                }
+                                                                                            </li>
+                                                                                        );
+                                                                                    },
+                                                                                )}
+                                                                            </ul>
+                                                                        </div>
+                                                                    </>
+                                                                ),
+                                                            });
+                                                        }
+
+                                                        const hasAnyModules =
+                                                            modules.length > 0;
+
+                                                        const gridClass =
+                                                            modules.length <= 1
+                                                                ? "mt-1.5 grid grid-cols-1 gap-2.5 sm:gap-3"
+                                                                : "mt-1.5 grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3";
 
                                                         return (
                                                             <li
@@ -485,55 +950,19 @@ export function EquipmentHub() {
                                                                                 item.name
                                                                             }
                                                                         </span>
+                                                                        {subtypeLabel && (
+                                                                            <span className="text-[0.7rem] text-zinc-400">
+                                                                                {
+                                                                                    subtypeLabel
+                                                                                }
+                                                                            </span>
+                                                                        )}
                                                                     </div>
-
-                                                                    {/* Bazaar + price */}
-                                                                        <div className="text-[0.65rem] text-zinc-400 flex flex-wrap gap-x-3 gap-y-0.5">
-                                                                            {item.bazaar_category && (
-                                                                                <span>
-                                                                                    Bazaar:{" "}
-                                                                                    <span className="font-medium text-zinc-200">
-                                                                                        {
-                                                                                            item.bazaar_category
-                                                                                        }
-                                                                                    </span>
-                                                                                </span>
-                                                                            )}
-                                                                            {item.price !=
-                                                                                null && (
-                                                                                <span>
-                                                                                    Purchase Price:{" "}
-                                                                                    <span className="font-medium text-zinc-200">
-                                                                                        {
-                                                                                            item.price
-                                                                                        }{" "}
-                                                                                        gil
-                                                                                    </span>
-                                                                                </span>
-                                                                            )}
-                                                                        </div>
-
-                                                                    {statsSummary && (
-                                                                        <p className="text-[0.7rem] sm:text-xs text-zinc-300">
-                                                                            {
-                                                                                statsSummary
-                                                                            }
-                                                                        </p>
-                                                                    )}
-
-                                                                    {effectSummary && (
-                                                                        <p className="text-[0.7rem] sm:text-xs text-zinc-300">
-                                                                            {
-                                                                                effectSummary
-                                                                            }
-                                                                        </p>
-                                                                    )}
 
                                                                     {item.description && (
                                                                         <p className="text-[0.7rem] sm:text-xs text-zinc-300">
                                                                             {
-                                                                                item
-                                                                                    .description
+                                                                                item.description
                                                                             }
                                                                         </p>
                                                                     )}
@@ -545,80 +974,49 @@ export function EquipmentHub() {
                                                                             }
                                                                         </p>
                                                                     )}
-
-                                                                    {ruleSummary && (
-                                                                        <p className="text-[0.7rem] sm:text-xs text-zinc-400">
-                                                                            {
-                                                                                ruleSummary
-                                                                            }
-                                                                        </p>
-                                                                    )}
                                                                 </div>
 
-                                                                {item.teaches && (
-                                                                    <div className="mt-1.5 text-[0.7rem] text-zinc-400">
-                                                                        <div className="font-medium text-zinc-200">
-                                                                            Teaches
-                                                                        </div>
-                                                                        <ul className="list-disc list-inside space-y-0.5">
-                                                                            {Object.entries(
-                                                                                item.teaches,
-                                                                            ).map(
-                                                                                ([
-                                                                                    job,
-                                                                                    abilityIds,
-                                                                                ]) => {
-                                                                                    const display =
-                                                                                        abilityIds
-                                                                                            .map(
-                                                                                                (
-                                                                                                    id,
-                                                                                                ) => {
-                                                                                                    const ab =
-                                                                                                        ABILITIES[
-                                                                                                            id
-                                                                                                        ];
-                                                                                                    if (
-                                                                                                        !ab
-                                                                                                    ) {
-                                                                                                        return id;
-                                                                                                    }
-                                                                                                    const set =
-                                                                                                        ABILITY_SETS[
-                                                                                                            ab
-                                                                                                                .setId
-                                                                                                        ];
-                                                                                                    const setName =
-                                                                                                        set
-                                                                                                            ?.name ??
-                                                                                                        ab.setId;
-                                                                                                    return `${ab.name} (${setName})`;
-                                                                                                },
-                                                                                            )
-                                                                                            .join(
-                                                                                                ", ",
-                                                                                            );
+                                                                {hasAnyModules && (
+                                                                    <div className={gridClass}>
+                                                                        {modules.map(
+                                                                            (
+                                                                                module,
+                                                                                index,
+                                                                            ) => {
+                                                                                const isLast =
+                                                                                    index ===
+                                                                                    modules.length -
+                                                                                        1;
+                                                                                const shouldSpan =
+                                                                                    modules.length >
+                                                                                        1 &&
+                                                                                    modules.length %
+                                                                                        2 ===
+                                                                                        1 &&
+                                                                                    isLast;
 
-                                                                                    return (
-                                                                                        <li
-                                                                                            key={
-                                                                                                job
-                                                                                            }
-                                                                                        >
-                                                                                            <span className="font-medium text-zinc-200">
-                                                                                                {
-                                                                                                    job
-                                                                                                }
-                                                                                                :
-                                                                                            </span>{" "}
-                                                                                            {
-                                                                                                display
-                                                                                            }
-                                                                                        </li>
-                                                                                    );
-                                                                                },
-                                                                            )}
-                                                                        </ul>
+                                                                                const sectionClass =
+                                                                                    "rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3" +
+                                                                                    (shouldSpan
+                                                                                        ? " md:col-span-2"
+                                                                                        : "");
+
+                                                                                return (
+                                                                                    <section
+                                                                                        key={
+                                                                                            module.key
+                                                                                        }
+                                                                                        className={
+                                                                                            sectionClass
+                                                                                        }
+                                                                                    >
+                                                                                        {
+                                                                                            module.content
+                                                                                        }
+                                                                                    </section>
+                                                                                );
+                                                                            },
+                                                                        )}
                                                                     </div>
                                                                 )}
                                                             </li>

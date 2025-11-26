@@ -72,7 +72,7 @@ function AppInner() {
                                 <h1 className="text-3xl font-bold mb-1">
                                     FFTA2 Progression &amp; Completion Guide
                                 </h1>
-                                <p className="text-sm text-zinc-50/90 max-w-xl">
+                                <p className="text-sm text-zinc-50/90">
                                     Track story missions, side quests, RetroAchievements, and
                                     optimize your clan&apos;s builds as you work through{" "}
                                     <span className="font-semibold">
