@@ -554,7 +554,7 @@ export function GlobalSearchPanel() {
         missions: "Missions",
         equipment: "Equipment",
         abilities: "Abilities",
-        bazaar: "Bazaar recipes",
+        bazaar: "Bazaar",
         retros: "Retro Achievements",
     };
 
@@ -2231,7 +2231,7 @@ export function GlobalSearchPanel() {
                                                                         key={
                                                                             r.id
                                                                         }
-                                                                        className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1.5"
+                                                                        className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1.5 border-b border-zinc-800/60 pb-2"
                                                                     >
                                                                         <div>
                                                                             <div className="flex flex-wrap items-center gap-1.5">
