@@ -123,6 +123,67 @@ function getSubcategoryKey(item: EquipmentMeta): string {
 }
 
 /**
+ * Build a compact line summarizing numeric stats and range.
+ */
+function buildStatsSummary(item: EquipmentMeta): string | null {
+    const parts: string[] = [];
+
+    if (item.atk != null) parts.push(`ATK ${item.atk}`);
+    if (item.def != null) parts.push(`DEF ${item.def}`);
+    if (item.mag != null) parts.push(`MAG ${item.mag}`);
+    if (item.rst != null) parts.push(`RST ${item.rst}`);
+    if (item.eva != null) parts.push(`EVA ${item.eva}`);
+    if (item.spd != null) parts.push(`SPD ${item.spd}`);
+    if (item.jump != null) parts.push(`Jump ${item.jump}`);
+
+    if (item.moveBonus != null) parts.push(`Move +${item.moveBonus}`);
+    if (item.jumpBonus != null) parts.push(`Jump +${item.jumpBonus}`);
+
+    if (item.rangeMin != null && item.rangeMax != null) {
+        if (item.rangeMin === item.rangeMax) {
+            parts.push(`Range ${item.rangeMin}`);
+        } else {
+            parts.push(`Range ${item.rangeMin}-${item.rangeMax}`);
+        }
+    }
+
+    if (parts.length === 0) return null;
+    return parts.join(" • ");
+}
+
+/**
+ * Build a compact line summarizing elemental/resist effects and other tags.
+ */
+function buildEffectSummary(item: EquipmentMeta): string | null {
+    const parts: string[] = [];
+
+    if (item.immunity && item.immunity.length > 0) {
+        parts.push(`Immune: ${item.immunity.join(", ")}`);
+    }
+    if (item.absorb && item.absorb.length > 0) {
+        parts.push(`Absorb: ${item.absorb.join(", ")}`);
+    }
+    if (item["half-damage"] && item["half-damage"].length > 0) {
+        parts.push(`Half: ${item["half-damage"].join(", ")}`);
+    }
+    if (item.weak && item.weak.length > 0) {
+        parts.push(`Weak: ${item.weak.join(", ")}`);
+    }
+    if (item.element && item.element.length > 0) {
+        parts.push(`Element: ${item.element.join(", ")}`);
+    }
+    if (item.gender) {
+        parts.push(`Gender: ${item.gender}`);
+    }
+    if (item.additionalEffect) {
+        parts.push(item.additionalEffect);
+    }
+
+    if (parts.length === 0) return null;
+    return parts.join(" • ");
+}
+
+/**
  * Turn an equipment item into a big lowercase string used for searching.
  */
 function itemToSearchBlob(item: EquipmentMeta): string {
@@ -134,8 +195,32 @@ function itemToSearchBlob(item: EquipmentMeta): string {
     if (item.helmetType) parts.push(item.helmetType);
     if (item.armorType) parts.push(item.armorType);
     if (item.accessoryType) parts.push(item.accessoryType);
+    if (item.bazaar_category) parts.push(item.bazaar_category);
     if (item.description) parts.push(item.description);
     if (item.notes) parts.push(item.notes);
+
+    if (item.immunity && item.immunity.length > 0) {
+        parts.push("immune");
+        parts.push(item.immunity.join(" "));
+    }
+    if (item.absorb && item.absorb.length > 0) {
+        parts.push("absorb");
+        parts.push(item.absorb.join(" "));
+    }
+    if (item["half-damage"] && item["half-damage"].length > 0) {
+        parts.push("half damage");
+        parts.push(item["half-damage"].join(" "));
+    }
+    if (item.element && item.element.length > 0) {
+        parts.push("element");
+        parts.push(item.element.join(" "));
+    }
+    if (item.weak && item.weak.length > 0) {
+        parts.push("weak");
+        parts.push(item.weak.join(" "));
+    }
+    if (item.gender) parts.push(item.gender);
+    if (item.additionalEffect) parts.push(item.additionalEffect);
 
     if (item.teaches) {
         for (const [job, abilityIds] of Object.entries(item.teaches)) {
@@ -232,7 +317,7 @@ export function EquipmentHub() {
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search by name, type, job, or ability..."
+                    placeholder="Search by name, type, job, ability, or effects..."
                     className="w-full sm:w-72 rounded-md border border-zinc-700/80 bg-zinc-950/70 px-2.5 py-1.5 text-xs sm:text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-emerald-500/70 focus:border-emerald-500/70"
                 />
             </div>
@@ -315,7 +400,7 @@ export function EquipmentHub() {
                                 {subcategories.map(([subLabel, subItems]) => {
                                     const subKey = `${category}::${subLabel}`;
                                     const subOpen =
-                                        openSubsections[subKey] ?? true; // default open
+                                        openSubsections[subKey] ?? false;
 
                                     return (
                                         <div key={subLabel}>
@@ -379,6 +464,14 @@ export function EquipmentHub() {
                                                             buildRuleSummary(
                                                                 item,
                                                             );
+                                                        const statsSummary =
+                                                            buildStatsSummary(
+                                                                item,
+                                                            );
+                                                        const effectSummary =
+                                                            buildEffectSummary(
+                                                                item,
+                                                            );
 
                                                         return (
                                                             <li
@@ -392,14 +485,49 @@ export function EquipmentHub() {
                                                                                 item.name
                                                                             }
                                                                         </span>
-                                                                        {subtypeLabel && (
-                                                                            <span className="text-[0.7rem] text-zinc-400">
-                                                                                {
-                                                                                    subtypeLabel
-                                                                                }
-                                                                            </span>
-                                                                        )}
                                                                     </div>
+
+                                                                    {/* Bazaar + price */}
+                                                                        <div className="text-[0.65rem] text-zinc-400 flex flex-wrap gap-x-3 gap-y-0.5">
+                                                                            {item.bazaar_category && (
+                                                                                <span>
+                                                                                    Bazaar:{" "}
+                                                                                    <span className="font-medium text-zinc-200">
+                                                                                        {
+                                                                                            item.bazaar_category
+                                                                                        }
+                                                                                    </span>
+                                                                                </span>
+                                                                            )}
+                                                                            {item.price !=
+                                                                                null && (
+                                                                                <span>
+                                                                                    Purchase Price:{" "}
+                                                                                    <span className="font-medium text-zinc-200">
+                                                                                        {
+                                                                                            item.price
+                                                                                        }{" "}
+                                                                                        gil
+                                                                                    </span>
+                                                                                </span>
+                                                                            )}
+                                                                        </div>
+
+                                                                    {statsSummary && (
+                                                                        <p className="text-[0.7rem] sm:text-xs text-zinc-300">
+                                                                            {
+                                                                                statsSummary
+                                                                            }
+                                                                        </p>
+                                                                    )}
+
+                                                                    {effectSummary && (
+                                                                        <p className="text-[0.7rem] sm:text-xs text-zinc-300">
+                                                                            {
+                                                                                effectSummary
+                                                                            }
+                                                                        </p>
+                                                                    )}
 
                                                                     {item.description && (
                                                                         <p className="text-[0.7rem] sm:text-xs text-zinc-300">

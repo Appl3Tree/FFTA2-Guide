@@ -19,7 +19,7 @@ import {
 import type { GlobalRetroAchievement } from "../../types/ffta2";
 import { resolveEnemyLoadout } from "../../utils/resolveAbilities";
 import { resolveEnemyEquipment } from "../../utils/resolveEquipment";
-
+import { useProgress } from "../ProgressContext";
 
 type TabKey = "missions" | "equipment" | "abilities" | "retros";
 
@@ -48,66 +48,100 @@ function missionBlob(m: Mission): string {
 
     // Enemies: names / types / notes
     if (m.enemies) {
-        for (const e of m.enemies) {
-            if (e.name) parts.push(e.name);
-            if (e.type) parts.push(e.type);
-            if (e.notes) parts.push(e.notes);
+        for (const enemy of m.enemies) {
+            if (enemy.name) parts.push(enemy.name);
+            if (enemy.race) parts.push(enemy.race);
+            if (enemy.job) parts.push(enemy.job);
+            if (enemy.notes) parts.push(enemy.notes);
         }
     }
 
-    // We do NOT add per-mission RA here anymore; those live in GLOBAL_RETRO_ACHIEVEMENTS.
+    // Required items / talents
+    if (m.requiredItems) parts.push(...m.requiredItems);
+    if (m.requiredTalents) {
+        const t = m.requiredTalents;
+        if (t.negotiation) parts.push("Negotiation");
+        if (t.aptitude) parts.push("Aptitude");
+        if (t.teamwork) parts.push("Teamwork");
+        if (t.adaptability) parts.push("Adaptability");
+    }
+
+    // Dispatch hints
+    if (m.dispatchRecommended && m.dispatchRecommended.length > 0) {
+        parts.push(...m.dispatchRecommended);
+    }
+
+    // Rewards
+    if (m.rewards) {
+        if (m.rewards.gil) parts.push(`${m.rewards.gil} gil`);
+        if (m.rewards.items) parts.push(...m.rewards.items);
+        if (m.rewards.abilities) parts.push(...m.rewards.abilities);
+    }
 
     return parts.join(" ").toLowerCase();
 }
 
-function equipmentBlob(item: EquipmentMeta): string {
+function equipmentBlob(e: EquipmentMeta): string {
     const parts: string[] = [];
-    parts.push(item.name);
-    if (item.category) parts.push(item.category);
-    if ((item as any).weaponType) parts.push((item as any).weaponType);
-    if ((item as any).helmetType) parts.push((item as any).helmetType);
-    if ((item as any).armorType) parts.push((item as any).armorType);
-    if ((item as any).accessoryType)
-        parts.push((item as any).accessoryType);
-    if (item.description) parts.push(item.description);
-    if (item.notes) parts.push(item.notes);
+    parts.push(e.name);
+    if (e.category) parts.push(e.category);
+    if ((e as any).weaponType) parts.push((e as any).weaponType);
+    if ((e as any).helmetType) parts.push((e as any).helmetType);
+    if ((e as any).armorType) parts.push((e as any).armorType);
+    if ((e as any).accessoryType)
+        parts.push((e as any).accessoryType);
+    if (e.description) parts.push(e.description);
+    if (e.notes) parts.push(e.notes);
 
-    if (item.teaches) {
-        for (const [job, ids] of Object.entries(item.teaches)) {
+    if (e.teaches) {
+        for (const [job, ids] of Object.entries(e.teaches)) {
             parts.push(job);
             for (const id of ids) {
                 const ab = ABILITIES[id];
                 if (ab) {
-                    parts.push(ab.name);
                     const set = ABILITY_SETS[ab.setId];
-                    parts.push(set?.name ?? ab.setId);
-                } else {
-                    parts.push(id);
+                    parts.push(
+                        `${ab.name} (${set?.name ?? ab.setId})`,
+                    );
                 }
             }
         }
     }
 
+    if (e.stats) {
+        const s = e.stats;
+        if (s.atk) parts.push(`ATK ${s.atk}`);
+        if (s.mag) parts.push(`MAG ${s.mag}`);
+        if (s.def) parts.push(`DEF ${s.def}`);
+        if (s.res) parts.push(`RES ${s.res}`);
+        if (s.spd) parts.push(`SPD ${s.spd}`);
+    }
+
+    if (e.element) parts.push(...e.element);
+    if (e.absorb) parts.push(...e.absorb);
+    if (e.weak) parts.push(...e.weak);
+    if (e.immune) parts.push(...e.immune);
+
     return parts.join(" ").toLowerCase();
 }
 
-function abilityBlob(set: AbilitySetMeta, ability: AbilityMeta): string {
+function abilityBlob(a: AbilityMeta, set: AbilitySetMeta): string {
     const parts: string[] = [];
-    parts.push(set.name);
+    parts.push(a.name, a.id, set.name, set.id);
+    if (a.description) parts.push(a.description);
+    if (a.job) parts.push(a.job);
+    if (a.notes) parts.push(a.notes);
+    if (a.element) parts.push(...a.element);
+    if (a.immune) parts.push(...a.immune);
+    if (a.inflicts) parts.push(...a.inflicts);
+    if (a.requires) parts.push(...a.requires);
+    if (a.equipmentRequired) parts.push(...a.equipmentRequired);
     if (set.description) parts.push(set.description);
-    parts.push(ability.name);
-    if (ability.description) parts.push(ability.description);
-    return parts.join(" ").toLowerCase();
-}
-
-function retroBlob(sourceLabel: string, ach: RetroAchievement): string {
-    const parts: string[] = [];
-    parts.push(sourceLabel, ach.name, ach.description);
-    if (ach.missable) parts.push("missable");
     return parts.join(" ").toLowerCase();
 }
 
 export function GlobalSearchPanel() {
+    const { checked, setCheck } = useProgress();
     const [open, setOpen] = React.useState(false);
     const [tab, setTab] = React.useState<TabKey>("missions");
     const [query, setQuery] = React.useState("");
@@ -147,16 +181,40 @@ export function GlobalSearchPanel() {
                     onClick={() => setOpen((v) => !v)}
                     className="w-full px-2 py-1.5 flex items-center justify-between gap-2 text-left"
                 >
-                    <span className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-zinc-300">
+                    <span className="text-xs font-semibold text-zinc-100">
                         {title}
                     </span>
                     <span className="flex items-center gap-1 text-[0.65rem] text-zinc-400">
                         <span>{open ? "Hide" : "Show"}</span>
-                        {renderChevron(open)}
+                        {open ? (
+                            <svg
+                                className="h-3 w-3 text-zinc-400"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="m18 15-6-6-6 6" />
+                            </svg>
+                        ) : (
+                            <svg
+                                className="h-3 w-3 text-zinc-400"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        )}
                     </span>
                 </button>
                 {open && (
-                    <div className="px-2.5 pb-2 pt-0.5 space-y-1.25 text-[0.7rem] text-zinc-200">
+                    <div className="px-2 pb-2 pt-0 space-y-1.5 text-[0.7rem] text-zinc-100">
                         {children}
                     </div>
                 )}
@@ -164,7 +222,6 @@ export function GlobalSearchPanel() {
         );
     }
 
-    // MISSABLE set derived from quest-specific mapping
     const missableRetroIds = React.useMemo(() => {
         const s = new Set<string>();
         Object.values(RETRO_ACHIEVEMENTS_BY_MISSION_ID).forEach((list) => {
@@ -193,11 +250,10 @@ export function GlobalSearchPanel() {
     const equipmentWithBlob = React.useMemo(
         () =>
             Object.values(EQUIPMENT)
-                .slice()
                 .sort((a, b) => a.name.localeCompare(b.name))
-                .map((item) => ({
-                    item,
-                    blob: equipmentBlob(item),
+                .map((e) => ({
+                    item: e,
+                    blob: equipmentBlob(e),
                 })),
         [],
     );
@@ -216,7 +272,7 @@ export function GlobalSearchPanel() {
             result.push({
                 set,
                 ability,
-                blob: abilityBlob(set, ability),
+                blob: abilityBlob(ability, set),
             });
         }
 
@@ -250,7 +306,7 @@ export function GlobalSearchPanel() {
                 key,
                 sourceLabel,
                 ach,
-                blob: retroBlob(sourceLabel, ach),
+                blob: `${sourceLabel ?? ""} ${ach.name} ${ach.description}`.toLowerCase(),
             });
         }
 
@@ -293,11 +349,8 @@ export function GlobalSearchPanel() {
         [retroWithBlob, q],
     );
 
-    const panelClasses =
-        "fixed bottom-4 right-4 z-40 w-full max-w-md sm:max-w-lg";
-
-    const renderChevron = (isOpen: boolean) =>
-        isOpen ? (
+    function renderChevron(isOpen: boolean) {
+        return isOpen ? (
             <svg
                 className="h-3 w-3 text-zinc-400"
                 viewBox="0 0 24 24"
@@ -322,6 +375,7 @@ export function GlobalSearchPanel() {
                 <path d="m6 9 6 6 6-6" />
             </svg>
         );
+    }
 
     if (!open) {
         // Collapsed pill
@@ -334,94 +388,136 @@ export function GlobalSearchPanel() {
                     inline-flex items-center gap-2
                     rounded-full
                     bg-emerald-600/90 hover:bg-emerald-500
-                    text-white
-                    px-3 py-2
-                    text-xs sm:text-sm
-                    shadow-lg shadow-emerald-900/40
+                    px-3 py-1.5
+                    text-xs font-semibold text-white
+                    shadow-lg shadow-emerald-500/30
+                    border border-emerald-300/50
                 "
             >
-                <span className="inline-block h-2 w-2 rounded-full bg-emerald-200" />
-                <span>Global Search</span>
+                <svg
+                    className="h-3.5 w-3.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                </svg>
+                <span>Global search</span>
             </button>
         );
     }
 
     return (
-        <div className={panelClasses}>
+        <div className="fixed inset-0 z-40 flex items-end sm:items-center justify-center">
             <div
-                className="
-                    rounded-2xl
-                    border border-zinc-800/80
-                    bg-zinc-950/95
-                    shadow-xl shadow-black/40
-                    overflow-hidden
-                "
-            >
+                className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+                onClick={() => setOpen(false)}
+            />
+            <div className="relative w-full max-w-5xl max-h-[90vh] rounded-t-2xl sm:rounded-2xl bg-zinc-950/95 border border-zinc-800 shadow-2xl shadow-black/60 overflow-hidden flex flex-col">
                 {/* Header */}
-                <div className="px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-emerald-600 to-sky-600 flex items-center justify-between gap-2">
-                    <div className="flex flex-col">
-                        <span className="text-xs font-semibold text-emerald-100 tracking-[0.16em] uppercase">
-                            Global Search
-                        </span>
-                        <span className="text-sm sm:text-base font-semibold text-white">
-                            Missions • Equipment • Abilities • RetroAchievements
-                        </span>
+                <div className="flex items-center gap-3 px-4 sm:px-5 py-3 border-b border-zinc-800/80 bg-zinc-950">
+                    <svg
+                        className="h-4 w-4 text-emerald-300"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.3-4.3" />
+                    </svg>
+                    <div className="flex-1 flex flex-col gap-1">
+                        <div className="flex items-center gap-2">
+                            <h2 className="text-xs sm:text-sm font-semibold text-zinc-100">
+                                Global search
+                            </h2>
+                            <span className="text-[0.6rem] uppercase tracking-[0.16em] text-emerald-300">
+                                Missions • Equipment • Abilities • Retro
+                            </span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-zinc-900/80 border border-zinc-800/80 rounded-md px-2 py-1">
+                            <svg
+                                className="h-3.5 w-3.5 text-zinc-500"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.3-4.3" />
+                            </svg>
+                            <input
+                                type="text"
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                                placeholder="Search missions, equipment, abilities, and RetroAchievements..."
+                                className="bg-transparent border-none outline-none text-xs sm:text-sm text-zinc-100 placeholder:text-zinc-500 flex-1"
+                                autoFocus
+                            />
+                        </div>
                     </div>
                     <button
                         type="button"
                         onClick={() => setOpen(false)}
-                        className="text-xs text-emerald-100 hover:text-white"
+                        className="ml-2 rounded-md p-1.5 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/80"
                     >
-                        Close
+                        <svg
+                            className="h-4 w-4"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <path d="M18 6 6 18" />
+                            <path d="m6 6 12 12" />
+                        </svg>
                     </button>
                 </div>
 
-                {/* Search input */}
-                <div className="px-3 sm:px-4 py-2.5 border-b border-zinc-800/80 bg-zinc-950">
-                    <input
-                        type="text"
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                        placeholder="Search anywhere in the guide..."
-                        className="w-full rounded-md border border-zinc-700/80 bg-zinc-900/80 px-2.5 py-1.5 text-xs sm:text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-emerald-500/80 focus:border-emerald-500/80"
-                    />
-                </div>
-
                 {/* Tabs */}
-                <div className="px-3 sm:px-4 pt-2 flex gap-1 border-b border-zinc-800/80 bg-zinc-950/95">
-                    {(
-                        [
-                            ["missions", "Missions", filteredMissions.length],
-                            ["equipment", "Equipment", filteredEquipment.length],
-                            ["abilities", "Abilities", filteredAbilities.length],
-                            ["retros", "RetroAch.", filteredRetros.length],
-                        ] as [TabKey, string, number][]
-                    ).map(([key, label, count]) => (
-                        <button
-                            key={key}
-                            type="button"
-                            onClick={() => setTab(key)}
-                            className={`
-                                px-2.5 py-1.5 rounded-full text-[0.7rem] sm:text-xs
-                                border
-                                ${
-                                    tab === key
-                                        ? "bg-emerald-600/80 border-emerald-400 text-white"
-                                        : "bg-zinc-900/70 border-zinc-700/80 text-zinc-300 hover:bg-zinc-800/80"
-                                }
-                            `}
-                        >
-                            {label}
-                            <span className="ml-1 text-[0.65rem] opacity-80">
-                                ({count})
-                            </span>
-                        </button>
-                    ))}
+                <div className="border-b border-zinc-800/80 bg-zinc-950/90 px-4 sm:px-5">
+                    <div className="flex gap-2 py-2 text-[0.7rem] sm:text-xs">
+                        {(
+                            [
+                                ["missions", "Missions"],
+                                ["equipment", "Equipment"],
+                                ["abilities", "Abilities"],
+                                ["retros", "Retro"],
+                            ] as [TabKey, string][]
+                        ).map(([key, label]) => {
+                            const isActive = tab === key;
+                            return (
+                                <button
+                                    key={key}
+                                    type="button"
+                                    onClick={() => setTab(key)}
+                                    className={[
+                                        "px-2.5 py-1 rounded-full border text-[0.7rem]",
+                                        isActive
+                                            ? "border-emerald-400 bg-emerald-500/20 text-emerald-100"
+                                            : "border-zinc-700/80 bg-zinc-900/70 text-zinc-300 hover:border-zinc-500",
+                                    ].join(" ")}
+                                >
+                                    {label}
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
 
-                {/* Results */}
-                <div className="max-h-80 overflow-y-auto px-3 sm:px-4 py-3 text-[0.75rem] sm:text-xs text-zinc-100 space-y-2">
-                    {/* MISSIONS TAB – mini cards with section hide/show */}
+                {/* Body */}
+                <div className="flex-1 overflow-y-auto px-4 sm:px-5 py-3 space-y-3 text-[0.75rem]">
+                    {/* MISSIONS TAB */}
                     {tab === "missions" && (
                         <>
                             {filteredMissions.length === 0 ? (
@@ -432,12 +528,11 @@ export function GlobalSearchPanel() {
                                 <ul className="space-y-1.5">
                                     {filteredMissions.map(({ mission }) => {
                                         const isOpen =
-                                            openMissions[mission.id] ?? false;
+                                            openMissions[mission.id] ??
+                                            false;
 
-                                        const hasRequirements =
-                                            (mission.requiredItems &&
-                                                mission.requiredItems.length >
-                                                    0) ||
+                                        const hasDispatch =
+                                            mission.requiredItems ||
                                             (mission.requiredTalents &&
                                                 (mission.requiredTalents
                                                     .negotiation ||
@@ -483,41 +578,56 @@ export function GlobalSearchPanel() {
                                                     className="w-full px-2.5 py-2 flex items-center justify-between gap-2 text-left"
                                                 >
                                                     <div className="flex flex-col gap-0.5">
-                                                        <span className="font-semibold text-zinc-50">
-                                                            {mission.id} –{" "}
-                                                            {mission.name}
-                                                        </span>
-                                                        <div className="flex flex-wrap items-center gap-1 text-[0.65rem] text-zinc-400">
-                                                            {mission.arc && (
-                                                                <span>
-                                                                    {mission.arc}
-                                                                </span>
-                                                            )}
+                                                        <div className="flex items-center gap-1.5">
+                                                            <span className="text-[0.65rem] font-mono text-zinc-400">
+                                                                {mission.id}
+                                                            </span>
+                                                            <span className="font-semibold text-zinc-50">
+                                                                {mission.name}
+                                                            </span>
+                                                        </div>
+                                                        <div className="flex flex-wrap items-center gap-1.5">
                                                             {mission.questType && (
-                                                                <span>
-                                                                    •{" "}
+                                                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
                                                                     {
                                                                         mission.questType
                                                                     }
                                                                 </span>
                                                             )}
-                                                            {mission.rank !=
-                                                                null && (
-                                                                <span>
-                                                                    • Rec. Lv.{" "}
+                                                            {mission.region && (
+                                                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
                                                                     {
-                                                                        mission.rank
+                                                                        mission.region
                                                                     }
                                                                 </span>
                                                             )}
+                                                            {mission.tags &&
+                                                                mission.tags.map(
+                                                                    (t) => (
+                                                                        <span
+                                                                            key={
+                                                                                t
+                                                                            }
+                                                                            className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-400"
+                                                                        >
+                                                                            {t}
+                                                                        </span>
+                                                                    ),
+                                                                )}
                                                             {mission.missable && (
-                                                                <span className="inline-flex items-center rounded-full border border-rose-500/80 bg-rose-950/40 text-rose-300 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.16em]">
+                                                                <span className="inline-flex items-center rounded-full border border-rose-400/70 bg-rose-500/10 px-1.5 py-px text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-rose-300">
                                                                     Missable
+                                                                </span>
+                                                            )}
+                                                            {hasRetro && (
+                                                                <span className="inline-flex items-center rounded-full border border-emerald-400/70 bg-emerald-500/10 px-1.5 py-px text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-emerald-300">
+                                                                    Retro
+                                                                    goals
                                                                 </span>
                                                             )}
                                                         </div>
                                                     </div>
-                                                    <span className="flex items-center gap-1 text-[0.65rem] text-zinc-400 shrink-0">
+                                                    <span className="flex items-center gap-1 text-[0.65rem] text-zinc-400">
                                                         <span>
                                                             {isOpen
                                                                 ? "Hide details"
@@ -528,92 +638,50 @@ export function GlobalSearchPanel() {
                                                 </button>
 
                                                 {isOpen && (
-                                                    <div className="px-2.5 pb-2 pt-0.5 space-y-1.75 border-t border-zinc-800/80">
-                                                        {/* Overview: description + basic meta */}
-                                                        <CollapsibleSection
-                                                            title="Overview"
-                                                            defaultOpen
-                                                        >
-                                                            {mission.description && (
-                                                                <p className="text-zinc-300 mb-1">
+                                                    <div className="px-2.5 pb-2 pt-0.5 space-y-2 border-t border-zinc-800/80">
+                                                        {mission.description && (
+                                                            <p className="text-zinc-300 text-[0.75rem]">
+                                                                {
+                                                                    mission.description
+                                                                }
+                                                            </p>
+                                                        )}
+
+                                                        {/* Objective */}
+                                                        {(mission as any)
+                                                            .objective && (
+                                                            <div className="text-[0.7rem] text-zinc-100">
+                                                                <span className="text-zinc-400">
+                                                                    Objective:
+                                                                </span>{" "}
+                                                                <span className="font-medium">
                                                                     {
-                                                                        mission.description
+                                                                        (
+                                                                            mission as any
+                                                                        )
+                                                                            .objective
                                                                     }
-                                                                </p>
-                                                            )}
-
-                                                            <div className="grid grid-cols-2 gap-x-4 gap-y-1">
-                                                                {mission.location && (
-                                                                    <div>
-                                                                        <span className="text-zinc-400">
-                                                                            Location:
-                                                                        </span>{" "}
-                                                                        <span className="font-medium">
-                                                                            {
-                                                                                mission.location
-                                                                            }
-                                                                        </span>
-                                                                    </div>
-                                                                )}
-                                                                {mission.region && (
-                                                                    <div>
-                                                                        <span className="text-zinc-400">
-                                                                            Region:
-                                                                        </span>{" "}
-                                                                        <span className="font-medium">
-                                                                            {
-                                                                                mission.region
-                                                                            }
-                                                                        </span>
-                                                                    </div>
-                                                                )}
-                                                                {mission.objective && (
-                                                                    <div className="col-span-2">
-                                                                        <span className="text-zinc-400">
-                                                                            Objective:
-                                                                        </span>{" "}
-                                                                        <span className="font-medium">
-                                                                            {
-                                                                                mission.objective
-                                                                            }
-                                                                        </span>
-                                                                    </div>
-                                                                )}
-                                                                {mission.failure && (
-                                                                    <div className="col-span-2">
-                                                                        <span className="text-zinc-400">
-                                                                            Fail:
-                                                                        </span>{" "}
-                                                                        <span className="font-medium">
-                                                                            {
-                                                                                mission.failure
-                                                                            }
-                                                                        </span>
-                                                                    </div>
-                                                                )}
+                                                                </span>
                                                             </div>
-                                                        </CollapsibleSection>
+                                                        )}
 
-                                                        {/* Requirements: items, talents, dispatch */}
-                                                        {hasRequirements && (
-                                                            <CollapsibleSection title="Requirements">
-                                                                {mission
-                                                                    .requiredItems &&
-                                                                    mission
-                                                                        .requiredItems
-                                                                        .length >
-                                                                        0 && (
-                                                                        <div>
-                                                                            <span className="text-zinc-400">
-                                                                                Required items:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {mission.requiredItems.join(
-                                                                                    ", ",
-                                                                                )}
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
+                                                        {/* Dispatch info */}
+                                                        {hasDispatch && (
+                                                            <CollapsibleSection
+                                                                title="Dispatch requirements & hints"
+                                                            >
+                                                                {mission.requiredItems && (
+                                                                    <div>
+                                                                        <span className="text-zinc-400">
+                                                                            Required items:
+                                                                        </span>{" "}
+                                                                        <span className="font-medium">
+                                                                            {mission.requiredItems.join(
+                                                                                ", ",
+                                                                            )}
+                                                                        </span>
+                                                                    </div>
+                                                                )}
 
                                                                 {mission
                                                                     .requiredTalents && (
@@ -693,7 +761,7 @@ export function GlobalSearchPanel() {
                                                                         0 && (
                                                                         <div className="mt-1">
                                                                             <span className="text-zinc-400">
-                                                                                Recommended for dispatch:
+                                                                                Recommended jobs:
                                                                             </span>{" "}
                                                                             <span className="font-medium">
                                                                                 {mission.dispatchRecommended.join(
@@ -708,120 +776,114 @@ export function GlobalSearchPanel() {
                                                         {/* Rewards */}
                                                         {hasRewards && (
                                                             <CollapsibleSection title="Rewards">
-                                                                <div className="grid grid-cols-2 gap-x-4 gap-y-1">
-                                                                    {mission
-                                                                        .rewards
-                                                                        ?.gil && (
-                                                                        <div>
-                                                                            <span className="text-zinc-400">
-                                                                                Gil:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {
-                                                                                    mission
-                                                                                        .rewards
-                                                                                        .gil
-                                                                                }
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
-                                                                    {mission
-                                                                        .rewards
-                                                                        ?.exp && (
-                                                                        <div>
-                                                                            <span className="text-zinc-400">
-                                                                                EXP:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {
-                                                                                    mission
-                                                                                        .rewards
-                                                                                        .exp
-                                                                                }
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
-                                                                    {mission
-                                                                        .rewards
-                                                                        ?.cp && (
-                                                                        <div>
-                                                                            <span className="text-zinc-400">
-                                                                                Clan points:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {
-                                                                                    mission
-                                                                                        .rewards
-                                                                                        .cp
-                                                                                }
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
-                                                                    {mission
-                                                                        .rewards
-                                                                        ?.loot && (
-                                                                        <div>
-                                                                            <span className="text-zinc-400">
-                                                                                Loot:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {
-                                                                                    mission
-                                                                                        .rewards
-                                                                                        .loot
-                                                                                }
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
-                                                                    {mission
-                                                                        .rewards
-                                                                        ?.items && (
-                                                                        <div className="col-span-2">
-                                                                            <span className="text-zinc-400">
-                                                                                Items:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {mission.rewards.items.join(
-                                                                                    ", ",
-                                                                                )}
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
-                                                                </div>
+                                                                {mission
+                                                                    .rewards
+                                                                    ?.gil && (
+                                                                    <div>
+                                                                        <span className="text-zinc-400">
+                                                                            Gil:
+                                                                        </span>{" "}
+                                                                        <span className="font-medium">
+                                                                            {
+                                                                                mission
+                                                                                    .rewards
+                                                                                    .gil
+                                                                            }
+                                                                        </span>
+                                                                    </div>
+                                                                )}
+                                                                {mission
+                                                                    .rewards
+                                                                    ?.items && (
+                                                                    <div>
+                                                                        <span className="text-zinc-400">
+                                                                            Items:
+                                                                        </span>{" "}
+                                                                        <span className="font-medium">
+                                                                            {mission.rewards.items.join(
+                                                                                ", ",
+                                                                            )}
+                                                                        </span>
+                                                                    </div>
+                                                                )}
+                                                                {mission
+                                                                    .rewards
+                                                                    ?.abilities && (
+                                                                    <div>
+                                                                        <span className="text-zinc-400">
+                                                                            Abilities:
+                                                                        </span>{" "}
+                                                                        <span className="font-medium">
+                                                                            {mission.rewards.abilities.join(
+                                                                                ", ",
+                                                                            )}
+                                                                        </span>
+                                                                    </div>
+                                                                )}
                                                             </CollapsibleSection>
                                                         )}
 
-                                                        {/* Mission-specific RetroAchievements */}
+                                                        {/* RetroAchievements for this mission */}
                                                         {hasRetro && (
-                                                            <CollapsibleSection title="RetroAchievements">
-                                                                <ul className="space-y-0.75">
+                                                            <CollapsibleSection title="RetroAchievements for this mission">
+                                                                <ul className="space-y-0.75 text-[0.7rem]">
                                                                     {retroList.map(
-                                                                        (ach) => (
-                                                                            <li
-                                                                                key={
-                                                                                    ach.id
-                                                                                }
-                                                                                className="flex flex-col"
-                                                                            >
-                                                                                <div className="flex flex-wrap items-center gap-1">
-                                                                                    <span className="font-medium text-[0.7rem]">
-                                                                                        {
-                                                                                            ach.name
-                                                                                        }
-                                                                                    </span>
-                                                                                    {ach.missable && (
-                                                                                        <span className="inline-flex items-center rounded-full border border-rose-500/80 bg-rose-950/40 text-rose-300 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.16em]">
-                                                                                            Missable
-                                                                                        </span>
-                                                                                    )}
-                                                                                </div>
-                                                                                <span className="text-[0.65rem] text-zinc-400">
-                                                                                    {
-                                                                                        ach.description
+                                                                        (
+                                                                            ach,
+                                                                        ) => {
+                                                                            const key = `retro:${ach.id}`;
+                                                                            const isChecked =
+                                                                                !!checked[
+                                                                                    key
+                                                                                ];
+
+                                                                            return (
+                                                                                <li
+                                                                                    key={
+                                                                                        ach.id
                                                                                     }
-                                                                                </span>
-                                                                            </li>
-                                                                        ),
+                                                                                >
+                                                                                    <label className="flex items-start gap-2 cursor-pointer">
+                                                                                        <input
+                                                                                            type="checkbox"
+                                                                                            className="mt-0.5 h-3.5 w-3.5 rounded border-zinc-400 text-emerald-500 focus:ring-emerald-500/70"
+                                                                                            checked={
+                                                                                                isChecked
+                                                                                            }
+                                                                                            onChange={(
+                                                                                                e,
+                                                                                            ) =>
+                                                                                                setCheck(
+                                                                                                    key,
+                                                                                                    e
+                                                                                                        .target
+                                                                                                        .checked,
+                                                                                                )
+                                                                                            }
+                                                                                        />
+                                                                                        <div>
+                                                                                            <div className="flex flex-wrap items-center gap-1">
+                                                                                                <span className="font-medium">
+                                                                                                    {
+                                                                                                        ach.name
+                                                                                                    }
+                                                                                                </span>
+                                                                                                {ach.missable && (
+                                                                                                    <span className="inline-flex items-center rounded-full border border-rose-400/70 bg-rose-500/10 px-1.5 py-px text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-rose-300">
+                                                                                                        Missable
+                                                                                                    </span>
+                                                                                                )}
+                                                                                            </div>
+                                                                                            <p className="text-zinc-300 text-[0.7rem]">
+                                                                                                {
+                                                                                                    ach.description
+                                                                                                }
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </label>
+                                                                                </li>
+                                                                            );
+                                                                        },
                                                                     )}
                                                                 </ul>
                                                             </CollapsibleSection>
@@ -838,146 +900,318 @@ export function GlobalSearchPanel() {
 
                                                                         const hasAbilities =
                                                                             !!loadout &&
-                                                                            !!(loadout.A1 || loadout.A2 || loadout.R || loadout.P);
-                                                                        const hasEquipment = equip.length > 0;
-                                                                        const hasDetails = hasAbilities || hasEquipment;
+                                                                            (Boolean(
+                                                                                loadout.P ||
+                                                                                loadout.A1 ||
+                                                                                loadout.A2,
+                                                                            ) ||
+                                                                                Boolean(
+                                                                                    loadout.R ||
+                                                                                    loadout.S ||
+                                                                                    loadout.C,
+                                                                                ));
 
-                                                                        // If literally nothing to show for this enemy, skip
-                                                                        if (!enemy.name && !enemy.type && !enemy.notes && !hasDetails) {
-                                                                            return null;
-                                                                        }
+                                                                        const hasEquipment =
+                                                                            !!equip &&
+                                                                            (Boolean(
+                                                                                equip.weapon ||
+                                                                                equip.offhand,
+                                                                            ) ||
+                                                                                Boolean(
+                                                                                    equip.head ||
+                                                                                    equip.body ||
+                                                                                    equip.accessory,
+                                                                                ));
 
                                                                         return (
                                                                             <li
-                                                                                key={idx}
-                                                                                className="rounded-md border border-zinc-800/80 bg-zinc-950/90 px-2 py-1.5 space-y-0.75"
+                                                                                key={
+                                                                                    enemy.name ??
+                                                                                    `${mission.id}-enemy-${idx}`
+                                                                                }
+                                                                                className="border border-zinc-800/80 rounded-md bg-zinc-950/50 px-2 py-1.5"
                                                                             >
-                                                                                {/* header row: name + type */}
+                                                                                {/* Enemy header */}
                                                                                 <div className="flex flex-wrap items-center justify-between gap-2">
-                                                                                    <div className="flex flex-wrap items-baseline gap-2">
-                                                                                        {enemy.name && (
-                                                                                            <span className="font-semibold text-zinc-50">
-                                                                                                {enemy.name}
+                                                                                    <div className="flex flex-wrap items-center gap-1.5">
+                                                                                        <span className="font-semibold text-zinc-50">
+                                                                                            {enemy.name ??
+                                                                                                `Enemy ${idx + 1}`}
+                                                                                        </span>
+                                                                                        {enemy.race && (
+                                                                                            <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                                                                                {
+                                                                                                    enemy.race
+                                                                                                }
                                                                                             </span>
                                                                                         )}
                                                                                         {enemy.job && (
-                                                                                            <span className="inline-flex items-center rounded-full border border-zinc-600/80 bg-zinc-900/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-zinc-300">
-                                                                                                {enemy.job}
+                                                                                            <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                                                                                {
+                                                                                                    enemy.job
+                                                                                                }
+                                                                                            </span>
+                                                                                        )}
+                                                                                        {enemy.notes && (
+                                                                                            <span className="text-[0.65rem] text-zinc-400">
+                                                                                                {
+                                                                                                    enemy.notes
+                                                                                                }
                                                                                             </span>
                                                                                         )}
                                                                                     </div>
                                                                                 </div>
 
-                                                                                {/* notes */}
-                                                                                {enemy.notes && (
-                                                                                    <div className="text-[0.65rem] text-zinc-300">
-                                                                                        {enemy.notes}
-                                                                                    </div>
-                                                                                )}
-
-                                                                                {/* full loadout details – same level as Mission Hub */}
-                                                                                {hasDetails && loadout && (
-                                                                                    <div className="mt-0.5 space-y-0.75 text-[0.65rem] text-zinc-200">
-                                                                                        {/* A1 */}
-                                                                                        {loadout.A1 && (
-                                                                                            <div className="space-y-0.25">
-                                                                                                <div className="font-medium">
-                                                                                                    A1 – {loadout.A1.setName}
-                                                                                                </div>
-                                                                                                {loadout.A1.abilities &&
-                                                                                                    loadout.A1.abilities.length > 0 && (
-                                                                                                        <ul className="list-disc list-inside space-y-0.25">
-                                                                                                            {loadout.A1.abilities.map(
-                                                                                                                (ab) => (
-                                                                                                                    <li key={ab.id}>
-                                                                                                                        <span className="font-medium">
-                                                                                                                            {ab.name}
-                                                                                                                        </span>
-                                                                                                                    </li>
-                                                                                                                ),
+                                                                                {/* Loadout */}
+                                                                                {(hasAbilities || hasEquipment) && (
+                                                                                    <div className="mt-1.5 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                                                                        {/* Abilities */}
+                                                                                        {hasAbilities && loadout && (
+                                                                                            <div className="space-y-0.75">
+                                                                                                {/* P */}
+                                                                                                {loadout.P && (
+                                                                                                    <div className="space-y-0.25">
+                                                                                                        <div className="font-medium">
+                                                                                                            P –{" "}
+                                                                                                            {
+                                                                                                                loadout
+                                                                                                                    .P
+                                                                                                                    .setName
+                                                                                                            }
+                                                                                                        </div>
+                                                                                                        {loadout.P.setDescription && (
+                                                                                                            <div className="text-zinc-300">
+                                                                                                                {
+                                                                                                                    loadout
+                                                                                                                        .P
+                                                                                                                        .setDescription
+                                                                                                                }
+                                                                                                            </div>
+                                                                                                        )}
+                                                                                                        {loadout.P.abilities &&
+                                                                                                            loadout.P.abilities.length >
+                                                                                                                0 && (
+                                                                                                                <ul className="list-disc list-inside space-y-0.25">
+                                                                                                                    {loadout.P.abilities.map(
+                                                                                                                        (
+                                                                                                                            ab,
+                                                                                                                        ) => (
+                                                                                                                            <li
+                                                                                                                                key={
+                                                                                                                                    ab.id
+                                                                                                                                }
+                                                                                                                            >
+                                                                                                                                {
+                                                                                                                                    ab.name
+                                                                                                                                }
+                                                                                                                            </li>
+                                                                                                                        ),
+                                                                                                                    )}
+                                                                                                                </ul>
                                                                                                             )}
-                                                                                                        </ul>
-                                                                                                    )}
-                                                                                            </div>
-                                                                                        )}
-
-                                                                                        {/* A2 */}
-                                                                                        {loadout.A2 && (
-                                                                                            <div className="space-y-0.25">
-                                                                                                <div className="font-medium">
-                                                                                                    A2 – {loadout.A2.setName}
-                                                                                                </div>
-                                                                                                {loadout.A2.setDescription && (
-                                                                                                    <div className="text-zinc-300">
-                                                                                                        {loadout.A2.setDescription}
                                                                                                     </div>
                                                                                                 )}
-                                                                                                {loadout.A2.abilities &&
-                                                                                                    loadout.A2.abilities.length > 0 && (
-                                                                                                        <ul className="list-disc list-inside space-y-0.25">
-                                                                                                            {loadout.A2.abilities.map(
-                                                                                                                (ab) => (
-                                                                                                                    <li key={ab.id}>
-                                                                                                                        <span className="font-medium">
-                                                                                                                            {ab.name}
-                                                                                                                        </span>
-                                                                                                                        {ab.description && (
-                                                                                                                            <span className="text-zinc-300">
-                                                                                                                                {": "}
-                                                                                                                                {
-                                                                                                                                    ab.description
+
+                                                                                                {/* A1 */}
+                                                                                                {loadout.A1 && (
+                                                                                                    <div className="space-y-0.25">
+                                                                                                        <div className="font-medium">
+                                                                                                            A1 –{" "}
+                                                                                                            {
+                                                                                                                loadout
+                                                                                                                    .A1
+                                                                                                                    .setName
+                                                                                                            }
+                                                                                                        </div>
+                                                                                                        {loadout.A1.setDescription && (
+                                                                                                            <div className="text-zinc-300">
+                                                                                                                {
+                                                                                                                    loadout
+                                                                                                                        .A1
+                                                                                                                        .setDescription
+                                                                                                                }
+                                                                                                            </div>
+                                                                                                        )}
+                                                                                                        {loadout.A1.abilities &&
+                                                                                                            loadout.A1.abilities.length >
+                                                                                                                0 && (
+                                                                                                                <ul className="list-disc list-inside space-y-0.25">
+                                                                                                                    {loadout.A1.abilities.map(
+                                                                                                                        (
+                                                                                                                            ab,
+                                                                                                                        ) => (
+                                                                                                                            <li
+                                                                                                                                key={
+                                                                                                                                    ab.id
                                                                                                                                 }
-                                                                                                                            </span>
-                                                                                                                        )}
-                                                                                                                    </li>
-                                                                                                                ),
+                                                                                                                            >
+                                                                                                                                {
+                                                                                                                                    ab.name
+                                                                                                                                }
+                                                                                                                            </li>
+                                                                                                                        ),
+                                                                                                                    )}
+                                                                                                                </ul>
                                                                                                             )}
-                                                                                                        </ul>
-                                                                                                    )}
-                                                                                            </div>
-                                                                                        )}
-
-                                                                                        {/* R */}
-                                                                                        {loadout.R && (
-                                                                                            <div>
-                                                                                                <span className="font-medium">
-                                                                                                    R – {loadout.R.name}
-                                                                                                </span>
-                                                                                                {loadout.R.description && (
-                                                                                                    <span className="text-zinc-300">
-                                                                                                        {": "}
-                                                                                                        {loadout.R.description}
-                                                                                                    </span>
+                                                                                                    </div>
                                                                                                 )}
-                                                                                            </div>
-                                                                                        )}
 
-                                                                                        {/* P */}
-                                                                                        {loadout.P && (
-                                                                                            <div>
-                                                                                                <span className="font-medium">
-                                                                                                    P – {loadout.P.name}
-                                                                                                </span>
-                                                                                                {loadout.P.description && (
-                                                                                                    <span className="text-zinc-300">
-                                                                                                        {": "}
-                                                                                                        {loadout.P.description}
-                                                                                                    </span>
+                                                                                                {/* A2 */}
+                                                                                                {loadout.A2 && (
+                                                                                                    <div className="space-y-0.25">
+                                                                                                        <div className="font-medium">
+                                                                                                            A2 –{" "}
+                                                                                                            {
+                                                                                                                loadout
+                                                                                                                    .A2
+                                                                                                                    .setName
+                                                                                                            }
+                                                                                                        </div>
+                                                                                                        {loadout.A2.setDescription && (
+                                                                                                            <div className="text-zinc-300">
+                                                                                                                {
+                                                                                                                    loadout
+                                                                                                                        .A2
+                                                                                                                        .setDescription
+                                                                                                                }
+                                                                                                            </div>
+                                                                                                        )}
+                                                                                                        {loadout.A2.abilities &&
+                                                                                                            loadout.A2.abilities.length >
+                                                                                                                0 && (
+                                                                                                                <ul className="list-disc list-inside space-y-0.25">
+                                                                                                                    {loadout.A2.abilities.map(
+                                                                                                                        (
+                                                                                                                            ab,
+                                                                                                                        ) => (
+                                                                                                                            <li
+                                                                                                                                key={
+                                                                                                                                    ab.id
+                                                                                                                                }
+                                                                                                                            >
+                                                                                                                                {
+                                                                                                                                    ab.name
+                                                                                                                                }
+                                                                                                                            </li>
+                                                                                                                        ),
+                                                                                                                    )}
+                                                                                                                </ul>
+                                                                                                            )}
+                                                                                                    </div>
+                                                                                                )}
+
+                                                                                                {/* R / S / C */}
+                                                                                                {(loadout.R ||
+                                                                                                    loadout.S ||
+                                                                                                    loadout.C) && (
+                                                                                                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 text-[0.65rem]">
+                                                                                                        {loadout.R && (
+                                                                                                            <div>
+                                                                                                                <div className="font-medium">
+                                                                                                                    R
+                                                                                                                </div>
+                                                                                                                <div className="text-zinc-300">
+                                                                                                                    {
+                                                                                                                        loadout
+                                                                                                                            .R
+                                                                                                                    }
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        )}
+                                                                                                        {loadout.S && (
+                                                                                                            <div>
+                                                                                                                <div className="font-medium">
+                                                                                                                    S
+                                                                                                                </div>
+                                                                                                                <div className="text-zinc-300">
+                                                                                                                    {
+                                                                                                                        loadout
+                                                                                                                            .S
+                                                                                                                    }
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        )}
+                                                                                                        {loadout.C && (
+                                                                                                            <div>
+                                                                                                                <div className="font-medium">
+                                                                                                                    C
+                                                                                                                </div>
+                                                                                                                <div className="text-zinc-300">
+                                                                                                                    {
+                                                                                                                        loadout
+                                                                                                                            .C
+                                                                                                                    }
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        )}
+                                                                                                    </div>
                                                                                                 )}
                                                                                             </div>
                                                                                         )}
 
                                                                                         {/* Equipment */}
-                                                                                        {hasEquipment && (
-                                                                                            <div>
-                                                                                                <span className="text-zinc-400">
-                                                                                                    Equipment:
-                                                                                                </span>{" "}
-                                                                                                <span className="font-medium">
-                                                                                                    {equip
-                                                                                                        .map((e) => e.name)
-                                                                                                        .join(", ")}
-                                                                                                </span>
+                                                                                        {hasEquipment && equip && (
+                                                                                            <div className="space-y-0.75">
+                                                                                                {equip.weapon && (
+                                                                                                    <div>
+                                                                                                        <span className="text-zinc-400">
+                                                                                                            Weapon:
+                                                                                                        </span>{" "}
+                                                                                                        <span className="font-medium">
+                                                                                                            {
+                                                                                                                equip.weapon
+                                                                                                            }
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                )}
+                                                                                                {equip.offhand && (
+                                                                                                    <div>
+                                                                                                        <span className="text-zinc-400">
+                                                                                                            Off-hand:
+                                                                                                        </span>{" "}
+                                                                                                        <span className="font-medium">
+                                                                                                            {
+                                                                                                                equip.offhand
+                                                                                                            }
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                )}
+                                                                                                {equip.head && (
+                                                                                                    <div>
+                                                                                                        <span className="text-zinc-400">
+                                                                                                            Head:
+                                                                                                        </span>{" "}
+                                                                                                        <span className="font-medium">
+                                                                                                            {
+                                                                                                                equip.head
+                                                                                                            }
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                )}
+                                                                                                {equip.body && (
+                                                                                                    <div>
+                                                                                                        <span className="text-zinc-400">
+                                                                                                            Body:
+                                                                                                        </span>{" "}
+                                                                                                        <span className="font-medium">
+                                                                                                            {
+                                                                                                                equip.body
+                                                                                                            }
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                )}
+                                                                                                {equip.accessory && (
+                                                                                                    <div>
+                                                                                                        <span className="text-zinc-400">
+                                                                                                            Accessory:
+                                                                                                        </span>{" "}
+                                                                                                        <span className="font-medium">
+                                                                                                            {
+                                                                                                                equip.accessory
+                                                                                                            }
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                )}
                                                                                             </div>
                                                                                         )}
                                                                                     </div>
@@ -988,8 +1222,7 @@ export function GlobalSearchPanel() {
                                                                 </ul>
                                                             </CollapsibleSection>
                                                         )}
-
-                                                        </div>
+                                                    </div>
                                                 )}
                                             </li>
                                         );
@@ -998,8 +1231,8 @@ export function GlobalSearchPanel() {
                             )}
                         </>
                     )}
-                    
-                    {/* EQUIPMENT TAB (hub-level detail) */}
+
+                    {/* EQUIPMENT TAB */}
                     {tab === "equipment" && (
                         <>
                             {filteredEquipment.length === 0 ? (
@@ -1011,23 +1244,6 @@ export function GlobalSearchPanel() {
                                     {filteredEquipment.map(({ item }) => {
                                         const isOpen =
                                             openEquipment[item.id] ?? false;
-                                        const subtypes: string[] = [];
-                                        if ((item as any).weaponType)
-                                            subtypes.push(
-                                                (item as any).weaponType,
-                                            );
-                                        if ((item as any).helmetType)
-                                            subtypes.push(
-                                                (item as any).helmetType,
-                                            );
-                                        if ((item as any).armorType)
-                                            subtypes.push(
-                                                (item as any).armorType,
-                                            );
-                                        if ((item as any).accessoryType)
-                                            subtypes.push(
-                                                (item as any).accessoryType,
-                                            );
 
                                         return (
                                             <li
@@ -1052,13 +1268,7 @@ export function GlobalSearchPanel() {
                                                             {item.name}
                                                         </span>
                                                         <span className="text-[0.65rem] text-zinc-400">
-                                                            {item.category ??
-                                                                "Other"}
-                                                            {subtypes.length >
-                                                                0 &&
-                                                                ` • ${subtypes.join(
-                                                                    ", ",
-                                                                )}`}
+                                                            {item.category}
                                                         </span>
                                                     </div>
                                                     <span className="flex items-center gap-1 text-[0.65rem] text-zinc-400">
@@ -1070,9 +1280,8 @@ export function GlobalSearchPanel() {
                                                         {renderChevron(isOpen)}
                                                     </span>
                                                 </button>
-
                                                 {isOpen && (
-                                                    <div className="px-2.5 pb-2 pt-0.5 space-y-1.5 border-t border-zinc-800/80">
+                                                    <div className="px-2.5 pb-2 pt-0.5 space-y-1.5 border-t border-zinc-800/80 text-[0.7rem] text-zinc-100">
                                                         {item.description && (
                                                             <p className="text-zinc-300">
                                                                 {
@@ -1080,18 +1289,90 @@ export function GlobalSearchPanel() {
                                                                 }
                                                             </p>
                                                         )}
-                                                        {item.notes && (
-                                                            <p className="text-zinc-400">
-                                                                {item.notes}
-                                                            </p>
+
+                                                        {item.stats && (
+                                                            <div className="grid grid-cols-3 gap-x-3 gap-y-0.5">
+                                                                {item.stats
+                                                                    .atk && (
+                                                                    <div>
+                                                                        <span className="text-zinc-400">
+                                                                            ATK:
+                                                                        </span>{" "}
+                                                                        <span className="font-medium">
+                                                                            {
+                                                                                item
+                                                                                    .stats
+                                                                                    .atk
+                                                                            }
+                                                                        </span>
+                                                                    </div>
+                                                                )}
+                                                                {item.stats
+                                                                    .mag && (
+                                                                    <div>
+                                                                        <span className="text-zinc-400">
+                                                                            MAG:
+                                                                        </span>{" "}
+                                                                        <span className="font-medium">
+                                                                            {
+                                                                                item
+                                                                                    .stats
+                                                                                    .mag
+                                                                            }
+                                                                        </span>
+                                                                    </div>
+                                                                )}
+                                                                {item.stats
+                                                                    .def && (
+                                                                    <div>
+                                                                        <span className="text-zinc-400">
+                                                                            DEF:
+                                                                        </span>{" "}
+                                                                        <span className="font-medium">
+                                                                            {
+                                                                                item
+                                                                                    .stats
+                                                                                    .def
+                                                                            }
+                                                                        </span>
+                                                                    </div>
+                                                                )}
+                                                                {item.stats
+                                                                    .res && (
+                                                                    <div>
+                                                                        <span className="text-zinc-400">
+                                                                            RES:
+                                                                        </span>{" "}
+                                                                        <span className="font-medium">
+                                                                            {
+                                                                                item
+                                                                                    .stats
+                                                                                    .res
+                                                                            }
+                                                                        </span>
+                                                                    </div>
+                                                                )}
+                                                                {item.stats
+                                                                    .spd && (
+                                                                    <div>
+                                                                        <span className="text-zinc-400">
+                                                                            SPD:
+                                                                        </span>{" "}
+                                                                        <span className="font-medium">
+                                                                            {
+                                                                                item
+                                                                                    .stats
+                                                                                    .spd
+                                                                            }
+                                                                        </span>
+                                                                    </div>
+                                                                )}
+                                                            </div>
                                                         )}
 
                                                         {item.teaches && (
-                                                            <div className="text-[0.7rem] text-zinc-300 space-y-0.5">
-                                                                <div className="font-medium text-zinc-100">
-                                                                    Teaches:
-                                                                </div>
-                                                                <ul className="list-disc list-inside space-y-0.25">
+                                                            <CollapsibleSection title="Teaches">
+                                                                <ul className="space-y-0.5">
                                                                     {Object.entries(
                                                                         item.teaches,
                                                                     ).map(
@@ -1099,8 +1380,12 @@ export function GlobalSearchPanel() {
                                                                             job,
                                                                             ids,
                                                                         ]) => {
-                                                                            const display =
-                                                                                ids
+                                                                            const label =
+                                                                                job;
+                                                                            const abilities =
+                                                                                (
+                                                                                    ids as string[]
+                                                                                )
                                                                                     .map(
                                                                                         (
                                                                                             id,
@@ -1134,21 +1419,23 @@ export function GlobalSearchPanel() {
                                                                                         job
                                                                                     }
                                                                                 >
-                                                                                    <span className="font-medium">
+                                                                                    <span className="text-zinc-400">
                                                                                         {
-                                                                                            job
+                                                                                            label
                                                                                         }
                                                                                         :
                                                                                     </span>{" "}
-                                                                                    {
-                                                                                        display
-                                                                                    }
+                                                                                    <span className="font-medium">
+                                                                                        {
+                                                                                            abilities
+                                                                                        }
+                                                                                    </span>
                                                                                 </li>
                                                                             );
                                                                         },
                                                                     )}
                                                                 </ul>
-                                                            </div>
+                                                            </CollapsibleSection>
                                                         )}
                                                     </div>
                                                 )}
@@ -1199,11 +1486,26 @@ export function GlobalSearchPanel() {
                                                                     ability.name
                                                                 }
                                                             </span>
-                                                            <span className="text-[0.65rem] text-zinc-400">
-                                                                {
-                                                                    set.name
-                                                                }
-                                                            </span>
+                                                            <div className="flex flex-wrap items-center gap-1.5">
+                                                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                                                    {
+                                                                        set.name
+                                                                    }
+                                                                </span>
+                                                                {ability.job && (
+                                                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                                                        {
+                                                                            ability.job
+                                                                        }
+                                                                    </span>
+                                                                )}
+                                                                {ability.cost && (
+                                                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                                                        {ability.cost}{" "}
+                                                                        AP
+                                                                    </span>
+                                                                )}
+                                                            </div>
                                                         </div>
                                                         <span className="flex items-center gap-1 text-[0.65rem] text-zinc-400">
                                                             <span>
@@ -1216,22 +1518,77 @@ export function GlobalSearchPanel() {
                                                             )}
                                                         </span>
                                                     </button>
-
                                                     {isOpen && (
-                                                        <div className="px-2.5 pb-2 pt-0.5 space-y-1.5 border-t border-zinc-800/80">
-                                                            {set.description && (
-                                                                <p className="text-[0.7rem] text-zinc-400">
-                                                                    {
-                                                                        set.description
-                                                                    }
-                                                                </p>
-                                                            )}
+                                                        <div className="px-2.5 pb-2 pt-0.5 space-y-1.5 border-t border-zinc-800/80 text-[0.7rem] text-zinc-100">
                                                             {ability.description && (
                                                                 <p className="text-zinc-300">
                                                                     {
                                                                         ability.description
                                                                     }
                                                                 </p>
+                                                            )}
+
+                                                            {(ability.element ||
+                                                                ability.inflicts ||
+                                                                ability.immune) && (
+                                                                <div className="flex flex-wrap gap-1">
+                                                                    {ability.element && (
+                                                                        <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                                                            Element:{" "}
+                                                                            {ability.element.join(
+                                                                                ", ",
+                                                                            )}
+                                                                        </span>
+                                                                    )}
+                                                                    {ability.inflicts && (
+                                                                        <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                                                            Inflicts:{" "}
+                                                                            {ability.inflicts.join(
+                                                                                ", ",
+                                                                            )}
+                                                                        </span>
+                                                                    )}
+                                                                    {ability.immune && (
+                                                                        <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                                                            Grants
+                                                                            immunity
+                                                                            to:{" "}
+                                                                            {ability.immune.join(
+                                                                                ", ",
+                                                                            )}
+                                                                        </span>
+                                                                    )}
+                                                                </div>
+                                                            )}
+
+                                                            {(ability.requires ||
+                                                                ability.equipmentRequired) && (
+                                                                <div className="space-y-0.5">
+                                                                    {ability.requires && (
+                                                                        <div>
+                                                                            <span className="text-zinc-400">
+                                                                                Requires:
+                                                                            </span>{" "}
+                                                                            <span className="font-medium">
+                                                                                {ability.requires.join(
+                                                                                    ", ",
+                                                                                )}
+                                                                            </span>
+                                                                        </div>
+                                                                    )}
+                                                                    {ability.equipmentRequired && (
+                                                                        <div>
+                                                                            <span className="text-zinc-400">
+                                                                                Req. equipment:
+                                                                            </span>{" "}
+                                                                            <span className="font-medium">
+                                                                                {ability.equipmentRequired.join(
+                                                                                    ", ",
+                                                                                )}
+                                                                            </span>
+                                                                        </div>
+                                                                    )}
+                                                                </div>
                                                             )}
                                                         </div>
                                                     )}
@@ -1258,6 +1615,9 @@ export function GlobalSearchPanel() {
                                             entry;
                                         const isOpen =
                                             openRetros[key] ?? false;
+                                        const progressKey = `retro:${ach.id}`;
+                                        const isChecked =
+                                            !!checked[progressKey];
 
                                         return (
                                             <li
@@ -1267,22 +1627,51 @@ export function GlobalSearchPanel() {
                                                 <button
                                                     type="button"
                                                     onClick={() =>
-                                                        setOpenRetros((prev) => ({
-                                                            ...prev,
-                                                            [key]: !isOpen,
-                                                        }))
+                                                        setOpenRetros(
+                                                            (prev) => ({
+                                                                ...prev,
+                                                                [key]:
+                                                                    !isOpen,
+                                                            }),
+                                                        )
                                                     }
                                                     className="w-full px-2.5 py-2 flex items-center justify-between gap-2 text-left"
                                                 >
-                                                    <div className="flex flex-col gap-0.5">
-                                                        <span className="font-semibold text-zinc-50">
-                                                            {ach.name}
-                                                        </span>
-                                                        <span className="text-[0.65rem] text-zinc-400">
-                                                            {sourceLabel}
-                                                            {ach.missable &&
-                                                                " • Missable"}
-                                                        </span>
+                                                    <div className="flex items-start gap-2">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="mt-0.5 h-3.5 w-3.5 rounded border-zinc-500 text-emerald-500 focus:ring-emerald-500/70"
+                                                            checked={
+                                                                isChecked
+                                                            }
+                                                            onChange={(e) =>
+                                                                setCheck(
+                                                                    progressKey,
+                                                                    e.target
+                                                                        .checked,
+                                                                )
+                                                            }
+                                                            onClick={(e) =>
+                                                                e.stopPropagation()
+                                                            }
+                                                        />
+                                                        <div className="flex flex-col gap-0.5">
+                                                            <span className="font-semibold text-zinc-50">
+                                                                {ach.name}
+                                                            </span>
+                                                            {sourceLabel && (
+                                                                <span className="text-[0.65rem] text-zinc-400">
+                                                                    {
+                                                                        sourceLabel
+                                                                    }
+                                                                </span>
+                                                            )}
+                                                            {ach.missable && (
+                                                                <span className="inline-flex items-center rounded-full border border-rose-400/70 bg-rose-500/10 px-1.5 py-px text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-rose-300">
+                                                                    Missable
+                                                                </span>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                     <span className="flex items-center gap-1 text-[0.65rem] text-zinc-400">
                                                         <span>
@@ -1296,8 +1685,10 @@ export function GlobalSearchPanel() {
 
                                                 {isOpen && (
                                                     <div className="px-2.5 pb-2 pt-0.5 space-y-1.5 border-t border-zinc-800/80">
-                                                        <p className="text-zinc-300">
-                                                            {ach.description}
+                                                        <p className="text-zinc-300 text-[0.75rem]">
+                                                            {
+                                                                ach.description
+                                                            }
                                                         </p>
                                                         {ach.missable && (
                                                             <div className="text-[0.7rem] text-rose-300">

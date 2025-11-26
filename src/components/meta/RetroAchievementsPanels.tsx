@@ -64,7 +64,7 @@ export function RetroAchievementsPanels() {
     const completionPct =
         totalAchievements === 0
             ? 0
-            : Math.round((completedAchievements / totalAchievements) * 100);
+            : Math.round((completedAchievements / totalAchievements) * 1000) / 10;
 
     const headerProgress = (
         <div className="flex items-center justify-between gap-2 text-xs sm:text-sm">

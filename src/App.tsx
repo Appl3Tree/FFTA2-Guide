@@ -9,6 +9,7 @@ import { STORY_MAIN_MISSIONS } from "./data/missions/storyMain";
 import { OPTIONAL_MISSIONS } from "./data/missions/storyOptional";
 import { ProgressProvider, useProgress } from "./components/ProgressContext";
 import { EquipmentHub } from "./components/meta/EquipmentHub";
+import { BazaarPanel } from "./components/meta/BazaarPanel";
 import { AbilityHub } from "./components/meta/AbilityHub";
 import { GlobalSearchPanel } from "./components/meta/GlobalSearchPanel";
 
@@ -36,7 +37,7 @@ function AppInner() {
     const completionPct =
         totalMissions === 0
             ? 0
-            : Math.round((completedMissions / totalMissions) * 100);
+            : Math.round((completedMissions / totalMissions) * 1000) / 10;
 
     const missionHeaderProgress = (
         <div className="flex items-center justify-between gap-2 text-xs sm:text-sm">
@@ -61,38 +62,54 @@ function AppInner() {
     );
 
     return (
-        <div className="min-h-screen flex flex-col items-center bg-gradient-to-b from-zinc-100 via-zinc-100 to-zinc-200 dark:from-zinc-950 dark:via-zinc-950 dark:to-zinc-900 dark:text-zinc-100 transition-colors">
+        <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-zinc-950 to-zinc-900 text-zinc-50">
             <main className="w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
                 <div className="canvas-card">
                     {/* Top banner, modeled after fftaprogression_guide.tsx */}
-                    <div className="bg-gradient-to-r from-purple-600 via-violet-500 to-sky-500 text-white px-4 sm:px-6 py-4 sm:py-5 rounded-t-2xl ring-1 ring-zinc-950/10 dark:ring-white/10 shadow-sm">
-                        <h1 className="text-3xl font-bold mb-1">
-                            FFTA2 Story Progression Guide
-                        </h1>
-                        <p className="text-sm opacity-90">
-                            Story Missions • Side Quests • Races &amp; Jobs •
-                            Clan Systems
-                        </p>
+                    <div className="bg-gradient-to-r from-purple-600/90 to-emerald-500/90 text-white rounded-t-2xl ring-1 ring-zinc-950/10 dark:ring-white/10 shadow-sm">
+                        <div className="px-4 sm:px-6 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                            <div>
+                                <h1 className="text-3xl font-bold mb-1">
+                                    FFTA2 Progression &amp; Completion Guide
+                                </h1>
+                                <p className="text-sm text-zinc-50/90 max-w-xl">
+                                    Track story missions, side quests, RetroAchievements, and
+                                    optimize your clan&apos;s builds as you work through{" "}
+                                    <span className="font-semibold">
+                                        Final Fantasy Tactics A2: Grimoire of the Rift
+                                    </span>
+                                    .
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Main card body */}
-                    <section className="bg-zinc-100 dark:bg-zinc-950/80 ring-1 ring-zinc-950/10 dark:ring-white/10 border-t-0 px-4 sm:px-6 pb-6 sm:pb-8 pt-4 sm:pt-6 space-y-6">
+                    <section className="bg-zinc-100 dark:bg-zinc-950/90 rounded-b-2xl shadow-sm ring-1 ring-zinc-950/10 dark:ring-white/10 border-t-0 px-4 sm:px-6 pb-6 sm:pb-8 pt-4 sm:pt-6 space-y-6">
                         <header className="space-y-4 sm:space-y-6">
                             {/* Pre-game heads-up / info */}
                             <BeforeYouStartPanel />
 
-                            {/* Races & Jobs Overview (kept separate) */}
-                            <RacesPanels />
-
                             {/* RetroAchievements (kept separate) */}
                             <RetroAchievementsPanels />
+
+                            {/* Races & Jobs Overview (kept separate) */}
+                            <RacesPanels />
                         </header>
 
                         <div className="space-y-4 sm:space-y-5">
                             <Panel
+                                title="Bazaar Recipes"
+                                subtitle="See which loot unlocks which bazaar rewards."
+                                tone="yellow"
+                            >
+                                <BazaarPanel />
+                            </Panel>
+
+                            <Panel
                                 title="Equipment Hub"
                                 subtitle="Browse all weapons, armor, and accessories."
-                                tone="green"
+                                tone="emerald"
                             >
                                 <EquipmentHub />
                             </Panel>
@@ -100,18 +117,21 @@ function AppInner() {
                             <Panel
                                 title="Ability Hub"
                                 subtitle="Browse all ability sets and their respective abilities."
-                                tone="purple"
+                                tone="blue"
                             >
                                 <AbilityHub />
                             </Panel>
 
                             <Panel
-                                title="Mission Hub"
-                                subtitle="Browse all quests."
-                                tone="blue"
+                                title="Missions Hub"
+                                subtitle="Track main story and optional quests."
+                                tone="purple"
                                 headerAddon={missionHeaderProgress}
                             >
-                                <MissionTabs />
+                                <MissionTabs
+                                    storyMissions={STORY_MAIN_MISSIONS}
+                                    optionalMissions={OPTIONAL_MISSIONS}
+                                />
                             </Panel>
                         </div>
                     </section>

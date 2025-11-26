@@ -17,7 +17,7 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         id: "quest-chains",
         title: "Notable Quest Chains & Side Missions",
         subtitle: "Which optional lines are worth tracking.",
-        tone: "green",
+        tone: "emerald",
         paragraphs: [
             "Not every side mission is created equal. Some exist mostly for flavor or minor rewards, while others unlock powerful jobs, repeatable loot, or entire new segments of the game. The guide highlights chains that meaningfully change what your clan can do or open up new strategies.",
             "Examples include story-adjacent arcs that introduce important characters, mission lines that lead to rare weapons or accessories, and chains that deepen the Heritor, sky pirate, or clan storyline payoffs. When these show up, the notes will make it clear why they are worth your time.",

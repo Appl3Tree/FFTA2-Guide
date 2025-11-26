@@ -17,13 +17,6 @@ const toneClasses: Record<PanelTone, { border: string; bg: string; header: strin
         pill: "bg-sky-700 dark:bg-sky-700",
     },
 
-    green: {
-        border: "border-emerald-300 dark:border-emerald-700/80",
-        bg: "bg-emerald-400 dark:bg-emerald-950/40",
-        ring: "ring-emerald-400 dark:ring-emerald-700/50",
-        pill: "bg-emerald-700 dark:bg-emerald-700",
-    },
-
     emerald: {
         border: "border-emerald-300 dark:border-emerald-700/80",
         bg: "bg-emerald-400 dark:bg-emerald-950/40",

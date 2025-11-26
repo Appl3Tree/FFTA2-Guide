@@ -23,7 +23,7 @@ export const INTRO_PANELS: MetaPanel[] = [
         id: "early-clan",
         title: "Early Clan Setup & Party Ideas",
         subtitle: "Low-stress starting squads and job ideas.",
-        tone: "green",
+        tone: "emerald",
         paragraphs: [
             "The early game is forgiving as long as you bring a balanced squad. You don’t need perfect stat growth or rare gear to get through the first arcs; you just need a couple of solid frontliners, at least one reliable healer, and some way to hit clustered enemies.",
             "FFTA2 strongly rewards flexible job picks. Humes in particular can branch into many physical and hybrid roles, while Viera, Bangaa, and Nu Mou provide early access to key support and damage jobs. You can safely rotate a few units through basic jobs to unlock their better options without falling behind.",

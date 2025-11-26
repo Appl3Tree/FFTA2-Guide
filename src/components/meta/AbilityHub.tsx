@@ -95,7 +95,7 @@ export function AbilityHub() {
             )}
 
             {filtered.map(({ set, abilities }) => {
-                const isOpen = openSets[set.id] ?? true;
+                const isOpen = openSets[set.id] ?? false;
 
                 return (
                     <section

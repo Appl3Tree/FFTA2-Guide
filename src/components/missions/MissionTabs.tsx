@@ -6,17 +6,10 @@ import { MissionCard } from "./MissionCard";
 import { MISSION_TAGS, type MissionTag } from "../../data/missions/missionTags";
 
 function getMissionSortKey(mission: Mission) {
-    // Prefer mission.id like "A1-01"
     const raw = (mission as any).id || mission.arc;
-
-    // Expected patterns:
-    // - "A1-01" (preferred)
-    // - "A1-1"  (still handled)
-    // - fallback: just "A1"
     const match = raw.match(/^([A-E])(\d)(?:-(\d+))?/i);
 
     if (!match) {
-        // If something weird slips through, push it to the end
         return {
             chapterLetter: "Z",
             arcNumber: 99,
@@ -36,16 +29,9 @@ function sortByArcAndIndex(a: Mission, b: Mission) {
     const A = getMissionSortKey(a);
     const B = getMissionSortKey(b);
 
-    // 1) Sort by chapter letter: A → E
     if (A.chapterLetter < B.chapterLetter) return -1;
     if (A.chapterLetter > B.chapterLetter) return 1;
-
-    // 2) Sort by arc number: 1 → 5
-    if (A.arcNumber !== B.arcNumber) {
-        return A.arcNumber - B.arcNumber;
-    }
-
-    // 3) Sort by mission index within the arc: 01 → 16
+    if (A.arcNumber !== B.arcNumber) return A.arcNumber - B.arcNumber;
     return A.missionIndex - B.missionIndex;
 }
 
@@ -123,14 +109,10 @@ export function MissionTabs() {
 
     const missions = React.useMemo(() => {
         return ALL_MISSIONS.filter((mission: Mission) => {
-            // 1) Arc filter (A1–E5)
             if (activeArc !== "ALL") {
-                if (mission.arc !== activeArc) {
-                    return false;
-                }
+                if (mission.arc !== activeArc) return false;
             }
 
-            // 2) Merge tags (mission.tags + overlay MISSION_TAGS), minus "optional"
             const explicitTags = (mission.tags ?? []) as string[];
             const overlayTags = (MISSION_TAGS[mission.id] ?? []) as MissionTag[];
 
@@ -138,47 +120,30 @@ export function MissionTabs() {
                 new Set<string>([...explicitTags, ...overlayTags]),
             ).filter((t) => !!t);
 
-            // 3) Tag filter (OR: must have at least one selected tag)
             if (selectedTags.length > 0) {
-                const hasAnySelectedTag = mergedTags.some((tag) =>
+                const hasAny = mergedTags.some((tag) =>
                     selectedTags.includes(tag as MissionTag),
                 );
-                if (!hasAnySelectedTag) {
-                    return false;
-                }
+                if (!hasAny) return false;
             }
 
-            // 4) Search filter (matches id, name, description, region, rewards, notes, tags)
             if (normalizedSearch.length > 0) {
                 const haystackParts: string[] = [];
 
                 haystackParts.push(mission.id);
                 haystackParts.push(mission.name);
 
-                if (mission.description) {
-                    haystackParts.push(mission.description);
-                }
-                if (mission.region) {
-                    haystackParts.push(mission.region);
-                }
-                if (mission.rewards?.loot) {
-                    haystackParts.push(mission.rewards.loot);
-                }
-                if (mission.rewards?.items) {
-                    haystackParts.push(mission.rewards.items);
-                }
-                if (mission.notes) {
-                    haystackParts.push(mission.notes);
-                }
+                if (mission.description) haystackParts.push(mission.description);
+                if (mission.region) haystackParts.push(mission.region);
+                if (mission.rewards?.loot) haystackParts.push(mission.rewards.loot);
+                if (mission.rewards?.items) haystackParts.push(mission.rewards.items);
+                if (mission.notes) haystackParts.push(mission.notes);
 
-                // include tags as searchable text
                 haystackParts.push(...mergedTags);
 
                 const haystack = haystackParts.join(" ").toLowerCase();
 
-                if (!haystack.includes(normalizedSearch)) {
-                    return false;
-                }
+                if (!haystack.includes(normalizedSearch)) return false;
             }
 
             return true;
@@ -187,26 +152,17 @@ export function MissionTabs() {
 
     return (
         <div className="space-y-4">
-            {/* Search + filter toggles */}
+            {/* Filters left / Search right */}
             <div className="flex flex-col gap-3">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    {/* Search box */}
-                    <input
-                        type="text"
-                        className="w-full sm:max-w-xs rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70"
-                        placeholder="Search missions (name, rewards, tags...)"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
 
-                    {/* Filter toggles */}
-                    <div className="flex flex-wrap items-center gap-2 justify-between sm:justify-end w-full sm:w-auto">
-                        {/* Filter by Arc toggle */}
+                    {/* Filters LEFT */}
+                    <div className="flex flex-wrap items-center gap-2 justify-between sm:justify-start w-full sm:w-auto">
+
+                        {/* Filter by Arc */}
                         <button
                             type="button"
-                            onClick={() =>
-                                setShowArcFilters((prev) => !prev)
-                            }
+                            onClick={() => setShowArcFilters((prev) => !prev)}
                             className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
                                 showArcFilters
                                     ? "border-emerald-500/80 bg-emerald-900/60 text-emerald-100"
@@ -221,12 +177,10 @@ export function MissionTabs() {
                             )}
                         </button>
 
-                        {/* Filter by Tag toggle */}
+                        {/* Filter by Tag */}
                         <button
                             type="button"
-                            onClick={() =>
-                                setShowTagFilters((prev) => !prev)
-                            }
+                            onClick={() => setShowTagFilters((prev) => !prev)}
                             className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
                                 showTagFilters
                                     ? "border-sky-400/80 bg-sky-900/60 text-sky-50"
@@ -241,9 +195,18 @@ export function MissionTabs() {
                             )}
                         </button>
                     </div>
+
+                    {/* Search RIGHT */}
+                    <input
+                        type="text"
+                        className="w-full sm:max-w-xs rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70"
+                        placeholder="Search missions (name, rewards, tags...)"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
                 </div>
 
-                {/* Arc filter pills (A1–E5 / All), only when toggled */}
+                {/* Arc filter pills */}
                 {showArcFilters && (
                     <div className="flex flex-wrap gap-1.5">
                         {ARC_FILTERS.map((arc) => {
@@ -266,7 +229,7 @@ export function MissionTabs() {
                     </div>
                 )}
 
-                {/* Tag filter pills, only when toggled */}
+                {/* Tag pills */}
                 {showTagFilters && (
                     <div className="flex flex-wrap gap-1.5">
                         {TAG_FILTERS.map((tag) => {

@@ -92,26 +92,26 @@ export function MissionCard({ mission }: { mission: Mission }) {
     const displayRank = rank != null ? `~${rank}` : "N/A";
 
     return (
-        <div className="rounded-2xl border border-zinc-800/80 bg-zinc-950/90 overflow-hidden shadow-sm">
+        <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/80 overflow-hidden shadow-sm">
             {/* Header */}
-            <div className="flex items-stretch bg-slate-900/95">
+            <div className="flex items-stretch bg-zinc-900/40">
                 <button
                     type="button"
                     onClick={() => setOpen((prev) => !prev)}
-                    className="flex-1 w-full flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 hover:bg-slate-900 transition-colors text-left"
+                    className="flex-1 w-full flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 transition-colors text-left"
                 >
                     <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                        <span className="inline-flex items-center rounded-full px-2 py-0.5 text-[0.7rem] sm:text-xs font-mono tracking-tight text-slate-100 border border-slate-700/80">
+                        <span className="inline-flex items-center rounded-full px-2 py-0.5 text-[0.7rem] sm:text-xs font-mono tracking-tight text-zinc-100 border border-zinc-700/80">
                             {id}
                         </span>
-                        <h3 className="text-sm sm:text-base font-semibold text-slate-50">
+                        <h3 className="text-sm sm:text-base font-semibold text-zinc-50">
                             {name}
                         </h3>
                     </div>
 
                     <div className="flex flex-wrap items-center gap-2 text-[0.7rem] sm:text-xs">
                         {region && (
-                            <span className="inline-flex items-center rounded-full bg-slate-800/90 text-slate-100 px-2 py-0.5 border border-slate-700/80">
+                            <span className="inline-flex items-center rounded-full bg-zinc-800/90 text-zinc-100 px-2 py-0.5 border border-zinc-700/80">
                                 <span className="mr-1 opacity-70">Region:</span>
                                 {region}
                             </span>
@@ -123,9 +123,9 @@ export function MissionCard({ mission }: { mission: Mission }) {
                             </span>
                         )}
                         {open ? (
-                            <ChevronUp className="h-4 w-4 text-slate-200 shrink-0" />
+                            <ChevronUp className="h-4 w-4 text-zinc-200 shrink-0" />
                         ) : (
-                            <ChevronDown className="h-4 w-4 text-slate-200 shrink-0" />
+                            <ChevronDown className="h-4 w-4 text-zinc-200 shrink-0" />
                         )}
                     </div>
                 </button>

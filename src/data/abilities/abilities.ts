@@ -18,14 +18,14 @@ export interface AbilityMeta {
 }
 
 export const ABILITY_SETS: Record<AbilitySetId, AbilitySetMeta> = {
-    reaction: {
-        id: "reaction",
-        name: "Reaction",
+    reactions: {
+        id: "reactions",
+        name: "Reactions",
         description: "Reaction abilities are triggered in response to enemy attacks."
     },
-    passive: {
-        id: "passive",
-        name: "Passive",
+    passives: {
+        id: "passives",
+        name: "Passives",
         description: "Passive abilities enhancea  unit's attributes or enable them to use equipment they wouldn't otherwise be able to equip."
     },
     "arts-of-war": {
@@ -49,13 +49,13 @@ export const ABILITY_SETS: Record<AbilitySetId, AbilitySetMeta> = {
 export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     counter: {
         id: "counter",
-        setId: "reaction",
+        setId: "reactions",
         name: "Counter",
         description: "Follow up an enemy attack with an attack of the players' own."
     },
     shieldbearer: {
         id: "shieldbearer",
-        setId: "passive",
+        setId: "passives",
         name: "Shieldbearer",
         description: "Allows shield-wielding, regardless of jobs."
     },

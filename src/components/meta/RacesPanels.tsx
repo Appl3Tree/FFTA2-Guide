@@ -12,7 +12,7 @@ export function RacesPanels() {
         <Panel
             title="Races & Jobs Overview"
             subtitle="Information on each race and its respective jobs."
-            tone="yellow"
+            tone="amber"
         >
             <div className="space-y-4 mt-3">
                 {RACE_JOBS.map((entry) => {

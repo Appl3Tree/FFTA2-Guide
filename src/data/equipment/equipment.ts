@@ -1,101 +1,22 @@
 // src/data/equipment/equipment.ts
+export * from "./equipment.types";
+export { EQUIPMENT } from "./equipment.index";
 
-export type EquipmentId = string;
+import type {
+    JobName,
+    HelmetType,
+    ArmorType,
+    WeaponType,
+} from "./equipment.types";
 
-// Broad UI-facing categories
-export type EquipmentCategory =
-    | "Weapon"
-    | "Shield"
-    | "Helmet"
-    | "Armor"
-    | "Accessory";
-
-// High-level job name type – keep as string for now.
-// If you later define a JobName union elsewhere, you can reuse it here.
-export type JobName = string;
-
-// Subtypes for weapons, helmets, armor, and accessories 
-export type WeaponType =
-    | "Knife"
-    | "Sword"
-    | "Blade"
-    | "Saber"
-    | "Knightsword"
-    | "Rapier"
-    | "Greatsword"
-    | "Broadsword"
-    | "Katana"
-    | "Spear"
-    | "Axe"
-    | "Rod"
-    | "Staff"
-    | "Pole"
-    | "Knuckles"
-    | "Instrument"
-    | "Hammer"
-    | "Mace"
-    | "Book"
-    | "Bow"
-    | "Greatbow"
-    | "Gun"
-    | "Hand-cannon"
-    | "Card";
-
-export type HelmetType = "Helm" | "Hair Adornment" | "Hat";
-
-export type ArmorType = "Heavy Armor" | "Light Armor" | "Robe";
-
-export type AccessoryType = "Shoes" | "Gloves" | "Accessory";
-
-/**
- * Generic rule structure describing who can equip a *subcategory* of gear
- * (Helms vs Hats, Light Armor vs Robes, Knives vs Swords, etc.).
- *
- * These are global rules, not per-item overrides.
- */
 export interface EquipRule {
-    /** Jobs explicitly allowed to equip this subtype, if not “everyone”. */
     allowedJobs?: JobName[];
-
-    /** Jobs explicitly blocked, when the rule is “everyone except …”. */
     disallowedJobs?: JobName[];
-
-    /**
-     * Passive abilities that allow equipping this gear even if the job itself
-     * normally cannot (e.g., Ribbon-bearer, Tank, Shieldbearer).
-     */
     requiresPassives?: string[];
-
-    /**
-     * Passive abilities that conflict with this subtype (e.g., you cannot wear
-     * Knuckles with Doublehand).
-     */
     incompatiblePassives?: string[];
-
-    /**
-     * Optional notes for your own reference. These will not be enforced by
-     * code but can be displayed in future UI if you want.
-     */
     notes?: string;
-
-    /**
-     * Hand requirements: most one-handed gear is "one", greatswords/bows/etc.
-     * are typically "two".
-     */
     handsRequired?: 1 | 2;
-
-    /**
-     * Whether this subtype can be dual-wielded (relevant for some one-handed
-     * weapons and shields).
-     */
     canDualWield?: boolean;
-
-    /**
-     * Very lightweight gender rule; if you ever want to expand genders, you
-     * can replace this with a union type.
-     *
-     * "femaleOnly" is relevant for Hair Adornments without Ribbon-bearer.
-     */
     genderRestriction?: "any" | "femaleOnly";
 }
 
@@ -433,86 +354,3 @@ export const WEAPON_RULES: Record<WeaponType, EquipRule> = {
         notes: "Cards are exclusive to Trickster.",
     },
 };
-
-/**
- * Maps job → ability IDs this item teaches.
- */
-export type TeachesMap = Record<JobName, string[]>;
-
-export interface EquipmentMeta {
-    id: EquipmentId;
-    name: string;
-    category?: EquipmentCategory;
-
-    // Optional fine-grained subtype metadata
-    weaponType?: WeaponType;
-    helmetType?: HelmetType;
-    armorType?: ArmorType;
-    accessoryType?: AccessoryType;
-
-    description?: string;
-    notes?: string;
-
-    teaches?: TeachesMap;
-}
-
-/**
- * Item-level data. Only a tiny sample is included here; expand as you document
- * more gear. Subtype information (weaponType / helmetType / armorType) should
- * match the rule maps above so you can cross-reference them later.
- */
-export const EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
-    /* Examples: 
-    ironSword: {
-        id: "ironSword",
-        name: "Iron Sword",
-        category: "Weapon",
-        weaponType: "Sword",
-        description: "A basic one-handed iron sword.",
-        teaches: {
-            Soldier: ["first-aid"],   // optional — remove if not needed
-        },
-    },
-    buckler: {
-        id: "buckler",
-        name: "Buckler",
-        category: "Shield",
-        description: "A small wooden shield used for basic defense.",
-    },
-    ironHelm: {
-        id: "ironHelm",
-        name: "Iron Helm",
-        category: "Helmet",
-        helmetType: "Helm", // "Helm" | "Hair Adornment" | "Hat"
-        description: "A durable helmet made of reinforced steel.",
-    },
-    leatherArmor: {
-        id: "leatherArmor",
-        name: "Leather Armor",
-        category: "Armor",
-        armorType: "Light Armor", // "Heavy Armor" | "Light Armor" | "Robe"
-        description: "A flexible set of armor stitched from toughened leather.",
-    },
-    powerGlove: {
-        id: "powerGlove",
-        name: "Power Glove",
-        category: "Accessory",
-        accessoryType: "Gloves", // "Shoes" | "Gloves" | "Accessory"
-        description: "A padded glove that boosts physical attack.",
-    },
-    */
-
-    broadsword: {
-        id: "broadsword",
-        name: "Broadsword",
-        category: "Weapon",
-        weaponType: "Sword",
-        description: "A well-balanced, one-handed sword.",
-        teaches: {
-            Soldier: ["first-aid"],
-            Warrior: ["first-aid"],
-            Spellblade: ["oil-blade"],
-        },
-    },
-};
-
