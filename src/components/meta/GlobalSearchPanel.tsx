@@ -906,21 +906,21 @@ export function GlobalSearchPanel() {
                                                             </p>
                                                         )}
 
-                                                        <div className="flex flex-wrap gap-x-4 gap-y-1 text-[0.7rem] text-zinc-100">
-    {(mission as any).objective && (
-        <div>
-            <span className="text-zinc-400">Objective:</span>{" "}
-            <span className="font-medium">{(mission as any).objective}</span>
-        </div>
-    )}
+                                                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-[0.7rem] text-zinc-100">
+                                                        {(mission as any).objective && (
+                                                            <div>
+                                                                <span className="text-zinc-400">Objective:</span>{" "}
+                                                                <span className="font-medium">{(mission as any).objective}</span>
+                                                            </div>
+                                                        )}
 
-    {(mission as any).law && (
-        <div>
-            <span className="text-zinc-400">Law:</span>{" "}
-            <span className="font-medium">{(mission as any).law}</span>
-        </div>
-    )}
-</div>
+                                                        {(mission as any).law && (
+                                                            <div>
+                                                                <span className="text-zinc-400">Law:</span>{" "}
+                                                                <span className="font-medium">{(mission as any).law}</span>
+                                                            </div>
+                                                        )}
+                                                    </div>
 
 
                                                         {(mission as any)

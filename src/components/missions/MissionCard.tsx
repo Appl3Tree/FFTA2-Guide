@@ -27,6 +27,8 @@ export function MissionCard({ mission }: { mission: Mission }) {
         arc,
         name,
         description,
+        objective,
+        law,
         rank,
         region,
         fee,
@@ -159,6 +161,22 @@ export function MissionCard({ mission }: { mission: Mission }) {
                             {description}
                         </p>
                     )}
+
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-[0.7rem] text-zinc-100">
+                        {objective && (
+                            <div>
+                                <span className="text-zinc-400">Objective:</span>{" "}
+                                <span className="font-medium">{objective}</span>
+                            </div>
+                        )}
+
+                        {law && (
+                            <div>
+                                <span className="text-zinc-400">Law:</span>{" "}
+                                <span className="font-medium">{law}</span>
+                            </div>
+                        )}
+                    </div>
 
                     {/* Top meta grid */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
