@@ -127,7 +127,19 @@ function missionBlob(m: Mission): string {
             if (enemy.name) parts.push(enemy.name);
             if (enemy.race) parts.push(enemy.race);
             if (enemy.job) parts.push(enemy.job);
+            if (enemy.level) parts.push(`Level ${enemy.level}`);
+            if ((enemy as any).quantity) parts.push(`quantity ${(enemy as any).quantity}`);
             if (enemy.notes) parts.push(enemy.notes);
+            
+            // Include bestiary metadata for the enemy's job
+            const meta = getEnemyMetaForJob(enemy.job);
+            if (meta) {
+                if (meta.description) parts.push(meta.description);
+                if (meta.absorb) parts.push(...meta.absorb);
+                if (meta.immune) parts.push(...meta.immune);
+                if (meta.half) parts.push(...meta.half);
+                if (meta.weak) parts.push(...meta.weak);
+            }
             
             // Include enemy abilities in search
             if (enemy.abilities) {
@@ -292,6 +304,7 @@ function abilityBlob(a: AbilityMeta, set: AbilitySetMeta): string {
     if (a.immune) parts.push(...a.immune);
     if (a.requires) parts.push(...a.requires);
     if (a.equipmentRequired) parts.push(...a.equipmentRequired);
+    if (a.blueMagic) parts.push("blue magic");
 
     return parts.join(" ").toLowerCase();
 }
@@ -1465,17 +1478,17 @@ export function GlobalSearchPanel() {
                                                                                                                                             ab.name
                                                                                                                                         }
                                                                                                                                     </span>
+                                                                                                                                    {isBlueMagic && (
+                                                                                                                                        <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase tracking-[0.14em] text-blue-200">
+                                                                                                                                            Blue Magic
+                                                                                                                                        </span>
+                                                                                                                                    )}
                                                                                                                                     {ab.description && (
                                                                                                                                         <span className="text-zinc-300">
                                                                                                                                             {": "}
                                                                                                                                             {
                                                                                                                                                 ab.description
                                                                                                                                             }
-                                                                                                                                        </span>
-                                                                                                                                    )}
-                                                                                                                                    {isBlueMagic && (
-                                                                                                                                        <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase tracking-[0.14em] text-blue-200">
-                                                                                                                                            Blue Magic
                                                                                                                                         </span>
                                                                                                                                     )}
                                                                                                                                 </li>
