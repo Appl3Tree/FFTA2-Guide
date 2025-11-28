@@ -115,6 +115,9 @@ function missionBlob(m: Mission): string {
         if ((m.rewards as any).cp != null) {
             parts.push(`${String((m.rewards as any).cp)} clan points`);
         }
+        if ((m.rewards as any).loot) {
+            parts.push(String((m.rewards as any).loot));
+        }
         if (m.rewards.items) parts.push(...m.rewards.items);
         if (m.rewards.abilities) parts.push(...m.rewards.abilities);
         if ((m.rewards as any).other) {
@@ -151,6 +154,9 @@ function missionBlob(m: Mission): string {
                         loadout.A1.abilities.forEach(ab => {
                             parts.push(ab.name);
                             if (ab.description) parts.push(ab.description);
+                            // Check if this ability is Blue Magic
+                            const abilityMeta = ABILITIES[ab.id];
+                            if (abilityMeta?.blueMagic) parts.push("blue magic");
                         });
                     }
                     if (loadout.A2) {
@@ -158,6 +164,9 @@ function missionBlob(m: Mission): string {
                         loadout.A2.abilities.forEach(ab => {
                             parts.push(ab.name);
                             if (ab.description) parts.push(ab.description);
+                            // Check if this ability is Blue Magic
+                            const abilityMeta = ABILITIES[ab.id];
+                            if (abilityMeta?.blueMagic) parts.push("blue magic");
                         });
                     }
                     if (loadout.R) {
@@ -179,6 +188,22 @@ function missionBlob(m: Mission): string {
                         parts.push(item.name);
                         if (item.category) parts.push(item.category);
                         if (item.description) parts.push(item.description);
+                        
+                        // Include all equipment stats
+                        const statKeys = ["atk", "def", "mag", "rst", "eva", "spd", "jump", "move", "hp", "mp"];
+                        statKeys.forEach(key => {
+                            if ((item as any)[key] != null && (item as any)[key] !== 0) {
+                                parts.push(`${key.toUpperCase()} ${String((item as any)[key])}`);
+                            }
+                        });
+                        
+                        // Include equipment effects
+                        if ((item as any).immunity) parts.push(...(item as any).immunity);
+                        if ((item as any).absorb) parts.push(...(item as any).absorb);
+                        if ((item as any)["half-damage"]) parts.push(...(item as any)["half-damage"]);
+                        if ((item as any).resistance) parts.push(...(item as any).resistance);
+                        if ((item as any).weakness) parts.push(...(item as any).weakness);
+                        
                         if (item.teaches) {
                             Object.entries(item.teaches).forEach(([job, abilityIds]) => {
                                 parts.push(job);
