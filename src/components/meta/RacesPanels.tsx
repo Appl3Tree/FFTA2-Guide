@@ -63,7 +63,7 @@ export function RacesPanels() {
                                                 bg-white/60 dark:bg-zinc-900/40 
                                                 px-3 py-2 
                                                 grid grid-cols-1 
-                                                sm:grid-cols-[minmax(0,10rem)_minmax(0,13rem)_minmax(0,1fr)]
+                                                sm:grid-cols-[minmax(0,10rem)_minmax(0,1fr)] 
                                                 gap-x-4 gap-y-1
                                                 sm:items-start
                                             "
@@ -73,13 +73,8 @@ export function RacesPanels() {
                                                 {job.name}
                                             </span>
 
-                                            {/* Role / short label */}
-                                            <span className="uppercase tracking-wide text-[0.65rem] sm:text-[0.7rem] text-zinc-600 dark:text-zinc-400">
-                                                {job.role}
-                                            </span>
-
-                                            {/* Summary / detailed description */}
-                                            <span className="text-zinc-700 dark:text-zinc-200 text-sm leading-snug">
+                                            {/* Summary spanning 2 columns (sm and up) */}
+                                            <span className="text-zinc-700 dark:text-zinc-200 text-sm leading-snug sm:col-span-1">
                                                 {job.summary}
                                             </span>
                                         </li>

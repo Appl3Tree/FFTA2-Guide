@@ -25,10 +25,8 @@ export interface EnemyEquipment {
 export interface Enemy {
     id: string;
     name: string;
-    race: string;
     job: string;
-    level?: number;
-    notes?: string;
+    quantity?: number;
     abilities?: EnemyAbilityLoadout;
     equipment?: EnemyEquipment;
 }

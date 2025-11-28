@@ -10,6 +10,7 @@ import { useProgress } from "../ProgressContext";
 import { resolveEnemyLoadout } from "../../utils/resolveAbilities";
 import { resolveEnemyEquipment } from "../../utils/resolveEquipment";
 import { ABILITIES, ABILITY_SETS } from "../../data/abilities/abilities";
+import { getEnemyMetaForJob } from "../../data/bestiary/bestiary";
 
 export function MissionCard({ mission }: { mission: Mission }) {
     const [open, setOpen] = React.useState(false);
@@ -112,6 +113,12 @@ export function MissionCard({ mission }: { mission: Mission }) {
                     </div>
 
                     <div className="flex flex-wrap items-center gap-2 text-[0.7rem] sm:text-xs">
+                        {questType && (
+                            <span className="inline-flex items-center rounded-full bg-zinc-800/90 text-zinc-100 px-2 py-0.5 border border-zinc-700/80">
+                                <span className="mr-1 opacity-70">Type:</span>
+                                {questType}
+                            </span>
+                        )}
                         {region && (
                             <span className="inline-flex items-center rounded-full bg-zinc-800/90 text-zinc-100 px-2 py-0.5 border border-zinc-700/80">
                                 <span className="mr-1 opacity-70">Region:</span>
@@ -484,6 +491,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                     {enemies.map((enemy, idx) => {
                                         const loadout = resolveEnemyLoadout(enemy.abilities);
                                         const equip = resolveEnemyEquipment(enemy.equipment);
+                                        const meta = getEnemyMetaForJob(enemy.job);
 
                                         const hasAbilities =
                                             !!loadout &&
@@ -492,6 +500,14 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                         const hasEquipment = equip.length > 0;
                                         const hasDetails = hasAbilities || hasEquipment;
                                         const isOpen = !!openEnemies[idx];
+
+                                        const hasAffinities =
+                                            (meta?.absorb?.length ?? 0) > 0 ||
+                                            (meta?.immune?.length ?? 0) > 0 ||
+                                            (meta?.half?.length ?? 0) > 0 ||
+                                            (meta?.weak?.length ?? 0) > 0;
+
+                                        const quantity = enemy.quantity ?? 1;
 
                                         return (
                                             <li
@@ -508,7 +524,14 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                         )}
                                                         {enemy.job && (
                                                             <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-zinc-300">
-                                                                {enemy.job }
+                                                                {enemy.job}
+                                                            </span>
+                                                        )}
+
+                                                        {/* Quantity pill (only show when > 1) */}
+                                                        {quantity > 1 && (
+                                                            <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-zinc-300">
+                                                                ×{quantity}
                                                             </span>
                                                         )}
                                                     </div>
@@ -529,14 +552,21 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                     )}
                                                 </div>
 
-                                                {/* small notes line */}
+                                                {/* Bestiary description (always visible) */}
+                                                {meta?.description && (
+                                                    <div className="text-[0.7rem] text-zinc-300">
+                                                        {meta.description}
+                                                    </div>
+                                                )}
+
+                                                {/* small notes line from mission data */}
                                                 {enemy.notes && (
                                                     <div className="text-[0.7rem] text-zinc-300">
                                                         {enemy.notes}
                                                     </div>
                                                 )}
 
-                                                {/* details: abilities + equipment */}
+                                                {/* details: affinities + abilities + equipment (only when expanded) */}
                                                 {isOpen && hasDetails && (() => {
                                                     const hasBoth = hasAbilities && hasEquipment;
                                                     const gridClass = hasBoth
@@ -544,9 +574,54 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                         : "grid grid-cols-1 gap-4";
 
                                                     return (
-                                                        <div className="mt-1.5 text-[0.7rem]">
-                                                            <div className={gridClass}>
+                                                        <div className="mt-1.5 text-[0.7rem] space-y-1.5">
+                                                            {/* Bestiary elemental/status affinities (only when expanded) */}
+                                                            {hasAffinities && (
+                                                                <div className="text-[0.65rem] text-zinc-300 flex flex-wrap gap-x-4 gap-y-0.5">
+                                                                    {(meta?.absorb?.length ?? 0) > 0 && (
+                                                                        <div>
+                                                                            <span className="text-zinc-400">
+                                                                                Absorb:
+                                                                            </span>{" "}
+                                                                            <span className="font-medium">
+                                                                                {meta!.absorb!.join(", ")}
+                                                                            </span>
+                                                                        </div>
+                                                                    )}
+                                                                    {(meta?.immune?.length ?? 0) > 0 && (
+                                                                        <div>
+                                                                            <span className="text-zinc-400">
+                                                                                Immune:
+                                                                            </span>{" "}
+                                                                            <span className="font-medium">
+                                                                                {meta!.immune!.join(", ")}
+                                                                            </span>
+                                                                        </div>
+                                                                    )}
+                                                                    {(meta?.half?.length ?? 0) > 0 && (
+                                                                        <div>
+                                                                            <span className="text-zinc-400">
+                                                                                Resists:
+                                                                            </span>{" "}
+                                                                            <span className="font-medium">
+                                                                                {meta!.half!.join(", ")}
+                                                                            </span>
+                                                                        </div>
+                                                                    )}
+                                                                    {(meta?.weak?.length ?? 0) > 0 && (
+                                                                        <div>
+                                                                            <span className="text-zinc-400">
+                                                                                Weak:
+                                                                            </span>{" "}
+                                                                            <span className="font-medium">
+                                                                                {meta!.weak!.join(", ")}
+                                                                            </span>
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                            )}
 
+                                                            <div className={gridClass}>
                                                                 {/* ───────── ABILITIES COLUMN ───────── */}
                                                                 {hasAbilities && loadout && (
                                                                     <div className="space-y-1.5">
@@ -564,7 +639,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                                                 space-y-0.5
                                                                             ">
                                                                                 <div className="font-medium">
-                                                                                    A1 – {loadout.A1.setName}
+                                                                                    A1: {loadout.A1.setName}
                                                                                 </div>
                                                                                 {loadout.A1.setDescription && (
                                                                                     <div className="text-zinc-300">
@@ -597,7 +672,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                                                 space-y-0.5
                                                                             ">
                                                                                 <div className="font-medium">
-                                                                                    A2 – {loadout.A2.setName}
+                                                                                    A2: {loadout.A2.setName}
                                                                                 </div>
                                                                                 <ul className="list-disc list-inside space-y-0.5">
                                                                                     {loadout.A2.abilities.map((ab) => (
@@ -624,7 +699,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                                                 p-2
                                                                             ">
                                                                                 <span className="font-medium">
-                                                                                    R – {loadout.R.name}
+                                                                                    R: {loadout.R.name}
                                                                                 </span>
                                                                                 {loadout.R.description && (
                                                                                     <span className="text-zinc-300">
@@ -644,7 +719,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                                                 p-2
                                                                             ">
                                                                                 <span className="font-medium">
-                                                                                    P – {loadout.P.name}
+                                                                                    P: {loadout.P.name}
                                                                                 </span>
                                                                                 {loadout.P.description && (
                                                                                     <span className="text-zinc-300">
@@ -734,7 +809,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                         </div>
                                                     );
                                                 })()}
-                                           </li>
+                                            </li>
                                         );
                                     })}
                                 </ul>

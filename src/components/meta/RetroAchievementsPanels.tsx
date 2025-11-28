@@ -128,8 +128,8 @@ export function RetroAchievementsPanels() {
                                     <span className="inline-flex items-center gap-1 text-[0.7rem] text-zinc-500 dark:text-zinc-400">
                                         <span className="hidden sm:inline">
                                             {isOpen
-                                                ? "Hide achievements"
-                                                : "Show achievements"}
+                                                ? "Hide"
+                                                : "Show"}
                                         </span>
                                         {isOpen ? (
                                             <ChevronUp className="h-3.5 w-3.5" />

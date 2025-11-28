@@ -130,7 +130,7 @@ export function BazaarPanel() {
                                         {section.recipes.length === 1 ? "" : "s"}
                                     </span>
                                 </span>
-                                <span className="text-xs text-zinc-400">
+                                <span className="text-xs text-zinc-400 uppercase">
                                     {openSections[section.section] === false
                                         ? "Show"
                                         : "Hide"}

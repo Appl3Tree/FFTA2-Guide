@@ -5,25 +5,24 @@ import type { Mission } from "../../types/ffta2";
         {
             name: "",
             job: ""
-            notes: "",
             abilities: {
                 A1: {
-                    setId: "",
+                    setId: "lowercase",
                     abilityIds: [
-                    
+                        "",
                     ]
                 },
                 A2: {
-                    setId: "",
+                    setId: "lowercase",
                     abilityIds: [
-                        "",
+                        "hyphen-name",
                     ]
                 },
                 R: "",
                 P: ""
             },
             equipment: [
-                {slot: #, itemId: "" },
+                {slot: 1, itemId: "snakeCase" },
             ]
         },
     ]
@@ -41,8 +40,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Klesta",
-                job: "Crushatrice",
-                notes: "A cockatrice of prodigious size. It uses its massive bulk as a weapon.",
+                job: "crushatrice",
                 abilities: {
                     A1: {
                         setId: "territorialism",
@@ -51,58 +49,24 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                             "territorial-marking",
                         ],
                     },
-                    // A2, R, P can be filled when confirmed
-                    /*Examples:
-                    A2: {
-                        setId: "blade-arts",
-                        abilityIds: [
-                            "oil-blade",
-                        ],
-                    },
-                    R: "counter",
-                    P: "Move +1"*/
                 },
                 equipment: [
-                    /*{ slot: 1, itemId: "broadsword" },
-                    { slot: 2, itemId: "broadsword" },
-                    { slot: 3, itemId: "broadsword" },
-                    { slot: 4, itemId: "broadsword" },
-                    { slot: 5, itemId: "broadsword" },*/
                 ],
             },
             {
                 name: "Randomized Name",
                 job: "Cockatrice",
-                notes: "An avian creature with a violent temperament. It pecks at its foes with a razor-edged beak.",
+                quantity: 2,
                 abilities: {
                     A1: {
                         setId: "territorialism",
                         abilityIds: [
-                            "peck", // this one only has Peck
+                            "peck",
                         ],
                     },
                 },
                 equipment: [],
             },
-            {
-                name: "Randomized Name",
-                job: "Cockatrice",
-                notes: "An avian creature with a violent temperament. It pecks at its foes with a razor-edged beak.",
-                abilities: {
-                    A1: {
-                        setId: "territorialism",
-                        abilityIds: [
-                            "peck", // also only Peck, for now
-                        ],
-                    },
-                },
-                equipment: [],
-            },
-        ],
-        battlefield: [
-            "Battle takes place in Targ Wood with uneven terrain and some height differences.",
-            "Luso joins mid-fight as a Soldier alongside Cid and a small allied squad.",
-            "Klesta starts up front, with smaller birds scattered nearby as support."
         ],
         strategy: [
             "Have Luso and Cid focus on Klesta while a White Mage keeps them patched up.",
@@ -122,24 +86,44 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "A Paw Full of Feathers",
         rank: 2,
         region: "Targ Wood",
-        objective: "Defeat the beasts menacing the chocobos on the woodland road.",
+        objective: "Defeat all foes.",
         law: "Fire: weapons and abilities that deal fire damage are forbidden.",
         enemies: [
             {
-                name: "Wolves",
-                job: "Beast",
-                notes: "Mobile melee attackers; they hit hard if allowed to surround your units."
+                name: "Randomized Name",
+                job: "Wolf",
+                quantity: 2,
+                abilities: {
+                    A1: {
+                        setId: "maw",
+                        abilityIds: [
+                            "fangs"
+                        ]
+                    },
+                    A2: null,
+                    R: null,
+                    P: null
+                },
+                equipment: null
             },
             {
-                name: "Support beasts",
-                job: "Beast",
-                notes: "A mix of additional monsters that mostly serve to flank and chip down your frontliners."
+                name: "Randomized Name",
+                job: "Baknamy",
+                abilities: {
+                    A1: {
+                        setId: "taktak",
+                        abilityIds: [
+                            "goblin-attack"
+                        ]
+                    },
+                    A2: null,
+                    R: null,
+                    P: "geomancy"
+                },
+                equipment: [
+                    {slot: 1, itemId: "leatherClothing" },
+                ]
             }
-        ],
-        battlefield: [
-            "Fight takes place on a relatively small section of Targ Wood with little verticality.",
-            "Your clan starts bunched near the edge of the map, enemies spread ahead.",
-            "Limited space means enemies close quickly, so your formation matters."
         ],
         strategy: [
             "Bring a White Mage for sustain; focused healing keeps your frontline from getting overwhelmed.",
@@ -165,18 +149,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Yellow Wings Grunts",
                 job: "Mixed melee",
-                notes: "Bandits with simple physical jobs like Soldier and Archer; they’re not individually scary but can swarm."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Yellow Wings Leader",
                 job: "Human boss",
-                notes: "Tougher than the grunts; expect higher HP and slightly stronger attacks."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Battle is on a road-like map with a clear front line and some side paths.",
-            "Enemies are generally ahead of you, forming a loose screen around their leader.",
-            "Line of sight and positioning for ranged units matter more than height here."
         ],
         strategy: [
             "Focus on thinning the bandits first so they don’t surround your casters.",
@@ -202,18 +217,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Plant monsters",
                 job: "Flan/plant mix",
-                notes: "Resilient to some magic damage types; can inflict status or chip your party."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Supporting beasts",
                 job: "Beast",
-                notes: "Supplement the main enemies with straightforward physical attacks."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Battle takes place in the streets around Camoa, with tight lanes and corners.",
-            "Enemies are clustered around the middle of the map where the ‘cargo’ is threatened.",
-            "Limited sight lines favor melee fighters and short-range spells."
         ],
         strategy: [
             "Bring a good mix of physical and magical damage to handle varied resistances.",
@@ -239,18 +285,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Ughor",
                 job: "Large beast (mark)",
-                notes: "Hits hard with physical attacks and has a lot of HP."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Beast escorts",
                 job: "Beast",
-                notes: "Additional monsters that help Ughor flank and pressure your squishier units."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Rolling hills with height differences typical of Baptiste Hill.",
-            "Ughor tends to hold the high ground while support monsters fan out around him.",
-            "Narrow paths can funnel your party if you rush straight in."
         ],
         strategy: [
             "Avoid MP-restoring actions; rely on smart spell use and ethers you already have before the battle.",
@@ -276,18 +353,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Gilmunto",
                 job: "Behemoth-type mark",
-                notes: "Extremely strong physical damage and high HP; a serious midgame check."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Beast allies",
                 job: "Beast",
-                notes: "Additional monsters that help screen for Gilmunto and punish overextended units."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "High-altitude terrain of the Aldanna Range with sharp elevation changes.",
-            "Narrow ridges and ledges create natural choke points.",
-            "Enemies often start in positions that force you to climb into their threat range."
         ],
         strategy: [
             "Use Protect, Shell, and defensive buffs to survive Gilmunto’s bursts.",
@@ -313,18 +421,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Fire-aligned monsters",
                 job: "Elemental beasts",
-                notes: "Often resist fire and may exploit fire-element attacks."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Support casters",
                 job: "Mage-type enemies",
-                notes: "Provide elemental damage and buffs from the back line."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Dense forest map with trees and water patches, typical of Zedlei Forest.",
-            "Some enemies start clustered around choke points, others on small rises.",
-            "Limited visibility and narrow lanes favor careful pulls over rushing."
         ],
         strategy: [
             "Do not rely on MP regeneration; manage spell usage carefully and let physical jobs carry damage.",
@@ -350,18 +489,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Aquatic beasts",
                 job: "Water-aligned monsters",
-                notes: "Can leverage terrain and may exploit water-adjacent tiles."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Support monsters",
                 job: "Mixed",
-                notes: "Round out the enemy force with status or ranged pressure."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Subterranean-feeling map with pits and tight paths in the Galerria Deep.",
-            "Plenty of elevation shifts that can trap slow units.",
-            "Enemy groups like to hold chokepoints to make you fight uphill."
         ],
         strategy: [
             "Plan around Nu Mou restrictions: they are mostly on healing and basic attacks here, not full casting.",
@@ -387,18 +557,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Mixed clan units",
                 job: "Humans and monsters",
-                notes: "Standard jobs with moderate stats; nothing exotic but they hit hard in groups."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Ranged threats",
                 job: "Archers / casters",
-                notes: "Use elevation and range to chip your squad if left alone."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Steep mountain terrain with high ridges and low valleys.",
-            "Enemies are spread out on higher platforms, giving them range advantage.",
-            "Movement abilities or good positioning are key to reaching the back line."
         ],
         strategy: [
             "Avoid ice-element weapons and spells; bring neutral or other elemental options.",
@@ -424,18 +625,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Enemy clan members",
                 job: "Humans / moogles",
-                notes: "A mixed party that can include ranged and melee jobs."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Support casters",
                 job: "Mage-type enemies",
-                notes: "Capable of healing and buffing their allies if not interrupted."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Dockside map with scaffolding and elevation changes around Moorabella.",
-            "Narrow walkways around airships create opportunities to control positioning.",
-            "Falling behind in positioning lets enemies pile onto isolated units."
         ],
         strategy: [
             "Be mindful of levels: avoid targeting low-level enemies with high-level units when possible.",
@@ -461,18 +693,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Marsh monsters",
                 job: "Beast / flan mix",
-                notes: "Use status and elemental attacks that combine well with swamp terrain."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Enemy casters",
                 job: "Mage-type enemies",
-                notes: "Can chain actions you might be tempted to copy, baiting law violations."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Swampy terrain with water tiles, height changes, and movement penalties.",
-            "Enemies often stand on favorable tiles that hamper your mobility.",
-            "Ranged lines of fire can be awkward due to water and elevation."
         ],
         strategy: [
             "Rotate through different actions: alternate between attacks, abilities, and support skills to avoid copycat violations.",
@@ -498,18 +761,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Oversoul",
                 job: "Undead boss",
-                notes: "Central threat; can hit hard and may have annoying resistances."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Ghosts and undead",
                 job: "Undead",
-                notes: "Support the Oversoul with status and attrition damage."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Mine interior with narrow corridors and small open chambers.",
-            "Enemies can bottleneck you at corners if you advance too fast.",
-            "Limited lines of sight can make it tricky to keep healers safe."
         ],
         strategy: [
             "Avoid debuff skills; rely on pure damage, healing, and positional play instead.",
@@ -535,18 +829,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Enemy troupe",
                 job: "Mixed jobs",
-                notes: "Includes female enemies you must avoid hurting directly under the law."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Male frontliners",
                 job: "Melee units",
-                notes: "Safer to target when the law is active."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Windy plains of Aisenfield with open sight lines and flowing terrain.",
-            "Enemies are scattered around central performance areas.",
-            "Few hard chokepoints; most fighting happens in open tiles."
         ],
         strategy: [
             "Prioritize male enemies and any monsters to stay within the law.",
@@ -572,23 +897,51 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Guardians",
                 job: "Mixed melee",
-                notes: "Protect the stone and try to punish clumped formations."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Support mages",
                 job: "Mage-type enemies",
-                notes: "Threaten you with area spells (which you cannot mirror due to the law)."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
         ],
-        battlefield: [
-            "Open fields with some elevation, typical of the Bisga Greenlands.",
-            "The stone and its guards are near the center, forcing you to push into their zone.",
-            "Enemies are spaced to tempt you into big AoE plays, which you must avoid."
-        ],
         strategy: [
-            "Avoid global or large-radius AoE that targets the entire battlefield.",
-            "Use focused single-target skills and small-radius area attacks that don’t violate the law.",
-            "Pull enemies off the central area to safer ground before committing to fights."
         ],
         rewards: {
             gil: 5480,
@@ -609,18 +962,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Vaan",
                 job: "Sky pirate",
-                notes: "Agile melee attacker with strong mobility and decent damage."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Penelo and crew",
                 job: "Sky pirate allies",
-                notes: "Provide support, healing, and extra damage; treat them as a full clan."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Rupie Mountains terrain with narrow paths and multi-level cliffs.",
-            "Enemy sky pirates can exploit terrain and elevation to kite or flank.",
-            "Your own movement is tightly constrained by the law."
         ],
         strategy: [
             "Plan every move so each unit advances exactly one tile; don’t skip moves or overstep.",
@@ -646,18 +1030,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Thieves and rogues",
                 job: "Steal-focused units",
-                notes: "Specialize in stealing gil and items; direct law interaction."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Support jobs",
                 job: "Mixed",
-                notes: "Help set up steals or soften your units for follow-up attacks."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Ancient ruins with tight corridors and open plazas.",
-            "Plenty of line-of-sight breaks for enemies to approach unseen.",
-            "Treasure-style theming hints at steal-heavy enemy behavior."
         ],
         strategy: [
             "Prioritize thieves and steal-oriented enemies so they don’t trigger the law.",
@@ -683,18 +1098,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Excavation raiders",
                 job: "Mixed clan",
-                notes: "Balanced group with both melee and magic, trying to disrupt the dig."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Elemental casters",
                 job: "Mage-type enemies",
-                notes: "Would normally lean on fire/ice/lightning but the law pushes them to other options."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Goug-style industrial ruins surrounding a dig site.",
-            "Multiple height levels, walkways, and choke points near the excavation area.",
-            "Enemies can ambush from different angles if you split too far."
         ],
         strategy: [
             "Lock away any fire, ice, or lightning-based skills and weapons for this fight.",
@@ -720,18 +1166,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Desert raiders",
                 job: "Mixed melee",
-                notes: "Use the open sands to try to surround your units."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Ranged units",
                 job: "Archers / gunners",
-                notes: "Exploit distance; you must counter them without using your own forbidden ranged weapons."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Wide-open desert terrain in Kthili Sands with minimal cover.",
-            "Visibility and movement are straightforward, but you can be attacked from many directions.",
-            "Some height variations and dunes can marginally affect line of sight."
         ],
         strategy: [
             "Close distance quickly on enemy ranged units using mobility skills and direct paths.",
@@ -757,18 +1234,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Sky pirates",
                 job: "Mixed jobs",
-                notes: "Includes bangaa you must avoid damaging under the law."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Non-bangaa support",
                 job: "Humans / moogles / others",
-                notes: "Safer targets while the law is active."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Urban Camoa terrain with alleys, stairs, and rooftops.",
-            "Pirates are positioned to ambush around corners and chokepoints.",
-            "Tight spaces make it easy to accidentally hit bangaa with AoE."
         ],
         strategy: [
             "Identify bangaa enemies early and plan your targeting to avoid them.",
@@ -794,18 +1302,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Illua",
                 job: "Boss spellblade",
-                notes: "Powerful boss with strong magic and sword skills; centerpiece of the encounter."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Ritualists and guards",
                 job: "Mixed jobs",
-                notes: "Additional enemies that support Illua with damage and utility."
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             }
-        ],
-        battlefield: [
-            "Large chamber within the Ruins of Delgantua, set up as a ritual arena.",
-            "Enemies are positioned around Illua, encouraging you to push inward.",
-            "Limited safe tiles if you ignore enemy positioning; missteps can leave you surrounded."
         ],
         strategy: [
             "Keep track of which enemies are male to avoid tripping the law with careless attacks.",
@@ -831,19 +1370,49 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Illua",
                 job: "Boss spellblade",
-                notes: "Returns even stronger than before; high speed, heavy magic and physical damage, and punishing area attacks.",
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Summoned fiends",
                 job: "Assorted monsters",
-                notes: "Monsters supporting Illua; can pressure you if left unchecked while you advance.",
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
-        ],
-        battlefield: [
-            "Upper platform deep within the Ruins of Delgantua, continuing directly from the previous battle.",
-            "Illua stands on the far side of the arena with monsters flanking her and blocking direct approach routes.",
-            "One route is a shorter, high-elevation path that favors units with high jump or strong mobility.",
-            "The longer route circles the field and forces you through enemy groups before you reach Illua.",
         ],
         strategy: [
             "Bring your strongest attackers and at least one reliable healer; this is a pure damage and survival check.",
@@ -871,24 +1440,72 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Neukhia (Wisp)",
                 job: "Boss segment",
-                notes: "Moves around the arena and can vanish between attacks; must be hunted down before you can meaningfully pressure the core.",
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Neukhia (Pod)",
                 job: "Boss segment",
-                notes: "Plays a defensive role but still deals serious damage; must be destroyed along with the Wisp.",
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
             {
                 name: "Neukhia (Core)",
                 job: "Final Boss",
-                notes: "Central body with very high HP; periodically summons crystal structures that must be destroyed quickly.",
+                abilities: {
+                    A1: {
+                        setId: "",
+                        abilityIds: [
+                        
+                        ]
+                    },
+                    A2: {
+                        setId: "",
+                        abilityIds: [
+                            "",
+                        ]
+                    },
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "" },
+                ]
             },
-        ],
-        battlefield: [
-            "Strange arena suspended in the Rift, with Neukhia in the center and its parts positioned around the map.",
-            "The Wisp moves and may disappear after or between attacks, forcing you to spread out in small teams to corner it.",
-            "The Pod holds position and punishes slow play with steady damage.",
-            "The Core is initially protected; its crystal spawns can either be turned against it or allowed to unleash damage on your party.",
         ],
         strategy: [
             "Form small pairs or squads and fan out to quickly track down and destroy the Wisp; you cannot afford to chase it with the whole party.",
