@@ -647,17 +647,26 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                                                     </div>
                                                                                 )}
                                                                                 <ul className="list-disc list-inside space-y-0.5">
-                                                                                    {loadout.A1.abilities.map((ab) => (
-                                                                                        <li key={ab.id}>
-                                                                                            <span className="font-medium">{ab.name}</span>
-                                                                                            {ab.description && (
-                                                                                                <span className="text-zinc-300">
-                                                                                                    {": "}
-                                                                                                    {ab.description}
-                                                                                                </span>
-                                                                                            )}
-                                                                                        </li>
-                                                                                    ))}
+                                                                                    {loadout.A1.abilities.map((ab) => {
+                                                                                        const abilityMeta = ABILITIES[ab.id];
+                                                                                        const isBlueMagic = abilityMeta?.blueMagic === true;
+                                                                                        return (
+                                                                                            <li key={ab.id}>
+                                                                                                <span className="font-medium">{ab.name}</span>
+                                                                                                {ab.description && (
+                                                                                                    <span className="text-zinc-300">
+                                                                                                        {": "}
+                                                                                                        {ab.description}
+                                                                                                    </span>
+                                                                                                )}
+                                                                                                {isBlueMagic && (
+                                                                                                    <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase tracking-[0.14em] text-blue-200">
+                                                                                                        Blue Magic
+                                                                                                    </span>
+                                                                                                )}
+                                                                                            </li>
+                                                                                        );
+                                                                                    })}
                                                                                 </ul>
                                                                             </div>
                                                                         )}
@@ -675,17 +684,26 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                                                     A2: {loadout.A2.setName}
                                                                                 </div>
                                                                                 <ul className="list-disc list-inside space-y-0.5">
-                                                                                    {loadout.A2.abilities.map((ab) => (
-                                                                                        <li key={ab.id}>
-                                                                                            <span className="font-medium">{ab.name}</span>
-                                                                                            {ab.description && (
-                                                                                                <span className="text-zinc-300">
-                                                                                                    {": "}
-                                                                                                    {ab.description}
-                                                                                                </span>
-                                                                                            )}
-                                                                                        </li>
-                                                                                    ))}
+                                                                                    {loadout.A2.abilities.map((ab) => {
+                                                                                        const abilityMeta = ABILITIES[ab.id];
+                                                                                        const isBlueMagic = abilityMeta?.blueMagic === true;
+                                                                                        return (
+                                                                                            <li key={ab.id}>
+                                                                                                <span className="font-medium">{ab.name}</span>
+                                                                                                {isBlueMagic && (
+                                                                                                    <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase tracking-[0.14em] text-blue-200">
+                                                                                                        Blue Magic
+                                                                                                    </span>
+                                                                                                )}
+                                                                                                {ab.description && (
+                                                                                                    <span className="text-zinc-300">
+                                                                                                        {": "}
+                                                                                                        {ab.description}
+                                                                                                    </span>
+                                                                                                )}
+                                                                                            </li>
+                                                                                        );
+                                                                                    })}
                                                                                 </ul>
                                                                             </div>
                                                                         )}
@@ -846,4 +864,3 @@ export function MissionCard({ mission }: { mission: Mission }) {
         </div>
     );
 }
-

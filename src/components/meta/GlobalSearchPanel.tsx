@@ -86,6 +86,7 @@ function missionBlob(m: Mission): string {
 
     if (m.description) parts.push(m.description);
     if ((m as any).objective) parts.push((m as any).objective);
+    if ((m as any).law) parts.push((m as any).law);
     if ((m as any).strategy) parts.push((m as any).strategy);
     if ((m as any).notes) parts.push((m as any).notes);
 
@@ -127,6 +128,61 @@ function missionBlob(m: Mission): string {
             if (enemy.race) parts.push(enemy.race);
             if (enemy.job) parts.push(enemy.job);
             if (enemy.notes) parts.push(enemy.notes);
+            
+            // Include enemy abilities in search
+            if (enemy.abilities) {
+                const loadout = resolveEnemyLoadout(enemy.abilities);
+                if (loadout) {
+                    if (loadout.A1) {
+                        parts.push(loadout.A1.setName);
+                        if (loadout.A1.setDescription) parts.push(loadout.A1.setDescription);
+                        loadout.A1.abilities.forEach(ab => {
+                            parts.push(ab.name);
+                            if (ab.description) parts.push(ab.description);
+                        });
+                    }
+                    if (loadout.A2) {
+                        parts.push(loadout.A2.setName);
+                        loadout.A2.abilities.forEach(ab => {
+                            parts.push(ab.name);
+                            if (ab.description) parts.push(ab.description);
+                        });
+                    }
+                    if (loadout.R) {
+                        parts.push(loadout.R.name);
+                        if (loadout.R.description) parts.push(loadout.R.description);
+                    }
+                    if (loadout.P) {
+                        parts.push(loadout.P.name);
+                        if (loadout.P.description) parts.push(loadout.P.description);
+                    }
+                }
+            }
+            
+            // Include enemy equipment in search
+            if (enemy.equipment) {
+                const equip = resolveEnemyEquipment(enemy.equipment);
+                if (equip) {
+                    equip.forEach(item => {
+                        parts.push(item.name);
+                        if (item.category) parts.push(item.category);
+                        if (item.description) parts.push(item.description);
+                        if (item.teaches) {
+                            Object.entries(item.teaches).forEach(([job, abilityIds]) => {
+                                parts.push(job);
+                                abilityIds.forEach(id => {
+                                    const ability = ABILITIES[id];
+                                    if (ability) {
+                                        parts.push(ability.name);
+                                        const set = ABILITY_SETS[ability.setId];
+                                        if (set) parts.push(set.name);
+                                    }
+                                });
+                            });
+                        }
+                    });
+                }
+            }
         }
     }
 
@@ -219,7 +275,13 @@ function abilityBlob(a: AbilityMeta, set: AbilitySetMeta): string {
     parts.push(a.name, a.id, set.name, set.id);
 
     if (set.description) parts.push(set.description);
-    if (a.description) parts.push(a.description);
+    if (a.description) {
+        if (Array.isArray(a.description)) {
+            parts.push(...a.description);
+        } else {
+            parts.push(a.description);
+        }
+    }
     if (a.job) parts.push(a.job);
     if ((a as any).ap != null) {
         parts.push(`${String((a as any).ap)} AP`);
@@ -1389,27 +1451,36 @@ export function GlobalSearchPanel() {
                                                                                                                 )}
                                                                                                                 <ul className="list-disc list-inside space-y-0.5">
                                                                                                                     {loadout.A1.abilities.map(
-                                                                                                                        (ab) => (
-                                                                                                                            <li
-                                                                                                                                key={
-                                                                                                                                    ab.id
-                                                                                                                                }
-                                                                                                                            >
-                                                                                                                                <span className="font-medium">
-                                                                                                                                    {
-                                                                                                                                        ab.name
+                                                                                                                        (ab) => {
+                                                                                                                            const abilityMeta = ABILITIES[ab.id];
+                                                                                                                            const isBlueMagic = abilityMeta?.blueMagic === true;
+                                                                                                                            return (
+                                                                                                                                <li
+                                                                                                                                    key={
+                                                                                                                                        ab.id
                                                                                                                                     }
-                                                                                                                                </span>
-                                                                                                                                {ab.description && (
-                                                                                                                                    <span className="text-zinc-300">
-                                                                                                                                        {": "}
+                                                                                                                                >
+                                                                                                                                    <span className="font-medium">
                                                                                                                                         {
-                                                                                                                                            ab.description
+                                                                                                                                            ab.name
                                                                                                                                         }
                                                                                                                                     </span>
-                                                                                                                                )}
-                                                                                                                            </li>
-                                                                                                                        ),
+                                                                                                                                    {ab.description && (
+                                                                                                                                        <span className="text-zinc-300">
+                                                                                                                                            {": "}
+                                                                                                                                            {
+                                                                                                                                                ab.description
+                                                                                                                                            }
+                                                                                                                                        </span>
+                                                                                                                                    )}
+                                                                                                                                    {isBlueMagic && (
+                                                                                                                                        <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase tracking-[0.14em] text-blue-200">
+                                                                                                                                            Blue Magic
+                                                                                                                                        </span>
+                                                                                                                                    )}
+                                                                                                                                </li>
+                                                                                                                            );
+                                                                                                                        },
                                                                                                                     )}
                                                                                                                 </ul>
                                                                                                             </div>
@@ -1431,27 +1502,36 @@ export function GlobalSearchPanel() {
                                                                                                                 </div>
                                                                                                                 <ul className="list-disc list-inside space-y-0.5">
                                                                                                                     {loadout.A2.abilities.map(
-                                                                                                                        (ab) => (
-                                                                                                                            <li
-                                                                                                                                key={
-                                                                                                                                    ab.id
-                                                                                                                                }
-                                                                                                                            >
-                                                                                                                                <span className="font-medium">
-                                                                                                                                    {
-                                                                                                                                        ab.name
+                                                                                                                        (ab) => {
+                                                                                                                            const abilityMeta = ABILITIES[ab.id];
+                                                                                                                            const isBlueMagic = abilityMeta?.blueMagic === true;
+                                                                                                                            return (
+                                                                                                                                <li
+                                                                                                                                    key={
+                                                                                                                                        ab.id
                                                                                                                                     }
-                                                                                                                                </span>
-                                                                                                                                {ab.description && (
-                                                                                                                                    <span className="text-zinc-300">
-                                                                                                                                        {": "}
+                                                                                                                                >
+                                                                                                                                    <span className="font-medium">
                                                                                                                                         {
-                                                                                                                                            ab.description
+                                                                                                                                            ab.name
                                                                                                                                         }
                                                                                                                                     </span>
-                                                                                                                                )}
-                                                                                                                            </li>
-                                                                                                                        ),
+                                                                                                                                    {isBlueMagic && (
+                                                                                                                                        <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase tracking-[0.14em] text-blue-200">
+                                                                                                                                            Blue Magic
+                                                                                                                                        </span>
+                                                                                                                                    )}
+                                                                                                                                    {ab.description && (
+                                                                                                                                        <span className="text-zinc-300">
+                                                                                                                                            {": "}
+                                                                                                                                            {
+                                                                                                                                                ab.description
+                                                                                                                                            }
+                                                                                                                                        </span>
+                                                                                                                                    )}
+                                                                                                                                </li>
+                                                                                                                            );
+                                                                                                                        },
                                                                                                                     )}
                                                                                                                 </ul>
                                                                                                             </div>
@@ -2130,6 +2210,11 @@ export function GlobalSearchPanel() {
                                                                 <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
                                                                     {set.name}
                                                                 </span>
+                                                                {ability.blueMagic && (
+                                                                    <span className="inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-blue-200">
+                                                                        Blue Magic
+                                                                    </span>
+                                                                )}
                                                                 {ability.job && (
                                                                     <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
                                                                         {
@@ -2477,4 +2562,3 @@ export function GlobalSearchPanel() {
         </div>
     );
 }
-
