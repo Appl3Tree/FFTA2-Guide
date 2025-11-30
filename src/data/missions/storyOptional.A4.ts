@@ -27,12 +27,31 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         dispatchRecommended: ["Lanista"],
         objective: "Defeat all foes in the Special Bout!",
         law: "Forbidden: Dealing < 20 Damage – Dealing < 20 Damage is forbidden.",
-        enemies: [
-            {
-                name: "White Monk",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],
@@ -66,46 +85,31 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         },
         objective: "Defeat Icicle Ark!",
         law: "Forbidden: Fire – Weapons and abilities that use fire are forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 3150,
-            cp: 52,
-            loot: "Cockatrice Skin ×2, Mysidia Alloy ×5"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "A4-03",
-        arc: "A4",
-        name: "Thieves in the Ruins",
-        description: "We've found evidence of trespassing at a ruins site not yet cleared for excavation. We suspect grave robbers. If left to their own devices, it could mean the loss of priceless and irreplaceable cultural artifacts. Our society would like to request that someone put a stop to this activity at once. Naturalist Society",
-        rank: 35,
-        region: "Kthili Sands",
-        fee: 500,
-        days: 20,
-        questType: "Battle",
-        canDispatch: true,
-        canCancel: true,
-        members: 4,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 28,
-            adaptability: 28,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Opportunity Commands – Opportunity Commands are Forbidden.",
-        enemies: [
-            {
-                name: "Thieves ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Beastmaster",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5460,
             cp: 70,
@@ -136,12 +140,31 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         },
         objective: "Defeat Floraxion!",
         law: "Forbidden: Actions by Viera – Viera may only move and perform basic attacks.",
-        enemies: [
-            {
-                name: "Great Malboro ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -176,63 +199,31 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
             teamwork: 15,
             adaptability: 15,
         },
-        enemies: [],
-        rewards: {
-            gil: 2420,
-            cp: 52,
-            loot: "Hero Tonic ×1"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "A4-10",
-        arc: "A4",
-        name: "Wanted: Moogle Rangers",
-        description: "-WANTED!- Wanted: The Moogle Rangers, for 245 counts of disrupting the peace, and 1 count of trespassing. Do not be taken in by the adorable appearance of these five moogles - they are to be considered rude and riotous. Jylland Defenders of the Peace",
-        rank: 32,
-        region: "Sant D'alsa Bluff",
-        fee: 500,
-        days: 20,
-        questType: "Headhunt",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Wanted: Floraxion",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 33,
-            adaptability: 33,
-        },
-        objective: "Defeat the Moogle Rangers!",
-        law: "Forbidden: Missing – Missing with an action is forbidden.",
-        enemies: [
-            {
-                name: "Moogle Knight",
-                type: "Monster",
-            },
-            {
-                name: "Black Mage",
-                type: "Monster",
-            },
-            {
-                name: "Juggler",
-                type: "Monster",
-            },
-            {
-                name: "Chocobo Knight",
-                type: "Monster",
-            },
-            {
-                name: "White Rider",
-                type: "Monster",
-            },
-            {
-                name: "Flintlock",
-                type: "Monster",
-            },
-        ],
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -268,10 +259,31 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         },
         objective: "Defeat Red King Ruuj!",
         law: "Forbidden: Fire, Ice, and Lightning – Weapons and abilities that use fire, ice, or lightning are",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
@@ -303,41 +315,31 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
             teamwork: 0,
             adaptability: 13,
         },
-        enemies: [],
-        rewards: {
-            gil: 2520,
-            cp: 32,
-            loot: "Mysidia Alloy ×3, White Thread ×2"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "A4-14",
-        arc: "A4",
-        name: "Wanted: The Mutadragons",
-        description: "-WANTED!- Wanted: The Mutadragons, for multiple counts of violent assault resulting in injury and destruction of property. These dragons are a rare species, unknown anywhere else. Jylland Defenders of the Peace",
-        rank: 36,
-        region: "The Aldanna Range",
-        fee: 500,
-        days: 20,
-        questType: "Headhunt",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Wanted: Moogle Ranger",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 44,
-            adaptability: 44,
-        },
-        objective: "Defeat the Mutadragons!",
-        law: "Forbidden: Targeting all Units – Actions targeting all units at once are forbidden.",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],
@@ -371,16 +373,31 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         },
         objective: "Defeat Blue King Bliu!",
         law: "Forbidden: Using MP – Actions that consume MP are forbidden.",
-        enemies: [
-            {
-                name: "Light Sabers ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Blue Mage",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 7810,
             cp: 99,

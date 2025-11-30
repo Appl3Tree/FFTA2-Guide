@@ -146,39 +146,38 @@ function missionBlob(m: Mission): string {
             
             // Include enemy abilities in search
             if (enemy.abilities) {
-                const loadout = resolveEnemyLoadout(enemy.abilities);
-                if (loadout) {
-                    if (loadout.A1) {
-                        parts.push(loadout.A1.setName);
-                        if (loadout.A1.setDescription) parts.push(loadout.A1.setDescription);
-                        loadout.A1.abilities.forEach(ab => {
-                            parts.push(ab.name);
-                            if (ab.description) parts.push(ab.description);
-                            // Check if this ability is Blue Magic
-                            const abilityMeta = ABILITIES[ab.id];
-                            if (abilityMeta?.blueMagic) parts.push("blue magic");
-                        });
-                    }
-                    if (loadout.A2) {
-                        parts.push(loadout.A2.setName);
-                        loadout.A2.abilities.forEach(ab => {
-                            parts.push(ab.name);
-                            if (ab.description) parts.push(ab.description);
-                            // Check if this ability is Blue Magic
-                            const abilityMeta = ABILITIES[ab.id];
-                            if (abilityMeta?.blueMagic) parts.push("blue magic");
-                        });
-                    }
-                    if (loadout.R) {
-                        parts.push(loadout.R.name);
-                        if (loadout.R.description) parts.push(loadout.R.description);
-                    }
-                    if (loadout.P) {
-                        parts.push(loadout.P.name);
-                        if (loadout.P.description) parts.push(loadout.P.description);
-                    }
-                }
-            }
+    const loadout = resolveEnemyLoadout(enemy.abilities);
+    if (loadout) {
+        if (loadout.A1) {
+            parts.push(loadout.A1.setName);
+            if (loadout.A1.setDescription) parts.push(loadout.A1.setDescription);
+            (loadout.A1.abilities ?? []).forEach((ab) => {
+                parts.push(ab.name);
+                if (ab.description) parts.push(ab.description);
+                const abilityMeta = ABILITIES[ab.id];
+                if (abilityMeta?.blueMagic) parts.push("blue magic");
+            });
+        }
+        if (loadout.A2) {
+            parts.push(loadout.A2.setName);
+            (loadout.A2.abilities ?? []).forEach((ab) => {
+                parts.push(ab.name);
+                if (ab.description) parts.push(ab.description);
+                const abilityMeta = ABILITIES[ab.id];
+                if (abilityMeta?.blueMagic) parts.push("blue magic");
+            });
+        }
+        if (loadout.R) {
+            parts.push(loadout.R.name);
+            if (loadout.R.description) parts.push(loadout.R.description);
+        }
+        if (loadout.P) {
+            parts.push(loadout.P.name);
+            if (loadout.P.description) parts.push(loadout.P.description);
+        }
+    }
+}
+
             
             // Include enemy equipment in search
             if (enemy.equipment) {

@@ -25,16 +25,31 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         },
         objective: "Uphold the Law and Defeat all Foes!",
         law: "Forbidden: Fire – Weapons and abilities that use fire are forbidden.",
-        enemies: [
-            {
-                name: "Malboros ×4",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Malboro King",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Having Esuna available is recommended to handle debuffs",
@@ -69,10 +84,31 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         },
         objective: "Defeat Nezzel the Alchemist!",
         law: "Forbidden: Height > or = 10 – Moving to a tile with height of 10 of more is forbidden.",
-        enemies: [],
-        battlefield: [
-            "The map features elevation differences",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1960,
             cp: 64,
@@ -102,12 +138,31 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         },
         objective: "Find the Buried Treasure!",
         law: "Forbidden: Summoning Scions – Summoning Scions is forbidden.",
-        enemies: [
-            {
-                name: "Antlions ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -144,70 +199,31 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Being Robbed – Having gil or items stolen is forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 2960,
-            cp: 38,
-            loot: "Gurnat ×2, Strange Liquid ×4"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D4-12",
-        arc: "D4",
-        name: "A Small Favour",
-        description: "I require an ether. Bring me one, won't you? Master Metallurgist",
-        rank: 30,
-        region: "Tramdine Fens",
-        fee: 400,
-        days: 20,
-        questType: "Defeat Mark",
-        canDispatch: false,
-        canCancel: true,
-        members: 1,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        enemies: [],
-        rewards: {
-            gil: 7880,
-            cp: 60,
-            loot: "Wyvern Wing ×1"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D4-14",
-        arc: "D4",
-        name: "Ordalia Airships Grounded",
-        description: "A pack of bombs from Sant D'alsa Bluff is posing a threat to the aerodrome. If they detonate near even one of the airships moored there, the entire fleet could go up in flames. Destroy them all before it's too late! Ash, Airship Pilot",
-        rank: 25,
-        region: "Fluorgis",
-        fee: 400,
-        days: 20,
-        questType: "Battle",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 15,
-            adaptability: 15,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Targeting Distant Units – Actions targeting units two or more tiles away are forbidden.",
-        enemies: [
-            {
-                name: "Bombs ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],

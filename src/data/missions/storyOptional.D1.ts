@@ -24,77 +24,31 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
             teamwork: 0,
             adaptability: 44,
         },
-        enemies: [],
-        rewards: {
-            gil: 2930,
-            cp: 50,
-            loot: "Prime Pelt ×1"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D1-02",
-        arc: "D1",
-        name: "Oh No, Kupo!",
-        description: "I don't know when or how these bombs got in here, but they made a real mess of the town, kupo! Our machine got blown to smithereens! Kupo-po! I'd pick up the pieces, but I can't see for the tears! Could someone collect what's left? Sheni, Machinist",
-        rank: 39,
-        region: "Goug",
-        fee: 500,
-        days: 20,
-        questType: "Item Recovery",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 33,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Gather all the Machinery Parts!",
-        law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 7210,
-            cp: 78,
-            loot: "Tanned Beast Hide ×2"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D1-05",
-        arc: "D1",
-        name: "The Bangaa of the Rupies",
-        description: "This rivalry has gone on for many longs years ... high time we finished it once and for all! Those cowards in the Nu Mou Nobles have had it coming, and with a little extra muscle from you, we'll see they get it! The battlefield will be the Rupie Mountains. Come prepared! Mocedad, Bangaa Brotherhood",
-        rank: 50,
-        region: "The Rupie Mountains",
-        fee: 500,
-        days: 20,
-        questType: "Battle",
-        canDispatch: false,
-        canCancel: true,
-        members: 4,
-        prerequisite: "The Nu Mou Nobles",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 20,
-            adaptability: 20,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Fire – Weapons and abilities that use fire are forbidden.",
-        enemies: [
-            {
-                name: "Gladiator",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Biship",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Having Esuna available is recommended to handle debuffs",
             "Bring a healer to manage HP during the encounter",
@@ -128,16 +82,31 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         },
         objective: "Protect Mocedad and Madreth!",
         law: "Forbidden: Buffs – Buffs are forbidden.",
-        enemies: [
-            {
-                name: "Ravager",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Cannoneer",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],
@@ -169,16 +138,31 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
             adaptability: 7,
         },
         objective: "Defeat 10 Foes and keep them from the tree!",
-        enemies: [
-            {
-                name: "Foes ×10",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Antlions ×4",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The map features elevation differences",
         ],
@@ -210,28 +194,31 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
             teamwork: 20,
             adaptability: 0,
         },
-        enemies: [
-            {
-                name: "Brotherhood",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Cannoneer",
-                type: "Monster",
-            },
-            {
-                name: "White Monk",
-                type: "Monster",
-            },
-            {
-                name: "Master Monk",
-                type: "Monster",
-            },
-            {
-                name: "Bishop",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
@@ -262,40 +249,31 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 140,
-            cp: 30,
-            loot: ""
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D1-14",
-        arc: "D1",
-        name: "'Tis the Season",
-        description: "Tis the season again, the seaon for those horrid mimics to start spawning. Oh, I want to get rid of them this year in the worst way, but it will take a while to activate my magickal device that should put an end to the infestation. I need someone to hold them off until it gets going! Center for Mimic Control Research Assistant to the Chief",
-        rank: 29,
-        region: "The Neslowe Passage",
-        fee: 400,
-        days: 20,
-        questType: "Satisfy Petitioner",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 44,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 44,
-        },
-        objective: "Buy Time for Four Rounds!",
-        law: "Forbidden: HP < or = 20 – Having less than 20 HP is forbidden.",
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-        ],
+    ],
         rewards: {
             gil: 6220,
             cp: 58,

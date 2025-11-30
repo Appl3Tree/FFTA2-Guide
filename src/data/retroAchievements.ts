@@ -481,6 +481,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
                 'During "Green Dominion" Defeat All 4 "Green Mages" Before any of them take their 4th Turn',
             missable: true,
         },
+        {
+            id: "ra-rumble-in-the-jungle",
+            name: "Rumble in the Jungle",
+            description: 'Unlock the "Green Mage" job.',
+            category: "Advanced Jobs & Recruits",
+        },
     ],
     "C3-13": [
         {

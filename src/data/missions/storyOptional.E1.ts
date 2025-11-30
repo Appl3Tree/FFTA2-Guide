@@ -25,12 +25,31 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         },
         objective: "Find Three Treasures",
         law: "Forbidden: Attack – Attacking is Forbidden",
-        enemies: [
-            {
-                name: "Bugle Head Editor",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1750,
             cp: 44,
@@ -60,10 +79,31 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         },
         objective: "Defend the Head Editor and defeat all Foes!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 3030,
             cp: 36,
@@ -93,12 +133,31 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         },
         objective: "Help the Bonga Bugle get its scoop!",
         law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards",
-        enemies: [
-            {
-                name: "Pepe",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],
@@ -131,24 +190,31 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
-        enemies: [
-            {
-                name: "Hoppy Bunny",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Werewolf",
-                type: "Monster",
-            },
-            {
-                name: "Deathscythe",
-                type: "Monster",
-            },
-            {
-                name: "Malboro",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 6970,
             cp: 68,
@@ -178,40 +244,31 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         },
         objective: "Protect the Head Editor and Defeat all Foes!",
         law: "Forbidden: Harming Seeq – Actions that harm Seeq are forbidden.",
-        enemies: [
-            {
-                name: "Clan Points ×60",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Gil ×4590",
-                type: "Monster",
-            },
-            {
-                name: "Donna",
-                type: "Monster",
-            },
-            {
-                name: "Raptor",
-                type: "Monster",
-            },
-            {
-                name: "Spellblade",
-                type: "Monster",
-            },
-            {
-                name: "Hunter",
-                type: "Monster",
-            },
-            {
-                name: "Blue Mage",
-                type: "Monster",
-            },
-            {
-                name: "Seeq",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 2,
             cp: 60,
@@ -239,16 +296,31 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [
-            {
-                name: "Gil ×7280",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Pollen",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 2,
             cp: 76,
@@ -278,20 +350,31 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         },
         objective: "Place 5 pots on the tree stumps!",
         law: "Forbidden: Piercing Weapons – Attacks with rapiers and spears are forbidden",
-        enemies: [
-            {
-                name: "Sprite",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Baknamy",
-                type: "Monster",
-            },
-            {
-                name: "Worgen",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 2730,
             cp: 30,
@@ -321,12 +404,31 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         },
         objective: "Protect the Bugle staff and defeat all foes!",
         law: "Forbidden: Summoning Scions – Summoning Scions is forbidden.",
-        enemies: [
-            {
-                name: "Grenades ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Bring a healer to manage HP during the encounter",
@@ -358,16 +460,31 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             teamwork: 0,
             adaptability: 6,
         },
-        enemies: [
-            {
-                name: "Seeq",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Malbow",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1230,
             cp: 24,
@@ -397,16 +514,31 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         },
         objective: "Uphold the Law and Defeat all Foes!",
         law: "Forbidden: Being Robbed – Having hil or items stolen is forbidden.",
-        enemies: [
-            {
-                name: "Gil ×3030",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Onion ×1",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -439,16 +571,31 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         },
         objective: "Protect the Head Editor and Defeat all Foes!",
         law: "Forbidden: Buffs – Buffs are forbidden.",
-        enemies: [
-            {
-                name: "Gil ×4940",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Hedychium ×1",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Having Esuna available is recommended to handle debuffs",

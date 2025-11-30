@@ -25,10 +25,31 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         },
         objective: "Speed Battle vs House Bowen",
         law: "Forbidden: Actions by Moogles – Moogles may only move and perform basic attacks",
-        enemies: [],
-        battlefield: [
-            "Treasure chests are present on the battlefield",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 2280,
             cp: 26,
@@ -58,16 +79,31 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
-        enemies: [
-            {
-                name: "Soldier ×1",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Thief ×1",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -103,16 +139,31 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         },
         objective: "Protect the Chocobo and Defeat all Foes!",
         law: "Forbidden: > 50 Damage – Dealing > 50 Damage is forbidden.",
-        enemies: [
-            {
-                name: "Wendigo",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Cannoneer",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Bring a healer to manage HP during the encounter",
@@ -147,11 +198,31 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         },
         objective: "Survive for 4 Rounds!",
         law: "Forbidden: Debuffs – Debuffs are forbidden.",
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 2870,
             cp: 44,
@@ -181,20 +252,31 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         },
         objective: "Help Mayhew find her Concertina!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden",
-        enemies: [
-            {
-                name: "Ice Drakes ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Lamia ×1",
-                type: "Monster",
-            },
-            {
-                name: "Monsters ×4",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 2350,
             cp: 38,
@@ -224,20 +306,31 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
-        enemies: [
-            {
-                name: "Floating Eyes ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Bloody Orbs ×2",
-                type: "Monster",
-            },
-            {
-                name: "Ahrimans ×2",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 3750,
             cp: 48,
@@ -266,73 +359,31 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 2350,
-            cp: 36,
-            loot: "The Arnath Glyphs ×1, Quince ×4"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C4-10",
-        arc: "C4",
-        name: "Sleight of Hand",
-        description: "Tricksters by nade and trade are we - master of sleight of hand. Beat us at our own tricks and the tricks of the trickster trade are yours for the trick...er, taking! Glackta, Trickster Extraordinaire",
-        rank: 23,
-        region: "Nazan Mines",
-        fee: 400,
-        days: 20,
-        questType: "Battle",
-        canDispatch: false,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 15,
-            adaptability: 15,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Receiving Buffs and Debuffs – Receiving Buffs and Debuffs are forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 2790,
-            cp: 46,
-            loot: "Earth Sigil ×5"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C4-11",
-        arc: "C4",
-        name: "Kidnapping!?",
-        description: "I can't get word to Prima Donna, and I've tried everything! We've got a concert coming up, too ... Surely they haven't been kidnapped ... have they? Oh, gods, they have! Someone look into this, please! Manager, Prima Donna",
-        rank: 30,
-        region: "Fluorgis",
-        fee: 400,
-        days: 20,
-        questType: "Investigation",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Instruments of",
-        requiredTalents: {
-            negotiation: 20,
-            aptitude: 20,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Defeat all foes before they enter the water!",
-        law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
-        enemies: [
-            {
-                name: "Donna",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 3030,
             cp: 60,
@@ -362,16 +413,31 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
-        enemies: [
-            {
-                name: "Master Monks ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "White Monks ×2",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5340,
             cp: 58,
@@ -401,42 +467,31 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         },
         objective: "Protect Roye and Defeat all Foes!",
         law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards",
-        enemies: [],
-        rewards: {
-            gil: 6150,
-            cp: 56,
-            loot: "Einherjarium ×3, Orichalcum ×2"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C4-15",
-        arc: "C4",
-        name: "The Storage Shed",
-        description: "Help! Someone's in my storage shed! What if it's a thief? I can't go out there alone to check ... someone come with me! Mayhew, Prima Donna",
-        rank: 6,
-        region: "Tramdine Fens",
-        fee: 200,
-        days: 20,
-        questType: "Investigation",
-        canDispatch: true,
-        canCancel: true,
-        members: 4,
-        requiredTalents: {
-            negotiation: 18,
-            aptitude: 18,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Harming Gria – Actions that harm gria are forbidden.",
-        enemies: [
-            {
-                name: "Sage",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 690,
             cp: 12,

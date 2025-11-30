@@ -24,12 +24,31 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 33,
         },
-        enemies: [
-            {
-                name: "Bluff",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1750,
             cp: 36,
@@ -58,40 +77,31 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 39,
         },
-        enemies: [],
-        rewards: {
-            gil: 1750,
-            cp: 38,
-            loot: "Cockatrice Skin ×1"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D2-03",
-        arc: "D2",
-        name: "The Wonders of Loar",
-        description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 16 days and receive a stamp in your wayfarer's log to win valuable prizes! Marsa Wayfarer's Association List of Destinations: - Baptiste Hill - The Aldanna Range - The Rupie Mountains - The Ruins of Delgantua",
-        rank: 20,
-        region: "Bapt, Hill, Ald, Ruins",
-        fee: 300,
-        days: 16,
-        questType: "Meet Objectives",
-        canDispatch: true,
-        canCancel: true,
-        members: 1,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 47,
-        },
-        enemies: [
-            {
-                name: "Range",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1750,
             cp: 40,
@@ -120,41 +130,31 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 51,
         },
-        enemies: [],
-        rewards: {
-            gil: 1750,
-            cp: 42,
-            loot: "Mind Ceffyl ×1"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D2-05",
-        arc: "D2",
-        name: "Chita on Weapons - Masters",
-        description: "Ngaaa! It's just no good! I've sung the praises of focus and determination high and low, but it just doesn't seem to stick! Nothing for it but for me to give a lecture to end all lectures! Chita, Chita's Weaponers",
-        rank: 49,
-        region: "The Ruins of Delgantua",
-        fee: 500,
-        days: 20,
-        questType: "Meet Objectives",
-        canDispatch: true,
-        canCancel: true,
-        members: 4,
-        prerequisite: "Chita on Weapons -",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 33,
-        },
-        objective: "Speed Battle vs Chita's Weaponers",
-        law: "Forbidden: Piercing Weapons – Attacks with rapiers and spears are forbidden.",
-        enemies: [],
-        strategy: [
-            "Ranged magical attacks are effective in this mission",
-        ],
+    ],
         rewards: {
             gil: 7550,
             cp: 98,
@@ -184,28 +184,31 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         },
         objective: "Defeat all foes except the White Antlion!",
         law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
-        enemies: [
-            {
-                name: "Sprite ×1",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Antlions ×2",
-                type: "Monster",
-            },
-            {
-                name: "Pit Beast",
-                type: "Monster",
-            },
-            {
-                name: "Chocobo",
-                type: "Monster",
-            },
-            {
-                name: "Giant Tortoise",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -240,54 +243,31 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 2240,
-            cp: 34,
-            loot: "Body Ceffyl ×3"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D2-08",
-        arc: "D2",
-        name: "Fluffy Flier?",
-        description: "I saw someone fly over a volcano the other day! Flitting through the air right over the hot flowing lava, they were! My mom says I'm full of it, but I know what I saw. Could someone go check it out? Uwattyo, Adventurous Boy",
-        rank: 38,
-        region: "The Neslowe Passage",
-        fee: 500,
-        days: 20,
-        questType: "Investigation",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 44,
-            aptitude: 44,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Summoning Scions – Summoning Scions is forbidden.",
-        enemies: [
-            {
-                name: "Sprites ×3",
-                type: "Monster",
-            },
-            {
-                name: "Banshee ×1",
-                type: "Monster",
-            },
-            {
-                name: "Brown Chocobo",
-                type: "Monster",
-            },
-            {
-                name: "Drake",
-                type: "Monster",
-            },
-        ],
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Ranged magical attacks are effective in this mission",
@@ -321,12 +301,31 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         },
         objective: "Gather all the pages of the Recipe!",
         law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
-        enemies: [
-            {
-                name: "Cockatrices ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -363,41 +362,31 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 2240,
-            cp: 54,
-            loot: "Goldcap ×4"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D2-11",
-        arc: "D2",
-        name: "Cake: The Catastrophe",
-        description: "It took me five days, but I finally finished baking my grandmother's special cake - but on my way to deliver it to my father, I was set upon by a monster like a great ball of feathers, and it stole the cake, box and all! Won't someone please get it back for me? Lea, Who is often set upon by monsters",
-        rank: 37,
-        region: "Kthili Sands",
-        fee: 500,
-        days: 20,
-        questType: "Battle",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Cake:The Ingredients",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 39,
-            adaptability: 39,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Bladed Weapons – Attacks with knives, swords, blades, sabers, katanas, axes",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],
@@ -429,50 +418,31 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 2240,
-            cp: 34,
-            loot: "Clear Sap ×2"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D2-13",
-        arc: "D2",
-        name: "My Secret Shame",
-        description: "That Killan has done it again! He's thrown my final exam papers out the window. If anyone learns the marks I receivedm I'll never be able to show my face in the Akademy again. I think the papers are still in the forest behind the school. Gather them and return them with all haste! Udite, Second Year Akademy Student",
-        rank: 25,
-        region: "Moorabella",
-        fee: 400,
-        days: 20,
-        questType: "Item Recovery",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 13,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Gather Udite's exam papers!",
-        law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
-        enemies: [
-            {
-                name: "Deadly Nightshades ×2",
-                type: "Monster",
-            },
-            {
-                name: "Sprite",
-                type: "Monster",
-            },
-            {
-                name: "Hoppy Bunny",
-                type: "Monster",
-            },
-        ],
+    ],
         rewards: {
             gil: 2720,
             cp: 50,
@@ -502,12 +472,31 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Reaction Abilities – Reaction abilities are forbidden.",
-        enemies: [
-            {
-                name: "Antlions ×5",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -544,11 +533,31 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Grouping – Ending the turn next to another unit is forbidden.",
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 3290,
             cp: 58,

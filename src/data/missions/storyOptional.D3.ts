@@ -23,10 +23,31 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        battlefield: [
-            "The map features elevation differences",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1330,
             cp: 30,
@@ -55,99 +76,31 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 4260,
-            cp: 50,
-            loot: "Emperor Scale ×2"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D3-05",
-        arc: "D3",
-        name: "Rude Awakening",
-        description: "I'm not what you call a morning person. I'm always oversleeping and missing my classes. I've heard that malboro draught might help me wake up on time. It's made from malboro vine and foul liquid, and the Witch of the Fens is said to know how to prepare it. Once you have the draight, bring it to me in Fluorgis. Geldran the Drowsy",
-        rank: 18,
-        region: "Fluorgis",
-        fee: 300,
-        days: 20,
-        questType: "Delivery",
-        canDispatch: false,
-        canCancel: true,
-        members: 1,
-        requiredItems: ["Malboro Vine ×1", "Foul Liquid ×1"],
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 9,
-            adaptability: 9,
-        },
-        enemies: [],
-        rewards: {
-            gil: 2350,
-            cp: 36,
-            loot: "Foul Liquid ×1"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D3-06",
-        arc: "D3",
-        name: "Drowsy Draught",
-        description: "I once had trouble oversleeping and missing my classes, but a certain draught I'd rather not recall put an end to that. Oh how I miss those mornings spent drowsing in bed! I wish to return to my layabout ways, and prim draught is said to be just the thing I need. Please bring a succulent fruit and some sweet sap to the Witch of the Fens and have her prepare the draught for me! Geldran the Once Drowsy",
-        rank: 20,
-        region: "Fluorgis",
-        fee: 300,
-        days: 20,
-        questType: "Delivery",
-        canDispatch: true,
-        canCancel: true,
-        members: 1,
-        requiredItems: ["Succulent Fruit ×1", "Sweet Sap ×1"],
-        prerequisite: "Rude Awakening",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        enemies: [],
-        rewards: {
-            gil: 2580,
-            cp: 40,
-            loot: "Sweet Sap ×1"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D3-07",
-        arc: "D3",
-        name: "Teach a Man to Run",
-        description: "The ultimate fisherman needs no rod, line, or hook. All he needs is what he was born with. I am in training to become such a master, but I seem to have attracted something most unfortunate. Somebody help me! Enchan, Perspiring Fisherman",
-        rank: 37,
-        region: "Tramdine Fens",
-        fee: 500,
-        days: 4,
-        questType: "Escort",
-        canDispatch: false,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 22,
-            aptitude: 0,
-            teamwork: 22,
-            adaptability: 0,
-        },
-        law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
-        ],
+    ],
         rewards: {
             gil: 5150,
             cp: 74,
@@ -177,55 +130,31 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         },
         objective: "Clean the airship within X rounds!",
         law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 180,
-            cp: 44,
-            loot: "Great Serpant's Fang ×2"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D3-10",
-        arc: "D3",
-        name: "Teach a Man to Fish",
-        description: "The ultimate fisherman needs no rod, line, or hook. All he needs is what he was born with. I am in training to become such a master, but monsters keep intruding on my fishing hole. Someone drive them off! Enchan, Aspiring Fisherman",
-        rank: 28,
-        region: "Tramdine Fens",
-        fee: 400,
-        days: 20,
-        questType: "Escort",
-        canDispatch: true,
-        canCancel: true,
-        members: 5,
-        requiredTalents: {
-            negotiation: 18,
-            aptitude: 0,
-            teamwork: 18,
-            adaptability: 0,
-        },
-        dispatchRecommended: ["Defender"],
-        objective: "Protect Enchan and Defeat all Foes!",
-        law: "Forbidden: Harming Nu Mou – Actions that harm nu mou are forbidden.",
-        enemies: [
-            {
-                name: "Rocktitans ×2",
-                type: "Monster",
-            },
-            {
-                name: "Nagaraja",
-                type: "Monster",
-            },
-            {
-                name: "Hellhound",
-                type: "Monster",
-            },
-            {
-                name: "Magick",
-                type: "Monster",
-            },
-        ],
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],

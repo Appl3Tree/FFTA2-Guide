@@ -24,41 +24,31 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 2240,
-            cp: 40,
-            loot: "Storm Sigil ×2"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "E3-06",
-        arc: "E3",
-        name: "Meeting the Quota",
-        description: "I've always been weak - ill suited for physical labour. As my luck would have it, I was chosen to join an expedition to dig for licra ore. I relaly don't think I'm up to the task, and so I seek a group of hunters to go in my place. Cain the Frail",
-        rank: 30,
-        region: "Nazan Mines",
-        fee: 400,
-        days: 20,
-        questType: "Item Recovery",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 18,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Gather the Licra Ore!",
-        law: "Forbidden: Targeting an Area – Actions targeting two or more tiles are forbidden.",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-            "Treasure chests are present on the battlefield",
-        ],
+    ],
         rewards: {
             gil: 4990,
             cp: 60,
@@ -88,20 +78,31 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         },
         objective: "Defeat Entz!",
         law: "Forbidden: Elemental Effects – Use of elemental weapons and abilities is forbidden.",
-        enemies: [
-            {
-                name: "Great Tortoises ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Zombies ×2",
-                type: "Monster",
-            },
-            {
-                name: "Bluff",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
         ],
@@ -133,8 +134,31 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             teamwork: 18,
             adaptability: 18,
         },
-        enemies: [
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 2560,
             cp: 36,
@@ -164,12 +188,31 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Action by Seeq – Seeq may only move and perform basic attacks.",
-        enemies: [
-            {
-                name: "Ninja",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Having Esuna available is recommended to handle debuffs",
             "Ranged magical attacks are effective in this mission",
@@ -203,70 +246,31 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         },
         objective: "See the battle to the end!",
         law: "Forbidden: Restoring HP – Actions that restore HP are forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 6850,
-            cp: 99,
-            loot: "Moon Ring ×5"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "E3-13",
-        arc: "E3",
-        name: "Rancher's Request - Green",
-        description: "I'd like to have a green chocobo at my ranch to raise along with the others, but they're so fast, all of my own attempts to catch one have failed. Seek fleet-footed hunters to find and catch a green chocobo for me! Yew, Chocobo Rancher",
-        rank: 29,
-        region: "Targ Woods",
-        fee: 400,
-        days: 20,
-        questType: "Satisfy Petitioner",
-        canDispatch: false,
-        canCancel: true,
-        members: 1,
-        prerequisite: "Rancher's Request -",
-        requiredTalents: {
-            negotiation: 18,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        enemies: [],
-        rewards: {
-            gil: 1750,
-            cp: 58,
-            loot: "Gold Chalice ×3"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "E3-14",
-        arc: "E3",
-        name: "Rancher's Request - Brown",
-        description: "The other day I made to catch a brown chocobo to add to my herd, but I didn't expect the fierce beaking that was in store for me. I was lucky to make it back in one peace! I seek stalwart hunters to capture a brown chocobo and return it to me - I'll stick to raising them. Yew, Chocobo Rancher",
-        rank: 33,
-        region: "Targ Woods",
-        fee: 500,
-        days: 20,
-        questType: "Satisfy Petitioner",
-        canDispatch: false,
-        canCancel: true,
-        members: 1,
-        prerequisite: "Rancher's Request -",
-        requiredTalents: {
-            negotiation: 20,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        enemies: [
-            {
-                name: "Range",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1750,
             cp: 66,
@@ -295,12 +299,31 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [
-            {
-                name: "White Chocobo",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1750,
             cp: 74,

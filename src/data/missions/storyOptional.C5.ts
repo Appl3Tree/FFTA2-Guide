@@ -26,12 +26,31 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Swimming – Entering a water tile is forbidden.",
-        enemies: [
-            {
-                name: "Geomancers ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],
@@ -64,16 +83,31 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Reaction Abilities – Reaction Abilities are forbidden.",
-        enemies: [
-            {
-                name: "Geomancers ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Hellhound",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Ranged magical attacks are effective in this mission",
@@ -108,20 +142,31 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
-        enemies: [
-            {
-                name: "Nidhogg",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Great Malboro",
-                type: "Monster",
-            },
-            {
-                name: "Lamia",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 8670,
             cp: 94,
@@ -151,20 +196,31 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         },
         objective: "Defeat all Foes in Four Rounds!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
-        enemies: [
-            {
-                name: "Baknamy ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Luchorpan ×1",
-                type: "Monster",
-            },
-            {
-                name: "Monsters ×4",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Ranged magical attacks are effective in this mission",
@@ -198,20 +254,31 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         },
         objective: "Speed Battle vs. Tigrina",
         law: "Forbidden: Targeting Distant Units – Actions targeting units two or more tiles away are forbidden.",
-        enemies: [
-            {
-                name: "Mirror Items ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Ravager",
-                type: "Monster",
-            },
-            {
-                name: "Yowie",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],
@@ -244,12 +311,31 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         },
         objective: "Defend the Devotee and Defeat all Foes!",
         law: "Forbidden: Lightning – Weapons and abilities that use Lightning are forbidden.",
-        enemies: [
-            {
-                name: "Parivir",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 3050,
             cp: 52,
@@ -278,37 +364,31 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
             teamwork: 0,
             adaptability: 54,
         },
-        enemies: [],
-        rewards: {
-            gil: 7000,
-            cp: 40,
-            loot: "Mythril ×1"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C5-16",
-        arc: "C5",
-        name: "Unplumbed Depths",
-        description: "Came across a curious notice in the pub about a new tunnel discovered in the Neslowe Passage. A little exploration may turn up the treasure the passage is rumoured to hold.",
-        region: "The Neslowe Passage",
-        questType: "Defeat Mark",
-        canDispatch: false,
-        canCancel: false,
-        members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Get the Treasure!",
-        law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
-        enemies: [],
-        battlefield: [
-            "Treasure chests are present on the battlefield",
-        ],
+    ],
         rewards: {
             gil: 11150,
             cp: 99,

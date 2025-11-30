@@ -647,7 +647,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                                                     </div>
                                                                                 )}
                                                                                 <ul className="list-disc list-inside space-y-0.5">
-                                                                                    {loadout.A1.abilities.map((ab) => {
+                                                                                    {(loadout.A1.abilities ?? []).map((ab) => {
                                                                                         const abilityMeta = ABILITIES[ab.id];
                                                                                         const isBlueMagic = abilityMeta?.blueMagic === true;
                                                                                         return (
@@ -684,7 +684,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                                                     A2: {loadout.A2.setName}
                                                                                 </div>
                                                                                 <ul className="list-disc list-inside space-y-0.5">
-                                                                                    {loadout.A2.abilities.map((ab) => {
+                                                                                    {(loadout.A2.abilities ?? []).map((ab) => {
                                                                                         const abilityMeta = ABILITIES[ab.id];
                                                                                         const isBlueMagic = abilityMeta?.blueMagic === true;
                                                                                         return (

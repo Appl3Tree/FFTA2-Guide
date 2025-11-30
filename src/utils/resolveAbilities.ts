@@ -1,19 +1,37 @@
 import {
     ABILITIES,
     ABILITY_SETS,
+    type AbilityMeta,
+    type AbilitySetMeta
 } from "../data/abilities/abilities";
 import type {
     EnemyAbilityLoadout,
     EnemyActionAbilityRef,
 } from "../types/ffta2";
 
-function resolveActionAbility(ref?: EnemyActionAbilityRef) {
-    if (!ref || ref.abilityIds.length === 0) return null;
+interface EnemyActionAbilityRef {
+    setId: string;
+    abilityIds?: string[];
+}
 
-    const setMeta = ABILITY_SETS[ref.setId];
-    const abilities = ref.abilityIds
+interface ResolvedAbilitySet {
+    setId: string;
+    setName: string;
+    setDescription?: string;
+    abilities: AbilityMeta[]; // always an array, maybe empty
+}
+
+function resolveActionAbility(ref?: EnemyActionAbilityRef | null): ResolvedAbilitySet | null {
+    if (!ref) return null;
+
+    const setMeta: AbilitySetMeta | undefined = ABILITY_SETS[ref.setId];
+
+    // Normalize abilityIds to an array (possibly empty)
+    const abilityIds = Array.isArray(ref.abilityIds) ? ref.abilityIds : [];
+
+    const abilities: AbilityMeta[] = abilityIds
         .map((id) => ABILITIES[id])
-        .filter((a) => !!a);
+        .filter((a): a is AbilityMeta => !!a);
 
     return {
         setId: ref.setId,

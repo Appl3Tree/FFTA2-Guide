@@ -27,10 +27,31 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         dispatchRecommended: ["Ranger"],
         objective: "Uphold the Law and Destroy all Traps!",
         law: "Forbidden: Attack – Attacking is Forbidden",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 9450,
             cp: 92,
@@ -61,16 +82,31 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         },
         objective: "Gather all the Potions!",
         law: "Forbidden: Restoring HP – Actions that restore HP are forbidden.",
-        enemies: [
-            {
-                name: "Ice Drakes ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Blue Flans ×2",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
         ],
@@ -104,20 +140,31 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Targeting all Units – Actions targeting all units are forbidden.",
-        enemies: [
-            {
-                name: "Moggle Black Mage",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Time Mage",
-                type: "Monster",
-            },
-            {
-                name: "Archer",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
@@ -149,43 +196,31 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 700,
-            cp: 22,
-            loot: "Recall Grass ×2, Wool ×1, Velvet ×2"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C2-05",
-        arc: "C2",
-        name: "Komodo Departure",
-        description: "I have to deliver some merchandise, and the road promises to be treacherous. Guards needed! Pay: 2200 Gil The successful applicant will have confidence in their sword arm, be passionate about their work, and love to quaff potions. Komodo Potions",
-        rank: 16,
-        region: "The Bisga Greenlands",
-        fee: 300,
-        days: 20,
-        questType: "Escort",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 7,
-            aptitude: 0,
-            teamwork: 7,
-            adaptability: 0,
-        },
-        dispatchRecommended: ["Defender"],
-        objective: "Protect the Komodo Trader and Defeat all Foes!",
-        law: "Forbidden: Targeting an Area – Actions targeting two or more tiles are forbidden.",
-        enemies: [
-            {
-                name: "Warriors ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -219,12 +254,31 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             teamwork: 0,
             adaptability: 9,
         },
-        enemies: [
-            {
-                name: "Greenlands",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1750,
             cp: 30,
@@ -253,70 +307,31 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             teamwork: 0,
             adaptability: 11,
         },
-        enemies: [],
-        rewards: {
-            gil: 1750,
-            cp: 32,
-            loot: "Fire Stone ×2, Mape Wood ×1"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C2-08",
-        arc: "C2",
-        name: "The Towns of Loar",
-        rank: 17,
-        region: "Camoa, Graszton, Morra'a",
-        fee: 300,
-        days: 7,
-        questType: "Meet Objectives",
-        canDispatch: true,
-        canCancel: true,
-        members: 1,
-        prerequisite: "The Lands of Loar",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 15,
-        },
-        enemies: [],
-        rewards: {
-            gil: 1750,
-            cp: 34,
-            loot: "Large Feather ×1, Small Feather ×1"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C2-09",
-        arc: "C2",
-        name: "The Genuine Article",
-        description: "Even among wares as fine as Galmia Pepe's there are distinctions. Of late, a large number of counterfeit De'vine Ribbons - one of our finest prodicts - have made their way to market. The counterfeiters are trying to pass off ribbons from the cassie varient of malboro - a vastly inferior specimen. We must act quickly if we are to protect the reputation of our house. Look into the matter with all haste. Galmia Pepe, Office of Quality Assurance",
-        rank: 17,
-        region: "Graszton",
-        fee: 300,
-        days: 20,
-        questType: "Battle",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 9,
-            adaptability: 9,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Buffs – Buffs are forbidden.",
-        enemies: [
-            {
-                name: "Pepe",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 2170,
             cp: 34,
@@ -347,16 +362,31 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: >100 Damage – Dealing >100 damage is forbidden.",
-        enemies: [
-            {
-                name: "Pepe",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Ninja",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The map features elevation differences",
         ],
@@ -390,11 +420,31 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Buffs and Debuffs – Buffs and Debuffs are forbidden.",
-        enemies: [],
-        strategy: [
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 3430,
             cp: 44,
@@ -425,12 +475,31 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         },
         objective: "Speed Battle vs Chita's Weaponers",
         law: "Forbidden: Bludgeoning Weapons – Attacks with rods, staves, poles, kunckles, hammers, and",
-        enemies: [
-            {
-                name: "Gladiator",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5900,
             cp: 78,
@@ -460,10 +529,31 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         },
         objective: "Speed Battle vs. Chita's Weaponers",
         law: "Forbidden: Ranged Weapons – Attack with bows, greatbows, guns, hand-cannons, and cards",
-        enemies: [],
-        strategy: [
-            "Ranged magical attacks are effective in this mission",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 4920,
             cp: 66,
@@ -493,16 +583,31 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         },
         objective: "Find a Kupoppy Flower!",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
-        enemies: [
-            {
-                name: "Wolves ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Werewolves ×2",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
             "The map features elevation differences",

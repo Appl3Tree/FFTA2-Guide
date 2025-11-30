@@ -24,43 +24,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             adaptability: 4,
         },
         objective: "Dispatch the right person for the job.",
-        enemies: [],
-        rewards: {
-            gil: 320,
-            cp: 14,
-            loot: "Knot of Rust ×8, Ether ×4, Phoenix Down ×4"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B4-02",
-        arc: "B4",
-        name: "Strong Lady",
-        description: "That old man dressed up as a lady was fighting, ohm and he was strong. Real strong! And the clan that lost got dragged off somewheres. I cried a little then, and he gave me a sweet. But I thought I should tell someone anyway. Crybaby Kocoot",
-        rank: 30,
-        region: "Camoa",
-        fee: 400,
-        days: 20,
-        questType: "Defeat Mark",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Making Port",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 15,
-            adaptability: 15,
-        },
-        objective: "Defeat the Night Dancer!",
-        law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
-        enemies: [
-            {
-                name: "Trickster",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5320,
             cp: 60,
@@ -91,42 +79,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         },
         objective: "Fulfill the obligations of your quest!",
         law: "Forbidden: Using > or = 20 MP – Actions that consume 20 or more HP are forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 7880,
-            cp: 66,
-            loot: "Crusite Alloy ×5"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B4-04",
-        arc: "B4",
-        name: "The Goug Consortium",
-        description: "Kupo! Some members of our department went to field-test our latest prototype, but they haven't returned, kupo! We need someone to see if they're all right. If that gun were to fall into the wrong hands ... well, let's not think of that! Goug Consortium Department of Ranged Mutilation",
-        rank: 17,
-        region: "Zedlei Forest",
-        fee: 300,
-        days: 20,
-        questType: "Battle",
-        canDispatch: false,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 9,
-            adaptability: 9,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Targeting All Units – Actions targeting all units at once are forbidden",
-        enemies: [
-            {
-                name: "Fusiliers ×6",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The map features elevation differences",
         ],
@@ -161,10 +138,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             teamwork: 0,
             adaptability: 7,
         },
-        enemies: [],
-        strategy: [
-            "Ranged magical attacks are effective in this mission",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1110,
             cp: 28,
@@ -195,12 +193,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         },
         objective: "Protect Alys the Ensorceled and Defeat all Foes!",
         law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
-        enemies: [
-            {
-                name: "Thief",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Having Esuna available is recommended to handle debuffs",
             "Bring a healer to manage HP during the encounter",
@@ -233,46 +250,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             teamwork: 18,
             adaptability: 18,
         },
-        enemies: [],
-        rewards: {
-            gil: 7880,
-            cp: 22,
-            loot: "Silver Liquid ×4"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B4-08",
-        arc: "B4",
-        name: "The Eastwatch",
-        description: "Clan <Name> The might of your clan is renowned throughout Jylland, We have traveled from a land beyond where the sun rises in hopes of testing that might against our own. Will you face us in battle? Zengen, The Eastwatch",
-        rank: 25,
-        region: "Moorabella",
-        fee: 400,
-        days: 20,
-        questType: "Battle",
-        canDispatch: false,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 15,
-            adaptability: 15,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Summoning Scions – Summoning Scions is forbidden.",
-        enemies: [
-            {
-                name: "Parivir ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Ninjas ×2",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
         ],
@@ -303,12 +305,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             teamwork: 0,
             adaptability: 7,
         },
-        enemies: [
-            {
-                name: "Green Mage",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1110,
             cp: 10,
@@ -339,12 +360,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         },
         objective: "Defeat the Mark!",
         law: "Forbidden: Actions by Viera – Viera may only move and perform basic attacks.",
-        enemies: [],
-        strategy: [
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5320,
             cp: 78,
@@ -373,12 +413,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             teamwork: 0,
             adaptability: 28,
         },
-        enemies: [
-            {
-                name: "Lotice",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5080,
             cp: 38,
@@ -408,12 +467,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         },
         objective: "Protect Hana and Defeat 10 Foes!",
         law: "Forbidden: Actions by Gria – Gria may only move and perform basic attacks.",
-        enemies: [
-            {
-                name: "Fencer ×1",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
@@ -445,47 +523,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             teamwork: 0,
             adaptability: 15,
         },
-        enemies: [],
-        rewards: {
-            gil: 2680,
-            cp: 24,
-            loot: "Gemsteel ×5"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B4-14",
-        arc: "B4",
-        name: "Caravan Cry II",
-        description: "We're under attack in Sant D'alsa Bluff from some mean-looking sorts. Send help, quick! Pie-Thon Caravan",
-        rank: 45,
-        region: "Sant D'alsa Bluff",
-        fee: 500,
-        days: 20,
-        questType: "Escort",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 28,
-            aptitude: 0,
-            teamwork: 28,
-            adaptability: 0,
-        },
-        dispatchRecommended: ["Defender"],
-        objective: "Protect Duke Snakeheart and Defeat all Foes!",
-        law: "Forbidden: Non-Elemental Effects – Use of non-elemental weapons and abilities is forbidden.",
-        enemies: [
-            {
-                name: "Seer",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Master Monk",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Having Esuna available is recommended to handle debuffs",
         ],
@@ -519,16 +581,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         },
         objective: "Protect Ghi and Defeat all Foes!",
         law: "Forbidden: Targeting an Area – Actions targeting two or more tiles are forbidden.",
-        enemies: [
-            {
-                name: "Viking",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Parivir",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5670,
             cp: 66,
@@ -558,11 +635,31 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         },
         objective: "Defeat Lord Grayrl!",
         law: "Forbidden: Not Moving 3 Tiles – Each unit must move exactly 3 tiles before ending its turn.",
-        enemies: [],
-        strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Bring a healer to manage HP during the encounter",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5110,
             cp: 56,

@@ -26,16 +26,31 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         },
         objective: "Weaken Titoise and Defeat all Foes!",
         law: "Forbidden: Ice – Weapons and abilities that use ice are forbidden.",
-        enemies: [
-            {
-                name: "Chocobo Knight",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Red",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 4080,
             cp: 80,
@@ -67,12 +82,31 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         dispatchRecommended: ["Arcanist"],
         objective: "Weaken Helda and Defeat all Foes!",
         law: "Forbidden: Bludgeoning Weapons – Attacks with rods, staves, poles, knucles, hammers, and",
-        enemies: [
-            {
-                name: "Hellhound",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -106,24 +140,31 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         },
         objective: "Defeat Carrot!",
         law: "Forbidden: < 20 Damage – Dealing < 20 Damage is forbidden.",
-        enemies: [
-            {
-                name: "Great Malboros ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Chocobos ×2",
-                type: "Monster",
-            },
-            {
-                name: "Tonberry",
-                type: "Monster",
-            },
-            {
-                name: "Cassie",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -155,43 +196,31 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
             teamwork: 0,
             adaptability: 28,
         },
-        enemies: [],
-        rewards: {
-            gil: 2540,
-            cp: 38,
-            loot: "Hero Tonic ×1"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C1-05",
-        arc: "C1",
-        name: "Foodstuffs: Nutrition",
-        description: "Foodstuffs needed. You will be required to catch specific monsters at a specific location. The details are as follows: - Blue, round, feathered, long of tail. - Enough to feed sixteen. - One eyeball is enough to make soup for four. Too many is no good. Too few is also no good. Poison Tasters Guild",
-        rank: 27,
-        region: "The Galerria Deep",
-        fee: 400,
-        days: 20,
-        questType: "Satisfy Petitioner",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Foodstuffs:",
-        requiredTalents: {
-            negotiation: 20,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 20,
-        },
-        objective: "Procure the requested ingredients!",
-        law: "Forbidden: Copycat – Using the same action as the preceding units is forbidden.",
-        enemies: [
-            {
-                name: "Floating Eyes ×4",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 3780,
             cp: 54,
@@ -222,12 +251,31 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         },
         objective: "Procure the Requested Ingredients",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
-        enemies: [
-            {
-                name: "Zahak",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "Treasure chests are present on the battlefield",
         ],
@@ -259,10 +307,31 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
             teamwork: 0,
             adaptability: 15,
         },
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1750,
             cp: 28,
@@ -292,41 +361,31 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         },
         objective: "Speed Battle vs. House Bowen",
         law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 4590,
-            cp: 60,
-            loot: "Water Sigil ×3"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C1-10",
-        arc: "C1",
-        name: "Yellow Wings in Trouble",
-        description: "We're at the mercy of some pretty bad customers ... I don't think we're going to make it! Help! The Yellow Wings",
-        rank: 55,
-        region: "The Ruins of Delgantua",
-        fee: 500,
-        days: 20,
-        questType: "Escort",
-        canDispatch: true,
-        canCancel: true,
-        members: 4,
-        requiredTalents: {
-            negotiation: 51,
-            aptitude: 0,
-            teamwork: 51,
-            adaptability: 0,
-        },
-        dispatchRecommended: ["Defender"],
-        objective: "Protect the Yellow Wings and Defeat all Foes!",
-        law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
-        enemies: [],
-        strategy: [
-            "Prioritize high-threat targets early in the battle",
-        ],
+    ],
         rewards: {
             gil: 12780,
             cp: 99,
@@ -354,70 +413,31 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
             teamwork: 0,
             adaptability: 8,
         },
-        enemies: [],
-        rewards: {
-            gil: 1050,
-            cp: 18,
-            loot: "Damascus ×4, Birch ×1, Quality Lumber ×5"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C1-12",
-        arc: "C1",
-        name: "The Nu Mou Nobles",
-        description: "I am called Madreth, clan leader of the Nu Mou Nobles. I seek a king soul to fetch a phial of healing water and a shead of recall grass. we wait beneath the lone tree on Baptiste Hill. Madreth, Nu Mou Nobles.",
-        rank: 12,
-        region: "Baptiste Hill",
-        fee: 300,
-        days: 20,
-        questType: "Delivery",
-        canDispatch: false,
-        canCancel: true,
-        members: 1,
-        requiredItems: ["Recall Grass ×1", "Healing Water ×1"],
-        requiredTalents: {
-            negotiation: 9,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        enemies: [],
-        rewards: {
-            gil: 1680,
-            cp: 24,
-            loot: "Healing Water ×1, Body Ceffyl ×3, Soul Ceffyl ×3"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C1-13",
-        arc: "C1",
-        name: "Seeding the Harvest",
-        description: "***** Help Wanted! ***** It's seeding time again, and each year we lose crops to raiding monsters. We seek hardened adventurers to stand between our livelihood and their fiendish claws! T.K. Corral",
-        rank: 21,
-        region: "Camoa",
-        fee: 400,
-        days: 20,
-        questType: "Satisfy Petitioner",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 8,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 8,
-        },
-        objective: "Defeat 10 Foes!",
-        law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
-        enemies: [],
-        strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Bring a healer to manage HP during the encounter",
-        ],
+    ],
         rewards: {
             gil: 9240,
             cp: 42,
@@ -448,12 +468,31 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         },
         objective: "Gather as much fruit as you can in 4 rounds!",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
-        enemies: [
-            {
-                name: "Crusader Tonic",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],

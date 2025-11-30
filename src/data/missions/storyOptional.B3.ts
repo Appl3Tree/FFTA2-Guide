@@ -26,12 +26,31 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         dispatchRecommended: ["Sage"],
         objective: "Uphold the Law and Defeat all Foes!",
         law: "Forbidden: Not Moving – Each unit must move at least 1 tile before ending its turn.",
-        enemies: [
-            {
-                name: "Soldier",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Having Esuna available is recommended to handle debuffs",
@@ -67,11 +86,31 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         dispatchRecommended: ["Defender"],
         objective: "Protect Syrenead and Defeat all Foes!",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-            "The map features elevation differences",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],
@@ -105,44 +144,31 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         },
         objective: "Defeat the Mamatrice!",
         law: "Forbidden: > 100 Damage – Dealing > 100 Damage is Forbidden",
-        enemies: [],
-        rewards: {
-            gil: 2700,
-            cp: 44,
-            loot: "Fiend's Blood ×4"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B3-06",
-        arc: "B3",
-        name: "A Lady's Persistance",
-        description: "Father didn't believe I defeated a wyrm in my first battle. Perhaps if I capture it and show it to him he will not find it so easy a claim to dismiss. Will you assist me? I wait in the Rupie Mountains Syrenead Sie Hyskaris",
-        rank: 31,
-        region: "The Rupie Mountains",
-        fee: 400,
-        days: 20,
-        questType: "Satisfy Petitioner",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "A Lady's Proposition",
-        requiredTalents: {
-            negotiation: 18,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 18,
-        },
-        dispatchRecommended: ["Defender"],
-        objective: "Protect Syrenead and Defeat all Foes!",
-        law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
-        enemies: [
-            {
-                name: "White Mage",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -178,12 +204,31 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Actions by Humes – Humes may only move and perform basic attacks.",
-        enemies: [
-            {
-                name: "Moogle",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Having Esuna available is recommended to handle debuffs",
@@ -220,43 +265,31 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         dispatchRecommended: ["Defender"],
         objective: "Protect Syrenead and Weaken the Ivory Wyrm!",
         law: "Forbidden: Attack – Attacking is Forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 8510,
-            cp: 60,
-            loot: "Beastlord Horn ×2"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B3-11",
-        arc: "B3",
-        name: "Duelhorn",
-        description: "There's a forest not too far from where I live and at night I see, well, shapes flitting through the trees ... or something. I've gone during the day, but no one's there. Could someone go and look into it? I get this feeling there're more of them every day... Mooshe the Timid",
-        rank: 26,
-        region: "Baptiste Hill",
-        fee: 400,
-        days: 20,
-        questType: "Battle",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Unfamiliar Folk",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 11,
-            adaptability: 11,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
-        enemies: [
-            {
-                name: "Gria Hunter",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Bring a healer to manage HP during the encounter",
@@ -290,51 +323,31 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
             adaptability: 3,
         },
         objective: "Dispatch the right person for the job",
-        enemies: [],
-        rewards: {
-            gil: 880,
-            cp: 4,
-            loot: "Knot of Rust ×6, Ether ×3, Phoenix Down ×3"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B3-14",
-        arc: "B3",
-        name: "Making Port",
-        description: "There's a ship coming in to port soon I got a bad feelin about. The chief says the paperwork checks out - no problem. No problem with the paperwork? That's suspicious right there! You show me a seaman's shipping writ, and I'll show you a document not fit for feeding to a goat! Someone look into this, would you? Anonymous, Graszton Port Authority",
-        rank: 25,
-        region: "Graszton",
-        fee: 400,
-        days: 20,
-        questType: "Investigation",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Duelhorn",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Harming the Opposite Sex – Actions that harm members of the opposite sex are forbidden.",
-        enemies: [
-            {
-                name: "Trickster",
-                type: "Monster",
-            },
-            {
-                name: "Summoner",
-                type: "Monster",
-            },
-            {
-                name: "Ninja",
-                type: "Monster",
-            },
-        ],
+    ],
         rewards: {
             gil: 4380,
             cp: 50,
@@ -363,10 +376,31 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         },
         objective: "Guard the Bridge for 4 rounds!",
         law: "Forbidden: Reaction Abilities – Reaction Abilities are forbidden",
-        enemies: [],
-        strategy: [
-            "Ranged magical attacks are effective in this mission",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 830,
             cp: 12,

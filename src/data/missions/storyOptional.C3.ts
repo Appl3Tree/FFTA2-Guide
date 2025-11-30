@@ -26,10 +26,31 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         dispatchRecommended: ["Templar"],
         objective: "Speed Battle vs Scarface",
         law: "Forbidden: Not Moving – Each unit must move at least 1 tile before ending its",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 12830,
             cp: 44,
@@ -58,48 +79,31 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 2140,
-            cp: 32,
-            loot: "Gurnat ×3, Gimble Stalk ×2"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C3-05",
-        arc: "C3",
-        name: "Monster Poaching",
-        description: "Saw some suspicious fellows the other day, fragging this little monster off somewhere ... I wonder if it weren't on o' them endangered monsters?! A Carm Mercentile fella was only telling me about 'em the other day. Made a donation right there and then, I did! Anyway, that little monster I saw matched the description of one of 'em! Maybe someone could go and help? A Passerby",
-        rank: 36,
-        region: "Baptiste Hill",
-        fee: 500,
-        days: 20,
-        questType: "Defeat Mark",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "On the Rampage",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 13,
-            adaptability: 13,
-        },
-        dispatchRecommended: ["Defender"],
-        objective: "Protect the Cluckatrices and Defeat all Foes!",
-        law: "Forbidden: Piercing Weapons – Attacks with Rapiers and Spears are Forbidden.",
-        enemies: [
-            {
-                name: "Hellhounds ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Beastmaster",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],
@@ -132,50 +136,31 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         },
         objective: "Clean the airship within X rounds!",
         law: "Forbidden: Fire – Weapons and abilities that use fire are forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 180,
-            cp: 44,
-            loot: "Fine Wool ×1"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "C3-09",
-        arc: "C3",
-        name: "Stuck in the Muck",
-        description: "Ever since my husband passed away, I've been having this recurring dream in which he tells me he wants to come home. My husband met his end in Tramdine Fens, but his wedding ring was never found. Perhaps this is why he cannot find his way? Someone, please recover it! Widow Maleen",
-        rank: 26,
-        region: "Tramdine Fens",
-        fee: 400,
-        days: 20,
-        questType: "Item Recovery",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 15,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Find the Lost Wedding Ring!",
-        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and",
-        enemies: [
-            {
-                name: "Chocobos ×3",
-                type: "Monster",
-            },
-            {
-                name: "Green",
-                type: "Monster",
-            },
-            {
-                name: "Chocobo Knight",
-                type: "Monster",
-            },
-        ],
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],
@@ -209,24 +194,31 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         },
         objective: "Go to Calea!",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
-        enemies: [
-            {
-                name: "Dark ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Haste ×5",
-                type: "Monster",
-            },
-            {
-                name: "Gria",
-                type: "Monster",
-            },
-            {
-                name: "White Mage",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Having Esuna available is recommended to handle debuffs",
@@ -261,10 +253,31 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         },
         objective: "Protect Kyrra and defeat all Foes!",
         law: "Forbidden: Targeting an Area – Actions targeting two or more tiles are forbidden.",
-        enemies: [],
-        battlefield: [
-            "Treasure chests are present on the battlefield",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 690,
             cp: 14,
@@ -294,7 +307,45 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Reaction Abilities – Reaction Abilities are forbidden",
-        enemies: [],
+    enemies: [
+        {
+            name: "Miss Midori",
+            job: "Green Mage",
+            abilities: {
+                A1: {
+                    setId: "green-magick",
+                    abilityIds: [
+                        "blind",
+                        "sleep"
+                    ]
+                },
+                A2: null,
+                R: null,
+                P: "spellbound"
+            },
+            equipment: [
+                {slot: 1, itemId: "druidMace" },
+                {slot: 2, itemId: "hempenRobe" },
+            ]
+        },
+        {
+            name: "Miss Midori",
+            job: "Green Mage",
+            quantity: 3,
+            abilities: {
+                A1: {
+                    setId: "green-magick",
+                    abilityIds: []
+                },
+                A2: null,
+                R: null,
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "hempenRobe" },
+            ]
+        },
+    ],
         battlefield: [
             "Treasure chests are present on the battlefield",
         ],
@@ -332,16 +383,31 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         dispatchRecommended: ["Defender"],
         objective: "Protect the 'trices and defeat all foes!",
         law: "Forbidden: Dealing < 20 Damage – Dealing < 20 Damage is forbidden.",
-        enemies: [
-            {
-                name: "Viking",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Defence",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],

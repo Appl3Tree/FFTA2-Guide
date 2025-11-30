@@ -26,20 +26,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         dispatchRecommended: ["Lanista"],
         objective: "Defeat all Foes in the entry bout!",
         law: "Forbidden: Using MP – Abilities that use MP are forbidden.",
-        enemies: [
-            {
-                name: "Black Mages ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Time Mage ×1",
-                type: "Monster",
-            },
-            {
-                name: "White Monk",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
         ],
@@ -73,20 +84,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         },
         objective: "Examine the Stone with No Name!",
         law: "Forbidden: Items – Items are forbidden.",
-        enemies: [
-            {
-                name: "White Mage ×1",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Baknamy",
-                type: "Monster",
-            },
-            {
-                name: "Judge",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
@@ -121,32 +143,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         },
         objective: "Examine the Stone with No Name!",
         law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden",
-        enemies: [
-            {
-                name: "Floating Eyes ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Liliths ×2",
-                type: "Monster",
-            },
-            {
-                name: "Lamashtu ×1",
-                type: "Monster",
-            },
-            {
-                name: "Werewolves ×2",
-                type: "Monster",
-            },
-            {
-                name: "Baknamy ×1",
-                type: "Monster",
-            },
-            {
-                name: "White Mage",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Having Esuna available is recommended to handle debuffs",
@@ -181,12 +202,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             adaptability: 1,
         },
         objective: "Defeat the Cyanwolf!",
-        enemies: [
-            {
-                name: "Wolves ×7",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 2630,
             cp: 6,
@@ -218,28 +258,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         dispatchRecommended: ["Lanista"],
         objective: "Defeat all foes in the Entry Bout!",
         law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
-        enemies: [
-            {
-                name: "Blue Magicks ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Vikings ×2",
-                type: "Monster",
-            },
-            {
-                name: "Juggler ×1",
-                type: "Monster",
-            },
-            {
-                name: "Cup",
-                type: "Monster",
-            },
-            {
-                name: "Gria Hunter",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Having Esuna available is recommended to handle debuffs",
@@ -276,16 +319,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         },
         objective: "Examine the Stone with No Name!",
         law: "Forbidden: Restoring HP – Restoring HP is forbidden.",
-        enemies: [
-            {
-                name: "Illusionist",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Dual Blade Parivir",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
@@ -318,72 +376,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             teamwork: 33,
             adaptability: 33,
         },
-        enemies: [],
-        rewards: {
-            gil: 5040,
-            cp: 34,
-            loot: "Lightwing Crystal ×3"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "A2-08",
-        arc: "A2",
-        name: "An Unfamiliar Land",
-        description: "I am an itinerant merchant, and on my travels have seen much of this world. I wandered the Empire of Rozarria for some time, and upon coming to Jylland found myself uncustomarily surprised. What are these",
-        rank: 15,
-        region: "The Aldanna Range",
-        fee: 300,
-        days: 20,
-        questType: "Investigation",
-        canDispatch: true,
-        canCancel: true,
-        members: 1,
-        prerequisite: "A Simple Question",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 15,
-            adaptability: 15,
-        },
-        enemies: [],
-        rewards: {
-            gil: 1580,
-            cp: 30,
-            loot: "Ice Sigil ×4"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "A2-09",
-        arc: "A2",
-        name: "Moorabella Cup",
-        rank: 41,
-        region: "Moorabella",
-        fee: 500,
-        days: 20,
-        questType: "Battle",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Graszton Cup",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 11,
-            adaptability: 11,
-        },
-        dispatchRecommended: ["Lanista"],
-        objective: "Defeat all Foes in the Entry Bout!",
-        law: "Forbidden: Items – Items are Forbidden.",
-        enemies: [
-            {
-                name: "Bangaa ×6",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Having Esuna available is recommended to handle debuffs",
             "Bring a healer to manage HP during the encounter",
@@ -417,16 +434,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         },
         objective: "Examine the Wells!",
         law: "Forbidden: Items – Items are forbidden.",
-        enemies: [
-            {
-                name: "Magick",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Bluff",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 9450,
             cp: 78,
@@ -455,12 +487,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [
-            {
-                name: "Greenlands",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 840,
             cp: 18,
@@ -491,11 +542,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         dispatchRecommended: ["Defender"],
         objective: "Protect Dayvis and Defeat all Foes!",
         law: "Forbidden: Items – Items are forbidden",
-        enemies: [],
-        battlefield: [
-            "There are 2 treasure chests on the map",
-            "The map features elevation differences",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],
@@ -530,12 +601,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         dispatchRecommended: ["Gladiator"],
         objective: "Defeat all foes in the entry bout!",
         law: "Forbidden: Buffs – Buffs are forbidden.",
-        enemies: [
-            {
-                name: "Ribbon",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],
@@ -569,10 +659,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         dispatchRecommended: ["Defender"],
         objective: "Defeat all Foes!",
         law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Having Esuna available is recommended to handle debuffs",
@@ -607,16 +718,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         },
         objective: "Defeat Lord Grayrl before he boards the ship!",
         law: "Forbidden: Harming Humes – Actions that harm Humes are forbidden.",
-        enemies: [
-            {
-                name: "Vikings ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Black Mage",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 2450,
             cp: 26,
@@ -647,12 +773,31 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         },
         objective: "Defeat the Big Eyes!",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden",
-        enemies: [
-            {
-                name: "Plagues ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Having Esuna available is recommended to handle debuffs",

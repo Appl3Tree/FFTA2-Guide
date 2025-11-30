@@ -26,20 +26,31 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         dispatchRecommended: ["Defender"],
         objective: "Collect a Sample of Muskmallow",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden",
-        enemies: [
-            {
-                name: "Wolves ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Dreamhare ×2",
-                type: "Monster",
-            },
-            {
-                name: "Baknamy ×1",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -72,7 +83,31 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             adaptability: 0,
         },
         dispatchRecommended: ["Defender"],
-        enemies: [],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],
@@ -104,7 +139,31 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1330,
             cp: 32,
@@ -133,7 +192,31 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 1050,
             cp: 12,
@@ -163,24 +246,31 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         },
         objective: "Defeat your Foes",
         law: "Forbidden: Ice – Weapons and Abilities that use Ice are Forbidden.",
-        enemies: [
-            {
-                name: "Fencer ×1",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Warrior",
-                type: "Monster",
-            },
-            {
-                name: "Soldier",
-                type: "Monster",
-            },
-            {
-                name: "Thief",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],
@@ -213,7 +303,31 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         },
         objective: "Defeat all Foes and Destroy all Traps!",
         law: "Forbidden: Not Moving 3 Tiles – Each unit must move exactly 3 tiles before ending its turn.",
-        enemies: [],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -246,16 +360,31 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         },
         objective: "Destroy the Traps!",
         law: "Forbidden: > 50 Damage – Dealing > 50 Damage is forbidden.",
-        enemies: [
-            {
-                name: "Sprites ×5",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Banshee ×1",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
             "Treasure chests are present on the battlefield",
@@ -290,12 +419,31 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         dispatchRecommended: ["Defender"],
         objective: "Defeat all Foes!",
         law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards",
-        enemies: [
-            {
-                name: "Chests ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "There are 2 treasure chests on the map",
         ],
@@ -331,20 +479,31 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         },
         objective: "Examine the Stone with no Name!",
         law: "Forbidden: Lightning – Weapons and Abilities that use Lightning are forbidden",
-        enemies: [
-            {
-                name: "Werewolf ×1",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Wolves ×2",
-                type: "Monster",
-            },
-            {
-                name: "Sprites ×2",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "Treasure chests are present on the battlefield",
         ],

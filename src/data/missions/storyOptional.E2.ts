@@ -25,20 +25,31 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         },
         objective: "Survey points of geological interest!",
         law: "Forbidden: Bludgeoning Weapons – Attacks with rods, staves, poles, knuckles, hammers and maces",
-        enemies: [
-            {
-                name: "Ahrimans ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Zombies ×3",
-                type: "Monster",
-            },
-            {
-                name: "Black Chocobo",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -75,20 +86,31 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         },
         objective: "Survey points of geological interest!",
         law: "Forbidden: Summoning Scions – Summoning Scions is forbidden.",
-        enemies: [
-            {
-                name: "Plague",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Zombie",
-                type: "Monster",
-            },
-            {
-                name: "White Mage",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Bring a healer to manage HP during the encounter",
@@ -123,12 +145,31 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         },
         objective: "Survey Points of Geological Interest!",
         law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
-        enemies: [
-            {
-                name: "Ninja",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 10250,
             cp: 84,
@@ -159,10 +200,31 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         },
         objective: "Survey Points of Geological Interest!",
         law: "Forbidden: Targeting Distant Units – Actions targeting units two or more tiles away are forbidden.",
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 15250,
             cp: 99,
@@ -192,20 +254,31 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         },
         objective: "Defeat the Blade Biter!",
         law: "Forbidden: Bludgeoning Weapons – Attacks with rods, staves, poles, knuckles, hammers, and maces",
-        enemies: [
-            {
-                name: "Rocktitans ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Pit Beasts ×2",
-                type: "Monster",
-            },
-            {
-                name: "Hoppy Bunny",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],
@@ -236,43 +309,31 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 1470,
-            cp: 30,
-            loot: "Magick Fruit ×5"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "E2-11",
-        arc: "E2",
-        name: "Gimme That!",
-        description: "Nyeh heh heh heh! Know what I want? A darklord crystal! It's valuable, oh, it's valuable ... but I'll pay the price! The drop off will go down in the Zedlei Forest. Nyeh, heh heh! I'll be waiting! Zedlei Consortium",
-        rank: 28,
-        region: "Zedlei Forest",
-        fee: 400,
-        days: 20,
-        questType: "Delivery",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredItems: ["Darklord Crystal ×1"],
-        requiredTalents: {
-            negotiation: 20,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Non-Elemental Effects – Use of non-elemental weapons and abilities are forbidden",
-        enemies: [
-            {
-                name: "Seeq",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -307,46 +368,31 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 4260,
-            cp: 50,
-            loot: "Platinum ×1"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "E2-13",
-        arc: "E2",
-        name: "Plea for Help",
-        description: "We were digging a shaft in the Nazan Mines when it collapsed, trapping me and my friends in the darkness. Up until a few days ago I could hear my friend's voices, but now I hear only the cries of spirits. I'm placing this note in a bottle and casting it in one of the underground rivers that runs through the mine in the slim hope it will be found in time. Rasgow, Nazan Miner",
-        rank: 25,
-        region: "Nazan Mines",
-        fee: 400,
-        days: 20,
-        questType: "Battle",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 18,
-            adaptability: 18,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Targeting an Area – Actions targeting two or more tiles are forbidden.",
-        enemies: [
-            {
-                name: "Ghosts ×5",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Wraith ×1",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -382,20 +428,31 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         },
         objective: "Defeat the Gil Snapper!",
         law: "Forbidden: Fire, Ice, Lightning – Weapons and abilities that use fire, ice, and lightning",
-        enemies: [
-            {
-                name: "Banshees ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Great Tortoises ×2",
-                type: "Monster",
-            },
-            {
-                name: "Seeq",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -431,20 +488,31 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Fire, Ice, Lightning – Weapon and abilities that use fire, ice, and lightning",
-        enemies: [
-            {
-                name: "Ice Flan ×1",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Yellow Jelly ×1",
-                type: "Monster",
-            },
-            {
-                name: "Grenade",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 4800,
             cp: 52,

@@ -26,12 +26,31 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Actions by Gria – Gria may only move and perform basic attacks.",
-        enemies: [
-            {
-                name: "Blue Mage",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],
@@ -62,40 +81,31 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
             teamwork: 54,
             adaptability: 54,
         },
-        enemies: [],
-        rewards: {
-            gil: 7880,
-            cp: 98,
-            loot: "Emperor Scale ×1"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional", "recruit"]
-    },
-    {
-        id: "E5-15",
-        arc: "E5",
-        name: "A Dashing Duel",
-        description: "I had been courting the Lady Bcja for some time, and had finally arranged for a proper ... rendezvous, shall we say. When the day arrived, however, she told me she'd made other plans with another suitor! I seek a champion to fight this philanderer on my behalf and uphold my honour. I must have satification! Marnot, Pride of Fluorgis",
-        rank: 62,
-        region: "Aisenfield",
-        fee: 500,
-        days: 20,
-        questType: "Defeat Mark",
-        canDispatch: false,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 1,
-            adaptability: 1,
-        },
-        objective: "Defeat Al-Cid!",
-        law: "Forbidden: Harming Viera – Actions that harm Viera are forbidden.",
-        enemies: [],
-        strategy: [
-            "Ranged magical attacks are effective in this mission",
-        ],
+    ],
         rewards: {
             gil: 8790,
             cp: 99,

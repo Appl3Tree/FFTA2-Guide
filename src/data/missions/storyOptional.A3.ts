@@ -27,24 +27,31 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         dispatchRecommended: ["Lanista"],
         objective: "Defeat all foes in the entry bout!",
         law: "Forbidden: Grouping – Ending the turn next to another unit is forbidden.",
-        enemies: [
-            {
-                name: "Chocobo Knights ×6",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "White",
-                type: "Monster",
-            },
-            {
-                name: "Fencer",
-                type: "Monster",
-            },
-            {
-                name: "Donna",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
@@ -79,16 +86,31 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         },
         objective: "Defeat the Mirage Bunny!",
         law: "Forbidden: Instruments and Books – Attacks with instruments and books are forbidden.",
-        enemies: [
-            {
-                name: "Flans ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Headless",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -123,28 +145,31 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         dispatchRecommended: ["Lanista"],
         objective: "Defeat all foes in the entry bout!",
         law: "Forbidden: Using MP – Actions that consume MP are forbidden.",
-        enemies: [
-            {
-                name: "Geniuses ×100",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Braves",
-                type: "Monster",
-            },
-            {
-                name: "Pirates",
-                type: "Monster",
-            },
-            {
-                name: "Illusionist",
-                type: "Monster",
-            },
-            {
-                name: "Sniper",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Bring a healer to manage HP during the encounter",
@@ -179,20 +204,31 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         },
         objective: "Defeat Florah!",
         law: "Forbidden: >50 Damage – Dealing >50 damage is forbidden.",
-        enemies: [
-            {
-                name: "Malboros ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Damage ×50",
-                type: "Monster",
-            },
-            {
-                name: "Geomancer",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
@@ -228,12 +264,31 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         dispatchRecommended: ["Sage"],
         objective: "Uphold the Law and Defeat all Foes!",
         law: "Forbidden: Not Moving 1 Tile – Each unit must move exactly 1 tile before ending its turn",
-        enemies: [
-            {
-                name: "Parivir",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
         ],
@@ -268,32 +323,31 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         dispatchRecommended: ["Lanista"],
         objective: "Defeat all foes in the entry bout!",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
-        enemies: [
-            {
-                name: "Parivirs ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Ninjas ×2",
-                type: "Monster",
-            },
-            {
-                name: "Dragoon",
-                type: "Monster",
-            },
-            {
-                name: "Master Monk",
-                type: "Monster",
-            },
-            {
-                name: "Healer",
-                type: "Monster",
-            },
-            {
-                name: "Black Mage",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Having Esuna available is recommended to handle debuffs",
@@ -329,11 +383,31 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         },
         objective: "Defeat the tonberrions in 4 rounds!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 3190,
             cp: 46,
@@ -365,41 +439,31 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         dispatchRecommended: ["Sage"],
         objective: "Uphold the Law and Defeat all Foes!",
         law: "Forbidden: Not Moving 3 Tiles – Each unit must move exactly 3 tiles before ending its turn.",
-        enemies: [],
-        rewards: {
-            gil: 5030,
-            cp: 82,
-            loot: "Gold Chalice ×1"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "A3-12",
-        arc: "A3",
-        name: "Wanted: Combatants",
-        description: "We have an unexpected opening in the roster of our forthcomingh tourney. We do not often invite outsiders, but if the tourney is to go ahead, we must. Combatant with experience in a clan tourney perferred. Shadow Tourney Overseer",
-        rank: 35,
-        region: "Graszton",
-        fee: 500,
-        days: 20,
-        questType: "Satisfy Petitioner",
-        canDispatch: false,
-        canCancel: true,
-        members: 1,
-        prerequisite: "Death March II",
-        requiredTalents: {
-            negotiation: 44,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 44,
-        },
-        enemies: [
-            {
-                name: "Berserker",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5520,
             cp: 70,
@@ -431,28 +495,31 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         dispatchRecommended: ["Lanista"],
         objective: "Defeat all foes in the entry bout!",
         law: "Forbidden: Dealing < 100 Damage – Dealing < 100 Damage is forbidden.",
-        enemies: [
-            {
-                name: "Ninjas ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Sage",
-                type: "Monster",
-            },
-            {
-                name: "Geomancer",
-                type: "Monster",
-            },
-            {
-                name: "Donna",
-                type: "Monster",
-            },
-            {
-                name: "White Mage",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Bring a healer to manage HP during the encounter",
@@ -488,32 +555,31 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         },
         objective: "Defeat Gaitsnipe!",
         law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards",
-        enemies: [
-            {
-                name: "Hunter",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Moogle Flintlock",
-                type: "Monster",
-            },
-            {
-                name: "Viera Sniper",
-                type: "Monster",
-            },
-            {
-                name: "Bangaa Cannoneer",
-                type: "Monster",
-            },
-            {
-                name: "Hume Archer",
-                type: "Monster",
-            },
-            {
-                name: "Leg",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -551,12 +617,31 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         },
         objective: "Gather all the Gemstones!",
         law: "Forbidden: Reaction Abilities – Reaction Abilities are forbidden.",
-        enemies: [
-            {
-                name: "Yellow Flans ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],

@@ -25,20 +25,31 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         },
         objective: "Defeat Klesta",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
-        enemies: [
-            {
-                name: "Fighter",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Gria Ravager",
-                type: "Monster",
-            },
-            {
-                name: "Nu Mou Illusionist",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The map features elevation differences",
         ],
@@ -76,10 +87,31 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         dispatchRecommended: ["Ranger"],
         objective: "Destroy the traps in 3 rounds!",
         law: "Forbidden: Targeting all Units – Actions targeting all units at once are forbidden.",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],
@@ -110,12 +142,31 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
             teamwork: 7,
             adaptability: 7,
         },
-        enemies: [
-            {
-                name: "Range",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 790,
             cp: 20,
@@ -145,10 +196,31 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         },
         dispatchRecommended: ["Ranger"],
         objective: "Destroy all the Traps!",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],
@@ -182,12 +254,31 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         },
         objective: "Defeat the Lang Brothers!",
         law: "Forbidden: Actions by Nu Mou – Nu Mou may only move and perform basic attacks.",
-        enemies: [
-            {
-                name: "Fighter",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -221,68 +312,31 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
             teamwork: 9,
             adaptability: 9,
         },
-        enemies: [],
-        rewards: {
-            gil: 2370,
-            cp: 30,
-            loot: "Storm Sigil ×2, Water Sigil ×2"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B2-13",
-        arc: "B2",
-        name: "The Ultimate Book",
-        description: "I've been reading some old these of late, and was intrigued by mention of the Ultimate Book of Magick. I know its very existence may only be a legend, still, if you have any information I would be most eager to hear it. Terad, Magickal Historian",
-        rank: 18,
-        region: "The Aldanna Range",
-        fee: 300,
-        days: 20,
-        questType: "Investigation",
-        canDispatch: true,
-        canCancel: true,
-        members: 1,
-        prerequisite: "Books of Magick",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 44,
-            adaptability: 44,
-        },
-        enemies: [],
-        rewards: {
-            gil: 5990,
-            cp: 36,
-            loot: ""
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B2-14",
-        arc: "B2",
-        name: "Clan Mates",
-        description: "Looking for a new clan member to round out your roster? Your search is ended! The more the merrier, to be sure, but we go one further; providing you with a companion chosen to suit your clan's needs. Seek us out in Targ Wood. Clan Mates Adventurer's Guild",
-        rank: 1,
-        region: "Targ Wood",
-        fee: 100,
-        days: 20,
-        questType: "Satisfy Petitioner",
-        canDispatch: false,
-        canCancel: true,
-        members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
-        ],
+    ],
         rewards: {
             gil: 0,
             cp: 0,
@@ -310,12 +364,31 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
             teamwork: 7,
             adaptability: 7,
         },
-        enemies: [
-            {
-                name: "Gil ×100",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 0,
             cp: 0,

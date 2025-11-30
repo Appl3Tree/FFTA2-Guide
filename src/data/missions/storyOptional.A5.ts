@@ -26,12 +26,31 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         },
         objective: "Defeat the Magick Weapon at all costs!",
         law: "Forbidden: Items – Items are Forbidden",
-        enemies: [
-            {
-                name: "Attacks",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
@@ -66,20 +85,31 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         },
         objective: "Defeat Green King Verre!",
         law: "Forbidden: Restoring HP – Actions that restore HP are forbidden.",
-        enemies: [
-            {
-                name: "Green Mage ×66",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Ribbon",
-                type: "Monster",
-            },
-            {
-                name: "Hammer",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
         ],
@@ -110,16 +140,31 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
             teamwork: 0,
             adaptability: 22,
         },
-        enemies: [
-            {
-                name: "Fusilier",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Flintlock",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 3630,
             cp: 36,
@@ -150,11 +195,31 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         },
         objective: "Defeat Black King Nware!",
         law: "Forbidden: Debuffs – Debuffs are forbidden.",
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 9820,
             cp: 99,
@@ -182,12 +247,31 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
             teamwork: 0,
             adaptability: 28,
         },
-        enemies: [
-            {
-                name: "Class",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],
@@ -221,20 +305,31 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         },
         objective: "Defeat White King Blanch!",
         law: "Forbidden: Missing – Missing with an action is forbidden.",
-        enemies: [
-            {
-                name: "Nu Mou",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Tabi",
-                type: "Monster",
-            },
-            {
-                name: "Cheer Staff",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
@@ -269,12 +364,31 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: HP < or = 200 – Having less than 200 HP is forbidden.",
-        enemies: [
-            {
-                name: "Black",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",

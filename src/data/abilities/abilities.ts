@@ -18,6 +18,298 @@ export interface AbilityMeta {
 }
 
 export const ABILITY_SETS: Record<AbilitySetId, AbilitySetMeta> = {
+    /* Template y5y
+    : {
+        id: "",
+        name: "",
+        description: "."
+    },
+    */
+    acrobatics: {
+        id: "acrobatics",
+        name: "Acrobatics",
+        description: "JUGGLERS attack with a rain of rings and baubles."
+    },
+    alchemy: {
+        id: "alchemy",
+        name: "Alchemy",
+        description: "The skills of the ALCHEMIST center on their ability to transmute and alter matter to suit their whim."
+    },
+    "arcane-magicks": {
+        id: "arcane-magicks",
+        name: "Arcane Magicks",
+        description: "Fire, ice, and lightning have no place among the magicks of the ARCANIST."
+    },
+    "arts-of-war": {
+        id: "arts-of-war",
+        name: "Arts of War",
+        description: "SOLDIERS and WARRIORS use these skills to weaken foes' defenses."
+    },
+    assassination: {
+        id: "assassination",
+        name: "Assassination",
+        description: "The abilities of the ASSASSIN mark their target for death."
+    },
+    astutia: {
+        id: "astutia",
+        name: "Astutia",
+        description: "The LANISTA turn to these skills bought with blood and blade."
+    },
+    ballistics: {
+        id: "ballistics",
+        name: "Ballistics",
+        description: "FLINTLOCKS use these skills to imbue shells with the power of their magicks."
+    },
+    "black-magick": {
+        id: "black-magick",
+        name: "Black Magick",
+        description: "The elemental magicks of the BLACK MAGE strike with the power of fire and ice."
+    },
+    "blue-magick": {
+        id: "blue-magick",
+        name: "Blue Magick",
+        description: "BLUE MAGES learn the abilities of their foes and use them to fight back."
+    },
+    "beast-lore": {
+        id: "beast-lore",
+        name: "Beast Lore",
+        description: "The powers of the BEASTMASTER are the powers of the beasts themselves."
+    },
+    "blade-arts": {
+        id: "blade-arts",
+        name: "Blade Arts",
+        description: "These skills imbue the weapons of the SPELLBLADE with magicks that weaken those they strike."
+    },
+    brutality: {
+        id: "brutality",
+        name: "Brutality",
+        description: "VIKINGS plunder the battlefield and call down lightning from the skies."
+    },
+    calling: {
+        id: "calling",
+        name: "Calling",
+        description: "The ANIMIST uses the abilities of the beasts of the wild."
+    },
+    cannonry: {
+        id: "cannonry",
+        name: "Cannonry",
+        description: "CANNONEERS possess an array of abilities useful in almost any battle."
+    },
+    chivalry: {
+        id: "chivalry",
+        name: "Chivalry",
+        description: "The PALADIN commands these abilities to defend allies with a practiced blade."
+    },
+    chococraft: {
+        id: "chococraft",
+        name: "Chococraft",
+        description: "The CHOCOBO KNIGHT has the powers of his mount at his command."
+    },
+    clockwork: {
+        id: "clockwork",
+        name: "Clockwork",
+        description: "The TINKER crafts elaborate devices that wreak havoc on the battlefield."
+    },
+    dance: {
+        id: "dance",
+        name: "Dance",
+        description: "The arts of the DANCER, used to perform magical dances with an array of unique effects."
+    },
+    devastation: {
+        id: "devastation",
+        name: "Devastation",
+        description: "These abilities allow the RAPTOR to channel her energy through her blade to strike down her foes."
+    },
+    discipline: {
+        id: "discipline",
+        name: "Discipline",
+        description: "The abilities of the WHITE MONK turn the body itself into a powerful weapon."
+    },
+    "dragon-soul": {
+        id: "dragon-soul",
+        name: "Dragon Soul",
+        description: "The power of dragons stirs within the abilities of the DRAGOON."
+    },
+    "elemental-magick": {
+        id: "elemental-magick",
+        name: "Elemental Magick",
+        description: "The craft of the ELEMENTALIST enables her to call on the spirits of nature."
+    },
+    fencing: {
+        id: "fencing",
+        name: "Fencing",
+        description: "The FENCER fights with attacks that pierce even the hardest steel."
+    },
+    feralism: {
+        id: "feralism",
+        name: "Feralism",
+        description: "The base instincts of battle are the weapons of the RAVAGER."
+    },
+    flair: {
+        id: "flair",
+        name: "Flair",
+        description: "The arsenal of the Parivir beats down foes with blindingly fast swordstrikes of deadly precision."
+    },
+    geomancy: {
+        id: "geomancy",
+        name: "Geomancy",
+        description: "The breath of the wind and the lay of the earth are the GEOMANCER's power."
+    },
+    "green-magick": {
+        id: "green-magick",
+        name: "Green Magick",
+        description: "The magicks of the GREEN MAGE lend strength and succor to her allies."
+    },
+    guile: {
+        id: "guile",
+        name: "Guile",
+        description: "The malice festering in the hearts of the NIGHTSHADES led them to these dark arts."
+    },
+    gunmanship: {
+        id: "gunmanship",
+        name: "Gunmanship",
+        description: "The abilities of the FUSILIER enchant their shot, with a variety of effects."
+    },
+    "high-magick": {
+        id: "high-magick",
+        name: "High Magick",
+        description: "The magicks of the SEER can decimate foes and mend wounded allies."
+    },
+    illusion: {
+        id: "illusion",
+        name: "Illusion",
+        description: "The ILLUSIONIST commands powerful magicks that strike foes throughout the battlefield."
+    },
+    instinct: {
+        id: "instinct",
+        name: "Instinct",
+        description: "The secrets of the Gifted are the weapons of the HERITOR."
+    },
+    intercession: {
+        id: "intercession",
+        name: "Intercession",
+        description: "BISHOPS chant these sacred prayers to sway battle in their favor."
+    },
+    lore: {
+        id: "lore",
+        name: "Lore",
+        description: "SCHOLARS find their power in the study of ancient texts."
+    },
+    "martial-arts": {
+        id: "martial-arts",
+        name: "Martial Arts",
+        description: "MASTER MONKS use these age old attacks to deal debilitating blows with their fists."
+    },
+    ninjutsu: {
+        id: "ninjutsu",
+        name: "Ninjutsu",
+        description: "NINJA attack with this unique school of techniques learned from a distant land."
+    },
+    onslaught: {
+        id: "onslaught",
+        name: "Onslaught",
+        description: "MOOGLE KNIGHTS charge bravely into battle with these mighty attacks."
+    },
+    piracy: {
+        id: "piracy",
+        name: "Piracy",
+        description: "SKY PIRATES know countless tricks to make the money of many into the wealth of one."
+    },
+    precision: {
+        id: "precision",
+        name: "Precision",
+        description: "The skills of the ARCHER do not call for brute force, but deadly accuracy to fell a foe."
+    },
+    pugilism: {
+        id: "pugilism",
+        name: "Pugilism",
+        description: "FIGHTERS use their abilities to attack with a fury of blades."
+    },
+    reconnaissance: {
+        id: "reconnaissance",
+        name: "Reconnaissance",
+        description: "The AGENT does all in the name of his liege lady."
+    },
+    "red-magick": {
+        id: "red-magick",
+        name: "Red Magick",
+        description: "RED MAGES have a broad range of magicks at their disposal."
+    },
+    "sacred-blade": {
+        id: "sacred-blade",
+        name: "Sacred Blade",
+        description: "The arsenal of the TEMPLAR boasts powerful sword attacks and support magicks."
+    },
+    sagacity: {
+        id: "sagacity",
+        name: "Sagacity",
+        description: "SAGES are proud wizards, quick to distinguish their magicks from those of the Black Mage."
+    },
+    savagery: {
+        id: "savagery",
+        name: "Savagery",
+        description: "These ferocious attacks of the BERSERKER defy the conventions of battle and belief."
+    },
+    sharpshooting: {
+        id: "sharpshooting",
+        name: "Sharpshooting",
+        description: "SNIPERS end the lives of their victims with shots of uncanny accuracy."
+    },
+    "sleight-of-hand": {
+        id: "sleight-of-hand",
+        name: "Sleight of Hand",
+        description: "The TRICKSTER deceives his foes with these crafty abilities."
+    },
+    song: {
+        id: "song",
+        name: "Song",
+        description: "The BARD plays songs that impart strange magicks on those who harken them."
+    },
+    sparring: {
+        id: "sparring",
+        name: "Sparring",
+        description: "The GLADIATOR calls on this peculiar mix of sword and sorcery."
+    },
+    "summoning-magick": {
+        id: "summoning-magick",
+        name: "Summoning Magick",
+        description: "SUMMONERS use these abilities to call powerful Espers from the world of illusion."
+    },
+    survivalism: {
+        id: "survivalism",
+        name: "Survivalism",
+        description: "RANGERS use the traps in this extensive arsenal to bring down their mark."
+    },
+    thievery: {
+        id: "thievery",
+        name: "Thievery",
+        description: "The THIEF uses this shadowy craft to make the possessions of others his own."
+    },
+    "time-magick": {
+        id: "time-magick",
+        name: "Time Magick",
+        description: "TIME MAGES use these powerful magicks to manipulate space and time."
+    },
+    trapping: {
+        id: "trapping",
+        name: "Trapping",
+        description: "HUNTERS stalk their foes with these skills learned on the hunt."
+    },
+    turning: {
+        id: "turning",
+        name: "Turning",
+        description: "The KEEPER of the tower wields these powerful abilities that glean their power from the moon."
+    },
+    warding: {
+        id: "warding",
+        name: "Warding",
+        description: "These skills protect the DEFENDER and his allies."
+    },
+    "white-magick": {
+        id: "white-magick",
+        name: "White Magick",
+        description: "WHITE MAGES work these magicks to heal and restore their allies."
+    },
     abyss: {
         id: "abyss",
         name: "Abyss",
@@ -33,20 +325,10 @@ export const ABILITY_SETS: Record<AbilitySetId, AbilitySetMeta> = {
         name: "Ambush",
         description: "The Yowie attacks by drawing its prey beneath the sands.",
     },
-    "arts-of-war": {
-        id: "arts-of-war",
-        name: "Arts of War",
-        description: "Soldiers and Warriors use these skills to weaken foes' defenses.",
-    },
     "bestial-force": {
         id: "bestial-force",
         name: "Bestial Force",
         description: "Behemoths sunder the defenses of their prey with claws as sharp as any forge-wrought blade.",
-    },
-    "blade-arts": {
-        id: "blade-arts",
-        name: "Blade Arts",
-        description: "These skills imbue the weapons of the Spellblade with magicks that weaken those they strike.",
     },
     breath: {
         id: "breath",
@@ -152,16 +434,6 @@ export const ABILITY_SETS: Record<AbilitySetId, AbilitySetMeta> = {
         id: "parasite",
         name: "Parasite",
         description: "Floating eyes stun their prey with a beat of their wings before swooping in to bite with powerful jaws.",
-    },
-    passives: {
-        id: "passives",
-        name: "Passives",
-        description: "Passive abilities enhancea  unit's attributes or enable them to use equipment they wouldn't otherwise be able to equip."
-    },
-    reactions: {
-        id: "reactions",
-        name: "Reactions",
-        description: "Reaction abilities are triggered in response to enemy attacks."
     },
     revenge: {
         id: "revenge",
@@ -1579,5 +1851,15 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
             "Drains HP from one target.",
         ],
     },
+    /* Template y8y
+    : {
+        id: "",
+        setId: "",
+        name: "",
+        description: [
+            ".",
+        ],
+    },
+    */
 };
 

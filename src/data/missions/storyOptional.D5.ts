@@ -25,16 +25,31 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         },
         objective: "Defeat all foes within four rounds!",
         law: "Forbidden: Targeting Distant Units – Actions targeting units two or more tiles away are forbidden.",
-        enemies: [
-            {
-                name: "Baknamy ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Gladiator",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -67,20 +82,31 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         },
         objective: "Defeat all Foes within Four Rounds!",
         law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
-        enemies: [
-            {
-                name: "Baknamy ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Luchorpan",
-                type: "Monster",
-            },
-            {
-                name: "Warrior",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -113,20 +139,31 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Solitude – Ending the turn without a unit in an adjacent tile is",
-        enemies: [
-            {
-                name: "Ghosts ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Ahrimans ×2",
-                type: "Monster",
-            },
-            {
-                name: "Deathscythe",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
         ],
@@ -160,10 +197,31 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         },
         objective: "Defeat the Devotees",
         law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards",
-        enemies: [],
-        battlefield: [
-            "Treasure chests are present on the battlefield",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5130,
             cp: 50,
@@ -193,16 +251,31 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         },
         objective: "Defeat all Foes in Four Rounds!",
         law: "Forbidden: Swimming – Entering a water tile is forbidden.",
-        enemies: [
-            {
-                name: "Baknamy ×3",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Luchorpan ×1",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 6620,
             cp: 86,
@@ -230,24 +303,31 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         },
         objective: "Defeat Gade!",
         law: "Forbidden: Debuffs – Debuffs are forbidden.",
-        enemies: [
-            {
-                name: "Ghosts ×2",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Zombies ×2",
-                type: "Monster",
-            },
-            {
-                name: "Lost Friend",
-                type: "Monster",
-            },
-            {
-                name: "Tiptaptwo",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 3940,
             cp: 50,
@@ -273,38 +353,31 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        enemies: [],
-        rewards: {
-            gil: 160,
-            cp: 84,
-            loot: ""
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D5-13",
-        arc: "D5",
-        name: "Bringer of Doom",
-        description: "Came across a worrying notice in the pub about a creature threatening the town of Goug. Hard to know whether this prophet Hilo can be trusted, but it may be a good idea to take a look, just to be on the safe side.",
-        region: "Goug",
-        questType: "Defeat Mark",
-        canDispatch: false,
-        canCancel: false,
-        members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Defeat the Smouldering Incubus!",
-        law: "Forbidden: Reaction Abilities – Reaction Abilities are forbidden.",
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
-        ],
+    ],
         rewards: {
             gil: 10240,
             cp: 90,
@@ -332,44 +405,31 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         },
         objective: "Rekindle the power of the Stones!",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 8650,
-            cp: 76,
-            loot: ""
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "D5-15",
-        arc: "D5",
-        name: "The Beast of Aisenfield",
-        description: "Read a tale about a man who possessed a terrible power. Those he knew turned against him, and over time he became a beast. If the story's true, maybe he still stalks Aisenfield?",
-        region: "Aisenfield",
-        questType: "Defeat Mark",
-        canDispatch: false,
-        canCancel: false,
-        members: 6,
-        prerequisite: "Beast of Aisenfield",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Defeat Nesiaam!",
-        law: "Forbidden: <20 Damage – Dealing less than 20 damage is forbidden.",
-        enemies: [
-            {
-                name: "Headless",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Axebeak",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 6300,
             cp: 62,
@@ -397,12 +457,31 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         },
         objective: "Defeat Ljda!",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
-        enemies: [
-            {
-                name: "White Chocobo",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5430,
             cp: 62,

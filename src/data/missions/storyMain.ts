@@ -25,7 +25,7 @@ import type { Mission } from "../../types/ffta2";
                 {slot: 1, itemId: "snakeCase" },
             ]
         },
-    ]
+    ],
 */
 
 export const STORY_MAIN_MISSIONS: Mission[] = [
@@ -147,8 +147,127 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Ice: weapons and abilities that use ice damage are forbidden.",
         enemies: [
             {
-                name: "Yellow Wings Grunts",
-                job: "Mixed melee",
+                name: "Kidd",
+                job: "Thief",
+                abilities: {
+                    A1: {
+                        setId: "thievery",
+                        abilityIds: [
+                            "steal-gil"
+                        ]
+                    },
+                    A2: null,
+                    R: null,
+                    P: "safeguard"
+                },
+                equipment: [
+                    {slot: 1, itemId: "jackknife" },
+                    {slot: 2, itemId: "adamantVest" },
+                ]
+            },
+            {
+                name: "Yellow Wings",
+                job: "Animist",
+                abilities: {
+                    A1: {
+                        setId: "calling",
+                        abilityIds: [
+                            "100%-wool"
+                        ]
+                    },
+                    A2: null,
+                    R: null,
+                    P: null,
+                },
+                equipment: [
+                    {slot: 1, itemId: "demonBell" },
+                    {slot: 2, itemId: "leatherClothing" },
+                ]
+            },
+            {
+                name: "Yellow Wings",
+                job: "White Monk",
+                abilities: {
+                    A1: {
+                        setId: "discipline",
+                        abilityIds: [
+                            
+                        ]
+                    },
+                    A2: null,
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "leatherKnuckles" },
+                    {slot: 2, itemId: "leatherClothing" },
+                ]
+            },
+            {
+                name: "Yellow Wings",
+                job: "Black Mage",
+                abilities: {
+                    A1: {
+                        setId: "black-magick",
+                        abilityIds: [
+                            "fire",
+                            "blizzard",
+                            "thunder",
+                        ]
+                    },
+                    A2: null,
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "rod" },
+                    {slot: 2, itemId: "hempenRobe" },
+                ]
+            },
+            {
+                name: "Yellow Wings",
+                job: "iArcher",
+                abilities: {
+                    A1: {
+                        setId: "precision",
+                        abilityIds: [
+                        "focus"
+                        ]
+                    },
+                    A2: null,
+                    R: "",
+                    P: ""
+                },
+                equipment: [
+                    {slot: 1, itemId: "shortbow" },
+                    {slot: 2, itemId: "leatherClothing" },
+                ]
+            },
+        ],
+        strategy: [
+            "Focus on thinning the bandits first so they don’t surround your casters.",
+            "Use non-ice offensive options; keep any ice mages on support duties if you brought them.",
+            "Once the trash is under control, dogpile the leader with buffs and focused damage."
+        ],
+        rewards: {
+            gil: 1750,
+            cp: 6,
+            loot: "Lamia Scale ×2, Sanative Needle ×3, Earth Stone ×3"
+        },
+        tags: ["story", "clan-fight"]
+    },
+    {
+        id: "A1-16",
+        arc: "A1",
+        name: "You Say Tomato",
+        rank: 5,
+        region: "Camoa",
+        objective: "Rescue the tomato delivery by defeating the monsters blocking the route.",
+        law: "Lightning: weapons and abilities that use lightning damage are forbidden.",
+        enemies: [
+            {
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -169,28 +288,30 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
+        ],
+        strategy: [
+            "Bring a good mix of physical and magical damage to handle varied resistances.",
+            "Avoid lightning abilities entirely; use neutral attacks, wind, or earth if possible.",
+            "Anchor your formation around your healers and push steadily instead of overextending."
+        ],
+        rewards: {
+            gil: 560,
+            cp: 10,
+            loot: "Fury Fragments ×2, Silk Thread ×2, Rabbit Pelt ×2"
+        },
+        tags: ["story", "escort-adjacent"]
+    },
+    {
+        id: "B2-01",
+        arc: "B2",
+        name: "Wanted: Ughor",
+        rank: 8,
+        region: "Baptiste Hill",
+        objective: "Hunt down and defeat the mark, Ughor, on Baptiste Hill.",
+        law: "Restoring MP: any action that restores MP is forbidden.",
+        enemies: [
             {
-                name: "Yellow Wings Leader",
-                job: "Human boss",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "",
             }
         ],
         strategy: [
@@ -215,8 +336,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Lightning: weapons and abilities that use lightning damage are forbidden.",
         enemies: [
             {
-                name: "Plant monsters",
-                job: "Flan/plant mix",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -237,29 +358,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Supporting beasts",
-                job: "Beast",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Bring a good mix of physical and magical damage to handle varied resistances.",
@@ -283,8 +381,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Restoring MP: any action that restores MP is forbidden.",
         enemies: [
             {
-                name: "Ughor",
-                job: "Large beast (mark)",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -305,29 +403,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Beast escorts",
-                job: "Beast",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Avoid MP-restoring actions; rely on smart spell use and ethers you already have before the battle.",
@@ -351,8 +426,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Fire: weapons and abilities that deal fire damage are forbidden.",
         enemies: [
             {
-                name: "Gilmunto",
-                job: "Behemoth-type mark",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -373,29 +448,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Beast allies",
-                job: "Beast",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Use Protect, Shell, and defensive buffs to survive Gilmunto’s bursts.",
@@ -419,8 +471,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Restoring MP: actions that restore MP are forbidden.",
         enemies: [
             {
-                name: "Fire-aligned monsters",
-                job: "Elemental beasts",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -441,29 +493,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Support casters",
-                job: "Mage-type enemies",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Do not rely on MP regeneration; manage spell usage carefully and let physical jobs carry damage.",
@@ -487,8 +516,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Nu Mou Actions Only: Nu Mou units may only move and perform basic attacks.",
         enemies: [
             {
-                name: "Aquatic beasts",
-                job: "Water-aligned monsters",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -509,29 +538,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Support monsters",
-                job: "Mixed",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Plan around Nu Mou restrictions: they are mostly on healing and basic attacks here, not full casting.",
@@ -555,8 +561,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Ice: weapons and abilities that use ice are forbidden.",
         enemies: [
             {
-                name: "Mixed clan units",
-                job: "Humans and monsters",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -577,29 +583,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Ranged threats",
-                job: "Archers / casters",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Avoid ice-element weapons and spells; bring neutral or other elemental options.",
@@ -623,8 +606,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Harming the Weak: actions that damage a lower-level unit are forbidden.",
         enemies: [
             {
-                name: "Enemy clan members",
-                job: "Humans / moogles",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -645,29 +628,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Support casters",
-                job: "Mage-type enemies",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Be mindful of levels: avoid targeting low-level enemies with high-level units when possible.",
@@ -691,8 +651,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Copycat: using the same action as the previous unit is forbidden.",
         enemies: [
             {
-                name: "Marsh monsters",
-                job: "Beast / flan mix",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -713,29 +673,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Enemy casters",
-                job: "Mage-type enemies",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Rotate through different actions: alternate between attacks, abilities, and support skills to avoid copycat violations.",
@@ -759,8 +696,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Debuffs: actions that inflict debuffs are forbidden.",
         enemies: [
             {
-                name: "Oversoul",
-                job: "Undead boss",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -781,29 +718,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Ghosts and undead",
-                job: "Undead",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Avoid debuff skills; rely on pure damage, healing, and positional play instead.",
@@ -827,8 +741,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Harming Females: actions that harm viera or gria are forbidden.",
         enemies: [
             {
-                name: "Enemy troupe",
-                job: "Mixed jobs",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -849,29 +763,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Male frontliners",
-                job: "Melee units",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Prioritize male enemies and any monsters to stay within the law.",
@@ -895,8 +786,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Targeting All Units: actions that hit all units at once are forbidden.",
         enemies: [
             {
-                name: "Guardians",
-                job: "Mixed melee",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -917,29 +808,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Support mages",
-                job: "Mage-type enemies",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
         ],
@@ -960,8 +828,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Not Moving 1 Tile: each unit must move exactly one tile before ending its turn.",
         enemies: [
             {
-                name: "Vaan",
-                job: "Sky pirate",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -982,29 +850,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Penelo and crew",
-                job: "Sky pirate allies",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Plan every move so each unit advances exactly one tile; don’t skip moves or overstep.",
@@ -1028,8 +873,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Being Robbed: having gil or items stolen is forbidden.",
         enemies: [
             {
-                name: "Thieves and rogues",
-                job: "Steal-focused units",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -1050,29 +895,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Support jobs",
-                job: "Mixed",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Prioritize thieves and steal-oriented enemies so they don’t trigger the law.",
@@ -1096,8 +918,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Fire, Ice, Lightning: actions and weapons that use fire, ice, or lightning are forbidden.",
         enemies: [
             {
-                name: "Excavation raiders",
-                job: "Mixed clan",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -1118,29 +940,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Elemental casters",
-                job: "Mage-type enemies",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Lock away any fire, ice, or lightning-based skills and weapons for this fight.",
@@ -1164,8 +963,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Ranged Weapons: attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
         enemies: [
             {
-                name: "Desert raiders",
-                job: "Mixed melee",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -1186,29 +985,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Ranged units",
-                job: "Archers / gunners",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Close distance quickly on enemy ranged units using mobility skills and direct paths.",
@@ -1232,8 +1008,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Harming Bangaa: actions that harm bangaa are forbidden.",
         enemies: [
             {
-                name: "Sky pirates",
-                job: "Mixed jobs",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -1254,29 +1030,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Non-bangaa support",
-                job: "Humans / moogles / others",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Identify bangaa enemies early and plan your targeting to avoid them.",
@@ -1300,8 +1053,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Harming Males: actions that harm male units are forbidden.",
         enemies: [
             {
-                name: "Illua",
-                job: "Boss spellblade",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -1322,29 +1075,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                     {slot: 1, itemId: "" },
                 ]
             },
-            {
-                name: "Ritualists and guards",
-                job: "Mixed jobs",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            }
         ],
         strategy: [
             "Keep track of which enemies are male to avoid tripping the law with careless attacks.",
@@ -1368,31 +1098,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Buffs: abilities and actions that raise stats or apply positive status effects are forbidden.",
         enemies: [
             {
-                name: "Illua",
-                job: "Boss spellblade",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            },
-            {
-                name: "Summoned fiends",
-                job: "Assorted monsters",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",
@@ -1438,54 +1145,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         law: "Reaction Abilities: abilities that trigger as reactions are forbidden.",
         enemies: [
             {
-                name: "Neukhia (Wisp)",
-                job: "Boss segment",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            },
-            {
-                name: "Neukhia (Pod)",
-                job: "Boss segment",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
-            },
-            {
-                name: "Neukhia (Core)",
-                job: "Final Boss",
+                name: "",
+                job: "",
                 abilities: {
                     A1: {
                         setId: "",

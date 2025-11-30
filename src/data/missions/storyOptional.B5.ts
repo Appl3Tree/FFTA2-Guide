@@ -23,41 +23,31 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
             teamwork: 0,
             adaptability: 22,
         },
-        enemies: [],
-        rewards: {
-            gil: 3630,
-            cp: 26,
-            loot: "Lightwing Crystal ×3, Wyrmtwig ×2"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B5-02",
-        arc: "B5",
-        name: "Summons",
-        description: "Clan <NAME>! Exactly what is your relationship to Duelhorn? Show us. We wait in the Bisga Greenlands. A Mysterious Organisation",
-        rank: 40,
-        region: "The Bisga Greenlands",
-        fee: 500,
-        days: 20,
-        questType: "Battle",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Caravan Cry II",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 33,
-            adaptability: 33,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Actions by Bangaa – Bangaa may only move and perform basic attacks.",
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-        ],
+    ],
         rewards: {
             gil: 3330,
             cp: 80,
@@ -87,41 +77,31 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         },
         objective: "Protect Frimelda and Defeat all Foes!",
         law: "Forbidden: Ranged Weapons – Attack with bows, greatbows, guns, hand-cannons, and cards",
-        enemies: [],
-        rewards: {
-            gil: 7370,
-            cp: 78,
-            loot: "Firebird Crystal ×2"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B5-04",
-        arc: "B5",
-        name: "Geomancer's Way - Snow",
-        description: "Geomancers bend nature to their will. Our society has established a series of trials for prospective geomancers to determine whether they are worthy to share in our knowledge. The Trial of Rivening Snow is the third of four trials. When you are ready to be tested, come. Naturalist Society",
-        rank: 37,
-        region: "Moorabella",
-        fee: 500,
-        days: 20,
-        questType: "Battle",
-        canDispatch: false,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Geomancer's Way Rain",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 33,
-            adaptability: 33,
-        },
-        objective: "Defeat all Foes!",
-        law: "Forbidden: Actions that consume 20 or more MP are forbidden. – Well, there are 3 Geomancer's here, with an Ice Drake and a Zahak to top",
-        enemies: [],
-        strategy: [
-            "Prioritize high-threat targets early in the battle",
-        ],
+    ],
         rewards: {
             gil: 4730,
             cp: 74,
@@ -149,75 +129,31 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
             teamwork: 0,
             adaptability: 44,
         },
-        enemies: [],
-        rewards: {
-            gil: 5520,
-            cp: 44,
-            loot: "Snowcat Crystal ×1"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B5-06",
-        arc: "B5",
-        name: "Three-Point Strategy",
-        description: "A missive containing Duelhorn's strategic plans for the near future has been intercepted. - Three-Point Strategy - Launch coordinated attacks on Camoa, Graszton, and Moorabella using the confusion this generated to ....... Kh ....... headquarters ..... *A word from the pub Poster Unknown, some sections illegible.",
-        rank: 48,
-        region: "Camoa, Graszton, Moora",
-        fee: 500,
-        days: 20,
-        questType: "Defeat Mark",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Summons",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 39,
-            adaptability: 39,
-        },
-        objective: "Defeat the Night Dancer!",
-        law: "Forbidden: Harming the Opposite Sex – Actions that harm members of the opposite sex are forbidden.",
-        enemies: [
-            {
-                name: "Cannoneer",
-                type: "Monster",
-            },
-            {
-                name: "Bishop",
-                type: "Monster",
-            },
-            {
-                name: "Master Monk",
-                type: "Monster",
-            },
-            {
-                name: "Dragoon",
-                type: "Monster",
-            },
-            {
-                name: "Time Mage",
-                type: "Monster",
-            },
-            {
-                name: "Black Mage",
-                type: "Monster",
-            },
-            {
-                name: "Sage",
-                type: "Monster",
-            },
-            {
-                name: "Sniper",
-                type: "Monster",
-            },
-            {
-                name: "Spellblade",
-                type: "Monster",
-            },
-        ],
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
@@ -251,12 +187,31 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         },
         objective: "Investigate the Shining Object!",
         law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
-        enemies: [
-            {
-                name: "Zombie",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 6620,
             cp: 84,
@@ -287,16 +242,31 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: HP < or = 100 – Having less than 100 HP is forbidden.",
-        enemies: [
-            {
-                name: "Toughskin",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-            {
-                name: "Geomancer",
-                type: "Monster",
-            },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         strategy: [
             "Having Esuna available is recommended to handle debuffs",
             "Bring a healer to manage HP during the encounter",
@@ -332,11 +302,31 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         },
         objective: "Defeat Maquis the Phantasm!",
         law: "Forbidden: Ranged Weapons – Atacks with bows, greatbows, guns, hand-cannons, and",
-        enemies: [],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
-        ],
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 5320,
             cp: 99,
@@ -367,12 +357,31 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: < 20 Damage – Dealing < 20 Damage is forbidden.",
-        enemies: [
-            {
-                name: "Opportunity Command",
-                type: "Monster",
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
             },
-        ],
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+    ],
         rewards: {
             gil: 7880,
             cp: 99,
@@ -404,72 +413,31 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         dispatchRecommended: ["Defender"],
         objective: "Protect Maquis and Defeat all Foes!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 3940,
-            cp: 99,
-            loot: "Aurea Pollen ×1"
+    enemies: [
+        {
+            name: "",
+            job: "",
+            abilities: {
+                A1: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "",
+                    ]
+                },
+                A2: {
+                    setId: "lowercase",
+                    abilityIds: [
+                        "hyphen-name",
+                    ]
+                },
+                R: "",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "snakeCase" },
+            ]
         },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B5-15",
-        arc: "B5",
-        name: "Devil's Pact",
-        description: "I am afflicted with a terrible disease that eats away at my body each day. A kind man named Maquis brings me medicine to slow its effects, but he's begun to behave strangely. He's had dealings with the Witch of the Fens, and I think there may be a connection between her and his behaviour. I need someone who knows the witch to look into this matter on my behalf. Cyda",
-        rank: 54,
-        region: "Tramdine Fens",
-        fee: 500,
-        days: 20,
-        questType: "Satisfy Petitioner",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Lethean Drought",
-        requiredTalents: {
-            negotiation: 54,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 54,
-        },
-        objective: "Answer the Witch of the Fens!",
-        law: "Forbidden: HP < or = 20 – Having less than 20 HP is forbidden.",
-        enemies: [],
-        rewards: {
-            gil: 3280,
-            cp: 99,
-            loot: "Cockatrice Skin ×1"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "B5-16",
-        arc: "B5",
-        name: "One Last Memory",
-        description: "Maquis cared for me when I was ill. I owe him a debt of kindness that can never be repayed. So when he left with a grim look on his face muttering something about a snake, a great fear took me. I feel I may never see him again. Someone, please, see that he's all right. Cyda",
-        rank: 60,
-        region: "The Galleria Deep",
-        fee: 500,
-        days: 20,
-        questType: "Defeat Mark",
-        canDispatch: true,
-        canCancel: true,
-        members: 6,
-        prerequisite: "Devil's Pact",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 54,
-            adaptability: 54,
-        },
-        objective: "Defeat Duke Snakeheart",
-        law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
-        enemies: [],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
         ],
