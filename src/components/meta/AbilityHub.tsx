@@ -32,8 +32,12 @@ export function AbilityHub() {
         const map: Record<string, AbilityMeta[]> = {};
 
         for (const ability of Object.values(ABILITIES)) {
-            const arr = map[ability.setId] ?? (map[ability.setId] = []);
-            arr.push(ability);
+            const setIds = [ability.setId, ...(ability.otherSetIds ?? [])];
+
+            for (const setId of setIds) {
+                const arr = map[setId] ?? (map[setId] = []);
+                arr.push(ability);
+            }
         }
 
         // sort abilities within each set
@@ -191,8 +195,14 @@ export function AbilityHub() {
                                             )}
                                         </div>
                                         {ab.description && (
-                                            <div className="text-[0.7rem] sm:text-xs text-zinc-300">
-                                                {ab.description}
+                                            <div className="text-[0.7rem] sm:text-xs text-zinc-300 space-y-0.5">
+                                                {Array.isArray(ab.description)
+                                                    ? ab.description.map((line, idx) => (
+                                                          <p key={idx}>{line}</p>
+                                                      ))
+                                                    : (
+                                                        <p>{ab.description}</p>
+                                                      )}
                                             </div>
                                         )}
                                     </li>

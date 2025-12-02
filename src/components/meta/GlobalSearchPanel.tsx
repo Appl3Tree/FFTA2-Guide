@@ -305,30 +305,39 @@ function equipmentBlob(e: EquipmentMeta): string {
     return parts.join(" ").toLowerCase();
 }
 
-function abilityBlob(a: AbilityMeta, set: AbilitySetMeta): string {
+function abilityBlob(a: AbilityMeta, primarySet: AbilitySetMeta): string {
     const parts: string[] = [];
 
-    parts.push(a.name, a.id, set.name, set.id);
+    // Basic identifiers
+    parts.push(a.name, a.id);
 
-    if (set.description) parts.push(set.description);
-    if (a.description) {
-        if (Array.isArray(a.description)) {
-            parts.push(...a.description);
-        } else {
-            parts.push(a.description);
+    // Primary set
+    parts.push(primarySet.name, primarySet.id);
+    if (primarySet.description) {
+        parts.push(primarySet.description);
+    }
+
+    // Additional sets (from otherSetIds)
+    if (a.otherSetIds) {
+        for (const setId of a.otherSetIds) {
+            const extraSet = ABILITY_SETS[setId];
+            if (!extraSet) continue;
+            parts.push(extraSet.name, extraSet.id);
+            if (extraSet.description) {
+                parts.push(extraSet.description);
+            }
         }
     }
-    if (a.job) parts.push(a.job);
-    if ((a as any).ap != null) {
-        parts.push(`${String((a as any).ap)} AP`);
+
+    // Ability description text
+    if (a.description) {
+        parts.push(...a.description);
     }
-    if (a.notes) parts.push(a.notes);
-    if (a.element) parts.push(...a.element);
-    if (a.inflicts) parts.push(...a.inflicts);
-    if (a.immune) parts.push(...a.immune);
-    if (a.requires) parts.push(...a.requires);
-    if (a.equipmentRequired) parts.push(...a.equipmentRequired);
-    if (a.blueMagic) parts.push("blue magic");
+
+    // Blue Magic tagging
+    if (a.blueMagic) {
+        parts.push("blue magic", "blue magick");
+    }
 
     return parts.join(" ").toLowerCase();
 }
@@ -2213,157 +2222,149 @@ export function GlobalSearchPanel() {
                                 </p>
                             ) : (
                                 <ul className="space-y-1.5">
-                                    {filteredAbilities.map(
-                                        ({ set, ability }) => {
-                                            const key = `${set.id}:${ability.id}`;
-                                            const isOpen =
-                                                openAbilities[key] ?? false;
+    {filteredAbilities.map(({ set, ability }) => {
+        // Open/close state keyed by ability so there is only one row per ability
+        const key = ability.id;
+        const isOpen = openAbilities[key] ?? false;
 
-                                            return (
-                                                <li
-                                                    key={key}
-                                                    className="border border-zinc-800/80 rounded-md bg-zinc-950/60"
-                                                >
-                                                    <button
-                                                        type="button"
-                                                        onClick={() =>
-                                                            setOpenAbilities(
-                                                                (prev) => ({
-                                                                    ...prev,
-                                                                    [key]:
-                                                                        !isOpen,
-                                                                }),
-                                                            )
-                                                        }
-                                                        className="w-full px-2.5 py-2 flex items-center justify-between gap-2 text-left"
-                                                    >
-                                                        <div className="flex flex-col gap-0.5">
-                                                            <span className="font-semibold text-zinc-50">
-                                                                {
-                                                                    ability.name
-                                                                }
-                                                            </span>
-                                                            <div className="flex flex-wrap items-center gap-1.5">
-                                                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
-                                                                    {set.name}
-                                                                </span>
-                                                                {ability.blueMagic && (
-                                                                    <span className="inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-blue-200">
-                                                                        Blue Magic
-                                                                    </span>
-                                                                )}
-                                                                {ability.job && (
-                                                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
-                                                                        {
-                                                                            ability.job
-                                                                        }
-                                                                    </span>
-                                                                )}
-                                                                {(ability as any)
-                                                                    .ap !=
-                                                                    null && (
-                                                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
-                                                                        {
-                                                                            (ability as any)
-                                                                                .ap
-                                                                        }{" "}
-                                                                        AP
-                                                                    </span>
-                                                                )}
-                                                            </div>
-                                                        </div>
-                                                        <span className="flex items-center gap-1 text-[0.65rem] text-zinc-400">
-                                                            <span>
-                                                                {isOpen
-                                                                    ? "Hide details"
-                                                                    : "Show details"}
-                                                            </span>
-                                                            {renderChevron(
-                                                                isOpen,
-                                                            )}
-                                                        </span>
-                                                    </button>
+        // Collect all sets this ability belongs to: primary + additional
+        const allSetIds = [
+            ability.setId,
+            ...(ability.otherSetIds ?? []),
+        ];
 
-                                                    {isOpen && (
-                                                        <div className="px-2.5 pb-2 pt-0.5 space-y-1.5 border-t border-zinc-800/80 text-[0.7rem] text-zinc-100">
-                                                            {ability.description && (
-                                                                <p className="text-zinc-300">
-                                                                    {
-                                                                        ability.description
-                                                                    }
-                                                                </p>
-                                                            )}
+        const allSets = allSetIds
+            .map((setId) => ABILITY_SETS[setId])
+            .filter((s): s is AbilitySetMeta => !!s);
 
-                                                            {(ability.element ||
-                                                                ability.inflicts ||
-                                                                ability.immune) && (
-                                                                <div className="flex flex-wrap gap-1">
-                                                                    {ability.element && (
-                                                                        <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
-                                                                            Element:{" "}
-                                                                            {ability.element.join(
-                                                                                ", ",
-                                                                            )}
-                                                                        </span>
-                                                                    )}
-                                                                    {ability.inflicts && (
-                                                                        <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
-                                                                            Inflicts:{" "}
-                                                                            {ability.inflicts.join(
-                                                                                ", ",
-                                                                            )}
-                                                                        </span>
-                                                                    )}
-                                                                    {ability.immune && (
-                                                                        <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
-                                                                            Grants
-                                                                            immunity
-                                                                            to:{" "}
-                                                                            {ability.immune.join(
-                                                                                ", ",
-                                                                            )}
-                                                                        </span>
-                                                                    )}
-                                                                </div>
-                                                            )}
+        return (
+            <li
+                key={key}
+                className="border border-zinc-800/80 rounded-md bg-zinc-950/60"
+            >
+                <button
+                    type="button"
+                    onClick={() =>
+                        setOpenAbilities((prev) => ({
+                            ...prev,
+                            [key]: !isOpen,
+                        }))
+                    }
+                    className="w-full px-2.5 py-2 flex items-center justify-between gap-2 text-left"
+                >
+                    <div className="flex flex-col gap-0.5">
+                        <span className="font-semibold text-zinc-50">
+                            {ability.name}
+                        </span>
+                        <div className="flex flex-wrap items-center gap-1.5">
+                            {/* All ability sets (primary + otherSetIds) */}
+                            {allSets.map((s) => (
+                                <span
+                                    key={s.id}
+                                    className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300"
+                                >
+                                    {s.name}
+                                </span>
+                            ))}
 
-                                                            {(ability.requires ||
-                                                                ability.equipmentRequired) && (
-                                                                <div className="space-y-0.5">
-                                                                    {ability.requires && (
-                                                                        <div>
-                                                                            <span className="text-zinc-400">
-                                                                                Requires:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {ability.requires.join(
-                                                                                    ", ",
-                                                                                )}
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
-                                                                    {ability.equipmentRequired && (
-                                                                        <div>
-                                                                            <span className="text-zinc-400">
-                                                                                Req. equipment:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {ability.equipmentRequired.join(
-                                                                                    ", ",
-                                                                                )}
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    )}
-                                                </li>
-                                            );
-                                        },
-                                    )}
-                                </ul>
+                            {ability.blueMagic && (
+                                <span className="inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-blue-200">
+                                    Blue Magic
+                                </span>
                             )}
+                            {ability.job && (
+                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                    {ability.job}
+                                </span>
+                            )}
+                            {(ability as any).ap != null && (
+                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                    {(ability as any).ap} AP
+                                </span>
+                            )}
+                        </div>
+                    </div>
+                    <span className="flex items-center gap-1 text-[0.65rem] text-zinc-400">
+                        <span>
+                            {isOpen ? "Hide details" : "Show details"}
+                        </span>
+                        {renderChevron(isOpen)}
+                    </span>
+                </button>
+
+                {isOpen && (
+                    <div className="px-2.5 pb-2 pt-0.5 space-y-1.5 border-t border-zinc-800/80 text-[0.7rem] text-zinc-100">
+                        {ability.description && (
+                            <div className="text-zinc-300 space-y-0.5">
+                                {Array.isArray(ability.description)
+                                    ? ability.description.map((line, idx) => (
+                                          <p key={idx}>{line}</p>
+                                      ))
+                                    : (
+                                        <p>{ability.description}</p>
+                                      )}
+                            </div>
+                        )}
+
+                        {(ability.element ||
+                            ability.inflicts ||
+                            ability.immune) && (
+                            <div className="flex flex-wrap gap-1">
+                                {ability.element && (
+                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                        Element:{" "}
+                                        {ability.element.join(", ")}
+                                    </span>
+                                )}
+                                {ability.inflicts && (
+                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                        Inflicts:{" "}
+                                        {ability.inflicts.join(", ")}
+                                    </span>
+                                )}
+                                {ability.immune && (
+                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                        Grants immunity to:{" "}
+                                        {ability.immune.join(", ")}
+                                    </span>
+                                )}
+                            </div>
+                        )}
+
+                        {(ability.requires ||
+                            ability.equipmentRequired) && (
+                            <div className="space-y-0.5">
+                                {ability.requires && (
+                                    <div>
+                                        <span className="text-zinc-400">
+                                            Requires:
+                                        </span>{" "}
+                                        <span className="font-medium">
+                                            {ability.requires.join(", ")}
+                                        </span>
+                                    </div>
+                                )}
+                                {ability.equipmentRequired && (
+                                    <div>
+                                        <span className="text-zinc-400">
+                                            Req. equipment:
+                                        </span>{" "}
+                                        <span className="font-medium">
+                                            {ability.equipmentRequired.join(
+                                                ", ",
+                                            )}
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                )}
+            </li>
+        );
+    })}
+</ul>
+                                )}
                         </>
                     )}
 

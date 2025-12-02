@@ -12,6 +12,7 @@ export interface AbilitySetMeta {
 export interface AbilityMeta {
     id: AbilityId;
     setId: AbilitySetId;   // <- ties it to its set
+    otherSetIds?: string[];
     name: string;          // "First Aid"
     description: string[];   // "Restore a small amount of HP..."
     blueMagic?: boolean;
@@ -210,6 +211,11 @@ export const ABILITY_SETS: Record<AbilitySetId, AbilitySetMeta> = {
         name: "Onslaught",
         description: "MOOGLE KNIGHTS charge bravely into battle with these mighty attacks."
     },
+    passive: {
+        id: "passive",
+        name: "Passive",
+        description: "Passive abilities are always around, helping you out. Some might let you use equipment you normally wouldn't be able to, or boost the damage you deal."
+    },
     piracy: {
         id: "piracy",
         name: "Piracy",
@@ -224,6 +230,11 @@ export const ABILITY_SETS: Record<AbilitySetId, AbilitySetMeta> = {
         id: "pugilism",
         name: "Pugilism",
         description: "FIGHTERS use their abilities to attack with a fury of blades."
+    },
+    reaction: {
+        id: "reaction",
+        name: "Reaction",
+        description: "Reaction abilities trigger automatically when someone else does something to you."
     },
     reconnaissance: {
         id: "reconnaissance",
@@ -481,9 +492,11 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     roulette: {
         id: "roulette",
         setId: "enthrallment",
+        otherSetIds: ["blue-magick"],
         name: "Roulette",
         description: [
             "Randomly KOs a unit on the field.",
+			"Learned from Ahriman.",
         ],
         blueMagic: true
     },
@@ -530,9 +543,11 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     sandstorm: {
         id: "sandstorm",
         setId: "sands",
+        otherSetIds: ["blue-magick"],
         name: "Sandstorm",
         description: [
             "Deals Earth damage and inflicts Blind.",
+			"Learned from Antlion.",
         ],
         blueMagic: true
     },
@@ -587,9 +602,11 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     "magick-hammer": {
         id: "magick-hammer",
         setId: "taktak",
+        otherSetIds: ["blue-magick"],
         name: "Magick Hammer",
         description: [
             "Smite foe with a mysterious hammer. Depletes target's MP.",
+			"Learned from Baknamykind.",
         ],
         blueMagic: true
     },
@@ -636,9 +653,11 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     "self-destruct": {
         id: "self-destruct",
         setId: "volatility",
+        otherSetIds: ["blue-magick"],
         name: "Self-Destruct",
         description: [
             "KOs self to deal massive damage.",
+			"Learned from Bomb.",
         ],
         blueMagic: true
     },
@@ -805,9 +824,11 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     doom: {
         id: "doom",
         setId: "nightmare",
+        otherSetIds: ["blue-magick"],
         name: "Doom",
         description: [
             "Inflicts Doom.",
+			"Learned from Deathscythe.",
         ],
         blueMagic: true
     },
@@ -950,27 +971,33 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     "expose-weakness": {
         id: "expose-weakness",
         setId: "wyrmcraft",
+        otherSetIds: ["blue-magick"],
         name: "Expose Weakness",
         description: [
             "Lowers target's Defense and Magick Resistance.",
+			"Learned from Fire Drake.",
         ],
         blueMagic: true
     },
     "mighty-guard": {
         id: "mighty-guard",
         setId: "wyrmcraft",
+        otherSetIds: ["blue-magick"],
         name: "Mighty Guard",
         description: [
             "Raises target's Defense and Magick Resistance.",
+			"Learned from Thunder Drake.",
         ],
         blueMagic: true
     },
     "dragon-force": {
         id: "dragon-force",
         setId: "wyrmcraft",
+        otherSetIds: ["blue-magick"],
         name: "Dragon Force",
         description: [
             "Raises target's Attack and Magick Attack.",
+			"Learned from Ice Drake.",
         ],
         blueMagic: true
     },
@@ -1001,9 +1028,11 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     "war-dance": {
         id: "war-dance",
         setId: "enticement",
+        otherSetIds: ["blue-magick"],
         name: "War Dance",
         description: [
             "A dance that boosts the morale of units in a small area. Raises ATTACK.",
+			"Learned from Dreamhare.",
         ],
         blueMagic: true
     },
@@ -1034,9 +1063,11 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     unction: {
         id: "unction",
         setId: "metamorphosis",
+        otherSetIds: ["blue-magick"],
         name: "Unction",
         description: [
             "Inflicts Oil debuff.",
+			"Learned from Red Marshmallow (Flan).",
         ],
         blueMagic: true
     },
@@ -1139,9 +1170,11 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     quake: {
         id: "quake",
         setId: "brute-force",
+        otherSetIds: ["blue-magick"],
         name: "Quake",
         description: [
             "Deals Earth damage in an area.",
+			"Learned from Headlesskind.",
         ],
         blueMagic: true
     },
@@ -1180,9 +1213,11 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     night: {
         id: "night",
         setId: "darkness",
+        otherSetIds: ["blue-magick"],
         name: "Night",
         description: [
             "Puts all units to sleep.",
+			"Learned from Lamiakind.",
         ],
         blueMagic: true
     },
@@ -1261,18 +1296,22 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     "bad-breath": {
         id: "bad-breath",
         setId: "halitosis",
+        otherSetIds: ["blue-magick"],
         name: "Bad Breath",
         description: [
             "Inflicts Blind, Poison, and Silence.",
+			"Learned from Malborokind.",
         ],
         blueMagic: true
     },
     "eerie-sound-wave": {
         id: "eerie-sound-wave",
         setId: "halitosis",
+        otherSetIds: ["blue-magick"],
         name: "Eerie Sound Wave",
         description: [
             "Dispels buffs on one unit.",
+			"Learned from Malborokind.",
         ],
         blueMagic: true
     },
@@ -1500,30 +1539,25 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
             "Release a heavy-scented cloud of mischief. CONFUSES surrounding units.",
         ],
     },
-    cornered: {
-        id: "cornered",
-        setId: "shell-crush",
-        name: "Cornered",
-        description: [
-            "Deals 999 damage to one target with 100% Accuracy if user's HP is in single digits.",
-        ],
-        blueMagic: true
-    },
     "limit-glove": {
         id: "limit-glove",
         setId: "shell-crush",
         name: "Limit Glove",
         description: [
             "Deals 999 damage to one target with 100% Accuracy if user's HP is in single digits.",
+            "AKA Cornered.",
+			"Learned from Great Tortoise."
         ],
         blueMagic: true
     },
     "matra-magic": {
         id: "matra-magic",
         setId: "shell-crush",
+        otherSetIds: ["blue-magick"],
         name: "Matra Magic",
         description: [
             "Switches one target's HP and MP.",
+			"Learned from Adamantitan.",
         ],
         blueMagic: true
     },
@@ -1570,18 +1604,22 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     "white-wind": {
         id: "white-wind",
         setId: "mischief",
+        otherSetIds: ["blue-magick"],
         name: "White Wind",
         description: [
             "Restores HP equal to the caster's current HP in an area.",
+			"Learned from Sprite.",
         ],
         blueMagic: true
     },
     "angel-whisper": {
         id: "angel-whisper",
         setId: "mischief",
+        otherSetIds: ["blue-magick"],
         name: "Angel Whisper",
         description: [
             "Heals one target's HP and bestows Reraise. Holy-elemental.",
+			"Learned from Sprite.",
         ],
         blueMagic: true
     },
@@ -1724,9 +1762,11 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     roar: {
         id: "roar",
         setId: "call-of-the-wild",
+        otherSetIds: ["blue-magick"],
         name: "Roar",
         description: [
             "Dispels buffs from all other units on the field.",
+			"Learned from Werewolfkind.",
         ],
         blueMagic: true
     },
@@ -1765,9 +1805,11 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     screech: {
         id: "screech",
         setId: "maw",
+        otherSetIds: ["blue-magick"],
         name: "Screech",
         description: [
             "Damages one unit and inflicts Confuse.",
+			"Learned from Wolfkind.",
         ],
         blueMagic: true
     },
@@ -1849,6 +1891,346 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Drain Touch",
         description: [
             "Drains HP from one target.",
+        ],
+    },
+    "first-aid": {
+        id: "first-aid",
+        setId: "arts-of-war",
+        name: "First Aid",
+        description: [
+            "Treat the user's wounds, restoring HP.",
+        ],
+    },
+    "rend-power": {
+        id: "rend-power",
+        setId: "arts-of-war",
+        name: "Rend Power",
+        description: [
+            "Lower the target's ATTACK, reducing physical damage dealt.",
+        ],
+    },
+    "rend-magick": {
+        id: "rend-magick",
+        setId: "arts-of-war",
+        name: "Rend Magick",
+        description: [
+            "Lower the target's MAGICK, reducing spell potency.",
+        ],
+    },
+    "rend-mp": {
+        id: "rend-mp",
+        setId: "arts-of-war",
+        name: "Rend MP",
+        description: [
+            "Deplete the target's MP.",
+        ],
+    },
+    "rend-speed": {
+        id: "rend-speed",
+        setId: "arts-of-war",
+        name: "Rend Speed",
+        description: [
+            "Lower the target's SPEED.",
+        ],
+    },
+    "mug-gil": {
+        id: "mug-gil",
+        setId: "arts-of-war",
+        name: "Mug Gil",
+        description: [
+            "Deal damage and steal gil from the target.",
+        ],
+    },
+    provoke: {
+        id: "provoke",
+        setId: "arts-of-war",
+        name: "Provoke",
+        description: [
+            "Cause the target to go BERSERK.",
+        ],
+    },
+    gauge: {
+        id: "gauge",
+        setId: "arts-of-war",
+        name: "Gauge",
+        description: [
+            "Reveal the target's Lv. 1 Loot and Items.",
+        ],
+    },
+    shieldbearer: {
+        id: "shieldbearer",
+        setId: "passive",
+        name: "Shieldbearer",
+        description: [
+            "Enables the user to equip shields, regardless of their current job.",
+        ],
+    },
+    "monkey-grip": {
+        id: "monkey-grip",
+        setId: "passive",
+        name: "Monkey Grip",
+        description: [
+            "Wield two-handed weapon with one hand.",
+        ],
+    },
+    cure: {
+        id: "cure",
+        setId: "white-magick",
+        name: "Cure",
+        description: [
+            "Magickally bind the target's wounds. Restores HP and deals damage to undead.",
+        ],
+    },
+    cura: {
+        id: "cura",
+        setId: "white-magick",
+        name: "Cura",
+        description: [
+            "Magickally restore a large amount of HP. Deals damage to undead.",
+        ],
+    },
+    curaga: {
+        id: "curaga",
+        setId: "white-magick",
+        name: "Curaga",
+        description: [
+            "Magickally restore a great amount of HP. Deals damage to undead.",
+        ],
+    },
+    esuna: {
+        id: "esuna",
+        setId: "white-magick",
+        name: "Esuna",
+        description: [
+            "Magickally purge the target of debuffs.",
+        ],
+    },
+    raise: {
+        id: "raise",
+        setId: "white-magick",
+        name: "Raise",
+        description: [
+            "Magickally revive the target, removing KO. Deals damage to undead.",
+        ],
+    },
+    arise: {
+        id: "arise",
+        setId: "white-magick",
+        name: "Arise",
+        description: [
+            "Magickally revive the target. Removes KO and restores full HP. Deals damage to undead.",
+        ],
+    },
+    reraise: {
+        id: "reraise",
+        setId: "white-magick",
+        name: "Reraise",
+        description: [
+            "Grant RERAISE buff to the target. Automatically casts Raise on them if they are KO'd.",
+        ],
+    },
+    refresh: {
+        id: "refresh",
+        setId: "white-magick",
+        name: "Refresh",
+        description: [
+            "Magickally cleanse the target of debuffs unaffected by Esuna.",
+        ],
+    },
+    "turbo-mp": {
+        id: "turbo-mp",
+        setId: "passive",
+        name: "Turbo MP",
+        description: [
+            "Spells cost twice their usual MP, but are much more potent.",
+        ],
+    },
+    focus: {
+        id: "focus",
+        setId: "precision",
+        name: "Focus",
+        description: [
+            "Muster the user's strength, increasing next action's ATTACK.",
+        ],
+    },
+    "leg-shot": {
+        id: "leg-shot",
+        setId: "precision",
+        name: "Leg Shot",
+        description: [
+            "Take aim at the target's legs to IMMOBILIZE it.",
+        ],
+    },
+    "arm-shot": {
+        id: "arm-shot",
+        setId: "precision",
+        name: "Arm Shot",
+        description: [
+            "Take aim at the target's arms to DISABLE it.",
+        ],
+    },
+    cupid: {
+        id: "cupid",
+        setId: "precision",
+        name: "Cupid",
+        description: [
+            "Pierce the target's heart with a magicked arrow. CHARMS the target.",
+        ],
+    },
+    burial: {
+        id: "burial",
+        setId: "precision",
+        name: "Burial",
+        description: [
+            "Bring peace to the Undead.",
+        ],
+    },
+    "take-aim": {
+        id: "take-aim",
+        setId: "precision",
+        name: "Take Aim",
+        description: [
+            "Take careful aim at the target, increasing chance to hit, but dealing less damage.",
+        ],
+    },
+    "lightning-strike": {
+        id: "lightning-strike",
+        setId: "precision",
+        name: "Lightning Strike",
+        description: [
+            "A blindingly fast attack that does not trigger reaction abilities.",
+        ],
+    },
+    blackout: {
+        id: "blackout",
+        setId: "precision",
+        name: "Blackout",
+        description: [
+            "Loose specially prepared arrows to Blind the target.",
+        ],
+    },
+    "archers-bane": {
+        id: "archers-bane",
+        setId: "reaction",
+        name: "Archer's Bane",
+        description: [
+            "Avoid all bow-based basic attacks.",
+        ],
+    },
+    concentration: {
+        id: "concentration",
+        setId: "passive",
+        name: "Concentration",
+        description: [
+            "Focuses the user's thoughts. Increases chance to hit.",
+        ],
+    },
+    fire: {
+        id: "fire",
+        setId: "black-magick",
+        name: "Fire",
+        description: [
+            "Hurl a ball of magick fire, deal fire damage to the target.",
+        ],
+    },
+    fira: {
+        id: "fira",
+        setId: "black-magick",
+        name: "Fira",
+        description: [
+            "An improved version of Fire. Deals even greater fire damage to its targets.",
+        ],
+    },
+    firaga: {
+        id: "firaga",
+        setId: "black-magick",
+        name: "Firaga",
+        description: [
+            "The greatest Fire magick. Consumes its target in hellfire, dealing massive fire damage.",
+        ],
+    },
+    thunder: {
+        id: "thunder",
+        setId: "black-magick",
+        name: "Thunder",
+        description: [
+            "Call down a bolt of lightning, deal lightning damage to the target.",
+        ],
+    },
+    thundara: {
+        id: "thundara",
+        setId: "black-magick",
+        name: "Thundara",
+        description: [
+            "An improved version of Thunder. Deals even greater lightning damage to its targets.",
+        ],
+    },
+    thundaga: {
+        id: "thundaga",
+        setId: "black-magick",
+        name: "Thundaga",
+        description: [
+            "The greatest Thunder magick. Blasts its target with countless bolts, dealing massive lightning damage.",
+        ],
+    },
+    blizzard: {
+        id: "blizzard",
+        setId: "black-magick",
+        name: "Blizzard",
+        description: [
+            "Pierce target with a shard of ice, deal ice damage to the target.",
+        ],
+    },
+    blizzara: {
+        id: "blizzara",
+        setId: "black-magick",
+        name: "Blizzara",
+        description: [
+            "An improved version of Blizzard. Deals even greater ice damage to its targets.",
+        ],
+    },
+    blizzaga: {
+        id: "blizzaga",
+        setId: "black-magick",
+        name: "Blizzaga",
+        description: [
+            "The greatest Blizzard magick. Impales target, dealing massive ice damage.",
+        ],
+    },
+    "magick-counter": {
+        id: "magick-counter",
+        setId: "reaction",
+        name: "Magick Counter",
+        description: [
+            "Cast magicks target the user back at the caster. Magicks cast in this way require MP.",
+        ],
+    },
+    geomancy: {
+        id: "geomancy",
+        setId: "passive",
+        name: "Geomancy",
+        description: [
+            "Lowers resistance to the user's elemental attacks. (Absorb > Immune > Half > Normal > Weak)",
+        ],
+    },
+    cornered: {
+        id: "cornered",
+        setId: "blue-magick",
+        name: "Cornered",
+        description: [
+            "Deals 999 damage to one target with 100% Accuracy if user's HP is in single digits.",
+            "AKA Limit Glove.",
+			"Learned from Great Tortoise."
+        ],
+        blueMagic: true
+    },
+    /*"magick-hammer": {
+        id: "magick-hammer",
+        setId: "blue-magick",
+        name: "Magick Hammer",
+        description: [
+            "Deals MP damage to target.",
+            "Learned from Baknamykind.",
         ],
     },
     /* Template y8y
