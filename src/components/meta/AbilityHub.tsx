@@ -6,18 +6,20 @@ import {
     type AbilitySetMeta,
 } from "../../data/abilities/abilities";
 
-/**
- * Build a blob of text for search (set + abilities).
- */
-function abilitySetToSearchBlob(set: AbilitySetMeta, abilities: AbilityMeta[]): string {
+function abilitySearchText(ab: AbilityMeta, set: AbilitySetMeta): string {
     const parts: string[] = [];
 
+    // Include set context so searching by set name still finds abilities
     parts.push(set.name);
     if (set.description) parts.push(set.description);
 
-    for (const ab of abilities) {
-        parts.push(ab.name);
-        if (ab.description) parts.push(ab.description);
+    // Ability-specific fields
+    parts.push(ab.name);
+    if (ab.description) parts.push(ab.description);
+
+    // Index Blue Magic so searches like "blue", "blue magic" work
+    if (ab.blueMagic) {
+        parts.push("blue", "blue magic", "blue-magic");
     }
 
     return parts.join(" ").toLowerCase();
@@ -39,13 +41,12 @@ export function AbilityHub() {
             list.sort((a, b) => a.name.localeCompare(b.name));
         }
 
-        const result: { set: AbilitySetMeta; abilities: AbilityMeta[]; searchBlob: string }[] = [];
+        const result: { set: AbilitySetMeta; abilities: AbilityMeta[] }[] = [];
 
         for (const setId of Object.keys(ABILITY_SETS)) {
             const set = ABILITY_SETS[setId];
             const abilities = map[setId] ?? [];
-            const searchBlob = abilitySetToSearchBlob(set, abilities);
-            result.push({ set, abilities, searchBlob });
+            result.push({ set, abilities });
         }
 
         // sort sets by name
@@ -57,9 +58,34 @@ export function AbilityHub() {
     const filtered = React.useMemo(() => {
         const q = query.trim().toLowerCase();
         if (!q) return setsWithAbilities;
-        return setsWithAbilities.filter((entry) =>
-            entry.searchBlob.includes(q),
-        );
+
+        const result: { set: AbilitySetMeta; abilities: AbilityMeta[] }[] = [];
+
+        for (const entry of setsWithAbilities) {
+            const { set, abilities } = entry;
+
+            const setMatches =
+                set.name.toLowerCase().includes(q) ||
+                (set.description ?? "").toLowerCase().includes(q);
+
+            const matchingAbilities = abilities.filter((ab) =>
+                abilitySearchText(ab, set).includes(q),
+            );
+
+            // Skip this set entirely if neither the set nor any ability matches
+            if (!setMatches && matchingAbilities.length === 0) {
+                continue;
+            }
+
+            // If searching by set name (setMatches) but no specific ability text matches,
+            // show all abilities. Otherwise, only show the matching abilities.
+            result.push({
+                set,
+                abilities: matchingAbilities.length > 0 ? matchingAbilities : abilities,
+            });
+        }
+
+        return result;
     }, [setsWithAbilities, query]);
 
     // per-set collapse state
@@ -156,8 +182,13 @@ export function AbilityHub() {
                                         key={ab.id}
                                         className="px-3 py-2.5 sm:px-4 sm:py-3"
                                     >
-                                        <div className="font-medium text-zinc-50">
-                                            {ab.name}
+                                        <div className="flex items-center gap-1.5 font-medium text-zinc-50">
+                                            <span>{ab.name}</span>
+                                            {ab.blueMagic && (
+                                                <span className="inline-flex items-center rounded-full bg-sky-900/40 border border-sky-600/70 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-sky-200">
+                                                    Blue Magic
+                                                </span>
+                                            )}
                                         </div>
                                         {ab.description && (
                                             <div className="text-[0.7rem] sm:text-xs text-zinc-300">
