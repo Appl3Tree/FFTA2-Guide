@@ -9,7 +9,7 @@ import { STORY_MAIN_MISSIONS } from "./data/missions/storyMain";
 import { OPTIONAL_MISSIONS } from "./data/missions/storyOptional";
 import { ProgressProvider, useProgress } from "./components/ProgressContext";
 import { EquipmentHub } from "./components/meta/EquipmentHub";
-import { BazaarPanel } from "./components/meta/BazaarPanel";
+import BazaarPanel from "./components/meta/BazaarPanel";
 import { AbilityHub } from "./components/meta/AbilityHub";
 import { GlobalSearchPanel } from "./components/meta/GlobalSearchPanel";
 
