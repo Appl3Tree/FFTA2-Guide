@@ -4,6 +4,7 @@ import { STORY_MAIN_MISSIONS } from "../../data/missions/storyMain";
 import type { Mission } from "../../types/ffta2";
 import { MissionCard } from "./MissionCard";
 import { MISSION_TAGS, type MissionTag } from "../../data/missions/missionTags";
+import { useProgress } from "../ProgressContext";
 
 function getMissionSortKey(mission: Mission) {
     const raw = (mission as any).id || mission.arc;
@@ -54,6 +55,14 @@ const ARC_FILTERS: ArcFilter[] = [
     "EX",
 ];
 
+type CompletionFilter = "ALL" | "COMPLETED" | "NOT_COMPLETED";
+
+const COMPLETION_FILTERS: CompletionFilter[] = [
+    "ALL",
+    "COMPLETED",
+    "NOT_COMPLETED",
+];
+
 const TAG_FILTERS: MissionTag[] = [
     "story",
     "optional",
@@ -92,18 +101,24 @@ export function MissionTabs() {
     const [selectedTags, setSelectedTags] = React.useState<MissionTag[]>([]);
     const [showTagFilters, setShowTagFilters] = React.useState(false);
     const [showArcFilters, setShowArcFilters] = React.useState(false);
+    const [completionFilter, setCompletionFilter] =
+        React.useState<CompletionFilter>("ALL");
+    const [showCompletionFilters, setShowCompletionFilters] =
+        React.useState(false);
+
+    const { checked } = useProgress();
 
     const normalizedSearch = searchTerm.trim().toLowerCase();
 
     const ALL_MISSIONS = React.useMemo<Mission[]>(() => {
-        return [...STORY_MAIN_MISSIONS, ...OPTIONAL_MISSIONS].sort(sortByArcAndIndex);
+        return [...STORY_MAIN_MISSIONS, ...OPTIONAL_MISSIONS].sort(
+            sortByArcAndIndex,
+        );
     }, []);
 
     const toggleTag = (tag: MissionTag) => {
         setSelectedTags((prev) =>
-            prev.includes(tag)
-                ? prev.filter((t) => t !== tag)
-                : [...prev, tag],
+            prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
         );
     };
 
@@ -146,26 +161,44 @@ export function MissionTabs() {
                 if (!haystack.includes(normalizedSearch)) return false;
             }
 
+            if (completionFilter !== "ALL") {
+                const key = `mission:${mission.id}`;
+                const isCompleted = !!checked[key];
+
+                if (completionFilter === "COMPLETED" && !isCompleted) {
+                    return false;
+                }
+
+                if (completionFilter === "NOT_COMPLETED" && isCompleted) {
+                    return false;
+                }
+            }
+
             return true;
         });
-    }, [ALL_MISSIONS, activeArc, normalizedSearch, selectedTags]);
+    }, [
+        ALL_MISSIONS,
+        activeArc,
+        normalizedSearch,
+        selectedTags,
+        completionFilter,
+        checked,
+    ]);
 
     return (
         <div className="space-y-4">
             {/* Filters left / Search right */}
             <div className="flex flex-col gap-3">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-
                     {/* Filters LEFT */}
                     <div className="flex flex-wrap items-center gap-2 justify-between sm:justify-start w-full sm:w-auto">
-
                         {/* Filter by Arc */}
                         <button
                             type="button"
                             onClick={() => setShowArcFilters((prev) => !prev)}
                             className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
                                 showArcFilters
-                                    ? "border-emerald-500/80 bg-emerald-900/60 text-emerald-100"
+                                    ? "border-rose-500/80 bg-rose-900/60 text-rose-100"
                                     : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
                             }`}
                         >
@@ -183,7 +216,7 @@ export function MissionTabs() {
                             onClick={() => setShowTagFilters((prev) => !prev)}
                             className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
                                 showTagFilters
-                                    ? "border-sky-400/80 bg-sky-900/60 text-sky-50"
+                                    ? "border-emerald-400/80 bg-emerald-900/60 text-emerald-50"
                                     : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
                             }`}
                         >
@@ -191,6 +224,30 @@ export function MissionTabs() {
                             {selectedTags.length > 0 && (
                                 <span className="ml-1 text-[0.65rem] opacity-80">
                                     ({selectedTags.length})
+                                </span>
+                            )}
+                        </button>
+
+                        {/* Filter by Completion */}
+                        <button
+                            type="button"
+                            onClick={() =>
+                                setShowCompletionFilters((prev) => !prev)
+                            }
+                            className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
+                                showCompletionFilters
+                                    ? "border-sky-500/80 bg-sky-900/60 text-sky-100"
+                                    : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
+                            }`}
+                        >
+                            Filter by Completion
+                            {completionFilter !== "ALL" && (
+                                <span className="ml-1 text-[0.65rem] opacity-80">
+                                    (
+                                    {completionFilter === "COMPLETED"
+                                        ? "✓"
+                                        : "✗"}
+                                    )
                                 </span>
                             )}
                         </button>
@@ -218,7 +275,7 @@ export function MissionTabs() {
                                     onClick={() => setActiveArc(arc)}
                                     className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
                                         isActive
-                                            ? "border-emerald-500/80 bg-emerald-900/60 text-emerald-100"
+                                            ? "border-rose-500/80 bg-rose-900/60 text-rose-100"
                                             : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
                                     }`}
                                 >
@@ -241,7 +298,7 @@ export function MissionTabs() {
                                     onClick={() => toggleTag(tag)}
                                     className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.65rem] uppercase tracking-[0.16em] ${
                                         isActive
-                                            ? "border-sky-400/80 bg-sky-900/60 text-sky-50"
+                                            ? "border-emerald-400/80 bg-emerald-900/60 text-emerald-50"
                                             : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
                                     }`}
                                 >
@@ -259,6 +316,35 @@ export function MissionTabs() {
                                 Clear Tags
                             </button>
                         )}
+                    </div>
+                )}
+
+                {/* Completion pills */}
+                {showCompletionFilters && (
+                    <div className="flex flex-wrap gap-1.5">
+                        {COMPLETION_FILTERS.map((value) => {
+                            const isActive = completionFilter === value;
+                            const label =
+                                value === "ALL"
+                                    ? "All"
+                                    : value === "COMPLETED"
+                                    ? "✓"
+                                    : "✗";
+                            return (
+                                <button
+                                    key={value}
+                                    type="button"
+                                    onClick={() => setCompletionFilter(value)}
+                                    className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
+                                        isActive
+                                            ? "border-sky-500/80 bg-sky-900/60 text-sky-100"
+                                            : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
+                                    }`}
+                                >
+                                    {label}
+                                </button>
+                            );
+                        })}
                     </div>
                 )}
             </div>
