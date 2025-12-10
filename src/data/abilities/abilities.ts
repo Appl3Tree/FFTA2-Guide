@@ -4568,7 +4568,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     fireshot: {
         id: "fireshot",
         setId: "gunmanship",
-        name: "fireshot",
+        name: "Fireshot",
         description: [
             "An attack that explodes in a ball of flame on impact. Deals fire damage.",
         ],

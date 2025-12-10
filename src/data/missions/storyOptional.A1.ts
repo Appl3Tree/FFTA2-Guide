@@ -10,7 +10,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         name: "Reagent Run",
         description: "The muskmallow, favoured herb for treatment of ague, is again in season. Seeking herbalists to venture into Targ Wood and procure a upply. No previous experience required. Jylland Apothecary's League",
         rank: 8,
-        region: "Targ Wood",
+        region: "Muskmallow Field",
         fee: 200,
         days: 20,
         questType: "Escort",
@@ -24,30 +24,79 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             adaptability: 4,
         },
         dispatchRecommended: ["Defender"],
-        objective: "Collect a Sample of Muskmallow",
-        law: "Forbidden: Knockback – Actions that knock the target back are forbidden",
+        objective: "Collect a sample of muskmallow!",
+        law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
     enemies: [
         {
-            name: "",
-            job: "",
+            name: "Randomized Name",
+            job: "Dreamhare",
             abilities: {
                 A1: {
-                    setId: "lowercase",
+                    setId: "enticement",
                     abilityIds: [
-                        "",
+                        "hip-attack",
                     ]
                 },
-                A2: {
-                    setId: "lowercase",
+                A2: null,
+                R: "counter",
+                P: ""
+            },
+            equipment: [
+            ]
+        },
+        {
+            name: "Randomized Name",
+            job: "Dreamhare",
+            abilities: {
+                A1: {
+                    setId: "enticement",
                     abilityIds: [
-                        "hyphen-name",
+                        "war-dance",
+                        "hip-attack",
                     ]
                 },
+                A2: null,
                 R: "",
                 P: ""
             },
             equipment: [
-                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+        {
+            name: "Randomized Name",
+            job: "Baknamy",
+            abilities: {
+                A1: {
+                    setId: "taktak",
+                    abilityIds: [
+                        "magick-hammer",
+                    ]
+                },
+                A2: null,
+                R: "archers-bane",
+                P: ""
+            },
+            equipment: [
+                {slot: 1, itemId: "leatherClothing" },
+            ]
+        },
+        {
+            name: "Randomized Name",
+            job: "Wolf",
+            quantity: 2,
+            abilities: {
+                A1: {
+                    setId: "maw",
+                    abilityIds: [
+                        "summon-pack",
+                        "fangs",
+                    ]
+                },
+                A2: null,
+                R: "",
+                P: ""
+            },
+            equipment: [
             ]
         },
     ],

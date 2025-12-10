@@ -402,6 +402,8 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         description: "Foodstuffs njeeded. You will be required to catch specific monsters at a specific location. The details are as follows: - Must have fluffy white fur. - Enough to feed two. - To be used as an appetizer, one per serving. Too many is no good. Too few is also no good. Poison Tasters Guild",
         rank: 8,
         region: "Targ Wood",
+        objective: "Procure the requested ingredients!",
+        law: "Fire: Weapons and abilities that use fire are forbidden.",
         fee: 200,
         days: 20,
         questType: "Satisfy Petitioner",
@@ -416,26 +418,88 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         },
     enemies: [
         {
-            name: "",
-            job: "",
+            name: "Randomized Name",
+            job: "Dreamhare",
+            quantity: 2,
             abilities: {
                 A1: {
-                    setId: "lowercase",
+                    setId: "enticement",
                     abilityIds: [
-                        "",
+                        "hip-attack",
                     ]
                 },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
+                A2: null,
                 R: "",
                 P: ""
             },
             equipment: [
-                {slot: 1, itemId: "snakeCase" },
+            ]
+        },
+        {
+            name: "Randomized Name",
+            job: "Dreamhare",
+            quantity: 1,
+            abilities: {
+                A1: {
+                    setId: "enticement",
+                    abilityIds: [
+                        "war-dance",
+                        "hip-attack",
+                    ]
+                },
+                A2: null,
+                R: "",
+                P: "unscarred"
+            },
+            equipment: [
+            ]
+        },
+        {
+            name: "Randomized Name",
+            job: "Hoppy Bunny",
+            quantity: 1,
+            abilities: {
+                A1: {
+                    setId: "enticement",
+                    abilityIds: [
+                        "go-go-dance",
+                        "hip-attack",
+                    ]
+                },
+                A2: {
+                    setId: "green-magick",
+                    abilityIds: [
+                        "blind",
+                        "silence",
+                    ]
+                },
+                R: "critical-berserk",
+                P: ""
+            },
+            equipment: [
+            ]
+        },
+        {
+            name: "Randomized Name",
+            job: "Hoppy Bunny",
+            quantity: 1,
+            abilities: {
+                A1: {
+                    setId: "enticement",
+                    abilityIds: [
+                        "hip-attack",
+                    ]
+                },
+                A2: {
+                    setId: "green-magick",
+                    abilityIds: [
+                        "sleep",
+                    ]
+                },
+                R: "critical-berserk",
+                P: ""
+            },
+            equipment: [
             ]
         },
     ],

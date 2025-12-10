@@ -87,7 +87,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         rank: 2,
         region: "Targ Wood",
         objective: "Defeat all foes.",
-        law: "Fire: weapons and abilities that deal fire damage are forbidden.",
+        law: "Fire: Weapons and abilities that use fire are forbidden.",
         enemies: [
             {
                 name: "Randomized Name",
