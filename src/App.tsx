@@ -1,4 +1,5 @@
 import React from "react";
+import { Github, Coffee } from "lucide-react";
 import { SectionLabel } from "./components/ui/SectionLabel";
 import { Panel } from "./components/ui/Panel";
 import { BeforeYouStartPanel } from "./components/meta/BeforeYouStartPanel";
@@ -81,6 +82,28 @@ function AppInner() {
                                     .
                                 </p>
                             </div>
+                            <div className="flex items-center gap-2 sm:self-start sm:mt-1">
+                                <a
+                                    href="https://github.com/appl3tree/FFTA2-Guide/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-1 rounded-md bg-white/15 hover:bg-white/25 transition-colors px-2.5 py-1.5 text-xs font-medium text-white"
+                                    aria-label="GitHub repository"
+                                >
+                                    <Github size={14} />
+                                    <span>GitHub</span>
+                                </a>
+                                <a
+                                    href="https://ko-fi.com/appl3tree"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-1 rounded-md bg-white/15 hover:bg-white/25 transition-colors px-2.5 py-1.5 text-xs font-medium text-white"
+                                    aria-label="Support on Ko-fi"
+                                >
+                                    <Coffee size={14} />
+                                    <span>Ko-fi</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
@@ -138,8 +161,27 @@ function AppInner() {
                 </div>
             </main>
 
-            <footer className="text-zinc-600 dark:text-zinc-400 text-xs mt-12">
-                Built with React, Tailwind, and lucide-react
+            <footer className="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 text-xs mt-12">
+                <span>Built with React, Tailwind, and lucide-react</span>
+                <span className="text-zinc-700 dark:text-zinc-600">|</span>
+                <a
+                    href="https://github.com/appl3tree/FFTA2-Guide/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 hover:text-zinc-300 transition-colors"
+                    aria-label="GitHub"
+                >
+                    <Github size={13} />
+                </a>
+                <a
+                    href="https://ko-fi.com/appl3tree"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 hover:text-zinc-300 transition-colors"
+                    aria-label="Ko-fi"
+                >
+                    <Coffee size={13} />
+                </a>
             </footer>
 
             {/* Floating global search drawer */}
