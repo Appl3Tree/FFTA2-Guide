@@ -82,28 +82,6 @@ function AppInner() {
                                     .
                                 </p>
                             </div>
-                            <div className="flex items-center gap-2 sm:self-start sm:mt-1">
-                                <a
-                                    href="https://github.com/appl3tree/FFTA2-Guide/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-1 rounded-md bg-white/15 hover:bg-white/25 transition-colors px-2.5 py-1.5 text-xs font-medium text-white"
-                                    aria-label="GitHub repository"
-                                >
-                                    <Github size={14} />
-                                    <span>GitHub</span>
-                                </a>
-                                <a
-                                    href="https://ko-fi.com/appl3tree"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-1 rounded-md bg-white/15 hover:bg-white/25 transition-colors px-2.5 py-1.5 text-xs font-medium text-white"
-                                    aria-label="Support on Ko-fi"
-                                >
-                                    <Coffee size={14} />
-                                    <span>Ko-fi</span>
-                                </a>
-                            </div>
                         </div>
                     </div>
 
