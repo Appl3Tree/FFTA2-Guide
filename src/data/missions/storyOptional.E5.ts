@@ -27,32 +27,16 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Actions by Gria – Gria may only move and perform basic attacks.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Ranged threat." },
+        { name: "Randomized Name", job: "Blue Mage", quantity: 1, notes: "Heavy debuffer — second priority. Has White Wind, Bad Breath." },
+        { name: "Randomized Name", job: "Trickster", quantity: 1, notes: "Long-range card attacks." },
+        { name: "Randomized Name", job: "Lanista", quantity: 1, notes: "Melee attacker." },
+        { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "PRIORITY: Healer — eliminate first to prevent sustained healing." },
+        { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Strong melee." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Gria are restricted to move and basic attack only — avoid relying on Gria abilities.",
+            "Kill the White Mage first to cut off healing, then target the Blue Mage (Bad Breath/heavy debuffs). The rest is manageable.",
         ],
         rewards: {
             gil: 6130,
@@ -81,35 +65,14 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
             teamwork: 54,
             adaptability: 54,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "No combat — Montblanc, Marche's companion from FFTA, is the unsigned letter writer. Head to Baptiste Hill and he joins your clan as a Black Mage. Do not refuse him.",
+        ],
         rewards: {
-            gil: 8790,
-            cp: 99,
-            loot: "Snowcay Crystal ×1"
+            gil: 7880,
+            cp: 98,
+            loot: "Emperor Scale ×1"
         },
         notes: "",
         tags: ["optional"]

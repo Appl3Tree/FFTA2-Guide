@@ -29,6 +29,7 @@ export interface Enemy {
     quantity?: number;
     abilities?: EnemyAbilityLoadout;
     equipment?: EnemyEquipment;
+    notes?: string;
 }
 
 export interface Reward {

@@ -28,29 +28,9 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         objective: "Uphold the Law and Destroy all Traps!",
         law: "Forbidden: Attack – Attacking is Forbidden",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Tonberry King", quantity: 1, notes: "Highest threat — eliminate first. Normal attacks are banned but abilities and reactions are allowed." },
+        { name: "Randomized Name", job: "Baknamy", quantity: 2 },
+        { name: "Randomized Name", job: "Luchorpan", quantity: 2 },
     ],
         rewards: {
             gil: 9450,
@@ -83,29 +63,9 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         objective: "Gather all the Potions!",
         law: "Forbidden: Restoring HP – Actions that restore HP are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Wendigo", quantity: 1, notes: "Highest priority. Strong physical attacker. Weak to Thunder." },
+        { name: "Randomized Name", job: "Ice Drake", quantity: 2, notes: "Ice attacks. Weak to Fire." },
+        { name: "Randomized Name", job: "Blue Flan", quantity: 2, notes: "Ice attacks. Weak to Fire. Collect all potion sparkles on the map to complete." },
     ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
@@ -141,29 +101,11 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Targeting all Units – Actions targeting all units are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Moogle. Uses Blizzard, Blizzara, Geomancy — priority target." },
+        { name: "Randomized Name", job: "Illusionist", quantity: 1, notes: "Uses Freezeblink (hits all allies) — priority target. Law prevents player AoE too." },
+        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Viera. Uses Charm and Blind — priority target." },
+        { name: "Randomized Name", job: "Geomancer", quantity: 1, notes: "Multiple Geomancy skills." },
+        { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Uses Slow and Time. At the back — harder to reach." },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
@@ -196,41 +138,14 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    enemies: [],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Delivery mission — pick up the package in Targ Wood and deliver it to Graszton. No combat.",
         ],
         rewards: {
-            gil: 2200,
-            cp: 32,
-            loot: "Zodiac Ore ×5, Cruzle Brass ×3, Rabbit Tail ×1"
+            gil: 700,
+            cp: 22,
+            loot: "Recall Grass ×2, Wool ×1, Velvet ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -254,31 +169,10 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             teamwork: 0,
             adaptability: 9,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Dispatch or travel mission — visit Targ Wood, The Bisga Greenlands, and Zedlei Forest within 6 days.",
+        ],
         rewards: {
             gil: 1750,
             cp: 30,
@@ -307,31 +201,79 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             teamwork: 0,
             adaptability: 11,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
+    enemies: [],
+        strategy: [
+            "Dispatch or travel mission — visit Baptiste Hill, The Bisga Greenlands, and The Aldanna Range within 5 days.",
+        ],
+        rewards: {
+            gil: 1750,
+            cp: 32,
+            loot: "Fire Stone ×2, Mape Wood ×1"
         },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "C2-08",
+        arc: "C2",
+        name: "The Towns of Loar",
+        description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 7 days and receive a stamp on your wayfarer's log to win valuable prizes. Marsa Wayfarers Association List of Destinations: - Camoa - Graszton - Moorabella",
+        rank: 17,
+        region: "Camoa, Graszton, Moora",
+        fee: 300,
+        days: 7,
+        questType: "Meet Objectives",
+        canDispatch: true,
+        canCancel: true,
+        members: 1,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 15,
+        },
+    enemies: [],
+        strategy: [
+            "Dispatch or travel mission — visit Camoa, Graszton, and Moorabella within 7 days.",
+        ],
+        rewards: {
+            gil: 1750,
+            cp: 34,
+            loot: "Large Feather ×1, Small Feather ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "C2-09",
+        arc: "C2",
+        name: "The Genuine Article",
+        description: "Even among wares as fine as Galmia Pepe's there are distinctions. Of late, a large number of counterfeit De'vine Ribbons - one of our finest prodicts - have made their way to market. We would like someone to put a stop to this. Galmia Pepe",
+        rank: 17,
+        region: "Graszton",
+        fee: 300,
+        days: 20,
+        questType: "Battle",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 9,
+            adaptability: 9,
+        },
+        objective: "Defeat all Foes!",
+        law: "Forbidden: Buffs – Buffs are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "PRIORITY: Head thief with Dual Wield — biggest threat." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Moogle Thief with Moogle Lance (ranged) — kill to stop ranged harassment." },
+        { name: "Randomized Name", job: "Thief", quantity: 2, notes: "Steal items — kill from range or use Safeguard." },
     ],
+        strategy: [
+            "Four Thieves who all steal items. Take out the Moogle Thief (ranged Moogle Lance) so you can pummel the rest with melee and ranged units.",
+            "No Buffs (law) — rely on raw stats. The dual-wield head Thief hits hardest.",
+        ],
         rewards: {
             gil: 2170,
             cp: 34,
@@ -363,29 +305,12 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: >100 Damage – Dealing >100 damage is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Uses Render skills — highest priority. Height advantage favors you." },
+        { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "Uses Veils." },
+        { name: "Randomized Name", job: "Viking", quantity: 1, notes: "Uses Magick skills." },
+        { name: "Randomized Name", job: "Thief", quantity: 1 },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Moogle/Pom-Pom." },
+        { name: "Randomized Name", job: "Fighter", quantity: 1 },
     ],
         battlefield: [
             "The map features elevation differences",
@@ -421,29 +346,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Buffs and Debuffs – Buffs and Debuffs are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Cassie", quantity: 6, notes: "Malboro variant. Uses Honeyed Breath, Cloying Breath (debuffs), and Charm. 2 have Love Song (healing). Use Sidewinder (Hunters) or Wind-element attacks." },
     ],
         rewards: {
             gil: 3430,
@@ -474,31 +377,9 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             adaptability: 20,
         },
         objective: "Speed Battle vs Chita's Weaponers",
-        law: "Forbidden: Bludgeoning Weapons – Attacks with rods, staves, poles, kunckles, hammers, and",
+        law: "Forbidden: Bludgeoning Weapons – Attacks with rods, staves, poles, knuckles, hammers, and maces are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Golem", quantity: 1, notes: "Speed battle: you and Chita's Weaponers race to kill it. Weak to Wind — use Shining Air or Sidewinder. Heal it if the enemy team gets too close to stealing the kill." },
     ],
         rewards: {
             gil: 5900,
@@ -528,31 +409,9 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             adaptability: 13,
         },
         objective: "Speed Battle vs. Chita's Weaponers",
-        law: "Forbidden: Ranged Weapons – Attack with bows, greatbows, guns, hand-cannons, and cards",
+        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Deathscythe", quantity: 1, notes: "Speed battle: race Chita's Weaponers to the kill. Undead — use X Potion (with Item Lore) for 400 damage to finish quickly. Heal if enemy is about to steal the kill." },
     ],
         rewards: {
             gil: 4920,
@@ -584,29 +443,9 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         objective: "Find a Kupoppy Flower!",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "Can Immobilize and Silence — eliminate quickly." },
+        { name: "Randomized Name", job: "Werewolf", quantity: 2, notes: "Brute force physical attackers." },
+        { name: "Randomized Name", job: "Worgen", quantity: 1, notes: "Can call reinforcements — consider eliminating early. Height disadvantage — use magick." },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",

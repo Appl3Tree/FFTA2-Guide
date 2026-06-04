@@ -25,31 +25,10 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         },
         dispatchRecommended: ["Templar"],
         objective: "Speed Battle vs Scarface",
-        law: "Forbidden: Not Moving – Each unit must move at least 1 tile before ending its",
+        law: "Forbidden: Not Moving – Each unit must move at least 1 tile before ending its turn.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Baknamy", quantity: 2, notes: "Always present regardless of the mark. Traps are also scattered on the field." },
+        { name: "Scarface", job: "Randomized Mark", quantity: 1, notes: "The mark varies per player. Heal the mark if the enemy team is about to KO it to deny them the kill. Kill enemy clan units to prevent them from stealing the kill." },
     ],
         rewards: {
             gil: 12830,
@@ -79,38 +58,11 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-        ],
+    enemies: [],
         rewards: {
-            gil: 2400,
-            cp: 72,
-            loot: "Mind Ceffyl ×3"
+            gil: 2140,
+            cp: 32,
+            loot: "Gurnat ×3, Gimble Stalk ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -137,37 +89,16 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         objective: "Clean the airship within X rounds!",
         law: "Forbidden: Fire – Weapons and abilities that use fire are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Flan", quantity: 4, notes: "Or Mimics at higher levels. Ignore enemies — rush to cleaning spots across the airship. Number of rounds scales with difficulty/level." },
     ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Ignore enemies and move to cleaning tiles across the airship. Rounds to complete scale with level/difficulty.",
+            "Use high-movement units and Haste. Tinker's Red Springs also helps gain extra turns.",
         ],
         rewards: {
-            gil: 4610,
-            cp: 52,
-            loot: "Mythril ×2, Spiral Incisor ×3"
+            gil: 180,
+            cp: 44,
+            loot: "Fine Wool ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -192,37 +123,25 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
             teamwork: 18,
             adaptability: 18,
         },
-        objective: "Go to Calea!",
-        law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
+        objective: "Stage 1: Go to Calea! | Stage 2: Defeat all Foes and keep them away from Calea!",
+        law: "Stage 1: Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden. | Stage 2: Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        // --- STAGE 1 ---
+        { name: "Randomized Name", job: "Floating Eye", quantity: 4, notes: "STAGE 1. All have Supersonic Wave, Death Dive, and Gnaw. Two have Counter + Concentration; two have Critical: Quicken + Reveal. Very easy — just move to Calea to complete stage 1. Use a Gria to fly over them if blocked." },
+        // --- STAGE 2 (Khamja thugs arrive after cutscene — same party, HP carries over) ---
+        { name: "Khamja Lanista", job: "Lanista", quantity: 1, notes: "STAGE 2. Has Sword of Darkness, Sword of Light, Haunting Vision, Blink Counter. 4th priority." },
+        { name: "Khamja Parivir", job: "Parivir", quantity: 1, notes: "STAGE 2. Has Wind Slash, Iai Blow, Shimmering Blade, Strike Back. PRIORITY 1 — very dangerous." },
+        { name: "Khamja Seer", job: "Seer", quantity: 1, notes: "STAGE 2. Has Cura, Esuna, Star Cross, Wild Tornado. PRIORITY 3 — healer." },
+        { name: "Khamja Master Monk", job: "Master Monk", quantity: 1, notes: "STAGE 2. Has Pummel, Withering Strike, Lifebane, Cross-Counter. PRIORITY 5." },
+        { name: "Khamja Arcanist", job: "Arcanist", quantity: 1, notes: "STAGE 2. Has Gravity, Lvl. 3 Dark, Lvl. 5 Haste, Lvl. ? Shadowflare. PRIORITY 6." },
+        { name: "Khamja Assassin", job: "Assassin", quantity: 1, notes: "STAGE 2. Has Shadowbind, Last Breath, Aphonia. PRIORITY 1 — Last Breath instantly kills." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
+            "TWO-STAGE BATTLE. Luso and Cid are forced party members in both stages.",
+            "STAGE 1 (Harming the Weak law): Enemies are underleveled. Move one unit adjacent to Calea to end the stage — no combat needed. Use a Gria to fly over Floating Eyes if blocked.",
+            "STAGE 2 (Copycat law): Khamja thugs arrive mid-battle. Your HP carries over — bring a White Mage. Vary each unit's action each turn to avoid Copycat violations.",
+            "Kill Assassin (Last Breath) and Parivir first. Then Seer (healer) and Lanista. Arcanist and Master Monk last.",
+            "LOSE if any enemy unit ends their turn within 3 tiles of Calea.",
         ],
         rewards: {
             gil: 7880,
@@ -254,29 +173,8 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         objective: "Protect Kyrra and defeat all Foes!",
         law: "Forbidden: Targeting an Area – Actions targeting two or more tiles are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "White Monk", quantity: 3, notes: "PRIORITY: Have Air Render — eliminate all three first. Melee only due to AoE law." },
+        { name: "Randomized Name", job: "Warrior", quantity: 2, notes: "Standard Bangaa melee. Lower priority than the White Monks." },
     ],
         rewards: {
             gil: 690,
@@ -384,32 +282,16 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         objective: "Protect the 'trices and defeat all foes!",
         law: "Forbidden: Dealing < 20 Damage – Dealing < 20 Damage is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Viking", quantity: 1, notes: "Has Thunder, Pickpocket, Strong-arm. Critical: Berserk. Tends to target the birds." },
+        { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Has Mug Gil and Provoke. Critical: Berserk." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "PRIORITY: Has Fira, Blizzara, Thundara — highest damage potential. Critical: Berserk. Eliminate first." },
+        { name: "Mamatrice", job: "Trice", quantity: 1, notes: "Protect this — the mother bird. Enemies focus attacks on her." },
+        { name: "Cluckatrice", job: "Cluckatrice", quantity: 1, notes: "Protect this — the chick. Only ~200 HP, a single hit deals ~100. Extremely fragile." },
     ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Protect BOTH the Mamatrice and her Cluckatrice. Enemies focus their attacks on the birds — intercept with your units.",
+            "Eliminate the Black Mage first (highest spell damage), then Viking, then Soldier. All three have Critical: Berserk.",
+            "Minimum 20 damage per attack (law) — use physical attackers. Positioning between enemies and birds is more important than kill order.",
         ],
         rewards: {
             gil: 7880,

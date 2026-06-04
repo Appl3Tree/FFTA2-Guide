@@ -28,29 +28,12 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         objective: "Defeat all foes in the entry bout!",
         law: "Forbidden: Grouping – Ending the turn next to another unit is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Mounted Chocobo Knight. Healing abilities." },
+        { name: "Randomized Name", job: "Blue Chocobo", quantity: 1, notes: "Mounted Chocobo Knight." },
+        { name: "Randomized Name", job: "Brown Chocobo", quantity: 1, notes: "Mounted Chocobo Knight." },
+        { name: "Randomized Name", job: "Black Chocobo", quantity: 1, notes: "Mounted Chocobo Knight. Uses Choco Flame." },
+        { name: "Randomized Name", job: "Red Chocobo", quantity: 1, notes: "Mounted Chocobo Knight. Uses Choco Meteor — highest priority target." },
+        { name: "Randomized Name", job: "Chocobo Knight", quantity: 1, notes: "Dismounted unit." },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
@@ -87,29 +70,10 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         objective: "Defeat the Mirage Bunny!",
         law: "Forbidden: Instruments and Books – Attacks with instruments and books are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Mirage Bunny", job: "Dreamhare", quantity: 1, notes: "The mark. If brought to critical HP without being killed, it turns invisible and cannot be targeted without Awareness or similar abilities." },
+        { name: "Randomized Name", job: "Drake", quantity: 2 },
+        { name: "Randomized Name", job: "Flan", quantity: 2, notes: "Elemental absorbers — use physical attacks." },
+        { name: "Randomized Name", job: "Headless", quantity: 1 },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
@@ -146,29 +110,11 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         objective: "Defeat all foes in the entry bout!",
         law: "Forbidden: Using MP – Actions that consume MP are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Leader. Uses Body Slam and Greased Lightning." },
+        { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Uses Air Render and Earth Render — high priority target." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Hume Thief. Uses Immobilize and Disable — priority target." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Moogle Thief. Uses Moogle Lance." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Less threatening than the physical units." },
     ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
@@ -205,29 +151,10 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         objective: "Defeat Florah!",
         law: "Forbidden: >50 Damage – Dealing >50 damage is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Florah", job: "Geomancer", quantity: 1, notes: "Target: Gria Geomancer. Fast and dangerous — eliminate quickly for the reward." },
+        { name: "Randomized Name", job: "Great Malboro", quantity: 1, notes: "Uses Malboro Song — very dangerous debuff." },
+        { name: "Randomized Name", job: "Malboro", quantity: 2 },
+        { name: "Randomized Name", job: "Deadly Nightshade", quantity: 1 },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
@@ -263,31 +190,14 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         },
         dispatchRecommended: ["Sage"],
         objective: "Uphold the Law and Defeat all Foes!",
-        law: "Forbidden: Not Moving 1 Tile – Each unit must move exactly 1 tile before ending its turn",
+        law: "Forbidden: Not Moving 1 Tile – Each unit must move exactly 1 tile before ending its turn is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Parivir", quantity: 1, notes: "Uses Wind Slash, Iai Blow, and Hoarfrost Blade." },
+        { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Equipped with all three Rend abilities." },
+        { name: "Randomized Name", job: "Juggler", quantity: 1, notes: "Uses Weapons, Dagger Toss, Smile, and Gil Toss — priority target." },
+        { name: "Randomized Name", job: "Fusilier", quantity: 1, notes: "Uses Blindshot and Silenceshot." },
+        { name: "Randomized Name", job: "Elementalist", quantity: 1, notes: "Uses Fire Whip, Shining Air, and Sliprain — priority target." },
+        { name: "Randomized Name", job: "Trickster", quantity: 1, notes: "Uses Suggestion, Hypochondria, and Traumatize." },
     ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
@@ -324,29 +234,12 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         objective: "Defeat all foes in the entry bout!",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Fyrebird", job: "Dragoon", quantity: 1 },
+        { name: "Fyrebird", job: "Black Mage", quantity: 1, notes: "Fire-focused — the biggest magical threat." },
+        { name: "Fyrebird", job: "Ninja", quantity: 1 },
+        { name: "Fyrebird", job: "Fighter", quantity: 1 },
+        { name: "Fyrebird", job: "Summoner", quantity: 1 },
+        { name: "Fyrebird", job: "Chocobo Knight", quantity: 1, notes: "Mounted on Red Chocobo — Choco Meteor threat." },
     ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
@@ -384,29 +277,8 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         objective: "Defeat the tonberrions in 4 rounds!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Tonberrion", job: "Tonberry King", quantity: 1, notes: "Target. Absorbs dark magic. Must defeat all in 4 rounds — use Hunters (Sidewinder) and physical attacks." },
+        { name: "Randomized Name", job: "Tonberry", quantity: 3, notes: "Take half damage from all magick. Must be defeated within 4 rounds total." },
     ],
         rewards: {
             gil: 3190,
@@ -440,34 +312,49 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         objective: "Uphold the Law and Defeat all Foes!",
         law: "Forbidden: Not Moving 3 Tiles – Each unit must move exactly 3 tiles before ending its turn.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "Uses Throw, Water Veil, Gold Veil. Has Counter reaction." },
+        { name: "Randomized Name", job: "Trickster", quantity: 1, notes: "Uses Suggestion, Hypochondria, and Traumatize." },
+        { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Uses Haste and Quicken." },
+        { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Uses Tranq, Blind, and Silence." },
+        { name: "Randomized Name", job: "Assassin", quantity: 1, notes: "Uses Last Breath, Aphonia, and Ague — priority target." },
+        { name: "Randomized Name", job: "Elementalist", quantity: 1, notes: "Uses Fire Whip, Shining Air, and Sliprain — priority target." },
     ],
+        rewards: {
+            gil: 5030,
+            cp: 82,
+            loot: "Gold Chalice ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "A3-12",
+        arc: "A3",
+        name: "Wanted: Combatants",
+        description: "We have an unexpected opening in the roster of our forthcomingh tourney. We do not often invite outsiders, but if the tourney is to go ahead, we must. Combatant with experience in a clan tourney perferred. Shadow Tourney Overseer",
+        rank: 35,
+        region: "Graszton",
+        fee: 500,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: false,
+        canCancel: true,
+        members: 1,
+        requiredTalents: {
+            negotiation: 44,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 44,
+        },
+        dispatchRecommended: ["White Monk"],
+    enemies: [],
+        strategy: [
+            "Dispatch mission — send a White Monk (always accepted). A Berserker or Gladiator can also work, but the White Monk is the reliable choice.",
+        ],
         rewards: {
             gil: 5520,
             cp: 70,
-            loot: ""
+            loot: "Blood-Darkened Bone ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -496,29 +383,12 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         objective: "Defeat all foes in the entry bout!",
         law: "Forbidden: Dealing < 100 Damage – Dealing < 100 Damage is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Sage", quantity: 1, notes: "Uses Gigaflare — consider prioritizing if your party has low resistance." },
+        { name: "Randomized Name", job: "Illusionist", quantity: 1, notes: "Eliminate before it accumulates enough MP to deal heavy damage." },
+        { name: "Randomized Name", job: "Sniper", quantity: 1, notes: "Priority target — flank from behind." },
+        { name: "Randomized Name", job: "Hunter", quantity: 1, notes: "Priority target — flank from behind." },
+        { name: "Randomized Name", job: "Berserker", quantity: 1 },
+        { name: "Randomized Name", job: "Dragoon", quantity: 1 },
     ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
@@ -554,31 +424,14 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             adaptability: 18,
         },
         objective: "Defeat Gaitsnipe!",
-        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards",
+        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Gaitsnipe", job: "Hunter", quantity: 1, notes: "Target. Uses Vitals Shot (random debuff) and Rend abilities at range." },
+        { name: "Randomized Name", job: "Sniper", quantity: 1, notes: "Viera. Uses Double Shot, Beso Toxico, and Death Sickle — high priority." },
+        { name: "Randomized Name", job: "Fusilier", quantity: 1, notes: "Moogle. Uses Confuse Shot, Blind Shot, and Silence Shot — priority target." },
+        { name: "Randomized Name", job: "Flintlock", quantity: 1, notes: "Moogle. Provides supportive buffs for the enemy team." },
+        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Hume. Uses Leg Shot and Arm Shot." },
+        { name: "Randomized Name", job: "Cannoneer", quantity: 1, notes: "Bangaa. Powerful attacks with a turn-loss downside." },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
@@ -618,29 +471,10 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         objective: "Gather all the Gemstones!",
         law: "Forbidden: Reaction Abilities – Reaction Abilities are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Yellow Flan", quantity: 2, notes: "Annoying elemental monsters." },
+        { name: "Randomized Name", job: "Juggler", quantity: 1, notes: "Uses Molotov Cocktail and Dagger Toss (Disable) — watch out." },
+        { name: "Randomized Name", job: "Beastmaster", quantity: 1 },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Hume. Will attempt to steal items." },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",

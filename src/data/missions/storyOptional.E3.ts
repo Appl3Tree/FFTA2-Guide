@@ -24,35 +24,14 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Delivery mission — bring Ice Stone ×1 to Fluorgis.",
+        ],
         rewards: {
-            gil: 4990,
-            cp: 60,
-            loot: "High Arcana ×2"
+            gil: 2240,
+            cp: 40,
+            loot: "Storm Sigil ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -79,32 +58,13 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         objective: "Defeat Entz!",
         law: "Forbidden: Elemental Effects – Use of elemental weapons and abilities is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Entz", job: "Alchemist", quantity: 1, notes: "Mark — located at the furthest point from starting position." },
+        { name: "Randomized Name", job: "Zombie", quantity: 2, notes: "Undead — use Cure/Potions for damage. Use Phoenix Down on tombstone." },
+        { name: "Randomized Name", job: "Ghoul", quantity: 1, notes: "Undead — use Cure/Potions. Use Phoenix Down on tombstone." },
+        { name: "Randomized Name", job: "Great Tortoise", quantity: 2, notes: "High defense — deal with after undead." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
+            "No elemental attacks at all. Fight through Zombies/Ghoul (use Cure as damage + Phoenix Down), then Great Tortoises, then reach Entz.",
         ],
         rewards: {
             gil: 5740,
@@ -134,31 +94,10 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             teamwork: 18,
             adaptability: 18,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Dispatch mission — send a Chocobo Knight or Beastmaster for 15 days.",
+        ],
         rewards: {
             gil: 2560,
             cp: 36,
@@ -189,33 +128,14 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Action by Seeq – Seeq may only move and perform basic attacks.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "PRIORITY 1: Has Leg Shot, Arm Shot, and Take Aim — disables limbs crippling your units. Eliminate first." },
+        { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "PRIORITY 2: Has Throw, Fire Veil, and Water Veil — debuffing elemental attacks." },
+        { name: "Randomized Name", job: "Blue Mage", quantity: 1, notes: "PRIORITY 3: Has Sandstorm, Bad Breath, and Unction — Bad Breath inflicts mass status effects." },
+        { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Has Esuna, Fira, and Magick Counter. Kill last — she heals/counters magic." },
     ],
         strategy: [
-            "Having Esuna available is recommended to handle debuffs",
-            "Ranged magical attacks are effective in this mission",
+            "6 vs 4 — numbers advantage. Use ranged and fast units.",
+            "Eliminate Archer first (limb shots), then Ninja (veils), then Blue Mage (Bad Breath). Seer last.",
         ],
         rewards: {
             gil: 4970,
@@ -246,35 +166,15 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         },
         objective: "See the battle to the end!",
         law: "Forbidden: Restoring HP – Actions that restore HP are forbidden.",
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "No battle required — just watch. Head to the battlefield and observe the duel.",
+            "Let Grant fight the Paladin. Loot the Paladin's body after Grant wins.",
+        ],
         rewards: {
-            gil: 1750,
-            cp: 66,
-            loot: "Unpurified Ether ×3"
+            gil: 6850,
+            cp: 99,
+            loot: "Moon Ring ×5"
         },
         notes: "",
         tags: ["optional"]
@@ -299,31 +199,10 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Use a Chocobo Knight to enter the Chocobo area and capture a White Chocobo (weaken to HP Critical, then mount).",
+        ],
         rewards: {
             gil: 1750,
             cp: 74,

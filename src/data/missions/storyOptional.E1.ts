@@ -25,31 +25,11 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         },
         objective: "Find Three Treasures",
         law: "Forbidden: Attack – Attacking is Forbidden",
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "No combat — search the map for 3 buried treasures in shining sparkle tiles. No time limit.",
+            "1-person mission (Luso only). Cannot attack anyone. Simply examine the sparkle tiles on the map.",
+        ],
         rewards: {
             gil: 1750,
             cp: 44,
@@ -80,30 +60,13 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         objective: "Defend the Head Editor and defeat all Foes!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Deathscythe", quantity: 3, notes: "Undead — use Cure/Holy. Endless reinforcements; as one is killed another appears. 5 enemies on field at once total." },
+        { name: "Randomized Name", job: "Ghost", quantity: 2, notes: "Undead — use Exorcise/Holy. Reinforcements spawn to keep field at 5." },
     ],
+        strategy: [
+            "5 enemies always on field — endless reinforcements. Must protect the Head Editor.",
+            "All undead — use Cure magick as an attack. Vary actions each turn to avoid Copycat law.",
+        ],
         rewards: {
             gil: 3030,
             cp: 36,
@@ -132,34 +95,16 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             adaptability: 11,
         },
         objective: "Help the Bonga Bugle get its scoop!",
-        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards",
+        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Jylland Free Press: Ninja", quantity: 1, job: "Ninja", notes: "Has Water Veil. Race to reach the Galmia P.R. target first." },
+        { name: "Jylland Free Press: Time Mage", quantity: 1, job: "Time Mage", notes: "Can Haste their own units to reach target faster." },
+        { name: "Jylland Free Press: Green Mage", quantity: 1, job: "Green Mage", notes: "Has Leap — increases unit movement distance." },
+        { name: "Jylland Free Press: Geomancer", quantity: 1, job: "Geomancer", notes: "Basic Geomancer abilities." },
     ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Race mission — get your unit to the Galmia P.R. target before the rival Jylland Free Press does.",
+            "Use highest movement units. Enemy Time Mage and Green Mage accelerate rivals — consider killing them first.",
         ],
         rewards: {
             gil: 3890,
@@ -191,30 +136,16 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Dreamhare", quantity: 1, notes: "Has War Dance, Go-Go Dance, and Sleep." },
+        { name: "Randomized Name", job: "Werewolf", quantity: 1, notes: "Has Roar, Slug, Assault, and Blink Counter." },
+        { name: "Randomized Name", job: "Deathscythe", quantity: 1, notes: "Has Doom, Shackle, Darkra, and Blood Price." },
+        { name: "Randomized Name", job: "Malboro", quantity: 1, notes: "Has Bad Breath, Eerie Sound Wave, and Goo." },
+        { name: "Randomized Name", job: "Nidhogg", quantity: 1, notes: "Has Fireball, Fire Breath, Dragon Force, and Bonecrusher." },
     ],
+        strategy: [
+            "Enemy level ~34. If your units are above ~38, the law will block your attacks on lower-level enemies.",
+            "Prioritize Deathscythe (Doom), then Malboro (Bad Breath). Nidhogg and Werewolf are physical threats.",
+        ],
         rewards: {
             gil: 6970,
             cp: 68,
@@ -245,30 +176,15 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         objective: "Protect the Head Editor and Defeat all Foes!",
         law: "Forbidden: Harming Seeq – Actions that harm Seeq are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Blue Mage", quantity: 1, notes: "PRIORITY: Has White Wind (heals), Quake, and Bad Breath. Eliminate first." },
+        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Has Take Aim, Cupid, and Blackout." },
+        { name: "Randomized Name", job: "Hunter", quantity: 1, notes: "Has Sonic Boom, Mind Crush, and Power Crush." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Has Steal Gil, Rend MP, and Rend Speed." },
     ],
+        strategy: [
+            "3-unit party only (1 member mission, plus 2 others). Head Editor has Critical: Vanish — he can protect himself.",
+            "Target Blue Mage first (healing + debuffs), then Archer and Hunter, Thief last.",
+        ],
         rewards: {
             gil: 2,
             cp: 60,
@@ -297,30 +213,12 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             adaptability: 0,
         },
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Randomized Clan", quantity: 6, notes: "Random enemy clan at a random location. Composition varies — adapt strategy based on what you face." },
     ],
+        strategy: [
+            "Select 'wolves' at the interview to begin. Then travel to the randomly assigned location.",
+            "Enemy clan composition is random — use fast physical units against magic-heavy clans and vice versa.",
+        ],
         rewards: {
             gil: 2,
             cp: 76,
@@ -349,32 +247,17 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             adaptability: 8,
         },
         objective: "Place 5 pots on the tree stumps!",
-        law: "Forbidden: Piercing Weapons – Attacks with rapiers and spears are forbidden",
+        law: "Forbidden: Piercing Weapons – Attacks with rapiers and spears are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Sprite", quantity: 1, notes: "Can debuff — check abilities. Endless reinforcements spawn." },
+        { name: "Randomized Name", job: "Baknamy", quantity: 1, notes: "Can debuff — check abilities." },
+        { name: "Randomized Name", job: "Worgen", quantity: 1, notes: "Can debuff. Reinforcements appear as enemies are killed." },
+        { name: "Randomized Name", job: "Wolf", quantity: 1, notes: "Can debuff." },
     ],
+        strategy: [
+            "Enemies steal pots from tree stumps — kill enemies quickly to keep pots in place.",
+            "Endless reinforcements. Place all 5 pots on stumps as fast as possible — kill enemies that intercept.",
+        ],
         rewards: {
             gil: 2730,
             cp: 30,
@@ -405,33 +288,14 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         objective: "Protect the Bugle staff and defeat all foes!",
         law: "Forbidden: Summoning Scions – Summoning Scions is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Grenade", quantity: 2, notes: "PRIORITY: Has Flame Attack, Spark, Firaga, and Bonecrusher (reaction). Most dangerous — eliminate first." },
+        { name: "Randomized Name", job: "Bomb", quantity: 2, notes: "Has Self-Destruct, Flame Attack, Fira, MP Shield, and Blood Price (casts Fira from own HP). Keep away from protected units." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Bring a healer to manage HP during the encounter",
+            "Interview answer: declare him 'the next owner of the Bonga Bugle'. Battle is in Fluorgis.",
+            "Protect the Head Editor AND the Owner (Level 1) — both are near-instantly KO'd by any hit.",
+            "Bring Hunters and Ice/Water Magick. Eliminate Grenades first (most powerful), keep Bombs away from protected units.",
+            "Bring 2 healers — any enemy attack is near-fatal to the protected units.",
         ],
         rewards: {
             gil: 2,
@@ -460,31 +324,11 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             teamwork: 0,
             adaptability: 6,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "No combat — Luso acts as a shop clerk for 10 customers. Answer correctly for a bonus score.",
+            "Key answers: Malbow (ranged bow/distance weapon), Bomb Arm (weapon named after a monster), Frilly Shirt (shirt for a Bangaa), Handkerchief (cures Oil), Prima Donna Boxers (what the Seeq wants), Golden Armour (grants Critical: Haste), Elixir (give to the Tonberry).",
+        ],
         rewards: {
             gil: 1230,
             cp: 24,
@@ -513,32 +357,14 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             adaptability: 0,
         },
         objective: "Uphold the Law and Defeat all Foes!",
-        law: "Forbidden: Being Robbed – Having hil or items stolen is forbidden.",
+        law: "Forbidden: Being Robbed – Having gil or items stolen is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Thief", quantity: 4, notes: "All enemies steal — being robbed violates the law. Kill from range, use Confuse/Charm, or use Safeguard." },
     ],
+        strategy: [
+            "Use Confuse or Charm to make thieves attack each other. Long-range units (Fusiliers, Cannoneers, Illusionists) can kill before they steal.",
+            "Place traps in front of your frontline to slow enemy approach. Scions are effective here.",
+        ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -572,34 +398,16 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         objective: "Protect the Head Editor and Defeat all Foes!",
         law: "Forbidden: Buffs – Buffs are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Viera: Sniper", quantity: 1, job: "Sniper", notes: "PRIORITY 1: Has Beso Toxico (Doom on target), Death Sickle, and Marksman's Spite." },
+        { name: "Viera: Elementalist", quantity: 1, job: "Elementalist", notes: "PRIORITY 2: Has Evil Gaze, Boulder Crush, and Sliprain." },
+        { name: "Viera: Green Mage", quantity: 1, job: "Green Mage", notes: "PRIORITY 3: Has Blind, Silence, and Sleep." },
+        { name: "Viera: Assassin", quantity: 1, job: "Assassin", notes: "PRIORITY 4: Has Shadowbind, Nightmare, and Ague." },
+        { name: "Viera: White Mage", quantity: 1, job: "White Mage", notes: "Last: Has Cure and Esuna. Eliminate after others." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
+            "Interview answer: 'SMIRK'. Battle takes place in Ruins of Delgantua.",
+            "Protect the Head Editor. Kill Sniper first (Beso Toxico = instant Doom), Elementalist second, Green Mage third, Assassin fourth, White Mage last.",
+            "Buffs are forbidden — rely on raw stats. Bring a healer with Esuna to counter the heavy debuff pressure.",
         ],
         rewards: {
             gil: 2,

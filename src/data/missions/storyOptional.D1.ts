@@ -24,39 +24,14 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
             teamwork: 0,
             adaptability: 44,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
         strategy: [
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
+            "MUST be dispatched — the 6-day time limit makes it physically impossible to visit all four locations manually. Dispatch any unit.",
         ],
         rewards: {
-            gil: 4970,
-            cp: 99,
-            loot: "Earth Sigil ×2"
+            gil: 2930,
+            cp: 50,
+            loot: "Prime Pelt ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -83,37 +58,19 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         objective: "Protect Mocedad and Madreth!",
         law: "Forbidden: Buffs – Buffs are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "House Bowen: Ravager", job: "Ravager", quantity: 1, notes: "House Bowen unit." },
+        { name: "House Bowen: Fighter", job: "Fighter", quantity: 1, notes: "House Bowen unit." },
+        { name: "House Bowen: Assassin", job: "Assassin", quantity: 1, notes: "PRIORITY: Death attacks threaten Mocedad. Eliminate first." },
+        { name: "House Bowen: Illusionist", job: "Illusionist", quantity: 1, notes: "PRIORITY: AoE illusion magick hits all units. Eliminate quickly." },
     ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "3-unit party. Mocedad (Cannoneer) and Madreth (Time Mage) join as allies — protect both.",
+            "Eliminate the Assassin and Illusionist first. Heal Mocedad and Madreth whenever needed.",
         ],
         rewards: {
             gil: 10300,
             cp: 99,
-            loot: "Bangaa of Rupies ×3, Moon Ring ×2"
+            loot: "Moon Ring ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -138,31 +95,14 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
             adaptability: 7,
         },
         objective: "Defeat 10 Foes and keep them from the tree!",
+        law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Antlion", quantity: 4, notes: "Endless reinforcements — as each is killed, another replaces it. Kill 10 total. One also joins mid-battle even without kills. Gang up to kill quickly." },
     ],
+        strategy: [
+            "Station a Counter unit adjacent to the tree to block enemies from touching it.",
+            "Focus multiple units on each Antlion — don't fight 1v1. Kill all 10 as fast as possible.",
+        ],
         battlefield: [
             "The map features elevation differences",
         ],
@@ -194,34 +134,17 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
             teamwork: 20,
             adaptability: 0,
         },
+        law: "Forbidden: Items – Items are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Bangaa Brotherhood: Cannoneer", job: "Cannoneer", quantity: 1, notes: "Bangaa enemy." },
+        { name: "Bangaa Brotherhood: White Monk", job: "White Monk", quantity: 1, notes: "Bangaa enemy." },
+        { name: "Bangaa Brotherhood: Master Monk", job: "Master Monk", quantity: 1, notes: "Bangaa enemy." },
+        { name: "Bangaa Brotherhood: Bishop", job: "Bishop", quantity: 1, notes: "Bangaa enemy." },
+        { name: "Bangaa Brotherhood: Gladiator", job: "Gladiator", quantity: 1, notes: "PRIORITY: Very high offensive power. Eliminate first." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Your allies: Arcanist (leader — must not die), Illusionist, and White Mage.",
+            "Items are banned. Focus on Gladiator first — high offense. Use Arcanist and Illusionist support.",
         ],
         rewards: {
             gil: 10640,
@@ -249,35 +172,14 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Delivery mission — bring logs from The Forests of Loar, Towns of Loar, or Lands of Loar. More logs = better bonus reward. Logs are removed from Clan Primer upon delivery.",
+        ],
         rewards: {
-            gil: 6220,
-            cp: 58,
-            loot: "Clear Sap ×1, Magick Fruit ×1"
+            gil: 140,
+            cp: 30,
+            loot: ""
         },
         notes: "",
         tags: ["optional"]

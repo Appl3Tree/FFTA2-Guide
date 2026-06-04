@@ -24,31 +24,10 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 33,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Dispatch mission — visit Tramdine Fens, Aisenfield, and Sant D'alsa Bluff within 6 days.",
+        ],
         rewards: {
             gil: 1750,
             cp: 36,
@@ -77,35 +56,14 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 39,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Dispatch mission — visit Nazan Mines, Sant D'alsa Bluff, and Kthili Sands within 8 days.",
+        ],
         rewards: {
             gil: 1750,
-            cp: 40,
-            loot: "Wyrmtwig ×1"
+            cp: 38,
+            loot: "Cockatrice Skin ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -130,35 +88,14 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 51,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Dispatch mission — visit The Galerria Deep, Nazan Mines, The Ruins of Delgantua, and The Neslowe Passage within 13 days.",
+        ],
         rewards: {
-            gil: 7550,
-            cp: 98,
-            loot: "Bundle of Needles ×3"
+            gil: 1750,
+            cp: 42,
+            loot: "Mind Ceffyl ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -185,35 +122,19 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         objective: "Defeat all foes except the White Antlion!",
         law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Werewolf", quantity: 2, notes: "Moorabella battle — defeat these." },
+        { name: "Randomized Name", job: "Sprite", quantity: 1, notes: "Moorabella battle — defeat." },
+        { name: "Randomized Name", job: "Lamia", quantity: 2, notes: "Moorabella battle — defeat." },
+        { name: "White Antlion", job: "Pit Beast", quantity: 1, notes: "DO NOT KILL — this is the target to capture. Has Critical: Vanish. Weaken then leave alive." },
+        { name: "Randomized Name", job: "Antlion", quantity: 4, notes: "Bisga Greenlands battle — all Antlions except the Green one. Weak to Wind. Traps on battlefield." },
+        { name: "Green Antlion", job: "Antlion", quantity: 1, notes: "Bisga Greenlands — DO NOT KILL. Defeat all other Antlions around it." },
     ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
+            "Three-location hunt across Moorabella, Bisga, and Zedlei. Do not kill the White Antlion or Green Antlion — defeat all other enemies.",
+            "Use Hunters (Sidewinder) and Wind attacks. Antlions are weak to wind.",
+        ],
+        battlefield: [
+            "Bisga Greenlands battle has trap tiles",
         ],
         rewards: {
             gil: 2650,
@@ -243,39 +164,14 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Ranged magical attacks are effective in this mission",
+            "Delivery mission — bring Sweet Sap ×1 to Fluorgis.",
         ],
         rewards: {
-            gil: 5410,
-            cp: 76,
-            loot: "Emperor Scale ×1"
+            gil: 2240,
+            cp: 34,
+            loot: "Body Ceffyl ×3"
         },
         notes: "",
         tags: ["optional"]
@@ -302,36 +198,19 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         objective: "Gather all the pages of the Recipe!",
         law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Adamantitan", quantity: 1, notes: "PRIORITY: Can damage equipped items when close. Eliminate early." },
+        { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Dangerous — high priority." },
+        { name: "Randomized Name", job: "Cockatrice", quantity: 2, notes: "Standard. Weak to Water and Wind." },
+        { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "Can debuff — watch out." },
+        { name: "Randomized Name", job: "Axebeak", quantity: 1, notes: "Standard monster." },
     ],
+        strategy: [
+            "Recipe pages are in shining sparkles on the battlefield — examine them after clearing enemies.",
+            "Use Water and Wind attacks. Hunters with Sidewinder are effective against all monsters here.",
+            "Target Adamantitan and Lilith first.",
+        ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
-        ],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
         ],
         rewards: {
             gil: 2590,
@@ -362,38 +241,14 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Delivery mission — bring Hedychium ×1 to Fluorgis.",
         ],
         rewards: {
-            gil: 6830,
-            cp: 74,
-            loot: "Godwood ×2"
+            gil: 2240,
+            cp: 54,
+            loot: "Goldcap ×4"
         },
         notes: "",
         tags: ["optional"]
@@ -418,35 +273,14 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Delivery mission — bring Adamantite ×1 to Tramdine Fens.",
+        ],
         rewards: {
-            gil: 2720,
-            cp: 50,
-            loot: "Bat Wing ×5, Wyvern Wing ×1"
+            gil: 2240,
+            cp: 34,
+            loot: "Clear Sap ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -473,35 +307,10 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Reaction Abilities – Reaction abilities are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Antlion", quantity: 5, notes: "All Antlions. Weak to Wind. Use Hunters with Sidewinder (double damage vs monsters) and Wind attacks." },
     ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Use Hunters with Sidewinder and Wind-element units. Antlions are weak to Wind.",
         ],
         rewards: {
             gil: 4970,
@@ -534,30 +343,12 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Grouping – Ending the turn next to another unit is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Cockatrice", quantity: 5, notes: "Some have Wake Up Call (grants adjacent ally an immediate turn) — target those first. Weak to Water and Wind." },
     ],
+        strategy: [
+            "Spread units widely to avoid Grouping law violations. Use ranged/magick attacks from elevated positions.",
+            "Target Cockatrices with Wake Up Call first. Hunters (Sidewinder) and Water/Wind attacks recommended.",
+        ],
         rewards: {
             gil: 3290,
             cp: 58,

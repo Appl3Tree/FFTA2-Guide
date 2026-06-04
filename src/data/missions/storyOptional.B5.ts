@@ -23,35 +23,14 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
             teamwork: 0,
             adaptability: 22,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Dispatch mission — send a Viking or Chocobo Knight equipped with an axe for 2 days.",
+        ],
         rewards: {
-            gil: 3330,
-            cp: 80,
-            loot: "Spider Silk ×1"
+            gil: 3630,
+            cp: 26,
+            loot: "Lightwing Crystal ×3, Wyrmtwig ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -76,36 +55,14 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
             adaptability: 39,
         },
         objective: "Protect Frimelda and Defeat all Foes!",
-        law: "Forbidden: Ranged Weapons – Attack with bows, greatbows, guns, hand-cannons, and cards",
+        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Sir Luc Sardarc", job: "Paladin", quantity: 1, notes: "Forced party: Luso, Adelle, and Cid only. Uses Saint Cross, Holy Blade, and War Cry. Has Blink Counter and Destroyer. Protect Frimelda (undead ally). Dark Magick is effective." },
     ],
         rewards: {
-            gil: 4730,
-            cp: 74,
-            loot: "Stradivari ×1"
+            gil: 7370,
+            cp: 78,
+            loot: "Firebird Crystal ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -129,39 +86,16 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
             teamwork: 0,
             adaptability: 44,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
         strategy: [
+            "Dispatch mission — send an Alchemist for 7 days.",
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
         ],
         rewards: {
-            gil: 4920,
-            cp: 96,
-            loot: "Wyvern Wing ×1"
+            gil: 5520,
+            cp: 44,
+            loot: "Snowcat Crystal ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -188,29 +122,8 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         objective: "Investigate the Shining Object!",
         law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Floating Eye", quantity: 2, notes: "First battle — defeat or rush past to examine the shining object. High-movement units can skip combat." },
+        { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "First battle. Second battle in Kthili Sands: Ghoul x4 (weak to Holy). Protect Frimelda; she enters at HP Critical. Frimelda joins as Paladin after the mission." },
     ],
         rewards: {
             gil: 6620,
@@ -243,29 +156,9 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: HP < or = 100 – Having less than 100 HP is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Geomancer", quantity: 3, notes: "Enemy has high ground advantage. Use magick. Can use Mist ability — move fast." },
+        { name: "Randomized Name", job: "Toughskin", quantity: 1, notes: "Uses Resonate — debuffs bladed-weapon users. Prioritize if you have sword/blade users." },
+        { name: "Randomized Name", job: "Lamashtu", quantity: 1, notes: "Dangerous debuffer — highest priority target." },
     ],
         strategy: [
             "Having Esuna available is recommended to handle debuffs",
@@ -301,31 +194,9 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
             adaptability: 47,
         },
         objective: "Defeat Maquis the Phantasm!",
-        law: "Forbidden: Ranged Weapons – Atacks with bows, greatbows, guns, hand-cannons, and",
+        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Maquis the Phantasm", job: "Juggler", quantity: 6, notes: "Duelhorn boss. Splits into 6 at battle start — all copies are real. Level ~56. Has Double Wield and various veils (debuffs). Use AoE Illusion magick (Illusionist with Halve MP + MP Efficiency recommended). All 6 must be defeated." },
     ],
         rewards: {
             gil: 5320,
@@ -358,29 +229,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: < 20 Damage – Dealing < 20 Damage is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Ghi", job: "Parivir", quantity: 1, notes: "Frimelda fights alone. Ghi uses Shimmering Blade, Skyfury Blade, Hoarfrost Blade, and Bonecrusher. High Attack, low Resistance — use Frimelda's Dual Wield for back attacks. Cure debuffs between turns." },
     ],
         rewards: {
             gil: 7880,
@@ -414,29 +263,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         objective: "Protect Maquis and Defeat all Foes!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Dreamhare", quantity: 4, notes: "Uses Charm abilities — Hunters with Sidewinder are ideal to eliminate quickly. Protect Maquis from being hit." },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",

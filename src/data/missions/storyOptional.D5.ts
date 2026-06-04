@@ -26,30 +26,13 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         objective: "Defeat all foes within four rounds!",
         law: "Forbidden: Targeting Distant Units – Actions targeting units two or more tiles away are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Baknamy", quantity: 3, notes: "Have Magick Hammer and Goblin Attack. Must defeat all within 4 rounds." },
+        { name: "Randomized Name", job: "Luchorpan", quantity: 1, notes: "Has Magick Hammer and Mutilate." },
     ],
+        strategy: [
+            "Close-range only due to Targeting Distant law. Chita's Weaponers join as allies: Gladiator + 2 Warriors.",
+            "Must defeat all 4 enemies within 4 rounds. Break the law if necessary to win in time.",
+        ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -83,30 +66,13 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         objective: "Defeat all Foes within Four Rounds!",
         law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Baknamy", quantity: 3, notes: "Have Magick Hammer and Goblin Attack. Must defeat all within 4 rounds." },
+        { name: "Randomized Name", job: "Luchorpan", quantity: 1, notes: "Has Magick Hammer and Mutilate." },
     ],
+        strategy: [
+            "Camoa Braves join as allies: Warrior (leader) + 2 White Monks. Targeting Self forbidden — no self-buffs or self-healing items.",
+            "Must defeat all 4 enemies within 4 rounds.",
+        ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
@@ -138,34 +104,16 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             adaptability: 15,
         },
         objective: "Defeat all Foes!",
-        law: "Forbidden: Solitude – Ending the turn without a unit in an adjacent tile is",
+        law: "Forbidden: Solitude – Ending the turn without a unit in an adjacent tile is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Deathscythe", quantity: 1, notes: "Has Doom, Deep Sleep, Shackle. Priority target — stop Doom." },
+        { name: "Randomized Name", job: "Ghost", quantity: 2, notes: "One has Flash+Dark, one has Sleep+Silence Touch. Use Exorcise." },
+        { name: "Randomized Name", job: "Ahriman", quantity: 2, notes: "Has Demonic Gaze — do not face them. Priority." },
+        { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "Standard dark unit." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
+            "Keep units adjacent to allies to avoid Solitude law violations. Fight in tight formation.",
+            "Bring Exorcise for Ghosts. Prioritize Ahrimans (face away) and Deathscythe (stops Doom).",
         ],
         rewards: {
             gil: 2610,
@@ -196,32 +144,16 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             adaptability: 0,
         },
         objective: "Defeat the Devotees",
-        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards",
+        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Devotee", job: "Randomized", quantity: 2, notes: "The actual targets — level 1 and 2. Very weak." },
+        { name: "Bodyguard", job: "Randomized", quantity: 4, notes: "Level ~40. Strong — must defeat or bypass to reach the Devotees." },
     ],
+        strategy: [
+            "Prerequisite: must complete all 5 Nightwatch missions AND Stone with No Name.",
+            "Answer 5 Prima Donna trivia questions before battle. All answers are Prima Donna merchandise (order varies by Nightwatch completion sequence): Prima Donna Armband, Prima Donna Photograph, Prima Donna Towel, Prima Donna Necklace, Prima Donna Hairpin.",
+            "Melee only (Ranged Weapons forbidden). Devotees are trivial (level 1–2) but their 4 bodyguards are level ~40. Focus bodyguards first.",
+        ],
         rewards: {
             gil: 5130,
             cp: 50,
@@ -252,30 +184,13 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         objective: "Defeat all Foes in Four Rounds!",
         law: "Forbidden: Swimming – Entering a water tile is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Baknamy", quantity: 3, notes: "Have Magick Hammer and Goblin Attack. Must defeat all within 4 rounds." },
+        { name: "Randomized Name", job: "Luchorpan", quantity: 1, notes: "Has Magick Hammer and Mutilate." },
     ],
+        strategy: [
+            "House Bowen joins as allies (Bowen, Loa, Veis, Tweigel) — very easy with their firepower.",
+            "Stay off water tiles. Must defeat all 4 enemies within 4 rounds.",
+        ],
         rewards: {
             gil: 6620,
             cp: 86,
@@ -304,34 +219,18 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         objective: "Defeat Gade!",
         law: "Forbidden: Debuffs – Debuffs are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Gade", job: "Wraith", quantity: 1, notes: "Mark. Has Flash, Wake the Dead, and dark magicks. Adelle is required." },
+        { name: "Randomized Name", job: "Ghost", quantity: 2, notes: "Touch abilities — use Exorcise." },
+        { name: "Randomized Name", job: "Zombie", quantity: 2, notes: "Have Drain Touch and Miasma." },
     ],
+        strategy: [
+            "Adelle is required. Available very late in the game — enemies should be far under your level.",
+            "All undead — bring Holy attacks and Exorcise. Focus Gade last; clear Ghosts and Zombies first.",
+        ],
         rewards: {
             gil: 3940,
             cp: 50,
-            loot: ""
+            loot: "Tiptaptwo ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -353,35 +252,14 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Delivery mission — bring a Potion to Wermut in Zedlei Forest.",
+        ],
         rewards: {
-            gil: 10240,
-            cp: 90,
-            loot: "Gold Chalice ×1"
+            gil: 160,
+            cp: 84,
+            loot: "Whale Whisker ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -406,34 +284,19 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         objective: "Rekindle the power of the Stones!",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Malboro", quantity: 1, notes: "Do not attack — likely lower level. Avoid entirely." },
+        { name: "Randomized Name", job: "Great Malboro", quantity: 1, notes: "Do not attack — likely lower level. Avoid entirely." },
+        { name: "Randomized Name", job: "Green Chocobo", quantity: 1, notes: "Do not attack if lower level." },
+        { name: "Randomized Name", job: "Black Chocobo", quantity: 1, notes: "Do not attack if lower level." },
     ],
+        strategy: [
+            "Move to each of the 3 pillars and power them up — ignore enemies entirely to avoid breaking the law.",
+            "Fast movement units are ideal. Do not attack anything.",
+        ],
         rewards: {
-            gil: 6300,
-            cp: 62,
-            loot: "Nagrarok ×1"
+            gil: 8650,
+            cp: 76,
+            loot: "Hyakushiki-Masamune ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -458,30 +321,17 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         objective: "Defeat Ljda!",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Ljda", job: "Elementalist", quantity: 1, notes: "Mark. Gifted One. Level ~37. Only required target." },
+        { name: "Randomized Name", job: "Banshee", quantity: 1, notes: "Priority if clearing all enemies — eliminate first." },
+        { name: "Randomized Name", job: "Ice Drake", quantity: 1, notes: "Optional kill." },
+        { name: "Randomized Name", job: "Fire Drake", quantity: 1, notes: "Optional kill." },
+        { name: "Randomized Name", job: "Thunder Drake", quantity: 1, notes: "Optional kill." },
+        { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Lowest threat — kill last if clearing board." },
     ],
+        strategy: [
+            "Only Ljda must be defeated. Available late game — your level should far exceed hers (~37).",
+            "If clearing all enemies: Banshee first, then Drakes, White Chocobo last. Avoid Knockback abilities.",
+        ],
         rewards: {
             gil: 5430,
             cp: 62,

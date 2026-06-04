@@ -26,34 +26,12 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         objective: "Uphold the Law and Defeat all Foes!",
         law: "Forbidden: Fire – Weapons and abilities that use fire are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Malboro", quantity: 3, notes: "Have Bad Breath, Goo, Purify. Two have Counter, one has Evade Magick. Heavy debuffers." },
+        { name: "Randomized Name", job: "Malboro King", quantity: 1, notes: "Boss Malboro. Same skills plus stronger attacks. Highest priority." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
+            "Bring White Mage with Esuna — Bad Breath inflicts mass debuffs. Use Wind Magick and Hunters (Sidewinder) only.",
+            "No Fire at all (law). Prioritize the Malboro King, then the Malboros with Counter.",
         ],
         rewards: {
             gil: 3980,
@@ -85,30 +63,16 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         objective: "Defeat Nezzel the Alchemist!",
         law: "Forbidden: Height > or = 10 – Moving to a tile with height of 10 of more is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Nezzel the Alchemist", job: "Alchemist", quantity: 1, notes: "Mark. Has Flare, Poison, Toad, and Items. Luso is required; Cid is not." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Has Fira, Thundara, Blizzara, Blizzaga." },
+        { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Has Slow and Stop — dangerous support. Priority." },
+        { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Has Blind, Sleep, and Silence — priority debuffer." },
+        { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Has Roundhouse and Air Render." },
     ],
+        strategy: [
+            "Luso is required. Check tile height on the bottom screen — cannot move to h10+ tiles.",
+            "Eliminate Time Mage and Green Mage first to prevent Slow/Stop/Silence debuffs. Then focus on Nezzel.",
+        ],
         rewards: {
             gil: 1960,
             cp: 64,
@@ -139,36 +103,14 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         objective: "Find the Buried Treasure!",
         law: "Forbidden: Summoning Scions – Summoning Scions is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Antlion", quantity: 2, notes: "Have Sandstorm, Saliva, Subsidence, and Bonecrusher." },
+        { name: "Randomized Name", job: "Brown Chocobo", quantity: 1, notes: "Has Choco Cure, Choco Beak, Choco Guard." },
+        { name: "Randomized Name", job: "Yellow Jelly", quantity: 1, notes: "Has Merge, Acid, Thundara, and Geomancy — Geomancy is the most dangerous ability." },
+        { name: "Randomized Name", job: "Drake", quantity: 1, notes: "Has Lightning, Thunder Breath, Shockbolt." },
     ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Bring a healer to manage HP during the encounter",
+            "Treasure is hidden in one of 6 sparkles on the battlefield. Examine all of them — first sparkle you find may be the treasure.",
+            "Clear enemies quickly to focus on searching sparkles. Yellow Jelly's Geomancy is the biggest threat.",
         ],
         rewards: {
             gil: 6270,
@@ -200,37 +142,17 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Being Robbed – Having gil or items stolen is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Thief", quantity: 3, notes: "Has Steal Gil — being stolen from violates the law. Kill from range or use Safeguard to prevent theft." },
+        { name: "Randomized Name", job: "Soldier", quantity: 2, notes: "Has Provoke (inflicts Berserk). Manageable threat." },
     ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Use ranged attacks to kill Thieves before they can steal from you. Safeguard clan privilege also prevents theft.",
+            "Enemies are low level — unlocked after getting Hurdy. Should be well under your level.",
         ],
         rewards: {
-            gil: 4610,
-            cp: 50,
-            loot: "Strange Liquid ×2"
+            gil: 2960,
+            cp: 38,
+            loot: "Gurnat ×2, Strange Liquid ×4"
         },
         notes: "",
         tags: ["optional"]

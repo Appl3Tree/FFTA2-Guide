@@ -27,32 +27,12 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Swimming – Entering a water tile is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Geomancer", quantity: 3, notes: "PRIORITY: Use rain-enhanced water spells. Eliminate quickly with Fusiliers or ranged units." },
+        { name: "Randomized Name", job: "Wendigo", quantity: 1, notes: "Melee bruiser — use melee units to handle." },
+        { name: "Randomized Name", job: "Nagaraja", quantity: 1, notes: "Melee monster — use melee units to handle." },
     ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Stay off water tiles. Kill Geomancers first with Fusiliers or ranged attackers — they use water spells in the rain.",
         ],
         rewards: {
             gil: 4080,
@@ -84,33 +64,13 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Reaction Abilities – Reaction Abilities are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Geomancer", quantity: 2, notes: "Have Shining Flare, Nature's Embrace, and Artifice's Embrace. Priority targets." },
+        { name: "Randomized Name", job: "Geomancer", quantity: 1, notes: "Has Shining Flare and Nature's Embrace (default loadout)." },
+        { name: "Randomized Name", job: "Hellhound", quantity: 1, notes: "Has Shadowy Blow and standard abilities." },
+        { name: "Randomized Name", job: "Nidhogg", quantity: 1, notes: "Uses Fire and Lightning breath attacks." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Ranged magical attacks are effective in this mission",
+            "Target Geomancers first. Nidhogg uses Fire/Lightning — bring units resistant to those elements.",
         ],
         rewards: {
             gil: 5460,
@@ -143,30 +103,15 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Deathscythe", quantity: 1, notes: "Uses Doom, Shackle, Daraga, and Blood Price. Priority target." },
+        { name: "Randomized Name", job: "Nidhogg", quantity: 1, notes: "Uses Fire and Ice Breath." },
+        { name: "Randomized Name", job: "Great Malboro", quantity: 1, notes: "Uses Eerie Sound Wave, Goo, and Putrid Breath — heavy debuffer." },
+        { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Uses Night, Twister, and Hand Slap." },
+        { name: "Randomized Name", job: "Headless", quantity: 1, notes: "Uses Quake, Bone Shatter, and Sunder Earth." },
     ],
+        strategy: [
+            "4 Prima Donna units join as allies. Target the Deathscythe first to stop Doom — then Great Malboro to prevent mass debuffs.",
+        ],
         rewards: {
             gil: 8670,
             cp: 94,
@@ -197,33 +142,12 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         objective: "Defeat all Foes in Four Rounds!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Baknamy", quantity: 3, notes: "All-monster battle. Must be killed within 4 rounds (possibly 2 rounds at higher difficulty)." },
+        { name: "Randomized Name", job: "Luchorpan", quantity: 1, notes: "All-monster battle." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Ranged magical attacks are effective in this mission",
+            "4-unit party only. Bring Hunters and Mages — no melee. Must defeat all in 4 rounds (possibly 2).",
+            "Vary each unit's action to avoid Copycat law violations.",
         ],
         rewards: {
             gil: 6620,
@@ -255,32 +179,13 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         objective: "Speed Battle vs. Tigrina",
         law: "Forbidden: Targeting Distant Units – Actions targeting units two or more tiles away are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Flowsand Lord", job: "Yowie", quantity: 1, notes: "Speed battle mark. ~1600 HP. Weak to Wind. Use Mirror Items (X Potion doubled) and Wind attacks to burst HP. Also contested by Tigrina's team." },
+        { name: "Randomized Name", job: "Pit Beast", quantity: 2, notes: "Guard the Flowsand Lord — eliminate or bypass." },
     ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "4-unit party (your team) vs Tigrina's team (3 units) vs Yowie mark. Must land the killing blow.",
+            "Use 2 Seeqs with Mirror Items + X Potions to deal ~800 burst damage. Gria Raptors with Wind attacks are also effective.",
+            "Close-range only due to law — position units adjacent to mark before attacking.",
         ],
         rewards: {
             gil: 6720,
@@ -312,30 +217,14 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         objective: "Defend the Devotee and Defeat all Foes!",
         law: "Forbidden: Lightning – Weapons and abilities that use Lightning are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Parivir", quantity: 1, notes: "~10 levels above rank. High speed." },
+        { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "Has Dual Wield. ~10 levels above rank. High speed." },
+        { name: "Randomized Name", job: "Assassin", quantity: 1, notes: "~10 levels above rank. High speed." },
     ],
+        strategy: [
+            "Enemies are ~10 levels above quest rank — fight at equal or higher level. Avoid Lightning entirely.",
+            "Protect the Devotee. Use tanks to intercept the high-speed enemies before they reach the escort target.",
+        ],
         rewards: {
             gil: 3050,
             cp: 52,
@@ -364,35 +253,14 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
             teamwork: 0,
             adaptability: 54,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "No battle — cutscene conclusion to the Duelhorn questline. Alys gives you the Ring of Precepts (Scion summoning item).",
+        ],
         rewards: {
-            gil: 11150,
-            cp: 99,
-            loot: "Stormsoul Crystal ×1"
+            gil: 7000,
+            cp: 40,
+            loot: "Mythril ×1"
         },
         notes: "",
         tags: ["optional"]

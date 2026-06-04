@@ -25,31 +25,14 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             adaptability: 0,
         },
         objective: "Protect your Charge and Defeat all Foes!",
-        law: "Forbidden: Solitude – Ending the turn without a unit in an adjacent tile is",
+        law: "Forbidden: Solitude – Ending the turn without a unit in an adjacent tile is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Uses Slow, Stop, and Reflect — highest priority target." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Uses Fira, Firaga, and Geomancy — priority target once Time Mage is down." },
+        { name: "Randomized Name", job: "Arcanist", quantity: 1, notes: "Uses Gravity, Lvl. 3 Dark, and Shadowflare." },
+        { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Uses Cura, Fira, Esuna, and Blood Price." },
+        { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Uses Oil and Sleep." },
+        { name: "Randomized Name", job: "Scholar", quantity: 1, notes: "Uses Thunder and Shadow Tomes." },
     ],
         strategy: [
             "Having Esuna available is recommended to handle debuffs",
@@ -83,29 +66,12 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             adaptability: 0,
         },
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Uses Slow, Stop, and Reflect — highest priority target." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Uses Fira, Firaga, and Geomancy — priority target once Time Mage is down." },
+        { name: "Randomized Name", job: "Arcanist", quantity: 1, notes: "Uses Gravity, Lvl. 3 Dark, and Shadowflare." },
+        { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Uses Cura, Fira, Esuna, and Blood Price." },
+        { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Uses Oil and Sleep." },
+        { name: "Randomized Name", job: "Scholar", quantity: 1, notes: "Uses Thunder and Shadow Tomes." },
     ],
         rewards: {
             gil: 4260,
@@ -138,29 +104,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         objective: "Protect the Tomatoes and Defeat all Foes!",
         law: "Forbidden: Targeting All Units – Actions targeting all units at once are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Cockatrice", quantity: 4, notes: "Defeat all 4. Do not harm the 3 Deadly Nightshade allies (the tomatoes)." },
     ],
         rewards: {
             gil: 910,
@@ -190,31 +134,10 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             adaptability: 0,
         },
         objective: "Find the Scarab Beetle!",
-        law: "Forbidden: Lightning – Weapons and Abilities to use lightning are forbidden",
+        law: "Forbidden: Lightning – Weapons and Abilities that use lightning are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Axebeak", quantity: 2, notes: "Initial wave. Enemy reinforcements keep arriving — focus on finding the Scarab Beetle (examine sparkle points on the map)." },
+        { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "Initial wave." },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
@@ -222,6 +145,44 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         strategy: [
             "Prioritize high-threat targets early in the battle",
             "Ranged magical attacks are effective in this mission",
+        ],
+        rewards: {
+            gil: 690,
+            cp: 14,
+            loot: "Ball Moss ×1, Wind Stone ×3, Pointed Horn ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "B1-06",
+        arc: "B1",
+        name: "Wayward Drake",
+        description: "I awoke one morning to find my drake, Goud, missing without a trace. I haven't the slightest notion where he might have gone. Well, that's not entirely true. I've heard rumour that a drake was recently sighted in the Aldanna Range. I need someone to venture there and discover whether or not it is my dear Goud. Mr. Grann",
+        rank: 15,
+        region: "The Aldanna Range",
+        fee: 300,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 8,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 8,
+        },
+        objective: "Weaken Goud and Defeat all Foes!",
+        law: "Forbidden: Ice – Weapons and abilities that use ice are forbidden.",
+    enemies: [
+        { name: "Goud", job: "Fire Drake", quantity: 1, notes: "TARGET: Weaken to HP Critical — do NOT kill. Use abilities (near-zero crit chance) rather than normal attacks to avoid an accidental KO. Save it for last." },
+        { name: "Randomized Name", job: "Thunder Drake", quantity: 2, notes: "Defeat these. Enemies hold the high ground but have no ranged units." },
+        { name: "Randomized Name", job: "Werewolf", quantity: 1, notes: "Defeat. Fast melee." },
+    ],
+        strategy: [
+            "Clear the Thunder Drakes and Werewolf first, then carefully weaken Goud (the Fire Drake) to HP Critical without killing it.",
+            "No Ice (law). Use precise ability damage on Goud to control its HP.",
         ],
         rewards: {
             gil: 1330,
@@ -253,31 +214,9 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         },
         dispatchRecommended: ["Defender"],
         objective: "Protect Chari and Defeat all Foes!",
-        law: "Forbidden: Fire, Ice, Lightning – Weapons and abilities that use fire, ice or lightning",
+        law: "Forbidden: Fire, Ice, Lightning – Weapons and abilities that use fire, ice, or lightning are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Bloody Orb", quantity: 3, notes: "Defeat these. Do not harm Chari, the white Bloody Orb ally — heal it if needed, or let it use Vampire to self-sustain." },
     ],
         rewards: {
             gil: 4920,
@@ -309,31 +248,10 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         },
         dispatchRecommended: ["Arcanist"],
         objective: "Weaken Okta and Defeat all Foes!",
-        law: "Forbidden: Bladed Weapons – Attacks with knives, swords, blades, sabers, katanas, axes,",
+        law: "Forbidden: Bladed Weapons – Attacks with knives, swords, blades, sabers, katanas, axes, knightswords, greatswords, and broadswords are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Okta", job: "Cockatrice", quantity: 1, notes: "Objective: weaken to HP critical — do NOT kill. Use water-element attacks. No melee blades allowed." },
+        { name: "Randomized Name", job: "Cockatrice", quantity: 3, notes: "Kill these. Use ranged units (Hunters with Sidewinder) and water-based magick." },
     ],
         rewards: {
             gil: 4500,
@@ -362,31 +280,10 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Delivery mission — no combat. Take the lunch from Targ Wood to Chermie's husband in Camoa.",
+        ],
         rewards: {
             gil: 350,
             cp: 12,
@@ -533,29 +430,8 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         objective: "Procure the Requested Ingredients",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Dreamhare", quantity: 2, notes: "OBJECTIVE: Kill exactly 2 Dreamhares. Do NOT kill the Hoppy Bunnies — only white Dreamhares count." },
+        { name: "Randomized Name", job: "Hoppy Bunny", quantity: 3, notes: "Do not kill — wrong ingredient." },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
@@ -588,31 +464,11 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             adaptability: 18,
         },
         objective: "Procure the requested ingredients!",
-        law: "Forbidden: Fire, Ice, Lightning – Weapons and abilities that use fire, ice, or lightning",
+        law: "Forbidden: Fire, Ice, Lightning – Weapons and abilities that use fire, ice, or lightning are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Malboro", quantity: 4, notes: "OBJECTIVE: Kill exactly 4 Malboros. Other enemies (Alraune, Deadly Nightshade) respawn indefinitely — ignore them." },
+        { name: "Randomized Name", job: "Alraune", quantity: 2, notes: "Ignore — they respawn. Focus on Malboros only." },
+        { name: "Randomized Name", job: "Deadly Nightshade", quantity: 2, notes: "Ignore — they respawn." },
     ],
         rewards: {
             gil: 5920,
@@ -642,31 +498,13 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             adaptability: 4,
         },
         objective: "Defeat all Foes!",
-        law: "Forbidden: Ice – Weapons and Abilities that use ice are forbidden",
+        law: "Forbidden: Ice – Weapons and Abilities that use ice are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Yellow Flan", quantity: 2, notes: "OBJECTIVE: Defeat the Yellow Flans. Enemy reinforcements keep arriving." },
+        { name: "Randomized Name", job: "Malboro", quantity: 1 },
+        { name: "Randomized Name", job: "Grenade", quantity: 1, notes: "Eliminate early — magical ranged attacker." },
+        { name: "Randomized Name", job: "Berserker", quantity: 1 },
+        { name: "Randomized Name", job: "Ranger", quantity: 2 },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
@@ -704,29 +542,10 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         objective: "Find a Baptiste Mushroom!",
         law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Uses Night (sleeps all nearby units). Examine sparkle tiles to find the Baptiste Mushroom." },
+        { name: "Randomized Name", job: "Lamia", quantity: 1 },
+        { name: "Randomized Name", job: "Sprite", quantity: 1 },
+        { name: "Randomized Name", job: "Dreamhare", quantity: 1 },
     ],
         rewards: {
             gil: 980,
@@ -758,29 +577,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         objective: "Defeat Klesta!",
         law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Klesta", job: "Cockatrice", quantity: 1, notes: "Boss. Uses Piston Drop (damages all units on battlefield). Start with 3 units; 3 reinforcements arrive after battle begins. Bowen and Illusionist Tweigel are unkillable allies." },
     ],
         rewards: {
             gil: 3030,

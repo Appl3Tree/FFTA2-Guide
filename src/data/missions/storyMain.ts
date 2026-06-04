@@ -262,37 +262,32 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "You Say Tomato",
         rank: 5,
         region: "Camoa",
-        objective: "Rescue the tomato delivery by defeating the monsters blocking the route.",
+        objective: "Defeat all Foes!",
         law: "Lightning: weapons and abilities that use lightning damage are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Randomized Name",
+                job: "Mandragora",
+                quantity: 3,
+            },
+            {
+                name: "Randomized Name",
+                job: "Alraune",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Hornhead",
+                quantity: 1,
             },
         ],
         strategy: [
-            "Bring a good mix of physical and magical damage to handle varied resistances.",
-            "Avoid lightning abilities entirely; use neutral attacks, wind, or earth if possible.",
-            "Anchor your formation around your healers and push steadily instead of overextending."
+            "Adelle joins as a guest Thief for this fight — a welcome extra body.",
+            "The three Mandragoras ('tomatoes') on the right side of the map are the first priority; they go down easily.",
+            "The Alraune can inflict poison with its toxic attack, so keep a White Mage ready to Esuna.",
+            "Grab the treasure chest on the lower right with your fastest unit before enemies reach it.",
+            "Finish with the Hornhead; it hits hard but falls once the smaller enemies are cleared.",
+            "Avoid all lightning-element weapons and abilities for the duration."
         ],
         rewards: {
             gil: 560,
@@ -307,37 +302,30 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Wanted: Ughor",
         rank: 8,
         region: "Baptiste Hill",
-        objective: "Hunt down and defeat the mark, Ughor, on Baptiste Hill.",
+        objective: "Defeat Ughor!",
         law: "Restoring MP: any action that restores MP is forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Ughor",
+                job: "Shelling",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Wolf",
+                quantity: 2,
+            },
+            {
+                name: "Randomized Name",
+                job: "Cockatrice",
+                quantity: 2,
             },
         ],
         strategy: [
-            "Avoid MP-restoring actions; rely on smart spell use and ethers you already have before the battle.",
-            "Use tanky melee jobs to pin Ughor while ranged units and casters work from safer tiles.",
-            "Clean up support beasts when they threaten your backline, but don’t lose focus on the mark."
+            "You can defeat all enemies for extra loot and EXP, or focus straight on Ughor to end it fast.",
+            "Prioritize the Cockatrices early — their Peck can inflict Petrify, which snowballs badly.",
+            "Avoid MP-restoring actions entirely; plan spell usage upfront and rely on items or physical jobs for sustained damage.",
+            "Ughor (the giant turtle/Shelling) is the mark — pin it with melee while ranged units chip away from safety."
         ],
         rewards: {
             gil: 1650,
@@ -352,37 +340,37 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Wanted: Gilmunto",
         rank: 12,
         region: "The Aldanna Range",
-        objective: "Track down and defeat Gilmunto in the Aldanna Range.",
+        objective: "Defeat Gilmunto!",
         law: "Fire: weapons and abilities that deal fire damage are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Gilmunto",
+                job: "Thunder Drake",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Worgen",
+                quantity: 2,
+            },
+            {
+                name: "Randomized Name",
+                job: "Yellow Jelly",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Asp",
+                quantity: 1,
             },
         ],
         strategy: [
-            "Use Protect, Shell, and defensive buffs to survive Gilmunto’s bursts.",
-            "Focus on removing support monsters when they’re in easy reach, then commit to burning down the mark.",
-            "Since fire is banned, lean on physical skills, non-fire elemental magic, and debuffs to keep the field manageable."
+            "Gilmunto is the real threat — a Thunder Drake with electric attacks that hit hard.",
+            "Worgens act as wolf-type harassers; clear them early to protect your backline.",
+            "The Yellow Jelly absorbs most magic and can be tricky — use physical attacks on it.",
+            "The Asp can inflict poison, so keep a healer ready to Esuna.",
+            "Fire is banned — rely on ice, water, or physical damage (ice especially exploits Gilmunto’s dragon weakness).",
+            "Bring Protect/Shell to weather the early turns while you pick off the Worgens."
         ],
         rewards: {
             gil: 1330,
@@ -397,37 +385,32 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Now That’s a Fire",
         rank: 14,
         region: "Zedlei Forest",
-        objective: "Put out the threat in Zedlei Forest by defeating the fire-aligned foes.",
+        objective: "Defeat all Foes!",
         law: "Restoring MP: actions that restore MP are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Randomized Name",
+                job: "Bomb",
+                quantity: 3,
+            },
+            {
+                name: "Randomized Name",
+                job: "Red Jelly",
+                quantity: 2,
+            },
+            {
+                name: "Randomized Name",
+                job: "Floating Eye",
+                quantity: 2,
             },
         ],
         strategy: [
-            "Do not rely on MP regeneration; manage spell usage carefully and let physical jobs carry damage.",
-            "Exploit elemental weaknesses with non-fire magic and status effects.",
-            "Pull enemies in smaller groups instead of engaging the whole pack at once."
+            "Seven enemies total — an even fight on paper, but level disparity can hurt.",
+            "Bombs will Self-Destruct near low HP — keep units spread out to avoid catching multiple allies in the blast.",
+            "Red Jellies absorb fire and resist magic generally; use physical or water-element attacks on them.",
+            "Floating Eyes can inflict confusion and blind, so bring Esuna or Remedy items.",
+            "MP restoring is banned — plan your spell slots carefully and lean on physical jobs for sustained output.",
+            "Take down a few enemies before they can act to avoid being overwhelmed by seven units acting in sequence."
         ],
         rewards: {
             gil: 2870,
@@ -442,37 +425,27 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Pearls in the Deep",
         rank: 17,
         region: "The Galerria Deep",
-        objective: "Secure the pearls by defeating the monsters lurking in the depths.",
+        objective: "Defeat the Lord of the Flowsand!",
         law: "Nu Mou Actions Only: Nu Mou units may only move and perform basic attacks.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Lord of the Flowsand",
+                job: "Antlion",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Antlion",
+                quantity: 3,
             },
         ],
         strategy: [
-            "Plan around Nu Mou restrictions: they are mostly on healing and basic attacks here, not full casting.",
-            "Use faster physical jobs to reach and break enemy formations.",
-            "Bring items and non-Nu Mou casters to compensate for the law’s constraints."
+            "Your Nu Mou units — usually your most powerful mages — are reduced to basic attacks only. Plan around their absence.",
+            "The mark, Lord of the Flowsand, uses a pull ability to drag units adjacent to it — positioning matters enormously.",
+            "The support Antlions will advance on you relentlessly; pick them off as they come rather than letting them swarm.",
+            "You start with the high ground advantage — use it to keep melee enemies at a distance and exploit range.",
+            "Bring a Bishop with Aero to deal damage on the wing, supplementing your restricted Nu Mou.",
+            "Once the Antlion escort is cleared, commit everything to the Lord of the Flowsand for the win."
         ],
         rewards: {
             gil: 3490,
@@ -487,37 +460,44 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Mountain Watch",
         rank: 20,
         region: "The Rupie Mountains",
-        objective: "Defend the mountain approach by defeating all enemies.",
+        objective: "Defeat Ewen!",
         law: "Ice: weapons and abilities that use ice are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Ewen",
+                job: "Nightfall",
+                quantity: 1,
+                notes: "Unique unobtainable class (advanced Ninja variant). Removes the judge from the battlefield — no clan privilege, no unit revival."
+            },
+            {
+                name: "Randomized Name",
+                job: "Ninja",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Assassin",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Sniper",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Time Mage",
+                quantity: 1,
             },
         ],
         strategy: [
-            "Avoid ice-element weapons and spells; bring neutral or other elemental options.",
-            "Use Jump, ranged skills, or movement perks to get onto high ground quickly.",
-            "Eliminate ranged threats first, then collapse on melee enemies from higher tiles."
+            "WARNING: Ewen removes the judge at the start — there is no clan privilege and no reviving fallen units. Every KO is permanent for this fight.",
+            "Ewen's Nightfall class can critical hit for 200+ damage even against high-level units; focus him down quickly to end the threat.",
+            "The Sniper can pick off back-line units from long range — eliminate them early or keep your squishiest units out of line of sight.",
+            "Assassins can inflict instant KO with Doom Fist — don't let them reach your healers.",
+            "The Time Mage can haste the enemy team and slow yours; prioritize it if Ewen proves hard to reach.",
+            "Since you cannot revive, play conservatively: use items, stay healed, and only engage when you can guarantee safety.",
+            "Ice is banned — use physical skills, fire, lightning, or holy damage instead."
         ],
         rewards: {
             gil: 2450,
@@ -532,37 +512,42 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Grounded!",
         rank: 21,
         region: "Moorabella",
-        objective: "Defeat the enemies running amok in Moorabella’s airship docks.",
+        objective: "Defeat Genius Ed!",
         law: "Harming the Weak: actions that damage a lower-level unit are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Genius Ed",
+                job: "Sage",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Time Mage",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Berserker",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Fusilier",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "White Mage",
+                quantity: 1,
             },
         ],
         strategy: [
-            "Be mindful of levels: avoid targeting low-level enemies with high-level units when possible.",
-            "Use buffs and debuffs to swing fights without directly hitting weaker units until the law is no longer relevant.",
-            "Control chokepoints at the docks so you only fight a few enemies at a time."
+            "The judge is back for this fight — use your clan privilege and aim for the law bonus.",
+            "Vaan and Luso both appear here, each eager to prove themselves. Extra bodies are welcome.",
+            "Take out the White Mage and Time Mage first — the Mage’s healing and the Time Mage’s Slow/Haste can wreck your momentum.",
+            "The Fusilier’s ranged gun attacks hit hard — close the gap or use a Sniper/Archer of your own to neutralize it.",
+            "The Berserker goes berserk but is easy to counter once isolated; don’t let it rampage through your healers.",
+            "Genius Ed (the Sage) is the mark — focus him once the support is thinned or neutralized."
         ],
         rewards: {
             gil: 4780,
@@ -577,37 +562,38 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Rumours Ahead",
         rank: 22,
         region: "Tramdine Fens",
-        objective: "Cut through the enemies in the fens and uncover what’s really going on.",
-        law: "Copycat: using the same action as the previous unit is forbidden.",
+        objective: "Defeat all Foes!",
+        law: "Copycat: using the same action as the preceding unit is forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Randomized Name",
+                job: "Wraith",
+                quantity: 1,
+                notes: "Has Critical: Vanish — if brought to critical HP rather than killed outright, it turns invisible and can summon more undead to the battlefield."
+            },
+            {
+                name: "Randomized Name",
+                job: "Ghost",
+                quantity: 2,
+                notes: "Ghosts have Sleep Touch and Silence Touch — dark-damage attacks that inflict sleep or silence."
+            },
+            {
+                name: "Randomized Name",
+                job: "Floating Eye",
+                quantity: 2,
+            },
+            {
+                name: "Randomized Name",
+                job: "Zombie",
+                quantity: 1,
             },
         ],
         strategy: [
-            "Rotate through different actions: alternate between attacks, abilities, and support skills to avoid copycat violations.",
-            "Use terrain-friendly units (like ranged casters) that don’t mind slow ground movement.",
-            "Target high-impact enemies first so you don’t feel pressured into mimicking their strong actions."
+            "The Wraith is top priority: if you drop it to critical HP without finishing it, it vanishes and summons more undead. Burst it down in one sustained push.",
+            "Ghosts inflict Sleep and Silence — keep Esuna or Remedies on hand and don’t cluster units so one sleep touch can’t cascade.",
+            "Floating Eyes can confuse units; spread your formation to limit friendly-fire chaos.",
+            "All undead take damage from Cure spells and are permanently killed only by Exorcise or Phoenix Down — use those to prevent them rising again.",
+            "Copycat law: vary your actions each turn. If the previous unit attacked, your unit should cast a spell, use an item, or take a support action instead."
         ],
         rewards: {
             gil: 2770,
@@ -622,37 +608,36 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Sleepless Nights",
         rank: 24,
         region: "Nazan Mines",
-        objective: "Break the curse on the mines by defeating the Oversoul.",
+        objective: "Defeat the Oversoul!",
         law: "Debuffs: actions that inflict debuffs are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Oversoul",
+                job: "Oversoul",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Wraith",
+                quantity: 2,
+            },
+            {
+                name: "Randomized Name",
+                job: "Bloody Orb",
+                quantity: 1,
+            },
+            {
+                name: "Randomized Name",
+                job: "Zombie",
+                quantity: 1,
             },
         ],
         strategy: [
-            "Avoid debuff skills; rely on pure damage, healing, and positional play instead.",
-            "Use holy-aligned or high-impact abilities to burn down undead quickly.",
-            "Focus on clearing trash enough to reach the Oversoul, then commit everything to finishing it."
+            "Debuffs are banned — build your team around pure damage, healing, and buffs only.",
+            "Start by clearing the Bloody Orb (easiest of the escorts) then work through the Wraiths and Zombie.",
+            "All undead units (Wraiths and Zombie) take damage from Cure spells. Finish them with Exorcise or Phoenix Down so they don't rise again.",
+            "The Oversoul is the mark and the last target — save your biggest hitters for it.",
+            "Use Protect and Shell freely since buffs are legal; sustain your party and grind down the opposition."
         ],
         rewards: {
             gil: 3780,
@@ -667,37 +652,40 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Making Music",
         rank: 27,
         region: "Aisenfield",
-        objective: "Protect the performance by defeating all foes on the field.",
+        objective: "Defeat the Alchemist!",
         law: "Harming Females: actions that harm viera or gria are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Randomized Name",
+                job: "Alchemist",
+                quantity: 1,
+                notes: "Has Astra, Rasp, and the Beastmaster ability to control the Headless golems on the field."
+            },
+            {
+                name: "Randomized Name",
+                job: "Raptor",
+                quantity: 1,
+                notes: "The only female enemy on the field — cannot be harmed under the active law. Uses Power Crush, Mind Crush, and Speed Crush."
+            },
+            {
+                name: "Randomized Name",
+                job: "Ranger",
+                quantity: 1,
+                notes: "Uses Sten Needle, Leech (drains HP and MP), and Mirror Items — can reflect item effects back at users."
+            },
+            {
+                name: "Randomized Name",
+                job: "Headless",
+                quantity: 2,
+                notes: "Golem-type enemies that the Alchemist can control via Beastmaster."
             },
         ],
         strategy: [
-            "Prioritize male enemies and any monsters to stay within the law.",
-            "Use control abilities like immobilize or disable instead of direct damage on female units if needed.",
-            "Keep your formation tight so you can quickly rotate targets that are safe to hit."
+            "The Raptor is the only female enemy — you cannot harm it under the law. Use immobilize, disable, or simply avoid it and let it waste turns.",
+            "Focus all damage on the male enemies: the Alchemist, Ranger, and Headless golems.",
+            "Prioritize the Ranger early — Mirror Items can turn your own healing or offensive items against you.",
+            "Kill the Alchemist quickly once the Golems and Ranger are neutralized; Beastmaster makes the Golems more dangerous while he lives.",
+            "Astra on the Alchemist grants status immunity for a turn — wait it out before spending debuff actions on him."
         ],
         rewards: {
             gil: 4730,
@@ -712,34 +700,53 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Seeking the Stone",
         rank: 29,
         region: "The Bisga Greenlands",
-        objective: "Defeat the enemies guarding the mysterious stone.",
+        objective: "Defeat all Foes!",
         law: "Targeting All Units: actions that hit all units at once are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Narph",
+                job: "Scholar",
+                quantity: 1,
+                notes: "Armed with Earth, Rime (ice), and Thunder Tomes for versatile elemental damage."
+            },
+            {
+                name: "Randomized Name",
+                job: "Paladin",
+                quantity: 1,
+                notes: "Uses Cover to protect adjacent allies — position carefully to avoid wasted damage."
+            },
+            {
+                name: "Randomized Name",
+                job: "Dragoon",
+                quantity: 1,
+                notes: "Uses Jump, Lancet, and Thunder Breath."
+            },
+            {
+                name: "Randomized Name",
+                job: "Ranger",
+                quantity: 1,
+                notes: "Uses Sten Needle, Love Potion, and Silence Gas — can silence your casters."
+            },
+            {
+                name: "Randomized Name",
+                job: "Hunter",
+                quantity: 1,
+                notes: "Hume Hunter with Sonic Boom and Rend MP — can drain your MP pool."
+            },
+            {
+                name: "Randomized Name",
+                job: "Hunter",
+                quantity: 1,
+                notes: "Gria Hunter with Vitals Shot — can deal disproportionate burst damage."
             },
         ],
         strategy: [
+            "AoE abilities that target all units on the field are banned — stick to single-target and multi-target abilities with defined areas.",
+            "Prioritize the Ranger first: Silence Gas will shut down your mages and casters mid-fight.",
+            "The Gria Hunter's Vitals Shot can reduce a unit to 1 HP in one hit — keep your healers away from her and react fast.",
+            "The Paladin uses Cover to intercept attacks on allies; don't waste burst turns when Cover is active, or pull him away from the target first.",
+            "The Hunter's Rend MP can drain your spell slots over time — keep enough MP in reserve to handle emergencies.",
+            "Narph the Scholar covers all three main elements (earth, ice, lightning) — there's no easy elemental immunity play; absorb through raw HP and healing."
         ],
         rewards: {
             gil: 5480,
@@ -754,37 +761,47 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Wanted: Sky Pirate Vaan",
         rank: 32,
         region: "The Rupie Mountains",
-        objective: "Confront Vaan’s crew and win the battle in the mountains.",
+        objective: "Defeat all Foes while Defending the Sky Pirates!",
         law: "Not Moving 1 Tile: each unit must move exactly one tile before ending its turn.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Randomized Name",
+                job: "Lanista",
+                quantity: 1,
+                notes: "Uses Souleater and Charge! — high-damage abilities."
+            },
+            {
+                name: "Randomized Name",
+                job: "Berserker",
+                quantity: 1,
+                notes: "Uses Hone Senses, Furore, and Smite of Rage."
+            },
+            {
+                name: "Randomized Name",
+                job: "Ranger",
+                quantity: 1,
+                notes: "Uses Mirror Items, Sten Needle, and Leech — Mirror Items is especially dangerous."
+            },
+            {
+                name: "Randomized Name",
+                job: "Gladiator",
+                quantity: 1,
+                notes: "The primary threat — uses Rush and Thunder Assault. Can deal 200+ damage in a single attack."
+            },
+            {
+                name: "Randomized Name",
+                job: "Bishop",
+                quantity: 1,
+                notes: "Uses Cure, Water, and Dispel — sustains the enemy team."
             },
         ],
         strategy: [
-            "Plan every move so each unit advances exactly one tile; don’t skip moves or overstep.",
-            "Use ranged attacks and abilities that don’t require large movement to stay effective under the law.",
-            "Focus on isolating and collapsing on individual sky pirates rather than charging the entire group."
+            "Vaan and Penelo are guests who must survive — protect them, especially from the Gladiator who can one-shot them.",
+            "Consider intentionally breaking the movement law early — the Gladiator behind Penelo can deal 200+ damage and the judge’s penalty is less costly than losing a guest.",
+            "The Gladiator is the biggest immediate threat — rush it before it reaches Vaan or Penelo.",
+            "The Ranger’s Mirror Items can reflect healing items back — either stop using items around it or eliminate it early.",
+            "Kill the Bishop quickly to prevent it from undoing your damage with Cure or stripping your buffs with Dispel.",
+            "The mountain terrain is uneven — use ranged attacks to cover height differences and reduce the movement tax of the law."
         ],
         rewards: {
             gil: 5040,
@@ -799,37 +816,42 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "A Request",
         rank: 34,
         region: "The Ruins of Delgantua",
-        objective: "Answer the request by defeating all enemies in the ruins.",
+        objective: "Defeat Illua!",
         law: "Being Robbed: having gil or items stolen is forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Illua",
+                job: "Spellblade",
+                quantity: 1,
+                notes: "Unique boss with a powerful personal ability set. Removes the judge — no clan privilege and no unit revival for the duration."
+            },
+            {
+                name: "Ewen",
+                job: "Nightfall",
+                quantity: 1,
+                notes: "Uses Throw, Unspell, and Dual Wield — can dual-wield for devastating physical combos."
+            },
+            {
+                name: "Randomized Name",
+                job: "Elementalist",
+                quantity: 1,
+                notes: "Uses Fire Whip, Boulder Crush, and Sliprain — wide elemental coverage."
+            },
+            {
+                name: "Randomized Name",
+                job: "Spellblade",
+                quantity: 1,
+                notes: "Viera Spellblade with Poison Blade, Sleep Blade, and more — can apply debilitating status effects through weapon attacks."
             },
         ],
         strategy: [
-            "Prioritize thieves and steal-oriented enemies so they don’t trigger the law.",
-            "Keep your units close enough to protect each other from pickpockets.",
-            "Use status effects to pin down or disable enemies with obvious steal skills."
+            "WARNING: Illua removes the judge — no clan privilege, no reviving fallen units. Every KO is permanent.",
+            "Another mission follows this one immediately — conserve MP and items as best you can.",
+            "Don’t bother using revival or raise abilities; the judge is gone and they won’t work.",
+            "Focus burst damage on Illua to end the fight before attrition can set in — she’s the key to clearing.",
+            "Ewen’s Dual Wield makes him a massive physical threat; if you can’t burst Illua first, neutralize Ewen with disable or bind.",
+            "The Viera Spellblade’s status-infused blade attacks (Poison, Sleep) can cripple your units — keep Remedies or Esuna available.",
+            "No one in this fight can steal, so the law is effectively a non-issue — focus on the combat itself."
         ],
         rewards: {
             gil: 6550,
@@ -844,37 +866,34 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "The Dig",
         rank: 37,
         region: "Goug",
-        objective: "Protect the excavation by defeating all hostile forces.",
+        objective: "Defeat all Foes!",
         law: "Fire, Ice, Lightning: actions and weapons that use fire, ice, or lightning are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Randomized Name",
+                job: "Mooglebane",
+                quantity: 4,
+                notes: "Powerful beast-type enemies with high attack. Despite the name, they damage all races equally."
+            },
+            {
+                name: "Randomized Name",
+                job: "Red Chocobo",
+                quantity: 1,
+                notes: "Uses Choco Meteor — a powerful non-elemental spell."
+            },
+            {
+                name: "Randomized Name",
+                job: "Black Chocobo",
+                quantity: 1,
+                notes: "Uses Choco Flame — a fire-elemental attack (note: law bans your fire use, not theirs)."
             },
         ],
         strategy: [
-            "Lock away any fire, ice, or lightning-based skills and weapons for this fight.",
-            "Rely on neutral or off-element damage sources like physical skills, wind, or holy.",
-            "Establish a defensive line near the dig site and defeat incoming waves as they arrive."
+            "Fire, Ice, and Lightning are all banned — you lose access to the three most common elemental spells. Bring Hunters, physical jobs, and off-element options like Wind or Holy.",
+            "The four Mooglebane are the real threat: high attack power, and they advance quickly.",
+            "Red Chocobo's Choco Meteor can deal massive non-elemental damage to multiple units — keep your party spread to limit splash.",
+            "Bring ranged physical units (Hunters, Snipers) as your primary damage dealers since many magic options are locked out.",
+            "Focus the Mooglebane first before they overwhelm your formation, then clean up the Chocobos."
         ],
         rewards: {
             gil: 7580,
@@ -889,37 +908,23 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Through Another’s Eyes",
         rank: 40,
         region: "Kthili Sands",
-        objective: "Win the battle in the desert while dealing with impaired visibility.",
+        objective: "Bring Adelle Back to her Senses!",
         law: "Ranged Weapons: attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Adelle",
+                job: "Heritor",
+                quantity: 1,
+                notes: "Unique class available only to Adelle. Watch the opening cutscene carefully — it shows how the battle begins and how to win."
             },
         ],
         strategy: [
-            "Close distance quickly on enemy ranged units using mobility skills and direct paths.",
-            "Focus on gap-closing melee and magic instead of forbidden ranged weapons.",
-            "Use buffs and positioning to reduce incoming damage while you advance."
+            "Watch the opening cutscene — it directly shows you how Adelle must be defeated and what triggers the win condition.",
+            "Adelle’s Heritor class has exclusive, powerful abilities not available to any other character.",
+            "Ranged weapons are banned — all your archers, snipers, and gunners must switch to melee or magic roles.",
+            "This is largely a focused duel-style mission; bring your strongest single-target damage dealers.",
+            "Keep a healer alive and away from Adelle — her Heritor abilities can hit hard.",
+            "Once Adelle falls below the threshold, the mission ends. You don’t need to ‘kill’ her."
         ],
         rewards: {
             gil: 9100,
@@ -934,37 +939,22 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "Pirate Problems",
         rank: 46,
         region: "Camoa",
-        objective: "Deal with the sky pirate trouble in Camoa.",
+        objective: "Defeat Vaan...!?",
         law: "Harming Bangaa: actions that harm bangaa are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Van",
+                job: "Sky Pirate",
+                quantity: 1,
+                notes: "The mark — an impostor posing as Vaan. Despite the law name, Van himself is not Bangaa."
             },
         ],
         strategy: [
-            "Identify bangaa enemies early and plan your targeting to avoid them.",
-            "Rely on crowd control, buffs, and positioning to manage bangaa without direct damage.",
-            "Pick off other pirates to shrink the enemy action economy before dealing with special cases."
+            "The mark is Van — a fake 'Vaan' impostor. Target him to end the mission.",
+            "Bangaa enemies on the field cannot be harmed; work around them with crowd control or simply avoid engaging.",
+            "There are traps scattered around the battlefield — step carefully and use units with high movement or Awareness to navigate safely.",
+            "Van is a straightforward headhunt; the Bangaa law is the main complication — identify which enemies are Bangaa at the start and route around them.",
+            "Focus everything on Van once Bangaa units are out of the way or kept at bay."
         ],
         rewards: {
             gil: 10470,
@@ -979,37 +969,24 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "The Ritual",
         rank: 47,
         region: "The Ruins of Delgantua",
-        objective: "Disrupt the ritual by defeating Illua.",
+        objective: "Defeat Illua!",
         law: "Harming Males: actions that harm male units are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Illua",
+                job: "Spellblade",
+                quantity: 1,
+                notes: "Final boss of the main arc. Very fast and hits extremely hard. Mirror Items + X Potion deals ~400 HP if you have Item Lore."
             },
         ],
         strategy: [
-            "Keep track of which enemies are male to avoid tripping the law with careless attacks.",
-            "Bring durable units and strong single-target damage to focus Illua down efficiently.",
-            "Consider buffs, debuffs (when allowed), and reaction abilities to survive her bursts."
+            "This is the final main story boss battle — bring your absolute best units.",
+            "Illua is fast; she will act early and often. Your party needs to be durable and capable of sustained damage.",
+            "Mirror Items + X Potion combo (with Item Lore equipped) deals roughly 400 HP of damage — a massive shortcut if you have it.",
+            "Without Mirror Items, commit to sustained physical and magical attacks. She is not invincible, just very dangerous.",
+            "Move your units to converge on Illua quickly — spreading out only gives her more turns to act freely.",
+            "Male units cannot be harmed by the law, but Illua herself is female and can be freely targeted. Focus entirely on her.",
+            "Keep your healer protected and at distance. One bad turn without healing can cascade into a wipe."
         ],
         rewards: {
             gil: 9870,
@@ -1024,39 +1001,22 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "The Two Grimoires",
         rank: 48,
         region: "The Ruins of Delgantua (Inner Sanctum)",
-        objective: "Defeat Illua once and for all at the heart of the ruins.",
+        objective: "Defeat Illua!",
         law: "Buffs: abilities and actions that raise stats or apply positive status effects are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Illua",
+                job: "Spellblade",
+                quantity: 1,
+                notes: "Powered up by the Grimoire of the Rift. Very dangerous — she is even more formidable than the previous encounter."
             },
         ],
         strategy: [
-            "Bring your strongest attackers and at least one reliable healer; this is a pure damage and survival check.",
-            "Decide early whether to send agile units along the short high-ground route or take the long path clearing monsters as you go.",
-            "Keep ranged attackers in the back line to pick off monsters as they appear while your frontline advances.",
-            "Once you reach Illua, focus on accurate, high-damage attacks to finish her quickly before her burst damage overwhelms you.",
-            "Consider item-based damage and other ways to bypass the Buffs law, and keep your healer safely away from the front line.",
+            "All buff abilities and positive status effects are banned — no Protect, Shell, Haste, Bravery, or Faith. Build your party around raw stats and healing only.",
+            "Mirror Items + X Potion remains one of the best options for dealing burst damage under these restrictions.",
+            "Ranged attacks and magic from the back line are effective — keep your squishier units away from Illua's melee range.",
+            "Pure physical attackers with high Strength are ideal here since buffs that would normally amplify them are gone.",
+            "Once Illua falls, the story continues immediately into the next and final battle. Conserve what you can.",
         ],
         rewards: {
             gil: 0,
@@ -1071,39 +1031,35 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         name: "From the Rift",
         rank: 49,
         region: "The Rift",
-        objective: "Defeat Neukhia by destroying all of its parts.",
+        objective: "Defeat the Neukhia!",
         law: "Reaction Abilities: abilities that trigger as reactions are forbidden.",
         enemies: [
             {
-                name: "",
-                job: "",
-                abilities: {
-                    A1: {
-                        setId: "",
-                        abilityIds: [
-                        
-                        ]
-                    },
-                    A2: {
-                        setId: "",
-                        abilityIds: [
-                            "",
-                        ]
-                    },
-                    R: "",
-                    P: ""
-                },
-                equipment: [
-                    {slot: 1, itemId: "" },
-                ]
+                name: "Neukhia (Wisp)",
+                job: "Neukhia",
+                quantity: 1,
+                notes: "First phase. Teleports away each time it is attacked, or disappears on its own. Must be destroyed to proceed."
+            },
+            {
+                name: "Neukhia (Pod)",
+                job: "Neukhia",
+                quantity: 1,
+                notes: "Second phase. Deals constant chip damage while alive. Destroy before engaging the Core."
+            },
+            {
+                name: "Neukhia (Core)",
+                job: "Neukhia",
+                quantity: 1,
+                notes: "Final phase. Can summon crystals — destroying the crystals damages the Core and prevents them from punishing the party."
             },
         ],
         strategy: [
-            "Form small pairs or squads and fan out to quickly track down and destroy the Wisp; you cannot afford to chase it with the whole party.",
-            "Once the Wisp is gone, regroup and focus on the Pod so you are not taking constant chip damage while fighting the Core.",
-            "When the Core becomes vulnerable, unleash your strongest attacks and plan your turns for sustained damage over a long fight.",
-            "When crystals appear, immediately redirect your attacks to destroy them; doing so can damage the Core and prevents them from punishing your team.",
-            "Build a party that can handle long battles, with strong healing, item use, and ways to deal damage even under the Reaction Abilities law.",
+            "Reaction abilities are banned — unequip them before entering or you'll waste the slot. Build around action abilities and passives only.",
+            "Split into pairs to hunt the Wisp: it vanishes every time it's hit, so you need units spread across the map to catch it wherever it reappears.",
+            "Once the Wisp is down, regroup and destroy the Pod — it deals persistent chip damage that will drain you during the Core fight if left alive.",
+            "The Core is the final target. It's a long sustained fight — strong healing, high-damage physical and magical attacks, and generous item usage are key.",
+            "When the Core spawns crystals, switch immediately to destroying them. Doing so deals damage to the Core and stops the crystals from punishing your team.",
+            "This is the final battle of the main story — use everything you have. There is no saving for 'later'.",
         ],
         rewards: {
             gil: 0,

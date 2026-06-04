@@ -23,31 +23,10 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Dispatch mission — send a unit with both Negotiation and Aptitude talent to accompany Arna on the airship.",
+        ],
         rewards: {
             gil: 1330,
             cp: 30,
@@ -76,35 +55,14 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Delivery mission — bring Faerie Wing ×1 to Goug.",
+        ],
         rewards: {
-            gil: 5150,
-            cp: 74,
-            loot: "Bundle of Needles ×1"
+            gil: 4260,
+            cp: 50,
+            loot: "Emperor Scale ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -131,37 +89,16 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         objective: "Clean the airship within X rounds!",
         law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Flan", quantity: 4, notes: "Or Mimics at higher levels. Ignore enemies — rush to cleaning spots across the airship. Rounds scale with difficulty/level." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Same mechanic as Cleaning to Ordalia — ignore enemies and move to cleaning tiles. Use high-movement units and Haste.",
+            "Tinker's Red Springs grants extra turns. Number of rounds to complete scales with level/difficulty.",
         ],
         rewards: {
-            gil: 4260,
-            cp: 56,
-            loot: "Screamroot ×1"
+            gil: 180,
+            cp: 44,
+            loot: "Great Serpent's Fang ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -190,7 +127,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         rewards: {
             gil: 5920,
             cp: 46,
-            loot: "Malboro Wine ×1"
+            loot: ""
         },
         notes: "",
         tags: ["optional"]
@@ -220,7 +157,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         rewards: {
             gil: 3260,
             cp: 40,
-            loot: "Malboro Wine ×1"
+            loot: ""
         },
         notes: "",
         tags: ["optional"]

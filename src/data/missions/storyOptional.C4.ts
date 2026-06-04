@@ -26,30 +26,13 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Speed Battle vs House Bowen",
         law: "Forbidden: Actions by Moogles – Moogles may only move and perform basic attacks",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Malboro King", job: "Malboro King", quantity: 1, notes: "Speed battle mark. You must land the finishing blow — House Bowen will also attack it. Steal the orb from it if possible before finishing." },
+        { name: "House Bowen Unit", job: "Randomized", quantity: 3, notes: "Rival clan. Kill them to prevent them from stealing the kill on the mark. They will help weaken the Malboro King." },
     ],
+        strategy: [
+            "Land the killing blow on the Malboro King to win. Kill House Bowen units to prevent them from stealing the victory.",
+            "Check for treasure chest on the battlefield. Completing this mission unlocks the Assassin skill.",
+        ],
         rewards: {
             gil: 2280,
             cp: 26,
@@ -80,35 +63,19 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Fighter", quantity: 1, notes: "PRIORITY: Has Air Render — eliminate first." },
+        { name: "Randomized Name", job: "Fighter", quantity: 1, notes: "Has Bonecrusher (powerful counter). High priority." },
+        { name: "Randomized Name", job: "Fighter", quantity: 1, notes: "Standard Fighter abilities." },
+        { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Standard melee unit." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Standard melee unit." },
+        { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Bangaa Warrior. Standard melee unit." },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Let enemies come to you — they may trigger traps. Prioritize the Fighter with Air Render first, then Bonecrusher.",
+            "Enemy has no healers. Bring your own healer and outlast them.",
         ],
         rewards: {
             gil: 1600,
@@ -140,39 +107,23 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Protect the Chocobo and Defeat all Foes!",
         law: "Forbidden: > 50 Damage – Dealing > 50 Damage is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Werewolf", quantity: 2, notes: "Round 1. Attacking near the Chocobo — priority targets. Use Wind attacks (Shining Air)." },
+        { name: "Randomized Name", job: "Worgen", quantity: 1, notes: "Round 1." },
+        { name: "Randomized Name", job: "Zaghnal", quantity: 1, notes: "Round 1. Stronger form of Werewolf." },
+        { name: "Randomized Name", job: "Wendigo", quantity: 2, notes: "Round 2 (one per Chocobo). High HP — use ranged physical and magick. Prioritize over Flan." },
+        { name: "Randomized Name", job: "Ice Flan", quantity: 2, notes: "Round 2 (one per Chocobo). Uses Blizzard on Chocobo (~60 damage). Less urgent than Wendigo." },
+        { name: "Randomized Name", job: "Zahak", quantity: 1, notes: "Round 3. Mega Drake — only weak to Holy attacks. Use Holy or normal attacks." },
+        { name: "Randomized Name", job: "Ghost", quantity: 1, notes: "Round 3. Must be exorcised — normal attacks may not work." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Three-stage battle in the Aldanna Range. 4-unit party only.",
+            "Round 1 law: >50 Damage forbidden. Round 2 law: Moogles restricted. Round 3 law: Humes restricted — bring Gria Hunters.",
+            "The Chocobo will attack enemies on its own — use debuffs or a fast healer to keep it alive. Breaking the law to quickly kill enemies may be necessary.",
         ],
         rewards: {
             gil: 4360,
             cp: 54,
-            loot: "Adamantite ×3"
+            loot: "Blood-Darkened Bone ×4, Adamantite ×3"
         },
         notes: "",
         tags: ["optional"]
@@ -199,30 +150,12 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Survive for 4 Rounds!",
         law: "Forbidden: Debuffs – Debuffs are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Flintlock", quantity: 4, notes: "Moogle Fusiliers (advanced form). Level ~22. Endless reinforcements — do not try to kill all; just survive 4 rounds." },
     ],
+        strategy: [
+            "Survive for 4 rounds — do not try to kill all enemies, they respawn endlessly.",
+            "Bring White Mages to maintain HP. Outleveling the enemies (~22) makes this easier.",
+        ],
         rewards: {
             gil: 2870,
             cp: 44,
@@ -253,30 +186,14 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Help Mayhew find her Concertina!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "PRIORITY: Can debuff — eliminate first." },
+        { name: "Randomized Name", job: "Ice Drake", quantity: 2, notes: "Standard attacker." },
+        { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Standard attacker — not a serious threat." },
     ],
+        strategy: [
+            "The concertina is hidden in a shiny sparkle on the battlefield — examine it to complete the objective.",
+            "Kill the Bloody Orb first. Vary your abilities each turn to avoid triggering the Copycat law.",
+        ],
         rewards: {
             gil: 2350,
             cp: 38,
@@ -307,30 +224,14 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Ahriman", quantity: 2, notes: "PRIORITY: Uses Bewitching Glance and Demonic Gaze — do not face them. Eliminate first." },
+        { name: "Randomized Name", job: "Bloody Orb", quantity: 2, notes: "Uses Vampire and Supersonic Wave. Second priority." },
+        { name: "Randomized Name", job: "Floating Eye", quantity: 2, notes: "Uses Gnaw; one has Wave. Weakest threat — last priority." },
     ],
+        strategy: [
+            "Face away from Ahrimans at all times — their gaze attacks are the biggest threat.",
+            "Kill Ahrimans first, then Bloody Orbs, then Floating Eyes.",
+        ],
         rewards: {
             gil: 3750,
             cp: 48,
@@ -359,35 +260,11 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
         rewards: {
-            gil: 3030,
-            cp: 60,
-            loot: "Prime Pelt ×3"
+            gil: 2350,
+            cp: 36,
+            loot: "Quince ×4"
         },
         notes: "",
         tags: ["optional"]
@@ -414,30 +291,14 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Has Dark Fist, Withering Strike, Lifebane, Blink Counter. Eliminate first." },
+        { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Has Pummel, Dark Fist, Air Render — PRIORITY: eliminate to prevent Air Render." },
+        { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Has Pummel, Dark Fist, Air Render — PRIORITY: eliminate to prevent Air Render." },
+        { name: "Randomized Name", job: "White Monk", quantity: 2, notes: "Has Roundhouse and Counter. Lower priority." },
     ],
+        strategy: [
+            "Eliminate the two Master Monks with Air Render first, then the third Master Monk, then the White Monks.",
+        ],
         rewards: {
             gil: 5340,
             cp: 58,
@@ -466,36 +327,22 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
             adaptability: 0,
         },
         objective: "Protect Roye and Defeat all Foes!",
-        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards",
+        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Zaghnal", quantity: 1, notes: "Uses Roar, Slug, Assault. On field from start." },
+        { name: "Randomized Name", job: "Wendigo", quantity: 1, notes: "Uses Bone Shatter, Brute Strength, Helmsplitter. On field from start — highest threat." },
+        { name: "Randomized Name", job: "Wolf", quantity: 1, notes: "Uses Summon Pack and Fangs. On field from start." },
+        { name: "Randomized Name", job: "Wendigo", quantity: 1, notes: "Reinforcement — arrives mid-battle." },
+        { name: "Randomized Name", job: "Randomized Monster", quantity: 1, notes: "Reinforcement — arrives mid-battle." },
     ],
+        strategy: [
+            "Melee-only due to Ranged Weapons law. Position your units between Roye and the enemies to intercept.",
+            "Prioritize the Wendigos — they deal the most damage. Use tanks to protect Roye.",
+        ],
         rewards: {
-            gil: 690,
-            cp: 12,
-            loot: "High Arcana ×2"
+            gil: 6150,
+            cp: 56,
+            loot: "Einherjarium ×3, Orichalcum ×2"
         },
         notes: "",
         tags: ["optional"]

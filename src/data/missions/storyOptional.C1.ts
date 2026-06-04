@@ -27,29 +27,10 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         objective: "Weaken Titoise and Defeat all Foes!",
         law: "Forbidden: Ice – Weapons and abilities that use ice are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Titoise", job: "Toughskin", quantity: 1, notes: "Target. Weaken to HP Critical — do not kill. Uses Headbutt, Sonic Spin, Munch. Weak to wind/thunder." },
+        { name: "Randomized Name", job: "Red Chocobo", quantity: 1, notes: "Uses Choco Beak and Choco Meteor — high priority. Can be captured (mount when HP critical)." },
+        { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Uses Choco Cure and Choco Recharge." },
+        { name: "Randomized Name", job: "Toughskin", quantity: 2, notes: "Uses Limit Glove, Headbutt, and Sonic Spin." },
     ],
         rewards: {
             gil: 4080,
@@ -81,31 +62,11 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         },
         dispatchRecommended: ["Arcanist"],
         objective: "Weaken Helda and Defeat all Foes!",
-        law: "Forbidden: Bludgeoning Weapons – Attacks with rods, staves, poles, knucles, hammers, and",
+        law: "Forbidden: Bludgeoning Weapons – Attacks with rods, staves, poles, knuckles, hammers, and maces are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Helda", job: "Hellhound", quantity: 1, notes: "Target (white-colored). Weaken to HP Critical — do not kill." },
+        { name: "Randomized Name", job: "Worgen", quantity: 3, notes: "Can Immobilize — defeat first. Silence traps are scattered on the battlefield." },
+        { name: "Randomized Name", job: "Hellhound", quantity: 2, notes: "Defeat before targeting Helda." },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
@@ -141,29 +102,11 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         objective: "Defeat Carrot!",
         law: "Forbidden: < 20 Damage – Dealing < 20 Damage is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Carrot", job: "Malboro", quantity: 1, notes: "Target. Heals allies and grants Regen. Use Wind and Thunder magick; focus on mark over other enemies." },
+        { name: "Randomized Name", job: "Great Malboro", quantity: 2, notes: "Heavy debuffers — eliminate if they interfere." },
+        { name: "Randomized Name", job: "Tonberry", quantity: 1, notes: "PRIORITY: Will stalk and deal 999 Karma damage — eliminate immediately." },
+        { name: "Randomized Name", job: "Red Chocobo", quantity: 1 },
+        { name: "Randomized Name", job: "Brown Chocobo", quantity: 1 },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
@@ -196,31 +139,48 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
             teamwork: 0,
             adaptability: 28,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
+    enemies: [],
+        strategy: [
+            "MUST be dispatched — the 6-day time limit makes it physically impossible to visit all three locations manually. Dispatch any unit.",
+        ],
+        rewards: {
+            gil: 3780,
+            cp: 54,
+            loot: "Demon Feather ×2, Adamantite ×2"
         },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "C1-05",
+        arc: "C1",
+        name: "Foodstuffs: Nutrition",
+        description: "Foodstuffs needed. You will be required to catch specific monsters at a specific location. The details are as follows: - Blue, round, feathered, long of tail. - Enough to feed sixteen. Carm Mercantile",
+        rank: 27,
+        region: "The Galerria Deep",
+        fee: 400,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Foodstuffs: Appearance",
+        requiredTalents: {
+            negotiation: 20,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 20,
+        },
+        objective: "Procure the requested ingredients!",
+        law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Ahriman", quantity: 1, notes: "Matches 'blue, round, feathered' — but do NOT face it (gaze attacks)." },
+        { name: "Randomized Name", job: "Floating Eye", quantity: 1, notes: "TARGET: 'Blue, round, feathered, long of tail.' Defeat Floating Eyes to procure the ingredient — more spawn as you kill them." },
     ],
+        strategy: [
+            "Read the description: the target is the Floating Eye (blue, round, feathered, long tail). Defeat them to collect the ingredient; more spawn as you go.",
+            "Vary actions each turn (Copycat law). Then speak to the Bishop to finish.",
+        ],
         rewards: {
             gil: 3780,
             cp: 54,
@@ -252,29 +212,8 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         objective: "Procure the Requested Ingredients",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Mimic", quantity: 2, notes: "OBJECTIVE: Kill exactly 2 Mimics. Open all treasure chests for maximum loot first." },
+        { name: "Randomized Name", job: "Zahak", quantity: 1, notes: "Respawns if killed. Ignore or delay — focus on the Mimics." },
     ],
         battlefield: [
             "Treasure chests are present on the battlefield",
@@ -307,31 +246,10 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
             teamwork: 0,
             adaptability: 15,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Dispatch mission — visit Camoa and Graszton to meet two damsels in Marnot's stead.",
+        ],
         rewards: {
             gil: 1750,
             cp: 28,
@@ -362,30 +280,47 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         objective: "Speed Battle vs. House Bowen",
         law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Rafflesia", job: "Rafflesia", quantity: 1, notes: "~1200 HP (shown as ???). Weak to Fire. Damages and debuffs units that approach. Stay at ranged distance — use Fire magick and Hunters with Sidewinder." },
     ],
+        rewards: {
+            gil: 4590,
+            cp: 60,
+            loot: "Water Sigil ×3"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "C1-10",
+        arc: "C1",
+        name: "Yellow Wings in Trouble",
+        description: "We're at the mercy of some pretty bad customers ... I don't think we're going to make it! Help! The Yellow Wings",
+        rank: 55,
+        region: "The Ruins of Delgantua",
+        fee: 500,
+        days: 20,
+        questType: "Escort",
+        canDispatch: true,
+        canCancel: true,
+        members: 4,
+        requiredTalents: {
+            negotiation: 51,
+            aptitude: 0,
+            teamwork: 51,
+            adaptability: 0,
+        },
+        objective: "Protect the Yellow Wings and Defeat all Foes!",
+        law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
+    enemies: [
+        { name: "House Bowen: Illusionist", job: "Illusionist", quantity: 1, notes: "PRIORITY 1: AoE illusion magick. Eliminate first." },
+        { name: "House Bowen: Assassin", job: "Assassin", quantity: 1, notes: "PRIORITY 2: Instant-death threat." },
+        { name: "House Bowen: Fighter", job: "Fighter", quantity: 1, notes: "Strong melee." },
+        { name: "House Bowen: Ravager", job: "Ravager", quantity: 1, notes: "Bowen himself leads — heavy hitter. Around level 54-56." },
+    ],
+        strategy: [
+            "Protect the Yellow Wings — if any of them die, you lose. House Bowen (level ~54-56) are the enemies. 'Harming the Weak' applies to the Yellow Wings, NOT Bowen.",
+            "Kill the Illusionist first, then the Assassin, then Bowen and the Fighter.",
+        ],
         rewards: {
             gil: 12780,
             cp: 99,
@@ -413,31 +348,78 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
             teamwork: 0,
             adaptability: 8,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
+    enemies: [],
+        strategy: [
+            "Dispatch mission — visit Targ Wood to meet one damsel in Marnot's stead.",
+        ],
+        rewards: {
+            gil: 1050,
+            cp: 18,
+            loot: "Damascus ×4, Birch ×1, Quality Lumber ×5"
         },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "C1-12",
+        arc: "C1",
+        name: "The Nu Mou Nobles",
+        description: "I am called Madreth, clan leader of the Nu Mou Nobles. I seek a king soul to fetch a phial of healing water and a shead of recall grass. We wait beneath the lone tree on Baptiste Hill. Madreth",
+        rank: 12,
+        region: "Baptiste Hill",
+        fee: 300,
+        days: 20,
+        questType: "Delivery",
+        canDispatch: false,
+        canCancel: true,
+        members: 1,
+        requiredItems: ["Healing Water ×1", "Recall Grass ×1"],
+        requiredTalents: {
+            negotiation: 9,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+    enemies: [],
+        strategy: [
+            "Delivery mission — bring Healing Water ×1 and Recall Grass ×1 to the Nu Mou Nobles on Baptiste Hill. No combat.",
+        ],
+        rewards: {
+            gil: 1680,
+            cp: 24,
+            loot: "Body Ceffyl ×3, Soul Ceffyl ×3"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "C1-13",
+        arc: "C1",
+        name: "Seeding the Harvest",
+        description: "***** Help Wanted! ***** It's seeding time again, and each year we lose crops to raiding monsters. We seek hardened adventurers to stand between our livelihood and their fiendish claws. Farmers' Cooperative",
+        rank: 21,
+        region: "Camoa",
+        fee: 400,
+        days: 20,
+        questType: "Battle",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 8,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 8,
+        },
+        objective: "Defeat 10 Foes!",
+        law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Randomized Monster", quantity: 10, notes: "A varied mix with no fixed pattern; defeat 10 total. They surround you — make a last stand." },
     ],
+        strategy: [
+            "Defeat 10 foes. Don't move — let the enemy come to you and make a defensive last stand. Bring a White Mage to keep the team alive.",
+            "Don't bunch up too tightly so AoE attacks can't hit 3-5 units at once.",
+        ],
         rewards: {
             gil: 9240,
             cp: 42,
@@ -469,32 +451,11 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         objective: "Gather as much fruit as you can in 4 rounds!",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Randomized Monster", quantity: 6, notes: "Monster level scales to clan average. Endless reinforcements — focus on gathering, not killing. Stand adjacent to red-dotted fruit trees and use the Gather command." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "4-round timer — use fastest units. Stand by fruit trees and use Gather. Kill monsters only to clear a path.",
+            "Bring Hunters and a Healer — monsters level-scale to your clan. More fruit gathered = better loot bonus.",
         ],
         rewards: {
             gil: 12830,
@@ -528,7 +489,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         rewards: {
             gil: 2020,
             cp: 38,
-            loot: "Zinconium ×1, Sweet Sap ×5, Rat Pelt ×1"
+            loot: "Sweet Sap ×5, Rat Pelt ×1"
         },
         notes: "",
         tags: ["optional"]

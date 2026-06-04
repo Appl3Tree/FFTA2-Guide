@@ -27,32 +27,18 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         objective: "Defeat all Foes in the entry bout!",
         law: "Forbidden: Using MP – Abilities that use MP are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Yellow Wings", job: "White Monk", quantity: 1 },
+        { name: "Yellow Wings", job: "Animist", quantity: 1 },
+        { name: "Yellow Wings", job: "Black Mage", quantity: 1 },
+        { name: "Yellow Wings", job: "Thief", quantity: 1 },
+        { name: "Yellow Wings", job: "Archer", quantity: 1 },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
+            "Cup format: enemy levels scale with yours, so overleveling won't help much.",
+            "MP use is banned — your mages, white mages, and any MP-based abilities are off the table.",
+            "Lean on physical jobs: Warriors, Soldiers, White Monks, and physical Ninjas work well here.",
+            "The Yellow Wings team is a mix of jobs — prioritize the White Monk (healing) and Black Mage (damage) first.",
+            "Win this bout to advance further in the Camoa Cup bracket.",
         ],
         rewards: {
             gil: 2400,
@@ -85,33 +71,17 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         objective: "Examine the Stone with No Name!",
         law: "Forbidden: Items – Items are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Baknamy", quantity: 1 },
+        { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Uses Night to put all nearby units to sleep." },
+        { name: "Randomized Name", job: "Wraith", quantity: 1, notes: "Undead — use Cure or Exorcise to finish permanently." },
+        { name: "Randomized Name", job: "Ghost", quantity: 2 },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Items are banned — no potions, ethers, or phoenix downs. Build your party's sustain into abilities (White Mage Cure, etc.).",
+            "The Lilith's Night can mass-sleep your party — spread units to limit how many get caught.",
+            "All undead (Wraith, Ghosts) take damage from Cure spells and must be finished with Exorcise or Phoenix Down to stay dead.",
+            "Kill the Baknamy first to thin the field, then deal with the undead and the Lilith.",
+            "After clearing enemies, examine the Stone with No Name to complete the mission.",
         ],
         rewards: {
             gil: 3590,
@@ -142,31 +112,12 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             adaptability: 0,
         },
         objective: "Examine the Stone with No Name!",
-        law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden",
+        law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Baknamy", quantity: 1 },
+        { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Uses Night to sleep all nearby units." },
+        { name: "Randomized Name", job: "Wraith", quantity: 1 },
+        { name: "Randomized Name", job: "Ghost", quantity: 1 },
     ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
@@ -203,30 +154,14 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         },
         objective: "Defeat the Cyanwolf!",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Cyanwolf", job: "Worgen", quantity: 1, notes: "The mark. Uses Screech which can inflict Confuse — keep units spread to avoid chain confusion." },
+        { name: "Randomized Name", job: "Wolf", quantity: 4, notes: "Wolf-type escorts blocking the path to the Cyanwolf." },
     ],
+        strategy: [
+            "You start separated from the Cyanwolf by a line of Wolves — fight through them or maneuver around.",
+            "Screech (Confuse) from the Cyanwolf can turn your own units against you — spread your party and end confused units' turns quickly.",
+            "Take down the escort Wolves to clear a path, then focus all firepower on the Cyanwolf to end the mission.",
+        ],
         rewards: {
             gil: 2630,
             cp: 6,
@@ -259,35 +194,16 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         objective: "Defeat all foes in the Entry Bout!",
         law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Yellow Wings", job: "White Monk", quantity: 1 },
+        { name: "Yellow Wings", job: "Animist", quantity: 1 },
+        { name: "Yellow Wings", job: "Black Mage", quantity: 1 },
+        { name: "Yellow Wings", job: "Thief", quantity: 1 },
+        { name: "Yellow Wings", job: "Archer", quantity: 1 },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Enemy levels scale with yours — raw overleveling is limited as a strategy.",
+            "Opportunity Commands are banned — no bonus actions from positioning or status triggers.",
+            "Prioritize the Black Mage and White Monk to shut down their damage and healing.",
         ],
         rewards: {
             gil: 4030,
@@ -320,29 +236,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         objective: "Examine the Stone with No Name!",
         law: "Forbidden: Restoring HP – Restoring HP is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Luchorpan", quantity: 3, notes: "Sprite-type enemies guarding the Stone." },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
@@ -376,34 +270,84 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             teamwork: 33,
             adaptability: 33,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
+    enemies: [],
+        strategy: [
+            "Investigation dispatch — visit Lezaford in The Aldanna Range. He explains the nature of Scions. No combat.",
+        ],
+        rewards: {
+            gil: 5040,
+            cp: 34,
+            loot: "Lightwing Crystal ×3"
         },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "A2-08",
+        arc: "A2",
+        name: "An Unfamiliar Land",
+        description: "I am an itinerant merchant, and on my travels have seen much of this world. I wandered the Empire of Rozarria for some time, and upon coming to Jylland found myself uncustomarily surprised. What are these 'Judges' that affix themselves to the clans in this land? They are no doubt different from the keepers of the law that I know - yet perhaps there is some connection? Aega, Traveling Merchant",
+        rank: 15,
+        region: "The Aldanna Range",
+        fee: 300,
+        days: 20,
+        questType: "Investigation",
+        canDispatch: true,
+        canCancel: true,
+        members: 1,
+        prerequisite: "A Simple Question",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 15,
+            adaptability: 15,
+        },
+    enemies: [],
+        strategy: [
+            "Investigation dispatch — visit Lezaford in The Aldanna Range. He answers the question about Judges for your Clan Primer. No combat.",
+        ],
+        rewards: {
+            gil: 1580,
+            cp: 30,
+            loot: "Ice Sigil ×4"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "A2-09",
+        arc: "A2",
+        name: "Moorabella Cup",
+        description: "Clan Tourneys are Under Way! The next tourney will be the Moorabella Cup. Rules are as follows: - Maximum participants: 6 - Bouts to be won: 3 Tourney Guild - Moorabella Branch",
+        rank: 41,
+        region: "Moorabella",
+        fee: 500,
+        days: 20,
+        questType: "Battle",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Graszton Cup",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 11,
+            adaptability: 11,
+        },
+        objective: "Defeat all Foes in the Entry Bout!",
+        law: "Forbidden: Items – Items are forbidden.",
+    enemies: [
+        { name: "Moredad", job: "Cannoneer", quantity: 1, notes: "Named Bangaa. Has Foresight, Target, and Mortar. Priority after Warrior." },
+        { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "PRIORITY 1: Has Rend Power, Rend Magick, Rend Speed, and Counter — debuffs your entire team. Eliminate first." },
+        { name: "Randomized Name", job: "Defender", quantity: 1, notes: "Has Hibernate and Mow Down." },
+        { name: "Randomized Name", job: "Gladiator", quantity: 1, notes: "Has Fire Soul, Thunder Assault, and Blizzard Tackle." },
+        { name: "Randomized Name", job: "Bishop", quantity: 1, notes: "Has Water, Aero, Break, and Blood Price." },
+        { name: "Randomized Name", job: "Templar", quantity: 1, notes: "Has Piercing Cry, Rasp, and Silence." },
     ],
         strategy: [
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
+            "Items forbidden — no Potions or Revives. Bring healers with magic.",
+            "Kill the Warrior first (Rend abilities debuff your stats badly), then the Cannoneer (high damage), then the rest.",
+            "This is only the entry bout — conserve units for subsequent rounds.",
         ],
         rewards: {
             gil: 7760,
@@ -435,29 +379,8 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         objective: "Examine the Wells!",
         law: "Forbidden: Items – Items are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Malboro", quantity: 2, notes: "Can use Bad Breath, inflicting multiple debuffs at once." },
+        { name: "Randomized Name", job: "Coeurl", quantity: 2, notes: "Fast enemies with Blaster — can Petrify or Disable." },
     ],
         rewards: {
             gil: 9450,
@@ -487,31 +410,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
         rewards: {
             gil: 840,
             cp: 18,
@@ -541,31 +440,11 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         },
         dispatchRecommended: ["Defender"],
         objective: "Protect Dayvis and Defeat all Foes!",
-        law: "Forbidden: Items – Items are forbidden",
+        law: "Forbidden: Items – Items are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Dayvis", job: "Thief", quantity: 1, notes: "Dayvis — must be protected throughout the battle." },
+        { name: "Randomized Name", job: "Assassin", quantity: 2, notes: "High-threat enemies targeting Dayvis." },
+        { name: "Randomized Name", job: "Ranger", quantity: 2 },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
@@ -602,29 +481,10 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         objective: "Defeat all foes in the entry bout!",
         law: "Forbidden: Buffs – Buffs are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Copykat", job: "Blue Mage", quantity: 1, notes: "Knows many copied abilities — a Blue Mage opponent. Relatively weak but full of tricks." },
+        { name: "Randomized Name", job: "White Mage", quantity: 1 },
+        { name: "Randomized Name", job: "Warrior", quantity: 1 },
+        { name: "Randomized Name", job: "Ranger", quantity: 1 },
     ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
@@ -660,29 +520,8 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Dayvis", job: "Thief", quantity: 1, notes: "The Thief from earlier quests — now an enemy. Uses Steal Gil. Has a quality sword equipped." },
+        { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Seeq Berserker — hits hard but predictable." },
     ],
         strategy: [
             "Prioritize high-threat targets early in the battle",
@@ -719,29 +558,10 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         objective: "Defeat Lord Grayrl before he boards the ship!",
         law: "Forbidden: Harming Humes – Actions that harm Humes are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Lord Grayrl", job: "Viking", quantity: 1, notes: "The mark — must be defeated before boarding the ship." },
+        { name: "Randomized Name", job: "Viking", quantity: 2, notes: "Seeq Vikings with Strongarm — heavy physical damage." },
+        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Hume — cannot be harmed under the active law." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Hume — cannot be harmed under the active law." },
     ],
         rewards: {
             gil: 2450,
@@ -772,31 +592,10 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             adaptability: 9,
         },
         objective: "Defeat the Big Eyes!",
-        law: "Forbidden: Knockback – Actions that knock the target back are forbidden",
+        law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Big Eyes", quantity: 1, notes: "The mark. A large floating eye monster." },
+        { name: "Randomized Name", job: "Floating Eye", quantity: 3 },
     ],
         strategy: [
             "Prioritize high-threat targets early in the battle",

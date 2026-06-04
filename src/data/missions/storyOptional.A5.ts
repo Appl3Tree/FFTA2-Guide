@@ -27,33 +27,12 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         objective: "Defeat the Magick Weapon at all costs!",
         law: "Forbidden: Items – Items are Forbidden",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Magick Weapon", job: "Magick Weapon", quantity: 1, notes: "Hardest boss in the game. 2000+ HP. Can Charm and Doom your units. Use Ultima attacks and high-level physical units. ReRaise on all party members is critical." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "The boss can Charm and Doom your units — keep healers ready to snap charmed allies out of it.",
+            "ReRaise on every party member before engaging. Use Ultima attacks and Mirror Items for best damage.",
+            "Items are banned — rely on abilities like Curaga, Esuna, and Arise in place of Potions.",
         ],
         rewards: {
             gil: 24960,
@@ -86,32 +65,12 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         objective: "Defeat Green King Verre!",
         law: "Forbidden: Restoring HP – Actions that restore HP are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Green King Verre", job: "Green Mage", quantity: 1, notes: "Level 66 Viera. Has Ribbon (blocks all debuffs), Sprint Shoes, Mirror Mail (reflects magick). Uses Tranq, Last Breath, Nightmare, Ague. Has Blink Counter with a Hammer. Cannot be debuffed or hit with magick." },
     ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Mirror Mail reflects all magick — avoid spells entirely. Use Guns, Bows, Hand-Cannons, and Cards.",
+            "Ribbon prevents all debuffs. Use physical chip damage to bring her down before she can KO your units with Last Breath.",
+            "No HP restoration is allowed — bring units with high max HP and use defensive positioning.",
         ],
         rewards: {
             gil: 13090,
@@ -140,31 +99,10 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
             teamwork: 0,
             adaptability: 22,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Dispatch mission — no combat. Send a Fusilier (uses guns, not hand-cannons) for 5 days to complete.",
+        ],
         rewards: {
             gil: 3630,
             cp: 36,
@@ -196,29 +134,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         objective: "Defeat Black King Nware!",
         law: "Forbidden: Debuffs – Debuffs are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Black King Nware", job: "Black Mage", quantity: 1, notes: "Moogle. Absorbs Fire, Ice, and Lightning — magick is useless. Uses Firaga, Thundaga, Blizzaga, Toadsong. Has Reflex. Use physical/melee or ranged weapons only. Cure Toad debuff with Esuna." },
     ],
         rewards: {
             gil: 9820,
@@ -247,33 +163,9 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
             teamwork: 0,
             adaptability: 28,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Dispatch mission — no combat. Send a Viera White Mage (any Viera may work, but White Mage recommended) to complete.",
         ],
         rewards: {
             gil: 4100,
@@ -306,29 +198,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         objective: "Defeat White King Blanch!",
         law: "Forbidden: Missing – Missing with an action is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "White King Blanch", job: "White Mage", quantity: 1, notes: "Nu Mou. Level 88. Uses Scathe, Gigaflare, Bio (via Blood Price). Has MP Shield — forces frequent Blood Price. Use ranged attacks to drain HP." },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
@@ -365,29 +235,11 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: HP < or = 200 – Having less than 200 HP is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Red King Ruuj", job: "Elementalist", quantity: 1, notes: "Priority 1: Uses Doublecast. Immune to debuffs." },
+        { name: "White King Blanch", job: "White Mage", quantity: 1, notes: "Priority 2: Heals other kings — eliminate quickly." },
+        { name: "Green King Verre", job: "Green Mage", quantity: 1, notes: "Priority 3: Dangerous debuffs. Has Mirror Mail." },
+        { name: "Black King Nware", job: "Black Mage", quantity: 1, notes: "Lower priority: Absorbs Fire/Ice/Lightning. Use physical attacks." },
+        { name: "Blue King Bliu", job: "Blue Mage", quantity: 1, notes: "Lower priority: Dual Wield, Magick Frenzy. Use Stopshot." },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",

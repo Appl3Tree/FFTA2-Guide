@@ -23,34 +23,20 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             teamwork: 0,
             adaptability: 44,
         },
-        dispatchRecommended: ["Assassin"],
+        dispatchRecommended: ["Assassin", "Ninja"],
         objective: "Defeat all foes in 4 Rounds!",
         law: "Forbidden: Being Robbed – Having gil or items stolen is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Fire Drake", quantity: 2, notes: "PRIORITY: Can heal each other. Eliminate both first or they waste your turns." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Being stolen from violates the law — kill from range or use Safeguard." },
+        { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Strong melee." },
+        { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Strong melee." },
+        { name: "Randomized Name", job: "Beastmaster", quantity: 1, notes: "Can command monsters." },
     ],
+        strategy: [
+            "Must defeat all 6 enemies in 4 rounds. Eliminate the Fire Drakes first — they heal each other and waste your timer.",
+            "Kill the Thief from range before it can steal. Use heavy AoE attackers.",
+        ],
         rewards: {
             gil: 6410,
             cp: 84,
@@ -79,33 +65,17 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             teamwork: 0,
             adaptability: 44,
         },
-        objective: "Upload the Law and Defeat all Foes!",
-        law: "Forbidden: Bladed Weapons – Attacks with knives, swords, blades, sabers, katanas, axes",
+        objective: "Uphold the Law and Defeat all Foes!",
+        law: "Forbidden: Bladed Weapons – Attacks with knives, swords, blades, sabers, katanas, axes, knightswords, greatswords, and broadswords are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Great Tortoise", quantity: 2, notes: "Main targets — must not be killed with bladed weapons (for flavor/law). Use magick and Sidewinder." },
+        { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Standard threat." },
+        { name: "Randomized Name", job: "Adamantitan", quantity: 1, notes: "High defense — use non-blade attacks." },
+        { name: "Randomized Name", job: "Rocktitan", quantity: 2, notes: "High defense — use magick or Sidewinder." },
     ],
+        strategy: [
+            "No bladed weapons. Use Hunters (Sidewinder not considered bladed), magick attacks, and Cannoneers.",
+        ],
         rewards: {
             gil: 9230,
             cp: 99,
@@ -138,39 +108,20 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         objective: "Weaken the Red Flan and defeat all other foes!",
         law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Red Flan", job: "Flan", quantity: 1, notes: "TARGET: Weaken to HP Critical — do not kill. Defeat all other enemies first." },
+        { name: "Randomized Name", job: "Deadly Nightshade", quantity: 1, notes: "Defeat first." },
+        { name: "Randomized Name", job: "Dreamhare", quantity: 1, notes: "Defeat first." },
+        { name: "Randomized Name", job: "Werewolf", quantity: 1, notes: "Defeat first." },
+        { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Defeat first." },
+        { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Defeat first." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Kill all non-Flan enemies first, then weaken the Red Flan to HP Critical. Do not kill it.",
         ],
         rewards: {
-            gil: 4590,
-            cp: 72,
-            loot: "Putrid Liquid ×2"
+            gil: 7810,
+            cp: 99,
+            loot: "Fiend's Blood ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -195,38 +146,14 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Delivery mission — carry the reply letter from Goug to Camoa (or vice versa).",
         ],
         rewards: {
-            gil: 10700,
-            cp: 94,
-            loot: "Spider Silk ×1"
+            gil: 2660,
+            cp: 50,
+            loot: "Mythril ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -250,39 +177,14 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Delivery mission — carry the letter from Camoa to Goug.",
         ],
         rewards: {
-            gil: 7650,
-            cp: 96,
-            loot: "Lightwing Crystal ×1"
+            gil: 2660,
+            cp: 50,
+            loot: "Einherjarium ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -309,34 +211,18 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         objective: "Find the Dow Bridge Key!",
         law: "Forbidden: Items – Items are Forbidden",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Mimic", quantity: 3, notes: "Weak to all elements. Open sparkle tiles to find the key." },
+        { name: "Randomized Name", job: "Magick Pot", quantity: 1, notes: "Absorbs all elements — use physical attacks only. Cannot be killed until sated (give it what it asks for, or ignore)." },
     ],
+        strategy: [
+            "Key is hidden in one of several sparkle tiles. Check all sparkles — search quickly while managing enemies.",
+            "Use elemental magick on Mimics. Never use elements on Magick Pot — use physical attacks or ignore it.",
+            "Items are banned — no Potions. Bring healers with magick.",
+        ],
         rewards: {
-            gil: 10820,
-            cp: 80,
-            loot: "Stradivari ×1"
+            gil: 7180,
+            cp: 96,
+            loot: "Einherjarium ×1"
         },
         notes: "",
         tags: ["optional"]

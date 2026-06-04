@@ -5,6 +5,44 @@ import type { Mission } from "../../types/ffta2";
 
 export const OPTIONAL_MISSIONS_B2: Mission[] = [
     {
+        id: "B2-01",
+        arc: "B2",
+        name: "Wanted: Ughor",
+        description: "Wanted: Ughor, a green-coloured shelling, last spotted on Baptiste Hill. One report case of injury arising from contact with said beast. Payment to be made by injured party. Jylland Defenders of the Peace",
+        rank: 9,
+        region: "Baptiste Hill",
+        fee: 200,
+        days: 20,
+        questType: "Headhunt",
+        canDispatch: false,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Defeat Ughor!",
+        law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
+    enemies: [
+        { name: "Ughor", job: "Great Tortoise", quantity: 1, notes: "The mark — a giant turtle. High defense. Hit from behind for extra damage." },
+        { name: "Randomized Name", job: "Cockatrice", quantity: 2, notes: "PRIORITY: Their peck hurts — pick off with ranged/Black Magick first." },
+        { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "Fast melee. Attack from behind." },
+    ],
+        strategy: [
+            "Kill the Cockatrices first with ranged units and Black Magick (effective on groups), then the Wolves, then focus Ughor.",
+            "Fast units that flank for back-attacks have the advantage here.",
+        ],
+        rewards: {
+            gil: 1650,
+            cp: 16,
+            loot: "Healing Water ×4, Holy Stone ×3, Moonwood ×2"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
         id: "B2-03",
         arc: "B2",
         name: "Throw Down",
@@ -26,29 +64,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         objective: "Defeat Klesta",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Klesta", job: "Cockatrice", quantity: 1, notes: "Boss. Level scales with your clan. 3-unit party; House Bowen sends AI reinforcements (Fighter, Gria Ravager, Nu Mou Illusionist). Klesta scales to your level — law prevents harming lower-level units." },
     ],
         battlefield: [
             "The map features elevation differences",
@@ -88,29 +104,9 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         objective: "Destroy the traps in 3 rounds!",
         law: "Forbidden: Targeting all Units – Actions targeting all units at once are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Baknamy", quantity: 2, notes: "All enemies have Avoid Traps passive — cannot be lured onto traps. Must destroy traps yourself in 3 rounds." },
+        { name: "Randomized Name", job: "Luchorpan", quantity: 2, notes: "Has Avoid Traps." },
+        { name: "Randomized Name", job: "Tonberry", quantity: 1, notes: "Has Avoid Traps. Very dangerous if it gets a turn — prioritize traps over combat." },
     ],
         strategy: [
             "Ranged magical attacks are effective in this mission",
@@ -142,35 +138,53 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
             teamwork: 7,
             adaptability: 7,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Non-combat mission — send a unit to Lezaford's college or dispatch to complete. No battle.",
+        ],
         rewards: {
             gil: 790,
             cp: 20,
             loot: "Kuraisle Boxwood ×2"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "B2-06",
+        arc: "B2",
+        name: "Wanted: Gilmunto",
+        description: "Wanted: Gilmunto, possibly a varient strain of nidhogg, known to lurk in the foothills of the Aldanna Range. Vicious and violent, should be considered dangerous in the extreme! Though small, it should not be underestimated. Jylland Defenders of the Peace",
+        rank: 12,
+        region: "The Aldanna Range",
+        fee: 300,
+        days: 20,
+        questType: "Headhunt",
+        canDispatch: false,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Defeat Gilmunto!",
+        law: "Forbidden: Fire – Weapons and abilities that use fire are forbidden.",
+    enemies: [
+        { name: "Gilmunto", job: "Asp", quantity: 1, notes: "The mark — a hard-to-kill serpent. Bring strength and healers; save it for last." },
+        { name: "Randomized Name", job: "Worgen", quantity: 2, notes: "Wolf-type. Defeat first." },
+        { name: "Randomized Name", job: "Yellow Jelly", quantity: 1, notes: "Defeat after the Worgens." },
+        { name: "Randomized Name", job: "Thunder Drake", quantity: 1, notes: "Defeat before Gilmunto." },
+    ],
+        strategy: [
+            "Kill order: Worgens first, then the Yellow Jelly, then the Thunder Drake, and finally Gilmunto (the Asp).",
+            "No Fire (law). Grab the treasure on the map if you can, but don't lose units over it. Bring healers — you'll take damage.",
+        ],
+        rewards: {
+            gil: 1330,
+            cp: 24,
+            loot: "Succulent Fruit ×3, Storm Stone ×5, Quality Pelt ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -197,29 +211,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         dispatchRecommended: ["Ranger"],
         objective: "Destroy all the Traps!",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Baknamy", quantity: 4, notes: "All have Avoid Traps passive. Kill enemies first, then activate/destroy all trap tiles to complete." },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
@@ -255,29 +247,8 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         objective: "Defeat the Lang Brothers!",
         law: "Forbidden: Actions by Nu Mou – Nu Mou may only move and perform basic attacks.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Lang Bro", job: "Plague", quantity: 2, notes: "Targets. Can petrify units that face them. Weak to Holy. Priority targets — do not expose your back to them." },
+        { name: "Randomized Name", job: "Bloody Orb", quantity: 3, notes: "Dangerous and fast. Weak to Holy. Fight off en route to the Plagues." },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
@@ -312,38 +283,119 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
             teamwork: 9,
             adaptability: 9,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
+    enemies: [],
+        strategy: [
+            "Non-combat mission — visit Lezaford's college or dispatch to complete.",
+        ],
+        rewards: {
+            gil: 2370,
+            cp: 30,
+            loot: "Storm Sigil ×2, Water Sigil ×2"
         },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "B2-11",
+        arc: "B2",
+        name: "Now That's a Fire!",
+        description: "Zedlei Forest has been bombed! Looking for a clan to rid our woods of an infestation of bombs! With auction season upon us, who doesn't want a few more clan points in the bank? Society of the Protection of Monsters",
+        rank: 14,
+        region: "Zedlei Forest",
+        fee: 300,
+        days: 20,
+        questType: "Battle",
+        canDispatch: false,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Defeat all Foes!",
+        law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Bomb", quantity: 3, notes: "Fire/explosion type. The 'Marshmallow' (largest) should be killed first before it spreads fire damage." },
+        { name: "Randomized Name", job: "Red Jelly", quantity: 2, notes: "Fire-element. Weak to Ice." },
+        { name: "Randomized Name", job: "Floating Eye", quantity: 2, notes: "Lowest threat. Clean up last." },
     ],
+        strategy: [
+            "7 enemies, an even fight apart from level. Kill the large Bomb first to stop its fire AoE, then the rest.",
+            "No Restoring MP (law). Use Ice on the Red Jellies.",
+        ],
+        rewards: {
+            gil: 2870,
+            cp: 28,
+            loot: "Platinum ×5, Agathis ×3, Suspect Mushroom ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "B2-13",
+        arc: "B2",
+        name: "The Ultimate Book",
+        description: "I've been reading some old these of late, and was intrigued by mention of the Ultimate Book of Magick. I know its very existence may only be a legend, still, if you have any information, I would be most grateful. Scholar of the Arcane",
+        rank: 18,
+        region: "The Aldanna Range",
+        fee: 300,
+        days: 20,
+        questType: "Investigation",
+        canDispatch: true,
+        canCancel: true,
+        members: 1,
+        prerequisite: "Books of Magick",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 44,
+            adaptability: 44,
+        },
+    enemies: [],
+        strategy: [
+            "Investigation dispatch — send a unit to The Aldanna Range to research the Ultimate Book of Magick. No combat.",
+        ],
+        rewards: {
+            gil: 5990,
+            cp: 36,
+            loot: "Cockatrice Skin ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "B2-14",
+        arc: "B2",
+        name: "Clan Mates",
+        description: "Looking for a new clan member to round out your roster? Your search is ended! The more the merrier, to be sure, but we go one further; providing you with a companion chosen to suit your clan's needs. Seek us out in Targ Wood. Clan Mates Adventurer's Guild",
+        rank: 5,
+        region: "Targ Wood",
+        fee: 100,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: false,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+    enemies: [],
+        strategy: [
+            "Recruitment mission — no combat. Talk to the Nu Mou in Targ Wood and answer questions about what your clan needs.",
+            "The candidate offered depends on the in-game month and your answers. Only one candidate type is available per month; you can retry, but you must accept someone to finish.",
+        ],
         rewards: {
             gil: 0,
             cp: 0,
             loot: ""
         },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "recruit"]
     },
     {
         id: "B2-15",
@@ -364,35 +416,50 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
             teamwork: 7,
             adaptability: 7,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Non-combat mission — donate Gil (minimum 100) to Carm Mercantile to complete.",
+        ],
         rewards: {
             gil: 0,
             cp: 0,
             loot: ""
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "B2-16",
+        arc: "B2",
+        name: "Pearls in the Deep",
+        description: "Tis the season: zingu pearl season in the Galerria Deep! All those who wish to go pearl hunting must register by accepting this quest. WARNING: Unregistered pearl hunters will be considered poachers. Galerria Pearl Divers' Association",
+        rank: 17,
+        region: "The Galerria Deep",
+        fee: 300,
+        days: 20,
+        questType: "Defeat Mark",
+        canDispatch: false,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Defeat the Lord of the Flowsand!",
+        law: "Forbidden: Actions by Nu Mous – Nu Mou may only move and perform basic attacks.",
+    enemies: [
+        { name: "Lord of the Flowsand", job: "Yowie", quantity: 1, notes: "The mark — VERY high HP and very hard to kill. Its attacks pull your units toward it. You hold the high ground." },
+    ],
+        strategy: [
+            "Nu Mou are restricted (law) — leave your strongest Nu Mou mages out and bring other healers.",
+            "Bring a Bishop with Aero and grind the Lord of the Flowsand down. Watch for its pull attacks dragging units off the high ground.",
+        ],
+        rewards: {
+            gil: 3490,
+            cp: 34,
+            loot: "Zingu Pearl ×8"
         },
         notes: "",
         tags: ["optional"]

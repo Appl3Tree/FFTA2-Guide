@@ -28,29 +28,12 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         objective: "Defeat all foes in the Special Bout!",
         law: "Forbidden: Dealing < 20 Damage – Dealing < 20 Damage is forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Clan Centurio. Has Sage abilities too — highest priority target." },
+        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Uses Doom — eliminate before she can apply it." },
+        { name: "Randomized Name", job: "Viking", quantity: 1 },
+        { name: "Randomized Name", job: "Soldier", quantity: 1 },
+        { name: "Randomized Name", job: "Green Mage", quantity: 1 },
+        { name: "Randomized Name", job: "White Monk", quantity: 1 },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
@@ -86,30 +69,52 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         objective: "Defeat Icicle Ark!",
         law: "Forbidden: Fire – Weapons and abilities that use fire are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Icicle Ark", job: "Illusionist", quantity: 1, notes: "Target. Has Blood Price — can cast as long as HP remains. Uses Freezeblink, Deluge. Priority target." },
+        { name: "Randomized Name", job: "Summoner", quantity: 1, notes: "Has Blood Price and uses Shiva, Shining Air, Sliprain. Priority target." },
+        { name: "Randomized Name", job: "Gladiator", quantity: 1, notes: "Uses Blizzard Tackle and Ice Breath." },
+        { name: "Randomized Name", job: "Parivir", quantity: 1, notes: "Uses Water Veil, Unspell, Hoarfrost Blade, Wind Slash." },
+        { name: "Randomized Name", job: "Scholar", quantity: 1, notes: "Uses Rime Bolt Tome, Water, and Aero." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Uses Blizzard and Blizzara." },
     ],
+        rewards: {
+            gil: 3150,
+            cp: 52,
+            loot: "Cockatrice Skin ×2, Mysidia Alloy ×5"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "A4-03",
+        arc: "A4",
+        name: "Thieves in the Ruins",
+        description: "We've found evidence of trespassing at a ruins site not yet cleared for excavation. We suspect grave robbers. If left to their own devices, it could mean the loss of priceless and irreplaceable cultural artifacts. Our society would like to request that someone put a stop to this activity at once. Naturalist Society",
+        rank: 35,
+        region: "Kthili Sands",
+        fee: 500,
+        days: 20,
+        questType: "Battle",
+        canDispatch: true,
+        canCancel: true,
+        members: 4,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 28,
+            adaptability: 28,
+        },
+        objective: "Defeat all Foes!",
+        law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Hume Thief — has Steal Gil, Limelight, Loot Level 4, Throw, Return Fire, and Reveal." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Moogle Thief — has Steal Gil, Loot Level 4, Molotov Cocktail, and Dagger Toss." },
+        { name: "Randomized Name", job: "Beastmaster", quantity: 1, notes: "Can command nearby monsters." },
+        { name: "Randomized Name", job: "Rocktitan", quantity: 1, notes: "High defense. Use ranged/magick." },
+    ],
+        strategy: [
+            "Only 4 of your units are allowed because House Bowen joins as backup allies — an easy fight.",
+            "Kill from range or use Safeguard to avoid being robbed by the two Thieves. Let House Bowen help thin the enemies.",
+        ],
         rewards: {
             gil: 5460,
             cp: 70,
@@ -141,29 +146,8 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         objective: "Defeat Floraxion!",
         law: "Forbidden: Actions by Viera – Viera may only move and perform basic attacks.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Floraxion", job: "Rafflesia", quantity: 1, notes: "Target. Massive plant — all cloud attacks hit units within a 2-tile radius. Surrounded by Charm traps. Weak to Fire." },
+        { name: "Randomized Name", job: "Great Malboro", quantity: 2, notes: "Will debuff melee attackers approaching the Rafflesia. Soften with ranged attacks first." },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
@@ -199,36 +183,49 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
             teamwork: 15,
             adaptability: 15,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
+    enemies: [],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Dispatch mission — no combat. Send a unit equipped with an Instrument (Bard or Chocobo Knight with an instrument works) for 6 days.",
+        ],
+        rewards: {
+            gil: 2420,
+            cp: 52,
+            loot: "Hero Tonic ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "A4-10",
+        arc: "A4",
+        name: "Wanted: Moogle Rangers",
+        description: "-WANTED!- Wanted: The Moogle Rangers, for 245 counts of disrupting the peace, and 1 count of trespassing. Do not be taken in by the adorable appearance of these five moogles - they are to be considered rude and riotous. Jylland Defenders of the Peace",
+        rank: 32,
+        region: "Sant D'alsa Bluff",
+        fee: 500,
+        days: 20,
+        questType: "Headhunt",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 33,
+            adaptability: 33,
+        },
+        objective: "Defeat the Moogle Rangers!",
+        law: "Forbidden: Missing – Missing with an action is forbidden.",
+    enemies: [
+        { name: "Mark I", job: "Moogle Knight", quantity: 1, notes: "Has Moogle Attack, Moogle Lance, and Moogle Rush." },
+        { name: "Mark II", job: "Black Mage", quantity: 1, notes: "PRIORITY: Has Fira, Blizzara, Thundara, and Thundaga — eliminate first." },
+        { name: "Mark III", job: "Juggler", quantity: 1, notes: "Has Ring Toss, Molotov Cocktail, Ball Toss, and Smile Toss." },
+        { name: "Mark IV", job: "Chocobo Knight", quantity: 1, notes: "Rides a White Chocobo. Has Choco Beak and Choco Recharge." },
+        { name: "Mark V", job: "Flintlock", quantity: 1, notes: "Has Prime and Ether Boost." },
+    ],
+        strategy: [
+            "Missing is forbidden — use only high-accuracy attacks, or Stop the enemy so attacks can't miss. Defeating all five Moogle Rangers completes the mission.",
+            "Kill the Black Mage first (heavy magick), then mop up the rest.",
         ],
         rewards: {
             gil: 6090,
@@ -258,31 +255,9 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
             adaptability: 6,
         },
         objective: "Defeat Red King Ruuj!",
-        law: "Forbidden: Fire, Ice, and Lightning – Weapons and abilities that use fire, ice, or lightning are",
+        law: "Forbidden: Fire, Ice, and Lightning – Weapons and abilities that use fire, ice, or lightning are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Red King Ruuj", job: "Elementalist", quantity: 1, notes: "Level 44 solo boss. Uses Doublecast, Silence (Red Magick), Fire Whip, Sliprain, Boulder Crush. Immune to all debuffs. Use Mirror Items or ranged attacks." },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
@@ -315,33 +290,47 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
             teamwork: 0,
             adaptability: 13,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
+    enemies: [],
+        strategy: [
+            "Dispatch mission — no combat. Send a Nu Mou Scholar for 7 days to complete.",
+        ],
+        rewards: {
+            gil: 2520,
+            cp: 32,
+            loot: "Mysidia Alloy ×3, White Thread ×2"
         },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "A4-14",
+        arc: "A4",
+        name: "Wanted: The Mutadragons",
+        description: "-WANTED!- Wanted: The Mutadragons, for multiple counts of violent assault resulting in injury and destruction of property. These dragons are a rare species, unknown anywhere else. Jylland Defenders of the Peace",
+        rank: 36,
+        region: "The Aldanna Range",
+        fee: 500,
+        days: 20,
+        questType: "Headhunt",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 44,
+            adaptability: 44,
+        },
+        objective: "Defeat the Mutadragons!",
+        law: "Forbidden: Targeting all Units – Actions targeting all units at once are forbidden.",
+    enemies: [
+        { name: "Flaresky", job: "Mutadragon", quantity: 1, notes: "Weak to Holy. Use Paladins/Master Monks (Holy) or Hunters with Sidewinder." },
+        { name: "Gaiasea", job: "Mutadragon", quantity: 1, notes: "Weak to Ice. Use Black Mages, or Hunters with Sidewinder." },
+        { name: "Lightland", job: "Mutadragon", quantity: 1, notes: "Weak to Earth. Use Elementalists, or Hunters with Sidewinder." },
     ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Three Mutadragons, each weak to a different element (Holy, Ice, Earth). Hunters with Sidewinder or Mirror Items + X-Potions strip ~400 HP per hit — the fastest route given their high HP.",
+            "Watch for trap tiles. You must defeat all three; they retreat (alive) afterward.",
         ],
         rewards: {
             gil: 7490,
@@ -374,29 +363,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         objective: "Defeat Blue King Bliu!",
         law: "Forbidden: Using MP – Actions that consume MP are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Blue King Bliu", job: "Blue Mage", quantity: 1, notes: "Level 55 solo boss. Uses Quake and Expose Weakness. Has Magick Frenzy, Counter, and Dual Wield with 2 Light Sabers. Use Stopshot or fast physical burst. Reward: Peytral armour." },
     ],
         rewards: {
             gil: 7810,

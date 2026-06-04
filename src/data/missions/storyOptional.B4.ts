@@ -24,31 +24,48 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             adaptability: 4,
         },
         objective: "Dispatch the right person for the job.",
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
+    enemies: [],
+        strategy: [
+            "Dispatch mission — send a Juggler (Trickster may also work) to the festival. No combat.",
+        ],
+        rewards: {
+            gil: 320,
+            cp: 14,
+            loot: "Knot of Rust ×8, Ether ×4, Phoenix Down ×4"
         },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "B4-02",
+        arc: "B4",
+        name: "Strong Lady",
+        description: "That old man dressed up as a lady was fighting, ohm and he was strong. Real strong! And the clan that lost got dragged off somewheres. I cried a little then, and he gave me a sweet. Anonymous Child",
+        rank: 30,
+        region: "Camoa",
+        fee: 400,
+        days: 20,
+        questType: "Defeat Mark",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 15,
+            adaptability: 15,
+        },
+        objective: "Defeat the Night Dancer!",
+        law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
+    enemies: [
+        { name: "Night Dancer", job: "Trickster", quantity: 1, notes: "The mark — a cross-dressing Bangaa Trickster. Only this unit needs to be defeated." },
+        { name: "Randomized Name", job: "White Monk", quantity: 3, notes: "Have Earth Render, Snigger, and Hypochondria. Fight with shields (no normal attacks)." },
+        { name: "Randomized Name", job: "Templar", quantity: 2, notes: "Support Bangaa. Not required — only the Night Dancer must fall." },
     ],
+        strategy: [
+            "Defeat-mark mission — rush the Night Dancer (Trickster). The other 5 Bangaa don't need to die.",
+            "Harming the Weak (law) — if you outlevel them, focus the mark and avoid over-hitting low-level adds.",
+        ],
         rewards: {
             gil: 5320,
             cp: 60,
@@ -80,29 +97,8 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         objective: "Fulfill the obligations of your quest!",
         law: "Forbidden: Using > or = 20 MP – Actions that consume 20 or more HP are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Zombie", quantity: 3, notes: "Kill these for Zombie Powder. Weak to Holy. Killing both Zombies and Dreamhares gives Zombie Powder." },
+        { name: "Randomized Name", job: "Dreamhare", quantity: 3, notes: "Kill these for Ezel's Draught instead. Weak to Fire." },
     ],
         battlefield: [
             "The map features elevation differences",
@@ -110,6 +106,42 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         strategy: [
             "Bring a healer to manage HP during the encounter",
             "Ranged magical attacks are effective in this mission",
+        ],
+        rewards: {
+            gil: 7880,
+            cp: 66,
+            loot: "Crusite Alloy ×5"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "B4-04",
+        arc: "B4",
+        name: "The Goug Consortium",
+        description: "Kupo! Some members of our department went to field-test our latest prototype, but they haven't returned, kupo! We need someone to see if they're all right. If that gun were to fall into the wrong hands, kupo... Goug Consortium",
+        rank: 17,
+        region: "Zedlei Forest",
+        fee: 300,
+        days: 20,
+        questType: "Battle",
+        canDispatch: false,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 9,
+            adaptability: 9,
+        },
+        objective: "Defeat all Foes!",
+        law: "Forbidden: Targeting All Units – Actions targeting all units at once are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Fusilier", quantity: 6, notes: "Moogle gunners — fast, ranged, and positioned on high ground. Nearly impossible to reach with melee." },
+    ],
+        strategy: [
+            "Six Fusiliers hold the high ground with guns. Bring your own Mages and ranged attackers to trade fire — melee units will struggle to close in.",
+            "No AoE (law) — single-target everything.",
         ],
         rewards: {
             gil: 2890,
@@ -138,31 +170,10 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             teamwork: 0,
             adaptability: 7,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Dispatch mission — send a Seeq Ranger (only this race/job qualifies) for 15 days.",
+        ],
         rewards: {
             gil: 1110,
             cp: 28,
@@ -194,29 +205,11 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         objective: "Protect Alys the Ensorceled and Defeat all Foes!",
         law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Uses Steal Items, Steal Gil, Leg Shot — fast and aggressive. Priority target." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Uses Steal Gil, Loot, Molotov Cocktail, Dagger Toss (Disable). Priority target." },
+        { name: "Randomized Name", job: "Viking", quantity: 1, notes: "Uses Thundara, War Cry, Pickpocket." },
+        { name: "Randomized Name", job: "Alchemist", quantity: 1, notes: "Uses Flare and Poison." },
+        { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Uses Cure, Cura, Esuna — eliminate to deny healing." },
     ],
         strategy: [
             "Having Esuna available is recommended to handle debuffs",
@@ -225,7 +218,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         rewards: {
             gil: 5410,
             cp: 68,
-            loot: "Ancient Turtle Shell ×2"
+            loot: "Four-Leaf Clover ×3, Ancient Turtle Shell ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -250,33 +243,46 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             teamwork: 18,
             adaptability: 18,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
+    enemies: [],
+        strategy: [
+            "Non-combat mission — deliver a Potion and Hi-Potion, then answer that the recipient is undead to complete.",
+        ],
+        rewards: {
+            gil: 7880,
+            cp: 22,
+            loot: "Silver Liquid ×4"
         },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "B4-08",
+        arc: "B4",
+        name: "The Eastwatch",
+        description: "Clan <Name> The might of your clan is renowned throughout Jylland. We have traveled from a land beyond where the sun rises in hopes of testing that might against our own. Will you grant us this battle? The Eastwatch",
+        rank: 25,
+        region: "Moorabella",
+        fee: 400,
+        days: 20,
+        questType: "Battle",
+        canDispatch: false,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 15,
+            adaptability: 15,
+        },
+        objective: "Defeat all Foes!",
+        law: "Forbidden: Summoning Scions – Summoning Scions is forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Parivir", quantity: 3, notes: "Strong melee swordsmen. Lower priority than the Assassin and Ninjas." },
+        { name: "Randomized Name", job: "Ninja", quantity: 2, notes: "One has Veil abilities (debuffs) — kill that one second." },
+        { name: "Randomized Name", job: "Assassin", quantity: 1, notes: "PRIORITY: Has time magick. Eliminate first." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
+            "No Scions (law). Kill the Assassin first (time magick), then the Veil Ninja, then the remaining Ninja and three Parivir.",
         ],
         rewards: {
             gil: 3910,
@@ -305,31 +311,10 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             teamwork: 0,
             adaptability: 7,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Dispatch mission — send a mace-wielder (Green Mage, Sage, or Alchemist) for 10 days.",
+        ],
         rewards: {
             gil: 1110,
             cp: 10,
@@ -361,29 +346,12 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         objective: "Defeat the Mark!",
         law: "Forbidden: Actions by Viera – Viera may only move and perform basic attacks.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Duke Snakeheart", job: "Arcanist", quantity: 1, notes: "Target. Duelhorn Four member. Uses Death, Scathe, and Gigaflare. High Magic, low Defense — rush with fast melee units." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Uses Thunder, Thundara, Thundaga, and Pierce." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Uses Blizzard, Blizzara, Blizzaga, and Pierce." },
+        { name: "Randomized Name", job: "Alchemist", quantity: 1, notes: "Uses Flare, Poison, and Items." },
+        { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Uses Cura, Esuna, and Flare." },
+        { name: "Randomized Name", job: "Beastmaster", quantity: 1, notes: "Uses Shadow Shade Tome (Scholar ability). Beast Lore is ineffective here." },
     ],
         rewards: {
             gil: 5320,
@@ -413,31 +381,10 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             teamwork: 0,
             adaptability: 28,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
+        strategy: [
+            "Story cutscene mission — no combat. Visit Fluorgis to trigger events involving Frimelda Lotice.",
+        ],
         rewards: {
             gil: 5080,
             cp: 38,
@@ -468,29 +415,11 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         objective: "Protect Hana and Defeat 10 Foes!",
         law: "Forbidden: Actions by Gria – Gria may only move and perform basic attacks.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Randomized Name", job: "Fencer", quantity: 2, notes: "Viera. Uses Swarmstrike (Poison). Wave after wave of 10 total Viera enemies." },
+        { name: "Randomized Name", job: "Assassin", quantity: 2, notes: "Viera. Uses Silence and Slow." },
+        { name: "Randomized Name", job: "Green Mage", quantity: 2, notes: "Viera. Debuff support." },
+        { name: "Randomized Name", job: "Archer", quantity: 2, notes: "Viera. Ranged attacker." },
+        { name: "Randomized Name", job: "White Mage", quantity: 2, notes: "Viera. Healer — total of 10 Viera must be defeated. Hana (Red Mage guest with Doublecast) is the VIP." },
     ],
         strategy: [
             "Bring a healer to manage HP during the encounter",
@@ -523,33 +452,9 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             teamwork: 0,
             adaptability: 15,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+    enemies: [],
         strategy: [
-            "Having Esuna available is recommended to handle debuffs",
+            "Dispatch mission — send a Flintlock or Cannoneer for 10 days. No combat.",
         ],
         rewards: {
             gil: 6010,
@@ -582,29 +487,12 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         objective: "Protect Ghi and Defeat all Foes!",
         law: "Forbidden: Targeting an Area – Actions targeting two or more tiles are forbidden.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Swordking", job: "Viking", quantity: 1, notes: "Priority target. Uses Thundara, Tsunami, and Pickpocket." },
+        { name: "Randomized Name", job: "Viking", quantity: 1, notes: "Uses Thunder or Thundara and Pickpocket." },
+        { name: "Randomized Name", job: "Juggler", quantity: 1, notes: "Uses Weapon Toss, Ring Toss, Dagger Toss, and Molotov Cocktail." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Uses Steal Items, Steal Gil, and Cuisine (healing — eliminate quickly)." },
+        { name: "Randomized Name", job: "Defender", quantity: 1, notes: "Uses Defend and Bulwark." },
+        { name: "Randomized Name", job: "Templar", quantity: 1, notes: "Uses Silence and Haste." },
     ],
         rewards: {
             gil: 5670,
@@ -636,29 +524,10 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         objective: "Defeat Lord Grayrl!",
         law: "Forbidden: Not Moving 3 Tiles – Each unit must move exactly 3 tiles before ending its turn.",
     enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
+        { name: "Lord Grayrl", job: "Viking", quantity: 1, notes: "Boss. Defeat him to unlock the Viking job. Starts surrounded; use ranged units to rush him." },
+        { name: "Randomized Name", job: "Viking", quantity: 2, notes: "Uses Thunder or Thundara and Pickpocket." },
+        { name: "Randomized Name", job: "Juggler", quantity: 1, notes: "Uses Weapon Toss, Ring Toss, Dagger Toss, Molotov Cocktail." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Uses Steal Items, Steal Gil, and Cuisine (healing — priority target)." },
     ],
         rewards: {
             gil: 5110,
