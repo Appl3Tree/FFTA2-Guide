@@ -26,11 +26,12 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Speed Battle vs House Bowen",
         law: "Forbidden: Actions by Moogles – Moogles may only move and perform basic attacks",
     enemies: [
-        { name: "Malboro King", job: "Malboro King", quantity: 1, notes: "Speed battle mark. You must land the finishing blow — House Bowen will also attack it. Steal the orb from it if possible before finishing." },
+        { name: "Malboro King", job: "Malboro King", quantity: 1, notes: "Speed battle mark. You must land the finishing blow — House Bowen will also attack it. Steal its Orb of Minwu before finishing if you can." },
         { name: "House Bowen Unit", job: "Randomized", quantity: 3, notes: "Rival clan. Kill them to prevent them from stealing the kill on the mark. They will help weaken the Malboro King." },
     ],
         strategy: [
             "Land the killing blow on the Malboro King to win. Kill House Bowen units to prevent them from stealing the victory.",
+            "The Malboro King carries an Orb of Minwu; bring a unit with Steal Accessory if you want to take it before ending the speed battle.",
             "Check for treasure chest on the battlefield. Completing this mission unlocks the Assassin skill.",
         ],
         rewards: {
@@ -167,11 +168,11 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
     {
         id: "C4-07",
         arc: "C4",
-        name: "Instruments of Inspiration",
+        name: "Instrument of Inspiration",
         description: "This is terrible! A tragedy! A travesty! My concertina is nowhere to be found! How can I possibly perform without it? I can't! I need someone to help me find it! Come with all haste! Mayhew, Prima Donna",
         rank: 19,
         region: "Moorabella",
-        fee: 200,
+        fee: 300,
         days: 20,
         questType: "Item Recovery",
         canDispatch: false,
@@ -197,7 +198,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         rewards: {
             gil: 2350,
             cp: 38,
-            loot: "Hedychium Pollen ×4, Leucojam ×3"
+            loot: "Hedychium Pollen ×4, Leucojum ×3"
         },
         notes: "",
         tags: ["optional"]
@@ -261,12 +262,101 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
             adaptability: 0,
         },
     enemies: [],
+        strategy: [
+            "Delivery mission — bring Urutan Annals ×1 and The Arnath Glyphs ×1 to Aisenfield.",
+            "No combat. Completing this delivery unlocks the Scholar job for Nu Mou.",
+        ],
         rewards: {
             gil: 2350,
             cp: 36,
             loot: "Quince ×4"
         },
         notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "C4-10",
+        arc: "C4",
+        name: "Sleight of Hand",
+        description: "Tricksters by name and trade are masters of sleight of hand. Beat them at their own tricks and they will share the trickster trade.",
+        rank: 23,
+        region: "Nazan Mines",
+        fee: 400,
+        days: 20,
+        questType: "Battle",
+        canDispatch: false,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Making Music",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 15,
+            adaptability: 15,
+        },
+        objective: "Defeat all Foes!",
+        law: "Forbidden: Receiving Buffs and Debuffs – Receiving buffs and debuffs is forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Trickster", quantity: 4, notes: "Fast card attackers with Sleight of Hand debuffs such as Snigger, Shadow of Doubt, and Hypochondria." },
+        { name: "Randomized Name", job: "Trickster", quantity: 1, notes: "Leader. Has stronger debuff tools such as Charisma and Traumatize, plus Rend Speed." },
+    ],
+        battlefield: [
+            "Treasure chests are present; a high-jump unit can reach the far ledge chest containing a Ribbon.",
+        ],
+        strategy: [
+            "Bring status protection such as Ribbons, Astra, or Debuff Resistance if you want to preserve the law bonus.",
+            "The leader has the nastiest skill mix, so focus him first if you can safely reach him.",
+            "RetroAchievement route: collect the treasure chests before damaging enemies.",
+        ],
+        rewards: {
+            gil: 2790,
+            cp: 46,
+            loot: "Earth Sigil ×5"
+        },
+        notes: "",
+        tags: ["optional", "job-unlock"]
+    },
+    {
+        id: "C4-11",
+        arc: "C4",
+        name: "Kidnapping!?",
+        description: "Prima Donna's manager cannot reach the troupe before an upcoming concert and fears they have been kidnapped.",
+        rank: 30,
+        region: "Sant D'alsa Bluff",
+        fee: 400,
+        days: 20,
+        questType: "Investigation",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Instrument of Inspiration",
+        requiredTalents: {
+            negotiation: 20,
+            aptitude: 20,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Defeat all foes before they enter the water!",
+        law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
+    enemies: [
+        { name: "Prima Donna", job: "Raptor", quantity: 1, notes: "Flying enemy rushing toward the water. Immobilize or block her path quickly." },
+        { name: "Prima Donna", job: "Fencer", quantity: 1, notes: "Melee unit moving toward the water." },
+        { name: "Prima Donna", job: "Hunter", quantity: 1, notes: "Ranged unit moving toward the water." },
+        { name: "Prima Donna", job: "Spellblade", quantity: 1, notes: "Hybrid attacker moving toward the water." },
+        { name: "Prima Donna Devotee", job: "Lanista", quantity: 1, notes: "Weak support unit on the right side." },
+        { name: "Prima Donna Devotee", job: "Time Mage", quantity: 1, notes: "Weak support unit on the right side." },
+    ],
+        strategy: [
+            "Use high-move units and Haste to intercept Prima Donna before any enemy reaches the water.",
+            "Immobilize flying or fast enemies if available, but avoid back attacks to preserve the law bonus.",
+            "Blocking water-entry tiles can buy enough time to clean up the field.",
+        ],
+        rewards: {
+            gil: 3030,
+            cp: 60,
+            loot: "Prime Pelt ×3"
+        },
+        notes: "Also requires Sleepless Nights before it appears.",
         tags: ["optional"]
     },
     {
@@ -312,7 +402,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         arc: "C4",
         name: "The Cat's Meow",
         description: "I saw it with me own eyes! A white cat as big as a man if it was a goot, it was. Leastwise, I think it were a cat. Prowling about the Rupie Mountains plain as day. Well, strutting about in a place with monsters like that will get it eaten alive in no time flat. Will you go and save it? Maerwynn, Cat Lover",
-        rank: 28,
+        rank: 27,
         region: "The Rupie Mountains",
         fee: 400,
         days: 20,
@@ -345,6 +435,46 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
             loot: "Einherjarium ×3, Orichalcum ×2"
         },
         notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "C4-15",
+        arc: "C4",
+        name: "The Storage Shed",
+        description: "Mayhew needs help checking the storage shed after hearing someone inside.",
+        rank: 6,
+        region: "Tramdine Fens",
+        fee: 200,
+        days: 20,
+        questType: "Investigation",
+        canDispatch: true,
+        canCancel: true,
+        members: 4,
+        prerequisite: "Kidnapping!?",
+        requiredTalents: {
+            negotiation: 18,
+            aptitude: 18,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Defeat all Foes!",
+        law: "Forbidden: Harming Gria – Actions that harm gria are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Lanista", quantity: 1, notes: "Weak enemy that tends to flee rather than pressure your party." },
+        { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Weak enemy that tends to flee rather than pressure your party." },
+        { name: "Randomized Name", job: "Sage", quantity: 1, notes: "Weak enemy that tends to flee rather than pressure your party." },
+        { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Weak enemy that tends to flee rather than pressure your party." },
+    ],
+        strategy: [
+            "This is a low-rank cleanup battle that appears late. Bring any reliable attackers and avoid harming Gria to keep the law bonus.",
+            "Mayhew joins you, but the enemy group is weak enough that she should not need much protection.",
+        ],
+        rewards: {
+            gil: 690,
+            cp: 12,
+            loot: "High Arcana ×2"
+        },
+        notes: "Also requires A Request and I Want to Forget before it appears.",
         tags: ["optional"]
     }
 ];

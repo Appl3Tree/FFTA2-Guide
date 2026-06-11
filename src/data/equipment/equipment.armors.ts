@@ -51,7 +51,7 @@ export const ARMOR_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         spd: 2,
         immunity: ["Stop"],
         teaches: {
-            Sage: ["defense-up"],
+            Sage: ["defense↑"],
         },
         description: "Clothes for blending into the shadows when secrecy is needed.",
     },
@@ -221,9 +221,9 @@ export const ARMOR_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         spd: 0,
         jump: 0,
         teaches: {
-            Defender: ["defense-up"],
-            Paladin: ["defense-up"],
-            Ravager: ["defense-up"],
+            Defender: ["defense↑"],
+            Paladin: ["defense↑"],
+            Ravager: ["defense↑"],
         },
         description: "\"A beautiful piece of armor, to be sure, but compared to the diamonds that bespeckle it, the rest is rough.\" - The Study of Arms",
     },
@@ -513,7 +513,7 @@ export const ARMOR_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         mag: 0,
         rst: 40,
         teaches: {
-            Geomancer: ["resistance-up"],
+            Geomancer: ["resistance↑"],
             "Time Mage": ["critical-quicken"],
         },
         description: "This robe flutters out like a cape; the symbol of the mage.",
@@ -536,7 +536,7 @@ export const ARMOR_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
     },
     maximillian: {
         id: "maximillian",
-        name: "Maximillian",
+        name: "Maximilian",
         category: "Armor",
         bazaar_category: "Seal of the Templar C",
         price: 5600,
@@ -626,7 +626,7 @@ export const ARMOR_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
     },
     peytral: {
         id: "peytral",
-        name: "Peytral *",
+        name: "Peytral",
         category: "Armor",
         armorType: "Heavy Armor",
         atk: 0,

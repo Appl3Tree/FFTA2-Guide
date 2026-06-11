@@ -9,15 +9,10 @@ import type {
     EnemyActionAbilityRef,
 } from "../types/ffta2";
 
-interface EnemyActionAbilityRef {
-    setId: string;
-    abilityIds?: string[];
-}
-
 interface ResolvedAbilitySet {
     setId: string;
     setName: string;
-    setDescription?: string;
+    setDescription?: string | null;
     abilities: AbilityMeta[]; // always an array, maybe empty
 }
 
@@ -51,4 +46,3 @@ export function resolveEnemyLoadout(loadout?: EnemyAbilityLoadout) {
 
     return { A1, A2, R, P };
 }
-

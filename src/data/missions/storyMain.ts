@@ -18,8 +18,8 @@ import type { Mission } from "../../types/ffta2";
                         "hyphen-name",
                     ]
                 },
-                R: "",
-                P: ""
+                R: null,
+                P: null
             },
             equipment: [
                 {slot: 1, itemId: "snakeCase" },
@@ -41,6 +41,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Klesta",
                 job: "crushatrice",
+                notes: "Boss target. Territorial Marking creates pressure while the smaller Cockatrices interfere.",
                 abilities: {
                     A1: {
                         setId: "territorialism",
@@ -57,6 +58,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 name: "Randomized Name",
                 job: "Cockatrice",
                 quantity: 2,
+                notes: "Support birds. Clear them only when they threaten your healer or block safe attacks on Klesta.",
                 abilities: {
                     A1: {
                         setId: "territorialism",
@@ -93,6 +95,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 name: "Randomized Name",
                 job: "Wolf",
                 quantity: 2,
+                notes: "Fast melee beasts with Fangs. Body-block them so they cannot dive onto your healer or mage.",
                 abilities: {
                     A1: {
                         setId: "maw",
@@ -109,6 +112,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             {
                 name: "Randomized Name",
                 job: "Baknamy",
+                notes: "Goblin attacker with Geomancy passive. Lower priority than the Wolves unless it blocks your formation.",
                 abilities: {
                     A1: {
                         setId: "taktak",
@@ -195,8 +199,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                         ]
                     },
                     A2: null,
-                    R: "",
-                    P: ""
+                    R: null,
+                    P: null
                 },
                 equipment: [
                     {slot: 1, itemId: "leatherKnuckles" },
@@ -216,8 +220,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                         ]
                     },
                     A2: null,
-                    R: "",
-                    P: ""
+                    R: null,
+                    P: null
                 },
                 equipment: [
                     {slot: 1, itemId: "rod" },
@@ -235,8 +239,8 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                         ]
                     },
                     A2: null,
-                    R: "",
-                    P: ""
+                    R: null,
+                    P: null
                 },
                 equipment: [
                     {slot: 1, itemId: "shortbow" },
@@ -299,14 +303,14 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
     {
         id: "B2-01",
         arc: "B2",
-        name: "Wanted: Ughor",
+        name: "Wanted: Ugohr",
         rank: 8,
         region: "Baptiste Hill",
-        objective: "Defeat Ughor!",
+        objective: "Defeat Ugohr!",
         law: "Restoring MP: any action that restores MP is forbidden.",
         enemies: [
             {
-                name: "Ughor",
+                name: "Ugohr",
                 job: "Shelling",
                 quantity: 1,
             },
@@ -322,15 +326,15 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             },
         ],
         strategy: [
-            "You can defeat all enemies for extra loot and EXP, or focus straight on Ughor to end it fast.",
+            "You can defeat all enemies for extra loot and EXP, or focus straight on Ugohr to end it fast.",
             "Prioritize the Cockatrices early — their Peck can inflict Petrify, which snowballs badly.",
             "Avoid MP-restoring actions entirely; plan spell usage upfront and rely on items or physical jobs for sustained damage.",
-            "Ughor (the giant turtle/Shelling) is the mark — pin it with melee while ranged units chip away from safety."
+            "Ugohr (the giant turtle/Shelling) is the mark — pin it with melee while ranged units chip away from safety."
         ],
         rewards: {
             gil: 1650,
             cp: 16,
-            loot: "Healing Water ×4, Holy Stone ×3, Moonwood ×2"
+            loot: "Healing Water ×4, Holy Stone ×3, Moonwood ×3"
         },
         tags: ["story", "mark", "boss"]
     },
@@ -345,7 +349,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Gilmunto",
-                job: "Thunder Drake",
+                job: "Asp",
                 quantity: 1,
             },
             {
@@ -360,16 +364,16 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             },
             {
                 name: "Randomized Name",
-                job: "Asp",
+                job: "Thunder Drake",
                 quantity: 1,
             },
         ],
         strategy: [
-            "Gilmunto is the real threat — a Thunder Drake with electric attacks that hit hard.",
+            "Gilmunto is the real threat — an Asp with high attack power and dangerous area pressure.",
             "Worgens act as wolf-type harassers; clear them early to protect your backline.",
             "The Yellow Jelly absorbs most magic and can be tricky — use physical attacks on it.",
-            "The Asp can inflict poison, so keep a healer ready to Esuna.",
-            "Fire is banned — rely on ice, water, or physical damage (ice especially exploits Gilmunto’s dragon weakness).",
+            "The Thunder Drake can punish clustered units with lightning attacks, so keep a healer ready.",
+            "Fire is banned — rely on ice, water, or physical damage while avoiding lightning on the Jelly and Drake.",
             "Bring Protect/Shell to weather the early turns while you pick off the Worgens."
         ],
         rewards: {
@@ -430,7 +434,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         enemies: [
             {
                 name: "Lord of the Flowsand",
-                job: "Antlion",
+                job: "Yowie",
                 quantity: 1,
             },
             {
@@ -445,7 +449,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
             "The support Antlions will advance on you relentlessly; pick them off as they come rather than letting them swarm.",
             "You start with the high ground advantage — use it to keep melee enemies at a distance and exploit range.",
             "Bring a Bishop with Aero to deal damage on the wing, supplementing your restricted Nu Mou.",
-            "Once the Antlion escort is cleared, commit everything to the Lord of the Flowsand for the win."
+            "Once the Antlion support is controlled, commit everything to the Lord of the Flowsand for the win."
         ],
         rewards: {
             gil: 3490,
@@ -473,21 +477,25 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 name: "Randomized Name",
                 job: "Ninja",
                 quantity: 1,
+                notes: "Fast physical/status attacker. Dangerous if left free after Ewen removes revival.",
             },
             {
                 name: "Randomized Name",
                 job: "Assassin",
                 quantity: 1,
+                notes: "Instant-KO/status threat. Keep away from healers and disable or defeat early.",
             },
             {
                 name: "Randomized Name",
                 job: "Sniper",
                 quantity: 1,
+                notes: "Long-range backline threat. Break line of sight or eliminate before it picks off fragile units.",
             },
             {
                 name: "Randomized Name",
                 job: "Time Mage",
                 quantity: 1,
+                notes: "Haste/Slow support. Remove if it starts controlling the turn economy.",
             },
         ],
         strategy: [
@@ -519,26 +527,31 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 name: "Genius Ed",
                 job: "Sage",
                 quantity: 1,
+                notes: "Mark target. Sage magick is dangerous, but support units can make him much harder to finish.",
             },
             {
                 name: "Randomized Name",
                 job: "Time Mage",
                 quantity: 1,
+                notes: "Uses time magick to slow your party or speed enemy turns. High priority.",
             },
             {
                 name: "Randomized Name",
                 job: "Berserker",
                 quantity: 1,
+                notes: "Melee bruiser. Isolate it so it cannot rampage through healers.",
             },
             {
                 name: "Randomized Name",
                 job: "Fusilier",
                 quantity: 1,
+                notes: "Gun user with long reach. Close distance quickly or counter with your own ranged unit.",
             },
             {
                 name: "Randomized Name",
                 job: "White Mage",
                 quantity: 1,
+                notes: "Healer. Defeat early so Genius Ed and the frontline cannot recover.",
             },
         ],
         strategy: [
@@ -559,7 +572,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
     {
         id: "C3-11",
         arc: "C3",
-        name: "Rumours Ahead",
+        name: "Rumors Abound",
         rank: 22,
         region: "Tramdine Fens",
         objective: "Defeat all Foes!",
@@ -581,11 +594,13 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 name: "Randomized Name",
                 job: "Floating Eye",
                 quantity: 2,
+                notes: "Confusion and nuisance pressure. Clear before they create friendly-fire problems under Copycat.",
             },
             {
                 name: "Randomized Name",
                 job: "Zombie",
                 quantity: 1,
+                notes: "Undead support. Finish with Phoenix Down or Exorcise to stop it from returning.",
             },
         ],
         strategy: [
@@ -615,21 +630,25 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 name: "Oversoul",
                 job: "Oversoul",
                 quantity: 1,
+                notes: "Mark target. Save burst damage for it after the undead escorts are controlled.",
             },
             {
                 name: "Randomized Name",
                 job: "Wraith",
                 quantity: 2,
+                notes: "Undead support. Can prolong the fight if not permanently finished with anti-undead tools.",
             },
             {
                 name: "Randomized Name",
                 job: "Bloody Orb",
                 quantity: 1,
+                notes: "Fast, fragile escort. Clear first to reduce immediate pressure.",
             },
             {
                 name: "Randomized Name",
                 job: "Zombie",
                 quantity: 1,
+                notes: "Undead support. Use Cure damage and Phoenix Down or Exorcise to keep it down.",
             },
         ],
         strategy: [
@@ -915,16 +934,33 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 name: "Adelle",
                 job: "Heritor",
                 quantity: 1,
-                notes: "Unique class available only to Adelle. Watch the opening cutscene carefully — it shows how the battle begins and how to win."
+                notes: "Unique class available only to Adelle. Luso must talk to her three times; do not kill her."
+            },
+            {
+                name: "Randomized Name",
+                job: "Thunder Drake",
+                quantity: 1,
+                notes: "Priority monster target; elemental attacks with Geomancy hit hard."
+            },
+            {
+                name: "Randomized Name",
+                job: "Zaghnal",
+                quantity: 2,
+                notes: "Monster pressure while Luso moves into talk range."
+            },
+            {
+                name: "Randomized Name",
+                job: "Pit Beast",
+                quantity: 2,
+                notes: "Monster pressure while Luso talks Adelle back to her senses."
             },
         ],
         strategy: [
-            "Watch the opening cutscene — it directly shows you how Adelle must be defeated and what triggers the win condition.",
-            "Adelle’s Heritor class has exclusive, powerful abilities not available to any other character.",
-            "Ranged weapons are banned — all your archers, snipers, and gunners must switch to melee or magic roles.",
-            "This is largely a focused duel-style mission; bring your strongest single-target damage dealers.",
-            "Keep a healer alive and away from Adelle — her Heritor abilities can hit hard.",
-            "Once Adelle falls below the threshold, the mission ends. You don’t need to ‘kill’ her."
+            "Luso must talk to Adelle three times to complete the mission; damaging her down is not the win condition.",
+            "Do not kill Adelle. Keep Luso alive and position him so he can safely spend turns talking.",
+            "Ranged weapons are banned, so archers, snipers, gunners, hand-cannon users, and card users must switch roles.",
+            "Use the rest of the party to distract Adelle and clear the monsters, prioritizing the Thunder Drake before the Zaghnals and Pit Beasts.",
+            "Bring healing support and keep it away from the front line; Adelle's Lennart can hit four units in a line."
         ],
         rewards: {
             gil: 9100,
@@ -948,13 +984,46 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 quantity: 1,
                 notes: "The mark — an impostor posing as Vaan. Despite the law name, Van himself is not Bangaa."
             },
+            {
+                name: "Randomized Name",
+                job: "Cannoneer",
+                race: "Bangaa",
+                quantity: 1,
+                notes: "Do not harm if preserving the law; otherwise the Harming Bangaa law fails."
+            },
+            {
+                name: "Randomized Name",
+                job: "Fighter",
+                quantity: 1,
+                notes: "Near the starting position; remove early to prevent flank pressure."
+            },
+            {
+                name: "Randomized Name",
+                job: "Ravager",
+                quantity: 1,
+                notes: "Early flank pressure near the starting side."
+            },
+            {
+                name: "Randomized Name",
+                job: "Sniper",
+                quantity: 1,
+                notes: "Can break weapons; high priority if not rushing Van."
+            },
+            {
+                name: "Penelo",
+                job: "Dancer",
+                quantity: 1,
+                notes: "Impostor companion; can be ignored if rushing the mark."
+            },
+        ],
+        battlefield: [
+            "Traps are scattered around the battlefield.",
         ],
         strategy: [
             "The mark is Van — a fake 'Vaan' impostor. Target him to end the mission.",
-            "Bangaa enemies on the field cannot be harmed; work around them with crowd control or simply avoid engaging.",
-            "There are traps scattered around the battlefield — step carefully and use units with high movement or Awareness to navigate safely.",
-            "Van is a straightforward headhunt; the Bangaa law is the main complication — identify which enemies are Bangaa at the start and route around them.",
-            "Focus everything on Van once Bangaa units are out of the way or kept at bay."
+            "If preserving the law, do not harm the Bangaa Cannoneer. Work around it or disable/control it without damage.",
+            "Either rush Van immediately or clear the Fighter/Ravager flank and Sniper first, then finish Van.",
+            "Step carefully around traps and use high-movement units or Awareness if available."
         ],
         rewards: {
             gil: 10470,

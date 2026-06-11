@@ -104,8 +104,10 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             "The map features elevation differences",
         ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Choose the outcome before fighting: defeating Zombies yields Zombie Powder, while defeating Dreamhares yields Ezel's Draught.",
+            "Defeating both groups gives Zombie Powder. If you want Ezel's Draught, avoid killing the Zombies.",
+            "Holy damage is excellent against Zombies, while Fire works well on Dreamhares.",
+            "Actions costing 20 or more MP are forbidden, so check spell costs before entering.",
         ],
         rewards: {
             gil: 7880,
@@ -212,8 +214,10 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Uses Cure, Cura, Esuna — eliminate to deny healing." },
     ],
         strategy: [
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
+            "Protect Alys while clearing the bandits.",
+            "Kill both Thieves first; they are fast, can steal, and one can disable with Dagger Toss.",
+            "Remove the White Mage next to prevent healing, then pressure the Alchemist before Flare and Poison wear you down.",
+            "Opportunity Commands are forbidden, so do not use them even when the prompt looks tempting.",
         ],
         rewards: {
             gil: 5410,
@@ -353,6 +357,12 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Uses Cura, Esuna, and Flare." },
         { name: "Randomized Name", job: "Beastmaster", quantity: 1, notes: "Uses Shadow Shade Tome (Scholar ability). Beast Lore is ineffective here." },
     ],
+        strategy: [
+            "Duke Snakeheart is the mark; defeating him completes the headhunt even if support units remain.",
+            "Viera actions are restricted to movement and basic attacks, so leave Viera out or use them only as simple attackers.",
+            "Rush Snakeheart with fast physical units because his Defense is low, and interrupt or disable the White Mage if healing starts delaying the kill.",
+            "Spread out enough to reduce the impact of Scathe/Gigaflare-style magick, then clean up the mages only if they block the route to Snakeheart.",
+        ],
         rewards: {
             gil: 5320,
             cp: 78,
@@ -422,8 +432,10 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "White Mage", quantity: 2, notes: "Viera. Healer — total of 10 Viera must be defeated. Hana (Red Mage guest with Doublecast) is the VIP." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Protect Hana and defeat ten Viera attackers across the waves.",
+            "Gria can only move and use basic attacks, so avoid relying on Gria abilities for this mission.",
+            "Prioritize Assassins and Green Mages because Silence, Slow, and debuffs can leave Hana exposed.",
+            "Hana is a Red Mage guest with Doublecast; keep enemies off her while she contributes damage and support.",
         ],
         rewards: {
             gil: 8190,
@@ -457,12 +469,54 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             "Dispatch mission — send a Flintlock or Cannoneer for 10 days. No combat.",
         ],
         rewards: {
+            gil: 2680,
+            cp: 24,
+            loot: "Gemsteel ×5"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "B4-14",
+        arc: "B4",
+        name: "Caravan Cry II",
+        description: "We're under attack in Sant D'alsa Bluff from some mean-looking sorts. Send help, quick! Pie-Thon Caravan",
+        rank: 45,
+        region: "Sant D'alsa Bluff",
+        fee: 500,
+        days: 20,
+        questType: "Escort",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 28,
+            aptitude: 0,
+            teamwork: 28,
+            adaptability: 0,
+        },
+        dispatchRecommended: ["Defender"],
+        objective: "Protect Duke Snakeheart and Defeat all Foes!",
+        law: "Forbidden: Non-Elemental Effects – Use of non-elemental weapons and abilities is forbidden.",
+    enemies: [
+        { name: "Duke Snakeheart", job: "Arcanist", quantity: 1, notes: "Guest to protect. Keep him alive while clearing the Duelhorn attackers." },
+        { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "Primary threat. Uses Earth Veil, Oblivion, Magick Frenzy, and Blink Counter; defeating this unit effectively ends the enemy push." },
+        { name: "Night Dancer", job: "Dancer", quantity: 1, notes: "Has Charisma, Traumatize, Lancet, and Ribbon-bearer." },
+        { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Support caster with Esuna, Sandstorm, and Expose Weakness." },
+        { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Uses Withering Strike, Body Slam, Greased Lightning, and Counter." },
+    ],
+        strategy: [
+            "Bring elemental offense so the Non-Elemental Effects law does not trap your main damage dealers.",
+            "Focus the Ninja first; its evasion and Blink Counter make it the most dangerous piece and the practical win target.",
+            "Keep healing or defensive support near Duke Snakeheart while ranged or high-movement units collapse on the enemy back line.",
+        ],
+        rewards: {
             gil: 6010,
             cp: 90,
             loot: "Snowcat Crystal ×1"
         },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "chain"]
     },
     {
         id: "B4-15",
@@ -494,6 +548,12 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "Defender", quantity: 1, notes: "Uses Defend and Bulwark." },
         { name: "Randomized Name", job: "Templar", quantity: 1, notes: "Uses Silence and Haste." },
     ],
+        strategy: [
+            "Protect Ghi while defeating Swordking and his crew.",
+            "Targeting an area is forbidden, so avoid multi-tile attacks and use precise single-target damage.",
+            "Defeat the Thief early to stop theft and Cuisine healing, then focus Swordking before Tsunami and Thundara wear down the party.",
+            "The Templar can Haste or Silence; remove it before it improves the enemy tempo.",
+        ],
         rewards: {
             gil: 5670,
             cp: 66,
@@ -529,6 +589,12 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "Juggler", quantity: 1, notes: "Uses Weapon Toss, Ring Toss, Dagger Toss, Molotov Cocktail." },
         { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Uses Steal Items, Steal Gil, and Cuisine (healing — priority target)." },
     ],
+        strategy: [
+            "Defeat Lord Grayrl to unlock Viking.",
+            "Each unit must move exactly three tiles before ending its turn; plan routes before committing to attacks.",
+            "Rushing Grayrl can end the mission quickly, but remove the Thief if Cuisine healing or theft starts dragging the fight out.",
+            "Use ranged abilities, magick, and high-move units to pressure Grayrl through his surrounding guards.",
+        ],
         rewards: {
             gil: 5110,
             cp: 56,

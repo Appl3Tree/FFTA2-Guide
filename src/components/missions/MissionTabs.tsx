@@ -1,9 +1,9 @@
 import React from "react";
-import { OPTIONAL_MISSIONS } from "../../data/missions/storyOptional";
-import { STORY_MAIN_MISSIONS } from "../../data/missions/storyMain";
+import { ALL_MISSIONS } from "../../data/missions/allMissions";
 import type { Mission } from "../../types/ffta2";
 import { MissionCard } from "./MissionCard";
 import { MISSION_TAGS, type MissionTag } from "../../data/missions/missionTags";
+import { RETRO_ACHIEVEMENTS_BY_MISSION_ID } from "../../data/retroAchievements";
 import { useProgress } from "../ProgressContext";
 
 function getMissionSortKey(mission: Mission) {
@@ -95,6 +95,15 @@ function getTagLabel(tag: MissionTag): string {
     return TAG_LABELS[tag] ?? tag;
 }
 
+function pushSearchText(parts: string[], value?: string | string[] | null) {
+    if (!value) return;
+    if (Array.isArray(value)) {
+        parts.push(...value);
+    } else {
+        parts.push(value);
+    }
+}
+
 export function MissionTabs() {
     const [activeArc, setActiveArc] = React.useState<ArcFilter>("ALL");
     const [searchTerm, setSearchTerm] = React.useState("");
@@ -105,15 +114,28 @@ export function MissionTabs() {
         React.useState<CompletionFilter>("ALL");
     const [showCompletionFilters, setShowCompletionFilters] =
         React.useState(false);
+    const [missableRetrosOnly, setMissableRetrosOnly] = React.useState(false);
 
     const { checked } = useProgress();
 
     const normalizedSearch = searchTerm.trim().toLowerCase();
 
-    const ALL_MISSIONS = React.useMemo<Mission[]>(() => {
-        return [...STORY_MAIN_MISSIONS, ...OPTIONAL_MISSIONS].sort(
-            sortByArcAndIndex,
-        );
+    const missableRetroMissionIds = React.useMemo(() => {
+        const ids = new Set<string>();
+
+        for (const [missionId, achievements] of Object.entries(
+            RETRO_ACHIEVEMENTS_BY_MISSION_ID,
+        )) {
+            if (achievements.some((achievement) => achievement.missable)) {
+                ids.add(missionId);
+            }
+        }
+
+        return ids;
+    }, []);
+
+    const allMissions = React.useMemo<Mission[]>(() => {
+        return [...ALL_MISSIONS].sort(sortByArcAndIndex);
     }, []);
 
     const toggleTag = (tag: MissionTag) => {
@@ -123,9 +145,13 @@ export function MissionTabs() {
     };
 
     const missions = React.useMemo(() => {
-        return ALL_MISSIONS.filter((mission: Mission) => {
+        return allMissions.filter((mission: Mission) => {
             if (activeArc !== "ALL") {
                 if (mission.arc !== activeArc) return false;
+            }
+
+            if (missableRetrosOnly && !missableRetroMissionIds.has(mission.id)) {
+                return false;
             }
 
             const explicitTags = (mission.tags ?? []) as string[];
@@ -150,8 +176,8 @@ export function MissionTabs() {
 
                 if (mission.description) haystackParts.push(mission.description);
                 if (mission.region) haystackParts.push(mission.region);
-                if (mission.rewards?.loot) haystackParts.push(mission.rewards.loot);
-                if (mission.rewards?.items) haystackParts.push(mission.rewards.items);
+                pushSearchText(haystackParts, mission.rewards?.loot);
+                pushSearchText(haystackParts, mission.rewards?.items);
                 if (mission.notes) haystackParts.push(mission.notes);
 
                 haystackParts.push(...mergedTags);
@@ -177,11 +203,13 @@ export function MissionTabs() {
             return true;
         });
     }, [
-        ALL_MISSIONS,
+        allMissions,
         activeArc,
         normalizedSearch,
         selectedTags,
         completionFilter,
+        missableRetrosOnly,
+        missableRetroMissionIds,
         checked,
     ]);
 
@@ -248,6 +276,26 @@ export function MissionTabs() {
                                         ? "✓"
                                         : "✗"}
                                     )
+                                </span>
+                            )}
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={() =>
+                                setMissableRetrosOnly((prev) => !prev)
+                            }
+                            aria-pressed={missableRetrosOnly}
+                            className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
+                                missableRetrosOnly
+                                    ? "border-amber-400/80 bg-amber-900/60 text-amber-100"
+                                    : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
+                            }`}
+                        >
+                            Missable Retros
+                            {missableRetrosOnly && (
+                                <span className="ml-1 text-[0.65rem] opacity-80">
+                                    ({missableRetroMissionIds.size})
                                 </span>
                             )}
                         </button>
@@ -364,4 +412,3 @@ export function MissionTabs() {
         </div>
     );
 }
-

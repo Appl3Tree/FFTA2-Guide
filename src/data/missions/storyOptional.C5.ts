@@ -17,7 +17,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "Geomancer's Way -",
+        prerequisite: "Geomancer's Way - Sun",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -115,7 +115,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         rewards: {
             gil: 8670,
             cp: 94,
-            loot: "Wayerwyrd Crystal ×1"
+            loot: "Waterwyrd Crystal ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -209,10 +209,10 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         canCancel: true,
         members: 5,
         requiredTalents: {
-            negotiation: 44,
+            negotiation: 39,
             aptitude: 0,
-            teamwork: 44,
-            adaptability: 44,
+            teamwork: 39,
+            adaptability: 0,
         },
         objective: "Defend the Devotee and Defeat all Foes!",
         law: "Forbidden: Lightning – Weapons and abilities that use Lightning are forbidden.",
@@ -220,10 +220,13 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         { name: "Randomized Name", job: "Parivir", quantity: 1, notes: "~10 levels above rank. High speed." },
         { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "Has Dual Wield. ~10 levels above rank. High speed." },
         { name: "Randomized Name", job: "Assassin", quantity: 1, notes: "~10 levels above rank. High speed." },
+        { name: "Head Editor", job: "Ranger", quantity: 1, notes: "Weak support enemy compared to the high-level trio." },
+        { name: "Owner", job: "Berserker", quantity: 1, notes: "Weak support enemy compared to the high-level trio." },
     ],
         strategy: [
-            "Enemies are ~10 levels above quest rank — fight at equal or higher level. Avoid Lightning entirely.",
-            "Protect the Devotee. Use tanks to intercept the high-speed enemies before they reach the escort target.",
+            "Assassin is the first priority because she can threaten the Devotee from range, followed by the Ninja and then the Parivir.",
+            "The Ranger and Berserker are much weaker than the main trio and can be cleaned up after the dangerous enemies are controlled.",
+            "Avoid Lightning entirely and protect the Devotee with intercepting tanks or high-speed attackers.",
         ],
         rewards: {
             gil: 3050,
@@ -232,6 +235,44 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         },
         notes: "",
         tags: ["optional"]
+    },
+    {
+        id: "C5-08",
+        arc: "C5",
+        name: "Goug Nightwatch",
+        description: "A plague of robberies has fallen upon the land! All occur at night and follow a similar pattern, indicating that a single group may be responsible. For the swift resolution of this case, and the safety of our citizens, we are currently accepting applications to join the Goug Nightwatch.",
+        rank: 41,
+        region: "Goug",
+        fee: 500,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: true,
+        canCancel: true,
+        members: 4,
+        requiredTalents: {
+            negotiation: 44,
+            aptitude: 0,
+            teamwork: 44,
+            adaptability: 44,
+        },
+        objective: "Defeat all Foes within Four Rounds!",
+        law: "Forbidden: Debuffs – Debuffs are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Baknamy", quantity: 3, notes: "Must be defeated within four rounds." },
+        { name: "Randomized Name", job: "Luchorpan", quantity: 1, notes: "Must be defeated within four rounds." },
+    ],
+        strategy: [
+            "Four-unit timed battle. Bring monster hunters and fast damage dealers to clear all four enemies before the round limit.",
+            "You may receive fast allied help from Parivir, Ninja, and Assassin units, but plan to do the killing yourself.",
+            "Debuffs are banned, so lean on raw damage, buffs, and turn manipulation.",
+        ],
+        rewards: {
+            gil: 6620,
+            cp: 82,
+            loot: ""
+        },
+        notes: "",
+        tags: ["optional", "timed"]
     },
     {
         id: "C5-13",
@@ -260,9 +301,55 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         rewards: {
             gil: 7000,
             cp: 40,
-            loot: "Mythril ×1"
+            loot: "Mythril ×1",
+            other: "Ring of Precepts"
         },
         notes: "",
         tags: ["optional"]
+    },
+    {
+        id: "C5-16",
+        arc: "C5",
+        name: "Unplumbed Depths",
+        description: "Rumor has it that the Neslowe Passage hides treasure for those bold enough to explore its depths.",
+        rank: 49,
+        region: "The Neslowe Passage",
+        fee: 0,
+        days: undefined,
+        questType: "Defeat Mark",
+        canDispatch: false,
+        canCancel: false,
+        members: 6,
+        prerequisite: "Bringer of Doom; Adelle mastered Hilo; read A New Path at the pub",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Get the Treasure!",
+        law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Lamashtu", quantity: 1, notes: "Most dangerous monster in the encounter. Prioritize it before opening the route to the chest." },
+        { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "Monster support enemy." },
+        { name: "Randomized Name", job: "Bomb", quantity: 1, notes: "Monster support enemy." },
+        { name: "Randomized Name", job: "Golem", quantity: 2, notes: "Durable monster support enemies." },
+    ],
+        battlefield: [
+            "Treasure chest objective. Defeat the monsters, then open the chest to complete the mission.",
+        ],
+        strategy: [
+            "Bring monster-killer tools such as Sidewinder and strong magick; all enemies are monsters.",
+            "Handle the Lamashtu first, then clear the support monsters and open the chest.",
+            "Completing the mission teaches Adelle the Adelaide Heritor ability.",
+        ],
+        rewards: {
+            gil: 11150,
+            cp: 98,
+            loot: "Stormsoul Crystal ×1",
+            abilities: ["Adelaide"]
+        },
+        notes: "",
+        tags: ["optional", "chain", "boss", "elite"]
     }
 ];

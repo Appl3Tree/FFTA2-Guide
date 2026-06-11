@@ -1,5 +1,5 @@
 // src/data/missions/storyOptional.E4.ts
-// Arc E4 optional missions, accurately transcribed from Side_Quests.txt
+// Arc E4 optional missions.
 
 import type { Mission } from "../../types/ffta2";
 
@@ -17,30 +17,31 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "A Request; Hors D'oeuvre of the Hour; Odd Places upper-middle well; visit any town",
+        dispatchRecommended: ["Ninja", "Assassin"],
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
             teamwork: 0,
             adaptability: 44,
         },
-        dispatchRecommended: ["Assassin", "Ninja"],
-        objective: "Defeat all foes in 4 Rounds!",
+        objective: "Defeat all foes in 4 rounds!",
         law: "Forbidden: Being Robbed – Having gil or items stolen is forbidden.",
-    enemies: [
-        { name: "Randomized Name", job: "Fire Drake", quantity: 2, notes: "PRIORITY: Can heal each other. Eliminate both first or they waste your turns." },
-        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Being stolen from violates the law — kill from range or use Safeguard." },
-        { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Strong melee." },
-        { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Strong melee." },
-        { name: "Randomized Name", job: "Beastmaster", quantity: 1, notes: "Can command monsters." },
-    ],
+        enemies: [
+            { name: "Randomized Name", job: "Fire Drake", quantity: 2, notes: "Priority targets; they can heal each other with fire-based abilities and waste the four-round timer." },
+            { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Can violate the Being Robbed law; eliminate from range or before it can steal." },
+            { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Durable melee threat." },
+            { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "High evasion/physical pressure." },
+            { name: "Randomized Name", job: "Beastmaster", quantity: 1, notes: "Can command monsters." },
+        ],
         strategy: [
-            "Must defeat all 6 enemies in 4 rounds. Eliminate the Fire Drakes first — they heal each other and waste your timer.",
-            "Kill the Thief from range before it can steal. Use heavy AoE attackers.",
+            "Bring heavy damage and defeat all six enemies within four rounds.",
+            "Kill the Fire Drakes first so they cannot heal each other, then remove the Thief before it can steal.",
         ],
         rewards: {
             gil: 6410,
             cp: 84,
-            loot: "Prime Tanned Hide ×1"
+            loot: "Prime Tanned Hide ×1, Fiend's Blood ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -58,28 +59,30 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Devilish Delight",
+        prerequisite: "Eternal Rivalry; Devilish Delight",
+        dispatchRecommended: ["White Monk", "Master Monk"],
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
             teamwork: 0,
             adaptability: 44,
         },
-        objective: "Uphold the Law and Defeat all Foes!",
+        objective: "Uphold the law and defeat all foes!",
         law: "Forbidden: Bladed Weapons – Attacks with knives, swords, blades, sabers, katanas, axes, knightswords, greatswords, and broadswords are forbidden.",
-    enemies: [
-        { name: "Randomized Name", job: "Great Tortoise", quantity: 2, notes: "Main targets — must not be killed with bladed weapons (for flavor/law). Use magick and Sidewinder." },
-        { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Standard threat." },
-        { name: "Randomized Name", job: "Adamantitan", quantity: 1, notes: "High defense — use non-blade attacks." },
-        { name: "Randomized Name", job: "Rocktitan", quantity: 2, notes: "High defense — use magick or Sidewinder." },
-    ],
+        enemies: [
+            { name: "Randomized Name", job: "Great Tortoise", quantity: 2, notes: "High HP targets; use magick, Sidewinder, or other non-bladed attacks." },
+            { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Has Twister; low accuracy but high impact if it lands." },
+            { name: "Randomized Name", job: "Adamantitan", quantity: 1, notes: "High defense; can inflict Immobilize with Headbutt." },
+            { name: "Randomized Name", job: "Rocktitan", quantity: 2, notes: "High HP/defense; can inflict Immobilize with Headbutt." },
+        ],
         strategy: [
-            "No bladed weapons. Use Hunters (Sidewinder not considered bladed), magick attacks, and Cannoneers.",
+            "Do not use bladed weapons; ranged abilities such as Sidewinder and magick are safe.",
+            "Air-based magick is useful, but expect a long fight because the enemies have high HP.",
         ],
         rewards: {
             gil: 9230,
             cp: 99,
-            loot: "Emperor Scale ×1"
+            loot: "Emperor Scale ×1, Pink Tail ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -88,7 +91,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         id: "E4-03",
         arc: "E4",
         name: "Flantastic Finish",
-        description: "Zedlei Flan, a specialty from the forest of the same name, is a delicate desert that melts in one's mouth, before melting one's heart. Only the freshest ingredients will do for this treat! Grosso, Culinary Crusade",
+        description: "Zedlei Flan, a specialty from the forest of the same name, is a delicate dessert that melts in one's mouth, before melting one's heart. Only the freshest ingredients will do for this treat! Grosso, Culinary Crusade",
         rank: 50,
         region: "Zedlei Forest",
         fee: 500,
@@ -97,31 +100,75 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Shelling Out",
+        prerequisite: "Through Another's Eyes; Shelling Out; visit any town",
+        dispatchRecommended: ["Arcanist"],
         requiredTalents: {
             negotiation: 47,
             aptitude: 0,
             teamwork: 0,
             adaptability: 47,
         },
-        dispatchRecommended: ["Arcanist"],
-        objective: "Weaken the Red Flan and defeat all other foes!",
+        objective: "Weaken the red flan and defeat all other foes!",
         law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
-    enemies: [
-        { name: "Red Flan", job: "Flan", quantity: 1, notes: "TARGET: Weaken to HP Critical — do not kill. Defeat all other enemies first." },
-        { name: "Randomized Name", job: "Deadly Nightshade", quantity: 1, notes: "Defeat first." },
-        { name: "Randomized Name", job: "Dreamhare", quantity: 1, notes: "Defeat first." },
-        { name: "Randomized Name", job: "Werewolf", quantity: 1, notes: "Defeat first." },
-        { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Defeat first." },
-        { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Defeat first." },
-    ],
+        enemies: [
+            { name: "Red Marshmallow", job: "Flan", quantity: 1, notes: "Target to weaken to HP Critical after all other foes are defeated; do not kill it first." },
+            { name: "Randomized Name", job: "Deadly Nightshade", quantity: 1, notes: "Defeat before weakening the flan." },
+            { name: "Randomized Name", job: "Hoppy Bunny", quantity: 1, notes: "Priority target; can cast Haste on enemies." },
+            { name: "Randomized Name", job: "Werewolf", quantity: 1, notes: "Can Immobilize with Assault." },
+            { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Priority target; Kiss can inflict Doom or Charm." },
+            { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Good capture opportunity for a Chocobo Knight." },
+        ],
         strategy: [
-            "Kill all non-Flan enemies first, then weaken the Red Flan to HP Critical. Do not kill it.",
+            "Defeat every enemy except the Red Marshmallow first.",
+            "Prioritize Hoppy Bunny and Lilith to reduce Haste, Doom, and Charm pressure.",
+            "After the other enemies are gone, weaken the Red Marshmallow to critical HP to complete the quest.",
         ],
         rewards: {
             gil: 7810,
             cp: 99,
-            loot: "Fiend's Blood ×1"
+            loot: "Fiend's Blood ×1, Sweet Sap ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "E4-05",
+        arc: "E4",
+        name: "The Honorable Thing",
+        description: "Ah, the sweet lips of my love. My one pleasure in this life. But the vile Balfonne has stolen a kiss from my darling Preme, and with it, her love. I could not let such a slight go unanswered! I immediately challenged Balfonne to a duel to settle this point of honor, but sadly, urgent matters prevent me from dealing with the scoundrel myself. I seek someone to do battle in my place. Hseaunon, Preme's True Love",
+        rank: 36,
+        region: "The Ruins of Delgantua",
+        fee: 500,
+        days: 20,
+        questType: "Battle",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Wanted: Sky Pirate Vaan; visit Graszton",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 33,
+            adaptability: 33,
+        },
+        objective: "Defeat all foes!",
+        law: "Forbidden: Buffs – Buffs are forbidden.",
+        enemies: [
+            { name: "Randomized Name", job: "Hunter", quantity: 1, notes: "Priority target; Arm Shot, Leg Shot, and Vitals Shot can cripple units." },
+            { name: "Randomized Name", job: "Parivir", quantity: 1, notes: "Wind Slash, Blade Bash, and Hoarfrost Blade can inflict debuffs." },
+            { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Cure/Cura/Refresh support; remove before it sustains the enemy team." },
+            { name: "Randomized Name", job: "Cannoneer", quantity: 1, notes: "Uses Target and Mortar from range." },
+            { name: "Randomized Name", job: "Defender", quantity: 1, notes: "Whirl Burst, Mow Down, and Bulwark." },
+        ],
+        strategy: [
+            "Use fast and ranged units to disable the Hunter first.",
+            "Follow with the Parivir and White Mage, then clean up the Cannoneer and Defender.",
+            "Avoid buff actions entirely under the law.",
+        ],
+        rewards: {
+            gil: 4590,
+            cp: 72,
+            loot: "Putrid Liquid ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -139,21 +186,102 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "'Cross the Sea",
+        prerequisite: "The Dig; 'Cross the Sea; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [],
+        enemies: [],
         strategy: [
-            "Delivery mission — carry the reply letter from Goug to Camoa (or vice versa).",
+            "Pick up Meena's reply in Goug, then deliver it to Riddim in Camoa.",
         ],
         rewards: {
             gil: 2660,
             cp: 50,
             loot: "Mythril ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "E4-07",
+        arc: "E4",
+        name: "Training Wanted",
+        description: "Those parivir we hired to watch over our town were nothing but trouble, kupo. But we learned our lesson. If we want something done right, we have to do it ourselves! We've formed a town watch to protect the city, but what we have in determination we lack in experience. We need someone to help us harden up, kupo! Zupp, Commander of the Goug Watch",
+        rank: 45,
+        region: "Goug",
+        fee: 500,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: false,
+        canCancel: true,
+        members: 6,
+        prerequisite: "The Dig; Watching the Watchers; visit any town",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 44,
+            adaptability: 44,
+        },
+        objective: "Defeat all foes!",
+        law: "Forbidden: > 100 Damage – Dealing more than 100 damage is forbidden.",
+        enemies: [
+            { name: "Randomized Name", job: "Tinker", quantity: 1, notes: "Priority target; Red Spring, Blue Screw, and Green Gear can swing status effects across the field." },
+            { name: "Randomized Name", job: "Fusilier", quantity: 1, notes: "Confushot, Charmshot, Blindshot, and Silenceshot." },
+            { name: "Randomized Name", job: "Animist", quantity: 1, notes: "Sheep Count, 100% Wool, and Cuisine healing." },
+            { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Fira, Thundara, and Blizzara." },
+            { name: "Randomized Name", job: "Moogle Knight", quantity: 1, notes: "Moogle Lance, Moogle Rush, Charmshot, and Counter." },
+            { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Steal Gil plus Fire/Ice/Bolt shots and Counter." },
+        ],
+        strategy: [
+            "Keep each hit at 100 damage or less.",
+            "Defeat the Tinker first if possible, then the Fusilier to reduce status pressure.",
+            "Keep the Animist away from allies so Cuisine cannot repeatedly heal the watch.",
+        ],
+        rewards: {
+            gil: 6620,
+            cp: 90,
+            loot: "Mysidia Alloy ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "E4-08",
+        arc: "E4",
+        name: "Wall of Flame",
+        description: "Bombs have been streaming out of the crater on Firewyrm Mount. We're in the process of forming a brigade of mages to deal with the threat, but we need more time. Hold back the bombs for us until we've finished our preparations! Jank, Goug Firehouse",
+        rank: 29,
+        region: "Goug",
+        fee: 400,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "A Request; Odd Places upper-middle well; visit any town",
+        requiredTalents: {
+            negotiation: 44,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 44,
+        },
+        objective: "Endure the enemy's attack for 3 rounds!",
+        law: "Forbidden: Ice – Ice attacks are forbidden.",
+        enemies: [
+            { name: "Randomized Name", job: "Bomb", notes: "Endless bomb wave; replacements appear immediately when defeated." },
+        ],
+        strategy: [
+            "Survive for three full rounds; killing every Bomb is neither required nor possible because replacements spawn.",
+            "Avoid Ice despite it being the natural weakness. Bring healing and fire-resistant gear if available.",
+            "Watch Bombs at critical HP because Self-Destruct can cause heavy damage.",
+        ],
+        rewards: {
+            gil: 4270,
+            cp: 58,
+            loot: "Gold Chalice ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -171,15 +299,16 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [],
+        enemies: [],
         strategy: [
-            "Delivery mission — carry the letter from Camoa to Goug.",
+            "Pick up Riddim's letter in Camoa, then deliver it to Meena in Goug.",
         ],
         rewards: {
             gil: 2660,
@@ -190,10 +319,138 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         tags: ["optional"]
     },
     {
+        id: "E4-10",
+        arc: "E4",
+        name: "Watching the Watchers",
+        description: "We hired a group of parivir to protect our precious city from outside attacks, but those very parivir have started wreaking havoc -inside- the city, kupo! We need a group of hunters to come and take care of the troublemakers. Zupp, Goug Youth Alliance",
+        rank: 38,
+        region: "Goug",
+        fee: 500,
+        days: 20,
+        questType: "Battle",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "A Request; visit any town",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 44,
+            adaptability: 44,
+        },
+        objective: "Defeat all foes!",
+        law: "Forbidden: Piercing Weapons – Attacks with rapiers and spears are forbidden.",
+        enemies: [
+            { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Pummel, Dark Fist, Withering Strike, Cross-Counter, Counter, and Death Strike." },
+            { name: "Randomized Name", job: "Parivir", quantity: 1, notes: "Hoarfrost Blade, Fire Veil, Water Veil, Reflex, and Doublehand." },
+            { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Scream, Furore, Ground Shaker, Smite of Rage, Counter, and Charged Attacks." },
+            { name: "Randomized Name", job: "Fighter", quantity: 1, notes: "Wild Swing, Air Blast, Back Draft, MP Shield, and Doublehand." },
+        ],
+        strategy: [
+            "Avoid rapiers and spears under the law.",
+            "Prioritize the Master Monk if your strategy triggers counters, then the Parivir for debuffs.",
+            "Ranged attacks and magick help manage the enemy melee pressure.",
+        ],
+        rewards: {
+            gil: 7000,
+            cp: 76,
+            loot: "Prime Pelt ×2"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "E4-11",
+        arc: "E4",
+        name: "Crying Eyeball",
+        description: "You're not going to believe this, but I saw tons of those eyeball monsters coming out of this old mineshaft...and they were headed for Goug! I know I say a lot of things that aren't exactly true, but this time is different! Someone hold those eyeballs off while I alert the watch! Riger, The Boy Who Cried Eyeball",
+        rank: 31,
+        region: "Goug",
+        fee: 400,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Time to Act",
+        requiredTalents: {
+            negotiation: 44,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 44,
+        },
+        objective: "Stop the incursion and survive 3 rounds!",
+        law: "Forbidden: HP <= 20 – Having 20 HP or less is forbidden.",
+        enemies: [
+            { name: "Randomized Name", job: "Ahriman", notes: "Part of the respawning eyeball wave; status effects are the main danger." },
+            { name: "Randomized Name", job: "Bloody Orb", notes: "Respawning eyeball enemy." },
+            { name: "Randomized Name", job: "Floating Eye", notes: "Respawning eyeball enemy." },
+            { name: "Randomized Name", job: "Plague", notes: "Can inflict troublesome status effects." },
+        ],
+        battlefield: [
+            "Hold the line at the barrel near the starting area; if an enemy gets past it, the quest fails.",
+        ],
+        strategy: [
+            "Survive for three rounds while stopping enemies from passing the barrel.",
+            "Defeated eyeballs are replaced, so focus on blocking and control rather than clearing the map.",
+            "Keep all units above 20 HP to avoid breaking the law.",
+        ],
+        rewards: {
+            gil: 6390,
+            cp: 62,
+            loot: "Kuraisle Boxwood ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "E4-12",
+        arc: "E4",
+        name: "Time to Act",
+        description: "The parivir driven out of Goug are holding a grudge, kupo. They're back, and they've brought friends! The Goug Watch is ready to move, but this is our first real battle, and having someone to watch our backs would really be a comfort, kupo. Zupp, Commander of the Goug Watch",
+        rank: 48,
+        region: "Goug",
+        fee: 500,
+        days: 20,
+        questType: "Escort",
+        canDispatch: false,
+        canCancel: true,
+        members: 1,
+        prerequisite: "Through Another's Eyes; Training Wanted; visit any town",
+        requiredTalents: {
+            negotiation: 47,
+            aptitude: 0,
+            teamwork: 47,
+            adaptability: 0,
+        },
+        objective: "Protect the Goug Watch and defeat all foes!",
+        law: "Forbidden: Harming Moogles – Actions that harm moogles are forbidden.",
+        enemies: [
+            { name: "Randomized Name", job: "Sniper", quantity: 1, notes: "Priority target if it threatens Goug Watch members from range." },
+            { name: "Randomized Name", job: "Arcanist", quantity: 1, notes: "Priority target; can target units with Lv. 3 Dark." },
+            { name: "Randomized Name", job: "Illusionist", quantity: 1, notes: "Dangerous area magick if not silenced or eliminated." },
+            { name: "Randomized Name", job: "Parivir", quantity: 1, notes: "Dangerous if it reaches the watch." },
+            { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "Often uses Veils; lower priority than the ranged/caster threats." },
+        ],
+        strategy: [
+            "You may send only one clan member; choose a fast, well-equipped unit that can heal and deal ranged or high burst damage.",
+            "Protect every Goug Watch member. If one dies, the quest fails.",
+            "Prioritize Sniper, Arcanist, and Illusionist threats while keeping watch members healthy.",
+            "The allied Tinker can swing the fight with random effects, so this battle can require retries.",
+        ],
+        rewards: {
+            gil: 7650,
+            cp: 96,
+            loot: "Lightwing Crystal ×1"
+        },
+        notes: "",
+        tags: ["optional", "protection"]
+    },
+    {
         id: "E4-14",
         arc: "E4",
         name: "Drawn Bridge",
-        description: "I'm in charge of Dow Bridge, a drawbridge linking Goug with Kthili Sands. The bridge mechanism is one of the great feats of mooglecraft! The thing is, I've run into a little problem ... I lost the key required to operate it! I dropped it in one of the mine shafts, and no one's been able to use the bridge since! My pom-pom's akimbo over the whole mess, kupo! Tchipo, Dow Bridge Operator",
+        description: "I'm in charge of Dow Bridge, a drawbridge linking Goug with Kthili Sands. The bridge mechanism is one of the great feats of mooglecraft! The thing is, I've run into a little problem...I lost the key required to operate it! I dropped it in one of the mine shafts, and no one's been able to use the bridge since! My pom-pom's akimbo over the whole mess, kupo! Tchipo, Dow Bridge Operator",
         rank: 48,
         region: "Goug",
         fee: 500,
@@ -202,27 +459,73 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Through Another's Eyes; visit any town; accept in Goug",
         requiredTalents: {
             negotiation: 0,
             aptitude: 44,
             teamwork: 0,
             adaptability: 0,
         },
-        objective: "Find the Dow Bridge Key!",
-        law: "Forbidden: Items – Items are Forbidden",
-    enemies: [
-        { name: "Randomized Name", job: "Mimic", quantity: 3, notes: "Weak to all elements. Open sparkle tiles to find the key." },
-        { name: "Randomized Name", job: "Magick Pot", quantity: 1, notes: "Absorbs all elements — use physical attacks only. Cannot be killed until sated (give it what it asks for, or ignore)." },
-    ],
+        objective: "Find the Dow Bridge key!",
+        law: "Forbidden: Items – Items are forbidden.",
+        enemies: [
+            { name: "Randomized Name", job: "Mimic", quantity: 3, notes: "Weak to every element; respawns can be farmed for high-level loot." },
+            { name: "Randomized Name", job: "Magick Pot", quantity: 1, notes: "Absorbs all elements; ignore it or use physical attacks only." },
+        ],
+        battlefield: [
+            "The key is hidden in one of six sparkling spots.",
+            "Opening Dow Bridge unlocks direct Goug to Kthili Sands travel.",
+        ],
         strategy: [
-            "Key is hidden in one of several sparkle tiles. Check all sparkles — search quickly while managing enemies.",
-            "Use elemental magick on Mimics. Never use elements on Magick Pot — use physical attacks or ignore it.",
-            "Items are banned — no Potions. Bring healers with magick.",
+            "Search sparkling spots until you find the Dow Bridge key.",
+            "Enemies respawn when killed, so clearing the map is not required.",
+            "Items are banned; bring magick healing if you expect to take damage.",
         ],
         rewards: {
             gil: 7180,
             cp: 96,
             loot: "Einherjarium ×1"
+        },
+        notes: "",
+        tags: ["optional", "chain"]
+    },
+    {
+        id: "E4-15",
+        arc: "E4",
+        name: "Inspiration or Perspiration?",
+        description: "I seek a guide to escort me to Neslowe Peak. There I intend to stand beside a river of boiling magma and feel its heat on my skin. So inspired, I will paint a picture to capture that heat, making it real for all who look on it! You will be well rewarded for your trouble. Master Painter Kismunt",
+        rank: 40,
+        region: "The Neslowe Passage",
+        fee: 500,
+        days: 20,
+        questType: "Escort",
+        canDispatch: true,
+        canCancel: true,
+        members: 5,
+        prerequisite: "A Request; visit any town",
+        dispatchRecommended: ["Defender"],
+        requiredTalents: {
+            negotiation: 44,
+            aptitude: 0,
+            teamwork: 44,
+            adaptability: 0,
+        },
+        objective: "Protect your guest and defeat all foes!",
+        law: "Forbidden: Instruments and Books – Attacks with instruments and books are forbidden.",
+        enemies: [
+            { name: "Randomized Name", job: "Bomb", quantity: 3, notes: "All have Flame Attack and Fira; two have Self-Destruct, while one has Firaga instead." },
+            { name: "Randomized Name", job: "Fire Drake", quantity: 2, notes: "Fire Breath and Mesmerize; one has Expose Weakness and one has Mighty Guard." },
+            { name: "Red Marshmallow", job: "Flan", quantity: 1, notes: "Has Unction, Merge, and Fira." },
+        ],
+        strategy: [
+            "Protect Kismunt, the guest Alchemist, while defeating all enemies.",
+            "Use ice attacks and healing support; most enemies heal from fire and attack with fire.",
+            "Finish quickly. The volcano begins damaging all units after the ground starts trembling around round 3-4.",
+        ],
+        rewards: {
+            gil: 10820,
+            cp: 80,
+            loot: "Stradivari ×1"
         },
         notes: "",
         tags: ["optional"]

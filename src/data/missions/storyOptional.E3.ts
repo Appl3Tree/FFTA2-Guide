@@ -24,7 +24,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [],
+        enemies: [],
         strategy: [
             "Delivery mission — bring Ice Stone ×1 to Fluorgis.",
         ],
@@ -37,10 +37,55 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         tags: ["optional"]
     },
     {
+        id: "E3-06",
+        arc: "E3",
+        name: "Meeting the Quota",
+        description: "I've always been weak-ill suited for physical labor. As my luck would have it, I was chosen to join an expedition to dig for licra ore. I really don't think I'm up to the task, and so I seek a group of hunters to go in my place. Cain the Frail",
+        rank: 30,
+        region: "Nazan Mines",
+        fee: 400,
+        days: 20,
+        questType: "Item Recovery",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Rumors Abound",
+        dispatchRecommended: ["White Monk"],
+        requiredTalents: {
+            negotiation: 18,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Gather the Licra Ore!",
+        law: "Forbidden: Targeting an Area – Actions targeting two or more tiles are forbidden.",
+        enemies: [
+            { name: "Randomized Name", job: "Ghost", quantity: 3, notes: "Undead; use Raise, Phoenix Down, Exorcise, or Burial after reducing to 0 HP." },
+            { name: "Randomized Name", job: "Zombie", quantity: 2, notes: "Undead; can drain HP and return from tombstone state unless exorcised." },
+            { name: "Randomized Name", job: "Ghoul", quantity: 1, notes: "Undead support threat while collecting ore." },
+        ],
+        battlefield: [
+            "Six sparkling licra ore spots must be examined.",
+            "Treasure and traps are present in the mines.",
+        ],
+        strategy: [
+            "Collect all six licra ore spots; defeating every undead enemy is optional.",
+            "Bring fast/high-movement units if you want to finish by collection, or bring Raise/Phoenix Down/Exorcise/Burial support if clearing the undead.",
+            "Avoid area-targeting abilities because of the law.",
+        ],
+        rewards: {
+            gil: 4990,
+            cp: 60,
+            loot: "High Arcana ×2"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
         id: "E3-07",
         arc: "E3",
         name: "Wish Upon a Star",
-        description: "This past night I saw another falling star in the direct of Sant D'alsa Bluff. There had been another the night before last, and the night before that, too! I can't rest with the sky falling down around me. All I want is a good night's sleep! Would someone travel to Sant D'alsa Bluff and see if there's anything that can be done? Manuela, Insomniac",
+        description: "This past night I saw another falling star in the direction of Sant D'alsa Bluff. There had been another the night before last, and the night before that, too! I can't rest with the sky falling down around me. All I want is a good night's sleep! Would someone travel to Sant D'alsa Bluff and see if there's anything that can be done? Manuela, Insomniac",
         rank: 27,
         region: "Sant D'alsa Bluff",
         fee: 400,
@@ -57,14 +102,16 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         },
         objective: "Defeat Entz!",
         law: "Forbidden: Elemental Effects – Use of elemental weapons and abilities is forbidden.",
-    enemies: [
-        { name: "Entz", job: "Alchemist", quantity: 1, notes: "Mark — located at the furthest point from starting position." },
-        { name: "Randomized Name", job: "Zombie", quantity: 2, notes: "Undead — use Cure/Potions for damage. Use Phoenix Down on tombstone." },
-        { name: "Randomized Name", job: "Ghoul", quantity: 1, notes: "Undead — use Cure/Potions. Use Phoenix Down on tombstone." },
-        { name: "Randomized Name", job: "Great Tortoise", quantity: 2, notes: "High defense — deal with after undead." },
-    ],
+        enemies: [
+            { name: "Entz", job: "Alchemist", quantity: 1, notes: "Mark at the highest/furthest point; can rain meteors for heavy damage." },
+            { name: "Randomized Name", job: "Zombie", quantity: 2, notes: "Undead; use Cure/Potions for damage and Phoenix Down, Exorcise, or Burial on tombstones." },
+            { name: "Randomized Name", job: "Ghoul", quantity: 1, notes: "Undead; can poison/drain while you advance." },
+            { name: "Randomized Name", job: "Great Tortoise", quantity: 2, notes: "Strong physical attackers guarding the path to Entz." },
+        ],
         strategy: [
-            "No elemental attacks at all. Fight through Zombies/Ghoul (use Cure as damage + Phoenix Down), then Great Tortoises, then reach Entz.",
+            "No elemental attacks at all, including elemental weapon damage.",
+            "You only need to defeat Entz, but clearing the Zombies, Ghoul, and Great Tortoises makes the climb safer.",
+            "Use non-elemental abilities or Mirror Items; verify weapons before attacking under the law.",
         ],
         rewards: {
             gil: 5740,
@@ -87,23 +134,24 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Rancher's Request",
+        prerequisite: "Rancher's Request - Green; Greenfire",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
             teamwork: 18,
             adaptability: 18,
         },
-    enemies: [],
+        enemies: [],
         strategy: [
-            "Dispatch mission — send a Chocobo Knight or Beastmaster for 15 days.",
+            "Send a Chocobo Knight or Beastmaster for 15 days; either job satisfies the hatchery work.",
+            "Keep Chocobo Knight available if you are hunting rare chocobos; send Beastmaster instead.",
         ],
         rewards: {
             gil: 2560,
             cp: 36,
             loot: "Platinum ×1"
         },
-        notes: "",
+        notes: "Requires Rancher's Request - Green and must be available during Greenfire.",
         tags: ["optional"]
     },
     {
@@ -127,12 +175,12 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Action by Seeq – Seeq may only move and perform basic attacks.",
-    enemies: [
-        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "PRIORITY 1: Has Leg Shot, Arm Shot, and Take Aim — disables limbs crippling your units. Eliminate first." },
-        { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "PRIORITY 2: Has Throw, Fire Veil, and Water Veil — debuffing elemental attacks." },
-        { name: "Randomized Name", job: "Blue Mage", quantity: 1, notes: "PRIORITY 3: Has Sandstorm, Bad Breath, and Unction — Bad Breath inflicts mass status effects." },
-        { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Has Esuna, Fira, and Magick Counter. Kill last — she heals/counters magic." },
-    ],
+        enemies: [
+            { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Priority target; Leg Shot, Arm Shot, and Take Aim can cripple units." },
+            { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "Has Throw, Fire Veil, and Water Veil; can Confuse or Silence allies but lacks Dual Wield." },
+            { name: "Randomized Name", job: "Blue Mage", quantity: 1, notes: "Has Sandstorm, Bad Breath, and Unction; Bad Breath can inflict multiple debuffs." },
+            { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Has Esuna, Fira, and Magick Counter; lowest immediate threat." },
+        ],
         strategy: [
             "6 vs 4 — numbers advantage. Use ranged and fast units.",
             "Eliminate Archer first (limb shots), then Ninja (veils), then Blue Mage (Bad Breath). Seer last.",
@@ -149,7 +197,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         id: "E3-12",
         arc: "E3",
         name: "Eternal Rivalry",
-        description: "My master suddently left the dojo the other day, leaving behind a note that said he was off to fight his sworn enemy! I am worried for my master. Could someone go and see if he is all right? Anis, Grant's Pupil",
+        description: "My master suddenly left the dojo the other day, leaving behind a note that said he was off to fight his sworn enemy! I am worried for my master. Could someone go and see if he is all right? Anis, Grant's Pupil",
         rank: 99,
         region: "Sant D'alsa Bluff",
         fee: 500,
@@ -166,7 +214,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         },
         objective: "See the battle to the end!",
         law: "Forbidden: Restoring HP – Actions that restore HP are forbidden.",
-    enemies: [],
+        enemies: [],
         strategy: [
             "No battle required — just watch. Head to the battlefield and observe the duel.",
             "Let Grant fight the Paladin. Loot the Paladin's body after Grant wins.",
@@ -175,6 +223,76 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             gil: 6850,
             cp: 99,
             loot: "Moon Ring ×5"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "E3-13",
+        arc: "E3",
+        name: "Rancher's Request - Green",
+        description: "I'd like to have a green chocobo at my ranch to raise along with the others, but they're so fast, all of my own attempts to catch one have failed. Seek fleet-footed hunters to find and catch a green chocobo for me! Yew, Chocobo Rancher",
+        rank: 29,
+        region: "Targ Woods",
+        fee: 400,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: false,
+        canCancel: true,
+        members: 1,
+        prerequisite: "Rancher's Request - Black",
+        requiredTalents: {
+            negotiation: 18,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Deliver a green chocobo to Yew!",
+        enemies: [],
+        strategy: [
+            "Capture a Green Chocobo with a Chocobo Knight before turning in the quest.",
+            "Best capture spot: Zedlei Forest during Greenfire via the Open Wide encounter.",
+            "Defeat the other enemies, weaken the Green Chocobo to critical HP, move a Chocobo Knight next to it, mount it, then deliver it to Targ Woods.",
+        ],
+        rewards: {
+            gil: 1750,
+            cp: 58,
+            loot: "Gold Chalice ×3"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "E3-14",
+        arc: "E3",
+        name: "Rancher's Request - Brown",
+        description: "The other day I made to catch a brown chocobo to add to my herd, but I didn't expect the fierce beaking that was in store for me. I was lucky to make it back in one piece! I seek stalwart hunters to capture a brown chocobo and return it to me-I'll stick to raising them. Yew, Chocobo Rancher",
+        rank: 33,
+        region: "Targ Woods",
+        fee: 500,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: false,
+        canCancel: true,
+        members: 1,
+        prerequisite: "Rancher's Request - Green",
+        requiredTalents: {
+            negotiation: 20,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Deliver a brown chocobo to Yew!",
+        enemies: [],
+        strategy: [
+            "Capture a Brown Chocobo with a Chocobo Knight before turning in the quest.",
+            "Best capture spot: Aldanna Range during Greenfire via the Formidable Strength encounter.",
+            "Defeat the other enemies, weaken the Brown Chocobo to critical HP, mount it with a Chocobo Knight, then deliver it to Targ Woods.",
+        ],
+        rewards: {
+            gil: 1750,
+            cp: 66,
+            loot: "Unpurified Ether ×3"
         },
         notes: "",
         tags: ["optional"]
@@ -192,31 +310,33 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Rancher's Request -",
+        prerequisite: "Rancher's Request - Brown",
         requiredTalents: {
             negotiation: 22,
             aptitude: 0,
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [],
+        objective: "Deliver a white chocobo to Yew!",
+        enemies: [],
         strategy: [
-            "Use a Chocobo Knight to enter the Chocobo area and capture a White Chocobo (weaken to HP Critical, then mount).",
+            "Use a Chocobo Knight to capture a White Chocobo before turning in the quest.",
+            "Weaken the White Chocobo to critical HP, mount it with a Chocobo Knight, then deliver it to Targ Woods.",
         ],
         rewards: {
             gil: 1750,
             cp: 74,
             loot: "Scarletite ×3"
         },
-        notes: "",
+        notes: "Requires Making Music and Rancher's Request - Brown.",
         tags: ["optional"]
     },
     {
         id: "E3-16",
         arc: "E3",
         name: "Rancher's Request - Red",
-        description: "Some fellow chocobo afficionados and I went chocobo - watching in the hope of seeing a red chocobo. We had spotted one and were settling in for a good viewing, when without warning it lashed out at us with a choco meteor! Our number must have spooked the poor thing. I knew I should have gone alone! Would you catch one for me? Yew, Chocobo Rancher",
-        rank: 42,
+        description: "Some fellow chocobo aficionados and I went chocobo-watching in the hope of seeing a red chocobo. We had spotted one and were settling in for a good viewing, when without warning it lashed out at us with a choco meteor! Our number must have spooked the poor thing. I knew I should have gone alone! Would you catch one for me? Yew, Chocobo Rancher",
+        rank: 46,
         region: "Targ Woods",
         fee: 500,
         days: 20,
@@ -224,17 +344,22 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Rancher's Request -",
+        prerequisite: "Seeking the Stone; Rancher's Request - White; visit any town",
         requiredTalents: {
             negotiation: 28,
             aptitude: 0,
             teamwork: 0,
             adaptability: 0,
         },
+        objective: "Deliver the red chocobo!",
         enemies: [],
+        strategy: [
+            "Capture a Red Chocobo with a Chocobo Knight before turning in the quest.",
+            "Weaken the Red Chocobo to critical HP, mount it with a Chocobo Knight, then deliver it to Targ Woods.",
+        ],
         rewards: {
             gil: 1750,
-            cp: 84,
+            cp: 92,
             loot: "Pink Tail ×5"
         },
         notes: "",

@@ -29,9 +29,14 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         law: "Forbidden: Attack – Attacking is Forbidden",
     enemies: [
         { name: "Randomized Name", job: "Tonberry King", quantity: 1, notes: "Highest threat — eliminate first. Normal attacks are banned but abilities and reactions are allowed." },
-        { name: "Randomized Name", job: "Baknamy", quantity: 2 },
-        { name: "Randomized Name", job: "Luchorpan", quantity: 2 },
+        { name: "Randomized Name", job: "Baknamy", quantity: 2, notes: "Close-range blockers around the trap route; clear them with job abilities instead of Attack." },
+        { name: "Randomized Name", job: "Luchorpan", quantity: 2, notes: "Support monsters near the traps. Keep ranged or magick users ready so they do not pin down your trap clearer." },
     ],
+        strategy: [
+            "Normal Attack is forbidden, but job abilities, magick, items, and reaction abilities are still legal.",
+            "Eliminate or disable the Tonberry King first, then clear Baknamy and Luchorpans that block access to the traps.",
+            "Bring a Ranger or high-mobility unit to reach every trap tile, and keep the trap clearer protected while the rest of the party controls enemies.",
+        ],
         rewards: {
             gil: 9450,
             cp: 92,
@@ -67,8 +72,13 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         { name: "Randomized Name", job: "Ice Drake", quantity: 2, notes: "Ice attacks. Weak to Fire." },
         { name: "Randomized Name", job: "Blue Flan", quantity: 2, notes: "Ice attacks. Weak to Fire. Collect all potion sparkles on the map to complete." },
     ],
+        battlefield: [
+            "Potion sparkle spots are scattered through The Galerria Deep.",
+        ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
+            "Collect every potion sparkle to complete the mission; defeating all monsters is not required if you can move safely.",
+            "Restoring HP is forbidden, so prevent damage instead of relying on Cure or item healing.",
+            "Prioritize the Wendigo first if it blocks collection routes, then use Fire against the Ice Drakes and Blue Flans.",
         ],
         rewards: {
             gil: 3660,
@@ -108,8 +118,9 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Uses Slow and Time. At the back — harder to reach." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Targeting all units is forbidden, so avoid Illusion, all-field effects, and any action that would include every unit on the map.",
+            "Remove the Illusionist before Freezeblink can punish your whole party, then take out the Black Mage and Archer to reduce damage and status pressure.",
+            "The Time Mage starts farther back; send a mobile unit around the frontline once the dangerous casters are under control.",
         ],
         rewards: {
             gil: 3330,
@@ -123,7 +134,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         id: "C2-04",
         arc: "C2",
         name: "Shipping Out",
-        description: "We're up to our ears in shipping orders. IUt's getting so bad, I've even thought about taking on baknamy! As it is, the freight keeps piling up, and we don't have enough hands to keep it moving. If you aren't afraid of a little hard work, we've got a job for you.",
+        description: "We're up to our ears in shipping orders. It's getting so bad, I've even thought about taking on baknamy! As it is, the freight keeps piling up, and we don't have enough hands to keep it moving. If you aren't afraid of a little hard work, we've got a job for you.",
         rank: 11,
         region: "Targ Wood, Graszton",
         fee: 300,
@@ -149,6 +160,48 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         },
         notes: "",
         tags: ["optional"]
+    },
+    {
+        id: "C2-05",
+        arc: "C2",
+        name: "Komodo Departure",
+        description: "I have to deliver some merchandise, and the road promises to be treacherous. Guards needed! Pay: 2200 Gil. The successful applicant will have confidence in their sword arm, be passionate about their work, and love to quaff potions. Komodo Potions",
+        rank: 16,
+        region: "The Bisga Greenlands",
+        fee: 300,
+        days: 20,
+        questType: "Escort",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 7,
+            aptitude: 0,
+            teamwork: 7,
+            adaptability: 0,
+        },
+        dispatchRecommended: ["Defender"],
+        objective: "Protect the Komodo Trader and Defeat all Foes!",
+        law: "Forbidden: Targeting an Area – Actions targeting two or more tiles are forbidden.",
+    enemies: [
+        { name: "Komodo Trader", job: "Soldier", quantity: 1, notes: "Guest to protect. Drinks potions but contributes little; keep healing and revival ready." },
+        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Starts on high ground; remove early with ranged single-target attacks." },
+        { name: "Randomized Name", job: "Fusilier", quantity: 1, notes: "High-ground gunner pressure. Shoot back or climb quickly." },
+        { name: "Randomized Name", job: "Warrior", quantity: 2, notes: "Ground-route physical attackers." },
+        { name: "Randomized Name", job: "Moogle Knight", quantity: 1, notes: "Uses Moogle Lance-style pressure and is more dangerous than the trader can handle alone." },
+    ],
+        strategy: [
+            "Avoid area targeting entirely; most offensive magick will violate the law, so favor single-target ranged and melee abilities.",
+            "Split pressure between the high-ground Archer/Fusilier and the ground route enemies around the trader.",
+            "Bring Phoenix Downs or Raise/Arise support because the Komodo Trader is fragile and the map is trap-laden.",
+        ],
+        rewards: {
+            gil: 2200,
+            cp: 32,
+            loot: "Zodiac Ore ×5, Cruzle Brass ×3, Rabbit Tail ×1"
+        },
+        notes: "",
+        tags: ["optional", "chain"]
     },
     {
         id: "C2-06",
@@ -187,7 +240,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         name: "The Lands of Loar",
         description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 5 days and receive a stamp on your wayfarer's log to win valuable prizes. Marsa Wayfarers Association List of Destination: - Baptiste Hill - The Bisga Greenlands - The Aldanna Range",
         rank: 16,
-        region: "- Baptiste Hill",
+        region: "Baptiste Hill, The Bisga Greenlands, The Aldanna Range",
         fee: 300,
         days: 5,
         questType: "Meet Objectives",
@@ -306,14 +359,19 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         law: "Forbidden: >100 Damage – Dealing >100 damage is forbidden.",
     enemies: [
         { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Uses Render skills — highest priority. Height advantage favors you." },
-        { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "Uses Veils." },
-        { name: "Randomized Name", job: "Viking", quantity: 1, notes: "Uses Magick skills." },
-        { name: "Randomized Name", job: "Thief", quantity: 1 },
-        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Moogle/Pom-Pom." },
-        { name: "Randomized Name", job: "Fighter", quantity: 1 },
+        { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "Uses Veils for elemental pressure and can pick off weakened units." },
+        { name: "Randomized Name", job: "Viking", quantity: 1, notes: "Uses magick and physical pressure; keep magic defense or Silence options ready." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Item and gil theft threat. Defeat or disable before it reaches your back line." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Moogle/Pom-Pom variant with stealing pressure; Safeguard helps if you have it." },
+        { name: "Randomized Name", job: "Fighter", quantity: 1, notes: "Durable melee unit. Leave until the casters and thieves are handled." },
     ],
         battlefield: [
             "The map features elevation differences",
+        ],
+        strategy: [
+            "The >100 damage law makes heavy burst risky; use moderate-damage skills, status, and controlled follow-up hits instead of your strongest attacks.",
+            "Use the map height to your advantage. Focus the White Monk first to stop Render skills, then remove the Ninja/Viking and both Thieves.",
+            "Safeguard or quick disables are useful because this chain continues the counterfeit-ribbon thief theme.",
         ],
         rewards: {
             gil: 2980,
@@ -348,6 +406,11 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Cassie", quantity: 6, notes: "Malboro variant. Uses Honeyed Breath, Cloying Breath (debuffs), and Charm. 2 have Love Song (healing). Use Sidewinder (Hunters) or Wind-element attacks." },
     ],
+        strategy: [
+            "Buffs and debuffs are forbidden, but the Cassies can still pressure you with Charm and breath effects; bring Esuna-style recovery and status immunity where possible.",
+            "Prioritize the two Cassies with Love Song so they cannot undo your damage, then clean up the remaining Malboro variants with Wind attacks or Hunter Sidewinder.",
+            "Spread out to reduce breath value and avoid using any support action that the law treats as a buff or debuff.",
+        ],
         rewards: {
             gil: 3430,
             cp: 44,
@@ -381,6 +444,11 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Golem", quantity: 1, notes: "Speed battle: you and Chita's Weaponers race to kill it. Weak to Wind — use Shining Air or Sidewinder. Heal it if the enemy team gets too close to stealing the kill." },
     ],
+        strategy: [
+            "Win by landing the killing blow on the Golem before Chita's Weaponers do.",
+            "Do not bring rods, staves, poles, knuckles, hammers, or maces because bludgeoning weapons are forbidden.",
+            "Use Wind damage such as Shining Air or Sidewinder, and heal or delay the Golem if the rival team is about to steal the final hit.",
+        ],
         rewards: {
             gil: 5900,
             cp: 78,
@@ -413,6 +481,11 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Deathscythe", quantity: 1, notes: "Speed battle: race Chita's Weaponers to the kill. Undead — use X Potion (with Item Lore) for 400 damage to finish quickly. Heal if enemy is about to steal the kill." },
     ],
+        strategy: [
+            "This is a speed battle, so only the killing blow on the Deathscythe matters.",
+            "Ranged weapons are forbidden; use melee, magick, or item damage instead of bows, greatbows, guns, hand-cannons, or cards.",
+            "Because Deathscythe is undead, X-Potion with Item Lore is an excellent finisher. Heal or stall the target if Chita's team is positioned to claim the kill.",
+        ],
         rewards: {
             gil: 4920,
             cp: 66,
@@ -448,8 +521,14 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         { name: "Randomized Name", job: "Worgen", quantity: 1, notes: "Can call reinforcements — consider eliminating early. Height disadvantage — use magick." },
     ],
         battlefield: [
+            "Five sparkle spots are on the mountain route; one contains the Kupoppy Flower.",
             "The battlefield contains trap tiles that pose hazards",
             "The map features elevation differences",
+        ],
+        strategy: [
+            "Climb toward the peak and search the five sparkle spots until you uncover the Kupoppy Flower.",
+            "The mission ends as soon as the correct sparkle is examined, so high-Move or high-Jump units can shorten the fight.",
+            "Avoid knockback attacks because of the law. Use magick or ranged job abilities to handle Wolves and Werewolves across height differences.",
         ],
         rewards: {
             gil: 3400,

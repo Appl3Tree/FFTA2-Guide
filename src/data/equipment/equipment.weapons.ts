@@ -470,7 +470,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         eva: 0,
         spd: 0,
         teaches: {
-            Arcanist: ["lv-shadowflare"],
+            Arcanist: ["lv-?-shadow-flare"],
         },
         description: "The perfect gift for the bomb fanatic in your family: a rod that looks like a bomb arm!",
     },
@@ -766,7 +766,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         spd: 2,
         immunity: ["Berserk"],
         teaches: {
-            "Red Mage": ["magick-up"],
+            "Red Mage": ["magick↑"],
         },
         description: "The cold steel of this sword stands between the sanity of its wielder and the madness of war.",
     },
@@ -1648,7 +1648,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         spd: 0,
         immunity: ["Sleep"],
         teaches: {
-            Animist: ["100-wool"],
+            Animist: ["100%-wool"],
             Beastmaster: ["lamia"],
         },
         description: "The crystalline harmonies of this glass bell are truly worth the hearing.",
@@ -2469,7 +2469,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         eva: 2,
         spd: 0,
         teaches: {
-            Berserker: ["attack-up"],
+            Berserker: ["attack↑"],
         },
         description: "Properly braided, even the supplest of materials can be made deadly.",
     },
@@ -2485,7 +2485,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         mag: 2,
         rst: 10,
         teaches: {
-            Alchemist: ["magick-up"],
+            Alchemist: ["magick↑"],
             Sage: ["esunaga"],
         },
         description: "A mace with the power to give life, and to take it away.",
@@ -3050,7 +3050,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         rangeMax: 5,
         element: ["Lightning"],
         teaches: {
-            Hunter: ["attack-up"],
+            Hunter: ["attack↑"],
         },
         description: "A bow blessed by the Goddess of Victory.",
     },
@@ -4511,7 +4511,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         mag: 2,
         jump: 2,
         teaches: {
-            Templar: ["attack-up"],
+            Templar: ["attack↑"],
         },
         description: "The noble trident, weapon of the sea-king and any brave enough to plough his foaming fields.",
     },
@@ -4791,7 +4791,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
     },
     xanqbras: {
         id: "xanqbras",
-        name: "Xanqbras",
+        name: "Xankbras",
         category: "Weapon",
         bazaar_category: "Greatswords E",
         price: 1250,

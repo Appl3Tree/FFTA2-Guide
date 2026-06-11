@@ -26,6 +26,7 @@ import { resolveEnemyLoadout } from "../../utils/resolveAbilities";
 import { resolveEnemyEquipment } from "../../utils/resolveEquipment";
 import { useProgress } from "../ProgressContext";
 import { getEnemyMetaForJob } from "../../data/bestiary/bestiary";
+import { getMissionPhaseSummary } from "../../utils/missionPhases";
 
 type TabKey = "missions" | "equipment" | "abilities" | "bazaar" | "retros";
 
@@ -68,6 +69,29 @@ interface BazaarRecipeWithBlob {
 interface BazaarSection {
     section: string;
     recipes: BazaarRecipeWithBlob[];
+}
+
+function pushText(parts: string[], value?: string | string[] | null) {
+    if (!value) return;
+    if (Array.isArray(value)) {
+        parts.push(...value);
+    } else {
+        parts.push(value);
+    }
+}
+
+function isGenericEnemyName(name?: string | null): boolean {
+    if (!name) return true;
+    return name.trim().toLowerCase() === "randomized name";
+}
+
+function getEnemyDisplayName(enemy: Mission["enemies"][number], fallback: string) {
+    if (!isGenericEnemyName(enemy.name)) {
+        return enemy.name!;
+    }
+
+    const parts = [enemy.race, enemy.job].filter(Boolean);
+    return parts.length > 0 ? parts.join(" ") : fallback;
 }
 
 function missionBlob(m: Mission): string {
@@ -122,7 +146,7 @@ function missionBlob(m: Mission): string {
         if ((m.rewards as any).loot) {
             parts.push(String((m.rewards as any).loot));
         }
-        if (m.rewards.items) parts.push(...m.rewards.items);
+        pushText(parts, m.rewards.items);
         if (m.rewards.abilities) parts.push(...m.rewards.abilities);
         if ((m.rewards as any).other) {
             parts.push(String((m.rewards as any).other));
@@ -131,7 +155,9 @@ function missionBlob(m: Mission): string {
 
     if (m.enemies) {
         for (const enemy of m.enemies) {
-            if (enemy.name) parts.push(enemy.name);
+            if (enemy.name && !isGenericEnemyName(enemy.name)) {
+                parts.push(enemy.name);
+            }
             if (enemy.race) parts.push(enemy.race);
             if (enemy.job) parts.push(enemy.job);
             if (enemy.level) parts.push(`Level ${enemy.level}`);
@@ -157,7 +183,7 @@ function missionBlob(m: Mission): string {
             if (loadout.A1.setDescription) parts.push(loadout.A1.setDescription);
             (loadout.A1.abilities ?? []).forEach((ab) => {
                 parts.push(ab.name);
-                if (ab.description) parts.push(ab.description);
+                pushText(parts, ab.description);
                 const abilityMeta = ABILITIES[ab.id];
                 if (abilityMeta?.blueMagic) parts.push("blue magic");
             });
@@ -166,23 +192,22 @@ function missionBlob(m: Mission): string {
             parts.push(loadout.A2.setName);
             (loadout.A2.abilities ?? []).forEach((ab) => {
                 parts.push(ab.name);
-                if (ab.description) parts.push(ab.description);
+                pushText(parts, ab.description);
                 const abilityMeta = ABILITIES[ab.id];
                 if (abilityMeta?.blueMagic) parts.push("blue magic");
             });
         }
         if (loadout.R) {
             parts.push(loadout.R.name);
-            if (loadout.R.description) parts.push(loadout.R.description);
+            pushText(parts, loadout.R.description);
         }
         if (loadout.P) {
             parts.push(loadout.P.name);
-            if (loadout.P.description) parts.push(loadout.P.description);
+            pushText(parts, loadout.P.description);
         }
     }
-}
+            }
 
-            
             // Include enemy equipment in search
             if (enemy.equipment) {
                 const equip = resolveEnemyEquipment(enemy.equipment);
@@ -428,11 +453,11 @@ function buildRuleDetails(item: EquipmentMeta): RuleDetails | null {
     let rule: any | undefined;
 
     if (cat === "Weapon" && (item as any).weaponType) {
-        rule = WEAPON_RULES[(item as any).weaponType];
+        rule = WEAPON_RULES[item.weaponType as keyof typeof WEAPON_RULES];
     } else if (cat === "Helmet" && (item as any).helmetType) {
-        rule = HELMET_RULES[(item as any).helmetType];
+        rule = HELMET_RULES[item.helmetType as keyof typeof HELMET_RULES];
     } else if (cat === "Armor" && (item as any).armorType) {
-        rule = ARMOR_RULES[(item as any).armorType];
+        rule = ARMOR_RULES[item.armorType as keyof typeof ARMOR_RULES];
     } else if (cat === "Shield") {
         rule = SHIELD_RULE;
     }
@@ -1012,6 +1037,32 @@ export function GlobalSearchPanel() {
                                         const hasEnemies =
                                             mission.enemies &&
                                             mission.enemies.length > 0;
+                                        const phaseSummary =
+                                            getMissionPhaseSummary(mission);
+                                        const enemyRows = phaseSummary
+                                            ? phaseSummary.phases.flatMap(
+                                                  (phase) => [
+                                                      {
+                                                          type: "phase" as const,
+                                                          phase,
+                                                          key: phase.key,
+                                                      },
+                                                      ...phase.enemies.map(
+                                                          (enemy, phaseIndex) => ({
+                                                              type: "enemy" as const,
+                                                              enemy,
+                                                              key: `${phase.key}:${phaseIndex}`,
+                                                          }),
+                                                      ),
+                                                  ],
+                                              )
+                                            : (mission.enemies ?? []).map(
+                                                  (enemy, enemyIndex) => ({
+                                                      type: "enemy" as const,
+                                                      enemy,
+                                                      key: String(enemyIndex),
+                                                  }),
+                                              );
 
                                         const retroList =
                                             RETRO_ACHIEVEMENTS_BY_MISSION_ID[
@@ -1219,14 +1270,41 @@ export function GlobalSearchPanel() {
                                                                         <div className="text-zinc-400 text-[0.7rem]">
                                                                             Strategy
                                                                         </div>
-                                                                        <p className="text-[0.7rem] text-zinc-100">
-                                                                            {
-                                                                                (
-                                                                                    mission as any
-                                                                                )
-                                                                                    .strategy.join(" ")
-                                                                            }
-                                                                        </p>
+                                                                        {phaseSummary ? (
+                                                                            <div className="space-y-1.5 text-[0.7rem] text-zinc-100">
+                                                                                {phaseSummary.sharedStrategy.length > 0 && (
+                                                                                    <p>
+                                                                                        {phaseSummary.sharedStrategy.join(" ")}
+                                                                                    </p>
+                                                                                )}
+                                                                                {phaseSummary.phases.map((phase) => (
+                                                                                    <div
+                                                                                        key={phase.key}
+                                                                                        className="rounded-md border border-zinc-800/80 bg-zinc-950/50 px-2 py-1.5"
+                                                                                    >
+                                                                                        <div className="mb-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-zinc-400">
+                                                                                            {phase.title}
+                                                                                        </div>
+                                                                                        {phase.strategy.length > 0 ? (
+                                                                                            <p>{phase.strategy.join(" ")}</p>
+                                                                                        ) : (
+                                                                                            <p className="text-zinc-400">
+                                                                                                Follow the enemy priorities listed for this phase.
+                                                                                            </p>
+                                                                                        )}
+                                                                                    </div>
+                                                                                ))}
+                                                                            </div>
+                                                                        ) : (
+                                                                            <p className="text-[0.7rem] text-zinc-100">
+                                                                                {
+                                                                                    (
+                                                                                        mission as any
+                                                                                    )
+                                                                                        .strategy.join(" ")
+                                                                                }
+                                                                            </p>
+                                                                        )}
                                                                     </div>
                                                                 )}
                                                                 {(mission as any)
@@ -1265,9 +1343,7 @@ export function GlobalSearchPanel() {
                                                                 {mission
                                                                     .requiredTalents && (
                                                                     <div className="grid grid-cols-2 gap-x-4 gap-y-1 mt-1">
-                                                                        {mission
-                                                                            .requiredTalents
-                                                                            .negotiation > 0 && (
+                                                                        {(mission.requiredTalents.negotiation ?? 0) > 0 && (
                                                                             <div>
                                                                                 <span className="text-zinc-400">
                                                                                     Negotiation:
@@ -1281,9 +1357,7 @@ export function GlobalSearchPanel() {
                                                                                 </span>
                                                                             </div>
                                                                         )}
-                                                                        {mission
-                                                                            .requiredTalents
-                                                                            .aptitude > 0 && (
+                                                                        {(mission.requiredTalents.aptitude ?? 0) > 0 && (
                                                                             <div>
                                                                                 <span className="text-zinc-400">
                                                                                     Aptitude:
@@ -1297,9 +1371,7 @@ export function GlobalSearchPanel() {
                                                                                 </span>
                                                                             </div>
                                                                         )}
-                                                                        {mission
-                                                                            .requiredTalents
-                                                                            .teamwork > 0 && (
+                                                                        {(mission.requiredTalents.teamwork ?? 0) > 0 && (
                                                                             <div>
                                                                                 <span className="text-zinc-400">
                                                                                     Teamwork:
@@ -1313,9 +1385,7 @@ export function GlobalSearchPanel() {
                                                                                 </span>
                                                                             </div>
                                                                         )}
-                                                                        {mission
-                                                                            .requiredTalents
-                                                                            .adaptability > 0 && (
+                                                                        {(mission.requiredTalents.adaptability ?? 0) > 0 && (
                                                                             <div>
                                                                                 <span className="text-zinc-400">
                                                                                     Adaptability:
@@ -1500,16 +1570,39 @@ export function GlobalSearchPanel() {
                                                         {hasEnemies && (
                                                             <CollapsibleSection title="Enemies">
                                                                 <ul className="space-y-1.25 text-[0.7rem] text-zinc-100">
-                                                                    {mission.enemies!.map((enemy, idx) => {
+                                                                    {enemyRows.map((row, idx) => {
+                                                                        if (row.type === "phase") {
+                                                                            return (
+                                                                                <li
+                                                                                    key={`phase:${row.key}`}
+                                                                                    className="border border-amber-700/50 rounded-md bg-amber-950/20 px-2 py-1.5"
+                                                                                >
+                                                                                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                                                                                        <span className="font-semibold uppercase tracking-[0.14em] text-amber-200">
+                                                                                            {row.phase.title}
+                                                                                        </span>
+                                                                                        <span className="text-[0.6rem] text-amber-100/70">
+                                                                                            {row.phase.enemies.length} enemy
+                                                                                            {row.phase.enemies.length === 1 ? "" : " groups"}
+                                                                                        </span>
+                                                                                    </div>
+                                                                                    {row.phase.strategy.length > 0 && (
+                                                                                        <p className="mt-1 text-[0.65rem] text-amber-50/85">
+                                                                                            {row.phase.strategy.join(" ")}
+                                                                                        </p>
+                                                                                    )}
+                                                                                </li>
+                                                                            );
+                                                                        }
+
+                                                                        const enemy = row.enemy;
                                                                         const loadout = resolveEnemyLoadout(enemy.abilities);
                                                                         const equip = resolveEnemyEquipment(enemy.equipment) ?? [];
                                                                         const meta = getEnemyMetaForJob(enemy.job);
 
-                                                                        const hasAbilities =
-                                                                            !!loadout &&
-                                                                            !!(loadout.A1 || loadout.A2 || loadout.R || loadout.P);
+                                                                        const hasAbilities = false;
 
-                                                                        const hasEquipment = equip.length > 0;
+                                                                        const hasEquipment = false;
 
                                                                         const hasAffinities =
                                                                             (meta?.absorb?.length ?? 0) > 0 ||
@@ -1519,32 +1612,42 @@ export function GlobalSearchPanel() {
 
                                                                         const quantity = (enemy as any).quantity ?? 1;
 
-                                                                        const enemyKey = `${mission.id}:${idx}`;
+                                                                        const enemyKey = `${mission.id}:${row.key}`;
                                                                         const isEnemyOpen = openEnemies[enemyKey] ?? false;
+                                                                        const enemyDisplayName = getEnemyDisplayName(
+                                                                            enemy,
+                                                                            `Enemy ${idx + 1}`,
+                                                                        );
+                                                                        const showRacePill =
+                                                                            !!enemy.race &&
+                                                                            !enemyDisplayName.includes(enemy.race);
+                                                                        const showJobPill =
+                                                                            !!enemy.job &&
+                                                                            !enemyDisplayName.includes(enemy.job);
 
                                                                         const showDetails =
                                                                             isEnemyOpen &&
-                                                                            (hasAbilities || hasEquipment || hasAffinities);
+                                                                            hasAffinities;
 
                                                                         return (
                                                                             <li
-                                                                                key={enemy.name ?? `${mission.id}-enemy-${idx}`}
+                                                                                key={enemyKey}
                                                                                 className="border border-zinc-800/80 rounded-md bg-zinc-950/50 px-2 py-1.5"
                                                                             >
                                                                                 {/* Header row: name, race, job, quantity, notes, toggle */}
                                                                                 <div className="flex flex-wrap items-center justify-between gap-2">
                                                                                     <div className="flex flex-wrap items-center gap-1.5">
                                                                                         <span className="font-semibold text-zinc-50">
-                                                                                            {enemy.name ?? `Enemy ${idx + 1}`}
+                                                                                            {enemyDisplayName}
                                                                                         </span>
 
-                                                                                        {enemy.race && (
+                                                                                        {showRacePill && (
                                                                                             <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
                                                                                                 {enemy.race}
                                                                                             </span>
                                                                                         )}
 
-                                                                                        {enemy.job && (
+                                                                                        {showJobPill && (
                                                                                             <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
                                                                                                 {enemy.job}
                                                                                             </span>
@@ -1563,7 +1666,7 @@ export function GlobalSearchPanel() {
                                                                                         )}
                                                                                     </div>
 
-                                                                                    {(hasAbilities || hasEquipment || hasAffinities) && (
+                                                                                    {hasAffinities && (
                                                                                         <button
                                                                                             type="button"
                                                                                             onClick={(e) => {
@@ -1577,8 +1680,8 @@ export function GlobalSearchPanel() {
                                                                                         >
                                                                                             <span>
                                                                                                 {isEnemyOpen
-                                                                                                    ? "Hide loadout"
-                                                                                                    : "Show loadout"}
+                                                                                                    ? "Hide affinities"
+                                                                                                    : "Show affinities"}
                                                                                             </span>
                                                                                             {renderChevron(isEnemyOpen)}
                                                                                         </button>

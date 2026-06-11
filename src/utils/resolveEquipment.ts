@@ -2,7 +2,7 @@ import { EQUIPMENT } from "../data/equipment/equipment";
 import type { EnemyEquipmentRef } from "../types/ffta2";
 
 export function resolveEnemyEquipment(
-    refs: EnemyEquipmentRef[] | undefined
+    refs: EnemyEquipmentRef[] | null | undefined
 ) {
     if (!refs || refs.length === 0) return [];
 
@@ -27,4 +27,3 @@ export function resolveEnemyEquipment(
         })
         .sort((a, b) => a.slot - b.slot);
 }
-

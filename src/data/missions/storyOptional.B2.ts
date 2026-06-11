@@ -7,15 +7,15 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
     {
         id: "B2-01",
         arc: "B2",
-        name: "Wanted: Ughor",
-        description: "Wanted: Ughor, a green-coloured shelling, last spotted on Baptiste Hill. One report case of injury arising from contact with said beast. Payment to be made by injured party. Jylland Defenders of the Peace",
-        rank: 9,
+        name: "Wanted: Ugohr",
+        description: "Wanted: Ugohr, a green-coloured shelling, last spotted on Baptiste Hill. One report case of injury arising from contact with said beast. Payment to be made by injured party. Jylland Defenders of the Peace",
+        rank: 8,
         region: "Baptiste Hill",
         fee: 200,
-        days: 20,
+        days: undefined,
         questType: "Headhunt",
         canDispatch: false,
-        canCancel: true,
+        canCancel: false,
         members: 6,
         requiredTalents: {
             negotiation: 0,
@@ -23,21 +23,21 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-        objective: "Defeat Ughor!",
+        objective: "Defeat Ugohr!",
         law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
     enemies: [
-        { name: "Ughor", job: "Great Tortoise", quantity: 1, notes: "The mark — a giant turtle. High defense. Hit from behind for extra damage." },
+        { name: "Ugohr", job: "Great Tortoise", quantity: 1, notes: "The mark — a giant turtle. High defense. Hit from behind for extra damage." },
         { name: "Randomized Name", job: "Cockatrice", quantity: 2, notes: "PRIORITY: Their peck hurts — pick off with ranged/Black Magick first." },
         { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "Fast melee. Attack from behind." },
     ],
         strategy: [
-            "Kill the Cockatrices first with ranged units and Black Magick (effective on groups), then the Wolves, then focus Ughor.",
+            "Kill the Cockatrices first with ranged units and Black Magick (effective on groups), then the Wolves, then focus Ugohr.",
             "Fast units that flank for back-attacks have the advantage here.",
         ],
         rewards: {
             gil: 1650,
             cp: 16,
-            loot: "Healing Water ×4, Holy Stone ×3, Moonwood ×2"
+            loot: "Healing Water ×4, Holy Stone ×3, Moonwood ×3"
         },
         notes: "",
         tags: ["optional"]
@@ -70,7 +70,9 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
             "The map features elevation differences",
         ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Klesta is the only required target, but House Bowen reinforcements will pressure your small 3-unit party.",
+            "Check levels before attacking: Harming the Weak can punish you if Klesta or a reinforcement is lower level than the acting unit.",
+            "Use controlled ranged damage and healing to keep the party stable while focusing Klesta down.",
         ],
         rewards: {
             gil: 2870,
@@ -109,7 +111,9 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         { name: "Randomized Name", job: "Tonberry", quantity: 1, notes: "Has Avoid Traps. Very dangerous if it gets a turn — prioritize traps over combat." },
     ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Destroy every trap within 3 rounds; enemies all have Avoid Traps, so they cannot be used to trigger the objective for you.",
+            "Bring a Ranger or other high-mobility trap clearer and spend early turns on the traps instead of trying to wipe the field.",
+            "Avoid all-unit targeting because of the law. If the Tonberry reaches you, disable or delay it long enough to finish the trap route.",
         ],
         rewards: {
             gil: 4830,
@@ -158,10 +162,10 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         rank: 12,
         region: "The Aldanna Range",
         fee: 300,
-        days: 20,
+        days: undefined,
         questType: "Headhunt",
         canDispatch: false,
-        canCancel: true,
+        canCancel: false,
         members: 6,
         requiredTalents: {
             negotiation: 0,
@@ -214,7 +218,9 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         { name: "Randomized Name", job: "Baknamy", quantity: 4, notes: "All have Avoid Traps passive. Kill enemies first, then activate/destroy all trap tiles to complete." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Defeat the Baknamy first, then destroy or activate every trap tile to complete the request.",
+            "All Baknamy have Avoid Traps, so do not waste turns trying to lure them onto hazards.",
+            "A Ranger makes the cleanup safer, but any mobile party can finish once the enemies are gone.",
         ],
         rewards: {
             gil: 2730,
@@ -254,7 +260,9 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
             "The battlefield contains trap tiles that pose hazards",
         ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Defeat both Lang Brothers, the two Plagues, while keeping your units' backs turned away from their petrifying gaze.",
+            "Nu Mou are restricted to movement and basic attacks; leave them out unless you only need simple attacks from them.",
+            "Use Holy damage on the Plagues and clear Bloody Orbs when they block access or threaten fast KOs.",
         ],
         rewards: {
             gil: 3380,
@@ -303,10 +311,10 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         rank: 14,
         region: "Zedlei Forest",
         fee: 300,
-        days: 20,
+        days: undefined,
         questType: "Battle",
         canDispatch: false,
-        canCancel: true,
+        canCancel: false,
         members: 6,
         requiredTalents: {
             negotiation: 0,
@@ -436,10 +444,10 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         rank: 17,
         region: "The Galerria Deep",
         fee: 300,
-        days: 20,
-        questType: "Defeat Mark",
+        days: undefined,
+        questType: "Escort",
         canDispatch: false,
-        canCancel: true,
+        canCancel: false,
         members: 6,
         requiredTalents: {
             negotiation: 0,
@@ -451,6 +459,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         law: "Forbidden: Actions by Nu Mous – Nu Mou may only move and perform basic attacks.",
     enemies: [
         { name: "Lord of the Flowsand", job: "Yowie", quantity: 1, notes: "The mark — VERY high HP and very hard to kill. Its attacks pull your units toward it. You hold the high ground." },
+        { name: "Randomized Name", job: "Antlion", quantity: 3, notes: "Support monsters that advance while you fight the mark." },
     ],
         strategy: [
             "Nu Mou are restricted (law) — leave your strongest Nu Mou mages out and bring other healers.",

@@ -278,7 +278,7 @@ export const BAZAAR_RECIPES: BazaarRecipe[] = [
         id: "sharp-edged-katana-rank-a-ragetsu-denbu",
         section: "Sharp-edged Katana",
         rank: "Rank A",
-        result: "Ragetsu-denbu",
+        result: "Ragetsu-Denbu",
         loot: ["Low Arcana", "Gun Gear", "Screamroot"],
     },
     {

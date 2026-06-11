@@ -76,7 +76,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         rank: 21,
         region: "Gal, Nazan, Del, Nes",
         fee: 400,
-        days: 20,
+        days: 13,
         questType: "Meet Objectives",
         canDispatch: true,
         canCancel: true,
@@ -101,6 +101,77 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         tags: ["optional"]
     },
     {
+        id: "D2-03",
+        arc: "D2",
+        name: "The Wonders of Loar",
+        description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 16 days and receive a stamp in your wayfarer's log to win valuable prizes! Marsa Wayfarers Association List of Destinations: - Baptiste Hill - The Aldanna Range - The Ruins of Delgantua",
+        rank: 20,
+        region: "Baptiste Hill, The Aldanna Range, The Ruins of Delgantua",
+        fee: 300,
+        days: 16,
+        questType: "Meet Objectives",
+        canDispatch: true,
+        canCancel: true,
+        members: 1,
+        prerequisite: "The Wonders of Ordalia",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 47,
+        },
+    enemies: [],
+        strategy: [
+            "Timed wayfarer mission — visit Baptiste Hill, The Aldanna Range, and The Ruins of Delgantua within 16 days.",
+        ],
+        rewards: {
+            gil: 1750,
+            cp: 40,
+            loot: ""
+        },
+        notes: "",
+        tags: ["optional", "chain", "timed"]
+    },
+    {
+        id: "D2-05",
+        arc: "D2",
+        name: "Chita on Weapons - Masters",
+        description: "Chita's Weaponers return for the third and final speed battle challenge.",
+        rank: 49,
+        region: "The Ruins of Delgantua",
+        fee: 500,
+        days: 20,
+        questType: "Meet Objectives",
+        canDispatch: true,
+        canCancel: true,
+        members: 4,
+        prerequisite: "Chita on Weapons - Adepts",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 33,
+        },
+        objective: "Speed Battle vs. Chita's Weaponers",
+        law: "Forbidden: Piercing Weapons – Attacks with rapiers and spears are forbidden.",
+    enemies: [
+        { name: "Chita's Weaponers", job: "Randomized", quantity: 4, notes: "Rival speed-battle team. They are melee attackers; prevent them from landing the finishing blow." },
+    ],
+        strategy: [
+            "Speed battle: defeat the mark before Chita's Weaponers do.",
+            "The law bans rapiers and spears, so swap weapon loadouts before entering.",
+            "Winning the final Chita challenge grants the Materia Blade as an additional reward.",
+        ],
+        rewards: {
+            gil: 7550,
+            cp: 98,
+            loot: "",
+            other: "Materia Blade"
+        },
+        notes: "",
+        tags: ["optional", "chain", "treasure"]
+    },
+    {
         id: "D2-06",
         arc: "D2",
         name: "Bug Hunt",
@@ -119,18 +190,25 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             teamwork: 0,
             adaptability: 15,
         },
-        objective: "Defeat all foes except the White Antlion!",
-        law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
+        objective: "Defeat all foes except the Blue, Green, and White Antlions!",
+        law: "Stage 1: Forbidden: Ice. Stage 2: Forbidden: Fire. Stage 3: Forbidden: Lightning.",
     enemies: [
+        { name: "Blue Antlion", job: "Pit Beast", quantity: 1, notes: "Zedlei Forest — DO NOT KILL. Defeat all other foes to capture it." },
+        { name: "Randomized Name", job: "Antlion", quantity: 2, notes: "Zedlei Forest battle — defeat these." },
+        { name: "Randomized Name", job: "Chocobo", quantity: 1, notes: "Zedlei Forest battle — defeat this." },
+        { name: "Randomized Name", job: "Great Tortoise", quantity: 1, notes: "Zedlei Forest battle — strong support monster." },
+        { name: "Randomized Name", job: "Antlion", quantity: 4, notes: "Bisga Greenlands battle — all Antlions except the Green one. Weak to Wind. Traps on battlefield." },
+        { name: "Green Antlion", job: "Antlion", quantity: 1, notes: "Bisga Greenlands — DO NOT KILL. Defeat all other Antlions around it." },
         { name: "Randomized Name", job: "Werewolf", quantity: 2, notes: "Moorabella battle — defeat these." },
         { name: "Randomized Name", job: "Sprite", quantity: 1, notes: "Moorabella battle — defeat." },
         { name: "Randomized Name", job: "Lamia", quantity: 2, notes: "Moorabella battle — defeat." },
-        { name: "White Antlion", job: "Pit Beast", quantity: 1, notes: "DO NOT KILL — this is the target to capture. Has Critical: Vanish. Weaken then leave alive." },
-        { name: "Randomized Name", job: "Antlion", quantity: 4, notes: "Bisga Greenlands battle — all Antlions except the Green one. Weak to Wind. Traps on battlefield." },
-        { name: "Green Antlion", job: "Antlion", quantity: 1, notes: "Bisga Greenlands — DO NOT KILL. Defeat all other Antlions around it." },
+        { name: "White Antlion", job: "Pit Beast", quantity: 1, notes: "Moorabella battle — DO NOT KILL. This is the target to capture. Has Critical: Vanish; weaken then leave alive." },
     ],
         strategy: [
-            "Three-location hunt across Moorabella, Bisga, and Zedlei. Do not kill the White Antlion or Green Antlion — defeat all other enemies.",
+            "Three-location hunt across Zedlei Forest, The Bisga Greenlands, and Moorabella. Do not kill the colored Pit Beast/Antlion targets — defeat all other enemies.",
+            "Zedlei Forest: leave the Blue Antlion alive. The Chocobo can heal and the Great Tortoise hits hardest, so remove whichever is causing more trouble before cleaning up the regular Antlions.",
+            "Bisga Greenlands: leave the Green Antlion alive, avoid trap tiles, and defeat the other Antlions with Wind attacks, Aurablast, or Air Render.",
+            "Moorabella: leave the White Antlion alive. Clear the Werewolves' physical pressure, pick off Lamias from range before their status effects stick, and watch for Critical: Vanish.",
             "Use Hunters (Sidewinder) and Wind attacks. Antlions are weak to wind.",
         ],
         battlefield: [
@@ -172,6 +250,45 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             gil: 2240,
             cp: 34,
             loot: "Body Ceffyl ×3"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "D2-08",
+        arc: "D2",
+        name: "Fluffy Flier?",
+        description: "Reports from the Neslowe Passage tell of a fluffy flying creature among a dangerous monster pack.",
+        rank: 38,
+        region: "The Neslowe Passage",
+        fee: 500,
+        days: 20,
+        questType: "Investigation",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 44,
+            aptitude: 44,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Defeat all Foes!",
+        law: "Forbidden: Summoning Scions – Summoning Scions is forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Sprite", quantity: 3, notes: "Fast casters; highest priority along with the Banshee." },
+        { name: "Randomized Name", job: "Banshee", quantity: 1, notes: "Dangerous caster. Prioritize early." },
+        { name: "Randomized Name", job: "Brown Chocobo", quantity: 1, notes: "Support monster." },
+        { name: "Randomized Name", job: "Fire Drake", quantity: 1, notes: "Uses Fire Breath and Mesmerize." },
+    ],
+        strategy: [
+            "Take down the Sprites and Banshee first; their speed and Meteorite-style pressure can spiral quickly.",
+            "Scions are banned, so rely on standard magick, Sidewinder, and ranged damage.",
+        ],
+        rewards: {
+            gil: 5410,
+            cp: 76,
+            loot: ""
         },
         notes: "",
         tags: ["optional"]
@@ -254,6 +371,46 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         tags: ["optional"]
     },
     {
+        id: "D2-11",
+        arc: "D2",
+        name: "Cake: The Catastrophe",
+        description: "Lea finished baking her grandmother's special cake, but a monster like a great ball of feathers stole the cake, box and all.",
+        rank: 37,
+        region: "Kthili Sands",
+        fee: 500,
+        days: 20,
+        questType: "Battle",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Cake: The Ingredients",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 39,
+            adaptability: 39,
+        },
+        objective: "Defeat all Foes!",
+        law: "Forbidden: Bladed Weapons – Attacks with swords, blades, sabers, knightswords, greatswords, and broadswords are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Rocktitan", quantity: 1, notes: "Uses Headbutt and Rain of Stone. Strong physical threat." },
+        { name: "Randomized Name", job: "Pit Beast", quantity: 2, notes: "Uses Sandstorm and Suffocate-style attacks." },
+        { name: "Randomized Name", job: "Cockatrice", quantity: 2, notes: "Can Haste itself and use Peck/Scatter." },
+        { name: "Randomized Name", job: "Axebeak", quantity: 1, notes: "Can petrify units with Stone Breath and grant extra turns with Wake-Up Call." },
+    ],
+        strategy: [
+            "Bladed weapons are banned, so bring poles, bows, guns, knuckles, rods, staves, or magick users.",
+            "Control the Axebeak and Cockatrices early to prevent status and extra-turn problems, then focus down the Rocktitan and Pit Beasts.",
+        ],
+        rewards: {
+            gil: 6830,
+            cp: 74,
+            loot: ""
+        },
+        notes: "",
+        tags: ["optional", "chain"]
+    },
+    {
         id: "D2-12",
         arc: "D2",
         name: "One Red Phial",
@@ -281,6 +438,46 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             gil: 2240,
             cp: 34,
             loot: "Clear Sap ×2"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "D2-13",
+        arc: "D2",
+        name: "My Secret Shame",
+        description: "Udite's exam papers have scattered around Moorabella. Recover them before anyone sees the embarrassing marks.",
+        rank: 25,
+        region: "Moorabella",
+        fee: 400,
+        days: 20,
+        questType: "Item Recovery",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 13,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Gather Udite's exam papers!",
+        law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Sprite", quantity: 1, notes: "Highest priority. Has Stop, Slow, and Meteorite-style pressure." },
+        { name: "Randomized Name", job: "Hoppy Bunny", quantity: 1, notes: "Uses debuffs; second priority." },
+        { name: "Randomized Name", job: "Dreamhare", quantity: 1, notes: "Low threat compared to Sprite and Hoppy Bunny." },
+        { name: "Randomized Name", job: "Deadly Nightshade", quantity: 2, notes: "Low threat; clear after the stronger support enemies." },
+    ],
+        strategy: [
+            "Gather all six sparkling exam papers; the quest ends as soon as the sixth paper is collected.",
+            "You can rush the papers, but clearing enemies first gives safer movement and more enemy loot.",
+            "Defeat the Sprite and Hoppy Bunny first, then clean up the Dreamhare and Deadly Nightshades.",
+        ],
+        rewards: {
+            gil: 2720,
+            cp: 50,
+            loot: "Wyvern Wing ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -378,6 +575,10 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
             adaptability: 0,
         },
         enemies: [],
+        strategy: [
+            "Delivery mission — bring Rat Tail ×1 to Cilawa in Camoa.",
+            "No combat. This is an early simple hand-in; save one Rat Tail before spending loot at the Bazaar.",
+        ],
         rewards: {
             gil: 560,
             cp: 10,

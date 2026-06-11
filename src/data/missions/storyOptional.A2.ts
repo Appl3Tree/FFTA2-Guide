@@ -1,5 +1,5 @@
 // src/data/missions/storyOptional.A2.ts
-// Arc A2 optional missions, accurately transcribed from Side_Quests.txt
+// Arc A2 optional missions.
 
 import type { Mission } from "../../types/ffta2";
 
@@ -8,7 +8,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         id: "A2-01",
         arc: "A2",
         name: "Camoa Cup",
-        description: "Clan Tourneys are Under Way! The next tourney will be the Camoa Cup Rules are as follows: - Maximum team size: 6 - Bouts to be won: 3 Tourney Guild - Camoa Branch",
+        description: "Clan Tourneys are Under Way! The next tourney will be the Camoa Cup. Rules are as follows: - Maximum team size: 6 - Bouts to be won: 3 Tourney Guild - Camoa Branch",
         rank: 19,
         region: "Camoa",
         fee: 300,
@@ -17,42 +17,39 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 4,
-            adaptability: 4,
-        },
+        prerequisite: "The Yellow Wings; visit Camoa during Silversun",
         dispatchRecommended: ["Lanista"],
-        objective: "Defeat all Foes in the entry bout!",
-        law: "Forbidden: Using MP – Abilities that use MP are forbidden.",
-    enemies: [
-        { name: "Yellow Wings", job: "White Monk", quantity: 1 },
-        { name: "Yellow Wings", job: "Animist", quantity: 1 },
-        { name: "Yellow Wings", job: "Black Mage", quantity: 1 },
-        { name: "Yellow Wings", job: "Thief", quantity: 1 },
-        { name: "Yellow Wings", job: "Archer", quantity: 1 },
-    ],
-        strategy: [
-            "Cup format: enemy levels scale with yours, so overleveling won't help much.",
-            "MP use is banned — your mages, white mages, and any MP-based abilities are off the table.",
-            "Lean on physical jobs: Warriors, Soldiers, White Monks, and physical Ninjas work well here.",
-            "The Yellow Wings team is a mix of jobs — prioritize the White Monk (healing) and Black Mage (damage) first.",
-            "Win this bout to advance further in the Camoa Cup bracket.",
+        requiredTalents: { negotiation: 0, aptitude: 0, teamwork: 4, adaptability: 4 },
+        objective: "Win three Camoa Cup bouts!",
+        law: "Forbidden: Using MP – Abilities that use MP are forbidden in all three bouts.",
+        enemies: [
+            { name: "Yellow Wings", job: "White Monk", quantity: 1, notes: "Entry bout; Air Render threat." },
+            { name: "Yellow Wings", job: "Animist", quantity: 1, notes: "Entry bout; Sheep Count is annoying under no-MP conditions." },
+            { name: "Yellow Wings", job: "Black Mage", quantity: 1, notes: "Entry bout; priority target." },
+            { name: "Yellow Wings", job: "Thief", quantity: 1, notes: "Entry bout leader." },
+            { name: "Yellow Wings", job: "Archer", quantity: 1, notes: "Entry bout; Blackout." },
+            { name: "Edge of Magick", job: "Black Mage", quantity: 3, notes: "Elimination bout; high spell pressure and Geomancy." },
+            { name: "Edge of Magick", job: "Time Mage", quantity: 1, notes: "Elimination bout support." },
+            { name: "Edge of Magick", job: "Green Mage", quantity: 1, notes: "Elimination bout debuffs." },
+            { name: "Camoa Braves", job: "Thief", quantity: 2, notes: "Final bout; Hume/Moogle thieves can inflict Disable/Immobilize or use Moogle Lance." },
+            { name: "Camoa Braves", job: "White Monk", quantity: 1, notes: "Final bout priority; Air Render/Earth Render." },
+            { name: "Camoa Braves", job: "Black Mage", quantity: 1, notes: "Final bout caster." },
+            { name: "Camoa Braves", job: "Warrior", quantity: 1, notes: "Final bout leader." },
         ],
-        rewards: {
-            gil: 2400,
-            cp: 38,
-            loot: "Gigas Pendant ×1"
-        },
+        strategy: [
+            "This is a three-bout tournament with no rest or party swap between fights.",
+            "No MP use means healing should come from items if preserving the law; heal before ending each bout.",
+            "Entry: Black Mage, White Monk, Animist/Archer, then Thief. Elimination: Black Mages first, then Time/Green Mage. Final: White Monk and disabling Thieves first.",
+        ],
+        rewards: { gil: 2400, cp: 38, loot: "Gigas Pendant ×1" },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "multi-battle", "elite", "treasure"]
     },
     {
         id: "A2-02",
         arc: "A2",
         name: "The Sun Seal",
-        description: "I begin to grasp the messag within the Stone, yet only dimly ... Perhaps I have erred, made some fundamental mistake in my research. I need you to try the Sun Seal to know if I am right or wrong. Mauri, No-Name Researcher",
+        description: "I begin to grasp the message within the Stone, yet only dimly... Perhaps I have erred, made some fundamental mistake in my research. I need you to try the Sun Seal to know if I am right or wrong. Mauri, No-name researcher",
         rank: 28,
         region: "Graszton",
         fee: 400,
@@ -61,33 +58,26 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "The Moon Seal",
-        requiredTalents: {
-            negotiation: 13,
-            aptitude: 13,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Examine the Stone with No Name!",
-        law: "Forbidden: Items – Items are forbidden.",
-    enemies: [
-        { name: "Randomized Name", job: "Baknamy", quantity: 1 },
-        { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Uses Night to put all nearby units to sleep." },
-        { name: "Randomized Name", job: "Wraith", quantity: 1, notes: "Undead — use Cure or Exorcise to finish permanently." },
-        { name: "Randomized Name", job: "Ghost", quantity: 2 },
-    ],
-        strategy: [
-            "Items are banned — no potions, ethers, or phoenix downs. Build your party's sustain into abilities (White Mage Cure, etc.).",
-            "The Lilith's Night can mass-sleep your party — spread units to limit how many get caught.",
-            "All undead (Wraith, Ghosts) take damage from Cure spells and must be finished with Exorcise or Phoenix Down to stay dead.",
-            "Kill the Baknamy first to thin the field, then deal with the undead and the Lilith.",
-            "After clearing enemies, examine the Stone with No Name to complete the mission.",
+        prerequisite: "Mountain Watch; The Moon Seal; Bonga Bugle - Silversun",
+        requiredTalents: { negotiation: 13, aptitude: 13, teamwork: 0, adaptability: 0 },
+        objective: "Examine the Stone with No Name, then defeat all foes!",
+        law: "Phase 1: Forbidden Items. Phase 2: Forbidden Targeting Adjacent Units.",
+        enemies: [
+            { name: "Randomized Name", job: "Baknamy", quantity: 1, notes: "Phase 1 enemy near the stone." },
+            { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Phase 1 priority; status threat." },
+            { name: "Randomized Name", job: "Wraith", quantity: 1, notes: "Phase 1 undead; finish tombstone with Exorcise/Raise-style effects." },
+            { name: "Randomized Name", job: "Ghost", quantity: 2, notes: "Phase 1 undead." },
+            { name: "Randomized Name", job: "Thunder Drake", quantity: 2, notes: "Phase 2; thunder breath and self-healing make them dangerous." },
+            { name: "Randomized Name", job: "Headless", quantity: 2, notes: "Phase 2; dangerous if they reach the front line." },
+            { name: "Randomized Name", job: "Zaghnal", quantity: 1, notes: "Phase 2 heavy hitter." },
+            { name: "Randomized Name", job: "Baknamy", quantity: 1, notes: "Phase 2 support enemy." },
         ],
-        rewards: {
-            gil: 3590,
-            cp: 56,
-            loot: "Dragon Bone ×2, Onion ×2"
-        },
+        strategy: [
+            "Use ranged attackers for the whole quest because phase 2 bans targeting adjacent units.",
+            "Phase 1: reach and examine the stone while minimizing damage; Lilith and Baknamy are the priority if fighting.",
+            "Phase 2: let enemies approach and defeat them from range. Elementalist Fire Whip can help disable the tougher enemies.",
+        ],
+        rewards: { gil: 3590, cp: 56, loot: "Dragon Bone ×2, Onion ×2" },
         notes: "",
         tags: ["optional"]
     },
@@ -95,7 +85,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         id: "A2-03",
         arc: "A2",
         name: "The Moon Seal",
-        description: "The Stone with No Name was no mere stone! What widsom did the ancient leave for us to find? I'll need to know more in order to decipher their message to us. The legend tells of three seals. I want you to try the second, known as the Moon Seal. Mauri, No-name researcher",
+        description: "The Stone with No Name was no mere stone! What wisdom did the ancients leave for us to find? I'll need to know more in order to decipher their message to us. The legend tells of three seals. I want you to try the second, known as the Moon Seal. Mauri, No-name researcher",
         rank: 18,
         region: "Camoa",
         fee: 300,
@@ -104,31 +94,24 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "The Star Seal",
-        requiredTalents: {
-            negotiation: 8,
-            aptitude: 8,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Examine the Stone with No Name!",
-        law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
-    enemies: [
-        { name: "Randomized Name", job: "Baknamy", quantity: 1 },
-        { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Uses Night to sleep all nearby units." },
-        { name: "Randomized Name", job: "Wraith", quantity: 1 },
-        { name: "Randomized Name", job: "Ghost", quantity: 1 },
-    ],
-        strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
+        prerequisite: "Wanted: Gilmunto; The Star Seal",
+        requiredTalents: { negotiation: 8, aptitude: 8, teamwork: 0, adaptability: 0 },
+        objective: "Examine the Stone with No Name, then defeat all foes!",
+        law: "Phase 1: Forbidden Lightning. Phase 2: Forbidden Bludgeoning Weapons.",
+        enemies: [
+            { name: "Randomized Name", job: "Floating Eye", quantity: 2, notes: "Phase 1; Death Dive at critical HP is dangerous." },
+            { name: "Randomized Name", job: "Baknamy", quantity: 1, notes: "Phase 1 stone guardian." },
+            { name: "Randomized Name", job: "Werewolf", quantity: 2, notes: "Phase 2 priority physical threats." },
+            { name: "Randomized Name", job: "Lamashtu", quantity: 1, notes: "Phase 2 priority; Night can put the party to sleep." },
+            { name: "Randomized Name", job: "Lilith", quantity: 2, notes: "Phase 2; Kiss can inflict Charm or Doom." },
+            { name: "Randomized Name", job: "Baknamy", quantity: 1, notes: "Phase 2 support enemy." },
         ],
-        rewards: {
-            gil: 1160,
-            cp: 36,
-            loot: "Xergis Tin ×2"
-        },
+        strategy: [
+            "Phase 1 can be rushed by examining the stone, but HP/MP carry into phase 2.",
+            "Avoid lightning in phase 1 and bludgeoning weapons in phase 2.",
+            "Bring Esuna. In phase 2, control Werewolves and Lamashtu first, then clean up Liliths and Baknamy.",
+        ],
+        rewards: { gil: 1160, cp: 36, loot: "Xergis Tin ×2" },
         notes: "",
         tags: ["optional"]
     },
@@ -136,7 +119,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         id: "A2-04",
         arc: "A2",
         name: "Wanted: The Cyanwolf",
-        description: "-WANTED!- Wanted: The Cyanwolf, a new strain of wolf cited for 17 counts of pasture damage and 24 counts of disturbing the peace. Known to travel with a pack, though the mark may be distinguished by its unusual colouration. Jylland Defenders of the Peace",
+        description: "-WANTED!- Wanted: The Cyanwolf, a new strain of wolf cited for 17 counts of pasture damage and 24 counts of disturbing the peace. Known to travel with a pack, though the mark may be distinguished by its unusual coloration. Jylland Defenders of the Peace",
         rank: 3,
         region: "Camoa",
         fee: 100,
@@ -145,36 +128,28 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Wanted: Ughor",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 1,
-            adaptability: 1,
-        },
+        prerequisite: "The Yellow Wings; visit Camoa",
+        requiredTalents: { negotiation: 0, aptitude: 0, teamwork: 1, adaptability: 1 },
         objective: "Defeat the Cyanwolf!",
-    enemies: [
-        { name: "Cyanwolf", job: "Worgen", quantity: 1, notes: "The mark. Uses Screech which can inflict Confuse — keep units spread to avoid chain confusion." },
-        { name: "Randomized Name", job: "Wolf", quantity: 4, notes: "Wolf-type escorts blocking the path to the Cyanwolf." },
-    ],
-        strategy: [
-            "You start separated from the Cyanwolf by a line of Wolves — fight through them or maneuver around.",
-            "Screech (Confuse) from the Cyanwolf can turn your own units against you — spread your party and end confused units' turns quickly.",
-            "Take down the escort Wolves to clear a path, then focus all firepower on the Cyanwolf to end the mission.",
+        law: "Forbidden: Ice – Weapons and abilities that use ice are forbidden.",
+        enemies: [
+            { name: "Cyanwolf", job: "Worgen", quantity: 1, notes: "The mark; distinguishable by green/cyan coloration and higher level. Screech can inflict Confuse." },
+            { name: "Randomized Name", job: "Wolf", quantity: 4, notes: "Escort pack blocking the path." },
         ],
-        rewards: {
-            gil: 2630,
-            cp: 6,
-            loot: "Wolf Pelt ×3, Earth Stone ×6, Tarkov Crystal ×4"
-        },
+        strategy: [
+            "Fight through the Wolves to reach the Cyanwolf; it is difficult to bypass them from the starting position.",
+            "If Screech confuses an ally, have a weak unit hit them to snap them out without causing too much damage.",
+            "Avoid ice attacks under the law.",
+        ],
+        rewards: { gil: 2630, cp: 6, loot: "Wolf Pelt ×3, Earth Stone ×6, Tarkov Crystal ×4" },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "hunt", "notorious-mark"]
     },
     {
         id: "A2-05",
         arc: "A2",
         name: "Graszton Cup",
-        description: "Clan Tourneys are Under Way! The next tourney will be the Graszton Cup. Rules are as follows: - Maximum team size : 4 - Bouts to be won: 3 Tourney Guild - Graszton Branch",
+        description: "Clan Tourneys are Under Way! The next tourney will be the Graszton Cup. Rules are as follows: - Maximum team size: 4 - Bouts to be won: 3 Tourney Guild - Graszton Branch",
         rank: 29,
         region: "Graszton",
         fee: 300,
@@ -183,41 +158,36 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
-        prerequisite: "Camoa Cup",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 8,
-            adaptability: 8,
-        },
+        prerequisite: "Wanted: Gilmunto; Camoa Cup; Ashleaf",
         dispatchRecommended: ["Lanista"],
-        objective: "Defeat all foes in the Entry Bout!",
-        law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
-    enemies: [
-        { name: "Yellow Wings", job: "White Monk", quantity: 1 },
-        { name: "Yellow Wings", job: "Animist", quantity: 1 },
-        { name: "Yellow Wings", job: "Black Mage", quantity: 1 },
-        { name: "Yellow Wings", job: "Thief", quantity: 1 },
-        { name: "Yellow Wings", job: "Archer", quantity: 1 },
-    ],
-        strategy: [
-            "Enemy levels scale with yours — raw overleveling is limited as a strategy.",
-            "Opportunity Commands are banned — no bonus actions from positioning or status triggers.",
-            "Prioritize the Black Mage and White Monk to shut down their damage and healing.",
+        requiredTalents: { negotiation: 0, aptitude: 0, teamwork: 8, adaptability: 8 },
+        objective: "Win three Graszton Cup bouts!",
+        law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden in all three bouts.",
+        enemies: [
+            { name: "Humeism", job: "Black Mage", quantity: 1, notes: "Entry bout priority; has basic spells and Fira." },
+            { name: "Humeism", job: "White Mage", quantity: 1, notes: "Entry bout healer." },
+            { name: "Humeism", job: "Soldier", quantity: 1, notes: "Entry bout; Rend abilities and Counter." },
+            { name: "Humeism", job: "Blue Mage", quantity: 1, notes: "Entry bout; Screech, Cornered, and Unction." },
+            { name: "Houndforce", job: "Hunter", quantity: 2, notes: "Elimination bout ranged pressure; Gria Hunter has Speed Crush." },
+            { name: "Houndforce", job: "Archer", quantity: 2, notes: "Elimination bout ranged debuffs." },
+            { name: "Veluga Pirates", job: "Viking", quantity: 2, notes: "Final bout; Lord Grayrl has Thundara/Pickpocket/Strongarm." },
+            { name: "Veluga Pirates", job: "Juggler", quantity: 1, notes: "Final bout priority; Ring Toss can Stop." },
+            { name: "Veluga Pirates", job: "Thief", quantity: 1, notes: "Final bout; thief skills and Cuisine." },
         ],
-        rewards: {
-            gil: 4030,
-            cp: 58,
-            loot: "Ice Sigil ×2"
-        },
+        strategy: [
+            "This is a three-bout tournament with no healing break between rounds.",
+            "Entry: disable or defeat the Black Mage first, then Soldier/Blue Mage, leaving White Mage for last if controlled.",
+            "Elimination: Gria Hunter, Hume Hunter, then Archers. Final: Juggler first, then Lord Grayrl.",
+        ],
+        rewards: { gil: 4030, cp: 58, loot: "Ice Sigil ×2, Corsage of Corruption ×1" },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "multi-battle", "elite", "treasure"]
     },
     {
         id: "A2-06",
         arc: "A2",
         name: "The Stone With No Name",
-        description: "My teacher, Mauri discovered the message within the Stone with No Name, yet he passed away before he could see his research through till the end. He once told me that the",
+        description: "My teacher, Mauri, discovered the message within the Stone with No Name, yet he passed away before he could see his research through till the end. He once told me that the Stone with No Name is three stones in one, the magickal instrument of antiquity that sealed off an Otherworld from our knowledge. He told me never to go near the Stone, nor pry too deep into its secrets. But...I would see his research completed. Taura, Favored pupil",
         rank: 42,
         region: "The Ruins of Delgantua",
         fee: 500,
@@ -226,67 +196,28 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "The Sun Seal",
-        requiredTalents: {
-            negotiation: 39,
-            aptitude: 39,
-            teamwork: 0,
-            adaptability: 0,
-        },
-        objective: "Examine the Stone with No Name!",
-        law: "Forbidden: Restoring HP – Restoring HP is forbidden.",
-    enemies: [
-        { name: "Randomized Name", job: "Luchorpan", quantity: 3, notes: "Sprite-type enemies guarding the Stone." },
-    ],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+        prerequisite: "A Request; The Sun Seal; visit any town",
+        requiredTalents: { negotiation: 39, aptitude: 39, teamwork: 0, adaptability: 0 },
+        objective: "Examine all three stones, then defeat the demon wall!",
+        law: "Phase 1: Forbidden Restoring HP. Phase 2: Forbidden Reaction Abilities.",
+        enemies: [
+            { name: "Randomized Name", job: "Luchorpan", quantity: 3, notes: "Phase 1 stone guardians; slow and not required to defeat." },
+            { name: "Demon Wall", job: "Demon Wall", quantity: 1, notes: "Phase 2 mark; pushes the party toward the far edge and can inflict Immobilize, Stone, and Sleep." },
         ],
-        rewards: {
-            gil: 6530,
-            cp: 84,
-            loot: "Mythril ×1"
-        },
+        strategy: [
+            "Phase 1: reach the back and examine all three stones. Do not rely on HP-restoring actions.",
+            "Phase 2: defeat Demon Wall before it pushes the party off the edge.",
+            "Disable reaction abilities for phase 2 if you want to preserve the law, then focus strong single-target damage on the wall.",
+        ],
+        rewards: { gil: 6530, cp: 84, loot: "Mythril ×1" },
         notes: "",
         tags: ["optional"]
     },
     {
         id: "A2-07",
         arc: "A2",
-        name: "The Whom Gods Bow",
-        description: "I heard once from an Esper that there exists something greater than them - the scions. What are these scions to whom the Espers bow and make obeisance? If there is someone who knows, I would have them teach me! Scytha, Summoner",
-        rank: 17,
-        region: "The Aldanna Range",
-        fee: 300,
-        days: 20,
-        questType: "Investigation",
-        canDispatch: true,
-        canCancel: true,
-        members: 1,
-        prerequisite: "An Unfamiliar Land",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 33,
-            adaptability: 33,
-        },
-    enemies: [],
-        strategy: [
-            "Investigation dispatch — visit Lezaford in The Aldanna Range. He explains the nature of Scions. No combat.",
-        ],
-        rewards: {
-            gil: 5040,
-            cp: 34,
-            loot: "Lightwing Crystal ×3"
-        },
-        notes: "",
-        tags: ["optional"]
-    },
-    {
-        id: "A2-08",
-        arc: "A2",
-        name: "An Unfamiliar Land",
-        description: "I am an itinerant merchant, and on my travels have seen much of this world. I wandered the Empire of Rozarria for some time, and upon coming to Jylland found myself uncustomarily surprised. What are these 'Judges' that affix themselves to the clans in this land? They are no doubt different from the keepers of the law that I know - yet perhaps there is some connection? Aega, Traveling Merchant",
+        name: "To Whom Gods Bow",
+        description: "I heard once from an Esper that there exists something greater than them-the scions. What are these scions to whom the Espers bow and make obeisance? If there is someone who knows, I would have them teach me! Scytha, Summoner",
         rank: 15,
         region: "The Aldanna Range",
         fee: 300,
@@ -295,22 +226,36 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
-        prerequisite: "A Simple Question",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 15,
-            adaptability: 15,
-        },
-    enemies: [],
+        prerequisite: "Wanted: Sky Pirate Vaan; An Unfamiliar Land; visit Graszton",
+        requiredTalents: { negotiation: 0, aptitude: 0, teamwork: 33, adaptability: 33 },
+        enemies: [],
         strategy: [
-            "Investigation dispatch — visit Lezaford in The Aldanna Range. He answers the question about Judges for your Clan Primer. No combat.",
+            "Investigation dispatch to The Aldanna Range; Lezaford explains Scions. No combat.",
         ],
-        rewards: {
-            gil: 1580,
-            cp: 30,
-            loot: "Ice Sigil ×4"
-        },
+        rewards: { gil: 5040, cp: 34, loot: "Lightwing Crystal ×3" },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "A2-08",
+        arc: "A2",
+        name: "An Unfamiliar Land",
+        description: "I am an itinerant merchant, and on my travels have seen much of this world. I wandered the Empire of Rozarria for a time, and upon coming to Jylland found myself uncustomarily surprised. What are these Judges that affix themselves to the clans in this land? They are no doubt different from the keepers of the law that I know-yet perhaps there is some connection? Aega, Traveling Merchant",
+        rank: 15,
+        region: "The Aldanna Range",
+        fee: 300,
+        days: 20,
+        questType: "Investigation",
+        canDispatch: true,
+        canCancel: true,
+        members: 1,
+        prerequisite: "Grounded!; A Simple Question; visit Fluorgis",
+        requiredTalents: { negotiation: 0, aptitude: 0, teamwork: 15, adaptability: 15 },
+        enemies: [],
+        strategy: [
+            "Investigation dispatch to The Aldanna Range; Lezaford answers the question about Judges. No combat.",
+        ],
+        rewards: { gil: 1580, cp: 30, loot: "Ice Sigil ×4" },
         notes: "",
         tags: ["optional"]
     },
@@ -327,35 +272,29 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Graszton Cup",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 11,
-            adaptability: 11,
-        },
-        objective: "Defeat all Foes in the Entry Bout!",
-        law: "Forbidden: Items – Items are forbidden.",
-    enemies: [
-        { name: "Moredad", job: "Cannoneer", quantity: 1, notes: "Named Bangaa. Has Foresight, Target, and Mortar. Priority after Warrior." },
-        { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "PRIORITY 1: Has Rend Power, Rend Magick, Rend Speed, and Counter — debuffs your entire team. Eliminate first." },
-        { name: "Randomized Name", job: "Defender", quantity: 1, notes: "Has Hibernate and Mow Down." },
-        { name: "Randomized Name", job: "Gladiator", quantity: 1, notes: "Has Fire Soul, Thunder Assault, and Blizzard Tackle." },
-        { name: "Randomized Name", job: "Bishop", quantity: 1, notes: "Has Water, Aero, Break, and Blood Price." },
-        { name: "Randomized Name", job: "Templar", quantity: 1, notes: "Has Piercing Cry, Rasp, and Silence." },
-    ],
-        strategy: [
-            "Items forbidden — no Potions or Revives. Bring healers with magic.",
-            "Kill the Warrior first (Rend abilities debuff your stats badly), then the Cannoneer (high damage), then the rest.",
-            "This is only the entry bout — conserve units for subsequent rounds.",
+        prerequisite: "Pearls in the Deep; Graszton Cup; visit Graszton during Mistleaf",
+        dispatchRecommended: ["Lanista"],
+        requiredTalents: { negotiation: 0, aptitude: 0, teamwork: 11, adaptability: 11 },
+        objective: "Win three Moorabella Cup bouts!",
+        law: "Forbidden: Items – Items are forbidden in all three bouts.",
+        enemies: [
+            { name: "Bangaa Brotherhood", job: "Defender", quantity: 1, notes: "Entry bout." },
+            { name: "Bangaa Brotherhood", job: "Cannoneer", quantity: 1, notes: "Entry bout; Moredad." },
+            { name: "Bangaa Brotherhood", job: "Gladiator", quantity: 1, notes: "Entry bout priority." },
+            { name: "Bangaa Brotherhood", job: "Bishop", quantity: 1, notes: "Entry bout caster." },
+            { name: "Bangaa Brotherhood", job: "Warrior", quantity: 1, notes: "Entry bout priority." },
+            { name: "Bangaa Brotherhood", job: "Templar", quantity: 1, notes: "Entry bout; Break can Stone." },
+            { name: "Nu Mou Nobles", job: "Mage group", quantity: 6, notes: "Elimination bout: Black Mage, White Mage, Arcanist, Time Mage, Illusionist, Alchemist." },
+            { name: "Arbiters of Death", job: "Mixed elite group", quantity: 6, notes: "Final bout: Sniper, Illusionist, Berserker, Sage, Dragoon, Hunter." },
         ],
-        rewards: {
-            gil: 7760,
-            cp: 82,
-            loot: ""
-        },
+        strategy: [
+            "No items across the three-bout tournament; bring non-item healing.",
+            "Entry: prioritize Gladiator, Warrior, and Templar. Elimination: White Mage first, then focus down one Nu Mou at a time.",
+            "Final: Illusionist and Sage are the biggest magick threats; Sniper/Hunter are also dangerous from range.",
+        ],
+        rewards: { gil: 7760, cp: 82, loot: "Raging Brooch ×1" },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "multi-battle", "elite", "treasure"]
     },
     {
         id: "A2-10",
@@ -370,23 +309,22 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        requiredTalents: {
-            negotiation: 28,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 28,
-        },
-        objective: "Examine the Wells!",
+        prerequisite: "Seeking the Stone; visit any town during Silversun",
+        requiredTalents: { negotiation: 28, aptitude: 0, teamwork: 0, adaptability: 28 },
+        objective: "Examine one well!",
         law: "Forbidden: Items – Items are forbidden.",
-    enemies: [
-        { name: "Randomized Name", job: "Malboro", quantity: 2, notes: "Can use Bad Breath, inflicting multiple debuffs at once." },
-        { name: "Randomized Name", job: "Coeurl", quantity: 2, notes: "Fast enemies with Blaster — can Petrify or Disable." },
-    ],
-        rewards: {
-            gil: 9450,
-            cp: 78,
-            loot: "Fire Sigil ×3"
-        },
+        enemies: [
+            { name: "Randomized Name", job: "Axebeak", notes: "Upper-left well encounter after Seeking the Stone." },
+            { name: "Randomized Name", job: "Fire Drake", notes: "Upper-middle well encounter after A Request." },
+            { name: "Randomized Name", job: "Bomb", notes: "Upper-right well encounter after Wanted: Sky Pirate Vaan; Self-Destruct threat." },
+            { name: "Randomized Name", job: "Adamantitan", notes: "Bottom-left well encounter after A Request; Sonic Spin, Munch, and Matra Magick." },
+        ],
+        strategy: [
+            "Only one well can be examined per acceptance; repeat the quest to access every destination.",
+            "Upper-left: Axebeak after Seeking the Stone. Upper-middle: Fire Drake after A Request. Upper-right: Bomb after Wanted: Sky Pirate Vaan. Bottom-left: Adamantitan after A Request.",
+            "Examining wells can send the clan to otherwise inaccessible Ordalia-side locations; use this to open map access.",
+        ],
+        rewards: { gil: 9450, cp: 78, loot: "Fire Sigil ×3" },
         notes: "",
         tags: ["optional"]
     },
@@ -404,18 +342,12 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canCancel: true,
         members: 1,
         prerequisite: "The Way of the Meek",
-        requiredTalents: {
-            negotiation: 8,
-            aptitude: 8,
-            teamwork: 0,
-            adaptability: 0,
-        },
-    enemies: [],
-        rewards: {
-            gil: 840,
-            cp: 18,
-            loot: "Hedychium ×2, Storm Stone ×4"
-        },
+        requiredTalents: { negotiation: 8, aptitude: 8, teamwork: 0, adaptability: 0 },
+        enemies: [],
+        strategy: [
+            "Talk to Margot in Wood Village and identify Dayvis's destination as Galleria Deep/Galerria Deep.",
+        ],
+        rewards: { gil: 840, cp: 18, loot: "Hedychium ×2, Storm Stone ×4" },
         notes: "",
         tags: ["optional"]
     },
@@ -428,32 +360,34 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         region: "The Bisga Greenlands",
         fee: 300,
         days: 20,
-        questType: "Satisfy Petitioner",
+        questType: "Escort",
         canDispatch: true,
         canCancel: true,
         members: 5,
-        requiredTalents: {
-            negotiation: 8,
-            aptitude: 0,
-            teamwork: 8,
-            adaptability: 0,
-        },
+        prerequisite: "Wanted: Gilmunto",
         dispatchRecommended: ["Defender"],
-        objective: "Protect Dayvis and Defeat all Foes!",
+        requiredTalents: { negotiation: 8, aptitude: 0, teamwork: 8, adaptability: 0 },
+        objective: "Protect Dayvis and defeat all foes!",
         law: "Forbidden: Items – Items are forbidden.",
-    enemies: [
-        { name: "Dayvis", job: "Thief", quantity: 1, notes: "Dayvis — must be protected throughout the battle." },
-        { name: "Randomized Name", job: "Assassin", quantity: 2, notes: "High-threat enemies targeting Dayvis." },
-        { name: "Randomized Name", job: "Ranger", quantity: 2 },
-    ],
-        strategy: [
-            "Bring a healer to manage HP during the encounter",
+        enemies: [
+            { name: "Dayvis", job: "Thief", quantity: 1, notes: "Guest to protect; does little to help." },
+            { name: "Randomized Name", job: "Archer", quantity: 1, notes: "High-ground ranged threat." },
+            { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Air Render threat." },
+            { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Melee pressure from high ground." },
+            { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "High-ground spell threat." },
+            { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Healer; priority once reachable." },
+            { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Melee support." },
         ],
-        rewards: {
-            gil: 3400,
-            cp: 30,
-            loot: "Superior Silk Thread ×3, Earth Stone ×3"
-        },
+        battlefield: [
+            "Enemies begin with strong height advantage.",
+            "One chest and one urn are present.",
+        ],
+        strategy: [
+            "Do not let Dayvis die. Items are banned, so use magick/abilities for healing.",
+            "Use mages and ranged units to answer the high-ground Archer and Black Mage while agile units climb the left side.",
+            "Prioritize White Mage once reachable, then clean up the melee units.",
+        ],
+        rewards: { gil: 3400, cp: 30, loot: "Superior Silk Thread ×3, Earth Stone ×3" },
         notes: "",
         tags: ["optional"]
     },
@@ -470,38 +404,30 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
-        prerequisite: "Moorabella Cup",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 15,
-            adaptability: 15,
-        },
+        prerequisite: "Grounded!; Moorabella Cup; visit Graszton during Emberleaf",
         dispatchRecommended: ["Gladiator"],
-        objective: "Defeat all foes in the entry bout!",
-        law: "Forbidden: Buffs – Buffs are forbidden.",
-    enemies: [
-        { name: "Copykat", job: "Blue Mage", quantity: 1, notes: "Knows many copied abilities — a Blue Mage opponent. Relatively weak but full of tricks." },
-        { name: "Randomized Name", job: "White Mage", quantity: 1 },
-        { name: "Randomized Name", job: "Warrior", quantity: 1 },
-        { name: "Randomized Name", job: "Ranger", quantity: 1 },
-    ],
-        strategy: [
-            "Ranged magical attacks are effective in this mission",
+        requiredTalents: { negotiation: 0, aptitude: 0, teamwork: 15, adaptability: 15 },
+        objective: "Win three one-on-one Fluorgis Cup bouts!",
+        law: "Entry: Forbidden Buffs. Elimination: Forbidden Fire/Ice/Lightning. Final: Forbidden Reaction Abilities.",
+        enemies: [
+            { name: "Copykat", job: "Blue Mage", quantity: 1, notes: "Entry bout; Sandstorm, Bad Breath, Dragon Force, MP Shield, and Immunity." },
+            { name: "Doubler", job: "Red Mage", quantity: 1, notes: "Elimination bout; Ribbon, Doublecast, Doubleshot, Counter, Attack Up. Steal Ribbon if possible." },
+            { name: "Bedeviled", job: "Master Monk", quantity: 1, notes: "Final bout; Dark Fist, Withering Strike, Cross-Counter, Magick Counter, Destroyer." },
         ],
-        rewards: {
-            gil: 2730,
-            cp: 48,
-            loot: ""
-        },
+        strategy: [
+            "Only one unit fights all three bouts; pick someone self-sufficient with strong attacks and healing.",
+            "Beat Copykat quickly, then defeat Doubler while avoiding the elemental law. Steal Ribbon if your champion can.",
+            "Final bout is hardest. Keep HP high and avoid relying on reaction abilities against the Master Monk.",
+        ],
+        rewards: { gil: 2730, cp: 48, loot: "Pin of Order ×1" },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "multi-battle", "elite", "treasure"]
     },
     {
         id: "A2-14",
         arc: "A2",
         name: "The Way of the Timid",
-        description: "I've heard there are many robbers about these days, and I'd rather not travel alone. Seeking an armed escort! I've hard good things about Clan (NAME) - they'd really be best. If you can see this posting, please come to the Galerria Deep. We will meet there! Fayk the Somewhat Timid",
+        description: "I've heard there are many robbers about these days, and I'd rather not travel alone. Seeking an armed escort! I've heard good things about Clan Gully - they'd really be best. If you see this posting, please come to the Galerria Deep. We will meet there! Fayk the Somewhat Timid",
         rank: 18,
         region: "The Galerria Deep",
         fee: 300,
@@ -510,29 +436,28 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 9,
-            adaptability: 9,
-        },
+        prerequisite: "Now That's a Fire!; What Was Lost; complete an auction",
         dispatchRecommended: ["Defender"],
-        objective: "Defeat all Foes!",
+        requiredTalents: { negotiation: 0, aptitude: 0, teamwork: 9, adaptability: 9 },
+        objective: "Defeat all foes!",
         law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
-    enemies: [
-        { name: "Dayvis", job: "Thief", quantity: 1, notes: "The Thief from earlier quests — now an enemy. Uses Steal Gil. Has a quality sword equipped." },
-        { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Seeq Berserker — hits hard but predictable." },
-    ],
-        strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Having Esuna available is recommended to handle debuffs",
-            "Ranged magical attacks are effective in this mission",
+        enemies: [
+            { name: "Dayvis", job: "Thief", quantity: 1, notes: "Enemy this time; Steal Gil and a quality sword." },
+            { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Priority; debuffs and Wallet Shot." },
+            { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Priority; debuff abilities." },
+            { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Air Render threat." },
+            { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Evasive Seeq; save for later if needed." },
+            { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Mug and Provoke support." },
         ],
-        rewards: {
-            gil: 3330,
-            cp: 36,
-            loot: "Spider Silk ×1, Cod Scale ×1"
-        },
+        battlefield: [
+            "Traps are present; defensive positioning can lure enemies into them.",
+        ],
+        strategy: [
+            "Do not self-target, including self-healing.",
+            "Let enemies advance and prioritize Archer/Warrior, then White Monk, then Dayvis and the remaining melee units.",
+            "Bring Esuna support for debuffs, but avoid self-targeting under the law.",
+        ],
+        rewards: { gil: 3330, cp: 36, loot: "Spider Silk ×1, Cod Scale ×1" },
         notes: "",
         tags: ["optional"]
     },
@@ -549,27 +474,28 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        requiredTalents: {
-            negotiation: 7,
-            aptitude: 0,
-            teamwork: 0,
-            adaptability: 7,
-        },
+        prerequisite: "Bonga Bugle - Silversun",
+        requiredTalents: { negotiation: 7, aptitude: 0, teamwork: 0, adaptability: 7 },
         objective: "Defeat Lord Grayrl before he boards the ship!",
         law: "Forbidden: Harming Humes – Actions that harm Humes are forbidden.",
-    enemies: [
-        { name: "Lord Grayrl", job: "Viking", quantity: 1, notes: "The mark — must be defeated before boarding the ship." },
-        { name: "Randomized Name", job: "Viking", quantity: 2, notes: "Seeq Vikings with Strongarm — heavy physical damage." },
-        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Hume — cannot be harmed under the active law." },
-        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Hume — cannot be harmed under the active law." },
-    ],
-        rewards: {
-            gil: 2450,
-            cp: 26,
-            loot: "Malboro Vine ×2, Foul Liquid ×4, Sturdy Bone ×3"
-        },
+        enemies: [
+            { name: "Lord Grayrl", job: "Viking", quantity: 1, notes: "The mark; has Thundara and must be stopped before boarding." },
+            { name: "Randomized Name", job: "Viking", quantity: 2, notes: "Seeq Vikings with Strongarm/Thunder pressure." },
+            { name: "Randomized Name", job: "Moogle Knight", quantity: 1, notes: "Moogle Guard defensive support." },
+            { name: "Randomized Name", job: "Archer", race: "Hume", quantity: 1, notes: "Hume; cannot be harmed if preserving the law." },
+            { name: "Randomized Name", job: "Black Mage", race: "Hume", quantity: 1, notes: "Hume; cannot be harmed if preserving the law." },
+        ],
+        battlefield: [
+            "The bow of the ship creates a two-tile choke point.",
+        ],
+        strategy: [
+            "You only need to defeat Lord Grayrl. Block the boarding path and focus him when he reaches your line.",
+            "To preserve the law, avoid damaging the Archer and Black Mage; otherwise, they are dangerous enough that breaking the law can make the fight easier.",
+            "Gria or other high-ground ranged units can help snipe the non-Hume pirates from the ship area.",
+        ],
+        rewards: { gil: 2450, cp: 26, loot: "Malboro Vine ×2, Foul Liquid ×4, Sturdy Bone ×3" },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "story-cameo", "chain"]
     },
     {
         id: "A2-16",
@@ -584,31 +510,21 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Wanted: Lang Bros",
-        requiredTalents: {
-            negotiation: 0,
-            aptitude: 0,
-            teamwork: 9,
-            adaptability: 9,
-        },
+        prerequisite: "Wanted: Lang Bros; read The Hills are Alive notice",
+        requiredTalents: { negotiation: 0, aptitude: 0, teamwork: 9, adaptability: 9 },
         objective: "Defeat the Big Eyes!",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
-    enemies: [
-        { name: "Randomized Name", job: "Big Eyes", quantity: 1, notes: "The mark. A large floating eye monster." },
-        { name: "Randomized Name", job: "Floating Eye", quantity: 3 },
-    ],
-        strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+        enemies: [
+            { name: "Randomized Name", job: "Plague", quantity: 2, notes: "Priority; can inflict Stone, Charm, Confuse, and other status effects from range." },
+            { name: "Randomized Name", job: "Bloody Orb", quantity: 3, notes: "Fast eyeball enemies with Silence/debuff pressure." },
         ],
-        rewards: {
-            gil: 2940,
-            cp: 34,
-            loot: "Prime Tanned Hide ×1, Wyrm Carapace ×1"
-        },
+        strategy: [
+            "Do not bring knockback-heavy setups, and avoid critical knockback if trying to preserve the law.",
+            "Bring Esuna/Gold Needles and ranged magick. Plagues are the dangerous targets; kill them before Bloody Orbs if possible.",
+            "Holy damage is useful if available, but standard Cure spells are not the same as holy attacks here.",
+        ],
+        rewards: { gil: 2940, cp: 34, loot: "Prime Tanned Hide ×1, Wyrm Carapace ×1" },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "hunt", "notorious-mark"]
     }
 ];

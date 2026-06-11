@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import type { PanelTone } from "../../types/ffta2";
 
-const toneClasses: Record<PanelTone, { border: string; bg: string; header: string; pill: string }> = {
+const toneClasses: Record<PanelTone, { border: string; bg: string; ring: string; header?: string; pill: string }> = {
     neutral: {
         border: "border-zinc-300 dark:border-zinc-700/80",
         bg: "bg-zinc-400 dark:bg-zinc-950/40",
@@ -123,4 +123,3 @@ export function Panel({
         </section>
     );
 }
-

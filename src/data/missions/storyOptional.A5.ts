@@ -17,7 +17,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "The Mutadragons",
+        prerequisite: "Bringer of Doom, Wanted: The Mutadragons, Adelle masters Hilo as a Heritor",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -30,9 +30,10 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         { name: "Magick Weapon", job: "Magick Weapon", quantity: 1, notes: "Hardest boss in the game. 2000+ HP. Can Charm and Doom your units. Use Ultima attacks and high-level physical units. ReRaise on all party members is critical." },
     ],
         strategy: [
-            "The boss can Charm and Doom your units — keep healers ready to snap charmed allies out of it.",
-            "ReRaise on every party member before engaging. Use Ultima attacks and Mirror Items for best damage.",
-            "Items are banned — rely on abilities like Curaga, Esuna, and Arise in place of Potions.",
+            "The Magick Weapon is a high-level Upsilon with close to 2000 HP; do not attempt it until the clan is very high level.",
+            "Beguile can Charm and Doom multiple units, so equip Fortune Rings, Ribbons, Orb of Minwu, or equivalent protection.",
+            "Mist explodes after two rounds and damages the whole clan; recover with abilities because Items are banned.",
+            "Dual Wield and Ultima abilities such as Ultima Masher, Ultima Charge, or Ultima Sword greatly shorten the fight.",
         ],
         rewards: {
             gil: 24960,
@@ -46,7 +47,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         id: "A5-03",
         arc: "A5",
         name: "Green King of Cinquleur",
-        description: "We of Cinquleur seek battle with the straongest of warriors! Defeat me if you can, and you shall be rewarded! Green King Verre of Cinquleur",
+        description: "We of Cinquleur seek battle with the strongest of warriors! Defeat me if you can, and you shall be rewarded! Green King Verre of Cinquleur",
         rank: 66,
         region: "Zedlei Forest",
         fee: 500,
@@ -55,7 +56,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "Blue King of",
+        prerequisite: "Blue King of Cinquleur",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -68,14 +69,14 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         { name: "Green King Verre", job: "Green Mage", quantity: 1, notes: "Level 66 Viera. Has Ribbon (blocks all debuffs), Sprint Shoes, Mirror Mail (reflects magick). Uses Tranq, Last Breath, Nightmare, Ague. Has Blink Counter with a Hammer. Cannot be debuffed or hit with magick." },
     ],
         strategy: [
-            "Mirror Mail reflects all magick — avoid spells entirely. Use Guns, Bows, Hand-Cannons, and Cards.",
-            "Ribbon prevents all debuffs. Use physical chip damage to bring her down before she can KO your units with Last Breath.",
-            "No HP restoration is allowed — bring units with high max HP and use defensive positioning.",
+            "Mirror Mail reflects magick, so avoid offensive spells and lean on melee or long-range physical attackers.",
+            "Ribbon prevents debuffs, and Tranq improves the accuracy of Last Breath and Nightmare.",
+            "No HP restoration is allowed, so bring high max HP units and do not attempt the fight before roughly level 40.",
         ],
         rewards: {
             gil: 13090,
             cp: 99,
-            loot: "Strange Liquid ×2, Great Serpent's Fang ×2"
+            loot: "Strange Liquid ×2, Great Serpent's Fang ×2, Save the Queen"
         },
         notes: "",
         tags: ["optional"]
@@ -93,6 +94,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Making Music, visit Moorabella",
         requiredTalents: {
             negotiation: 22,
             aptitude: 0,
@@ -101,7 +103,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Dispatch mission — no combat. Send a Fusilier (uses guns, not hand-cannons) for 5 days to complete.",
+            "Dispatch mission - no combat. Send a Fusilier for five days; the request is specifically for an experienced gun user.",
         ],
         rewards: {
             gil: 3630,
@@ -115,7 +117,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         id: "A5-07",
         arc: "A5",
         name: "Black King of Cinquleur",
-        description: "We of Cinquleur seek battle with the strongest of warriors, kupo! Defeat me if you can, kujpo, and you shall be rewarded! Black King Nware of Cinquleur",
+        description: "We of Cinquleur seek battle with the strongest of warriors, kupo! Defeat me if you can, kupo, and you shall be rewarded! Black King Nware of Cinquleur",
         rank: 77,
         region: "The Galerria Deep",
         fee: 500,
@@ -124,7 +126,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "Green King of",
+        prerequisite: "Now That's a Fire!, Green King of Cinquleur, complete an auction",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -136,10 +138,15 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
     enemies: [
         { name: "Black King Nware", job: "Black Mage", quantity: 1, notes: "Moogle. Absorbs Fire, Ice, and Lightning — magick is useless. Uses Firaga, Thundaga, Blizzaga, Toadsong. Has Reflex. Use physical/melee or ranged weapons only. Cure Toad debuff with Esuna." },
     ],
+        strategy: [
+            "Avoid fire, ice, and lightning magick because Nware absorbs those elements and can heal from them.",
+            "Use melee and long-range physical attackers such as Fusiliers and Tricksters, and exploit the opening before he has enough MP for high-tier spells.",
+            "Bring Esuna or Toad recovery, but do not apply debuffs because the law forbids them.",
+        ],
         rewards: {
             gil: 9820,
             cp: 99,
-            loot: "Wind Sigil ×3"
+            loot: "Wind Sigil ×3, Crown Scepter"
         },
         notes: "",
         tags: ["optional"]
@@ -157,6 +164,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Seeking the Stone, visit any town",
         requiredTalents: {
             negotiation: 28,
             aptitude: 0,
@@ -165,7 +173,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Dispatch mission — no combat. Send a Viera White Mage (any Viera may work, but White Mage recommended) to complete.",
+            "Dispatch mission - no combat. Send a Viera White Mage for seven days; other races of White Mage do not satisfy the request.",
         ],
         rewards: {
             gil: 4100,
@@ -188,7 +196,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "Black King of",
+        prerequisite: "Black King of Cinquleur",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -201,13 +209,15 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         { name: "White King Blanch", job: "White Mage", quantity: 1, notes: "Nu Mou. Level 88. Uses Scathe, Gigaflare, Bio (via Blood Price). Has MP Shield — forces frequent Blood Price. Use ranged attacks to drain HP." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Use high-accuracy attacks or Stop to avoid breaking the Missing law.",
+            "White King Blanch is a level 88 Nu Mou White Mage with Sage abilities such as Scathe, Gigaflare, and Bio.",
+            "Long-range attackers and Dual Wield users help force Blood Price HP loss while staying out of danger.",
+            "Do not rely on MP attrition: Blood Price lets him cast with HP, and MP Shield can make repeated hits awkward.",
         ],
         rewards: {
             gil: 13720,
             cp: 99,
-            loot: "Clock Gear ×8"
+            loot: "Clock Gear ×8, Cheer Staff"
         },
         notes: "",
         tags: ["optional"]
@@ -225,7 +235,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "White King of Cinqul",
+        prerequisite: "White King of Cinquleur, complete game save",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -233,22 +243,24 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
             adaptability: 54,
         },
         objective: "Defeat all Foes!",
-        law: "Forbidden: HP < or = 200 – Having less than 200 HP is forbidden.",
+        law: "Forbidden: HP < or = 200 – having 200 HP or less is forbidden.",
     enemies: [
-        { name: "Red King Ruuj", job: "Elementalist", quantity: 1, notes: "Priority 1: Uses Doublecast. Immune to debuffs." },
-        { name: "White King Blanch", job: "White Mage", quantity: 1, notes: "Priority 2: Heals other kings — eliminate quickly." },
-        { name: "Green King Verre", job: "Green Mage", quantity: 1, notes: "Priority 3: Dangerous debuffs. Has Mirror Mail." },
-        { name: "Black King Nware", job: "Black Mage", quantity: 1, notes: "Lower priority: Absorbs Fire/Ice/Lightning. Use physical attacks." },
-        { name: "Blue King Bliu", job: "Blue Mage", quantity: 1, notes: "Lower priority: Dual Wield, Magick Frenzy. Use Stopshot." },
+        { name: "Red King Ruuj", job: "Elementalist", quantity: 1, notes: "Level 99. Doublecast and Elementalist pressure." },
+        { name: "White King Blanch", job: "White Mage", quantity: 1, notes: "Level 99. White Mage with Sage abilities; top priority because healing and Scathe/Gigaflare pressure can decide the fight." },
+        { name: "Green King Verre", job: "Green Mage", quantity: 1, notes: "Level 99. Doom, Sleep, KO, and debuff pressure; Mirror Mail remains relevant." },
+        { name: "Black King Nware", job: "Black Mage", quantity: 1, notes: "Level 99. High-tier attack magick and elemental absorption." },
+        { name: "Blue King Bliu", job: "Blue Mage", quantity: 1, notes: "Level 99. Dual Wield and Magick Frenzy pressure." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Bring the strongest six-member clan, Scion accessories, Ribbons, Fortune Rings, and Ninja Tabis.",
+            "Defeat White King Blanch first so the kings cannot recover HP, then focus one king at a time.",
+            "Ultima abilities, Ranger Mirror Items, High Seraph's Plume, Zodiark from Ring of Precepts, and careful Scion use can swing the fight.",
+            "Keep everyone above 200 HP and stay spread out between turns to reduce the impact of multi-target pressure.",
         ],
         rewards: {
             gil: 15440,
             cp: 99,
-            loot: "Lightwing Crystal ×1"
+            loot: "Lightwing Crystal ×1, Condemner's Choker"
         },
         notes: "",
         tags: ["optional"]

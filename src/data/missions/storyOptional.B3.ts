@@ -34,9 +34,10 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Has Steal Items, Steal Gil, and Doublehand (passive, not used offensively)." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
+            "Every unit must move at least one tile before ending its turn. Plan movement first, then choose actions.",
+            "Defeat the Black Mage first to cut down incoming spell damage, then remove the White Mage so the enemy cannot recover.",
+            "The White Monk can hit at range with Air Render; do not leave fragile casters exposed after moving.",
+            "Avoid cornering yourself while obeying the movement law; leave each unit a legal tile to move into next turn.",
         ],
         rewards: {
             gil: 2440,
@@ -72,7 +73,10 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         { name: "Randomized Name", job: "Ivory Wyrm", quantity: 1, notes: "Boss. Path is full of traps and at a height disadvantage. Use Gria flight, magick, or powerful ranged weapons to attack from a safe distance. Syrenead is a guest ally." },
     ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Protect Syrenead while defeating the Ivory Wyrm.",
+            "The path has height and trap disadvantages, so flying units, magick, bows, and long-reach job abilities are the safest way to pressure the Wyrm.",
+            "Harming the Weak is forbidden; avoid wide attacks near Syrenead or any lower-level unit.",
+            "Let sturdy units body-block while ranged attackers handle the Wyrm from safer ground.",
         ],
         rewards: {
             gil: 4500,
@@ -111,7 +115,9 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
             "The battlefield contains trap tiles that pose hazards",
         ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Defeat the Mamatrice while staying under the >100 damage law; avoid your strongest burst attacks and use controlled mid-damage hits.",
+            "Hunters with Sidewinder and ranged magick let you damage Klesta's mother without sitting in dangerous close range.",
+            "The fight is slow because of the damage cap, so bring ability-based healing and keep units out of trap paths while wearing her down.",
         ],
         rewards: {
             gil: 2700,
@@ -124,7 +130,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
     {
         id: "B3-06",
         arc: "B3",
-        name: "A Lady's Persistance",
+        name: "A Lady's Persistence",
         description: "Father didn't believe I defeated a wyrm in my first battle. Perhaps if I capture it and show it to him he will not find it so easy a claim to dismiss. Will you assist me? I wait in the Rupie Mountains. Syrenead Sie Hyskaris",
         rank: 31,
         region: "The Rupie Mountains",
@@ -188,10 +194,10 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Hume. Weak ranged attacker." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Humes can only move and use basic attacks, so lean on non-Hume jobs for abilities and healing.",
+            "Remove the Viera Archer first; Blackout, Swarmstrike, and Shadowstick can blind, poison, and slow key units.",
+            "The Moogle can inflict Sleep or Berserk. Keep status recovery ready or defeat it before those effects spread.",
+            "After the Archer and Moogle are controlled, collapse on the Black Mage and finish the melee units.",
         ],
         rewards: {
             gil: 2940,
@@ -204,7 +210,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
     {
         id: "B3-09",
         arc: "B3",
-        name: "A Lady's Insistance",
+        name: "A Lady's Insistence",
         description: "The wyrm I keep at our home is well behaved and docile, but a group of our neighbours have voiced complaint. Such ignorance ... To appease them, I've resolved to cut off my poor pet's horn - that should make him appear less fearsome. This is easier said than done, however, and I shall require help. Syrenead Sie Hyskaris",
         rank: 30,
         region: "Moorabella",
@@ -227,9 +233,10 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         { name: "Randomized Name", job: "Ivory Wyrm", quantity: 1, notes: "Objective: weaken to HP Critical — do NOT kill. Wyrm stays stationary. The law forbids normal attacks but abilities still work — use spells and skills. Protect Syrenead from being killed." },
     ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Protect Syrenead and weaken the Ivory Wyrm to HP Critical; do not kill it.",
+            "Normal Attack is forbidden, but job abilities and magick are legal. Build the party around controllable ability damage.",
+            "The Wyrm stays mostly stationary, so take your time setting up safe angles and healing Syrenead before lowering it to critical HP.",
+            "Stop attacking as soon as the Wyrm reaches critical HP.",
         ],
         rewards: {
             gil: 8510,
@@ -367,6 +374,12 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "Initial wave. Enemy reinforcements keep crossing the bridges after each wave is killed." },
         { name: "Randomized Name", job: "Baknamy", quantity: 2, notes: "Initial wave. Use two frontline tanks to block the bridges and ranged support behind." },
     ],
+        strategy: [
+            "Guard the bridge for four rounds; survival and blocking lanes matter more than chasing every reinforcement.",
+            "Remove reaction abilities before entering because they are forbidden and can trigger law penalties unexpectedly.",
+            "Use two sturdy frontliners to hold the bridge mouths while ranged and magick users attack from behind them.",
+            "When a wave falls, expect more enemies to cross. Stay in formation instead of overextending.",
+        ],
         rewards: {
             gil: 830,
             cp: 12,

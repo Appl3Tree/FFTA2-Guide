@@ -17,7 +17,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Jylland Cup",
+        prerequisite: "Jylland Cup, complete game save, Goldsun",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -30,13 +30,15 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Clan Centurio. Has Sage abilities too — highest priority target." },
         { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Uses Doom — eliminate before she can apply it." },
-        { name: "Randomized Name", job: "Viking", quantity: 1 },
-        { name: "Randomized Name", job: "Soldier", quantity: 1 },
-        { name: "Randomized Name", job: "Green Mage", quantity: 1 },
-        { name: "Randomized Name", job: "White Monk", quantity: 1 },
+        { name: "Randomized Name", job: "Viking", quantity: 1, notes: "Physical and utility pressure. Handle after the healers/status units." },
+        { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Durable frontline unit. Lowest priority unless it pins down your casters." },
+        { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Status support and Doublecast pressure. Remove before it disables key attackers." },
+        { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Air Render-style ranged monk pressure. Keep wounded units out of line." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Defeat Clan Centurio's White Mage first; he also has Sage abilities such as Gigaflare.",
+            "Remove the Archer before Doom or Charm lands, then stop the Green Mage's Doublecast status pressure.",
+            "Keep damage at 20 or higher to satisfy the law, and clean up the Viking, Soldier, and White Monk once the support units are down.",
         ],
         rewards: {
             gil: 8510,
@@ -50,7 +52,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         id: "A4-02",
         arc: "A4",
         name: "Wanted: Icicle Ark",
-        description: "-WANTED!- Wanted: Icicle Ark, for encasing both a manor and its lord in solid ice. These masters of ice manupulation are currently confined to the Kthili Sands area. Jylland Defenders of the Peace",
+        description: "-WANTED!- Wanted: Icicle Ark, for encasing both a manor and its lord in solid ice. These masters of ice manipulation are currently confined to the Kthili Sands area. Jylland Defenders of the Peace",
         rank: 26,
         region: "Kthili Sands",
         fee: 400,
@@ -59,7 +61,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Wanted: Gaitsnipe",
+        prerequisite: "Sleepless Nights, Notice: House on Ice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -76,6 +78,11 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         { name: "Randomized Name", job: "Scholar", quantity: 1, notes: "Uses Rime Bolt Tome, Water, and Aero." },
         { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Uses Blizzard and Blizzara." },
     ],
+        strategy: [
+            "Fire is forbidden, so use non-fire pressure against the ice-themed clan.",
+            "Defeat the Gladiator and Parivir before they punish the front line, then remove the Summoner, Illusionist, Black Mage, and Scholar.",
+            "The Summoner and Illusionist can hit multiple units from range, so do not let them sit behind the melee units for long.",
+        ],
         rewards: {
             gil: 3150,
             cp: 52,
@@ -97,6 +104,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
+        prerequisite: "Rumors Abound, Goldsun",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -153,8 +161,9 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
             "The battlefield contains trap tiles that pose hazards",
         ],
         strategy: [
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
+            "Floraxion is the required target; the Great Malboros are support threats that make melee approaches risky.",
+            "Viera are restricted to movement and basic attacks, so rely on non-Viera casters, Hunters, or melee units for abilities.",
+            "Use Fire damage against Floraxion from outside its 2-tile cloud range, and carry status recovery for the Malboros' debuffs and the surrounding Charm traps.",
         ],
         rewards: {
             gil: 6760,
@@ -260,13 +269,14 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         { name: "Red King Ruuj", job: "Elementalist", quantity: 1, notes: "Level 44 solo boss. Uses Doublecast, Silence (Red Magick), Fire Whip, Sliprain, Boulder Crush. Immune to all debuffs. Use Mirror Items or ranged attacks." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Ruuj has Ribbon protection and Doublecast, so do not rely on status ailments.",
+            "Use strong ranged attackers and non-forbidden magick to avoid Counter while respecting the Fire/Ice/Lightning ban.",
+            "If your clan is around the mid-20s with strong jobs, focus damage and heal through Doublecast pressure.",
         ],
         rewards: {
             gil: 8110,
             cp: 88,
-            loot: "Chocobo Skin ×1, Coeurl Pelt ×1"
+            loot: "Chocobo Skin ×1, Coeurl Pelt ×1, Sequencer"
         },
         notes: "",
         tags: ["optional"]
@@ -274,8 +284,8 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
     {
         id: "A4-12",
         arc: "A4",
-        name: "Wanted: Tutor",
-        description: "I seek a talented home tutor for my son, for seven days during the summer holidays. The successful applicant will have a good attitude, and be willing to live in our home for the duration. Marianne, House Havemille Head Maid",
+        name: "Wanted: Tutor!",
+        description: "I seek a talented home tutor for my son, for seven days during the summer holidays. The successful applicant will have a good attitude, and be willing to live in our home for the duration. Marianna, House Havemille Head Maid",
         rank: 16,
         region: "Moorabella",
         fee: 300,
@@ -292,7 +302,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Dispatch mission — no combat. Send a Nu Mou Scholar for 7 days to complete.",
+            "Dispatch mission - no combat. Send a Scholar for seven days; the petitioner is explicitly looking for a tutor.",
         ],
         rewards: {
             gil: 2520,
@@ -363,12 +373,17 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         objective: "Defeat Blue King Bliu!",
         law: "Forbidden: Using MP – Actions that consume MP are forbidden.",
     enemies: [
-        { name: "Blue King Bliu", job: "Blue Mage", quantity: 1, notes: "Level 55 solo boss. Uses Quake and Expose Weakness. Has Magick Frenzy, Counter, and Dual Wield with 2 Light Sabers. Use Stopshot or fast physical burst. Reward: Peytral armour." },
+        { name: "Blue King Bliu", job: "Blue Mage", quantity: 1, notes: "Level 55 solo boss. Uses Quake and Expose Weakness. Has Magick Frenzy, Counter, and Dual Wield with two Light Sabers. Stop works." },
     ],
+        strategy: [
+            "Using MP is forbidden, so use physical attackers, Fusiliers, Cannoneers, Snipers, Assassins, Ninjas, or Gladiators.",
+            "Stopshot is especially effective because Blue King Bliu is not immune to Stop.",
+            "Avoid extended melee trades unless you can survive Counter plus Dual Wield and Magick Frenzy follow-up.",
+        ],
         rewards: {
             gil: 7810,
             cp: 99,
-            loot: "Platinum ×2, Lamia Scale ×2, Divariwood ×1"
+            loot: "Platinum ×2, Lamia Scale ×2, Divariwood ×1, Peytral"
         },
         notes: "",
         tags: ["optional"]
@@ -377,7 +392,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         id: "A4-16",
         arc: "A4",
         name: "Wanted: Woodworker",
-        description: "My roof's about to collapse under the weight of all this snow. If I don't shore it up soon, that'll be the end of the whole thing! But the job is bigger than I can manage on my own, so I'm gonna need a second pair of hands to finish it up. I fugure she'll take about five days to get squared away. Bique, Retired Woodworker",
+        description: "My roof's about to collapse under the weight of all this snow. If I don't shore it up soon, that'll be the end of the whole thing! But the job is bigger than I can manage on my own, so I'm gonna need a second pair of hands to finish it up. I figure she'll take about five days to get squared away. Bique, Retired Woodworker",
         rank: 16,
         region: "Moorabella",
         fee: 300,
@@ -393,6 +408,9 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
             adaptability: 13,
         },
         enemies: [],
+        strategy: [
+            "Dispatch mission - no combat. Send a Green Mage equipped with a hammer to fit the woodworker request.",
+        ],
         rewards: {
             gil: 2520,
             cp: 32,

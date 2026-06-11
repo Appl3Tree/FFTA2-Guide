@@ -79,8 +79,8 @@ export const HELMET_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         gender: "Female-only",
         immunity: ["Some debuffs"],
         teaches: {
-            Geomancer: ["critical-evasion-up"],
-            Spellblade: ["critical-evasion-up"],
+            Geomancer: ["critical-evasion↑"],
+            Spellblade: ["critical-evasion↑"],
         },
         notes: "Immune: Some debuffs",
         description: "A red hairpin, adorned with words of blessing to keep one's protections close. .",

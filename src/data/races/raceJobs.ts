@@ -66,7 +66,7 @@ export const RACE_JOBS: RaceJobs[] = [
         jobs: [
             {
                 name: "Fencer",
-                summary: "Weilding a deadly rapier, the light-footed fencer strikes swift and sure.",
+                summary: "Wielding a deadly rapier, the light-footed fencer strikes swift and sure.",
             },
             {
                 name: "White Mage",
@@ -212,7 +212,7 @@ export const RACE_JOBS: RaceJobs[] = [
             },
             {
                 name: "Moogle Knight",
-                summary: "The moogle knight stands equal to any hume or bangaa warrior in bravry, if not in height.",
+                summary: "The moogle knight stands equal to any hume or bangaa warrior in bravery, if not in height.",
             },
             {
                 name: "Fusilier",
@@ -224,7 +224,7 @@ export const RACE_JOBS: RaceJobs[] = [
             },
             {
                 name: "Tinker",
-                summary: "One of the many brands of hte machinist, the tinker wages battle with his clockwork creations.",
+                summary: "One of the many brands of the machinist, the tinker wages battle with his clockwork creations.",
             },
             {
                 name: "Time Mage",
@@ -319,4 +319,3 @@ export const RACE_JOBS: RaceJobs[] = [
         ]
     }
 ];
-

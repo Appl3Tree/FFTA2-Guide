@@ -36,6 +36,48 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         tags: ["optional"]
     },
     {
+        id: "B5-02",
+        arc: "B5",
+        name: "Summons",
+        description: "Clan Gully! Exactly what is your relationship to Duelhorn? Show us. We wait in the Bisga Greenlands. A Mysterious Organisation",
+        rank: 40,
+        region: "The Bisga Greenlands",
+        fee: 500,
+        days: 20,
+        questType: "Battle",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Caravan Cry II",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 33,
+            adaptability: 33,
+        },
+        objective: "Defeat all Foes!",
+        law: "Forbidden: Actions by Bangaa – Bangaa may only move and perform basic attacks.",
+    enemies: [
+        { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Uses Rend Power, Rend Magick, Rend Speed, and Counter." },
+        { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Uses Dark Fist, Lifebane, Cross-counter, and Blink Counter." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Uses Fira, Thundara, Blizzara, Thundaga, and Magick Counter." },
+        { name: "Randomized Name", job: "Tinker", quantity: 1, notes: "Priority target. Uses Green Gear, Silver Disc, and Gold Moogletron." },
+        { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Uses Cura, Curaga, and Refresh." },
+    ],
+        strategy: [
+            "Avoid relying on Bangaa because their actions are restricted by law.",
+            "Split your force to control both starting areas, then collapse toward the center once the closest threats are down.",
+            "Eliminate the Tinker first, then pressure the Black Mage and Master Monk before flanking the remaining enemies.",
+        ],
+        rewards: {
+            gil: 3330,
+            cp: 80,
+            loot: "Spider Silk ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
         id: "B5-03",
         arc: "B5",
         name: "Hunted",
@@ -59,6 +101,12 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
     enemies: [
         { name: "Sir Luc Sardarc", job: "Paladin", quantity: 1, notes: "Forced party: Luso, Adelle, and Cid only. Uses Saint Cross, Holy Blade, and War Cry. Has Blink Counter and Destroyer. Protect Frimelda (undead ally). Dark Magick is effective." },
     ],
+        strategy: [
+            "Only Luso, Adelle, and Cid deploy. Protect Frimelda while defeating Sir Luc Sardarc.",
+            "Ranged weapons are forbidden, so use melee, magick, and non-weapon abilities instead of bows, guns, hand-cannons, or cards.",
+            "Dark Magick is effective on Frimelda's undead body, but do not let Sir Luc reach and burst her down.",
+            "Watch Blink Counter and Destroyer; attack with units that can survive the counter pressure.",
+        ],
         rewards: {
             gil: 7370,
             cp: 78,
@@ -66,6 +114,46 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         },
         notes: "",
         tags: ["optional"]
+    },
+    {
+        id: "B5-04",
+        arc: "B5",
+        name: "Geomancer's Way - Snow",
+        description: "Geomancers bend nature to their will. Our society has established a series of trials for prospective geomancers to determine whether they are worthy to share in our knowledge. The Trial of Rivening Snow is the third of four trials. When you are ready to be tested, come. Naturalist Society",
+        rank: 37,
+        region: "Moorabella",
+        fee: 500,
+        days: 20,
+        questType: "Battle",
+        canDispatch: false,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Geomancer's Way - Rain",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 33,
+            adaptability: 33,
+        },
+        objective: "Defeat all Foes!",
+        law: "Forbidden: Using 20+ MP – Actions that consume 20 or more MP are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Geomancer", quantity: 3, notes: "Use Avalanche and other terrain skills; rush them before their terrain damage snowballs." },
+        { name: "Randomized Name", job: "Ice Drake", quantity: 1, notes: "Secondary monster threat; mostly a distraction while the Geomancers act." },
+        { name: "Randomized Name", job: "Zahak", quantity: 1, notes: "Weak to Holy. A Paladin or other Holy attacker can remove it quickly." },
+    ],
+        strategy: [
+            "Keep high-MP actions under control; abilities costing 20 or more MP break the law.",
+            "Use melee pressure and Holy damage to remove Zahak, then close quickly on the three Geomancers.",
+            "If you cleared the Rain and Sun trials comfortably, use the same anti-Geomancer plan here: fast units, status cleanup, and steady healing.",
+        ],
+        rewards: {
+            gil: 4730,
+            cp: 74,
+            loot: "Stradivari ×1"
+        },
+        notes: "",
+        tags: ["optional", "chain", "job-unlock"]
     },
     {
         id: "B5-05",
@@ -89,8 +177,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
     enemies: [],
         strategy: [
             "Dispatch mission — send an Alchemist for 7 days.",
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "No combat. The job match is the important requirement, so send an Alchemist rather than a generic high-talent unit.",
         ],
         rewards: {
             gil: 5520,
@@ -99,6 +186,62 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         },
         notes: "",
         tags: ["optional"]
+    },
+    {
+        id: "B5-06",
+        arc: "B5",
+        name: "Three-Point Strategy",
+        description: "A missive containing Duelhorn's strategic plans for the near future has been intercepted. Launch coordinated attacks on Camoa, Graszton, and Moorabella using the confusion this generated to strike at headquarters.",
+        rank: 48,
+        region: "Camoa, Graszton, Moorabella",
+        fee: 500,
+        days: 20,
+        questType: "Defeat Mark",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Summons",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 39,
+            adaptability: 39,
+        },
+        objective: "Defeat the Duelhorn leaders in Camoa, Graszton, and Moorabella!",
+        law: "Multi-battle laws: Harming the Opposite Sex in Camoa; Targeting Self in Graszton; Actions by Viera in Moorabella.",
+    enemies: [
+        { name: "Night Dancer", job: "Trickster", quantity: 1, notes: "Camoa mark. Female Bangaa Trickster with dangerous long-range card attacks." },
+        { name: "Randomized Name", job: "Cannoneer", quantity: 1, notes: "Camoa support; long-range threat and early priority." },
+        { name: "Randomized Name", job: "Bishop", quantity: 1, notes: "Camoa support." },
+        { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Camoa support; remove early if not rushing the mark." },
+        { name: "Randomized Name", job: "Dragoon", quantity: 1, notes: "Camoa support." },
+        { name: "Randomized Name", job: "Defender", quantity: 1, notes: "Camoa support." },
+        { name: "Duke Snakeheart", job: "Arcanist", quantity: 1, notes: "Graszton mark. Supported by heavy casters; rush or disable the mage line." },
+        { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Graszton support." },
+        { name: "Randomized Name", job: "Illusionist", quantity: 1, notes: "Graszton support with Blood Price; dangerous if allowed to build momentum." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Graszton support and early priority." },
+        { name: "Randomized Name", job: "Sage", quantity: 1, notes: "Graszton support and early priority." },
+        { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Graszton support." },
+        { name: "Alys the Ensorceled", job: "Summoner", quantity: 1, notes: "Moorabella mark. Does not move at first, but her summons are dangerous if units group near her." },
+        { name: "Randomized Name", job: "Assassin", quantity: 1, notes: "Moorabella ranged threat." },
+        { name: "Randomized Name", job: "Elementalist", quantity: 1, notes: "Moorabella ranged magic threat." },
+        { name: "Randomized Name", job: "Sniper", quantity: 1, notes: "Moorabella ranged threat." },
+        { name: "Randomized Name", job: "Spellblade", quantity: 1, notes: "Moorabella support attacker." },
+        { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Moorabella healer." },
+    ],
+        strategy: [
+            "This is a three-city chain: Camoa, Graszton, then Moorabella. HP and MP carry between fights, so conserve resources.",
+            "In Camoa, use legal unit genders and high-movement/ranged pressure to defeat Night Dancer; Cannoneer and Master Monk are the key support threats.",
+            "In Graszton, either rush Duke Snakeheart or remove the Sage, Black Mage, and Time Mage before the caster line overwhelms you.",
+            "In Moorabella, avoid Viera actions, clear Sniper/Assassin/Elementalist pressure, and do not group around Alys when she starts summoning.",
+        ],
+        rewards: {
+            gil: 4920,
+            cp: 96,
+            loot: "Wyvern Wing ×1"
+        },
+        notes: "",
+        tags: ["optional", "chain", "boss"]
     },
     {
         id: "B5-07",
@@ -122,16 +265,23 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         objective: "Investigate the Shining Object!",
         law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Floating Eye", quantity: 2, notes: "First battle — defeat or rush past to examine the shining object. High-movement units can skip combat." },
-        { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "First battle. Second battle in Kthili Sands: Ghoul x4 (weak to Holy). Protect Frimelda; she enters at HP Critical. Frimelda joins as Paladin after the mission." },
+        { name: "Randomized Name", job: "Floating Eye", quantity: 2, notes: "Nazan Mines battle — defeat or rush past to examine the shining object. High-movement units can skip combat." },
+        { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "Nazan Mines battle — defeat or rush past to examine the shining object. High-movement units can skip combat." },
+        { name: "Randomized Name", job: "Ghoul", quantity: 4, notes: "Kthili Sands battle — undead foes. Drop them to 0 HP, then finish with Phoenix Down, Raise, or Exorcise-style effects before they revive." },
     ],
+        strategy: [
+            "Nazan Mines: send a high-Move/Jump unit to the shining object; defeating the Wolves and Floating Eyes is optional if you can reach it quickly.",
+            "Kthili Sands: protect Frimelda while clearing four Ghouls. Bring Phoenix Downs, Raise, or Exorcise-style options so the undead stay down.",
+            "Kthili Sands: collect the high ledge chest for the Orb of Minwu before ending the battle if you want the extra treasure.",
+            "Frimelda joins as a Paladin after the mission.",
+        ],
         rewards: {
             gil: 6620,
             cp: 84,
             loot: "High Arcana ×1"
         },
         notes: "",
-        tags: ["optional", "recruit"]
+        tags: ["optional", "recruit", "multi-battle", "protection"]
     },
     {
         id: "B5-08",
@@ -161,9 +311,10 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         { name: "Randomized Name", job: "Lamashtu", quantity: 1, notes: "Dangerous debuffer — highest priority target." },
     ],
         strategy: [
-            "Having Esuna available is recommended to handle debuffs",
-            "Bring a healer to manage HP during the encounter",
-            "Ranged magical attacks are effective in this mission",
+            "Keep every unit above 100 HP; falling to 100 HP or lower breaks the law.",
+            "Remove the Lamashtu first because its debuffs can make the HP law hard to maintain.",
+            "The Geomancers start with height advantage. Use ranged magick, bows, guns, or flying/high-move units to close quickly.",
+            "If you rely on bladed weapons, remove the Toughskin before Resonate weakens those attackers.",
         ],
         rewards: {
             gil: 4850,
@@ -198,6 +349,12 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
     enemies: [
         { name: "Maquis the Phantasm", job: "Juggler", quantity: 6, notes: "Duelhorn boss. Splits into 6 at battle start — all copies are real. Level ~56. Has Double Wield and various veils (debuffs). Use AoE Illusion magick (Illusionist with Halve MP + MP Efficiency recommended). All 6 must be defeated." },
     ],
+        strategy: [
+            "Maquis splits into six real copies at the start; every copy must be defeated.",
+            "Ranged weapons are forbidden, but magick and non-weapon ranged abilities are legal. Illusion magick is excellent because it hits every copy.",
+            "Bring status recovery for veil debuffs and avoid letting Double Wield copies surround fragile units.",
+            "If you cannot burst the field with Illusionists, focus one copy at a time and keep the party grouped around healers.",
+        ],
         rewards: {
             gil: 5320,
             cp: 99,
@@ -231,6 +388,12 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
     enemies: [
         { name: "Ghi", job: "Parivir", quantity: 1, notes: "Frimelda fights alone. Ghi uses Shimmering Blade, Skyfury Blade, Hoarfrost Blade, and Bonecrusher. High Attack, low Resistance — use Frimelda's Dual Wield for back attacks. Cure debuffs between turns." },
     ],
+        strategy: [
+            "Frimelda fights this duel alone, so prepare her equipment before entering.",
+            "Use Frimelda's Dual Wield and back attacks to exploit Ghi's lower Resistance and end the duel quickly.",
+            "Keep each hit at 20 damage or more to respect the law. Avoid weak chip attacks.",
+            "Ghi's Parivir blades and Bonecrusher hit hard; heal or cleanse debuffs whenever Frimelda loses tempo.",
+        ],
         rewards: {
             gil: 7880,
             cp: 99,
@@ -242,7 +405,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
     {
         id: "B5-14",
         arc: "B5",
-        name: "Lethean Drought",
+        name: "Lethean Draught",
         description: "I must slay a certain monster for the reagents of a potion I require, and seek allies to join me on the hunt. Maquis",
         rank: 57,
         region: "The Aldanna Range",
@@ -252,7 +415,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "The Last Duelhorn",
+        prerequisite: "The Last Duelhorn, I Want to Forget, complete game save",
         requiredTalents: {
             negotiation: 54,
             aptitude: 0,
@@ -266,7 +429,89 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         { name: "Randomized Name", job: "Dreamhare", quantity: 4, notes: "Uses Charm abilities — Hunters with Sidewinder are ideal to eliminate quickly. Protect Maquis from being hit." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Protect Maquis while clearing the Dreamhares.",
+            "Hunters with Sidewinder can remove Dreamhares quickly before Illude/Charm turns allies against you.",
+            "Vary actions carefully to obey Copycat, and keep a healer ready for Maquis if the Dreamhares group up on him.",
+        ],
+        rewards: {
+            gil: 3940,
+            cp: 99,
+            loot: "Aurea Pollen ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "B5-15",
+        arc: "B5",
+        name: "Devil's Pact",
+        description: "I am afflicted with a terrible disease that eats away at my body each day. A kind man named Maquis brings me medicine to slow its effects, but he's begun to behave strangely. He's had dealings with the Witch of the Fens, and I think there may be a connection between her and his behaviour. I need someone who knows the witch to look into this matter on my behalf. Cyda",
+        rank: 54,
+        region: "Tramdine Fens",
+        fee: 500,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Lethean Draught",
+        requiredTalents: {
+            negotiation: 54,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 54,
+        },
+        objective: "Answer the Witch of the Fens!",
+        law: "Forbidden: HP <= 20 – Having less than 20 HP is forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Dreamhare", quantity: 3, notes: "Needed for the witch's potion; Sidewinder or other anti-monster attacks end the fight quickly." },
+    ],
+        strategy: [
+            "Bring Hunters or other monster specialists and keep everyone safely above 20 HP.",
+            "Eliminate the three Dreamhares before Charm effects drag the fight out.",
+        ],
+        rewards: {
+            gil: 3280,
+            cp: 99,
+            loot: "Cockatrice Skin ×1"
+        },
+        notes: "",
+        tags: ["optional", "chain", "puzzle"]
+    },
+    {
+        id: "B5-16",
+        arc: "B5",
+        name: "One Last Memory",
+        description: "Maquis cared for me when I was ill. I owe him a debt of kindness that can never be repayed. So when he left with a grim look on his face muttering something about a snake, a great fear took me. I feel I may never see him again. Someone, please, see that he's all right. Cyda",
+        rank: 60,
+        region: "The Galleria Deep",
+        fee: 500,
+        days: 20,
+        questType: "Defeat Mark",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Devil's Pact",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 54,
+            adaptability: 54,
+        },
+        objective: "Defeat Duke Snakeheart!",
+        law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
+    enemies: [
+        { name: "Duke Snakeheart", job: "Arcanist", quantity: 1, notes: "The mark. Still dangerous with Arcanist magic; avoid Death and focus him down if rushing." },
+        { name: "Randomized Name", job: "Defender", quantity: 1, notes: "Durable guard for Snakeheart. Disable or bypass if rushing the mark." },
+        { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Caster support with healing/offense options. Remove early in a full clear." },
+        { name: "Randomized Name", job: "Flintlock", quantity: 1, notes: "Long-range firearm pressure. Keep healers out of its firing lanes." },
+        { name: "Randomized Name", job: "Scholar", quantity: 1, notes: "Area tome caster. Spread out so it cannot punish clustered units." },
+        { name: "Randomized Name", job: "Parivir", quantity: 1, notes: "High-damage physical support. Watch facing because back attacks are forbidden for you." },
+    ],
+        strategy: [
+            "Awareness is valuable because the field is trapped; lure enemies onto traps where possible.",
+            "A direct rush on Duke Snakeheart works, but clearing the support units is safer if your party cannot absorb his Arcanist spells.",
+            "Bring revival and healing support, and remember that back attacks are forbidden.",
         ],
         rewards: {
             gil: 2940,
@@ -274,6 +519,6 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
             loot: "Prime Tanned Hide ×1"
         },
         notes: "",
-        tags: ["optional"]
+        tags: ["optional", "chain", "boss"]
     }
 ];

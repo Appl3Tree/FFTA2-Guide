@@ -446,7 +446,7 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
 
     // NEW OPTIONAL-MISSION HOOKS
 
-    "C4-04": [
+    "C4-14": [
         {
             id: "ra-cat-burglar",
             name: "Cat Burglar",
@@ -1551,7 +1551,7 @@ export const GLOBAL_RETRO_ACHIEVEMENTS: GlobalRetroAchievement[] = [
     {
         id: "ra-a-paw-full-of-feathers-clear-hard",
         name: "A Paw Full of Feathers (Hard)",
-        description: 'Clear Story Mission "Stranger in the Woods"',
+        description: 'Clear Story Mission "A Paw Full of Feathers"',
         category: "Quest Challenges",
     },
     {
@@ -1825,4 +1825,3 @@ export const GLOBAL_RETRO_ACHIEVEMENTS: GlobalRetroAchievement[] = [
         category: "Quest Challenges",
     },
 ];
-

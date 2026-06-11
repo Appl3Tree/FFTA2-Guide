@@ -32,6 +32,12 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Uses Choco Cure and Choco Recharge." },
         { name: "Randomized Name", job: "Toughskin", quantity: 2, notes: "Uses Limit Glove, Headbutt, and Sonic Spin." },
     ],
+        strategy: [
+            "Defeat the support monsters first, then weaken Titoise to HP Critical without killing it.",
+            "Ice is forbidden. Titoise is weak to wind and thunder, so use controlled hits from those elements once it is isolated.",
+            "The Red Chocobo is the biggest immediate threat because Choco Meteor can punish grouped units; remove it early.",
+            "Use abilities rather than normal attacks when Titoise is low to reduce the chance of an accidental critical KO.",
+        ],
         rewards: {
             gil: 4080,
             cp: 80,
@@ -71,6 +77,12 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
+        strategy: [
+            "Defeat the Worgens and regular Hellhounds first, then weaken Helda to HP Critical without killing her.",
+            "Bludgeoning weapons are forbidden. Swap rod, staff, pole, knuckle, hammer, and mace users to other weapons or ability-based roles before entering.",
+            "Worgens can immobilize your units; clear them early so you can control Helda's HP safely.",
+            "Use precise damage on Helda near the end and stop attacking as soon as she reaches critical HP.",
+        ],
         rewards: {
             gil: 7370,
             cp: 78,
@@ -105,11 +117,17 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         { name: "Carrot", job: "Malboro", quantity: 1, notes: "Target. Heals allies and grants Regen. Use Wind and Thunder magick; focus on mark over other enemies." },
         { name: "Randomized Name", job: "Great Malboro", quantity: 2, notes: "Heavy debuffers — eliminate if they interfere." },
         { name: "Randomized Name", job: "Tonberry", quantity: 1, notes: "PRIORITY: Will stalk and deal 999 Karma damage — eliminate immediately." },
-        { name: "Randomized Name", job: "Red Chocobo", quantity: 1 },
-        { name: "Randomized Name", job: "Brown Chocobo", quantity: 1 },
+        { name: "Randomized Name", job: "Red Chocobo", quantity: 1, notes: "Ranged Choco Meteor pressure; remove if it starts hitting your back line." },
+        { name: "Randomized Name", job: "Brown Chocobo", quantity: 1, notes: "Physical support monster; lower priority than Tonberry and Malboros." },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
+        ],
+        strategy: [
+            "Defeat Carrot to win, but remove the Tonberry immediately before Karma starts deleting units.",
+            "Carrot can heal and apply Regen, so focus sustained damage rather than spreading hits across every monster.",
+            "Avoid dealing less than 20 damage because of the law. Use strong attacks, wind/thunder magick, or Sidewinder-style monster damage.",
+            "Clear Great Malboros if their status pressure disrupts the rush; otherwise keep pressure on Carrot.",
         ],
         rewards: {
             gil: 6090,
@@ -122,8 +140,8 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
     {
         id: "C1-04",
         arc: "C1",
-        name: "An Earnest Multitde",
-        description: "I seek the love of my life! My search has led me through city streets and far abroad. I have even taken up the pen, and met four charming ladies in my correspondence. Ah, but I've made a mess pof things by scheduling a rendezvous with each of them on the same day! I need someone to meet three of the lucky damsels in my steed. Only the dashing need apply - I've a reputation to consider! Marnot, Pride of Fluorgis",
+        name: "An Earnest Multitude",
+        description: "I seek the love of my life! My search has led me through city streets and far abroad. I have even taken up the pen, and met four charming ladies in my correspondence. Ah, but I've made a mess of things by scheduling a rendezvous with each of them on the same day! I need someone to meet three of the lucky damsels in my stead. Only the dashing need apply - I've a reputation to consider! Marnot, Pride of Fluorgis",
         rank: 19,
         region: "Fluor, Moora, Targ",
         fee: 300,
@@ -144,9 +162,9 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
             "MUST be dispatched — the 6-day time limit makes it physically impossible to visit all three locations manually. Dispatch any unit.",
         ],
         rewards: {
-            gil: 3780,
-            cp: 54,
-            loot: "Demon Feather ×2, Adamantite ×2"
+            gil: 2540,
+            cp: 38,
+            loot: "Hero Tonic ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -155,7 +173,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         id: "C1-05",
         arc: "C1",
         name: "Foodstuffs: Nutrition",
-        description: "Foodstuffs needed. You will be required to catch specific monsters at a specific location. The details are as follows: - Blue, round, feathered, long of tail. - Enough to feed sixteen. Carm Mercantile",
+        description: "Foodstuffs needed. You will be required to catch specific monsters at a specific location. The details are as follows: - Blue, round, feathered, long of tail. - Enough to feed sixteen. - One eyeball is enough to make soup for four. Too many is no good. Too few is also no good. Poison Tasters Guild \"The Iron Stomach\"",
         rank: 27,
         region: "The Galerria Deep",
         fee: 400,
@@ -178,7 +196,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         { name: "Randomized Name", job: "Floating Eye", quantity: 1, notes: "TARGET: 'Blue, round, feathered, long of tail.' Defeat Floating Eyes to procure the ingredient — more spawn as you kill them." },
     ],
         strategy: [
-            "Read the description: the target is the Floating Eye (blue, round, feathered, long tail). Defeat them to collect the ingredient; more spawn as you go.",
+            "Read the description: the target is the Floating Eye (blue, round, feathered, long tail). Defeat exactly four Floating Eyes to collect the ingredient; more spawn as you go.",
             "Vary actions each turn (Copycat law). Then speak to the Bishop to finish.",
         ],
         rewards: {
@@ -217,6 +235,11 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
     ],
         battlefield: [
             "Treasure chests are present on the battlefield",
+        ],
+        strategy: [
+            "Open treasure chests before killing the Mimics if you want the extra loot.",
+            "Kill exactly two Mimics for the requested ingredient. Zahak respawns, so only fight it to clear space.",
+            "Harming the Weak is forbidden; check levels before using area attacks or counter-heavy setups.",
         ],
         rewards: {
             gil: 8420,
@@ -282,6 +305,11 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
     enemies: [
         { name: "Rafflesia", job: "Rafflesia", quantity: 1, notes: "~1200 HP (shown as ???). Weak to Fire. Damages and debuffs units that approach. Stay at ranged distance — use Fire magick and Hunters with Sidewinder." },
     ],
+        strategy: [
+            "This is a speed battle against House Bowen: your clan must land the killing blow on the Rafflesia before the rival team does.",
+            "Targeting self is forbidden, so avoid self-only buffs and self-targeted recovery while racing for damage.",
+            "Use Fire magick, Hunter Sidewinder, and other ranged damage to avoid the Rafflesia's close-range cloud effects. Heal or delay the Rafflesia if House Bowen is about to steal the final hit.",
+        ],
         rewards: {
             gil: 4590,
             cp: 60,
@@ -486,6 +514,10 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
             adaptability: 0,
         },
         enemies: [],
+        strategy: [
+            "Delivery mission — bring Fire Stone ×1 and Zinconium ×1 to the Bangaa Brotherhood in The Bisga Greenlands.",
+            "No combat. Completing the delivery unlocks the Cannoneer job for Bangaa.",
+        ],
         rewards: {
             gil: 2020,
             cp: 38,
@@ -507,6 +539,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
+        requiredItems: ["Succulent Fruit ×1"],
         requiredTalents: {
             negotiation: 7,
             aptitude: 0,
@@ -514,6 +547,10 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
             adaptability: 0,
         },
         enemies: [],
+        strategy: [
+            "Delivery mission — bring Succulent Fruit ×1 to Graszton.",
+            "This is a one-member delivery with no combat.",
+        ],
         rewards: {
             gil: 1120,
             cp: 14,

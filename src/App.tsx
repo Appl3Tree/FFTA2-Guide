@@ -6,8 +6,7 @@ import { BeforeYouStartPanel } from "./components/meta/BeforeYouStartPanel";
 import { RacesPanels } from "./components/meta/RacesPanels";
 import { RetroAchievementsPanels } from "./components/meta/RetroAchievementsPanels";
 import { MissionTabs } from "./components/missions/MissionTabs";
-import { STORY_MAIN_MISSIONS } from "./data/missions/storyMain";
-import { OPTIONAL_MISSIONS } from "./data/missions/storyOptional";
+import { ALL_MISSIONS } from "./data/missions/allMissions";
 import { ProgressProvider, useProgress } from "./components/ProgressContext";
 import { EquipmentHub } from "./components/meta/EquipmentHub";
 import BazaarPanel from "./components/meta/BazaarPanel";
@@ -26,7 +25,7 @@ function AppInner() {
     const { checked } = useProgress();
 
     const allMissionIds = React.useMemo(
-        () => [...STORY_MAIN_MISSIONS, ...OPTIONAL_MISSIONS].map((m) => m.id),
+        () => ALL_MISSIONS.map((m) => m.id),
         [],
     );
 
@@ -129,10 +128,7 @@ function AppInner() {
                                 tone="purple"
                                 headerAddon={missionHeaderProgress}
                             >
-                                <MissionTabs
-                                    storyMissions={STORY_MAIN_MISSIONS}
-                                    optionalMissions={OPTIONAL_MISSIONS}
-                                />
+                                <MissionTabs />
                             </Panel>
                         </div>
                     </section>
@@ -167,4 +163,3 @@ function AppInner() {
         </div>
     );
 }
-

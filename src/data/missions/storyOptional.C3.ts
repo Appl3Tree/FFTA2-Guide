@@ -30,6 +30,11 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         { name: "Randomized Name", job: "Baknamy", quantity: 2, notes: "Always present regardless of the mark. Traps are also scattered on the field." },
         { name: "Scarface", job: "Randomized Mark", quantity: 1, notes: "The mark varies per player. Heal the mark if the enemy team is about to KO it to deny them the kill. Kill enemy clan units to prevent them from stealing the kill." },
     ],
+        strategy: [
+            "This is a speed battle: win by landing the killing blow on Scarface before the rival clan does.",
+            "Every unit must move at least one tile before ending its turn, so plan legal movement even for casters and item users.",
+            "Clear or disable the Baknamy if they block your route, but watch Scarface's HP closely and heal it if the rival clan is about to claim the final hit.",
+        ],
         rewards: {
             gil: 12830,
             cp: 44,
@@ -59,6 +64,10 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
             adaptability: 0,
         },
     enemies: [],
+        strategy: [
+            "Delivery mission — bring Bat Tail ×1 to Mille in Moorabella.",
+            "No combat. Keep at least one Bat Tail out of the Bazaar if you plan to complete this immediately.",
+        ],
         rewards: {
             gil: 2140,
             cp: 32,
@@ -66,6 +75,47 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         },
         notes: "",
         tags: ["optional"]
+    },
+    {
+        id: "C3-05",
+        arc: "C3",
+        name: "Monster Poaching",
+        description: "Saw some suspicious fellows the other day, dragging this little monster off somewhere... I wonder if it weren't one o' them endangered monsters? A Carm Mercantile fella was only telling me about 'em the other day. Made a donation right there and then, I did! Anyway, that little monster I saw matched the description of one of 'em! Maybe someone could go and help? A Passerby",
+        rank: 36,
+        region: "Baptiste Hill",
+        fee: 500,
+        days: 20,
+        questType: "Defeat Mark",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "On the Rampage",
+        requiredTalents: {
+            negotiation: 0,
+            aptitude: 0,
+            teamwork: 13,
+            adaptability: 13,
+        },
+        dispatchRecommended: ["Defender"],
+        objective: "Protect the Cluckatrices and defeat all foes!",
+        law: "Forbidden: Piercing Weapons – Attacks with rapiers and spears are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Beastmaster", quantity: 1, notes: "Primary target. Controls the Hellhounds and can use Haste and Slow. Defeating the Beastmaster ends the mission." },
+        { name: "Randomized Name", job: "Hellhound", quantity: 2, notes: "Controlled wolf-type monsters. One uses Chilling Blow and one uses Fiery Blow; both can use Summon Pack and Fangs." },
+        { name: "Cluckatrice", job: "Cluckatrice", quantity: 2, notes: "Guest monsters to protect. The Beastmaster can make the Hellhounds attack them." },
+    ],
+        strategy: [
+            "Rush the Beastmaster. The listed objective says to protect the Cluckatrices and defeat all foes, but defeating the Beastmaster completes the mission.",
+            "Disable or burst down the Beastmaster before he can direct the Hellhounds into the protected Cluckatrices.",
+            "Bring a healer or defensive support in case the Cluckatrices take early damage.",
+        ],
+        rewards: {
+            gil: 2400,
+            cp: 72,
+            loot: "Mind Ceffyl ×3"
+        },
+        notes: "",
+        tags: ["optional", "protection", "chain"]
     },
     {
         id: "C3-08",
@@ -99,6 +149,47 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
             gil: 180,
             cp: 44,
             loot: "Fine Wool ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "C3-09",
+        arc: "C3",
+        name: "Stuck in the Muck",
+        description: "Ever since my husband passed away, I've been having this recurring dream in which he tells me he wants to come home. My husband met his end in Tramdine Fens, but his wedding ring was never found. Perhaps this is why he cannot find his way? Someone, please recover it! Widow Maleen",
+        rank: 26,
+        region: "Tramdine Fens",
+        fee: 400,
+        days: 20,
+        questType: "Item Recovery",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        requiredTalents: {
+            negotiation: 15,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 0,
+        },
+        objective: "Find the Lost Wedding Ring!",
+        law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
+    enemies: [
+        { name: "Randomized Name", job: "Chocobo", quantity: 1, notes: "Standard yellow Chocobo." },
+        { name: "Randomized Name", job: "Green Chocobo", quantity: 1, notes: "Support Chocobo in the swamp encounter." },
+        { name: "Randomized Name", job: "Brown Chocobo", quantity: 1, notes: "Support Chocobo in the swamp encounter." },
+        { name: "Randomized Name", job: "Great Tortoise", quantity: 2, notes: "Durable shelling-type enemies." },
+        { name: "Randomized Name", job: "Sprite", quantity: 1, notes: "Can threaten with Meteorite; physically fragile." },
+    ],
+        strategy: [
+            "Search the sparkling points around Tramdine Fens to recover the wedding ring.",
+            "Ranged weapons are banned, so use melee, magick, or non-banned abilities while moving between search points.",
+            "The Sprite is fragile but dangerous if it gets time to cast; clear it early if it blocks the route.",
+        ],
+        rewards: {
+            gil: 4610,
+            cp: 52,
+            loot: "Mythril ×2, Spiral Incisor ×3"
         },
         notes: "",
         tags: ["optional"]
@@ -167,8 +258,8 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         requiredTalents: {
             negotiation: 4,
             aptitude: 0,
-            teamwork: 0,
-            adaptability: 4,
+            teamwork: 4,
+            adaptability: 0,
         },
         objective: "Protect Kyrra and defeat all Foes!",
         law: "Forbidden: Targeting an Area – Actions targeting two or more tiles are forbidden.",
@@ -176,6 +267,11 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         { name: "Randomized Name", job: "White Monk", quantity: 3, notes: "PRIORITY: Have Air Render — eliminate all three first. Melee only due to AoE law." },
         { name: "Randomized Name", job: "Warrior", quantity: 2, notes: "Standard Bangaa melee. Lower priority than the White Monks." },
     ],
+        strategy: [
+            "Protect Kyrra while defeating all five Bangaa attackers.",
+            "Targeting an area is forbidden, so use single-target attacks, single-target magick, and direct healing only.",
+            "The three White Monks are the danger because Air Render can reach Kyrra and your back line; eliminate them before cleaning up the Warriors.",
+        ],
         rewards: {
             gil: 690,
             cp: 14,
@@ -209,6 +305,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         {
             name: "Miss Midori",
             job: "Green Mage",
+            notes: "Lead Green Mage. Uses Blind and Sleep and carries Spellbound; remove first if status protection is weak.",
             abilities: {
                 A1: {
                     setId: "green-magick",
@@ -230,6 +327,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
             name: "Miss Midori",
             job: "Green Mage",
             quantity: 3,
+            notes: "Additional Green Mages. Fragile, but enough of them can chain status and delay chest collection.",
             abilities: {
                 A1: {
                     setId: "green-magick",
@@ -237,7 +335,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
                 },
                 A2: null,
                 R: null,
-                P: ""
+                P: null
             },
             equipment: [
                 {slot: 1, itemId: "hempenRobe" },
@@ -248,7 +346,9 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
             "Treasure chests are present on the battlefield",
         ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Defeat the four Green Mages while avoiding reaction abilities entirely.",
+            "Miss Midori has Sleep and Blind, so give status protection to your key attackers or remove her first.",
+            "Open the battlefield chests before ending the fight if you want the extra loot; the Green Mages are fragile enough that it is easy to finish too quickly.",
         ],
         rewards: {
             gil: 370,

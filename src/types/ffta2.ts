@@ -4,64 +4,93 @@ export type EquipmentId = string;
 
 export interface EnemyActionAbilityRef {
     setId: string;          // AbilitySetId, e.g. "territorialism"
-    abilityIds: string[];   // AbilityId[] — explicit subset
+    abilityIds?: string[];  // AbilityId[] — explicit subset
 }
 
 export interface EnemyAbilityLoadout {
-    A1?: EnemyActionAbilityRef; // Action Ability 1
-    A2?: EnemyActionAbilityRef; // Action Ability 2
-    R?: AbilityId;              // AbilityId for Reaction (if you want full text)
-    P?: AbilityId;              // AbilityId for Passive
+    A1?: EnemyActionAbilityRef | null; // Action Ability 1
+    A2?: EnemyActionAbilityRef | null; // Action Ability 2
+    R?: AbilityId | null;              // AbilityId for Reaction (if you want full text)
+    P?: AbilityId | null;              // AbilityId for Passive
 }
 
-export interface EnemyEquipment {
-    weapon?: EquipmentId;
-    shield?: EquipmentId;
-    head?: EquipmentId;
-    body?: EquipmentId;
-    accessory?: EquipmentId;
+export interface EnemyEquipmentRef {
+    slot: number;
+    itemId: EquipmentId;
 }
 
 export interface Enemy {
-    id: string;
+    id?: string;
     name: string;
     job: string;
+    race?: string;
+    level?: string | number;
     quantity?: number;
     abilities?: EnemyAbilityLoadout;
-    equipment?: EnemyEquipment;
+    equipment?: EnemyEquipmentRef[] | null;
     notes?: string;
 }
 
 export interface Reward {
     gil: number;
-    clanPoints: number;
-    items: string[];
-    loot: string[];
+    cp?: number;
+    clanPoints?: number;
+    items?: string[] | string;
+    loot?: string[] | string;
+    abilities?: string[];
+    other?: string;
     laws?: string[];
 }
 
-export interface MissionTag {
-    id: string;
-    label: string;
-    description?: string;
+export type MissionTag = string;
+
+export interface RequiredTalents {
+    negotiation?: number;
+    aptitude?: number;
+    teamwork?: number;
+    adaptability?: number;
 }
 
 export interface Mission {
     id: string;
     arc: string;
     name: string;
-    rank: number;
+    description?: string;
+    rank?: number;
     recommendedLevel?: string;
     region: string;
-    objective: string;
-    law: string;
+    fee?: number;
+    days?: number;
+    questType?: string;
+    canDispatch?: boolean;
+    canCancel?: boolean;
+    members?: number;
+    prerequisite?: string;
+    requiredItems?: string[];
+    requiredTalents?: RequiredTalents;
+    dispatchRecommended?: string[];
+    objective?: string;
+    law?: string;
     enemies: Enemy[];
-    battlefield: string[];
-    strategy: string[];
+    battlefield?: string[];
+    strategy?: string[];
     rewards: Reward;
     notes?: string;
     tags?: string[];
+    missable?: boolean;
     retroAchievementIds?: string[];
+}
+
+export interface RetroAchievement {
+    id: string;
+    name: string;
+    description: string;
+    points?: number;
+    missable?: boolean;
+    hidden?: boolean;
+    notes?: string;
+    missionId?: string;
+    category?: string;
 }
 
 export interface RetroAchievementRef {
@@ -73,7 +102,7 @@ export interface RetroAchievementMeta {
     id: string;
     name: string;
     description: string;
-    points: number;
+    points?: number;
     missable?: boolean;
     hidden?: boolean;
     notes?: string;
@@ -98,6 +127,17 @@ export interface Job {
     detail: string;
     race: string;
     notes?: string;
+}
+
+export interface RaceJob {
+    name: string;
+    summary: string;
+}
+
+export interface RaceJobs {
+    race: string;
+    tagline: string;
+    jobs: RaceJob[];
 }
 
 export interface AbilityMeta {
@@ -232,4 +272,3 @@ export interface MetaPanel {
     paragraphs: string[];
     bullets?: string[];
 }
-

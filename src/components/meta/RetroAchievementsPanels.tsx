@@ -10,6 +10,7 @@ import { useProgress } from "../ProgressContext";
 
 export function RetroAchievementsPanels() {
     const { checked, setCheck } = useProgress();
+    const [missableOnly, setMissableOnly] = React.useState(false);
 
     // Build a set of missable IDs from BOTH sources
     const MISSABLE_RETRO_IDS = React.useMemo(() => {
@@ -58,6 +59,9 @@ export function RetroAchievementsPanels() {
 
     // Progress across all global achievements
     const totalAchievements = GLOBAL_RETRO_ACHIEVEMENTS.length;
+    const totalMissableAchievements = GLOBAL_RETRO_ACHIEVEMENTS.filter(
+        (ach) => ach.missable || MISSABLE_RETRO_IDS.has(ach.id),
+    ).length;
     const completedAchievements = GLOBAL_RETRO_ACHIEVEMENTS.filter((ach) =>
         checked[`retro:${ach.id}`],
     ).length;
@@ -96,8 +100,42 @@ export function RetroAchievementsPanels() {
             headerAddon={headerProgress}
         >
             <div className="space-y-4 mt-2">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                    <button
+                        type="button"
+                        onClick={() => setMissableOnly((prev) => !prev)}
+                        aria-pressed={missableOnly}
+                        className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
+                            missableOnly
+                                ? "border-amber-400/80 bg-amber-900/60 text-amber-100"
+                                : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
+                        }`}
+                    >
+                        Missable only
+                        {missableOnly && (
+                            <span className="ml-1 text-[0.65rem] opacity-80">
+                                ({totalMissableAchievements})
+                            </span>
+                        )}
+                    </button>
+
+                    {missableOnly && (
+                        <span className="text-[0.7rem] text-zinc-500 dark:text-zinc-400">
+                            Showing missable RetroAchievements only
+                        </span>
+                    )}
+                </div>
+
                 {orderedCategories.map((category) => {
-                    const list = byCategory[category]!;
+                    const list = missableOnly
+                        ? byCategory[category]!.filter(
+                              (ach) =>
+                                  ach.missable || MISSABLE_RETRO_IDS.has(ach.id),
+                          )
+                        : byCategory[category]!;
+
+                    if (list.length === 0) return null;
+
                     const isOpen = !!openCategories[category];
 
                     return (
@@ -195,4 +233,3 @@ export function RetroAchievementsPanels() {
         </Panel>
     );
 }
-

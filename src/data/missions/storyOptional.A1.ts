@@ -30,6 +30,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         {
             name: "Randomized Name",
             job: "Dreamhare",
+            notes: "Enticement user with Hip Attack and Counter. Can slow down the sparkle route if ignored.",
             abilities: {
                 A1: {
                     setId: "enticement",
@@ -39,7 +40,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
                 },
                 A2: null,
                 R: "counter",
-                P: ""
+                P: null
             },
             equipment: [
             ]
@@ -47,6 +48,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         {
             name: "Randomized Name",
             job: "Dreamhare",
+            notes: "Enticement user with War Dance and Hip Attack. Clear only if it blocks the muskmallow route.",
             abilities: {
                 A1: {
                     setId: "enticement",
@@ -56,8 +58,8 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
                     ]
                 },
                 A2: null,
-                R: "",
-                P: ""
+                R: null,
+                P: null
             },
             equipment: [
             ]
@@ -65,6 +67,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         {
             name: "Randomized Name",
             job: "Baknamy",
+            notes: "Uses Magick Hammer and has Archer's Bane, making it awkward for ranged physical units.",
             abilities: {
                 A1: {
                     setId: "taktak",
@@ -74,7 +77,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
                 },
                 A2: null,
                 R: "archers-bane",
-                P: ""
+                P: null
             },
             equipment: [
                 {slot: 1, itemId: "leatherClothing" },
@@ -84,6 +87,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             name: "Randomized Name",
             job: "Wolf",
             quantity: 2,
+            notes: "Fast beasts with Summon Pack and Fangs. Body-block them while the collector reaches the sparkle.",
             abilities: {
                 A1: {
                     setId: "maw",
@@ -93,15 +97,21 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
                     ]
                 },
                 A2: null,
-                R: "",
-                P: ""
+                R: null,
+                P: null
             },
             equipment: [
             ]
         },
     ],
         battlefield: [
+            "The muskmallow sample is a shining sparkle objective on the map.",
             "The battlefield contains trap tiles that pose hazards",
+        ],
+        strategy: [
+            "Reach and examine the muskmallow sparkle to collect the sample; you do not need to defeat every enemy if the route is clear.",
+            "Avoid knockback attacks because they break the law. Use regular damage, magick, and status control while moving toward the sample.",
+            "Dreamhares can annoy or delay units and Baknamy can drain MP, so clear only the enemies blocking your path.",
         ],
         rewards: {
             gil: 1580,
@@ -165,31 +175,11 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        {
-            name: "",
-            job: "",
-            abilities: {
-                A1: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "",
-                    ]
-                },
-                A2: {
-                    setId: "lowercase",
-                    abilityIds: [
-                        "hyphen-name",
-                    ]
-                },
-                R: "",
-                P: ""
-            },
-            equipment: [
-                {slot: 1, itemId: "snakeCase" },
-            ]
-        },
-    ],
+        enemies: [],
+        strategy: [
+            "Non-combat delivery route: accept in Moorabella, then deliver Mack's medicine to the small village in Targ Wood.",
+            "Only one member is needed and no carried item is consumed from inventory.",
+        ],
         rewards: {
             gil: 1330,
             cp: 32,
@@ -254,10 +244,10 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         law: "Forbidden: Ice – Weapons and Abilities that use Ice are Forbidden.",
     enemies: [
         { name: "Randomized Name", job: "Fencer", quantity: 1, notes: "Has Poison ability — prioritize early." },
-        { name: "Randomized Name", job: "Archer", quantity: 1 },
-        { name: "Randomized Name", job: "Warrior", quantity: 1 },
-        { name: "Randomized Name", job: "Soldier", quantity: 1 },
-        { name: "Randomized Name", job: "Thief", quantity: 1 },
+        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Ranged pressure from the pub floor. Remove after the White Monk/Fencer if it targets casters." },
+        { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Straightforward melee damage. Keep away from fragile units." },
+        { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Durable tank. Lowest priority once damage and status threats are controlled." },
+        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Fast nuisance unit. Watch for item or gil theft if the fight drags." },
         { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Air Render can hit from range and deal solid damage." },
     ],
         strategy: [

@@ -1,6 +1,8 @@
 // src/data/missions/missionTags.ts
 import type { MissionTag } from "../../types/ffta2";
 
+export type { MissionTag };
+
 export const MISSION_TAGS: Record<string, MissionTag[]> = {
     // =========================
     // A1 block
@@ -14,7 +16,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "A1-08": ["optional"], // Kids These Days
     "A1-09": ["optional"], // Watch Your Step
     "A1-10": ["optional"], // The Trappings of Failure (trap gimmick but not flagging as puzzle)
-    "A1-11": ["story",, "law-sensitive"], // The Yellow Wings (House Bowen chain, special Ice law) 
+    "A1-11": ["story", "law-sensitive"], // The Yellow Wings (House Bowen chain, special Ice law)
     "A1-14": ["optional"], // A Voice from the Well
     "A1-15": ["optional"], // The Star Seal
     "A1-16": ["story"], // You Say Tomato – in the tomato/harvest chain (Sun-Ripened Mayhem etc.) 
@@ -43,7 +45,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     // A3 block
     // =========================
     "A3-01": ["optional", "multi-battle", "elite", "treasure"], // Goug Cup :contentReference[oaicite:12]{index=12}
-    "A3-03": ["optional", "hunt", "notorious-mark"], // Wanted: Mirage Bunny 
+    "A3-03": ["optional", "hunt", "notorious-mark"], // Wanted: The Mirage Bunny
     "A3-05": ["optional", "multi-battle", "elite", "treasure"], // Loar Cup 
     "A3-06": ["optional", "hunt", "notorious-mark"], // Wanted: Florah 
     "A3-08": ["optional", "chain", "law-sensitive", "puzzle"], // Death March II – law-focused movement/puzzle quest 
@@ -59,7 +61,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     // =========================
     // A4 block
     // =========================
-    "A4-01": ["optional", "multi-battle", "elite", "treasure"], // Champions' Cup – top cup
+    "A4-01": ["optional", "elite", "treasure"], // Champions' Cup – top cup
     "A4-02": ["optional", "hunt", "notorious-mark"], // Wanted: Icicle Ark
     "A4-03": ["optional", "chain"], // Thieves in the Ruins – House Bowen/Duelhorn-relevant chain quest 
     "A4-06": ["optional", "hunt", "notorious-mark"], // Wanted: Floraxion
@@ -80,7 +82,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "A5-07": ["optional", "hunt", "notorious-mark", "elite"], // Black King of Cinquleur
     "A5-08": ["optional", "hunt", "notorious-mark"], // Wanted: Caretaker
     "A5-09": ["optional", "hunt", "notorious-mark", "elite"], // White King of Cinquleur
-    "A5-14": ["optional", "hunt", "notorious-mark", "multi-battle", "elite", "boss", "chain"], // The Five Kings – all Cinquleur at once :contentReference[oaicite:21]{index=21}
+    "A5-14": ["optional", "hunt", "notorious-mark", "elite", "boss", "chain"], // The Five Kings – all Cinquleur at once :contentReference[oaicite:21]{index=21}
 
     // =========================
     // B1 block
@@ -90,7 +92,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "B1-03": ["optional", "chain", "protection"], // Sun-Ripened Mayhem – protect tomatoes 
     "B1-05": ["optional"], // Beetle in a Haystack
     "B1-06": ["optional"], // Wayward Drake
-    "B1-07": ["optional", "chain", "protection"], // The Whites of Its Eyes – protect white Bloody Orb 
+    "B1-07": ["optional", "chain", "protection"], // The White of Its Eye – protect white Bloody Orb
     "B1-08": ["optional", "chain"], // Flown the Coop – House Bowen kids arc
     "B1-09": ["optional"], // Prepared with Love
     "B1-10": ["optional", "chain"], // Foodstuffs: Texture – Foodstuffs chain 
@@ -103,7 +105,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     // =========================
     // B2 block
     // =========================
-    "B2-01": ["story", "hunt", "notorious-mark"], // Wanted: Ughor/Ugohr 
+    "B2-01": ["story", "hunt", "notorious-mark"], // Wanted: Ugohr
     "B2-03": ["optional", "chain"], // Throw Down – part of Duelhorn/House Bowen arc 
     "B2-04": ["optional"], // A Fatal Mistake
     "B2-05": ["optional"], // A Simple Question
@@ -123,7 +125,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "B3-01": ["optional", "chain", "law-sensitive", "puzzle"], // Death March 
     "B3-03": ["optional", "chain"], // A Lady's Proposition – Duelhorn chain 
     "B3-04": ["optional", "hunt", "protection", "chain"], // On the Rampage – defeat Mamatrice, leads into Monster Poaching 
-    "B3-06": ["optional", "chain"], // A Lady's Persistance – Duelhorn/House Alys chain 
+    "B3-06": ["optional", "chain"], // A Lady's Persistence – Duelhorn/House Alys chain
     "B3-08": ["optional", "chain"], // Unfamiliar Folk – Duelhorn chain prereq 
     "B3-09": ["optional", "chain", "law-sensitive"], // A Lady's Insistence – infamously restrictive law 
     "B3-11": ["optional", "chain"], // Duelhorn – named clan chain quest 
@@ -159,12 +161,12 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "B5-03": ["optional", "hunt", "elite"], // Hunted – Ultima esper hunt :contentReference[oaicite:47]{index=47}
     "B5-04": ["optional", "chain", "job-unlock"], // Geomancer's Way - Snow :contentReference[oaicite:48]{index=48}
     "B5-05": ["optional"], // Wanted: Assistant
-    "B5-06": ["optional", "chain", "boss"], // Three-Point Strategy – Duelhorn multi-city bosses 
-    "B5-07": ["optional", "chain"], // Memories Forged – Duelhorn epilogue chain
+    "B5-06": ["optional", "chain", "boss", "multi-battle"], // Three-Point Strategy – Duelhorn multi-city bosses
+    "B5-07": ["optional", "chain", "recruit", "multi-battle", "protection"], // Memories Forged – Duelhorn epilogue chain
     "B5-08": ["optional", "chain", "job-unlock"], // Geomancer's Way - Mist :contentReference[oaicite:50]{index=50}
     "B5-10": ["optional", "chain", "boss"], // The Last Duelhorn – Maquis boss 
     "B5-11": ["optional", "chain", "boss"], // The Way of the Sword – Frimelda duel 
-    "B5-14": ["optional", "chain"], // Lethean Drought – Duelhorn epilogue chain 
+    "B5-14": ["optional", "chain"], // Lethean Draught – Duelhorn epilogue chain
     "B5-15": ["optional", "chain", "puzzle"], // Devil's Pact – choice-based Duelhorn quest 
     "B5-16": ["optional", "chain", "boss"], // One Last Memory – final Duelhorn battle 
 
@@ -216,7 +218,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "C3-08": ["optional", "chain"], // Cleaning to Ordalia – cleaning/transport chain
     "C3-09": ["optional"], // Stuck in the Muck
     "C3-10": ["optional", "chain", "protection"], // Poachers Spotted – poaching chain
-    "C3-11": ["story"], // Rumours Ahead
+    "C3-11": ["story"], // Rumors Abound
     "C3-13": ["optional", "job-unlock"], // Kyrra, Dragoon – unlocks Dragoon :contentReference[oaicite:65]{index=65}
     "C3-14": ["optional", "job-unlock"], // Green Dominion – unlocks Green Mage :contentReference[oaicite:66]{index=66}
     "C3-15": ["optional"], // An Unseen Foe
@@ -229,7 +231,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "C4-02": ["optional", "job-unlock"], // To Be a Fighter – unlocks Fighter :contentReference[oaicite:68]{index=68}
     "C4-05": ["optional", "job-unlock"], // Popocho's Chocobos – unlocks Chocobo Knight :contentReference[oaicite:69]{index=69}
     "C4-06": ["optional", "job-unlock"], // Of Kupos and Cannons – unlocks Flintlock :contentReference[oaicite:70]{index=70}
-    "C4-07": ["optional", "job-unlock"], // Instruments of Inspiration – unlocks Raptor :contentReference[oaicite:71]{index=71}
+    "C4-07": ["optional", "job-unlock"], // Instrument of Inspiration – unlocks Raptor :contentReference[oaicite:71]{index=71}
     "C4-08": ["optional"], // Loar Airships Grounded
     "C4-09": ["optional", "job-unlock"], // Treasured Tomes – unlocks Scholar :contentReference[oaicite:72]{index=72}
     "C4-10": ["optional", "job-unlock"], // Sleight of Hand – unlocks Trickster :contentReference[oaicite:73]{index=73}
@@ -256,7 +258,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "D1-05": ["optional", "chain"], // The Bangaa of the Rupies – Rupies chain 
     "D1-07": ["optional", "chain", "protection"], // The Rivalry of the Rupies – protect NPCs 
     "D1-09": ["optional"], // Tree Hugging
-    "D1-10": ["optional", "chain"], // The Nu Mous of the Rupies – Rupies chain
+    "D1-10": ["optional", "chain"], // The Nu Mou of the Rupies – Rupies chain
     "D1-13": ["optional", "chain"], // Memories – heritor story chain :contentReference[oaicite:86]{index=86}
     "D1-14": ["optional", "chain"], // 'Tis the Season – seasonal chain
 
@@ -268,7 +270,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "D2-03": ["optional", "chain", "timed"], // The Wonders of Loar – timed travel 
     "D2-04": ["optional", "chain"], // The Forgotten Places
     "D2-05": ["optional", "chain", "treasure"], // Chita on Weapons - Masters – weapon chain :contentReference[oaicite:90]{index=90}
-    "D2-06": ["optional", "hunt"], // Bug Hunt
+    "D2-06": ["optional", "hunt", "multi-battle"], // Bug Hunt
     "D2-07": ["optional", "chain"], // The Show's Not Over – performance chain
     "D2-08": ["optional"], // Fluffy Flier?
     "D2-09": ["optional", "chain"], // Cake: The Recipe – cake chain
@@ -293,6 +295,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "D3-11": ["optional"], // Love-Struck
     "D3-12": ["optional", "chain"], // All Good Things...
     "D3-15": ["optional", "chain"], // Rancher's Request - Yellow / Black – chocobo ranch chain 
+    "D3-16": ["optional", "chain"], // Rancher's Request - Black
 
     // =========================
     // D4 block
@@ -304,7 +307,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "D4-08": ["optional"], // Beneath the Sands
     "D4-09": ["optional", "protection"], // Airship S.O.S.! – protect airship crew
     "D4-11": ["story", "story-cameo", "recruit"], // Wanted: Sky Pirate Vaan – Vaan recruitment chain 
-    "D4-12": ["optional"], // A Small Favour
+    "D4-12": ["optional"], // A Small Favor
     "D4-14": ["optional", "chain", "timed"], // Ordalia Airships Grounded – airship law/time related 
     "D4-16": ["story"], // A Request – heritor chain entry :contentReference[oaicite:97]{index=97}
 
@@ -319,7 +322,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "D5-08": ["optional"], // A Lost Companion
     "D5-12": ["optional"], // Help!
     "D5-13": ["optional", "chain", "hunt", "boss", "elite", "law-sensitive"], // Bringer of Doom – heritor chain, special law 
-    "D5-14": ["optional", "chain", "hunt", "boss", "elite", "law-sensitive"], // The Shrine of Paling Gods – heritor chain 
+    "D5-14": ["optional", "chain", "hunt", "boss", "elite", "law-sensitive"], // Shrine of the Paling Gods – heritor chain
     "D5-15": ["optional", "chain", "hunt", "boss", "elite", "law-sensitive"], // The Beast of Aisenfield – Nesiaam mark 
     "D5-16": ["optional", "chain", "hunt", "boss", "elite", "law-sensitive"], // Woman of the Wood – Ljda mark, heritor 
 
@@ -396,5 +399,10 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "E5-12": ["optional", "chain"], // Wanted: Friends, Kupo!
     "E5-15": ["optional", "story-cameo", "law-sensitive"], // A Dashing Duel – Al-Cid fight, special Viera law 
     "E5-16": ["story"], // The Ritual – heritor/Adelle-related quest 
-};
 
+    // =========================
+    // EX block
+    // =========================
+    "EX-01": ["story", "finale", "boss", "ex-mission"], // The Two Grimoires
+    "EX-02": ["story", "finale", "boss", "ex-mission"], // From the Rift
+};

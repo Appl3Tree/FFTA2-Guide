@@ -15,7 +15,7 @@ function abilitySearchText(ab: AbilityMeta, set: AbilitySetMeta): string {
 
     // Ability-specific fields
     parts.push(ab.name);
-    if (ab.description) parts.push(ab.description);
+    if (ab.description) parts.push(...ab.description);
 
     // Index Blue Magic so searches like "blue", "blue magic" work
     if (ab.blueMagic) {
@@ -215,4 +215,3 @@ export function AbilityHub() {
         </div>
     );
 }
-

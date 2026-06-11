@@ -7,21 +7,25 @@ import {
 } from "../../data/missions/missionTags";
 import { RETRO_ACHIEVEMENTS_BY_MISSION_ID } from "../../data/retroAchievements";
 import { useProgress } from "../ProgressContext";
-import { resolveEnemyLoadout } from "../../utils/resolveAbilities";
-import { resolveEnemyEquipment } from "../../utils/resolveEquipment";
-import { ABILITIES, ABILITY_SETS } from "../../data/abilities/abilities";
 import { getEnemyMetaForJob } from "../../data/bestiary/bestiary";
+import { getMissionPhaseSummary } from "../../utils/missionPhases";
+
+function isGenericEnemyName(name?: string | null): boolean {
+    if (!name) return true;
+    return name.trim().toLowerCase() === "randomized name";
+}
+
+function getEnemyDisplayName(enemy: Mission["enemies"][number], fallback: string) {
+    if (!isGenericEnemyName(enemy.name)) {
+        return enemy.name!;
+    }
+
+    const parts = [enemy.race, enemy.job].filter(Boolean);
+    return parts.length > 0 ? parts.join(" ") : fallback;
+}
 
 export function MissionCard({ mission }: { mission: Mission }) {
     const [open, setOpen] = React.useState(false);
-    const [openEnemies, setOpenEnemies ] = React.useState<Record<number, boolean>>({});
-
-    const toggleEnemyDetails = (index: number) => {
-        setOpenEnemies((prev) => ({
-            ...prev,
-            [index]: !prev[index],
-        }));
-    };
 
     const {
         id,
@@ -75,6 +79,21 @@ export function MissionCard({ mission }: { mission: Mission }) {
     const hasEnemies = enemies && enemies.length > 0;
     const hasStrategy = strategy && strategy.length > 0;
     const hasNotes = notes && notes.trim().length > 0;
+    const phaseSummary = getMissionPhaseSummary(mission);
+    const enemyRows = phaseSummary
+        ? phaseSummary.phases.flatMap((phase) => [
+              { type: "phase" as const, phase, key: phase.key },
+              ...phase.enemies.map((enemy, phaseIndex) => ({
+                  type: "enemy" as const,
+                  enemy,
+                  key: `${phase.key}:${phaseIndex}`,
+              })),
+          ])
+        : (enemies ?? []).map((enemy, enemyIndex) => ({
+              type: "enemy" as const,
+              enemy,
+              key: String(enemyIndex),
+          }));
 
     // Per-mission RetroAchievements
     const retroAchievements =
@@ -304,6 +323,16 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                         </dd>
                                     </div>
                                 )}
+                                {rewards?.other && (
+                                    <div className="flex flex-col gap-0.5">
+                                        <dt className="text-zinc-400">
+                                            Other
+                                        </dt>
+                                        <dd className="font-medium">
+                                            {rewards.other}
+                                        </dd>
+                                    </div>
+                                )}
                             </dl>
                         </section>
                     </div>
@@ -428,11 +457,47 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                 <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
                                     <u>STRATEGY</u>
                                 </h4>
-                                <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-zinc-100">
-                                    {strategy.map((line, idx) => (
-                                        <li key={idx}>{line}</li>
-                                    ))}
-                                </ul>
+                                {phaseSummary ? (
+                                    <div className="space-y-2 text-xs sm:text-sm text-zinc-100">
+                                        {phaseSummary.sharedStrategy.length > 0 && (
+                                            <ul className="list-disc list-inside space-y-1">
+                                                {phaseSummary.sharedStrategy.map((line, idx) => (
+                                                    <li key={idx}>{line}</li>
+                                                ))}
+                                            </ul>
+                                        )}
+
+                                        <div className="space-y-2">
+                                            {phaseSummary.phases.map((phase) => (
+                                                <div
+                                                    key={phase.key}
+                                                    className="rounded-lg border border-zinc-800/70 bg-zinc-950/40 px-2.5 py-2"
+                                                >
+                                                    <div className="mb-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-zinc-400">
+                                                        {phase.title}
+                                                    </div>
+                                                    {phase.strategy.length > 0 ? (
+                                                        <ul className="list-disc list-inside space-y-1">
+                                                            {phase.strategy.map((line, idx) => (
+                                                                <li key={idx}>{line}</li>
+                                                            ))}
+                                                        </ul>
+                                                    ) : (
+                                                        <p className="text-[0.7rem] text-zinc-400">
+                                                            Follow the enemy priorities listed for this phase.
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-zinc-100">
+                                        {strategy.map((line, idx) => (
+                                            <li key={idx}>{line}</li>
+                                        ))}
+                                    </ul>
+                                )}
                             </section>
                         )}
 
@@ -488,18 +553,35 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                     <u>ENEMIES</u>
                                 </h4>
                                 <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-100">
-                                    {enemies.map((enemy, idx) => {
-                                        const loadout = resolveEnemyLoadout(enemy.abilities);
-                                        const equip = resolveEnemyEquipment(enemy.equipment);
+                                    {enemyRows.map((row, idx) => {
+                                        if (row.type === "phase") {
+                                            return (
+                                                <li
+                                                    key={`phase:${row.key}`}
+                                                    className="rounded-xl border border-amber-700/50 bg-amber-950/20 px-2.5 py-2 sm:px-3"
+                                                >
+                                                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                                                        <span className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-amber-200">
+                                                            {row.phase.title}
+                                                        </span>
+                                                        <span className="text-[0.65rem] text-amber-100/70">
+                                                            {row.phase.enemies.length} enemy
+                                                            {row.phase.enemies.length === 1 ? "" : " groups"}
+                                                        </span>
+                                                    </div>
+                                                    {row.phase.strategy.length > 0 && (
+                                                        <ul className="mt-1 list-disc list-inside space-y-0.5 text-[0.7rem] text-amber-50/85">
+                                                            {row.phase.strategy.map((line, lineIndex) => (
+                                                                <li key={lineIndex}>{line}</li>
+                                                            ))}
+                                                        </ul>
+                                                    )}
+                                                </li>
+                                            );
+                                        }
+
+                                        const enemy = row.enemy;
                                         const meta = getEnemyMetaForJob(enemy.job);
-
-                                        const hasAbilities =
-                                            !!loadout &&
-                                            !!(loadout.A1 || loadout.A2 || loadout.R || loadout.P);
-
-                                        const hasEquipment = equip.length > 0;
-                                        const hasDetails = hasAbilities || hasEquipment;
-                                        const isOpen = !!openEnemies[idx];
 
                                         const hasAffinities =
                                             (meta?.absorb?.length ?? 0) > 0 ||
@@ -508,21 +590,34 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                             (meta?.weak?.length ?? 0) > 0;
 
                                         const quantity = enemy.quantity ?? 1;
+                                        const enemyDisplayName = getEnemyDisplayName(
+                                            enemy,
+                                            `Enemy ${idx + 1}`,
+                                        );
+                                        const showRacePill =
+                                            !!enemy.race &&
+                                            !enemyDisplayName.includes(enemy.race);
+                                        const showJobPill =
+                                            !!enemy.job &&
+                                            !enemyDisplayName.includes(enemy.job);
 
                                         return (
                                             <li
-                                                key={idx}
+                                                key={row.key}
                                                 className="rounded-xl border border-zinc-800/80 bg-zinc-950/60 px-2.5 py-2.5 sm:px-3 sm:py-3 space-y-1.5"
                                             >
                                                 {/* header row */}
                                                 <div className="flex items-center justify-between gap-2">
                                                     <div className="flex flex-wrap items-baseline gap-2">
-                                                        {enemy.name && (
-                                                            <span className="font-semibold text-zinc-50">
-                                                                {enemy.name}
+                                                        <span className="font-semibold text-zinc-50">
+                                                            {enemyDisplayName}
+                                                        </span>
+                                                        {showRacePill && (
+                                                            <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-zinc-300">
+                                                                {enemy.race}
                                                             </span>
                                                         )}
-                                                        {enemy.job && (
+                                                        {showJobPill && (
                                                             <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-zinc-300">
                                                                 {enemy.job}
                                                             </span>
@@ -535,21 +630,6 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                             </span>
                                                         )}
                                                     </div>
-
-                                                    {hasDetails && (
-                                                        <button
-                                                            type="button"
-                                                            onClick={() => toggleEnemyDetails(idx)}
-                                                            className="inline-flex items-center gap-1 text-[0.65rem] uppercase tracking-[0.16em] text-zinc-400"
-                                                        >
-                                                            {isOpen ? "Hide" : "Show"} loadout
-                                                            {isOpen ? (
-                                                                <ChevronUp className="h-3.5 w-3.5" />
-                                                            ) : (
-                                                                <ChevronDown className="h-3.5 w-3.5" />
-                                                            )}
-                                                        </button>
-                                                    )}
                                                 </div>
 
                                                 {/* Bestiary description (always visible) */}
@@ -566,267 +646,34 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                     </div>
                                                 )}
 
-                                                {/* details: affinities + abilities + equipment (only when expanded) */}
-                                                {isOpen && hasDetails && (() => {
-                                                    const hasBoth = hasAbilities && hasEquipment;
-                                                    const gridClass = hasBoth
-                                                        ? "grid grid-cols-1 md:grid-cols-2 gap-4"
-                                                        : "grid grid-cols-1 gap-4";
-
-                                                    return (
-                                                        <div className="mt-1.5 text-[0.7rem] space-y-1.5">
-                                                            {/* Bestiary elemental/status affinities (only when expanded) */}
-                                                            {hasAffinities && (
-                                                                <div className="text-[0.65rem] text-zinc-300 flex flex-wrap gap-x-4 gap-y-0.5">
-                                                                    {(meta?.absorb?.length ?? 0) > 0 && (
-                                                                        <div>
-                                                                            <span className="text-zinc-400">
-                                                                                Absorb:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {meta!.absorb!.join(", ")}
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
-                                                                    {(meta?.immune?.length ?? 0) > 0 && (
-                                                                        <div>
-                                                                            <span className="text-zinc-400">
-                                                                                Immune:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {meta!.immune!.join(", ")}
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
-                                                                    {(meta?.half?.length ?? 0) > 0 && (
-                                                                        <div>
-                                                                            <span className="text-zinc-400">
-                                                                                Resists:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {meta!.half!.join(", ")}
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
-                                                                    {(meta?.weak?.length ?? 0) > 0 && (
-                                                                        <div>
-                                                                            <span className="text-zinc-400">
-                                                                                Weak:
-                                                                            </span>{" "}
-                                                                            <span className="font-medium">
-                                                                                {meta!.weak!.join(", ")}
-                                                                            </span>
-                                                                        </div>
-                                                                    )}
-                                                                </div>
-                                                            )}
-
-                                                            <div className={gridClass}>
-                                                                {/* ───────── ABILITIES COLUMN ───────── */}
-                                                                {hasAbilities && loadout && (
-                                                                    <div className="space-y-1.5">
-                                                                        <div className="font-semibold text-zinc-200">
-                                                                            Abilities
-                                                                        </div>
-
-                                                                        {/* A1 */}
-                                                                        {loadout.A1 && (
-                                                                            <div className="
-                                                                                border border-zinc-800/80
-                                                                                rounded-md
-                                                                                bg-zinc-950/50
-                                                                                p-2
-                                                                                space-y-0.5
-                                                                            ">
-                                                                                <div className="font-medium">
-                                                                                    A1: {loadout.A1.setName}
-                                                                                </div>
-                                                                                {loadout.A1.setDescription && (
-                                                                                    <div className="text-zinc-300">
-                                                                                        {loadout.A1.setDescription}
-                                                                                    </div>
-                                                                                )}
-                                                                                <ul className="list-disc list-inside space-y-0.5">
-                                                                                    {(loadout.A1.abilities ?? []).map((ab) => {
-                                                                                        const abilityMeta = ABILITIES[ab.id];
-                                                                                        const isBlueMagic = abilityMeta?.blueMagic === true;
-                                                                                        return (
-                                                                                            <li key={ab.id}>
-                                                                                                <span className="font-medium">{ab.name}</span>
-                                                                                                {ab.description && (
-                                                                                                    <span className="text-zinc-300">
-                                                                                                        {": "}
-                                                                                                        {ab.description}
-                                                                                                    </span>
-                                                                                                )}
-                                                                                                {isBlueMagic && (
-                                                                                                    <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase tracking-[0.14em] text-blue-200">
-                                                                                                        Blue Magic
-                                                                                                    </span>
-                                                                                                )}
-                                                                                            </li>
-                                                                                        );
-                                                                                    })}
-                                                                                </ul>
-                                                                            </div>
-                                                                        )}
-
-                                                                        {/* A2 */}
-                                                                        {loadout.A2 && (
-                                                                            <div className="
-                                                                                border border-zinc-800/80
-                                                                                rounded-md
-                                                                                bg-zinc-950/50
-                                                                                p-2
-                                                                                space-y-0.5
-                                                                            ">
-                                                                                <div className="font-medium">
-                                                                                    A2: {loadout.A2.setName}
-                                                                                </div>
-                                                                                <ul className="list-disc list-inside space-y-0.5">
-                                                                                    {(loadout.A2.abilities ?? []).map((ab) => {
-                                                                                        const abilityMeta = ABILITIES[ab.id];
-                                                                                        const isBlueMagic = abilityMeta?.blueMagic === true;
-                                                                                        return (
-                                                                                            <li key={ab.id}>
-                                                                                                <span className="font-medium">{ab.name}</span>
-                                                                                                {isBlueMagic && (
-                                                                                                    <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase tracking-[0.14em] text-blue-200">
-                                                                                                        Blue Magic
-                                                                                                    </span>
-                                                                                                )}
-                                                                                                {ab.description && (
-                                                                                                    <span className="text-zinc-300">
-                                                                                                        {": "}
-                                                                                                        {ab.description}
-                                                                                                    </span>
-                                                                                                )}
-                                                                                            </li>
-                                                                                        );
-                                                                                    })}
-                                                                                </ul>
-                                                                            </div>
-                                                                        )}
-
-                                                                        {/* R */}
-                                                                        {loadout.R && (
-                                                                            <div className="
-                                                                                border border-zinc-800/80
-                                                                                rounded-md
-                                                                                bg-zinc-950/50
-                                                                                p-2
-                                                                            ">
-                                                                                <span className="font-medium">
-                                                                                    R: {loadout.R.name}
-                                                                                </span>
-                                                                                {loadout.R.description && (
-                                                                                    <span className="text-zinc-300">
-                                                                                        {": "}
-                                                                                        {loadout.R.description}
-                                                                                    </span>
-                                                                                )}
-                                                                            </div>
-                                                                        )}
-
-                                                                        {/* P */}
-                                                                        {loadout.P && (
-                                                                            <div className="
-                                                                                border border-zinc-800/80
-                                                                                rounded-md
-                                                                                bg-zinc-950/50
-                                                                                p-2
-                                                                            ">
-                                                                                <span className="font-medium">
-                                                                                    P: {loadout.P.name}
-                                                                                </span>
-                                                                                {loadout.P.description && (
-                                                                                    <span className="text-zinc-300">
-                                                                                        {": "}
-                                                                                        {loadout.P.description}
-                                                                                    </span>
-                                                                                )}
-                                                                            </div>
-                                                                        )}
-                                                                    </div>
-                                                                )}
-
-                                                                {/* ───────── EQUIPMENT COLUMN ───────── */}
-                                                                {hasEquipment && (
-                                                                    <div className="space-y-1.5">
-                                                                        <div className="font-semibold text-zinc-200">
-                                                                            Equipment
-                                                                        </div>
-
-                                                                        <ul className="space-y-1.5">
-                                                                            {equip.map((item) => (
-                                                                                <li
-                                                                                    key={item.slot}
-                                                                                    className="
-                                                                                        border border-zinc-800/80
-                                                                                        rounded-md
-                                                                                        bg-zinc-950/50
-                                                                                        p-2
-                                                                                        space-y-0.5
-                                                                                    "
-                                                                                >
-                                                                                    <div>
-                                                                                        <span className="font-medium">
-                                                                                            Slot {item.slot}:
-                                                                                        </span>{" "}
-                                                                                        {item.name}
-                                                                                        {item.category && (
-                                                                                            <span className="ml-1 text-zinc-400">
-                                                                                                ({item.category})
-                                                                                            </span>
-                                                                                        )}
-                                                                                    </div>
-
-                                                                                    {item.description && (
-                                                                                        <div className="text-zinc-400">
-                                                                                            {item.description}
-                                                                                        </div>
-                                                                                    )}
-
-                                                                                    {item.teaches && (
-                                                                                        <div className="ml-4 text-zinc-400 text-[0.65rem]">
-                                                                                            <div className="font-medium text-zinc-300">
-                                                                                                Teaches:
-                                                                                            </div>
-                                                                                            <ul className="list-disc list-inside">
-                                                                                                {Object.entries(item.teaches).map(
-                                                                                                    ([job, abilityIds]) => {
-                                                                                                        const display = abilityIds
-                                                                                                            .map((id) => {
-                                                                                                                const ability = ABILITIES[id];
-                                                                                                                if (!ability) return id;
-                                                                                                                const set = ABILITY_SETS[ability.setId];
-                                                                                                                const setName = set?.name ?? ability.setId;
-                                                                                                                return `${ability.name} (${setName})`;
-                                                                                                            })
-                                                                                                            .join(", ");
-
-                                                                                                        return (
-                                                                                                            <li key={job}>
-                                                                                                                <span className="font-medium text-zinc-200">
-                                                                                                                    {job}:
-                                                                                                                </span>{" "}
-                                                                                                                {display}
-                                                                                                            </li>
-                                                                                                        );
-                                                                                                    },
-                                                                                                )}
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    )}
-                                                                                </li>
-                                                                            ))}
-                                                                        </ul>
-                                                                    </div>
-                                                                )}
+                                                {hasAffinities && (
+                                                    <div className="text-[0.65rem] text-zinc-300 flex flex-wrap gap-x-4 gap-y-0.5">
+                                                        {(meta?.absorb?.length ?? 0) > 0 && (
+                                                            <div>
+                                                                <span className="text-zinc-400">Absorb:</span>{" "}
+                                                                <span className="font-medium">{meta!.absorb!.join(", ")}</span>
                                                             </div>
-                                                        </div>
-                                                    );
-                                                })()}
+                                                        )}
+                                                        {(meta?.immune?.length ?? 0) > 0 && (
+                                                            <div>
+                                                                <span className="text-zinc-400">Immune:</span>{" "}
+                                                                <span className="font-medium">{meta!.immune!.join(", ")}</span>
+                                                            </div>
+                                                        )}
+                                                        {(meta?.half?.length ?? 0) > 0 && (
+                                                            <div>
+                                                                <span className="text-zinc-400">Resists:</span>{" "}
+                                                                <span className="font-medium">{meta!.half!.join(", ")}</span>
+                                                            </div>
+                                                        )}
+                                                        {(meta?.weak?.length ?? 0) > 0 && (
+                                                            <div>
+                                                                <span className="text-zinc-400">Weak:</span>{" "}
+                                                                <span className="font-medium">{meta!.weak!.join(", ")}</span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
                                             </li>
                                         );
                                     })}

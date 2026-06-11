@@ -6,7 +6,7 @@ export type AbilitySetId = string;
 export interface AbilitySetMeta {
     id: AbilitySetId;
     name: string;          // "Arts of War"
-    description?: string;  // optional flavor
+    description?: string | null;  // optional flavor
 }
 
 export interface AbilityMeta {
@@ -16,6 +16,13 @@ export interface AbilityMeta {
     name: string;          // "First Aid"
     description: string[];   // "Restore a small amount of HP..."
     blueMagic?: boolean;
+    job?: string;
+    ap?: number;
+    element?: string[];
+    inflicts?: string[];
+    immune?: string[];
+    requires?: string[];
+    equipmentRequired?: string[];
 }
 
 export const ABILITY_SETS: Record<AbilitySetId, AbilitySetMeta> = {
@@ -180,6 +187,11 @@ export const ABILITY_SETS: Record<AbilitySetId, AbilitySetMeta> = {
         id: "illusion",
         name: "Illusion",
         description: "The ILLUSIONIST commands powerful magicks that strike foes throughout the battlefield."
+    },
+    items: {
+        id: "items",
+        name: "Items",
+        description: "Item-based actions used by player units and some enemy loadouts."
     },
     instinct: {
         id: "instinct",
@@ -873,9 +885,9 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         ],
     },
     darkra: {
-        id: "darka",
+        id: "darkra",
         setId: "dark-magick",
-        name: "Dakra",
+        name: "Darkra",
         description: [
             "Deals moderate Dark damage in an area.",
         ],
@@ -1486,8 +1498,8 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
             "Bestows Neukhia Charge on Neukhia Wisp.",
         ],
     },
-    sanctify: {
-        id: "sanctify",
+    "sanctify-abyss": {
+        id: "sanctify-abyss",
         setId: "abyss",
         name: "Sanctify",
         description: [
@@ -2132,6 +2144,14 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Archer's Bane",
         description: [
             "Avoid all bow-based basic attacks.",
+        ],
+    },
+    archmage: {
+        id: "archmage",
+        setId: "passive",
+        name: "Archmage",
+        description: [
+            "Raises Magick and Resistance.",
         ],
     },
     concentration: {
@@ -3482,6 +3502,30 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
             "Gain HP equal to 10% of damage taken.",
         ],
     },
+    destroyer: {
+        id: "destroyer",
+        setId: "passive",
+        name: "Destroyer",
+        description: [
+            "Increases damage dealt to objects and obstacles.",
+        ],
+    },
+    lifespring: {
+        id: "lifespring",
+        setId: "passive",
+        name: "Lifespring",
+        description: [
+            "Regenerates HP.",
+        ],
+    },
+    pugilist: {
+        id: "pugilist",
+        setId: "passive",
+        name: "Pugilist",
+        description: [
+            "Raises Attack for unarmed attacks.",
+        ],
+    },
     dreamhare: {
         id: "dreamhare",
         setId: "beast-lore",
@@ -3708,7 +3752,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     syphon: {
         id: "syphon",
-        setId: "arcane-magick",
+        setId: "arcane-magicks",
         name: "Syphon",
         description: [
             "Syphon MP from the target, converting it to HP for the user.",
@@ -3716,7 +3760,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     death: {
         id: "death",
-        setId: "arcane-magick",
+        setId: "arcane-magicks",
         name: "Death",
         description: [
             "Sever the target's life thread to KO the target.",
@@ -3724,7 +3768,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     gravity: {
         id: "gravity",
-        setId: "arcane-magick",
+        setId: "arcane-magicks",
         name: "Gravity",
         description: [
             "Create a small gravity well around the target. Reduces HP by 25%.",
@@ -3732,7 +3776,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     drain: {
         id: "drain",
-        setId: "arcane-magick",
+        setId: "arcane-magicks",
         name: "Drain",
         description: [
             "Steal the target's vitality. Transfers HP from the target to the user.",
@@ -3740,7 +3784,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     graviga: {
         id: "graviga",
-        setId: "arcane-magick",
+        setId: "arcane-magicks",
         name: "Graviga",
         description: [
             "Create a large gravity well around the target. Reduces HP by 50%.",
@@ -3748,7 +3792,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     "lv-3-dark": {
         id: "lv-3-dark",
-        setId: "arcane-magick",
+        setId: "arcane-magicks",
         name: "Lv. 3 Dark",
         description: [
             "Deal dark damage to each unit whose level is a multiple of 3.",
@@ -3756,7 +3800,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     "lv-5-haste": {
         id: "lv-5-haste",
-        setId: "arcane-magick",
+        setId: "arcane-magicks",
         name: "Lv. 5 Haste",
         description: [
             "Grant HASTE to each unit whose level is a multiple of 5.",
@@ -3764,7 +3808,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     "lv-?-shadow-flare": {
         id: "lv-?-shadow-flare",
-        setId: "arcane-magick",
+        setId: "arcane-magicks",
         name: "Lv. ? Shadow Flare",
         description: [
             "Cast Shadowflare on all units who share the first digit of the caster's level. Deals dark damage.",
@@ -4213,6 +4257,38 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
             "Cast two spells during the same turn.",
         ],
     },
+    antidote: {
+        id: "antidote",
+        setId: "items",
+        name: "Antidote",
+        description: [
+            "Cures Poison.",
+        ],
+    },
+    "echo-grass": {
+        id: "echo-grass",
+        setId: "items",
+        name: "Echo Grass",
+        description: [
+            "Cures Silence.",
+        ],
+    },
+    "eye-drops": {
+        id: "eye-drops",
+        setId: "items",
+        name: "Eye Drops",
+        description: [
+            "Cures Blind.",
+        ],
+    },
+    remedy: {
+        id: "remedy",
+        setId: "items",
+        name: "Remedy",
+        description: [
+            "Cures most debuffs.",
+        ],
+    },
     "sticky-fingers": {
         id: "sticky-fingers",
         setId: "reaction",
@@ -4348,14 +4424,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Doom Blade",
         description: [
             "Attack with a death-imbued blade. Damages and DOOMS the target.",
-        ],
-    },
-    "Critical: Evasion↑": {
-        id: "Critical: Evasion↑",
-        setId: "reaction",
-        name: "Critical: Evasion↑",
-        description: [
-            "Gain EVASION when user becomes HP Critical.",
         ],
     },
     "blood-price": {
@@ -4776,7 +4844,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     "silver-disc": {
         id: "silver-disc",
         setId: "clockwork",
-        name: "Sivler Disc",
+        name: "Silver Disc",
         description: [
             "An ingenious contraption that BLINDS its victims. Where it lands, nobody knows...",
         ],
@@ -5299,6 +5367,14 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
             "Reveal the loot and items the target is carrying. Also reveals the location of traps and invisible units.",
         ],
     },
+    reveal: {
+        id: "reveal",
+        setId: "reconnaissance",
+        name: "Reveal",
+        description: [
+            "Reveal the loot and items the target is carrying. Also reveals the location of traps and invisible units.",
+        ],
+    },
     succor: {
         id: "succor",
         setId: "reconnaissance",
@@ -5731,4 +5807,3 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     */
 };
-

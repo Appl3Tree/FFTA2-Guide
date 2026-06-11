@@ -35,7 +35,9 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Randomized Name", job: "Scholar", quantity: 1, notes: "Uses Thunder and Shadow Tomes." },
     ],
         strategy: [
-            "Having Esuna available is recommended to handle debuffs",
+            "Keep Mack protected under the Solitude law: end each turn with an adjacent ally, including Mack's turns when possible.",
+            "Eliminate the Time Mage first to stop Slow, Stop, and Reflect, then remove the Black Mage and Green Mage before their magick and status effects pile up.",
+            "Bring Esuna or status recovery for Sleep/Oil and arrange the party in pairs so no unit accidentally ends a turn isolated.",
         ],
         rewards: {
             gil: 4690,
@@ -59,24 +61,23 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canCancel: true,
         members: 1,
         prerequisite: "A Step Further",
+        requiredItems: ["Ocktor Tome of Medicine ×1"],
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [
-        { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Uses Slow, Stop, and Reflect — highest priority target." },
-        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Uses Fira, Firaga, and Geomancy — priority target once Time Mage is down." },
-        { name: "Randomized Name", job: "Arcanist", quantity: 1, notes: "Uses Gravity, Lvl. 3 Dark, and Shadowflare." },
-        { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Uses Cura, Fira, Esuna, and Blood Price." },
-        { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Uses Oil and Sleep." },
-        { name: "Randomized Name", job: "Scholar", quantity: 1, notes: "Uses Thunder and Shadow Tomes." },
-    ],
+    enemies: [],
+        strategy: [
+            "Trade the Ocktor Tome of Medicine for Mack's magickal earrings in Targ Wood.",
+            "Bring the tome and complete the trade route; there is no combat.",
+        ],
         rewards: {
             gil: 4260,
             cp: 30,
-            loot: "Prime Tanned Hide ×1"
+            loot: "Prime Tanned Hide ×1",
+            other: "Earrings of the Dead"
         },
         notes: "",
         tags: ["optional"]
@@ -106,6 +107,11 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Cockatrice", quantity: 4, notes: "Defeat all 4. Do not harm the 3 Deadly Nightshade allies (the tomatoes)." },
     ],
+        strategy: [
+            "Protect the three Deadly Nightshade tomatoes. Do not target them with area attacks or friendly fire.",
+            "Only the four Cockatrices need to be defeated. Keep the fight small and controlled so the tomatoes are not caught in crossfire.",
+            "Targeting all units is forbidden, so avoid full-map or all-unit effects and use single-target attacks instead.",
+        ],
         rewards: {
             gil: 910,
             cp: 14,
@@ -143,8 +149,9 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             "The battlefield contains trap tiles that pose hazards",
         ],
         strategy: [
-            "Prioritize high-threat targets early in the battle",
-            "Ranged magical attacks are effective in this mission",
+            "Find Nero by examining shiny sparkle points; enemies keep arriving, so do not try to farm every reinforcement.",
+            "Avoid lightning attacks and weapons because of the law. Use fire, ice, wind, earth, holy, dark, or physical damage instead.",
+            "Clear Axebeaks and Wolves only when they block a search route, then keep checking sparkles until the Scarab Beetle is found.",
         ],
         rewards: {
             gil: 690,
@@ -195,7 +202,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
     {
         id: "B1-07",
         arc: "B1",
-        name: "The Whites of Its Eyes",
+        name: "The White of Its Eye",
         description: "My pet's gone and run away again. How many times does this make? I've lost count! Her name's Chari, and I saved her from the other bloody orbs that picked on her because she was a different colour. You'd think she'd be a bit more grateful, but she just keeps running away. Someone help me find her! She has a beautiful white ... coat? It should make her easy to tell apart. Fes",
         rank: 21,
         region: "The Rupie Mountains",
@@ -218,6 +225,11 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Bloody Orb", quantity: 3, notes: "Defeat these. Do not harm Chari, the white Bloody Orb ally — heal it if needed, or let it use Vampire to self-sustain." },
     ],
+        strategy: [
+            "Protect Chari, the white Bloody Orb. Do not hit Chari with area attacks or the elemental damage banned by the law.",
+            "Defeat the three hostile Bloody Orbs while keeping Chari alive. Heal Chari if it gets focused, or let it sustain itself with Vampire when safe.",
+            "Fire, ice, and lightning are forbidden, so bring neutral physical attacks, non-banned magick, or monster-killer abilities.",
+        ],
         rewards: {
             gil: 4920,
             cp: 42,
@@ -253,6 +265,11 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Okta", job: "Cockatrice", quantity: 1, notes: "Objective: weaken to HP critical — do NOT kill. Use water-element attacks. No melee blades allowed." },
         { name: "Randomized Name", job: "Cockatrice", quantity: 3, notes: "Kill these. Use ranged units (Hunters with Sidewinder) and water-based magick." },
     ],
+        strategy: [
+            "Defeat the three regular Cockatrices first, then weaken Okta to HP Critical without killing it.",
+            "Bladed weapons are forbidden, so avoid knives, swords, blades, sabers, katanas, axes, knightswords, greatswords, and broadswords.",
+            "Use controlled non-bladed damage on Okta near the end; abilities are safer than critical-hit-prone normal attacks.",
+        ],
         rewards: {
             gil: 4500,
             cp: 50,
@@ -318,6 +335,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             name: "Randomized Name",
             job: "Dreamhare",
             quantity: 2,
+            notes: "Requested fluffy ingredient targets. Defeat exactly the required Dreamhare count and avoid fire.",
             abilities: {
                 A1: {
                     setId: "enticement",
@@ -326,8 +344,8 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
                     ]
                 },
                 A2: null,
-                R: "",
-                P: ""
+                R: null,
+                P: null
             },
             equipment: [
             ]
@@ -336,6 +354,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             name: "Randomized Name",
             job: "Dreamhare",
             quantity: 1,
+            notes: "Extra Dreamhare with War Dance and Unscarred. Do not overkill beyond the requested amount.",
             abilities: {
                 A1: {
                     setId: "enticement",
@@ -345,7 +364,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
                     ]
                 },
                 A2: null,
-                R: "",
+                R: null,
                 P: "unscarred"
             },
             equipment: [
@@ -355,6 +374,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             name: "Randomized Name",
             job: "Hoppy Bunny",
             quantity: 1,
+            notes: "Wrong ingredient target. Uses Blind/Silence and Critical: Berserk; control without counting it as a required kill.",
             abilities: {
                 A1: {
                     setId: "enticement",
@@ -371,7 +391,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
                     ]
                 },
                 R: "critical-berserk",
-                P: ""
+                P: null
             },
             equipment: [
             ]
@@ -380,6 +400,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             name: "Randomized Name",
             job: "Hoppy Bunny",
             quantity: 1,
+            notes: "Wrong ingredient target with Sleep and Critical: Berserk. Avoid unnecessary kills while gathering the exact texture request.",
             abilities: {
                 A1: {
                     setId: "enticement",
@@ -394,12 +415,17 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
                     ]
                 },
                 R: "critical-berserk",
-                P: ""
+                P: null
             },
             equipment: [
             ]
         },
     ],
+        strategy: [
+            "Defeat exactly the two Dreamhares required for the ingredient request; killing too many or too few of the wrong fluffy targets fails the foodstuff condition.",
+            "Do not use Fire attacks or fire-element weapons because of the law.",
+            "The Hoppy Bunnies can inflict Blind, Silence, and Sleep, so either disable them without killing the needed count or keep status recovery ready while focusing the Dreamhares.",
+        ],
         rewards: {
             gil: 620,
             cp: 16,
@@ -434,7 +460,9 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Randomized Name", job: "Hoppy Bunny", quantity: 3, notes: "Do not kill — wrong ingredient." },
     ],
         strategy: [
-            "Bring a healer to manage HP during the encounter",
+            "Kill exactly two Dreamhares. Do not defeat the Hoppy Bunnies or you will bring back the wrong ingredient.",
+            "Knockback is forbidden, so use precise single-target attacks and avoid abilities with push effects.",
+            "If Hoppy Bunnies get in the way, disable, immobilize, or route around them rather than killing them.",
         ],
         rewards: {
             gil: 2800,
@@ -470,6 +498,11 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Randomized Name", job: "Alraune", quantity: 2, notes: "Ignore — they respawn. Focus on Malboros only." },
         { name: "Randomized Name", job: "Deadly Nightshade", quantity: 2, notes: "Ignore — they respawn." },
     ],
+        strategy: [
+            "Kill exactly four Malboros to satisfy the ingredient request.",
+            "Alraunes and Deadly Nightshades respawn indefinitely, so only defeat them when they block movement or threaten a key unit.",
+            "Fire, ice, and lightning are forbidden. Use wind, water, earth, holy, dark, non-elemental abilities, or monster-killer attacks.",
+        ],
         rewards: {
             gil: 5920,
             cp: 58,
@@ -501,16 +534,18 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         law: "Forbidden: Ice – Weapons and Abilities that use ice are forbidden.",
     enemies: [
         { name: "Randomized Name", job: "Yellow Flan", quantity: 2, notes: "OBJECTIVE: Defeat the Yellow Flans. Enemy reinforcements keep arriving." },
-        { name: "Randomized Name", job: "Malboro", quantity: 1 },
+        { name: "Randomized Name", job: "Malboro", quantity: 1, notes: "Status breath support. Avoid clustering while pushing toward the Yellow Flans." },
         { name: "Randomized Name", job: "Grenade", quantity: 1, notes: "Eliminate early — magical ranged attacker." },
-        { name: "Randomized Name", job: "Berserker", quantity: 1 },
-        { name: "Randomized Name", job: "Ranger", quantity: 2 },
+        { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Physical reinforcement. Kite or disable if it pulls attention away from the Flans." },
+        { name: "Randomized Name", job: "Ranger", quantity: 2, notes: "Ranged reinforcement pressure. Remove only if they block safe access to the Flans." },
     ],
         battlefield: [
             "The battlefield contains trap tiles that pose hazards",
         ],
         strategy: [
-            "Ranged magical attacks are effective in this mission",
+            "Defeat the two Yellow Flans to clear the mission. Enemy reinforcements continue arriving, so focus on the objective instead of trying to wipe every unit.",
+            "Avoid ice attacks and weapons because of the law. Use fire, lightning, wind, physical, or non-elemental damage.",
+            "The Grenade is the most disruptive support enemy; remove it if its ranged magick threatens your path to the Yellow Flans.",
         ],
         rewards: {
             gil: 700,
@@ -543,10 +578,18 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
     enemies: [
         { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Uses Night (sleeps all nearby units). Examine sparkle tiles to find the Baptiste Mushroom." },
-        { name: "Randomized Name", job: "Lamia", quantity: 1 },
-        { name: "Randomized Name", job: "Sprite", quantity: 1 },
-        { name: "Randomized Name", job: "Dreamhare", quantity: 1 },
+        { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Status-oriented support monster. Keep it away from the unit checking mushrooms." },
+        { name: "Randomized Name", job: "Sprite", quantity: 1, notes: "Fragile caster-type monster. Remove if it threatens the search route." },
+        { name: "Randomized Name", job: "Dreamhare", quantity: 1, notes: "Enticement nuisance that can delay the search. Lower priority than Lilith." },
     ],
+        battlefield: [
+            "Several mushroom sparkle spots are present; one is the Baptiste Mushroom and the others are poisonous decoys.",
+        ],
+        strategy: [
+            "Search mushroom sparkles until you find the Baptiste Mushroom. The mission ends once the correct mushroom is found.",
+            "Poisonous mushrooms can inflict bad status, so bring Esuna, items, or a healer if you want to search before clearing enemies.",
+            "The Lilith is the most disruptive enemy because Night can put nearby units to sleep; remove it before methodically checking sparkles.",
+        ],
         rewards: {
             gil: 980,
             cp: 22,
@@ -579,6 +622,12 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
     enemies: [
         { name: "Klesta", job: "Cockatrice", quantity: 1, notes: "Boss. Uses Piston Drop (damages all units on battlefield). Start with 3 units; 3 reinforcements arrive after battle begins. Bowen and Illusionist Tweigel are unkillable allies." },
     ],
+        strategy: [
+            "Only three clan members deploy at first; the rest of the team arrives as reinforcements after the fight begins.",
+            "Klesta's Piston Drop can hit the whole field, so keep HP high and do not drag the battle out.",
+            "Bowen and Tweigel fight as allied guests and cannot be killed. Let them help absorb pressure while your clan focuses Klesta.",
+            "Back attacks are forbidden, so attack from the side or front even when Klesta turns away.",
+        ],
         rewards: {
             gil: 3030,
             cp: 48,

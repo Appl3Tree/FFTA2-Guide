@@ -5,11 +5,11 @@ export type EnemyId = string;
 export interface EnemyMeta {
     id: EnemyId,
     job: string,
-    description: string;
-    absorb: string[];
-    immune: string[];
-    half: string[];
-    weak: string[];
+    description: string | null;
+    absorb: string[] | null;
+    immune: string[] | null;
+    half: string[] | null;
+    weak: string[] | null;
 };
 
 export const ENEMIES: Record<EnemyId, EnemyMeta> = {
@@ -116,15 +116,15 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         id: 'dark-behemoth',
         job: 'Dark Behemoth',
         description: "Dark Behemoths appear in Brightmoon Tor's third location and can have the secondary set of Turning.",
-        absorb: ["?"],
-        immune: ["?"],
-        half: ["?"],
-        weak: ["?"]
+        absorb: null,
+        immune: null,
+        half: null,
+        weak: null
     },
     bomb: {
         id: 'bomb',
         job: 'Bomb',
-        description: "Red flame envolopes this strange monster. It absorbs fire's heat, adding it to its own.",
+        description: "Red flame envelops this strange monster. It absorbs fire's heat, adding it to its own.",
         absorb: ["Fire"],
         immune: null,
         half: null,
@@ -142,7 +142,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
     chocobo: {
         id: 'chocobo',
         job: 'Chocobo',
-        description: "A bird-like creature witha  pleasant temperament. Its choco cure can mend the wounds of its allies.",
+        description: "A bird-like creature with a pleasant temperament. Its choco cure can mend the wounds of its allies.",
         absorb: null,
         immune: null,
         half: null,
@@ -150,7 +150,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
     },
     "red-chocobo": {
         id: 'red-chocobo',
-        job: 'red-chocobo',
+        job: 'Red Chocobo',
         description: "The red-plumed chocobo rains destruction from the skies with its choco meteor.",
         absorb: null,
         immune: null,
@@ -169,7 +169,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
     "green-chocobo": {
         id: 'green-chocobo',
         job: 'Green Chocobo',
-        description: "The green-plumbed chocobo removes ailiments from its allies using choco esuna.",
+        description: "The green-plumed chocobo removes ailments from its allies using choco esuna.",
         absorb: null,
         immune: null,
         half: null,
@@ -862,7 +862,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
     yowie: {
         id: 'yowie',
         job: 'Yowie',
-        description: "This giant beast lives beneat the sands. It captures its prey in a torrent of quicksand.",
+        description: "This giant beast lives beneath the sands. It captures its prey in a torrent of quicksand.",
         absorb: null,
         immune: ["Earth"],
         half: null,
@@ -916,4 +916,3 @@ export function getEnemyMetaForJob(job: string | undefined | null): EnemyMeta | 
         (meta) => meta.job.toLowerCase() === key,
     );
 }
-

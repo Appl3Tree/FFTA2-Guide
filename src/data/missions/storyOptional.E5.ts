@@ -26,21 +26,21 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Actions by Gria – Gria may only move and perform basic attacks.",
-    enemies: [
-        { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Ranged threat." },
-        { name: "Randomized Name", job: "Blue Mage", quantity: 1, notes: "Heavy debuffer — second priority. Has White Wind, Bad Breath." },
-        { name: "Randomized Name", job: "Trickster", quantity: 1, notes: "Long-range card attacks." },
-        { name: "Randomized Name", job: "Lanista", quantity: 1, notes: "Melee attacker." },
-        { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "PRIORITY: Healer — eliminate first to prevent sustained healing." },
-        { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Strong melee." },
-    ],
+        enemies: [
+            { name: "Randomized Name", job: "Blue Mage", quantity: 1, notes: "Major threat; Bad Breath and Screech can inflict multiple status effects." },
+            { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Powerful attacks including Air Render and Aurablast." },
+            { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Healer; eliminate early to prevent sustained recovery." },
+            { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Ranged threat." },
+            { name: "Randomized Name", job: "Trickster", quantity: 1, notes: "Long-range card attacks." },
+            { name: "Randomized Name", job: "Lanista", quantity: 1, notes: "Melee attacker." },
+        ],
         strategy: [
-            "Gria are restricted to move and basic attack only — avoid relying on Gria abilities.",
-            "Kill the White Mage first to cut off healing, then target the Blue Mage (Bad Breath/heavy debuffs). The rest is manageable.",
+            "Gria are restricted to move and basic attack only; avoid relying on Gria abilities.",
+            "Prioritize the Blue Mage's status pressure, the White Mage's healing, and the White Monk's high-damage attacks.",
         ],
         rewards: {
             gil: 6130,
-            cp: 94,
+            cp: 72,
             loot: "High Arcana ×1"
         },
         notes: "",
@@ -65,7 +65,7 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
             teamwork: 54,
             adaptability: 54,
         },
-    enemies: [],
+        enemies: [],
         strategy: [
             "No combat — Montblanc, Marche's companion from FFTA, is the unsigned letter writer. Head to Baptiste Hill and he joins your clan as a Black Mage. Do not refuse him.",
         ],
@@ -76,5 +76,48 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
         },
         notes: "",
         tags: ["optional"]
+    },
+    {
+        id: "E5-15",
+        arc: "E5",
+        name: "A Dashing Duel",
+        description: "I had been courting the Lady Bcja for some time, and had finally arranged for a proper... rendezvous, shall we say. When the day arrived, however, she told me she'd made other plans with another suitor! I seek a champion to fight this philanderer on my behalf and uphold my honor. I must have satisfaction! Marnot, Pride of Fluorgis",
+        rank: 62,
+        region: "Aisenfield",
+        fee: 500,
+        days: 20,
+        questType: "Defeat Mark",
+        canDispatch: false,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Pirate Problems; Where Could He Be?",
+        requiredTalents: {
+            negotiation: 1,
+            aptitude: 0,
+            teamwork: 1,
+            adaptability: 0,
+        },
+        objective: "Defeat Al-Cid!",
+        law: "Forbidden: Harming Viera – Actions that harm Viera are forbidden.",
+        enemies: [
+            { name: "Al-Cid Margrace", job: "Agent", quantity: 1, notes: "Mark; mostly covers his Viera companions rather than attacking directly." },
+            { name: "Randomized Name", job: "Sniper", race: "Viera", quantity: 1, notes: "Major threat if you choose to fight the escort; Doubleshot, Beso Toxico, and Death Sickle." },
+            { name: "Randomized Name", job: "Green Mage", race: "Viera", quantity: 1, notes: "Major threat; Oil, Sleep, and Ifrit." },
+            { name: "Randomized Name", job: "Red Mage", race: "Viera", quantity: 1, notes: "Cure, Protect, Shell, Doublecast, Tranquilizer, and Leap support." },
+            { name: "Randomized Name", job: "Spellblade", race: "Viera", quantity: 1, notes: "Stun and Maim Blade." },
+            { name: "Randomized Name", job: "Fencer", race: "Viera", quantity: 1, notes: "Swarmstrike, Featherblow, and Piercing Blow." },
+        ],
+        strategy: [
+            "For the law bonus, do not attack the Viera escort. Focus all damage on Al-Cid.",
+            "Al-Cid does not meaningfully attack; he primarily covers the Viera, so burst him down with your strongest attackers.",
+            "Fighting the Viera escort is possible but much harder because they overlevel you and the law forbids harming them.",
+        ],
+        rewards: {
+            gil: 8790,
+            cp: 99,
+            loot: "Snowcat Crystal ×1"
+        },
+        notes: "",
+        tags: ["optional", "story-cameo", "law-sensitive"]
     }
 ];
