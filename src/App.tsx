@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Coffee } from "lucide-react";
+import { Github, Coffee, Maximize2, Minimize2 } from "lucide-react";
 import { SectionLabel } from "./components/ui/SectionLabel";
 import { Panel } from "./components/ui/Panel";
 import { BeforeYouStartPanel } from "./components/meta/BeforeYouStartPanel";
@@ -13,6 +13,8 @@ import BazaarPanel from "./components/meta/BazaarPanel";
 import { AbilityHub } from "./components/meta/AbilityHub";
 import { GlobalSearchPanel } from "./components/meta/GlobalSearchPanel";
 
+const STORAGE_KEY_WIDE_LAYOUT = "ffta2-guide:wide-layout";
+
 export default function App() {
     return (
         <ProgressProvider>
@@ -23,6 +25,17 @@ export default function App() {
 
 function AppInner() {
     const { checked } = useProgress();
+    const [wideLayout, setWideLayout] = React.useState(() => {
+        if (typeof window === "undefined") return false;
+        return window.localStorage.getItem(STORAGE_KEY_WIDE_LAYOUT) === "true";
+    });
+
+    React.useEffect(() => {
+        window.localStorage.setItem(
+            STORAGE_KEY_WIDE_LAYOUT,
+            String(wideLayout),
+        );
+    }, [wideLayout]);
 
     const allMissionIds = React.useMemo(
         () => ALL_MISSIONS.map((m) => m.id),
@@ -61,9 +74,13 @@ function AppInner() {
         </div>
     );
 
+    const mainClassName = wideLayout
+        ? "w-full max-w-none px-2 sm:px-4 lg:px-6 py-6 sm:py-8"
+        : "w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8";
+
     return (
         <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-zinc-950 to-zinc-900 text-zinc-50">
-            <main className="w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+            <main className={mainClassName}>
                 <div className="canvas-card">
                     {/* Top banner, modeled after fftaprogression_guide.tsx */}
                     <div className="bg-gradient-to-r from-purple-600/90 to-emerald-500/90 text-white rounded-t-2xl ring-1 ring-zinc-950/10 dark:ring-white/10 shadow-sm">
@@ -81,6 +98,31 @@ function AppInner() {
                                     .
                                 </p>
                             </div>
+                            <button
+                                type="button"
+                                onClick={() => setWideLayout((prev) => !prev)}
+                                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/10 px-3 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/70"
+                                aria-pressed={wideLayout}
+                                aria-label={
+                                    wideLayout
+                                        ? "Use default content width"
+                                        : "Use full window width"
+                                }
+                                title={
+                                    wideLayout
+                                        ? "Use default content width"
+                                        : "Use full window width"
+                                }
+                            >
+                                {wideLayout ? (
+                                    <Minimize2 className="h-4 w-4" />
+                                ) : (
+                                    <Maximize2 className="h-4 w-4" />
+                                )}
+                                <span className="hidden sm:inline">
+                                    {wideLayout ? "Default width" : "Full width"}
+                                </span>
+                            </button>
                         </div>
                     </div>
 
