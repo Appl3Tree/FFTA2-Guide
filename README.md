@@ -1,78 +1,103 @@
 # Final Fantasy Tactics A2 Guide
 
-A fan-made, data-driven reference for **Final Fantasy Tactics A2: Grimoire of the Rift (FFTA2)** — focused on making it easier to browse missions, filter by story arc and tags, and view rich mission details in one place.
+A fan-made, data-driven completion reference for **Final Fantasy Tactics A2: Grimoire of the Rift (FFTA2)**. The app helps players track missions, RetroAchievements, equipment, abilities, bazaar recipes, races, jobs, and important missables in one place.
 
 > **GitHub Pages URL:** `https://appl3tree.github.io/FFTA2-Guide/`
 
 ---
 
-## 🌟 About the Project
+## About The Project
 
-This project builds on the earlier **FFTA-Guide** and adapts the approach to *Final Fantasy Tactics A2*. FFTA2 includes a large number of missions and loosely associated arcs, and this guide organizes that information into:
+This project builds on the earlier **FFTA-Guide** and adapts the approach to *Final Fantasy Tactics A2*. FFTA2 has a large mission list, deep job and equipment systems, missable/recruitment chains, and optional challenge goals. This guide organizes that information into:
 
 * A searchable mission list
-* Arc-based filtering (A1–E5)
+* Arc-based filtering from `A1` through `E5`
 * Tag-based filtering
-* Collapsible mission details with structured sections
+* A missable RetroAchievements quick filter
+* Multi-phase mission strategy and enemy breakdowns
+* Equipment, ability, recipe, race, and job reference hubs
+* Global search across the guide
 
-All mission, meta, and race data is stored in TypeScript files under `src/data/` and rendered with React components.
+All guide data is stored in TypeScript files under `src/data/` and rendered with React components.
 
 ---
 
-## 🧭 Features
+## Features
+
+### Completion Dashboard
+
+The main page includes collapsible sections for:
+
+* Before You Start notes
+* RetroAchievements
+* Races & Jobs
+* Bazaar Recipes
+* Equipment Hub
+* Ability Hub
+* Missions Hub
+
+Progress state is tracked locally in the browser so users can mark missions and achievements complete as they play.
 
 ### Mission Browser
 
-The mission browser includes story, optional, and mark missions defined in:
+The mission browser includes story, optional, and mark-style missions defined in:
 
 * `src/data/missions/storyMain.ts`
-* Multiple `storyOptional.*.ts` files
-* `marks.ts`
+* Multiple `src/data/missions/storyOptional.*.ts` files
+* `src/data/missions/missionTags.ts`
 
 Missions can be:
 
 * Searched by name, ID, region, description, rewards, tags, and notes
-* Filtered by arc (`A1`–`E5` or `ALL`)
-* Filtered by tag (as defined in `MissionTag` and `MISSION_TAGS`)
+* Filtered by arc (`A1`-`E5` or `ALL`)
+* Filtered by tag
+* Filtered to missable RetroAchievements
 
 Each mission card shows, when available:
 
 * ID, name, region
 * Arc label
-* Recommended level (from `rank`)
+* Recommended level
 * Quest type and party size
-* Contract details (fee, days, dispatch/cancel allowed)
-* Rewards (gil, clan points, loot, items)
-* Requirements (items, talents, recommended jobs)
+* Contract details
+* Rewards, including special reward notes
+* Requirements
 * Strategy notes
-* Enemy list
+* Enemy lists
+* Multi-phase tournament or route breakdowns
+* Mission-specific RetroAchievements
 * Freeform notes
 * Merged tag list
 
 Mission detail sections are collapsed by default and expand when clicked.
 
-### Search & Filters
+### Reference Hubs
 
-The mission list supports:
+The guide also includes structured reference data for:
 
-* Text search
-* Arc filtering
-* Tag filtering
-* Toggleable filter sections for a cleaner default view
+* Bazaar recipes and loot requirements
+* Equipment stats, rules, effects, and taught abilities
+* Ability sets and ability details
+* Race and job summaries
+* RetroAchievements and mission ties
 
-### Meta, Systems, and Races Panels
+### Global Search
 
-The home view includes collapsible informational panels:
+The floating global search panel searches across missions, abilities, equipment, recipes, races/jobs, and RetroAchievements.
 
-* **Intro Panels** using `INTRO_PANELS`
-* **Systems Panels** using `SYSTEMS_PANELS`
-* **Races Panels** using `RACE_JOBS`
+### Source Validation
 
-All use the shared `Panel` component with a collapsible layout and tone-based styling.
+Mission, equipment, ability, recipe, and achievement data has been audited against the included source corpus:
+
+* GameFAQs Dev guide
+* GameFAQs warfreak guide
+* Final Fantasy Wiki / Fandom pages where needed
+
+Known source conflicts and validation decisions are recorded in `audit/validation-notes.md`.
 
 ---
 
-## 🧱 Built With
+## Built With
 
 * **React**
 * **TypeScript**
@@ -83,15 +108,42 @@ All use the shared `Panel` component with a collapsible layout and tone-based st
 
 Supporting structure includes:
 
-* `src/types/ffta2.ts` for mission, meta, and race types
-* `src/utils/keyify.ts`
+* `src/types/ffta2.ts` for mission, equipment, ability, recipe, RetroAchievement, and reference types
+* `src/utils/missionPhases.ts` for multi-phase mission grouping
+* `scripts/audit-data.mjs` for local data integrity checks
 * Global styles in `src/styles/index.css`
 
 ---
 
-## 🗂️ Project Structure
+## Local Development
 
+Install dependencies:
+
+```bash
+npm install
 ```
+
+Start the local dev server:
+
+```bash
+npm run dev
+```
+
+Before publishing or opening a pull request, run:
+
+```bash
+npm run audit:data
+npm run typecheck
+npm run build
+```
+
+`npm run audit:data` writes a generated report to `audit/data-audit.json`. That file is intentionally ignored by git; the checked-in audit trail lives in `audit/validation-notes.md`.
+
+---
+
+## Project Structure
+
+```text
 src/
   App.tsx
   main.tsx
@@ -100,9 +152,12 @@ src/
     missions/
       MissionTabs.tsx
       MissionCard.tsx
-      MissionList.tsx
-      MissionFilters.tsx
     meta/
+      AbilityHub.tsx
+      BazaarRecipesPanel.tsx
+      EquipmentHub.tsx
+      GlobalSearchPanel.tsx
+      RetroAchievementsPanels.tsx
       IntroPanels.tsx
       SystemsPanels.tsx
       RacesPanels.tsx
@@ -112,18 +167,29 @@ src/
 
   data/
     missions/
+      allMissions.ts
       storyMain.ts
       storyOptional.A1.ts
       storyOptional.A2.ts
       ...
       storyOptional.E5.ts
-      marks.ts
       missionTags.ts
+    abilities/
+      abilities.ts
+    bestiary/
+      bestiary.ts
+    equipment/
+      equipment.ts
+      equipment.weapons.ts
+      equipment.armors.ts
+      ...
     meta/
       introPanels.ts
       systemsPanels.ts
     races/
       raceJobs.ts
+    bazaarRecipes.ts
+    retroAchievements.ts
 
   styles/
     index.css
@@ -132,31 +198,39 @@ src/
     ffta2.ts
 
   utils/
-    keyify.ts
+    missionPhases.ts
+    resolveAbilities.ts
+    resolveEquipment.ts
+
+scripts/
+  audit-data.mjs
+
+audit/
+  validation-notes.md
 ```
 
-Arc and tag information is encoded directly in mission data and `MISSION_TAGS`.
+Arc and tag information is encoded directly in mission data and `MISSION_TAGS`. Runtime mission aggregation is handled by `ALL_MISSIONS`, which deduplicates story missions that also appear in per-arc data.
 
 ---
 
-## 💡 Feedback & Contributions
+## Feedback & Contributions
 
-If you find incorrect mission data, missing missions, or UI issues, feel free to:
+If you find incorrect mission data, missing guide details, or UI issues, feel free to:
 
 * Open an issue
 * Submit a pull request
 
-All mission and meta data is written in plain TypeScript objects, making contributions straightforward.
+Most guide data is written in plain TypeScript objects, making contributions straightforward. Please run the local validation commands before submitting changes.
 
 ---
 
-## ⚠️ Spoiler Notice
+## Spoiler Notice
 
-Mission names and some metadata are always visible. Detailed strategy, enemies, and notes appear only inside expanded panels, allowing you to control how much information you reveal.
+Mission names and some metadata are always visible. Detailed strategy, enemies, rewards, RetroAchievements, and notes appear inside expanded panels, allowing you to control how much information you reveal.
 
 ---
 
-## 🎮 Acknowledgments
+## Acknowledgments
 
 Thanks to:
 
@@ -167,10 +241,8 @@ Thanks to:
 
 ---
 
-## 📖 License
+## License
 
 This is a **fan-made project**.
-All content related to *Final Fantasy Tactics A2: Grimoire of the Rift* is © Square Enix.
+All content related to *Final Fantasy Tactics A2: Grimoire of the Rift* is copyright Square Enix.
 This guide is provided for **personal and educational use only**.
-
----
