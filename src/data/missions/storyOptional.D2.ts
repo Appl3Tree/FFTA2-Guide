@@ -530,7 +530,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Maintaining the",
+        prerequisite: "Maintaining the Balance",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,

@@ -33,6 +33,7 @@ import { OPTIONAL_MISSIONS_E2 } from "./storyOptional.E2";
 import { OPTIONAL_MISSIONS_E3 } from "./storyOptional.E3";
 import { OPTIONAL_MISSIONS_E4 } from "./storyOptional.E4";
 import { OPTIONAL_MISSIONS_E5 } from "./storyOptional.E5";
+import { OPTIONAL_MISSIONS_EX } from "./storyOptional.EX";
 
 // Primary unified export for the rest of the app to consume.
 export const STORY_OPTIONAL_MISSIONS: Mission[] = [
@@ -69,10 +70,12 @@ export const STORY_OPTIONAL_MISSIONS: Mission[] = [
     ...OPTIONAL_MISSIONS_E2,
     ...OPTIONAL_MISSIONS_E3,
     ...OPTIONAL_MISSIONS_E4,
-    ...OPTIONAL_MISSIONS_E5
+    ...OPTIONAL_MISSIONS_E5,
+
+    // Special / extra missions
+    ...OPTIONAL_MISSIONS_EX
 ];
 
 // Backwards-compat alias so existing imports keep working:
 // MissionTabs.tsx imports { OPTIONAL_MISSIONS } from this file.
 export const OPTIONAL_MISSIONS = STORY_OPTIONAL_MISSIONS;
-

@@ -362,7 +362,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Rancher's Request -",
+        prerequisite: "Rancher's Request - Yellow",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,

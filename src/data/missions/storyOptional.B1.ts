@@ -251,7 +251,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "The Whites of Its",
+        prerequisite: "The White of Its Eye",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,

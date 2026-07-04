@@ -238,6 +238,22 @@ Remaining intentional findings:
 - Restored missing Scion/accessory rewards: `A3-01 Ewer of Darkness`, `A3-05 Ring of the Wheel`, `A3-09 Tainted Cufflink`, and `A3-13 Gift of the Judge-Sal`.
 - Corrected `A3-03 Wanted: Mirage Bunny` description typo, prerequisite, exact Hoppy Bunny/Red Marshmallow/Yellow Jelly/Fire Drake/Thunder Drake/Headless roster, Charm/Invisible behavior, and reinforcement urgency.
 - Corrected `A3-06 Wanted: Florah` prerequisite context, plant roster, controlled-damage law handling, and Bad Breath/status strategy.
+
+## 2026-07-03 RetroAchievement Mission Tie Pass
+
+- Audited mission-specific RetroAchievement buckets against the global RetroAchievement list.
+- Attached every mission-relevant global quest/job/recruit achievement to its corresponding mission card.
+- Added missing special mission `EX-03 Gifted` so the Heritor unlock achievement is tied to the actual `Gifted` quest instead of a later Heritor weapon quest.
+- Verified every achievement description that names a quoted quest is attached to the matching mission bucket.
+- Verified no global `Unlock the ... job`, `Recruit ...`, `Clear Story Mission ...`, `During ...`, or `Complete Quest ...` achievement is left without a relevant mission tie.
+
+## 2026-07-03 Prerequisite And Achievement Tie Pass
+
+- Corrected cut-off prerequisite strings in the Step, Geomancer, Foodstuffs, Chita, Fen, and Rancher's Request chains.
+- Added prerequisite integrity checks to `npm run audit:data`; the audit now fails on truncated prerequisites and unresolved mission-like prerequisite references.
+- Preserved non-mission conditions such as notices, seasons, town visits, auctions, wells, and special events as prerequisite text rather than forcing them into false mission links.
+- Removed the experimental chronological mission sort after the `Kyrra, Dragoon` availability check showed that prerequisite/region sorting could imply false availability. Mission display now stays with the app's stable arc/index order.
+- Added audit coverage for advanced job/recruit achievement ties so expected unlock achievements fail validation if they are missing, duplicated across mission cards, or attached to the wrong quest.
 - Corrected `A3-08 Death March, II` and `A3-11 Death March, III` exact movement-law text, recommended dispatch jobs, enemy loadouts, and priority order.
 - Corrected `A3-10 Wanted: Tonberrion` reward quantity to Low Arcana x5 and added the four-round physical/ranged strategy.
 - Corrected `A3-12 Wanted: Combatants` description typos and preserved White Monk as the reliable accepted petitioner.

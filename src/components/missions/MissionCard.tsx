@@ -45,6 +45,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
         requiredItems,
         requiredTalents,
         dispatchRecommended,
+        prerequisite,
         enemies,
         strategy,
         rewards,
@@ -232,6 +233,16 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                         </dt>
                                         <dd className="font-medium">
                                             {members}
+                                        </dd>
+                                    </div>
+                                )}
+                                {prerequisite && (
+                                    <div className="flex flex-col gap-0.5 pt-1">
+                                        <dt className="text-zinc-400">
+                                            Prerequisite
+                                        </dt>
+                                        <dd className="font-medium">
+                                            {prerequisite}
                                         </dd>
                                     </div>
                                 )}

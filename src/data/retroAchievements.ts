@@ -301,6 +301,18 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
             name: "Wanted: Sky Pirate Vaan (Hard)",
             description: 'Clear Story Mission "Wanted: Sky Pirate Vaan"',
         },
+        {
+            id: "ra-dancer",
+            name: "Dancer",
+            description: "Recruit Penelo.",
+            category: "Advanced Jobs & Recruits",
+        },
+        {
+            id: "ra-sky-pirate",
+            name: "Sky Pirate",
+            description: "Recruit Vaan.",
+            category: "Advanced Jobs & Recruits",
+        },
     ],
     "D4-16": [
         {
@@ -454,6 +466,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
                 'During "The Cat\'s Meow" Obtain both Treasure Chests while avoiding all the traps',
             missable: true,
         },
+        {
+            id: "ra-black-and-white",
+            name: "Black & White",
+            description: 'Unlock the "Seer" job.',
+            category: "Advanced Jobs & Recruits",
+        },
     ],
     "C4-06": [
         {
@@ -463,6 +481,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
                 'Complete Quest "Of Kupos and Cannons" without Harming a Moogle',
             missable: true,
         },
+        {
+            id: "ra-firing-practice",
+            name: "Firing Practice",
+            description: 'Unlock the "Flintlock" job.',
+            category: "Advanced Jobs & Recruits",
+        },
     ],
     "B4-04": [
         {
@@ -471,6 +495,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
             description:
                 'During "The Goug Consortium" Clear all enemies without exceeding 60 tiles moved across all enemy & ally units',
             missable: true,
+        },
+        {
+            id: "ra-under-fire",
+            name: "Under Fire!",
+            description: 'Unlock the "Fusilier" job.',
+            category: "Advanced Jobs & Recruits",
         },
     ],
     "C3-14": [
@@ -496,6 +526,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
                 'During "Kyrra, Dragoon" Every enemy must be killed by "Kyrra"',
             missable: true,
         },
+        {
+            id: "ra-class-fit-for-a-plumber",
+            name: "Class Fit for a Plumber",
+            description: 'Unlock the "Dragoon" job.',
+            category: "Advanced Jobs & Recruits",
+        },
     ],
     "C4-10": [
         {
@@ -504,6 +540,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
             description:
                 'During "Sleight of Hand" Do Not Harm an Enemy before you take all the Treasure Chests',
             missable: true,
+        },
+        {
+            id: "ra-trick-room",
+            name: "Trick Room",
+            description: 'Unlock the "Trickster" job.',
+            category: "Advanced Jobs & Recruits",
         },
     ],
     "C4-05": [
@@ -514,6 +556,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
                 'During Battle 3 of "Popocho\'s Chocobos" Defeat all enemies without "Ghost" Reviving',
             missable: true,
         },
+        {
+            id: "ra-knight-of-the-yellow-feather",
+            name: "Knight of the Yellow Feather",
+            description: 'Unlock the "Chocobo Knight" job.',
+            category: "Advanced Jobs & Recruits",
+        },
     ],
     "C4-07": [
         {
@@ -522,6 +570,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
             description:
                 'During "Instrument of Inspiration" Clear the Mission without both "Devotee\'s" Dying',
             missable: true,
+        },
+        {
+            id: "ra-blue",
+            name: "Blue",
+            description: 'Unlock the "Raptor" job.',
+            category: "Advanced Jobs & Recruits",
         },
     ],
     "C4-13": [
@@ -532,6 +586,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
                 'During "Banbanga!" Defeat all Enemies without using any items',
             missable: true,
         },
+        {
+            id: "ra-master-sabin",
+            name: "Master Sabin",
+            description: 'Unlock the "Master Monk" job.',
+            category: "Advanced Jobs & Recruits",
+        },
     ],
     "B4-12": [
         {
@@ -540,6 +600,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
             description:
                 'During "To Be a Spellblade" Don\'t let Hana\'s HP go below 100',
             missable: true,
+        },
+        {
+            id: "ra-sword-mage",
+            name: "Sword Mage",
+            description: 'Unlock the "Spellblade" job.',
+            category: "Advanced Jobs & Recruits",
         },
     ],
     "C5-06": [
@@ -550,6 +616,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
                 'During "A Lanista\'s Pride" Kill all enemies within 10 minutes (Timer Starts at Battle Start)',
             missable: true,
         },
+        {
+            id: "ra-eye-for-an-eye",
+            name: "Eye For An Eye",
+            description: 'Unlock the "Lanista" job.',
+            category: "Advanced Jobs & Recruits",
+        },
     ],
     "C5-05": [
         {
@@ -558,6 +630,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
             description:
                 'During "Ravager" Beat the Mission while not targeting anyone or anything that isn\'t next to you',
             missable: true,
+        },
+        {
+            id: "ra-final-strike",
+            name: "Final Strike!",
+            description: 'Unlock the "Ravager" job.',
+            category: "Advanced Jobs & Recruits",
         },
     ],
     "C4-01": [
@@ -568,6 +646,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
                 'During "Veis, Assassin" Defeat "Nlogax" Without Veis doing any damage',
             missable: true,
         },
+        {
+            id: "ra-silent-but-deadly",
+            name: "Silent But Deadly",
+            description: 'Unlock the "Assassin" job.',
+            category: "Advanced Jobs & Recruits",
+        },
     ],
     "B3-16": [
         {
@@ -576,6 +660,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
             description:
                 'During "Knowing the Beast" successfully hold out for 4 rounds with only 2 party members placed on the field.',
             missable: true,
+        },
+        {
+            id: "ra-monster-tamer",
+            name: "Monster Tamer",
+            description: 'Unlock the "Beastmaster" job.',
+            category: "Advanced Jobs & Recruits",
         },
     ],
     "B4-08": [
@@ -586,6 +676,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
                 'During "The Eastwatch" kill all enemies without healing or having a unit die.',
             missable: true,
         },
+        {
+            id: "ra-bodyguard",
+            name: "Bodyguard",
+            description: 'Unlock the "Parivir" job.',
+            category: "Advanced Jobs & Recruits",
+        },
     ],
     "B4-16": [
         {
@@ -594,6 +690,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
             description:
                 'During "Lord Grayrl!" defeat "Lord Grayrl" in 5 hits or less (Double Hit Attacks & Dual Cast count as 2).',
             missable: true,
+        },
+        {
+            id: "ra-til-valhalla",
+            name: "Til Valhalla!",
+            description: 'Unlock the "Viking" job.',
+            category: "Advanced Jobs & Recruits",
         },
     ],
     "B5-08": [
@@ -604,6 +706,12 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
                 'During "Geomancer\'s Way - Mist" do not let any unit fall under 100 HP.',
             missable: true,
         },
+        {
+            id: "ra-weather-man",
+            name: "Weather Man",
+            description: 'Unlock the "Geomancer" job.',
+            category: "Advanced Jobs & Recruits",
+        },
     ],
     "C4-02": [
         {
@@ -612,6 +720,68 @@ export const RETRO_ACHIEVEMENTS_BY_MISSION_ID: Record<string, RetroAchievement[]
             description:
                 'During "To Be A Fighter" clear the level without laying or triggering any traps on your turn.',
             missable: true,
+        },
+        {
+            id: "ra-fight-club",
+            name: "Fight Club",
+            description: 'Unlock the "Fighter" job.',
+            category: "Advanced Jobs & Recruits",
+        },
+    ],
+    "C1-12": [
+        {
+            id: "ra-reagents-my-boy",
+            name: "Reagents, My Boy!",
+            description: 'Unlock the "Arcanist" job.',
+            category: "Advanced Jobs & Recruits",
+        },
+    ],
+    "C1-15": [
+        {
+            id: "ra-fire-in-the-hole",
+            name: "Fire in the Hole!",
+            description: 'Unlock the "Cannoneer" job.',
+            category: "Advanced Jobs & Recruits",
+        },
+    ],
+    "C4-09": [
+        {
+            id: "ra-textbook",
+            name: "Textbook",
+            description: 'Unlock the "Scholar" job.',
+            category: "Advanced Jobs & Recruits",
+        },
+    ],
+    "E5-15": [
+        {
+            id: "ra-saboteur",
+            name: "Saboteur",
+            description: "Recruit Al-Cid.",
+            category: "Advanced Jobs & Recruits",
+        },
+    ],
+    "E5-12": [
+        {
+            id: "ra-kupo",
+            name: "Kupo!",
+            description: "Recruit Montblanc.",
+            category: "Advanced Jobs & Recruits",
+        },
+    ],
+    "B5-07": [
+        {
+            id: "ra-zombie",
+            name: "Zombie",
+            description: "Recruit Frimelda.",
+            category: "Advanced Jobs & Recruits",
+        },
+    ],
+    "EX-03": [
+        {
+            id: "ra-the-gifted",
+            name: "The Gifted",
+            description: 'Unlock the "Heritor" job.',
+            category: "Advanced Jobs & Recruits",
         },
     ],
 };

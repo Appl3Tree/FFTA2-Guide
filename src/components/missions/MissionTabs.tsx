@@ -176,6 +176,9 @@ export function MissionTabs() {
 
                 if (mission.description) haystackParts.push(mission.description);
                 if (mission.region) haystackParts.push(mission.region);
+                if (mission.prerequisite) {
+                    haystackParts.push(mission.prerequisite);
+                }
                 pushSearchText(haystackParts, mission.rewards?.loot);
                 pushSearchText(haystackParts, mission.rewards?.items);
                 if (mission.notes) haystackParts.push(mission.notes);
@@ -302,13 +305,15 @@ export function MissionTabs() {
                     </div>
 
                     {/* Search RIGHT */}
-                    <input
-                        type="text"
-                        className="w-full sm:max-w-xs rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70"
-                        placeholder="Search missions (name, rewards, tags...)"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
+                    <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
+                        <input
+                            type="text"
+                            className="w-full sm:w-72 rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70"
+                            placeholder="Search missions (name, rewards, prerequisites...)"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                    </div>
                 </div>
 
                 {/* Arc filter pills */}

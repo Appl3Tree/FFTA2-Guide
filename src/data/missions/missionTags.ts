@@ -405,4 +405,5 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     // =========================
     "EX-01": ["story", "finale", "boss", "ex-mission"], // The Two Grimoires
     "EX-02": ["story", "finale", "boss", "ex-mission"], // From the Rift
+    "EX-03": ["optional", "job-unlock", "chain", "ex-mission"], // Gifted – unlocks Heritor
 };

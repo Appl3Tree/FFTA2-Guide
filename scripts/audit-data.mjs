@@ -268,6 +268,7 @@ function collectMissions() {
                     id: propertyString(element, "id", sourceFile),
                     name: propertyString(element, "name", sourceFile),
                     arc: propertyString(element, "arc", sourceFile),
+                    prerequisite: propertyString(element, "prerequisite", sourceFile),
                 });
             }
         });
@@ -312,6 +313,132 @@ function canonicalMissionIds(missions) {
     return new Set(byId.keys());
 }
 
+function canonicalMissionsById(missions) {
+    const storyMissions = missions.filter((mission) => mission.file.endsWith("storyMain.ts"));
+    const optionalMissions = missions.filter((mission) => mission.file.includes("storyOptional."));
+    const byId = new Map();
+
+    for (const mission of storyMissions) {
+        byId.set(mission.id, mission);
+    }
+
+    for (const mission of optionalMissions) {
+        byId.set(mission.id, mission);
+    }
+
+    return byId;
+}
+
+function normalizeMissionName(value) {
+    return value
+        .toLowerCase()
+        .replace(/[’']/g, "'")
+        .replace(/&/g, "and")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim();
+}
+
+const nonMissionPrerequisitePatterns = [
+    /^visit\b/i,
+    /^read\b/i,
+    /^notice\b/i,
+    /^complete (an|a|the)?\s*auction/i,
+    /^complete game save/i,
+    /^must be\b/i,
+    /^accept in\b/i,
+    /^adelle\b/i,
+    /^where could he be\??$/i,
+    /^the search$/i,
+    /^greenfire$/i,
+    /^goldsun$/i,
+    /^silversun$/i,
+    /^ashleaf$/i,
+    /^mistleaf$/i,
+    /^emberleaf$/i,
+    /^plumfrost$/i,
+    /^skyfrost$/i,
+    /^bloodfire$/i,
+    /^blackfrost$/i,
+    /^coppersun$/i,
+];
+
+function splitPrerequisiteText(prerequisite) {
+    const protectedText = (prerequisite ?? "").replace(
+        /I've Been Had, Kupo!/g,
+        "I've Been Had Kupo!",
+    );
+
+    return protectedText
+        .split(/[;,]/)
+        .map((part) => part.trim())
+        .filter(Boolean);
+}
+
+function missionNameIndex(missionsById) {
+    const index = new Map();
+
+    for (const mission of missionsById.values()) {
+        index.set(normalizeMissionName(mission.name), mission.id);
+    }
+
+    const aliases = {
+        "now that s fire": "B2-11",
+        "now that s a fire": "B2-11",
+        "wanted ugohr": "B2-01",
+        "wanted gilmunto": "B2-06",
+        "wanted friends kupo": "E5-12",
+        "death march ii": "A3-08",
+        "death march iii": "A3-11",
+        "the wayward drake": "B1-06",
+        "ive been had kupo": "D4-07",
+        "foodstuff nutrition": "C1-05",
+        "bangaa of the rupies": "D1-05",
+        "odd places upper right well": "A2-10",
+        "odd places bottom left well": "A2-10",
+        "odd places upper middle well": "A2-10",
+    };
+
+    for (const [alias, missionId] of Object.entries(aliases)) {
+        index.set(normalizeMissionName(alias), missionId);
+    }
+
+    return index;
+}
+
+function collectPrerequisiteIssues(missions) {
+    const findings = {
+        truncated: [],
+        unresolvedMissionLike: [],
+    };
+    const missionsById = canonicalMissionsById(missions);
+    const names = missionNameIndex(missionsById);
+
+    for (const mission of missionsById.values()) {
+        if (!mission.prerequisite) continue;
+
+        if (/-$|\b(the|its|to|of)$/i.test(mission.prerequisite.trim())) {
+            findings.truncated.push(mission);
+        }
+
+        for (const part of splitPrerequisiteText(mission.prerequisite)) {
+            if (nonMissionPrerequisitePatterns.some((pattern) => pattern.test(part))) {
+                continue;
+            }
+
+            if (names.has(normalizeMissionName(part))) {
+                continue;
+            }
+
+            findings.unresolvedMissionLike.push({
+                ...mission,
+                prerequisitePart: part,
+            });
+        }
+    }
+
+    return findings;
+}
+
 function collectMissionTags() {
     const file = path.join(srcData, "missions", "missionTags.ts");
     const { entries } = collectExportedRecordValues(file, "MISSION_TAGS");
@@ -333,6 +460,114 @@ function collectRetroAchievementMissionRefs() {
         line: entry.line,
         missionId: entry.key,
     }));
+}
+
+function collectRetroAchievementEntries() {
+    const file = path.join(srcData, "retroAchievements.ts");
+    const { sourceFile, entries } = collectExportedRecordValues(file, "RETRO_ACHIEVEMENTS_BY_MISSION_ID");
+    const achievements = [];
+
+    for (const entry of entries) {
+        if (!ts.isArrayLiteralExpression(entry.node)) {
+            continue;
+        }
+
+        for (const element of entry.node.elements) {
+            if (!ts.isObjectLiteralExpression(element)) {
+                continue;
+            }
+
+            achievements.push({
+                file: path.relative(root, file),
+                line: lineOf(sourceFile, element),
+                missionId: entry.key,
+                id: propertyString(element, "id", sourceFile),
+                name: propertyString(element, "name", sourceFile),
+                description: propertyString(element, "description", sourceFile),
+                category: propertyString(element, "category", sourceFile),
+            });
+        }
+    }
+
+    return achievements;
+}
+
+const expectedAdvancedJobAndRecruitAchievements = {
+    "ra-the-gifted": "EX-03", // Heritor -> Gifted
+    "ra-fire-in-the-hole": "C1-15", // Cannoneer -> The Bangaa Brotherhood
+    "ra-reagents-my-boy": "C1-12", // Arcanist -> The Nu Mou Nobles
+    "ra-textbook": "C4-09", // Scholar -> Treasured Tomes
+    "ra-class-fit-for-a-plumber": "C3-13", // Dragoon -> Kyrra, Dragoon
+    "ra-rumble-in-the-jungle": "C3-14", // Green Mage -> Green Dominion
+    "ra-monster-tamer": "B3-16", // Beastmaster -> Knowing the Beast
+    "ra-fight-club": "C4-02", // Fighter -> To Be a Fighter
+    "ra-silent-but-deadly": "C4-01", // Assassin -> Veis, Assassin
+    "ra-under-fire": "B4-04", // Fusilier -> The Goug Consortium
+    "ra-firing-practice": "C4-06", // Flintlock -> Of Kupos and Cannons
+    "ra-blue": "C4-07", // Raptor -> Instrument of Inspiration
+    "ra-knight-of-the-yellow-feather": "C4-05", // Chocobo Knight -> Popocho's Chocobos
+    "ra-bodyguard": "B4-08", // Parivir -> The Eastwatch
+    "ra-master-sabin": "C4-13", // Master Monk -> Banbanga!
+    "ra-sword-mage": "B4-12", // Spellblade -> To Be a Spellblade
+    "ra-black-and-white": "C4-14", // Seer -> The Cat's Meow
+    "ra-trick-room": "C4-10", // Trickster -> Sleight of Hand
+    "ra-til-valhalla": "B4-16", // Viking -> Lord Grayrl!
+    "ra-weather-man": "B5-08", // Geomancer -> Geomancer's Way - Mist
+    "ra-eye-for-an-eye": "C5-06", // Lanista -> A Lanista's Pride
+    "ra-final-strike": "C5-05", // Ravager -> Ravager
+    "ra-dancer": "D4-11", // Penelo -> Wanted: Sky Pirate Vaan
+    "ra-sky-pirate": "D4-11", // Vaan -> Wanted: Sky Pirate Vaan
+    "ra-saboteur": "E5-15", // Al-Cid -> A Dashing Duel
+    "ra-kupo": "E5-12", // Montblanc -> Wanted: Friends! Kupo
+    "ra-zombie": "B5-07", // Frimelda -> The Last Duelhorn
+};
+
+function collectAdvancedAchievementTieIssues(retroAchievements) {
+    const byAchievementId = new Map();
+
+    for (const achievement of retroAchievements) {
+        if (!achievement.id) continue;
+        if (!byAchievementId.has(achievement.id)) {
+            byAchievementId.set(achievement.id, []);
+        }
+        byAchievementId.get(achievement.id).push(achievement);
+    }
+
+    const missing = [];
+    const wrongMission = [];
+    const duplicateMissionBuckets = [];
+
+    for (const [achievementId, expectedMissionId] of Object.entries(expectedAdvancedJobAndRecruitAchievements)) {
+        const matches = byAchievementId.get(achievementId) ?? [];
+
+        if (matches.length === 0) {
+            missing.push({ achievementId, expectedMissionId });
+            continue;
+        }
+
+        const wrongMatches = matches.filter((match) => match.missionId !== expectedMissionId);
+        if (wrongMatches.length > 0) {
+            wrongMission.push(...wrongMatches.map((match) => ({
+                ...match,
+                expectedMissionId,
+            })));
+        }
+
+        const missionIds = new Set(matches.map((match) => match.missionId));
+        if (missionIds.size > 1 || matches.length > 1) {
+            duplicateMissionBuckets.push({
+                achievementId,
+                expectedMissionId,
+                matches,
+            });
+        }
+    }
+
+    return {
+        missing,
+        wrongMission,
+        duplicateMissionBuckets,
+    };
 }
 
 function collectDuplicateMissionTags(missionTags) {
@@ -523,6 +758,9 @@ function summarize() {
     const missionIds = canonicalMissionIds(missions);
     const missionTags = collectMissionTags();
     const retroAchievementMissionRefs = collectRetroAchievementMissionRefs();
+    const retroAchievements = collectRetroAchievementEntries();
+    const advancedAchievementTieIssues = collectAdvancedAchievementTieIssues(retroAchievements);
+    const prerequisiteIssues = collectPrerequisiteIssues(missions);
     const missingAbilityRefs = abilityRefs.filter((ref) => !abilityIds.has(ref.id));
     const missingMissionTagRefs = missionTags.filter((ref) => !missionIds.has(ref.missionId));
     const missingRetroAchievementMissionRefs = retroAchievementMissionRefs.filter((ref) => !missionIds.has(ref.missionId));
@@ -536,6 +774,7 @@ function summarize() {
             abilityRefs: abilityRefs.length,
             missionTagRefs: missionTags.length,
             retroAchievementMissionRefs: retroAchievementMissionRefs.length,
+            retroAchievements: retroAchievements.length,
         },
         duplicateObjectKeys: collectDuplicateObjectKeys(dataFiles),
         duplicateAbilityIds: groupDuplicates(abilities, (ability) => ability.id),
@@ -551,6 +790,8 @@ function summarize() {
         missingMissionTags: collectMissingMissionTags(missionIds, missionTags),
         duplicateMissionTags: collectDuplicateMissionTags(missionTags),
         missingRetroAchievementMissionRefs,
+        advancedAchievementTieIssues,
+        prerequisiteIssues,
         placeholders: collectPlaceholders(),
     };
 
@@ -576,6 +817,11 @@ function summarize() {
         missingMissionTags: report.missingMissionTags,
         duplicateMissionTags: report.duplicateMissionTags,
         missingRetroAchievementMissionRefs: report.missingRetroAchievementMissionRefs,
+        advancedAchievementMissing: report.advancedAchievementTieIssues.missing,
+        advancedAchievementWrongMission: report.advancedAchievementTieIssues.wrongMission,
+        advancedAchievementDuplicateMissionBuckets: report.advancedAchievementTieIssues.duplicateMissionBuckets,
+        prerequisiteTruncated: report.prerequisiteIssues.truncated,
+        prerequisiteUnresolvedMissionLike: report.prerequisiteIssues.unresolvedMissionLike,
         placeholders: report.placeholders.filter((finding) => !isKnownPlaceholder(finding)),
     };
 
@@ -604,6 +850,11 @@ console.log(JSON.stringify({
         missingMissionTags: report.actionable.missingMissionTags.length,
         duplicateMissionTags: report.actionable.duplicateMissionTags.length,
         missingRetroAchievementMissionRefs: report.actionable.missingRetroAchievementMissionRefs.length,
+        advancedAchievementMissing: report.actionable.advancedAchievementMissing.length,
+        advancedAchievementWrongMission: report.actionable.advancedAchievementWrongMission.length,
+        advancedAchievementDuplicateMissionBuckets: report.actionable.advancedAchievementDuplicateMissionBuckets.length,
+        prerequisiteTruncated: report.actionable.prerequisiteTruncated.length,
+        prerequisiteUnresolvedMissionLike: report.actionable.prerequisiteUnresolvedMissionLike.length,
         placeholders: report.actionable.placeholders.length,
     },
     knownExceptions: {

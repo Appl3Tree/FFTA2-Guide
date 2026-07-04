@@ -394,7 +394,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "The Root of the",
+        prerequisite: "The Root of the Problem",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -432,7 +432,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Chita on Weapons -",
+        prerequisite: "Chita on Weapons - Novices",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,

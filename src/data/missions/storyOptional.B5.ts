@@ -296,7 +296,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "Geomancer's Way -",
+        prerequisite: "Geomancer's Way - Snow",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
