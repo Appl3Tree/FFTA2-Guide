@@ -72,20 +72,20 @@ export function RetroAchievementsPanels() {
 
     const headerProgress = (
         <div className="flex items-center justify-between gap-2 text-xs sm:text-sm">
-            <div className="text-zinc-100/90">
+            <div className="text-zinc-600 dark:text-zinc-300">
                 <span className="font-semibold">
                     {completedAchievements} / {totalAchievements}
                 </span>{" "}
                 achievements completed
             </div>
             <div className="flex items-center gap-2">
-                <div className="h-1.5 w-28 sm:w-40 rounded-full bg-black/30 overflow-hidden">
+                <div className="h-1.5 w-28 sm:w-40 rounded-full bg-zinc-300/80 dark:bg-zinc-800 overflow-hidden">
                     <div
-                        className="h-full bg-emerald-300 dark:bg-emerald-300"
+                        className="h-full bg-amber-500 dark:bg-amber-300"
                         style={{ width: `${completionPct}%` }}
                     />
                 </div>
-                <span className="text-[0.7rem] text-zinc-100/80">
+                <span className="text-[0.7rem] text-zinc-500 dark:text-zinc-400">
                     {completionPct}%
                 </span>
             </div>
@@ -96,7 +96,7 @@ export function RetroAchievementsPanels() {
         <Panel
             title="RetroAchievements"
             subtitle="Optional challenge goals from RetroAchievements."
-            tone="red"
+            tone="amber"
             headerAddon={headerProgress}
         >
             <div className="space-y-4 mt-2">

@@ -12,6 +12,8 @@ import { EquipmentHub } from "./components/meta/EquipmentHub";
 import BazaarPanel from "./components/meta/BazaarPanel";
 import { AbilityHub } from "./components/meta/AbilityHub";
 import { GlobalSearchPanel } from "./components/meta/GlobalSearchPanel";
+import { FaqPanel } from "./components/meta/FaqPanel";
+import { ClanTrialsPanel } from "./components/meta/ClanTrialsPanel";
 
 const STORAGE_KEY_WIDE_LAYOUT = "ffta2-guide:wide-layout";
 
@@ -54,20 +56,20 @@ function AppInner() {
 
     const missionHeaderProgress = (
         <div className="flex items-center justify-between gap-2 text-xs sm:text-sm">
-            <div className="text-zinc-100/90">
+            <div className="text-zinc-600 dark:text-zinc-300">
                 <span className="font-semibold">
                     {completedMissions} / {totalMissions}
                 </span>{" "}
                 missions completed
             </div>
             <div className="flex items-center gap-2">
-                <div className="h-1.5 w-28 sm:w-40 rounded-full bg-black/30 overflow-hidden">
+                <div className="h-1.5 w-28 sm:w-40 rounded-full bg-zinc-300/80 dark:bg-zinc-800 overflow-hidden">
                     <div
-                        className="h-full bg-emerald-300 dark:bg-emerald-300"
+                        className="h-full bg-violet-500 dark:bg-violet-300"
                         style={{ width: `${completionPct}%` }}
                     />
                 </div>
-                <span className="text-[0.7rem] text-zinc-100/80">
+                <span className="text-[0.7rem] text-zinc-500 dark:text-zinc-400">
                     {completionPct}%
                 </span>
             </div>
@@ -79,17 +81,18 @@ function AppInner() {
         : "w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8";
 
     return (
-        <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-zinc-950 to-zinc-900 text-zinc-50">
+        <div className="min-h-screen flex flex-col items-center bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.16),_transparent_32rem),linear-gradient(135deg,_#09090b,_#18181b)] text-zinc-50">
             <main className={mainClassName}>
                 <div className="canvas-card">
-                    {/* Top banner, modeled after fftaprogression_guide.tsx */}
-                    <div className="bg-gradient-to-r from-purple-600/90 to-emerald-500/90 text-white rounded-t-2xl ring-1 ring-zinc-950/10 dark:ring-white/10 shadow-sm">
+                    {/* Top banner */}
+                    <div className="relative overflow-hidden rounded-t-lg border border-zinc-800/80 bg-zinc-950/95 text-white shadow-sm ring-1 ring-white/10">
+                        <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,_#d946ef,_#ef4444,_#f97316,_#f59e0b,_#eab308,_#84cc16,_#10b981,_#0ea5e9,_#8b5cf6)]" />
                         <div className="px-4 sm:px-6 py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                             <div>
-                                <h1 className="text-3xl font-bold mb-1">
+                                <h1 className="text-2xl sm:text-3xl font-bold mb-1 tracking-tight">
                                     FFTA2 Progression &amp; Completion Guide
                                 </h1>
-                                <p className="text-sm text-zinc-50/90">
+                                <p className="max-w-3xl text-sm leading-relaxed text-zinc-300">
                                     Track story missions, side quests, RetroAchievements, and
                                     optimize your clan&apos;s builds as you work through{" "}
                                     <span className="font-semibold">
@@ -101,7 +104,7 @@ function AppInner() {
                             <button
                                 type="button"
                                 onClick={() => setWideLayout((prev) => !prev)}
-                                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-white/30 bg-white/10 px-3 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/70"
+                                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-xs font-semibold text-zinc-100 shadow-sm transition-colors hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-sky-300"
                                 aria-pressed={wideLayout}
                                 aria-label={
                                     wideLayout
@@ -127,10 +130,16 @@ function AppInner() {
                     </div>
 
                     {/* Main card body */}
-                    <section className="bg-zinc-100 dark:bg-zinc-950/90 rounded-b-2xl shadow-sm ring-1 ring-zinc-950/10 dark:ring-white/10 border-t-0 px-4 sm:px-6 pb-6 sm:pb-8 pt-4 sm:pt-6 space-y-6">
+                    <section className="bg-zinc-100 dark:bg-zinc-950/90 rounded-b-lg shadow-sm ring-1 ring-zinc-950/10 dark:ring-white/10 border-t-0 px-4 sm:px-6 pb-6 sm:pb-8 pt-4 sm:pt-6 space-y-6">
                         <header className="space-y-4 sm:space-y-6">
                             {/* Pre-game heads-up / info */}
                             <BeforeYouStartPanel />
+
+                            {/* Frequently asked planning questions */}
+                            <FaqPanel />
+
+                            {/* Clan trials and privilege planning */}
+                            <ClanTrialsPanel />
 
                             {/* RetroAchievements (kept separate) */}
                             <RetroAchievementsPanels />
@@ -143,7 +152,7 @@ function AppInner() {
                             <Panel
                                 title="Bazaar Recipes"
                                 subtitle="See which loot unlocks which bazaar rewards."
-                                tone="yellow"
+                                tone="lime"
                             >
                                 <BazaarPanel />
                             </Panel>

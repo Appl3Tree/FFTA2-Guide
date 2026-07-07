@@ -8,7 +8,7 @@ export function BeforeYouStartPanel() {
         <Panel
             title="Before You Start"
             subtitle="Heads-up notes and systems to keep in mind as you begin your FFTA2 run."
-            tone="neutral"
+            tone="pink"
         >
             <div className="space-y-5 mt-3">
                 {/* Intro / how-to-use sections */}
@@ -76,4 +76,3 @@ export function BeforeYouStartPanel() {
         </Panel>
     );
 }
-

@@ -262,7 +262,19 @@ export interface BazaarRecipe {
     loot: string[];    // Required loot item names
 }
 
-export type PanelTone = "blue" | "emerald" | "red" | "purple" | "amber" | "neutral" | "yellow";
+export type PanelTone =
+    | "pink"
+    | "red"
+    | "orange"
+    | "amber"
+    | "yellow"
+    | "lime"
+    | "emerald"
+    | "cyan"
+    | "blue"
+    | "indigo"
+    | "purple"
+    | "neutral";
 
 export interface MetaPanel {
     id: string;
@@ -271,4 +283,67 @@ export interface MetaPanel {
     tone: PanelTone;
     paragraphs: string[];
     bullets?: string[];
+}
+
+export interface FaqItem {
+    id: string;
+    question: string;
+    answer: string;
+    tags: string[];
+}
+
+export interface ClanTrialTitle {
+    title: string;
+    clanRank: number;
+    talents: string;
+    privilege: string;
+    discount: string;
+    objective: string;
+}
+
+export interface ClanTrial {
+    id: string;
+    name: string;
+    law: string;
+    rank: number;
+    location: string;
+    days: number;
+    price: string;
+    requiredTalents: string;
+    lawRequirement: "Must obey" | "Can break if needed" | "Unknown";
+    challenge: string;
+    titles: ClanTrialTitle[];
+    notes: string[];
+    completionTips: string[];
+}
+
+export interface ClanTrialPriority {
+    id: string;
+    title: string;
+    why: string;
+    trial: string;
+}
+
+export interface ClanTrialGuideSection {
+    id: string;
+    title: string;
+    body: string;
+    bullets: string[];
+}
+
+export interface ClanTalentGuide {
+    id: string;
+    name: string;
+    summary: string;
+    watchFor: string;
+}
+
+export interface ClanPrivilegeRoadmapItem {
+    id: string;
+    privilege: string;
+    effect: string;
+    trial: string;
+    title: string;
+    objective: string;
+    priority: "Early" | "Useful" | "Specialist" | "Completion";
 }
