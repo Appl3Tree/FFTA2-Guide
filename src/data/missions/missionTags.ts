@@ -65,7 +65,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "A4-02": ["optional", "hunt", "notorious-mark"], // Wanted: Icicle Ark
     "A4-03": ["optional", "chain"], // Thieves in the Ruins – House Bowen/Duelhorn-relevant chain quest 
     "A4-06": ["optional", "hunt", "notorious-mark"], // Wanted: Floraxion
-    "A4-08": ["optional", "hunt", "notorious-mark"], // Wanted: Musicians!
+    "A4-08": ["optional", "hunt", "notorious-mark"], // Wanted: Musician!
     "A4-10": ["optional", "hunt", "notorious-mark"], // Wanted: Moogle Rangers
     "A4-11": ["optional", "hunt", "notorious-mark", "elite", "job-unlock"], // Red King of Cinquleur – also unlocks Red Mage via Cinquleur chain :contentReference[oaicite:18]{index=18}
     "A4-12": ["optional", "hunt", "notorious-mark"], // Wanted: Tutor
@@ -81,7 +81,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "A5-04": ["optional", "hunt", "notorious-mark"], // Wanted: Marksman
     "A5-07": ["optional", "hunt", "notorious-mark", "elite"], // Black King of Cinquleur
     "A5-08": ["optional", "hunt", "notorious-mark"], // Wanted: Caretaker
-    "A5-09": ["optional", "hunt", "notorious-mark", "elite"], // White King of Cinquleur
+    "A5-11": ["optional", "hunt", "notorious-mark", "elite"], // White King of Cinquleur
     "A5-14": ["optional", "hunt", "notorious-mark", "elite", "boss", "chain"], // The Five Kings – all Cinquleur at once :contentReference[oaicite:21]{index=21}
 
     // =========================
@@ -378,6 +378,7 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "E4-01": ["optional"], // Devilish Delight
     "E4-02": ["optional"], // Shelling Out
     "E4-03": ["optional"], // Flantastic Finish
+    "E4-04": ["optional"], // The Art of Gastronomy
     "E4-05": ["optional"], // The Honorable Thing
     "E4-06": ["optional"], // From 'Cross the Sea
     "E4-07": ["optional"], // Training Wanted

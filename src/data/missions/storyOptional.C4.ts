@@ -23,7 +23,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
             teamwork: 0,
             adaptability: 8,
         },
-        objective: "Speed Battle vs House Bowen",
+        objective: "Speed Battle vs. House Bowen",
         law: "Forbidden: Actions by Moogles – Moogles may only move and perform basic attacks",
     enemies: [
         { name: "Malboro King", job: "Malboro King", quantity: 1, notes: "Speed battle mark. You must land the finishing blow — House Bowen will also attack it. Steal its Orb of Minwu before finishing if you can." },

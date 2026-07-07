@@ -10,7 +10,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         name: "Devilish Delight",
         description: "Never tasted the delicious tears of devils brought to a simmer by the scalding heat of fire and brimstone? Then you've never tasted Imp Stew, a sinfully tasty dish! It must be eaten while piping hot, or it loses its punch, so don't dawdle once you've ladled a bowl or three! Grosso, Culinary Crusade",
         rank: 42,
-        region: "The Neslowe Passage",
+        region: "Goug",
         fee: 500,
         days: 20,
         questType: "Satisfy Petitioner",
@@ -127,6 +127,46 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             gil: 7810,
             cp: 99,
             loot: "Fiend's Blood ×1, Sweet Sap ×1"
+        },
+        notes: "",
+        tags: ["optional"]
+    },
+    {
+        id: "E4-04",
+        arc: "E4",
+        name: "The Art of Gastronomy",
+        description: "My latest culinary adventure has brought me to the delightfully dangerous world of behemoth cuisine. The meat must be won fresh, and only a disciplined clan can keep the kitchen from becoming the meal. Grosso, Culinary Crusade",
+        rank: 47,
+        region: "Aisenfield",
+        fee: 500,
+        days: 20,
+        questType: "Satisfy Petitioner",
+        canDispatch: true,
+        canCancel: true,
+        members: 6,
+        prerequisite: "Pirate Problems; Flantastic Finish; visit any town",
+        requiredTalents: {
+            negotiation: 51,
+            aptitude: 0,
+            teamwork: 0,
+            adaptability: 51,
+        },
+        objective: "Defeat all foes!",
+        law: "Forbidden: Actions by Humes – Actions by Humes are forbidden.",
+        enemies: [
+            { name: "Randomized Name", job: "Behemoth", quantity: 4, notes: "Physical bruisers and the core threat of the quest. They can hit hard and pressure the party quickly." },
+            { name: "Randomized Name", job: "Reaver", quantity: 1, notes: "Support threat alongside the Behemoths; do not let it freely harass your healer." },
+        ],
+        strategy: [
+            "Leave Humes at home or keep them inactive because the law forbids Hume actions.",
+            "Bring strong non-Hume damage dealers and a reliable healer; the Behemoths are sturdy physical enemies.",
+            "Ice damage is useful against Behemoths. Focus one target down at a time instead of spreading damage across the pack.",
+            "Keep the healer protected and reduce incoming pressure quickly; four Behemoths can overwhelm a loose formation.",
+        ],
+        rewards: {
+            gil: 10700,
+            cp: 94,
+            loot: "Spider Silk ×1, Tanned Beast Hide ×1"
         },
         notes: "",
         tags: ["optional"]

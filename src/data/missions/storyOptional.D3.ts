@@ -355,7 +355,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         name: "Rancher's Request - Black",
         description: "My ranch is up and running, but with only one chocobo, it seems even emptier than before! That's why I'm asking you to catch another wild chocobo for me! A black chocobo would do nicely. Yew, Chocobo Rancher",
         rank: 25,
-        region: "Targ Woods",
+        region: "Targ Wood",
         fee: 400,
         days: 20,
         questType: "Satisfy Petitioner",

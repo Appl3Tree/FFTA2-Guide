@@ -9,7 +9,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         arc: "D5",
         name: "Graszton Nightwatch",
         description: "A plague of robberies has fallen upon the land! All occur at night and follow a similar pattern, indicating that a single group may be responsible. For the swift resolution of this case, and the safety of our citizens, we are currently accepting applications to join the Graszton Nightwatch. Jylland Sovereignty Society",
-        rank: 43,
+        rank: 40,
         region: "Graszton",
         fee: 500,
         days: 20,
@@ -38,7 +38,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         ],
         rewards: {
             gil: 6620,
-            cp: 86,
+            cp: 80,
             loot: "Stormsoul Crystal ×1"
         },
         notes: "",
@@ -184,7 +184,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             teamwork: 44,
             adaptability: 44,
         },
-        objective: "Defeat all Foes in Four Rounds!",
+        objective: "Defeat all foes within four rounds!",
         law: "Forbidden: Swimming – Entering a water tile is forbidden.",
         enemies: [
             { name: "Randomized Name", job: "Baknamy", quantity: 3, notes: "Have Magick Hammer and Goblin Attack. Must defeat all within 4 rounds." },
@@ -310,7 +310,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
     {
         id: "D5-14",
         arc: "D5",
-        name: "Shrine of the Paling Gods",
+        name: "The Shrine of the Paling Gods",
         description: "Came across a worrying notice in the pub about something strange happenings at the shrines of the Paling Gods in Tramdine Fens. It sounds like there has been a growing number of monster sightings in the area. Might be worth looking into.",
         rank: 38,
         region: "Tramdine Fens",

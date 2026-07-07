@@ -10,7 +10,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         name: "Speed Battle, Kupo!",
         description: "We're looking for a clan to face us in a fearsome speed battle, kupo! We'll find a suitably vicious beast - all you need do is arrive at the appointed place. To battle, kupo! Scarface, Lord of the Speed Battle",
         rank: 22,
-        region: "The Galerria Deep",
+        region: "The Galleria Deep",
         fee: 400,
         days: 20,
         questType: "Meet Objectives",
@@ -24,7 +24,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
             adaptability: 20,
         },
         dispatchRecommended: ["Templar"],
-        objective: "Speed Battle vs Scarface",
+        objective: "Speed Battle vs. Scarface!",
         law: "Forbidden: Not Moving – Each unit must move at least 1 tile before ending its turn.",
     enemies: [
         { name: "Randomized Name", job: "Baknamy", quantity: 2, notes: "Always present regardless of the mark. Traps are also scattered on the field." },

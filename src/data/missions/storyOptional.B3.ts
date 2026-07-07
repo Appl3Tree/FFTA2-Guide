@@ -147,7 +147,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
             teamwork: 0,
             adaptability: 18,
         },
-        objective: "Protect Syrenead and Defeat all Foes!",
+        objective: "Protect Syrenead and weaken the ivory wyrm!",
         law: "Forbidden: Harming the Weak – Actions that harm a lower level unit are forbidden.",
     enemies: [
         { name: "Randomized Name", job: "Ivory Wyrm", quantity: 1, notes: "TARGET: Weaken to HP Critical — do NOT kill. Use abilities (near-zero crit chance) to avoid an accidental KO." },
@@ -368,7 +368,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
             teamwork: 0,
             adaptability: 4,
         },
-        objective: "Guard the Bridge for 4 rounds!",
+        objective: "Guard the bridges for 4 rounds!",
         law: "Forbidden: Reaction Abilities – Reaction Abilities are forbidden",
     enemies: [
         { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "Initial wave. Enemy reinforcements keep crossing the bridges after each wave is killed." },

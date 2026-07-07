@@ -154,7 +154,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             "Clear Axebeaks and Wolves only when they block a search route, then keep checking sparkles until the Scarab Beetle is found.",
         ],
         rewards: {
-            gil: 690,
+            gil: 440,
             cp: 14,
             loot: "Ball Moss ×1, Wind Stone ×3, Pointed Horn ×1"
         },
@@ -564,7 +564,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         region: "Baptiste Hill",
         fee: 300,
         days: 20,
-        questType: "Meet Objectives",
+        questType: "Item Recovery",
         canDispatch: true,
         canCancel: true,
         members: 6,

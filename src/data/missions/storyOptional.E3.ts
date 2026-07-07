@@ -87,7 +87,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         name: "Wish Upon a Star",
         description: "This past night I saw another falling star in the direction of Sant D'alsa Bluff. There had been another the night before last, and the night before that, too! I can't rest with the sky falling down around me. All I want is a good night's sleep! Would someone travel to Sant D'alsa Bluff and see if there's anything that can be done? Manuela, Insomniac",
         rank: 27,
-        region: "Sant D'alsa Bluff",
+        region: "Graszton",
         fee: 400,
         days: 20,
         questType: "Defeat Mark",
@@ -127,7 +127,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         name: "Wanted: Hatchery Worker",
         description: "My precious chocobos will begin laying eggs soon, and I want to take on an additional hand to work in the hatchery. - No experience required - All applicants welcome - Room and board to be provided - Duration : 15 Days Yew, Chocobo Rancher",
         rank: 18,
-        region: "Targ Woods",
+        region: "Targ Wood",
         fee: 300,
         days: 20,
         questType: "Satisfy Petitioner",
@@ -174,7 +174,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             adaptability: 20,
         },
         objective: "Defeat all Foes!",
-        law: "Forbidden: Action by Seeq – Seeq may only move and perform basic attacks.",
+        law: "Forbidden: Actions by Seeq - Seeq may only move and perform basic attacks.",
         enemies: [
             { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Priority target; Leg Shot, Arm Shot, and Take Aim can cripple units." },
             { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "Has Throw, Fire Veil, and Water Veil; can Confuse or Silence allies but lacks Dual Wield." },
@@ -212,7 +212,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             teamwork: 0,
             adaptability: 22,
         },
-        objective: "See the battle to the end!",
+        objective: "See the battle to its end!",
         law: "Forbidden: Restoring HP – Actions that restore HP are forbidden.",
         enemies: [],
         strategy: [
@@ -233,7 +233,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         name: "Rancher's Request - Green",
         description: "I'd like to have a green chocobo at my ranch to raise along with the others, but they're so fast, all of my own attempts to catch one have failed. Seek fleet-footed hunters to find and catch a green chocobo for me! Yew, Chocobo Rancher",
         rank: 29,
-        region: "Targ Woods",
+        region: "Targ Wood",
         fee: 400,
         days: 20,
         questType: "Satisfy Petitioner",
@@ -252,7 +252,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         strategy: [
             "Capture a Green Chocobo with a Chocobo Knight before turning in the quest.",
             "Best capture spot: Zedlei Forest during Greenfire via the Open Wide encounter.",
-            "Defeat the other enemies, weaken the Green Chocobo to critical HP, move a Chocobo Knight next to it, mount it, then deliver it to Targ Woods.",
+            "Defeat the other enemies, weaken the Green Chocobo to critical HP, move a Chocobo Knight next to it, mount it, then deliver it to Targ Wood.",
         ],
         rewards: {
             gil: 1750,
@@ -268,7 +268,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         name: "Rancher's Request - Brown",
         description: "The other day I made to catch a brown chocobo to add to my herd, but I didn't expect the fierce beaking that was in store for me. I was lucky to make it back in one piece! I seek stalwart hunters to capture a brown chocobo and return it to me-I'll stick to raising them. Yew, Chocobo Rancher",
         rank: 33,
-        region: "Targ Woods",
+        region: "Targ Wood",
         fee: 500,
         days: 20,
         questType: "Satisfy Petitioner",
@@ -287,7 +287,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         strategy: [
             "Capture a Brown Chocobo with a Chocobo Knight before turning in the quest.",
             "Best capture spot: Aldanna Range during Greenfire via the Formidable Strength encounter.",
-            "Defeat the other enemies, weaken the Brown Chocobo to critical HP, mount it with a Chocobo Knight, then deliver it to Targ Woods.",
+            "Defeat the other enemies, weaken the Brown Chocobo to critical HP, mount it with a Chocobo Knight, then deliver it to Targ Wood.",
         ],
         rewards: {
             gil: 1750,
@@ -303,7 +303,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         name: "Rancher's Request - White",
         description: "I was tending my chocobos in the field when - to my unending surprise and delight - a white chocobo appeared! I tried to catch it, but it seemed to guess my intent and darted off before I could get anywhere near it. Perhaps I should be content to merely have been in the presence of such a rare beast, but I'm not! I mean to add it to my herd, and I want you to catch it for me! Yew, Chocobo Rancher",
         rank: 37,
-        region: "Targ Woods",
+        region: "Targ Wood",
         fee: 500,
         days: 20,
         questType: "Satisfy Petitioner",
@@ -321,7 +321,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         enemies: [],
         strategy: [
             "Use a Chocobo Knight to capture a White Chocobo before turning in the quest.",
-            "Weaken the White Chocobo to critical HP, mount it with a Chocobo Knight, then deliver it to Targ Woods.",
+            "Weaken the White Chocobo to critical HP, mount it with a Chocobo Knight, then deliver it to Targ Wood.",
         ],
         rewards: {
             gil: 1750,
@@ -337,7 +337,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         name: "Rancher's Request - Red",
         description: "Some fellow chocobo aficionados and I went chocobo-watching in the hope of seeing a red chocobo. We had spotted one and were settling in for a good viewing, when without warning it lashed out at us with a choco meteor! Our number must have spooked the poor thing. I knew I should have gone alone! Would you catch one for me? Yew, Chocobo Rancher",
         rank: 46,
-        region: "Targ Woods",
+        region: "Targ Wood",
         fee: 500,
         days: 20,
         questType: "Satisfy Petitioner",
@@ -355,7 +355,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         enemies: [],
         strategy: [
             "Capture a Red Chocobo with a Chocobo Knight before turning in the quest.",
-            "Weaken the Red Chocobo to critical HP, mount it with a Chocobo Knight, then deliver it to Targ Woods.",
+            "Weaken the Red Chocobo to critical HP, mount it with a Chocobo Knight, then deliver it to Targ Wood.",
         ],
         rewards: {
             gil: 1750,

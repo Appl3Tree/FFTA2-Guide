@@ -10,7 +10,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         name: "Hors D'oeuvre of the Hour",
         description: "Haven't tried Culinary Crusade's latest gastronomical triumph, Amarette Malbonara yet? Now's your chance! Just be careful not to burn the ingredients when you harvest them. Heat muddles the flavor. Grosso, Culinary Crusade",
         rank: 41,
-        region: "The Bisga Greenland",
+        region: "The Bisga Greenlands",
         fee: 500,
         days: 20,
         questType: "Satisfy Petitioner",
@@ -61,7 +61,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
             adaptability: 28,
         },
         objective: "Defeat Nezzel the Alchemist!",
-        law: "Forbidden: Height > or = 10 – Moving to a tile with height of 10 of more is forbidden.",
+        law: "Forbidden: Height >= 10 - Moving to a tile with height 10 or more is forbidden.",
         enemies: [
             { name: "Nezzel the Alchemist", job: "Alchemist", quantity: 1, notes: "Mark. Has Flare, Poison, Toad, and Items. Luso is required; Cid is not." },
             { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Has Fira, Thundara, Blizzara, Blizzaga." },

@@ -12,7 +12,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         rank: 54,
         region: "Fluorgis",
         fee: 500,
-        days: 20,
+        days: 10,
         questType: "Battle",
         canDispatch: true,
         canCancel: true,
@@ -176,7 +176,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
     {
         id: "A4-08",
         arc: "A4",
-        name: "Wanted: Musicians!",
+        name: "Wanted: Musician!",
         description: "A member of our troupe has been injured and won't be able to perform at the music competition in Fluorgis. We've been preparing so long for this, it would be a shame to miss out now, kupo! Please, help us find a replacement in time. We'll need them for no less than six days if we're to have enough time to rehearse! Pompo, Troupe Leader",
         rank: 26,
         region: "Aisenfield",
@@ -264,7 +264,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
             adaptability: 6,
         },
         objective: "Defeat Red King Ruuj!",
-        law: "Forbidden: Fire, Ice, and Lightning – Weapons and abilities that use fire, ice, or lightning are forbidden.",
+        law: "Forbidden: Fire, Ice, Lightning - Weapons and abilities that use fire, ice, or lightning are forbidden.",
     enemies: [
         { name: "Red King Ruuj", job: "Elementalist", quantity: 1, notes: "Level 44 solo boss. Uses Doublecast, Silence (Red Magick), Fire Whip, Sliprain, Boulder Crush. Immune to all debuffs. Use Mirror Items or ranged attacks." },
     ],

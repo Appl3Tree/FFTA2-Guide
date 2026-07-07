@@ -51,7 +51,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         name: "Komodo Search",
         description: "There was an ... incident the other day while I was out making a delivery, and the load of potions I was meant to deliver ended up scattered along the ground. Will you help me collect them? Oh, and ... let's keep this between you and me. The fewer people that know about this, the better. Trader for a certain potion manufactory",
         rank: 20,
-        region: "The Galerria Deep",
+        region: "The Galleria Deep",
         fee: 300,
         days: 20,
         questType: "Item Recovery",
@@ -73,7 +73,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         { name: "Randomized Name", job: "Blue Flan", quantity: 2, notes: "Ice attacks. Weak to Fire. Collect all potion sparkles on the map to complete." },
     ],
         battlefield: [
-            "Potion sparkle spots are scattered through The Galerria Deep.",
+            "Potion sparkle spots are scattered through The Galleria Deep.",
         ],
         strategy: [
             "Collect every potion sparkle to complete the mission; defeating all monsters is not required if you can move safely.",
@@ -154,7 +154,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             "Delivery mission — pick up the package in Targ Wood and deliver it to Graszton. No combat.",
         ],
         rewards: {
-            gil: 700,
+            gil: 7000,
             cp: 22,
             loot: "Recall Grass ×2, Wool ×1, Velvet ×2"
         },
@@ -209,8 +209,8 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         name: "The Forests of Loar",
         description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 6 days and receive a stamp on your wayfarer's log to win valuable prizes. Marsa Wayfarers Association List of Destinations: - Targ Wood - The Bisga Greenlands - Zedlei Forest",
         rank: 15,
-        region: "Targ, Bisga, Zedlei",
-        fee: 200,
+        region: "Targ Wood, The Bisga Greenlands, Zedlei Forest",
+        fee: 300,
         days: 6,
         questType: "Meet Objectives",
         canDispatch: true,
@@ -272,9 +272,9 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         name: "The Towns of Loar",
         description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 7 days and receive a stamp on your wayfarer's log to win valuable prizes. Marsa Wayfarers Association List of Destinations: - Camoa - Graszton - Moorabella",
         rank: 17,
-        region: "Camoa, Graszton, Moora",
+        region: "Camoa, Graszton, Moorabella",
         fee: 300,
-        days: 7,
+        days: 20,
         questType: "Meet Objectives",
         canDispatch: true,
         canCancel: true,
@@ -341,7 +341,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         name: "The Root of the Problem",
         description: "The counterfeiters recently remanded to our custody have divulged the source of the fake De'vine Ribbons. We'll find no lasting solution to the problem until we've stopped it at the source. Please follow up on this information and take such action as you deem appropriate. Galmia Pepe, Office of Administration",
         rank: 21,
-        region: "The Galerria Deep",
+        region: "The Galleria Deep",
         fee: 400,
         days: 20,
         questType: "Battle",
@@ -356,7 +356,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             adaptability: 11,
         },
         objective: "Defeat all Foes!",
-        law: "Forbidden: >100 Damage – Dealing >100 damage is forbidden.",
+        law: "Forbidden: > 100 Damage - Dealing more than 100 damage is forbidden.",
     enemies: [
         { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Uses Render skills — highest priority. Height advantage favors you." },
         { name: "Randomized Name", job: "Ninja", quantity: 1, notes: "Uses Veils for elemental pressure and can pick off weakened units." },
@@ -422,7 +422,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
     {
         id: "C2-12",
         arc: "C2",
-        name: "Chita on Weapons - Adepts",
+        name: "Chita on Weapons-Adepts",
         description: "Ngaaa! I teach the youths one thing, they forget ten others! Teach 'em to focus, and then they can't focus on anything else. Nothing for it but to keep teaching 'em what I can. If it means breaking every bad habit they have one by one, so be it! Chita, Chita's Weaponers",
         rank: 39,
         region: "The Rupie Mountains",
@@ -439,7 +439,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             teamwork: 0,
             adaptability: 20,
         },
-        objective: "Speed Battle vs Chita's Weaponers",
+        objective: "Speed Battle vs. Chita's Weaponers",
         law: "Forbidden: Bludgeoning Weapons – Attacks with rods, staves, poles, knuckles, hammers, and maces are forbidden.",
     enemies: [
         { name: "Randomized Name", job: "Golem", quantity: 1, notes: "Speed battle: you and Chita's Weaponers race to kill it. Weak to Wind — use Shining Air or Sidewinder. Heal it if the enemy team gets too close to stealing the kill." },
@@ -460,10 +460,10 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
     {
         id: "C2-15",
         arc: "C2",
-        name: "Chita on Weapons - Novices",
+        name: "Chita on Weapons-Novices",
         description: "Ngaaa! The youth these days can't wield a weapon to save their lives! ... Feh! Nothing for it but to teach 'em myself. Chita, Chita's Weaponers",
         rank: 33,
-        region: "The Galerria Deep",
+        region: "The Galleria Deep",
         fee: 500,
         days: 20,
         questType: "Meet Objectives",
@@ -532,7 +532,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         ],
         rewards: {
             gil: 3400,
-            cp: 46,
+            cp: 50,
             loot: "Tarkov Crystal ×6"
         },
         notes: "",

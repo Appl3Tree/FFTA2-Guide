@@ -136,7 +136,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
             adaptability: 33,
         },
         objective: "Defeat all Foes!",
-        law: "Forbidden: Using 20+ MP – Actions that consume 20 or more MP are forbidden.",
+        law: "Forbidden: Using >= 20 MP - Actions that consume 20 or more MP are forbidden.",
     enemies: [
         { name: "Randomized Name", job: "Geomancer", quantity: 3, notes: "Use Avalanche and other terrain skills; rush them before their terrain damage snowballs." },
         { name: "Randomized Name", job: "Ice Drake", quantity: 1, notes: "Secondary monster threat; mostly a distraction while the Geomancers act." },
@@ -304,7 +304,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
             adaptability: 33,
         },
         objective: "Defeat all Foes!",
-        law: "Forbidden: HP < or = 100 – Having less than 100 HP is forbidden.",
+        law: "Forbidden: HP <= 100 - Having 100 HP or less is forbidden.",
     enemies: [
         { name: "Randomized Name", job: "Geomancer", quantity: 3, notes: "Enemy has high ground advantage. Use magick. Can use Mist ability — move fast." },
         { name: "Randomized Name", job: "Toughskin", quantity: 1, notes: "Uses Resonate — debuffs bladed-weapon users. Prioritize if you have sword/blade users." },
