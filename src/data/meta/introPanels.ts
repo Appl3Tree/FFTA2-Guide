@@ -48,7 +48,7 @@ export const INTRO_PANELS: MetaPanel[] = [
         ],
         bullets: [
             "Always glance at the law before you commit to a mission; small changes in your lineup (different weapons or spell loadouts) can save a run.",
-            "Think of Judge Points and privileges as nice bonuses rather than something you must protect at all costs.",
+            "Think of Judge support, privileges, revival safety, and law bonuses as advantages rather than something you must protect at all costs.",
             "If a law would shut down your entire core strategy, it’s often better to break it on your terms than to fight with half your toolkit.",
             "Later in the game, experiment with different clan privileges—damage boosts, extra turns, and defensive buffs can all trivialize certain missions."
         ]
@@ -61,7 +61,7 @@ export const INTRO_PANELS: MetaPanel[] = [
         paragraphs: [
             "Loot is the backbone of FFTA2’s equipment system. Instead of buying most gear directly, you trade monster drops and mission rewards into the Bazaar, which then unlocks new weapons, armor, and accessories in shops.",
             "The guide assumes you are feeding most of your loot into Bazaar recipes as you go. You don’t need to memorize exact combinations: the important part is that you steadily unlock new tiers of weapons, staves, bows, and armor so that your clan’s abilities and survivability keep pace with story ranks.",
-            "Some loot comes from normal fights, but marks, clan trials, and certain quest chains provide higher-quality drops that push Bazaar tiers forward faster. When the notes suggest a cluster of optional missions, it is usually because the loot and Bazaar unlocks behind them are worth the time investment."
+            "Some loot comes from normal fights, but marks and certain quest chains provide higher-quality drops that push Bazaar tiers forward faster. Clan Trials matter for a different reason: their privileges, talents, and rank gains can make the fights that feed your Bazaar much easier."
         ],
         bullets: [
             "Check the Bazaar whenever you finish a handful of missions; new recipes often appear in small bursts.",

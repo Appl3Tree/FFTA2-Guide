@@ -17,6 +17,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
+        prerequisite: "Pearls in the Deep; visit Graszton",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -27,11 +28,15 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         objective: "Speed Battle vs. Scarface!",
         law: "Forbidden: Not Moving – Each unit must move at least 1 tile before ending its turn.",
     enemies: [
-        { name: "Randomized Name", job: "Baknamy", quantity: 2, notes: "Always present regardless of the mark. Traps are also scattered on the field." },
-        { name: "Scarface", job: "Randomized Mark", quantity: 1, notes: "The mark varies per player. Heal the mark if the enemy team is about to KO it to deny them the kill. Kill enemy clan units to prevent them from stealing the kill." },
+        { name: "Randomized Mark", job: "Randomized Monster", quantity: 1, notes: "Speed-battle target. Your clan must land the final blow before Scarface's clan does." },
+        { name: "Randomized Name", job: "Baknamy", quantity: 2, notes: "Regular enemies in the area; ignore unless they block the route to the mark." },
+        { name: "Scarface Clan", job: "Juggler", quantity: 1, notes: "Rival speed-battle clan member." },
+        { name: "Scarface Clan", job: "Lanista", quantity: 1, notes: "Rival speed-battle clan member." },
+        { name: "Scarface Clan", job: "Master Monk", quantity: 1, notes: "Rival speed-battle clan member." },
+        { name: "Scarface Clan", job: "Hunter", quantity: 1, notes: "Rival speed-battle clan member." },
     ],
         strategy: [
-            "This is a speed battle: win by landing the killing blow on Scarface before the rival clan does.",
+            "This is a speed battle: win by landing the killing blow on the random mark before Scarface's rival clan does.",
             "Every unit must move at least one tile before ending its turn, so plan legal movement even for casters and item users.",
             "Clear or disable the Baknamy if they block your route, but watch Scarface's HP closely and heal it if the rival clan is about to claim the final hit.",
         ],
@@ -56,6 +61,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Mountain Watch; visit Moorabella",
         requiredItems: ["Bat Tail ×1"],
         requiredTalents: {
             negotiation: 13,
@@ -89,7 +95,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "On the Rampage",
+        prerequisite: "Seeking the Stone; On the Rampage; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -130,20 +136,21 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Grounded!; visit Fluorgis; accept from Moorabella",
         requiredTalents: {
             negotiation: 0,
             aptitude: 1,
             teamwork: 0,
             adaptability: 0,
         },
-        objective: "Clean the airship within X rounds!",
+        objective: "Clean the airship within 4 rounds!",
         law: "Forbidden: Fire – Weapons and abilities that use fire are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Flan", quantity: 4, notes: "Or Mimics at higher levels. Ignore enemies — rush to cleaning spots across the airship. Number of rounds scales with difficulty/level." },
+        { name: "Randomized Name", job: "Mimic", quantity: 6, notes: "Delay enemies aboard the airship. Ignore unless they block cleaning routes." },
     ],
         strategy: [
-            "Ignore enemies and move to cleaning tiles across the airship. Rounds to complete scale with level/difficulty.",
-            "Use high-movement units and Haste. Tinker's Red Springs also helps gain extra turns.",
+            "Clean all sparkle spots by the end of the fourth round: three on deck, one on the back right wing, and one on each front wing.",
+            "Use your fastest, highest-move units and send two units toward the far wing spots immediately.",
         ],
         rewards: {
             gil: 180,
@@ -166,6 +173,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Grounded!; visit Fluorgis",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,
@@ -207,7 +215,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Monster Poaching",
+        prerequisite: "A Request; Monster Poaching; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -255,6 +263,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "The Yellow Wings",
         requiredTalents: {
             negotiation: 4,
             aptitude: 0,
@@ -275,7 +284,8 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         rewards: {
             gil: 690,
             cp: 14,
-            loot: "Xergis Tin ×3, Wool ×1, Animal Bone ×3"
+            loot: "Xergis Tin ×3, Wool ×1, Animal Bone ×3",
+            other: "Dragoon job"
         },
         notes: "",
         tags: ["optional"]
@@ -293,6 +303,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "A Paw Full of Feathers",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -342,18 +353,15 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
             ]
         },
     ],
-        battlefield: [
-            "Treasure chests are present on the battlefield",
-        ],
         strategy: [
             "Defeat the four Green Mages while avoiding reaction abilities entirely.",
             "Miss Midori has Sleep and Blind, so give status protection to your key attackers or remove her first.",
-            "Open the battlefield chests before ending the fight if you want the extra loot; the Green Mages are fragile enough that it is easy to finish too quickly.",
         ],
         rewards: {
             gil: 370,
             cp: 4,
-            loot: "Xergis Tin ×4, Gikhet Lead ×3, Birch ×2"
+            loot: "Xergis Tin ×4, Gikhet Lead ×3, Birch ×2",
+            other: "Green Mage job"
         },
         notes: "",
         tags: ["optional"]
@@ -371,7 +379,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
-        prerequisite: "Poachers Spotted",
+        prerequisite: "Through Another's Eyes; Poachers Spotted; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,

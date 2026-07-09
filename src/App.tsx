@@ -151,7 +151,7 @@ function AppInner() {
                         <div className="space-y-4 sm:space-y-5">
                             <Panel
                                 title="Bazaar Recipes"
-                                subtitle="See which loot unlocks which bazaar rewards."
+                                subtitle="Use loot to unlock shop stock, then buy or re-craft extra copies."
                                 tone="lime"
                             >
                                 <BazaarPanel />

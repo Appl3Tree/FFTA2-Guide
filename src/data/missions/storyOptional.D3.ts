@@ -17,6 +17,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Rumors Abound",
         requiredTalents: {
             negotiation: 13,
             aptitude: 13,
@@ -25,7 +26,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         },
         enemies: [],
         strategy: [
-            "Dispatch mission — send a unit with both Negotiation and Aptitude talent to accompany Arna on the airship.",
+            "At the Aerodrome, choose the first option asking if Arna is really scared. She then takes the flight to Fluorgis and the quest succeeds.",
         ],
         rewards: {
             gil: 1330,
@@ -49,6 +50,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canCancel: true,
         members: 1,
         requiredItems: ["Faerie Wing ×1"],
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
@@ -81,6 +83,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canCancel: true,
         members: 1,
         requiredItems: ["Malboro Vine ×1", "Foul Liquid ×1"],
+        prerequisite: "Rumors Abound",
         requiredTalents: {
             negotiation: 18,
             aptitude: 0,
@@ -89,7 +92,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Delivery mission — bring Malboro Vine and Foul Liquid to the Witch of the Fens in Tramdine Fens.",
+            "Bring Malboro Vine and Foul Liquid to the Witch of the Fens in Tramdine Fens, then deliver the prepared draught to Geldran in Fluorgis.",
         ],
         rewards: {
             gil: 2350,
@@ -113,7 +116,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canCancel: true,
         members: 1,
         requiredItems: ["Succulent Fruit ×1", "Sweet Sap ×1"],
-        prerequisite: "Rude Awakening",
+        prerequisite: "Sleepless Nights; Rude Awakening",
         requiredTalents: {
             negotiation: 20,
             aptitude: 0,
@@ -122,7 +125,8 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Delivery mission — bring Succulent Fruit and Sweet Sap to the Witch of the Fens.",
+            "Even though the official location only lists Fluorgis, visit the Witch of the Fens in Tramdine Fens first with Succulent Fruit and Sweet Sap.",
+            "After she prepares the prim draught, deliver it to Geldran in Fluorgis.",
         ],
         rewards: {
             gil: 2580,
@@ -145,7 +149,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "Teach a Man to Fish",
+        prerequisite: "The Dig; Teach a Man to Fish; visit any town",
         requiredTalents: {
             negotiation: 22,
             aptitude: 0,
@@ -160,14 +164,15 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
     ],
         strategy: [
             "Protect Enchan, who cannot meaningfully defend himself. Keep healing ready and intercept anything that moves toward him.",
-            "Focus the Rafflesia; once it and its spawned Malboro are defeated, the mission ends.",
+            "Focus the Rafflesia with long-range attacks and fire-based abilities. It has close to 2000 HP, can put nearby units to sleep, and launches seeds that immediately sprout into Malboros.",
+            "Do not waste turns farming Malboros because a defeated one is replaced while the Rafflesia is active. Once the Rafflesia and its current Malboro are defeated, the mission ends.",
             "Vary actions carefully to avoid the Copycat law.",
         ],
         rewards: {
             gil: 5150,
             cp: 74,
-            loot: "",
-            items: "Potion"
+            loot: "Bundle of Needles ×1",
+            items: "Potion, Echo Herbs, Ribbon"
         },
         notes: "",
         tags: ["optional"]
@@ -185,20 +190,20 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Grounded!; visit Fluorgis; accept from Fluorgis",
         requiredTalents: {
             negotiation: 0,
             aptitude: 1,
             teamwork: 0,
             adaptability: 0,
         },
-        objective: "Clean the airship within X rounds!",
+        objective: "Clean the airship within 4 rounds!",
         law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
-        enemies: [
-        { name: "Randomized Name", job: "Flan", quantity: 4, notes: "Or Mimics at higher levels. Ignore enemies — rush to cleaning spots across the airship. Rounds scale with difficulty/level." },
-    ],
+        enemies: [],
         strategy: [
-            "Same mechanic as Cleaning to Ordalia — ignore enemies and move to cleaning tiles. Use high-movement units and Haste.",
-            "Tinker's Red Springs grants extra turns. Number of rounds to complete scales with level/difficulty.",
+            "Accept this quest from Fluorgis. Send your six fastest, highest-move units because you have until the end of round 4.",
+            "Clean the six sparkling points: three on the deck, one on the back right wing, and one on each front wing.",
+            "Push two units to the far end of the ship immediately so the far wing swabbing points are covered in time.",
         ],
         rewards: {
             gil: 180,
@@ -221,6 +226,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 5,
+        prerequisite: "A Request; I Want to Forget; visit any town",
         dispatchRecommended: ["Defender"],
         requiredTalents: {
             negotiation: 18,
@@ -235,15 +241,17 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         { name: "Randomized Name", job: "Hellhound", quantity: 1, notes: "Fast monster support." },
         { name: "Randomized Name", job: "Adamantitan", quantity: 1, notes: "Durable monster support." },
         { name: "Randomized Name", job: "Rocktitan", quantity: 1, notes: "Strong physical monster support." },
+        { name: "Randomized Name", job: "Nagaraja", quantity: 1, notes: "Strong physical monster support." },
     ],
         strategy: [
             "Keep Enchan alive. Bring a healer or Defender-style unit to body-block monsters that close on him.",
+            "The monsters are mostly strong physical attackers with statuses such as Silence and Immobilize, so bring hard hitters and magick support.",
             "The law bans harming Nu Mou, so be careful with wide areas if Enchan is nearby.",
         ],
         rewards: {
             gil: 4260,
             cp: 56,
-            loot: ""
+            loot: "Screamroot ×1"
         },
         notes: "",
         tags: ["optional", "chain", "protection"]
@@ -251,7 +259,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
     {
         id: "D3-11",
         arc: "D3",
-        name: "Love-Struck",
+        name: "Love-struck",
         description: "I was developing a love philtre for my studies, but a classmate drank the potion before I could complete it and has come down with a terrible fever. I need someone to ask the Witch of the Fens to make a potion to cool down the fever before my classmate's condition grows worst. The ingredients needed are silk bloom and malboro wine. Thanks! (And hurry!) Kuleek, Morrabella Magick Akademy.",
         rank: 23,
         region: "Moorabella",
@@ -262,6 +270,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canCancel: true,
         members: 1,
         requiredItems: ["Silk Bloom ×1", "Malboro Wine ×1"],
+        prerequisite: "Making Music; Drowsy Draught",
         requiredTalents: {
             negotiation: 22,
             aptitude: 0,
@@ -271,7 +280,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         enemies: [],
         strategy: [
             "Delivery mission — bring Silk Bloom ×1 and Malboro Wine ×1 for the Witch of the Fens potion request.",
-            "No combat. The next quest in this chain also needs Malboro Wine, so keep a second bottle if you have one.",
+            "Visit the Witch of the Fens in Tramdine Fens first, then bring the finished potion back to Kuleek in Moorabella.",
         ],
         rewards: {
             gil: 2910,
@@ -295,7 +304,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canCancel: true,
         members: 1,
         requiredItems: ["Cactus Fruit ×1", "Malboro Wine ×1"],
-        prerequisite: "Love-Struck",
+        prerequisite: "Seeking the Stone; Love-struck",
         requiredTalents: {
             negotiation: 28,
             aptitude: 0,
@@ -305,7 +314,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         enemies: [],
         strategy: [
             "Delivery mission — bring Cactus Fruit ×1 and Malboro Wine ×1 for the antidote request.",
-            "No combat. This follows Love-Struck and continues Kuleek's potion chain.",
+            "Visit the Witch of the Fens in Tramdine Fens first, then deliver the antidote to Kuleek in Moorabella.",
         ],
         rewards: {
             gil: 3260,
@@ -328,6 +337,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Mountain Watch; visit Moorabella",
         requiredTalents: {
             negotiation: 13,
             aptitude: 0,
@@ -338,7 +348,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         enemies: [],
         strategy: [
             "Capture a Yellow Chocobo with a Moogle Chocobo Knight before turning in the quest.",
-            "Find a wild Yellow Chocobo in a battle, weaken it to critical HP, move the Chocobo Knight next to it, and mount it.",
+            "The guide recommends searching Targ Wood for the Fey Mischief encounter. Defeat every other enemy, weaken the Yellow Chocobo to critical HP, move the Chocobo Knight next to it, and mount it.",
             "Keep the Chocobo Knight mounted after the battle, then return to Targ Wood to deliver the chocobo to Yew.",
         ],
         rewards: {
@@ -362,7 +372,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Rancher's Request - Yellow",
+        prerequisite: "Grounded!; Rancher's Request - Yellow",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,
@@ -373,8 +383,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         enemies: [],
         strategy: [
             "Capture a Black Chocobo with a Moogle Chocobo Knight before accepting the delivery turn-in.",
-            "Defeat or control the other enemies in the encounter, weaken the Black Chocobo to critical HP, then mount it with the Chocobo Knight.",
-            "Black Chocobos use Choco Flame, so spread out and heal while lowering its HP carefully enough to avoid KOing it.",
+            "The guide recommends the Galleria Deep during Coppersun for the One-eyed Evil encounter. Defeat every other enemy, weaken the Black Chocobo to critical HP, then mount it with the Chocobo Knight.",
         ],
         rewards: {
             gil: 1750,

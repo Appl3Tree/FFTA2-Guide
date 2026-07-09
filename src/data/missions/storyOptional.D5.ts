@@ -17,6 +17,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
@@ -31,10 +32,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         ],
         strategy: [
             "Close-range only due to Targeting Distant law. Chita's Weaponers join as allies: Gladiator + 2 Warriors.",
-            "Must defeat all 4 enemies within 4 rounds. Break the law if necessary to win in time.",
-        ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
+            "Must defeat all 4 enemies within 4 rounds. Bring quick attackers; Chita's Weaponers make the time limit manageable.",
         ],
         rewards: {
             gil: 6620,
@@ -57,6 +55,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -71,10 +70,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         ],
         strategy: [
             "Camoa Braves join as allies: Warrior (leader) + 2 White Monks. Targeting Self forbidden — no self-buffs or self-healing items.",
-            "Must defeat all 4 enemies within 4 rounds.",
-        ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
+            "Must defeat all 4 enemies within 4 rounds. Deploy your highest-Move units so you can reach the far-off monsters quickly.",
         ],
         rewards: {
             gil: 6620,
@@ -98,6 +94,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         canCancel: true,
         members: 6,
         dispatchRecommended: ["White Monk"],
+        prerequisite: "Making Music; read Spirits in the Sky notice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -115,6 +112,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         strategy: [
             "Keep units adjacent to allies to avoid Solitude law violations. Fight in tight formation.",
             "Bring Exorcise for Ghosts. Prioritize Ahrimans (face away) and Deathscythe (stops Doom).",
+            "After clearing the airship, the quest leaves you in Moorabella.",
         ],
         rewards: {
             gil: 2610,
@@ -154,7 +152,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         ],
         strategy: [
             "Prerequisite: must complete all 5 Nightwatch missions AND Stone with No Name.",
-            "Answer 5 Prima Donna trivia questions before battle. All answers are Prima Donna merchandise (order varies by Nightwatch completion sequence): Prima Donna Armband, Prima Donna Photograph, Prima Donna Towel, Prima Donna Necklace, Prima Donna Hairpin.",
+            "Before the battle, answer each of the five papers with the option that contains \"Prima Donna\".",
             "Melee only (Ranged Weapons forbidden). Devotees are trivial (level 1–2) but their monster bodyguards are much stronger. Focus bodyguards first if they block your path.",
         ],
         rewards: {
@@ -178,6 +176,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
@@ -191,8 +190,8 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             { name: "Randomized Name", job: "Luchorpan", quantity: 1, notes: "Has Magick Hammer and Mutilate." },
         ],
         strategy: [
-            "House Bowen joins as allies (Bowen, Loa, Veis, Tweigel) — very easy with their firepower.",
-            "Stay off water tiles. Must defeat all 4 enemies within 4 rounds.",
+            "House Bowen joins as allies, making the four-round limit much easier.",
+            "Stay off water tiles and deploy high-Jump units to navigate Fluorgis quickly.",
         ],
         rewards: {
             gil: 6620,
@@ -213,7 +212,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         canDispatch: false,
         canCancel: false,
         members: 6,
-        prerequisite: "Gifted",
+        prerequisite: "Gifted side quest; read A Lost Friend notice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -228,8 +227,8 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             { name: "Randomized Name", job: "Zombie", quantity: 2, notes: "Have Drain Touch and Miasma." },
         ],
         strategy: [
-            "Adelle is required. Available very late in the game — enemies should be far under your level.",
-            "All undead — bring Holy attacks and Exorcise. Focus Gade last; clear Ghosts and Zombies first.",
+            "Adelle is required. All enemies are undead, so bring Phoenix Downs, Raise, Exorcise, or similar tools to finish tombstones at 0 HP.",
+            "You only need to defeat Gade to win; focus him quickly unless Ghosts or Zombies are blocking your route.",
         ],
         rewards: {
             gil: 3940,
@@ -250,7 +249,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         canDispatch: false,
         canCancel: false,
         members: 1,
-        prerequisite: "A Lost Companion; Adelle mastered Viola; read Send Help! at the pub",
+        prerequisite: "A Lost Companion; Adelle mastered Viola; read Send Help! notice",
         requiredItems: ["Potion ×1"],
         requiredTalents: {
             negotiation: 0,
@@ -282,7 +281,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         canDispatch: false,
         canCancel: false,
         members: 6,
-        prerequisite: "Shrine of the Paling Gods; Adelle mastered Elpe; read Calamity Cometh at the pub",
+        prerequisite: "The Shrine of the Paling Gods; Adelle mastered Elpe; read Calamity Cometh notice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -318,7 +317,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         canDispatch: false,
         canCancel: false,
         members: 6,
-        prerequisite: "The Beast of Aisenfield; Adelle mastered Nesiaam; read Shrine of the Paling Gods at the pub",
+        prerequisite: "The Beast of Aisenfield; Adelle mastered Nesiaam; read The Shrine of the Paling Gods notice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -334,8 +333,8 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             { name: "Randomized Name", job: "Black Chocobo", quantity: 1, notes: "Do not attack if lower level." },
         ],
         strategy: [
-            "Move to each of the 3 pillars and power them up — ignore enemies entirely to avoid breaking the law.",
-            "Fast movement units are ideal. Do not attack anything.",
+            "Move to each of the 3 pillars and power them up. Fast units and movement accessories such as Ninja Tabi help you cross the area quickly.",
+            "Malboros are the main danger because of their status effects. Avoid unnecessary fighting if it slows the pillar objective or risks the Harming the Weak law.",
         ],
         rewards: {
             gil: 8650,
@@ -356,7 +355,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         canDispatch: false,
         canCancel: false,
         members: 6,
-        prerequisite: "Woman of the Wood; Adelle mastered Ljda; read The Beast of Aisenfield at the pub",
+        prerequisite: "Woman of the Wood; Adelle mastered Ljda; read The Beast of Aisenfield notice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -366,16 +365,15 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         objective: "Defeat Nesiaam!",
         law: "Forbidden: < 20 Damage – Dealing less than 20 damage is forbidden.",
         enemies: [
-            { name: "Nesiaam", job: "Zahak", quantity: 1, notes: "Mark. Weak to Holy; only required target." },
-            { name: "Randomized Name", job: "Fire Drake", quantity: 2, notes: "Can Charm with Mesmerize; use Ice attacks." },
-            { name: "Randomized Name", job: "Headless", quantity: 1, notes: "Weak to Wind." },
-            { name: "Randomized Name", job: "Axebeak", quantity: 1, notes: "Uses Wake-Up Call/Quicken-style support. Weak to Water." },
-            { name: "Randomized Name", job: "Rocktitan", quantity: 1, notes: "Can Immobilize with Headbutt. Weak to Wind." },
+            { name: "Nesiaam", job: "Zahak", quantity: 1, notes: "Mark. Only required target; strong physical attacks with elemental effects." },
+            { name: "Randomized Name", job: "Fire Drake", quantity: 2, notes: "Major support threats because Mesmerize can Charm your units." },
+            { name: "Randomized Name", job: "Headless", quantity: 1, notes: "Support monster on the route to Nesiaam." },
+            { name: "Randomized Name", job: "Axebeak", quantity: 1, notes: "Can use Wake-Up Call to Quicken other enemies." },
+            { name: "Randomized Name", job: "Rocktitan", quantity: 1, notes: "Headbutt can Immobilize if it gets close." },
         ],
         strategy: [
-            "Only Nesiaam must fall. Use Holy damage if available and avoid chip attacks that could break the < 20 Damage law.",
-            "If clearing support first, prioritize Fire Drakes for Charm pressure, then Axebeak, Headless, and Rocktitan.",
-            "Hunters and Elementalists are strong here because several enemies have clear elemental weaknesses.",
+            "Only Nesiaam must fall. Avoid chip attacks that could break the < 20 Damage law.",
+            "If clearing support first, prioritize Fire Drakes because Mesmerize can Charm your units, then handle Axebeak and Rocktitan control effects.",
         ],
         rewards: {
             gil: 6300,
@@ -396,7 +394,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         canDispatch: false,
         canCancel: false,
         members: 6,
-        prerequisite: "Help!; Adelle mastered Wermut; read Screaming Beauty at the pub",
+        prerequisite: "Help!; Adelle mastered Wermut; read Screaming Beauty notice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -406,17 +404,17 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         objective: "Defeat Ljda!",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
         enemies: [
-            { name: "Ljda", job: "Elementalist", quantity: 1, notes: "Mark. Gifted One. Level ~37. Only required target." },
-            { name: "Randomized Name", job: "Banshee", quantity: 1, notes: "Priority if clearing all enemies — eliminate first." },
-            { name: "Randomized Name", job: "Ice Drake", quantity: 1, notes: "Optional kill. Bring Fire damage if clearing the field." },
-            { name: "Randomized Name", job: "Fire Drake", quantity: 1, notes: "Optional kill. Bring Ice or Water damage if clearing the field." },
-            { name: "Randomized Name", job: "Thunder Drake", quantity: 1, notes: "Optional kill. Keep lightning resistance or spread out to reduce breath pressure." },
-            { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Lowest threat — kill last if clearing board." },
+            { name: "Ljda", job: "Elementalist", quantity: 1, notes: "Mark. Only required target; Fire Whip can Disable." },
+            { name: "Randomized Name", job: "Banshee", quantity: 1, notes: "Most dangerous support enemy, with a level-based Holy attack and Meteorite." },
+            { name: "Randomized Name", job: "Ice Drake", quantity: 1, notes: "Support monster that may get in the way." },
+            { name: "Randomized Name", job: "Fire Drake", quantity: 1, notes: "Support monster that may get in the way." },
+            { name: "Randomized Name", job: "Thunder Drake", quantity: 1, notes: "Support monster that may get in the way." },
+            { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Support monster that may get in the way." },
         ],
         strategy: [
-            "Only Ljda must be defeated. Available late game — your level should far exceed hers (~37).",
+            "Only Ljda must be defeated. Move quickly and pressure her to end the fight early.",
             "Avoid Knockback abilities entirely; even accidental knockback breaks the law.",
-            "If clearing all enemies: Banshee first, then the Drakes by elemental weakness, and White Chocobo last.",
+            "If support enemies block you, handle the Banshee first because its Holy and Meteorite are the biggest danger.",
         ],
         rewards: {
             gil: 5430,

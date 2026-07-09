@@ -20,6 +20,12 @@ export const FAQ_ITEMS: FaqItem[] = [
         tags: ["Dispatch", "Quests"],
     },
     {
+        id: "dispatch-success",
+        question: "What actually affects dispatch success?",
+        answer: "Dispatch success depends on the leader, members, unit strength, equipment-boosted stats, quest rank, required clan talents, and recommended jobs. Recommended jobs help, especially on the leader; non-recommended jobs are penalized. If the dispatch screen looks uncertain, send stronger or better-matched units, improve clan talents, or play the mission manually.",
+        tags: ["Dispatch", "Talents"],
+    },
+    {
         id: "missing-quests",
         question: "Why won't a quest show up at the pub?",
         answer: "Quests commonly have hidden gates: main story progress, previous quests in a chain, required notices or rumors, clan talent levels, location access, month/season timing, or required items. If a quest is missing, advance the story a little, read new pub notices, check the chain prerequisite, and raise clan talents through trials or other quests.",
@@ -58,14 +64,20 @@ export const FAQ_ITEMS: FaqItem[] = [
     {
         id: "bazaar-sell",
         question: "Should I sell loot or put it into the Bazaar?",
-        answer: "Use loot for Bazaar recipes unless you have a specific reason to hold it. Bazaar unlocks are how many new weapons, armor, accessories, and ability-teaching items enter shops. After unlocking an item, remember that you still need to buy it from the shop, and some recipes may need to be made again for extra copies.",
+        answer: "Use loot for Bazaar recipes unless you have a specific reason to hold it. Bazaar unlocks are how many new weapons, armor, accessories, and ability-teaching items enter shops, but making a Bazaar item does not give you a free copy. You still have to buy it from the shop. Some items only stock one copy after you make them, so buying another one means spending the loot to make that Bazaar entry again.",
         tags: ["Bazaar", "Loot"],
     },
     {
         id: "clan-trials",
         question: "What are clan trials and talents actually for?",
-        answer: "Clan Trials are special battles that change Negotiation, Aptitude, Teamwork, and Adaptability, unlock or improve privileges, raise clan rank, and sometimes give shop or quest discounts. Those talents also gate quests and trials, so low talents can be the reason content is missing. Spend clan points carefully because trials and auctions both use them.",
+        answer: "Clan Trials are judge-issued challenge battles that change Negotiation, Aptitude, Teamwork, and Adaptability, raise clan rank, unlock titles, and supply clan privileges. Each difficulty/title row is its own clear. Upgradeable privileges advance one step at a time, so a high-difficulty clear does not automatically grant every lower title reward or instantly finish the whole privilege ladder. Repeat or step through eligible rows when you want the lower titles, discounts, or missing upgrade tiers.",
         tags: ["Clan Trials", "Talents"],
+    },
+    {
+        id: "clan-title-stacking",
+        question: "If my clan title changes, do I lose the old benefits?",
+        answer: "You do not lose the important progression you earned: clan rank tracks your highest title, talent changes persist, and upgradeable privileges keep their highest unlocked version. Do not assume the visible title gives every lower row too, and do not treat discounts as permanently stacked across every old title; clear or repeat the rows tied to the rewards you actually want.",
+        tags: ["Clan Trials", "Titles"],
     },
     {
         id: "underleveled",
@@ -86,9 +98,39 @@ export const FAQ_ITEMS: FaqItem[] = [
         tags: ["Roster", "Recruiting"],
     },
     {
+        id: "clan-mates-recruitment",
+        question: "How do I control recruitment and the Clan Mates quest?",
+        answer: "There are two recruitment flows. Map recruits can appear while traveling, and their race/job pool depends on the in-game month and region. Clan Mates is the directed recruitment quest in Targ Wood: it appears after the auction phase opens, and if it is missing, make sure Now That's a Fire!, the first auction, and The Star Seal are all cleared. The quest has no combat; answer the Nu Mou's questions to steer what kind of unit you receive.",
+        tags: ["Recruiting", "Clan Mates"],
+    },
+    {
         id: "auctions",
         question: "Are auctions worth doing early?",
-        answer: "Yes, but save beforehand and do not spend clan points blindly. Territory auctions eventually lead into item auctions, and winning can give useful gear or rare items earlier than normal progression. If the follow-up rival clan fights are too hard, leave them until your levels, gear, and privileges catch up.",
+        answer: "Yes, but save beforehand and do not spend clan points blindly. Auctions open after Now That's a Fire! and let your clan take regional territory. Controlled areas make sidequests appear more often, reduce goods costs in that region, can trigger walking rewards, and can also make rival clans challenge you. Once you become Region Champ, later auctions in that region award items instead of area control.",
         tags: ["Auctions", "Rewards"],
+    },
+    {
+        id: "auction-cp",
+        question: "Why do auctions compete with clan trials?",
+        answer: "Both systems spend Clan Points. Auctions can win territory, shop/pub discounts, sell-value bonuses, citizen rewards, and rival clan fights, but those same CP could buy trial attempts for AP, Move, Speed, Power, or Safe Keeping. If you are short on CP, decide whether immediate privilege growth or area control matters more right now.",
+        tags: ["Auctions", "Clan Points"],
+    },
+    {
+        id: "opportunity-turns",
+        question: "Should I rely on opportunity turns?",
+        answer: "No. Opportunity turns come from the Smash Gauge filling as units complete actions, then offer a special command based on adjacent allies or enemies. The results can be strong, such as party buffs or multi-target attacks, but the setup is positional and several missions forbid Opportunity Commands outright. Treat them as a bonus, not a route plan.",
+        tags: ["Battle", "Opportunity"],
+    },
+    {
+        id: "scions",
+        question: "When should I use Scions?",
+        answer: "Use Scions as big swings when the Smash Gauge is filled, the unit has the relevant summoning accessory equipped, and the law allows them. Scion abilities are not permanently learned from AP; without the accessory, that unit cannot use that Scion. Several missions ban Scion summoning, so do not make them your only answer to hard fights. Smash Gauge Bonus privileges help if you want to build around them.",
+        tags: ["Scions", "Smash Gauge"],
+    },
+    {
+        id: "chocobo-hunting",
+        question: "Where do I find chocobos for Chocobo Knights?",
+        answer: "Chocobos come from random encounters in specific regions: Yellow in Targ Wood, Red in Kthili Sands, Black in Galleria Deep, Green in Zedlei Forest, Brown in Aldanna Range, White in Rupie Mountains, and random colors around Goug. Clear existing random encounters to cycle the map when hunting.",
+        tags: ["Chocobos", "Jobs"],
     },
 ];

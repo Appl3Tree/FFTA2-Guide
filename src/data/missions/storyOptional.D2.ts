@@ -17,7 +17,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
-        prerequisite: "The Towns of Loar",
+        prerequisite: "Wanted: Sky Pirate Vaan; The Towns of Loar; visit Graszton",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -49,7 +49,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
-        prerequisite: "The Seas of Ordalia",
+        prerequisite: "A Request; The Seas of Ordalia; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -81,7 +81,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
-        prerequisite: "The Wonders of Loar",
+        prerequisite: "Pirate Problems; The Wonders of Loar; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -104,16 +104,16 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         id: "D2-03",
         arc: "D2",
         name: "The Wonders of Loar",
-        description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 16 days and receive a stamp in your wayfarer's log to win valuable prizes! Marsa Wayfarers Association List of Destinations: - Baptiste Hill - The Aldanna Range - The Ruins of Delgantua",
+        description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 16 days and receive a stamp in your wayfarer's log to win valuable prizes! Marsa Wayfarers Association List of Destinations: - Baptiste Hill - The Aldanna Range - The Rupie Mountains - The Ruins of Delgantua",
         rank: 20,
-        region: "Baptiste Hill, The Aldanna Range, The Ruins of Delgantua",
+        region: "Baptiste Hill, The Aldanna Range, The Rupie Mountains, The Ruins of Delgantua",
         fee: 300,
         days: 16,
         questType: "Meet Objectives",
         canDispatch: true,
         canCancel: true,
         members: 1,
-        prerequisite: "The Wonders of Ordalia",
+        prerequisite: "Through Another's Eyes; The Wonders of Ordalia; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -122,12 +122,12 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Timed wayfarer mission — visit Baptiste Hill, The Aldanna Range, and The Ruins of Delgantua within 16 days.",
+            "Timed wayfarer mission — visit Baptiste Hill, The Aldanna Range, The Rupie Mountains, and The Ruins of Delgantua within 16 days.",
         ],
         rewards: {
             gil: 1750,
             cp: 40,
-            loot: ""
+            loot: "Wyrmtwig ×1"
         },
         notes: "",
         tags: ["optional", "chain", "timed"]
@@ -198,22 +198,18 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         { name: "Randomized Name", job: "Antlion", quantity: 2, notes: "Zedlei Forest battle — defeat these." },
         { name: "Randomized Name", job: "Chocobo", quantity: 1, notes: "Zedlei Forest battle — defeat this." },
         { name: "Randomized Name", job: "Great Tortoise", quantity: 1, notes: "Zedlei Forest battle — strong support monster." },
-        { name: "Randomized Name", job: "Antlion", quantity: 4, notes: "Bisga Greenlands battle — all Antlions except the Green one. Weak to Wind. Traps on battlefield." },
+        { name: "Randomized Name", job: "Antlion", quantity: 4, notes: "Bisga Greenlands battle — all Antlions except the Green one." },
         { name: "Green Antlion", job: "Antlion", quantity: 1, notes: "Bisga Greenlands — DO NOT KILL. Defeat all other Antlions around it." },
         { name: "Randomized Name", job: "Werewolf", quantity: 2, notes: "Moorabella battle — defeat these." },
         { name: "Randomized Name", job: "Sprite", quantity: 1, notes: "Moorabella battle — defeat." },
         { name: "Randomized Name", job: "Lamia", quantity: 2, notes: "Moorabella battle — defeat." },
-        { name: "White Antlion", job: "Pit Beast", quantity: 1, notes: "Moorabella battle — DO NOT KILL. This is the target to capture. Has Critical: Vanish; weaken then leave alive." },
+        { name: "White Antlion", job: "Pit Beast", quantity: 1, notes: "Moorabella battle — DO NOT KILL. This is the target to capture." },
     ],
         strategy: [
             "Three-location hunt across Zedlei Forest, The Bisga Greenlands, and Moorabella. Do not kill the colored Pit Beast/Antlion targets — defeat all other enemies.",
             "Zedlei Forest: leave the Blue Antlion alive. The Chocobo can heal and the Great Tortoise hits hardest, so remove whichever is causing more trouble before cleaning up the regular Antlions.",
-            "Bisga Greenlands: leave the Green Antlion alive, avoid trap tiles, and defeat the other Antlions with Wind attacks, Aurablast, or Air Render.",
-            "Moorabella: leave the White Antlion alive. Clear the Werewolves' physical pressure, pick off Lamias from range before their status effects stick, and watch for Critical: Vanish.",
-            "Use Hunters (Sidewinder) and Wind attacks. Antlions are weak to wind.",
-        ],
-        battlefield: [
-            "Bisga Greenlands battle has trap tiles",
+            "Bisga Greenlands: leave the Green Antlion alive. The targets start close together, so be careful with area attacks.",
+            "Moorabella: leave the White Antlion alive. Clear the Werewolves' physical pressure, pick off Lamias from range before their status effects stick, and leave the Sprite for last if Reflect is not disrupting you.",
         ],
         rewards: {
             gil: 2650,
@@ -226,7 +222,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
     {
         id: "D2-07",
         arc: "D2",
-        name: "The Show's Not Over",
+        name: "The Show's Not Over...",
         description: "I am a songstress. My voice is my livelihood. I have a series of performances scheduled, but I've come down with a terrible sore throat. I cna't possible perform in this condition. I've heard sweet sap can soothe the pain. Would you bring me some? Teis, Songstress",
         rank: 17,
         region: "Fluorgis",
@@ -236,6 +232,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Grounded!; visit Fluorgis",
         requiredItems: ["Sweet Sap ×1"],
         requiredTalents: {
             negotiation: 15,
@@ -250,7 +247,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         rewards: {
             gil: 2240,
             cp: 34,
-            loot: "Body Ceffyl ×3"
+            loot: "Body Ceffyl ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -268,6 +265,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 44,
@@ -284,12 +282,13 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
     ],
         strategy: [
             "Take down the Sprites and Banshee first; their speed and Meteorite-style pressure can spiral quickly.",
-            "Scions are banned, so rely on standard magick, Sidewinder, and ranged damage.",
+            "The Banshee can also inflict Stone on multiple targets, so bring recovery and finish the fight before the round-end tremors start damaging everyone.",
+            "Scions are banned, so rely on standard magick and ranged damage.",
         ],
         rewards: {
             gil: 5410,
             cp: 76,
-            loot: ""
+            loot: "Emperor Scale ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -307,6 +306,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Grounded!; visit Fluorgis",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,
@@ -316,19 +316,16 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         objective: "Gather all the pages of the Recipe!",
         law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Adamantitan", quantity: 1, notes: "PRIORITY: Can damage equipped items when close. Eliminate early." },
-        { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Dangerous — high priority." },
-        { name: "Randomized Name", job: "Cockatrice", quantity: 2, notes: "Standard. Weak to Water and Wind." },
+        { name: "Randomized Name", job: "Axebeak", quantity: 1, notes: "Blocks access to recipe pages." },
+        { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Closest enemy on your path; the guide recommends defeating it first." },
+        { name: "Randomized Name", job: "Cockatrice", quantity: 2, notes: "Stay on the top level and can Haste/Quicken themselves." },
         { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "Can debuff — watch out." },
-        { name: "Randomized Name", job: "Axebeak", quantity: 1, notes: "Standard monster." },
+        { name: "Randomized Name", job: "Adamantitan", quantity: 1, notes: "Munch can break armor; be careful when engaging it." },
     ],
         strategy: [
             "Recipe pages are in shining sparkles on the battlefield — examine them after clearing enemies.",
-            "Use Water and Wind attacks. Hunters with Sidewinder are effective against all monsters here.",
-            "Target Adamantitan and Lilith first.",
-        ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
+            "Defeat the Lamia first because it is closest to your route. A Dragoon can reach the higher ledge earlier.",
+            "Be careful around the Adamantitan because Munch can break armor, and expect the Cockatrices to be among the last enemies on the upper level.",
         ],
         rewards: {
             gil: 2590,
@@ -352,7 +349,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canCancel: true,
         members: 6,
         requiredItems: ["Hedychium ×1"],
-        prerequisite: "Cake: The Recipe",
+        prerequisite: "Making Music; Cake: The Recipe; visit Moorabella",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,
@@ -384,7 +381,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Cake: The Ingredients",
+        prerequisite: "A Request; Cake: The Ingredients; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -406,7 +403,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         rewards: {
             gil: 6830,
             cp: 74,
-            loot: ""
+            loot: "Godwood ×2"
         },
         notes: "",
         tags: ["optional", "chain"]
@@ -425,6 +422,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canCancel: true,
         members: 1,
         requiredItems: ["Adamantite ×1"],
+        prerequisite: "Grounded!; visit Fluorgis",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,
@@ -438,7 +436,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         rewards: {
             gil: 2240,
             cp: 34,
-            loot: "Clear Sap ×2"
+            loot: "Clear Sap ×2, Silver Liquid ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -456,6 +454,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Mountain Watch; visit Moorabella",
         requiredTalents: {
             negotiation: 13,
             aptitude: 0,
@@ -478,7 +477,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         rewards: {
             gil: 2720,
             cp: 50,
-            loot: "Wyvern Wing ×1"
+            loot: "Bat Wing ×5, Wyvern Wing ×1"
         },
         notes: "",
         tags: ["optional"]
@@ -496,6 +495,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Sleepless Nights; Coppersun",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -505,10 +505,10 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Reaction Abilities – Reaction abilities are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Antlion", quantity: 5, notes: "All Antlions. Weak to Wind. Use Hunters with Sidewinder (double damage vs monsters) and Wind attacks." },
+        { name: "Randomized Name", job: "Antlion", quantity: 5, notes: "All Antlions; status effects can be annoying but the guide describes the fight as straightforward." },
     ],
         strategy: [
-            "Use Hunters with Sidewinder and Wind-element units. Antlions are weak to Wind.",
+            "Bring reliable attackers and finish the five Antlions while respecting the Reaction Abilities law.",
         ],
         rewards: {
             gil: 4970,
@@ -531,7 +531,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Maintaining the Balance",
+        prerequisite: "Sleepless Nights; Maintaining the Balance; Plumfrost",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -541,11 +541,11 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Grouping – Ending the turn next to another unit is forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Cockatrice", quantity: 5, notes: "Some have Wake Up Call (grants adjacent ally an immediate turn) — target those first. Weak to Water and Wind." },
+        { name: "Randomized Name", job: "Cockatrice", quantity: 5, notes: "Can give themselves Haste, which is the main annoyance in an otherwise simple battle." },
     ],
         strategy: [
-            "Spread units widely to avoid Grouping law violations. Use ranged/magick attacks from elevated positions.",
-            "Target Cockatrices with Wake Up Call first. Hunters (Sidewinder) and Water/Wind attacks recommended.",
+            "Spread units widely to avoid Grouping law violations.",
+            "Move in quickly and defeat all five Cockatrices; their self-Haste is the only guide-called complication.",
         ],
         rewards: {
             gil: 3290,
@@ -569,6 +569,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         canCancel: true,
         members: 1,
         requiredItems: ["Rat Tail ×1"],
+        prerequisite: "Prepared with Love",
         requiredTalents: {
             negotiation: 4,
             aptitude: 0,

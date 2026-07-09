@@ -17,13 +17,14 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Flown the Coop",
+        prerequisite: "A Request; Flown the Coop; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
             teamwork: 0,
             adaptability: 44,
         },
+        dispatchRecommended: ["Arcanist"],
         objective: "Weaken Titoise and Defeat all Foes!",
         law: "Forbidden: Ice – Weapons and abilities that use ice are forbidden.",
     enemies: [
@@ -71,12 +72,9 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         law: "Forbidden: Bludgeoning Weapons – Attacks with rods, staves, poles, knuckles, hammers, and maces are forbidden.",
     enemies: [
         { name: "Helda", job: "Hellhound", quantity: 1, notes: "Target (white-colored). Weaken to HP Critical — do not kill." },
-        { name: "Randomized Name", job: "Worgen", quantity: 3, notes: "Can Immobilize — defeat first. Silence traps are scattered on the battlefield." },
+        { name: "Randomized Name", job: "Worgen", quantity: 3, notes: "Can Silence or Immobilize from range; defeat first." },
         { name: "Randomized Name", job: "Hellhound", quantity: 2, notes: "Defeat before targeting Helda." },
     ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
         strategy: [
             "Defeat the Worgens and regular Hellhounds first, then weaken Helda to HP Critical without killing her.",
             "Bludgeoning weapons are forbidden. Swap rod, staff, pole, knuckle, hammer, and mace users to other weapons or ability-based roles before entering.",
@@ -104,7 +102,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Hellhound Astray",
+        prerequisite: "The Dig; Hellhound Astray; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -114,14 +112,14 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         objective: "Defeat Carrot!",
         law: "Forbidden: < 20 Damage – Dealing < 20 Damage is forbidden.",
     enemies: [
-        { name: "Carrot", job: "Malboro", quantity: 1, notes: "Target. Heals allies and grants Regen. Use Wind and Thunder magick; focus on mark over other enemies." },
+        { name: "Carrot", job: "Cassie", quantity: 1, notes: "Target. Use Wind and Thunder magick; focus on the mark over other enemies." },
         { name: "Randomized Name", job: "Great Malboro", quantity: 2, notes: "Heavy debuffers — eliminate if they interfere." },
         { name: "Randomized Name", job: "Tonberry", quantity: 1, notes: "PRIORITY: Will stalk and deal 999 Karma damage — eliminate immediately." },
         { name: "Randomized Name", job: "Red Chocobo", quantity: 1, notes: "Ranged Choco Meteor pressure; remove if it starts hitting your back line." },
         { name: "Randomized Name", job: "Brown Chocobo", quantity: 1, notes: "Physical support monster; lower priority than Tonberry and Malboros." },
     ],
         battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
+            "Charm traps are scattered around the battlefield; step carefully while rushing Carrot.",
         ],
         strategy: [
             "Defeat Carrot to win, but remove the Tonberry immediately before Karma starts deleting units.",
@@ -150,7 +148,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
-        prerequisite: "An Earnest Quandary",
+        prerequisite: "Seeking the Stone; An Earnest Quandary; visit any town",
         requiredTalents: {
             negotiation: 28,
             aptitude: 0,
@@ -159,7 +157,8 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "MUST be dispatched — the 6-day time limit makes it physically impossible to visit all three locations manually. Dispatch any unit.",
+            "Visit the three locations within six days, or use dispatch unless you accepted the quest from Fluorgis and can route manually from there.",
+            "At each meeting, agree to sing the love song to clear the event.",
         ],
         rewards: {
             gil: 2540,
@@ -182,7 +181,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Foodstuffs: Appearance",
+        prerequisite: "Sleepless Nights; Foodstuffs: Appearance",
         requiredTalents: {
             negotiation: 20,
             aptitude: 0,
@@ -220,7 +219,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Foodstuff: Nutrition",
+        prerequisite: "A Request; Foodstuffs: Nutrition; Odd Places upper-middle well; visit any town",
         requiredTalents: {
             negotiation: 33,
             aptitude: 0,
@@ -244,7 +243,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         rewards: {
             gil: 8420,
             cp: 80,
-            loot: "Mysidia Alloy ×2"
+            loot: "Mysidia Alloy ×4"
         },
         notes: "",
         tags: ["optional"]
@@ -262,7 +261,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
-        prerequisite: "An Earnest Search",
+        prerequisite: "Grounded!; An Earnest Search; visit Fluorgis",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,
@@ -271,7 +270,8 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Dispatch mission — visit Camoa and Graszton to meet two damsels in Marnot's stead.",
+            "Visit Camoa and Graszton within six days to meet two damsels in Marnot's stead.",
+            "Pick the first option and dance at each location to succeed.",
         ],
         rewards: {
             gil: 1750,
@@ -293,7 +293,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
-        prerequisite: "Showdown",
+        prerequisite: "Grounded!; Showdown; visit Fluorgis",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -331,6 +331,8 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
+        prerequisite: "Pirate Problems; read A Theft from the Manor notice; visit any town",
+        dispatchRecommended: ["Defender"],
         requiredTalents: {
             negotiation: 51,
             aptitude: 0,
@@ -370,6 +372,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Wanted: Gilmunto",
         requiredTalents: {
             negotiation: 8,
             aptitude: 0,
@@ -378,7 +381,8 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Dispatch mission — visit Targ Wood to meet one damsel in Marnot's stead.",
+            "Visit Targ Wood to meet one damsel in Marnot's stead.",
+            "Pick the first option and recite the love poem to succeed.",
         ],
         rewards: {
             gil: 1050,
@@ -401,6 +405,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Now That's a Fire!; read The Rivalry of the Rupies notice",
         requiredItems: ["Healing Water ×1", "Recall Grass ×1"],
         requiredTalents: {
             negotiation: 9,
@@ -415,7 +420,8 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         rewards: {
             gil: 1680,
             cp: 24,
-            loot: "Body Ceffyl ×3, Soul Ceffyl ×3"
+            loot: "Body Ceffyl ×3, Soul Ceffyl ×3",
+            other: "Arcanist job"
         },
         notes: "",
         tags: ["optional"]
@@ -433,6 +439,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "The Moon Seal, Coppersun",
         requiredTalents: {
             negotiation: 8,
             aptitude: 0,
@@ -469,9 +476,9 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Seeding the Harvest",
+        prerequisite: "Now That's a Fire!; Seeding the Harvest; Ashleaf",
         requiredTalents: {
-            negotiation: 0,
+            negotiation: 9,
             aptitude: 0,
             teamwork: 0,
             adaptability: 9,
@@ -506,6 +513,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Pearls in the Deep; read Wielders of the Cannon notice",
         requiredItems: ["Fire Stone ×1", "Zinconium ×1"],
         requiredTalents: {
             negotiation: 11,
@@ -521,7 +529,8 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         rewards: {
             gil: 2020,
             cp: 38,
-            loot: "Sweet Sap ×5, Rat Pelt ×1"
+            loot: "Sweet Sap ×5, Rat Pelt ×1",
+            other: "Cannoneer job"
         },
         notes: "",
         tags: ["optional"]
@@ -539,6 +548,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Wanted: Ugohr; visit Graszton",
         requiredItems: ["Succulent Fruit ×1"],
         requiredTalents: {
             negotiation: 7,

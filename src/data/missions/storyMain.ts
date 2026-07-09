@@ -74,7 +74,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         strategy: [
             "Have Luso and Cid focus on Klesta while a White Mage keeps them patched up.",
             "Use your Black Mage to chip away at the boss from a safe distance.",
-            "Pick off smaller birds only when it’s safe; the clear condition is pushing Klesta down, not full wipe (unless attempting the RetroAchievements)."
+            "Pick off smaller birds only when it’s safe; the clear condition is pushing Klesta down, not a full wipe."
         ],
         rewards: {
             gil: 250,
@@ -140,7 +140,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         rewards: {
             gil: 1050,
             cp: 4,
-            loot: "Snake Skin ×2, Tiny Mushrooms ×4, Fresh Water ×4"
+            loot: "Snake Skin ×2, Tiny Mushrooms ×2, Fresh Water ×4"
         },
         tags: ["story", "beasts"]
     },
@@ -513,10 +513,10 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         ],
         strategy: [
             "WARNING: Ewen removes the judge at the start — there is no clan privilege and no reviving fallen units. Every KO is permanent for this fight.",
-            "Ewen's Nightfall class can critical hit for 200+ damage even against high-level units; focus him down quickly to end the threat.",
+            "Try to take out the Time Mage before it can Haste the enemy clan, then go for Ewen to end the mission.",
+            "Ewen and the Ninja both have Throw, and Ewen's Nightfall class can hit hard even against sturdy units.",
             "The Sniper can pick off back-line units from long range — eliminate them early or keep your squishiest units out of line of sight.",
             "Assassins can inflict instant KO with Doom Fist — don't let them reach your healers.",
-            "The Time Mage can haste the enemy team and slow yours; prioritize it if Ewen proves hard to reach.",
             "Since you cannot revive, play conservatively: use items, stay healed, and only engage when you can guarantee safety.",
             "Ice is banned — use physical skills, fire, lightning, or holy damage instead."
         ],
@@ -571,9 +571,10 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         ],
         strategy: [
             "The judge is back for this fight — use your clan privilege and aim for the law bonus.",
-            "Vaan and Luso both appear here, each eager to prove themselves. Extra bodies are welcome.",
-            "Take out the White Mage and Time Mage first — the Mage’s healing and the Time Mage’s Slow/Haste can wreck your momentum.",
-            "The Fusilier’s ranged gun attacks hit hard — close the gap or use a Sniper/Archer of your own to neutralize it.",
+            "Vaan joins as a guest ally after trying to claim Genius Ed for himself.",
+            "Upholding Harming the Weak can be awkward if side quests have pushed your levels high; do not let the law distract you from the win target.",
+            "Take out the White Mage first so Genius Ed and the front line cannot be healed back up.",
+            "Then pressure the Fusilier, whose ranged status shots can disrupt your party from across the airship.",
             "The Berserker goes berserk but is easy to counter once isolated; don’t let it rampage through your healers.",
             "Genius Ed (the Sage) is the mark — focus him once the support is thinned or neutralized."
         ],
@@ -605,7 +606,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 name: "Randomized Name",
                 job: "Ghost",
                 quantity: 2,
-                notes: "Ghosts have Sleep Touch and Silence Touch — dark-damage attacks that inflict sleep or silence."
+                notes: "Ghosts have Sleep Touch and Silence Touch and may summon more undead if left unchecked."
             },
             {
                 name: "Randomized Name",
@@ -617,12 +618,13 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 name: "Randomized Name",
                 job: "Zombie",
                 quantity: 1,
-                notes: "Undead support. Finish with Phoenix Down or Exorcise to stop it from returning.",
+                notes: "Undead support. Can drain HP to heal itself; finish with Phoenix Down or Exorcise to stop it from returning.",
             },
         ],
         strategy: [
-            "The Wraith is top priority: if you drop it to critical HP without finishing it, it vanishes and summons more undead. Burst it down in one sustained push.",
+            "The Wraith and Ghosts are top priority because they can summon more undead into the battle if left alone.",
             "Ghosts inflict Sleep and Silence — keep Esuna or Remedies on hand and don’t cluster units so one sleep touch can’t cascade.",
+            "The Zombie can drain HP to replenish itself; do not let it linger while you are cleaning up tombstones.",
             "Floating Eyes can confuse units; spread your formation to limit friendly-fire chaos.",
             "All undead take damage from Cure spells and are permanently killed only by Exorcise or Phoenix Down — use those to prevent them rising again.",
             "Copycat law: vary your actions each turn. If the previous unit attacked, your unit should cast a spell, use an item, or take a support action instead."
@@ -946,7 +948,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         rewards: {
             gil: 7580,
             cp: 74,
-            loot: "Orichalcum ×1"
+            loot: "Orichalcum ×1, Hurdy-gurdy ×1"
         },
         tags: ["story", "elemental-ban"]
     },
@@ -1049,14 +1051,10 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Impostor companion; can be ignored if rushing the mark."
             },
         ],
-        battlefield: [
-            "Traps are scattered around the battlefield.",
-        ],
         strategy: [
             "The mark is Van — a fake 'Vaan' impostor. Target him to end the mission.",
             "If preserving the law, do not harm the Bangaa Cannoneer. Work around it or disable/control it without damage.",
-            "Either rush Van immediately or clear the Fighter/Ravager flank and Sniper first, then finish Van.",
-            "Step carefully around traps and use high-movement units or Awareness if available."
+            "Either rush Van immediately or clear the Fighter/Ravager flank and Sniper first, then finish Van."
         ],
         rewards: {
             gil: 10470,
@@ -1080,14 +1078,13 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 name: "Illua",
                 job: "Spellblade",
                 quantity: 1,
-                notes: "Final boss of the main arc. Very fast and hits extremely hard. Mirror Items + X Potion deals ~400 HP if you have Item Lore."
+                notes: "Final boss of the main arc. Very fast and hits extremely hard."
             },
         ],
         strategy: [
             "This is the final main story boss battle — bring your absolute best units.",
             "Illua is fast; she will act early and often. Your party needs to be durable and capable of sustained damage.",
-            "Mirror Items + X Potion combo (with Item Lore equipped) deals roughly 400 HP of damage — a massive shortcut if you have it.",
-            "Without Mirror Items, commit to sustained physical and magical attacks. She is not invincible, just very dangerous.",
+            "Commit to sustained physical and magical attacks. She is not invincible, just very dangerous.",
             "Move your units to converge on Illua quickly — spreading out only gives her more turns to act freely.",
             "Male units cannot be harmed by the law, but Illua herself is female and can be freely targeted. Focus entirely on her.",
             "Keep your healer protected and at distance. One bad turn without healing can cascade into a wipe."
@@ -1117,7 +1114,6 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         ],
         strategy: [
             "All buff abilities and positive status effects are banned — no Protect, Shell, Haste, Bravery, or Faith. Build your party around raw stats and healing only.",
-            "Mirror Items + X Potion remains one of the best options for dealing burst damage under these restrictions.",
             "Ranged attacks and magic from the back line are effective — keep your squishier units away from Illua's melee range.",
             "Pure physical attackers with high Strength are ideal here since buffs that would normally amplify them are gone.",
             "Once Illua falls, the story continues immediately into the next and final battle. Conserve what you can.",

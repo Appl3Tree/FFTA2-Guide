@@ -17,7 +17,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 5,
-        prerequisite: "The Next Step",
+        prerequisite: "Making Music; The Next Step; visit Moorabella",
         requiredTalents: {
             negotiation: 22,
             aptitude: 0,
@@ -36,7 +36,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
     ],
         strategy: [
             "Keep Mack protected under the Solitude law: end each turn with an adjacent ally, including Mack's turns when possible.",
-            "Eliminate the Time Mage first to stop Slow, Stop, and Reflect, then remove the Black Mage and Green Mage before their magick and status effects pile up.",
+            "Eliminate the Black Mage, Time Mage, and Scholar quickly; their long-range magick and Stop/Slow pressure are the guide's main danger callouts.",
             "Bring Esuna or status recovery for Sleep/Oil and arrange the party in pairs so no unit accidentally ends a turn isolated.",
         ],
         rewards: {
@@ -60,7 +60,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "A Step Further",
+        prerequisite: "A Request; A Step Further; read What's Really Important notice; visit any town",
         requiredItems: ["Ocktor Tome of Medicine ×1"],
         requiredTalents: {
             negotiation: 44,
@@ -95,6 +95,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
+        prerequisite: "Wanted: Ugohr; visit Graszton during Goldsun",
         requiredTalents: {
             negotiation: 7,
             aptitude: 0,
@@ -133,6 +134,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "The Yellow Wings",
         requiredTalents: {
             negotiation: 4,
             aptitude: 0,
@@ -142,14 +144,11 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         objective: "Find the Scarab Beetle!",
         law: "Forbidden: Lightning – Weapons and Abilities that use lightning are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Axebeak", quantity: 2, notes: "Initial wave. Enemy reinforcements keep arriving — focus on finding the Scarab Beetle (examine sparkle points on the map)." },
+        { name: "Randomized Name", job: "Axebeak", quantity: 2, notes: "Initial enemies. Focus on finding the Scarab Beetle by examining sparkle points on the map." },
         { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "Initial wave." },
     ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
         strategy: [
-            "Find Nero by examining shiny sparkle points; enemies keep arriving, so do not try to farm every reinforcement.",
+            "Find Nero by examining shiny sparkle points, with most of the search spots across the two bridges on the far side of the map.",
             "Avoid lightning attacks and weapons because of the law. Use fire, ice, wind, earth, holy, dark, or physical damage instead.",
             "Clear Axebeaks and Wolves only when they block a search route, then keep checking sparkles until the Scarab Beetle is found.",
         ],
@@ -174,6 +173,8 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Wanted: Gilmunto; Beetle in a Haystack",
+        dispatchRecommended: ["Arcanist"],
         requiredTalents: {
             negotiation: 8,
             aptitude: 0,
@@ -212,7 +213,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "The Wayward Drake",
+        prerequisite: "Pearls in the Deep; Wayward Drake",
         requiredTalents: {
             negotiation: 11,
             aptitude: 0,
@@ -223,11 +224,11 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         objective: "Protect Chari and Defeat all Foes!",
         law: "Forbidden: Fire, Ice, Lightning – Weapons and abilities that use fire, ice, or lightning are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Bloody Orb", quantity: 3, notes: "Defeat these. Do not harm Chari, the white Bloody Orb ally — heal it if needed, or let it use Vampire to self-sustain." },
+        { name: "Randomized Name", job: "Floating Eye", quantity: 3, notes: "Defeat these hostile eyes. Do not harm Chari, the white Bloody Orb ally; heal Chari if needed." },
     ],
         strategy: [
             "Protect Chari, the white Bloody Orb. Do not hit Chari with area attacks or the elemental damage banned by the law.",
-            "Defeat the three hostile Bloody Orbs while keeping Chari alive. Heal Chari if it gets focused, or let it sustain itself with Vampire when safe.",
+            "Defeat the three hostile Floating Eyes while keeping Chari alive. Chari can hit hard too, but heal her if the enemies focus her down.",
             "Fire, ice, and lightning are forbidden, so bring neutral physical attacks, non-banned magick, or monster-killer abilities.",
         ],
         rewards: {
@@ -251,7 +252,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "The White of Its Eye",
+        prerequisite: "Grounded!; The White of Its Eye; visit Fluorgis",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,
@@ -265,6 +266,9 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Okta", job: "Cockatrice", quantity: 1, notes: "Objective: weaken to HP critical — do NOT kill. Use water-element attacks. No melee blades allowed." },
         { name: "Randomized Name", job: "Cockatrice", quantity: 3, notes: "Kill these. Use ranged units (Hunters with Sidewinder) and water-based magick." },
     ],
+        battlefield: [
+            "Several hidden traps sit along the path down to the lower area.",
+        ],
         strategy: [
             "Defeat the three regular Cockatrices first, then weaken Okta to HP Critical without killing it.",
             "Bladed weapons are forbidden, so avoid knives, swords, blades, sabers, katanas, axes, knightswords, greatswords, and broadswords.",
@@ -291,6 +295,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "The Yellow Wings; visit Camoa",
         requiredTalents: {
             negotiation: 4,
             aptitude: 0,
@@ -313,11 +318,11 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         id: "B1-10",
         arc: "B1",
         name: "Foodstuffs: Texture",
-        description: "Foodstuffs njeeded. You will be required to catch specific monsters at a specific location. The details are as follows: - Must have fluffy white fur. - Enough to feed two. - To be used as an appetizer, one per serving. Too many is no good. Too few is also no good. Poison Tasters Guild",
+        description: "Foodstuffs needed. You will be required to catch specific monsters at a specific location. The details are as follows: - Must have fluffy white fur. - Enough to feed two. - To be used as an appetizer, one per serving. Too many is no good. Too few is also no good. Poison Tasters Guild",
         rank: 8,
         region: "Targ Wood",
         objective: "Procure the requested ingredients!",
-        law: "Fire: Weapons and abilities that use fire are forbidden.",
+        law: "Forbidden: Fire - Weapons and abilities that use fire are forbidden.",
         fee: 200,
         days: 20,
         questType: "Satisfy Petitioner",
@@ -325,10 +330,10 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canCancel: true,
         members: 6,
         requiredTalents: {
-            negotiation: 4,
+            negotiation: 0,
             aptitude: 0,
             teamwork: 0,
-            adaptability: 4,
+            adaptability: 0,
         },
     enemies: [
         {
@@ -447,6 +452,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Wanted: Gilmunto; Foodstuffs: Texture",
         requiredTalents: {
             negotiation: 8,
             aptitude: 0,
@@ -456,13 +462,14 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         objective: "Procure the Requested Ingredients",
         law: "Forbidden: Knockback – Actions that knock the target back are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Dreamhare", quantity: 2, notes: "OBJECTIVE: Kill exactly 2 Dreamhares. Do NOT kill the Hoppy Bunnies — only white Dreamhares count." },
-        { name: "Randomized Name", job: "Hoppy Bunny", quantity: 3, notes: "Do not kill — wrong ingredient." },
+        { name: "Randomized Name", job: "Malboro", quantity: 4, notes: "Objective ingredient target. Kill exactly four Malboros, no more and no less." },
+        { name: "Randomized Name", job: "Alraune", quantity: 1, notes: "Wrong ingredient target; defeat only if it blocks movement or threatens a key unit." },
+        { name: "Randomized Name", job: "Deadly Nightshade", quantity: 1, notes: "Wrong ingredient target; defeat only if it blocks movement or threatens a key unit." },
     ],
         strategy: [
-            "Kill exactly two Dreamhares. Do not defeat the Hoppy Bunnies or you will bring back the wrong ingredient.",
+            "Kill exactly four Malboros, then talk to the apprentice to complete the request.",
             "Knockback is forbidden, so use precise single-target attacks and avoid abilities with push effects.",
-            "If Hoppy Bunnies get in the way, disable, immobilize, or route around them rather than killing them.",
+            "Alraunes and Deadly Nightshades can be defeated for safety or to cycle spawns, but they are not the requested ingredient.",
         ],
         rewards: {
             gil: 2800,
@@ -485,6 +492,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Rumors Abound; Foodstuffs: Aroma",
         requiredTalents: {
             negotiation: 18,
             aptitude: 0,
@@ -494,13 +502,12 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         objective: "Procure the requested ingredients!",
         law: "Forbidden: Fire, Ice, Lightning – Weapons and abilities that use fire, ice, or lightning are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Malboro", quantity: 4, notes: "OBJECTIVE: Kill exactly 4 Malboros. Other enemies (Alraune, Deadly Nightshade) respawn indefinitely — ignore them." },
-        { name: "Randomized Name", job: "Alraune", quantity: 2, notes: "Ignore — they respawn. Focus on Malboros only." },
-        { name: "Randomized Name", job: "Deadly Nightshade", quantity: 2, notes: "Ignore — they respawn." },
+        { name: "Randomized Name", job: "Yellow Jelly", quantity: 3, notes: "Objective ingredient target. Kill exactly three Yellow Jellies." },
+        { name: "Randomized Name", job: "Assorted Flan", quantity: 1, notes: "Wrong ingredient targets appear alongside the Yellow Jellies; defeat them only to cycle respawns or clear danger." },
     ],
         strategy: [
-            "Kill exactly four Malboros to satisfy the ingredient request.",
-            "Alraunes and Deadly Nightshades respawn indefinitely, so only defeat them when they block movement or threaten a key unit.",
+            "Kill exactly three Yellow Jellies, then talk to the apprentice to end the quest successfully.",
+            "Other flans can be defeated to cycle respawns, but do not lose track of the exact Yellow Jelly count.",
             "Fire, ice, and lightning are forbidden. Use wind, water, earth, holy, dark, non-elemental abilities, or monster-killer attacks.",
         ],
         rewards: {
@@ -524,6 +531,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Cilawa the Gluttonous, Rosefire",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -532,20 +540,20 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Ice – Weapons and Abilities that use ice are forbidden.",
-    enemies: [
-        { name: "Randomized Name", job: "Yellow Flan", quantity: 2, notes: "OBJECTIVE: Defeat the Yellow Flans. Enemy reinforcements keep arriving." },
-        { name: "Randomized Name", job: "Malboro", quantity: 1, notes: "Status breath support. Avoid clustering while pushing toward the Yellow Flans." },
-        { name: "Randomized Name", job: "Grenade", quantity: 1, notes: "Eliminate early — magical ranged attacker." },
-        { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Physical reinforcement. Kite or disable if it pulls attention away from the Flans." },
-        { name: "Randomized Name", job: "Ranger", quantity: 2, notes: "Ranged reinforcement pressure. Remove only if they block safe access to the Flans." },
-    ],
+        enemies: [
+            { name: "Randomized Name", job: "Yellow Jelly", quantity: 1, notes: "Enemy from the Zedlei Consortium group." },
+            { name: "Randomized Name", job: "Malboro", quantity: 1, notes: "Status breath support. Avoid clustering while pushing through the Consortium group." },
+            { name: "Randomized Name", job: "Grenade", quantity: 1, notes: "Eliminate early — magical ranged attacker." },
+            { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Physical bruiser. Kite or disable if it pulls attention away from safer targets." },
+            { name: "Randomized Name", job: "Ranger", quantity: 2, notes: "Ranged pressure and trap-planters. Remove them if traps start cutting off clean movement." },
+        ],
         battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
+            "The Rangers can plant traps as they move; avoid stepping where a Ranger recently acted.",
         ],
         strategy: [
-            "Defeat the two Yellow Flans to clear the mission. Enemy reinforcements continue arriving, so focus on the objective instead of trying to wipe every unit.",
+            "Defeat the full Zedlei Consortium group: Yellow Jelly, Grenade, Malboro, Berserker, and two Rangers.",
             "Avoid ice attacks and weapons because of the law. Use fire, lightning, wind, physical, or non-elemental damage.",
-            "The Grenade is the most disruptive support enemy; remove it if its ranged magick threatens your path to the Yellow Flans.",
+            "The Grenade is the most disruptive support enemy; remove it if its ranged magick threatens your path through the Consortium group.",
         ],
         rewards: {
             gil: 700,
@@ -568,6 +576,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "You Say Tomato, Mistleaf",
         requiredTalents: {
             negotiation: 6,
             aptitude: 0,
@@ -602,7 +611,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         id: "B1-16",
         arc: "B1",
         name: "Showdown",
-        description: "Clan <Name> I beg your assistance! No sooner had we succeeded in tracking down Klesta's demesne than Bowen disappeared! I fear he has gone to deal with the beast himself. We make haste to intercept him before it is too late, but I wuold ask that you secure for us some cloudy sap .. it is a vital piece of our strategy for dealing with our flighty foe once and for all. Tweigel of House Bowen",
+        description: "Clan Gully, I beg your assistance! No sooner had we succeeded in tracking down Klesta's demesne than Bowen disappeared! I fear he has gone to deal with the beast himself. We make haste to intercept him before it is too late, but I would ask that you secure for us some cloudy sap...it is a vital piece of our strategy for dealing with our flighty foe once and for all. Tweigel of House Bowen",
         rank: 24,
         region: "Targ Wood",
         fee: 400,
@@ -611,6 +620,8 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 3,
+        prerequisite: "Pearls in the Deep; Throw Down; I Got A Bad Feeling side quest; visit Graszton",
+        requiredItems: ["Cloudy Sap ×1"],
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -620,18 +631,20 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         objective: "Defeat Klesta!",
         law: "Forbidden: Back Attack – Attacking a unit from behind is forbidden.",
     enemies: [
-        { name: "Klesta", job: "Cockatrice", quantity: 1, notes: "Boss. Uses Piston Drop (damages all units on battlefield). Start with 3 units; 3 reinforcements arrive after battle begins. Bowen and Illusionist Tweigel are unkillable allies." },
+        { name: "Klesta", job: "Cockatrice", quantity: 1, notes: "Final Klesta fight. Has over 900 HP, attempts to flee at half health, then is grounded with Cloudy Sap." },
     ],
         strategy: [
-            "Only three clan members deploy at first; the rest of the team arrives as reinforcements after the fight begins.",
-            "Klesta's Piston Drop can hit the whole field, so keep HP high and do not drag the battle out.",
-            "Bowen and Tweigel fight as allied guests and cannot be killed. Let them help absorb pressure while your clan focuses Klesta.",
+            "Bring Cloudy Sap. Once Klesta reaches half health, it tries to flee and the sap grounds it so you can finish the fight.",
+            "House Bowen arrives to help, but the win condition is still to defeat Klesta for good.",
+            "Klesta has over 900 HP, so bring strong attackers and keep healing ready during the longer boss fight.",
             "Back attacks are forbidden, so attack from the side or front even when Klesta turns away.",
         ],
         rewards: {
             gil: 3030,
             cp: 48,
             loot: "Cursed Coin ×5, Skull ×2, Vampyr Fang ×2"
+            ,
+            other: "Demon Feather"
         },
         notes: "",
         tags: ["optional"]

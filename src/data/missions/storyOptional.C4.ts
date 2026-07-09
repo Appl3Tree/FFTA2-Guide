@@ -17,6 +17,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 4,
+        prerequisite: "Wanted: Gilmunto",
         requiredTalents: {
             negotiation: 8,
             aptitude: 0,
@@ -26,18 +27,18 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Speed Battle vs. House Bowen",
         law: "Forbidden: Actions by Moogles – Moogles may only move and perform basic attacks",
     enemies: [
-        { name: "Malboro King", job: "Malboro King", quantity: 1, notes: "Speed battle mark. You must land the finishing blow — House Bowen will also attack it. Steal its Orb of Minwu before finishing if you can." },
-        { name: "House Bowen Unit", job: "Randomized", quantity: 3, notes: "Rival clan. Kill them to prevent them from stealing the kill on the mark. They will help weaken the Malboro King." },
+        { name: "Malboro King", job: "Malboro King", quantity: 1, notes: "Speed battle mark. You must land the finishing blow before House Bowen does." },
+        { name: "House Bowen", job: "Rival Clan", quantity: 1, notes: "Rival clan trying to defeat the Malboro King first; the guide only calls out their Illusionist as a ranged attacker." },
     ],
         strategy: [
-            "Land the killing blow on the Malboro King to win. Kill House Bowen units to prevent them from stealing the victory.",
-            "The Malboro King carries an Orb of Minwu; bring a unit with Steal Accessory if you want to take it before ending the speed battle.",
-            "Check for treasure chest on the battlefield. Completing this mission unlocks the Assassin skill.",
+            "Move onto the bridge in front of your starting position and attack the Malboro King from range with options like Air Render or Black Magick.",
+            "You only need the final blow. Blocking the bridge limits House Bowen's access; the Illusionist is the main rival who can still contribute from range.",
+            "Completing this mission unlocks the Assassin job.",
         ],
         rewards: {
             gil: 2280,
             cp: 26,
-            loot: "Bomb Shell ×2, Giant Feather ×1, Fire Stone ×3"
+            loot: "Bomb Shell ×2, Giant Feather ×1, Fire Stone ×5"
         },
         notes: "",
         tags: ["optional"]
@@ -55,6 +56,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Now That's a Fire!; complete an auction",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -64,19 +66,15 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Fighter", quantity: 1, notes: "PRIORITY: Has Air Render — eliminate first." },
-        { name: "Randomized Name", job: "Fighter", quantity: 1, notes: "Has Bonecrusher (powerful counter). High priority." },
-        { name: "Randomized Name", job: "Fighter", quantity: 1, notes: "Standard Fighter abilities." },
+        { name: "Randomized Name", job: "Fighter", quantity: 3, notes: "Primary threat group; the guide calls out Aurablast as strong multi-target damage." },
         { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Standard melee unit." },
         { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Standard melee unit." },
-        { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Bangaa Warrior. Standard melee unit." },
+        { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Bangaa Warrior; the guide specifically warns about Air Render." },
     ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
-        ],
         strategy: [
-            "Let enemies come to you — they may trigger traps. Prioritize the Fighter with Air Render first, then Bonecrusher.",
-            "Enemy has no healers. Bring your own healer and outlast them.",
+            "This is a direct physical fight. Bring your best melee units, offensive magick, and normal healing support.",
+            "Prioritize the three Fighters because Aurablast can hit multiple clan members at once. Watch the Warrior's Air Render while closing in.",
+            "Completing this mission unlocks the Fighter job.",
         ],
         rewards: {
             gil: 1600,
@@ -99,27 +97,31 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 4,
+        prerequisite: "Mountain Watch; visit Moorabella",
         requiredTalents: {
             negotiation: 13,
             aptitude: 0,
             teamwork: 13,
             adaptability: 0,
         },
-        objective: "Protect the Chocobo and Defeat all Foes!",
+        objective: "Protect Popocho and his chocobos!",
         law: "Forbidden: > 50 Damage – Dealing > 50 Damage is forbidden.",
     enemies: [
         { name: "Randomized Name", job: "Werewolf", quantity: 2, notes: "Round 1. Attacking near the Chocobo — priority targets. Use Wind attacks (Shining Air)." },
-        { name: "Randomized Name", job: "Worgen", quantity: 1, notes: "Round 1." },
+        { name: "Randomized Name", job: "Wolf", quantity: 1, notes: "Round 1." },
         { name: "Randomized Name", job: "Zaghnal", quantity: 1, notes: "Round 1. Stronger form of Werewolf." },
         { name: "Randomized Name", job: "Wendigo", quantity: 2, notes: "Round 2 (one per Chocobo). High HP — use ranged physical and magick. Prioritize over Flan." },
         { name: "Randomized Name", job: "Ice Flan", quantity: 2, notes: "Round 2 (one per Chocobo). Uses Blizzard on Chocobo (~60 damage). Less urgent than Wendigo." },
-        { name: "Randomized Name", job: "Zahak", quantity: 1, notes: "Round 3. Mega Drake — only weak to Holy attacks. Use Holy or normal attacks." },
-        { name: "Randomized Name", job: "Ghost", quantity: 1, notes: "Round 3. Must be exorcised — normal attacks may not work." },
+        { name: "Randomized Name", job: "Zahak", quantity: 1, notes: "Round 3. Starts far away and moves slowly, so clean up the nearer enemies first." },
+        { name: "Randomized Name", job: "Ice Drake", quantity: 2, notes: "Round 3. Weak to fire." },
+        { name: "Randomized Name", job: "Ghost", quantity: 1, notes: "Round 3. Finish at 0 HP with Raise, a Phoenix Down, or another anti-undead action." },
     ],
         strategy: [
             "Three-stage battle in the Aldanna Range. 4-unit party only.",
-            "Round 1 law: >50 Damage forbidden. Round 2 law: Moogles restricted. Round 3 law: Humes restricted — bring Gria Hunters.",
-            "The Chocobo will attack enemies on its own — use debuffs or a fast healer to keep it alive. Breaking the law to quickly kill enemies may be necessary.",
+            "Round 1 protects one Yellow Chocobo against a Wolf, two Werewolves, and a Zaghnal; use controlled damage because the first law forbids hits over 50.",
+            "Round 2 protects two Green Chocobos against Ice Flans and Wendigos. Fire-based attacks help against the ice enemies, and Wendigos hit hard enough to deserve early attention.",
+            "Round 3 protects Popocho plus Black and White Chocobos against a Zahak, two Ice Drakes, and a Ghost. Clear the nearer enemies first, then deal with the slower Zahak.",
+            "Completing all three fights unlocks the Chocobo Knight job.",
         ],
         rewards: {
             gil: 4360,
@@ -142,6 +144,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Pearls in the Deep; read the Trouble in Jylland notice",
         requiredTalents: {
             negotiation: 11,
             aptitude: 11,
@@ -151,11 +154,12 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Survive for 4 Rounds!",
         law: "Forbidden: Debuffs – Debuffs are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Flintlock", quantity: 4, notes: "Moogle Fusiliers (advanced form). Level ~22. Endless reinforcements — do not try to kill all; just survive 4 rounds." },
+        { name: "Randomized Name", job: "Flintlock", quantity: 1, notes: "Multiple Flintlocks practice with hand cannons; more emerge from wells as the survival battle continues." },
     ],
         strategy: [
-            "Survive for 4 rounds — do not try to kill all enemies, they respawn endlessly.",
-            "Bring White Mages to maintain HP. Outleveling the enemies (~22) makes this easier.",
+            "Survive for 4 rounds. Flintlocks must Prime before firing, which gives you a free round between cannon attacks to heal and reposition.",
+            "Watch the icon above a Flintlock's head to tell when it is primed. The attacks are not severe if your healer keeps pace.",
+            "Completing this mission unlocks the Flintlock job.",
         ],
         rewards: {
             gil: 2870,
@@ -178,6 +182,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 4,
+        prerequisite: "Pearls in the Deep; read the Prima Donna notice",
         requiredTalents: {
             negotiation: 11,
             aptitude: 0,
@@ -187,13 +192,15 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Help Mayhew find her Concertina!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden",
     enemies: [
-        { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "PRIORITY: Can debuff — eliminate first." },
-        { name: "Randomized Name", job: "Ice Drake", quantity: 2, notes: "Standard attacker." },
-        { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Standard attacker — not a serious threat." },
+        { name: "Randomized Name", job: "Ice Drake", quantity: 2, notes: "Fire-based attacks work well." },
+        { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Can become dangerous if its status effects stick; remove it early." },
+        { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "Supports the enemy group while you search the sparkle spots." },
     ],
         strategy: [
             "The concertina is hidden in a shiny sparkle on the battlefield — examine it to complete the objective.",
-            "Kill the Bloody Orb first. Vary your abilities each turn to avoid triggering the Copycat law.",
+            "Mayhew's Devotees are present but not very useful, so plan to handle both fighting and searching yourself.",
+            "Use fire-based attacks against the Ice Drakes and take the Lamia seriously because of its status effects.",
+            "Completing this mission unlocks the Raptor job.",
         ],
         rewards: {
             gil: 2350,
@@ -216,6 +223,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Sleepless Nights; accept from Moorabella",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -230,8 +238,8 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         { name: "Randomized Name", job: "Floating Eye", quantity: 2, notes: "Uses Gnaw; one has Wave. Weakest threat — last priority." },
     ],
         strategy: [
-            "Face away from Ahrimans at all times — their gaze attacks are the biggest threat.",
-            "Kill Ahrimans first, then Bloody Orbs, then Floating Eyes.",
+            "Ahrimans are the real danger because they can inflict Confuse and Charm. Remove them quickly with ranged attacks and offensive magick.",
+            "Bloody Orbs and Floating Eyes mostly attack or use Supersonic Wave for Silence, so they are lower priority once the Ahrimans are under control.",
         ],
         rewards: {
             gil: 3750,
@@ -254,6 +262,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Rumors Abound",
         requiredItems: ["Urutan Annals ×1", "The Arnath Glyphs ×1"],
         requiredTalents: {
             negotiation: 18,
@@ -287,7 +296,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "Making Music",
+        prerequisite: "Making Music; visit Moorabella",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -301,12 +310,12 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         { name: "Randomized Name", job: "Trickster", quantity: 1, notes: "Leader. Has stronger debuff tools such as Charisma and Traumatize, plus Rend Speed." },
     ],
         battlefield: [
-            "Treasure chests are present; a high-jump unit can reach the far ledge chest containing a Ribbon.",
+            "A high-jump unit with Jump 4 can reach the far-left high ledge chest containing a Ribbon.",
         ],
         strategy: [
-            "Bring status protection such as Ribbons, Astra, or Debuff Resistance if you want to preserve the law bonus.",
-            "The leader has the nastiest skill mix, so focus him first if you can safely reach him.",
-            "RetroAchievement route: collect the treasure chests before damaging enemies.",
+            "Bring a healer because five Tricksters can pressure you from long range with card attacks.",
+            "The law is awkward because Tricksters can inflict status effects such as Immobilize and Berserk; status protection helps preserve the law bonus.",
+            "Completing this battle unlocks the Trickster job.",
         ],
         rewards: {
             gil: 2790,
@@ -329,7 +338,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Instrument of Inspiration",
+        prerequisite: "Sleepless Nights; Instrument of Inspiration",
         requiredTalents: {
             negotiation: 20,
             aptitude: 20,
@@ -372,6 +381,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Grounded!; visit Fluorgis",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -387,7 +397,9 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         { name: "Randomized Name", job: "White Monk", quantity: 2, notes: "Has Roundhouse and Counter. Lower priority." },
     ],
         strategy: [
-            "Eliminate the two Master Monks with Air Render first, then the third Master Monk, then the White Monks.",
+            "Fight from range where possible. The three Master Monks can attack twice and become more dangerous at low HP.",
+            "Dual Wield, Black Magick, and Elementalist Fire Whip-style pressure are guide-backed ways to end the fight before their melee damage snowballs.",
+            "Completing this battle unlocks the Master Monk job.",
         ],
         rewards: {
             gil: 5340,
@@ -410,6 +422,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Sleepless Nights",
         requiredTalents: {
             negotiation: 20,
             aptitude: 0,
@@ -419,15 +432,14 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Protect Roye and Defeat all Foes!",
         law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Zaghnal", quantity: 1, notes: "Uses Roar, Slug, Assault. On field from start." },
-        { name: "Randomized Name", job: "Wendigo", quantity: 1, notes: "Uses Bone Shatter, Brute Strength, Helmsplitter. On field from start — highest threat." },
-        { name: "Randomized Name", job: "Wolf", quantity: 1, notes: "Uses Summon Pack and Fangs. On field from start." },
-        { name: "Randomized Name", job: "Wendigo", quantity: 1, notes: "Reinforcement — arrives mid-battle." },
-        { name: "Randomized Name", job: "Randomized Monster", quantity: 1, notes: "Reinforcement — arrives mid-battle." },
+        { name: "Randomized Name", job: "Wendigo", quantity: 2, notes: "Cannot be hurt by adjacent physical attacks; use magick or abilities instead." },
+        { name: "Randomized Name", job: "Wolf", quantity: 1, notes: "Common monster pressuring Roye." },
+        { name: "Randomized Name", job: "Zaghnal", quantity: 1, notes: "Physically strong monster; defeat it quickly once you reach Roye's side." },
     ],
         strategy: [
-            "Melee-only due to Ranged Weapons law. Position your units between Roye and the enemies to intercept.",
-            "Prioritize the Wendigos — they deal the most damage. Use tanks to protect Roye.",
+            "Cross the map quickly because Roye starts far from your clan and can get cornered.",
+            "Do not rely on adjacent physical attacks against Wendigos; use magick or abilities while respecting the Ranged Weapons law.",
+            "Roye can fight back with Magick Frenzy, but protecting him still matters. Completing the quest unlocks the Seer job.",
         ],
         rewards: {
             gil: 6150,
@@ -450,7 +462,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
-        prerequisite: "Kidnapping!?",
+        prerequisite: "A Request; I Want to Forget; Kidnapping!?; visit any town",
         requiredTalents: {
             negotiation: 18,
             aptitude: 18,
@@ -459,22 +471,17 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Harming Gria – Actions that harm gria are forbidden.",
-    enemies: [
-        { name: "Randomized Name", job: "Lanista", quantity: 1, notes: "Weak enemy that tends to flee rather than pressure your party." },
-        { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Weak enemy that tends to flee rather than pressure your party." },
-        { name: "Randomized Name", job: "Sage", quantity: 1, notes: "Weak enemy that tends to flee rather than pressure your party." },
-        { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Weak enemy that tends to flee rather than pressure your party." },
-    ],
+    enemies: [],
         strategy: [
-            "This is a low-rank cleanup battle that appears late. Bring any reliable attackers and avoid harming Gria to keep the law bonus.",
-            "Mayhew joins you, but the enemy group is weak enough that she should not need much protection.",
+            "The guide does not call out a specific enemy roster; it describes the fight as a very easy late-appearing battle against enemies at level 10 or below.",
+            "Bring any reliable attackers and avoid harming Gria to keep the law bonus.",
         ],
         rewards: {
             gil: 690,
             cp: 12,
             loot: "High Arcana ×2"
         },
-        notes: "Also requires A Request and I Want to Forget before it appears.",
+        notes: "",
         tags: ["optional"]
     }
 ];

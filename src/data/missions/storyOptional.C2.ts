@@ -17,7 +17,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "A Fatal Mistake",
+        prerequisite: "Sky Pirate Vaan; A Fatal Mistake; visit Graszton",
         requiredTalents: {
             negotiation: 33,
             aptitude: 0,
@@ -36,6 +36,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             "Normal Attack is forbidden, but job abilities, magick, items, and reaction abilities are still legal.",
             "Eliminate or disable the Tonberry King first, then clear Baknamy and Luchorpans that block access to the traps.",
             "Bring a Ranger or high-mobility unit to reach every trap tile, and keep the trap clearer protected while the rest of the party controls enemies.",
+            "Trap colors matter: green deals light damage, purple Charms, blue halves current HP, and yellow Silences.",
         ],
         rewards: {
             gil: 9450,
@@ -58,7 +59,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Komodo Departure",
+        prerequisite: "Now That's a Fire!; Komodo Departure; complete an auction",
         requiredTalents: {
             negotiation: 9,
             aptitude: 0,
@@ -101,13 +102,14 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Komodo Search",
+        prerequisite: "Mountain Watch; Komodo Search; visit Moorabella",
         requiredTalents: {
             negotiation: 13,
             aptitude: 13,
             teamwork: 0,
             adaptability: 0,
         },
+        dispatchRecommended: ["Defender", "Arcanist"],
         objective: "Defeat all Foes!",
         law: "Forbidden: Targeting all Units – Actions targeting all units are forbidden.",
     enemies: [
@@ -125,7 +127,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         rewards: {
             gil: 3330,
             cp: 50,
-            loot: "Holy Stone ×3, Yellow Liquid ×3"
+            loot: "Holy Stone ×3, Yellow Liquid ×3, Wyrmtwig"
         },
         notes: "",
         tags: ["optional"]
@@ -143,6 +145,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "It's the Thought",
         requiredTalents: {
             negotiation: 7,
             aptitude: 0,
@@ -174,6 +177,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Wanted: Ugohr; visit Graszton",
         requiredTalents: {
             negotiation: 7,
             aptitude: 0,
@@ -216,6 +220,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Now That's a Fire!; complete an auction",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -247,7 +252,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
-        prerequisite: "The Forests of Loar",
+        prerequisite: "Pearls in the Deep; visit Graszton",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -274,11 +279,12 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         rank: 17,
         region: "Camoa, Graszton, Moorabella",
         fee: 300,
-        days: 20,
+        days: 7,
         questType: "Meet Objectives",
         canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Grounded!; The Lands of Loar; visit Fluorgis",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -310,6 +316,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Now That's a Fire!; complete an auction during Plumfrost",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -348,7 +355,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "The Genuine Article",
+        prerequisite: "Pearls in the Deep; The Genuine Article; visit Graszton",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -394,7 +401,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "The Root of the Problem",
+        prerequisite: "Mountain Watch; The Root of the Problem; visit Moorabella",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -432,7 +439,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Chita on Weapons - Novices",
+        prerequisite: "Sleepless Nights; Chita on Weapons-Novices",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -470,6 +477,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
+        prerequisite: "Mountain Watch; visit Moorabella",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -507,6 +515,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Pearls in the Deep; visit Graszton",
         requiredTalents: {
             negotiation: 11,
             aptitude: 0,
@@ -522,7 +531,6 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
     ],
         battlefield: [
             "Five sparkle spots are on the mountain route; one contains the Kupoppy Flower.",
-            "The battlefield contains trap tiles that pose hazards",
             "The map features elevation differences",
         ],
         strategy: [

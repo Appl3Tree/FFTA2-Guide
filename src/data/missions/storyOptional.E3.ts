@@ -18,6 +18,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         canCancel: true,
         members: 1,
         requiredItems: ["Ice Stone ×1"],
+        prerequisite: "Grounded!; visit Fluorgis",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,
@@ -66,7 +67,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         ],
         battlefield: [
             "Six sparkling licra ore spots must be examined.",
-            "Treasure and traps are present in the mines.",
+            "A few treasures can be picked up in the mines.",
         ],
         strategy: [
             "Collect all six licra ore spots; defeating every undead enemy is optional.",
@@ -84,7 +85,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
     {
         id: "E3-07",
         arc: "E3",
-        name: "Wish Upon a Star",
+        name: "Wish Upon A Star",
         description: "This past night I saw another falling star in the direction of Sant D'alsa Bluff. There had been another the night before last, and the night before that, too! I can't rest with the sky falling down around me. All I want is a good night's sleep! Would someone travel to Sant D'alsa Bluff and see if there's anything that can be done? Manuela, Insomniac",
         rank: 27,
         region: "Graszton",
@@ -94,6 +95,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Sleepless Nights",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -110,7 +112,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         ],
         strategy: [
             "No elemental attacks at all, including elemental weapon damage.",
-            "You only need to defeat Entz, but clearing the Zombies, Ghoul, and Great Tortoises makes the climb safer.",
+            "You only need to defeat Entz. The guide recommends ignoring the undead and beating down Entz with strong non-elemental attacks once you reach him.",
             "Use non-elemental abilities or Mirror Items; verify weapons before attacking under the law.",
         ],
         rewards: {
@@ -134,7 +136,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Rancher's Request - Green; Greenfire",
+        prerequisite: "Rumors Abound; Rancher's Request - Green; Greenfire",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -167,6 +169,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Sleepless Nights",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -182,8 +185,8 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Has Esuna, Fira, and Magick Counter; lowest immediate threat." },
         ],
         strategy: [
-            "6 vs 4 — numbers advantage. Use ranged and fast units.",
-            "Eliminate Archer first (limb shots), then Ninja (veils), then Blue Mage (Bad Breath). Seer last.",
+            "This is a straightforward four-enemy fight. The Seer is the weakest, and the Ninja can Confuse or Silence but does not have Dual Wield.",
+            "Use your numbers advantage and avoid relying on Seeq actions under the law.",
         ],
         rewards: {
             gil: 4970,
@@ -206,6 +209,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Odd Places upper-left well",
         requiredTalents: {
             negotiation: 22,
             aptitude: 0,
@@ -216,8 +220,8 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         law: "Forbidden: Restoring HP – Actions that restore HP are forbidden.",
         enemies: [],
         strategy: [
-            "No battle required — just watch. Head to the battlefield and observe the duel.",
-            "Let Grant fight the Paladin. Loot the Paladin's body after Grant wins.",
+            "Do not interfere. You are there to watch Grant the Master Monk fight his Paladin rival.",
+            "Ignore the ground shaking and moving around your own units; the observed duel ends before the environmental damage becomes the point.",
         ],
         rewards: {
             gil: 6850,
@@ -240,7 +244,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Rancher's Request - Black",
+        prerequisite: "Rumors Abound; Rancher's Request - Black",
         requiredTalents: {
             negotiation: 18,
             aptitude: 0,
@@ -275,7 +279,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Rancher's Request - Green",
+        prerequisite: "Sleepless Nights; Rancher's Request - Green",
         requiredTalents: {
             negotiation: 20,
             aptitude: 0,
@@ -310,7 +314,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Rancher's Request - Brown",
+        prerequisite: "Making Music; Rancher's Request - Brown",
         requiredTalents: {
             negotiation: 22,
             aptitude: 0,
@@ -328,7 +332,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             cp: 74,
             loot: "Scarletite ×3"
         },
-        notes: "Requires Making Music and Rancher's Request - Brown.",
+        notes: "",
         tags: ["optional"]
     },
     {

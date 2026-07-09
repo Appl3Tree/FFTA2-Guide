@@ -17,6 +17,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Mountain Watch; visit Moorabella",
         requiredTalents: {
             negotiation: 13,
             aptitude: 0,
@@ -34,9 +35,6 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             "Survey all geological points to complete mission. Enemies don't need to be killed but make surveying easier.",
             "Use Cure on Zombies to damage them. Keep facing away from Ahrimans at all times.",
             "There are six sparkle survey points. Enemies do not need to die, but clearing paths makes the route safer.",
-        ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
         ],
         rewards: {
             gil: 5000,
@@ -59,7 +57,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Survey No. 258",
+        prerequisite: "Making Music; Survey No. 258; visit Moorabella",
         requiredTalents: {
             negotiation: 22,
             aptitude: 0,
@@ -99,7 +97,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Survey No. 259; A Request; Odd Places bottom-left well",
+        prerequisite: "A Request; Survey No. 259; Odd Places bottom-left well; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
@@ -119,7 +117,6 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         strategy: [
             "Must investigate all 6 sparkle points. Killing enemies makes this much easier.",
             "Send fastest units to eliminate the Cannoneer, Trickster, Seer, or Master Monk depending on the immediate threat.",
-            "Watch for Sten Needle traps across the area.",
         ],
         rewards: {
             gil: 10250,
@@ -142,7 +139,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Survey No. 260",
+        prerequisite: "Survey No. 260; complete game save",
         requiredTalents: {
             negotiation: 54,
             aptitude: 0,
@@ -160,8 +157,8 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         ],
         strategy: [
             "Close-range only (law). Rush sparkle points with fastest units. Enemies respawn infinitely — only kill to clear a path.",
-            "Tonberry King must be eliminated first — Karma deals 999 damage. Use Hunters with Sidewinder.",
-            "Bring multiple healers. Malboro King's debuffs are severe.",
+            "The enemy mix includes Tonberry Kings, Plagues, Malboro Kings, Behemoths, and Reavers. Killing one only brings in another random replacement, so do not fight more than necessary.",
+            "Bring strong healing and status recovery because the monster group is dangerous even when you are only clearing paths.",
             "Charge purple cannon points to fire the magick cannon if you decide to fight the monster waves.",
         ],
         rewards: {
@@ -185,6 +182,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "The Dig; Odd Places bottom-left well; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -224,6 +222,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Rumors Abound",
         requiredTalents: {
             negotiation: 18,
             aptitude: 0,
@@ -256,6 +255,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canCancel: true,
         members: 6,
         requiredItems: ["Darklord Crystal ×1"],
+        prerequisite: "Sleepless Nights",
         requiredTalents: {
             negotiation: 20,
             aptitude: 0,
@@ -278,7 +278,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             "Watch for Ranger traps and Mirror Items.",
         ],
         battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
+            "The Zedlei Forest map has traps already laid about, and the Rangers can add more during the fight.",
         ],
         rewards: {
             gil: 5000,
@@ -302,6 +302,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canCancel: true,
         members: 1,
         requiredItems: ["Crusader Tonic ×1"],
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
@@ -334,6 +335,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canCancel: true,
         members: 6,
         dispatchRecommended: ["White Monk"],
+        prerequisite: "Rumors Abound",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -349,10 +351,6 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         strategy: [
             "Bring Items, Exorcise, Burial, or Phoenix Downs so defeated undead stay down.",
             "Avoid area-targeting abilities. Single-target Cure/Holy damage works well against the undead.",
-            "Watch for charm traps while advancing through the mine.",
-        ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
         ],
         rewards: {
             gil: 4260,
@@ -375,6 +373,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Sleepless Nights",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -391,9 +390,6 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         strategy: [
             "Eliminate Banshees first, then focus the Gil Snapper. Great Tortoises can be left for last.",
             "No Fire/Ice/Lightning — use Wind, Holy, and physical attacks.",
-        ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
         ],
         rewards: {
             gil: 5170,
@@ -416,23 +412,25 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Rumors Abound",
         requiredTalents: {
-            negotiation: 0,
+            negotiation: 7,
             aptitude: 0,
-            teamwork: 18,
-            adaptability: 18,
+            teamwork: 7,
+            adaptability: 0,
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Fire, Ice, Lightning – Weapons and abilities that use fire, ice, and lightning are forbidden.",
         enemies: [
-            { name: "Randomized Name", job: "Headless", quantity: 2, notes: "Weak to Wind. Strong physical attacks." },
+            { name: "Randomized Name", job: "Headless", quantity: 2, notes: "Strong physical attackers." },
             { name: "Randomized Name", job: "Grenade", quantity: 1, notes: "Fire/explosion attacks; kill before it can explode." },
-            { name: "Randomized Name", job: "Ice Flan", quantity: 2, notes: "Can self-heal — use Hunters with Sidewinder or non-banned elements." },
-            { name: "Randomized Name", job: "Yellow Jelly", quantity: 1, notes: "Uses lightning spells and can self-heal." },
+            { name: "Randomized Name", job: "Ice Flan", quantity: 1, notes: "Colored flan; magick can hurt you and heal itself." },
+            { name: "Randomized Name", job: "Yellow Jelly", quantity: 1, notes: "Colored flan; magick can hurt you and heal itself." },
+            { name: "Randomized Name", job: "Red Marshmallow", quantity: 1, notes: "Colored flan; magick can hurt you and heal itself." },
         ],
         strategy: [
-            "No Fire/Ice/Lightning. Use Wind attacks (strong vs Headless), non-banned long-range attacks, and Hunters with Sidewinder.",
-            "Flans are dangerous because their magick can hurt you and heal themselves; focus them down before Headless if they are active.",
+            "No Fire/Ice/Lightning. Use long-range options from jobs like Fusilier and Sniper, or non-banned Fighter abilities.",
+            "Focus the three colored flans first because they can use magick to hurt you and heal themselves, and the guide calls out Stop risk.",
         ],
         rewards: {
             gil: 4800,
@@ -456,6 +454,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         canCancel: true,
         members: 5,
         dispatchRecommended: ["Defender"],
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
@@ -472,7 +471,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         strategy: [
             "Protect Thamas while clearing all foes. Avoid knockback/critical effects that would break the law.",
             "Disable or burst down the Lamashtu first, then handle Deathscythes and finish their tombstones with Phoenix Down or Exorcise.",
-            "Headless are the least urgent; Wind attacks and Sidewinder help clean them up.",
+            "Headless are the least urgent unless they are blocking Thamas.",
         ],
         rewards: {
             gil: 7180,

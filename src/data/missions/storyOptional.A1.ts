@@ -106,7 +106,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
     ],
         battlefield: [
             "The muskmallow sample is a shining sparkle objective on the map.",
-            "The battlefield contains trap tiles that pose hazards",
+            "Only one of the sparkling spots contains the muskmallow sample.",
         ],
         strategy: [
             "Reach and examine the muskmallow sparkle to collect the sample; you do not need to defeat every enemy if the route is clear.",
@@ -168,9 +168,9 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "The First Step",
+        prerequisite: "Mountain Watch; The First Step; read the Medicinal Marvel notice",
         requiredTalents: {
-            negotiation: 4,
+            negotiation: 13,
             aptitude: 0,
             teamwork: 0,
             adaptability: 0,
@@ -288,18 +288,20 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         objective: "Defeat all Foes and Destroy all Traps!",
         law: "Forbidden: Not Moving 3 Tiles – Each unit must move exactly 3 tiles before ending its turn.",
     enemies: [
-        { name: "Randomized Name", job: "Berserker", quantity: 2, notes: "Seeq Berserkers with Hone Senses, Smite of Rage, Furore, and Ground Shaker." },
-        { name: "Randomized Name", job: "Seeq", quantity: 3, notes: "Additional Seeq in various jobs." },
+        { name: "Randomized Name", job: "Berserker", notes: "Seeq bruiser. Dangerous, but the Vikings and Ranger are the guide's priority threats." },
+        { name: "Randomized Name", job: "Viking", notes: "Priority target. Thundara can hit hard if the clan is clustered or under-healed." },
+        { name: "Randomized Name", job: "Ranger", quantity: 1, notes: "Can lay more traps while you are trying to clear the stolen goods from the field." },
     ],
         battlefield: [
-            "The battlefield contains trap tiles that pose hazards and must be destroyed.",
+            "The stolen goods are hidden in traps that must be set off or destroyed to complete the quest.",
+            "Two treasures are on the upper wall.",
         ],
         strategy: [
             "Each unit must move exactly 3 tiles before ending their turn — count carefully or you'll incur a judge penalty.",
-            "Use the forced movement to your advantage: plan routes that let you close on enemies efficiently.",
-            "Seeq Berserkers hit extremely hard with Smite of Rage and Ground Shaker — don't let them act freely.",
-            "Destroy traps as you advance; they'll hurt your own units if ignored.",
-            "Ranged and magic users can attack from their mandatory 3-tile position without needing to engage directly."
+            "Defeat the enemies before clearing the traps so you can safely finish the objective and collect the upper-wall treasures.",
+            "Prioritize the Vikings because their Thundara pressure is the most dangerous part of the fight.",
+            "Watch the Ranger; if it keeps laying traps, remove it before cleaning the field.",
+            "After the Seeq are down, set off or destroy every trap to recover the stolen goods."
         ],
         rewards: {
             gil: 4830,
@@ -331,18 +333,18 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         objective: "Destroy the Traps!",
         law: "Forbidden: > 50 Damage – Dealing > 50 Damage is forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Sprite", quantity: 5 },
+        { name: "Randomized Name", job: "Sprite", quantity: 4, notes: "Meteorite users. Clear them before triggering traps." },
         { name: "Randomized Name", job: "Banshee", quantity: 1, notes: "More dangerous than the Sprites — eliminate it when you can." },
     ],
         battlefield: [
-            "The battlefield has trap tiles to destroy (the primary objective).",
-            "Treasure chests are present — grab them before destroying the traps.",
+            "Five traps must be cleared by triggering them.",
+            "Each trap removes half of the acting unit's current HP.",
         ],
         strategy: [
-            "Kill all enemies before destroying the traps — clearing the field gives you time to loot the treasure chests safely.",
+            "Kill all enemies before triggering the traps so Meteorite pressure does not punish injured units.",
             "The >50 Damage law sounds restrictive, but at this rank your party likely won't overkill low-level Sprites anyway.",
-            "Sprites and the Banshee are relatively low-level; focus fire and they fall quickly.",
-            "After clearing the enemies, destroy the trap tiles to complete the mission.",
+            "Sprites and the Banshee all have Meteorite, so keep units healthy and avoid bunching up.",
+            "After clearing the enemies, step on the trap tiles to complete the mission.",
         ],
         rewards: {
             gil: 390,
@@ -390,7 +392,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             loot: "Lamia Scale ×2, Sanative Needle ×3, Earth Stone ×3"
         },
         notes: "",
-        tags: ["optional"]
+        tags: ["story", "clan-fight"]
     },
     {
         id: "A1-14",
@@ -416,18 +418,16 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
     enemies: [
         { name: "Randomized Name", job: "Lamia", quantity: 3 },
-        { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Evolved form of Lamia. Uses Night — puts all units in range to sleep, including your own." },
+        { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Yellow Lamia-family enemy. Kiss can inflict several status effects, especially Confuse." },
     ],
         battlefield: [
-            "Two treasure chests on the map — collect them during the fight.",
+            "Two Lamias begin near the party; the Lilith starts farther away.",
         ],
         strategy: [
             "Ranged weapons (bows, guns, etc.) are banned — shift archers and fusiliers to melee or magic roles.",
-            "The Lilith's Night ability puts all nearby units to sleep, including yours. Spread your party to limit how many get caught at once.",
-            "Blue Mages can learn Night from the Lilith if hit by it — a useful note if you're building one.",
-            "If a unit wakes from sleep, have another ally wake them with a normal attack to save the lost turn.",
+            "Lamia-family Kiss can inflict several status effects, especially Confuse, so defeat the nearby Lamias quickly.",
+            "Move toward the yellow Lilith after the opening pair is controlled, then finish the remaining Lamia.",
             "Magical ranged attacks (spells) are unaffected by the law — mages remain fully effective.",
-            "Collect the treasure chests before finishing the last enemy.",
         ],
         rewards: {
             gil: 1160,
@@ -518,6 +518,6 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             loot: "Fury Fragments ×2, Silk Thread ×2, Rabbit Pelt ×2"
         },
         notes: "",
-        tags: ["optional"]
+        tags: ["story", "escort-adjacent"]
     }
 ];

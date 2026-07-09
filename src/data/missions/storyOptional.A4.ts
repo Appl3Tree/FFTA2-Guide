@@ -104,7 +104,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
-        prerequisite: "Rumors Abound, Goldsun",
+        prerequisite: "Seeking the Stone; Kthili Surveyors side quest; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -144,7 +144,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Wanted: Icicle Ark",
+        prerequisite: "Making Music; Wanted: Florah; read A Growing Problem notice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -154,21 +154,21 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         objective: "Defeat Floraxion!",
         law: "Forbidden: Actions by Viera – Viera may only move and perform basic attacks.",
     enemies: [
-        { name: "Floraxion", job: "Rafflesia", quantity: 1, notes: "Target. Massive plant — all cloud attacks hit units within a 2-tile radius. Surrounded by Charm traps. Weak to Fire." },
+        { name: "Floraxion", job: "Rafflesia", quantity: 1, notes: "Target. Massive plant with status-heavy attacks, Malboro-spawning seed attack, hidden HP until damaged, and Fire weakness." },
         { name: "Randomized Name", job: "Great Malboro", quantity: 2, notes: "Will debuff melee attackers approaching the Rafflesia. Soften with ranged attacks first." },
     ],
         battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
+            "Numerous terrain traps are hidden around Floraxion's map; Ranger Awareness helps reveal them.",
         ],
         strategy: [
             "Floraxion is the required target; the Great Malboros are support threats that make melee approaches risky.",
             "Viera are restricted to movement and basic attacks, so rely on non-Viera casters, Hunters, or melee units for abilities.",
-            "Use Fire damage against Floraxion from outside its 2-tile cloud range, and carry status recovery for the Malboros' debuffs and the surrounding Charm traps.",
+            "Use Fire damage against Floraxion, bring Awareness if you have a Ranger for the hidden terrain traps, and carry status recovery for Floraxion and the Great Malboros.",
         ],
         rewards: {
             gil: 6760,
             cp: 60,
-            loot: "Putrid Liquid ×4, Malboro Vine ×1, Malboro Flower ×2"
+            loot: "Putrid Liquid ×2, Malboro Vine ×1, Malboro Flower ×2"
         },
         notes: "",
         tags: ["optional"]
@@ -186,6 +186,9 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Complete game save",
+        dispatchRecommended: ["Animist", "Chocobo Knight"],
+        objective: "Dispatch the perfect musician!",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -194,7 +197,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Dispatch mission — no combat. Send a unit equipped with an Instrument (Bard or Chocobo Knight with an instrument works) for 6 days.",
+            "Dispatch mission - no combat. Send a unit who can equip instruments, with Animist or Chocobo Knight as the guide-backed fits, for 6 days.",
         ],
         rewards: {
             gil: 2420,
@@ -217,6 +220,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Sky Pirate Vaan; read The Moogle Rangers (1) notice; visit Graszton",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -257,6 +261,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "You Say Tomato; visit Camoa",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -266,7 +271,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         objective: "Defeat Red King Ruuj!",
         law: "Forbidden: Fire, Ice, Lightning - Weapons and abilities that use fire, ice, or lightning are forbidden.",
     enemies: [
-        { name: "Red King Ruuj", job: "Elementalist", quantity: 1, notes: "Level 44 solo boss. Uses Doublecast, Silence (Red Magick), Fire Whip, Sliprain, Boulder Crush. Immune to all debuffs. Use Mirror Items or ranged attacks." },
+        { name: "Red King Ruuj", job: "Red Mage", quantity: 1, notes: "Mid-40s solo boss with Doublecast, Counter, and Ribbon protection against status ailments." },
     ],
         strategy: [
             "Ruuj has Ribbon protection and Doublecast, so do not rely on status ailments.",
@@ -291,9 +296,10 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         fee: 300,
         days: 20,
         questType: "Satisfy Petitioner",
-        canDispatch: false,
+        canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Rumors Abound, Goldsun",
         requiredTalents: {
             negotiation: 13,
             aptitude: 0,
@@ -325,6 +331,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "A Request; read The Legend of the Dragons and The Mutadragons notices; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -339,8 +346,8 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         { name: "Lightland", job: "Mutadragon", quantity: 1, notes: "Weak to Earth. Use Elementalists, or Hunters with Sidewinder." },
     ],
         strategy: [
-            "Three Mutadragons, each weak to a different element (Holy, Ice, Earth). Hunters with Sidewinder or Mirror Items + X-Potions strip ~400 HP per hit — the fastest route given their high HP.",
-            "Watch for trap tiles. You must defeat all three; they retreat (alive) afterward.",
+            "Three Mutadragons hit hard with fire, ice, lightning, and holy attacks, and most debuffs will not work on them.",
+            "Use your strongest attackers, favor safe ranged damage where possible, and steal their accessories if you bring a Thief.",
         ],
         rewards: {
             gil: 7490,
@@ -360,7 +367,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         fee: 500,
         days: 20,
         questType: "Defeat Mark",
-        canDispatch: false,
+        canDispatch: true,
         canCancel: true,
         members: 6,
         prerequisite: "Red King of Cinquleur",
@@ -398,9 +405,10 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         fee: 300,
         days: 20,
         questType: "Satisfy Petitioner",
-        canDispatch: false,
+        canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Mountain Watch; visit Moorabella",
         requiredTalents: {
             negotiation: 13,
             aptitude: 0,

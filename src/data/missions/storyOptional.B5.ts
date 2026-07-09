@@ -14,9 +14,12 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         fee: 300,
         days: 20,
         questType: "Satisfy Petitioner",
-        canDispatch: false,
+        canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Making Music; The Star Seal; visit Moorabella",
+        dispatchRecommended: ["Viking", "Chocobo Knight"],
+        objective: "Dispatch the right person for the job!",
         requiredTalents: {
             negotiation: 22,
             aptitude: 0,
@@ -48,7 +51,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Caravan Cry II",
+        prerequisite: "Caravan Cry II; read Duelhorn Suffers Setbacks notice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -67,7 +70,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         strategy: [
             "Avoid relying on Bangaa because their actions are restricted by law.",
             "Split your force to control both starting areas, then collapse toward the center once the closest threats are down.",
-            "Eliminate the Tinker first, then pressure the Black Mage and Master Monk before flanking the remaining enemies.",
+            "Put your best attackers in the lower group to handle the Black Mage and Master Monk, while support units pressure the White Mage and Tinker above.",
         ],
         rewards: {
             gil: 3330,
@@ -90,6 +93,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 3,
+        prerequisite: "A Request; Show of Strength; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -104,13 +108,14 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         strategy: [
             "Only Luso, Adelle, and Cid deploy. Protect Frimelda while defeating Sir Luc Sardarc.",
             "Ranged weapons are forbidden, so use melee, magick, and non-weapon abilities instead of bows, guns, hand-cannons, or cards.",
-            "Dark Magick is effective on Frimelda's undead body, but do not let Sir Luc reach and burst her down.",
-            "Watch Blink Counter and Destroyer; attack with units that can survive the counter pressure.",
+            "Attack Luc from behind or with magick where possible; Elementalist Fire Whip can help if Disable lands.",
+            "Watch Blink Counter and Destroyer, and keep Frimelda away from Luc's holy-based burst damage.",
         ],
         rewards: {
             gil: 7370,
             cp: 78,
-            loot: "Firebird Crystal ×2"
+            loot: "Firebird Crystal ×2",
+            other: "The Fallen Angel, High Seraph's Plume"
         },
         notes: "",
         tags: ["optional"]
@@ -144,8 +149,8 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
     ],
         strategy: [
             "Keep high-MP actions under control; abilities costing 20 or more MP break the law.",
-            "Use melee pressure and Holy damage to remove Zahak, then close quickly on the three Geomancers.",
-            "If you cleared the Rain and Sun trials comfortably, use the same anti-Geomancer plan here: fast units, status cleanup, and steady healing.",
+            "Use Fire to remove the Ice Drake quickly, then close on the three Geomancers before Avalanche pressure stacks up.",
+            "Save the Zahak for after the easier targets unless it reaches the party early; it hits hard and can buff itself before joining in.",
         ],
         rewards: {
             gil: 4730,
@@ -165,9 +170,12 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         fee: 400,
         days: 20,
         questType: "Satisfy Petitioner",
-        canDispatch: false,
+        canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "A Request; visit any town",
+        dispatchRecommended: ["Alchemist"],
+        objective: "Dispatch the right person for the job!",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
@@ -193,14 +201,14 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         name: "Three-Point Strategy",
         description: "A missive containing Duelhorn's strategic plans for the near future has been intercepted. Launch coordinated attacks on Camoa, Graszton, and Moorabella using the confusion this generated to strike at headquarters.",
         rank: 48,
-        region: "Camoa, Graszton, Moorabella",
+        region: "Camoa, Moorabella, Graszton",
         fee: 500,
         days: 20,
         questType: "Defeat Mark",
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Summons",
+        prerequisite: "The Dig; Summons; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -208,7 +216,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
             adaptability: 39,
         },
         objective: "Defeat the Duelhorn leaders in Camoa, Graszton, and Moorabella!",
-        law: "Multi-battle laws: Harming the Opposite Sex in Camoa; Targeting Self in Graszton; Actions by Viera in Moorabella.",
+        law: "Multi-battle laws: Harming the Opposite Sex in Camoa; Actions by Viera in Moorabella; Targeting Self in Graszton.",
     enemies: [
         { name: "Night Dancer", job: "Trickster", quantity: 1, notes: "Camoa mark. Female Bangaa Trickster with dangerous long-range card attacks." },
         { name: "Randomized Name", job: "Cannoneer", quantity: 1, notes: "Camoa support; long-range threat and early priority." },
@@ -230,10 +238,10 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Moorabella healer." },
     ],
         strategy: [
-            "This is a three-city chain: Camoa, Graszton, then Moorabella. HP and MP carry between fights, so conserve resources.",
+            "This is a three-city chain: Camoa, Moorabella, then Graszton. HP and MP carry between fights, so conserve resources.",
             "In Camoa, use legal unit genders and high-movement/ranged pressure to defeat Night Dancer; Cannoneer and Master Monk are the key support threats.",
-            "In Graszton, either rush Duke Snakeheart or remove the Sage, Black Mage, and Time Mage before the caster line overwhelms you.",
             "In Moorabella, avoid Viera actions, clear Sniper/Assassin/Elementalist pressure, and do not group around Alys when she starts summoning.",
+            "In Graszton, either rush Duke Snakeheart or remove the Illusionist and key casters before the mage line overwhelms you.",
         ],
         rewards: {
             gil: 4920,
@@ -256,6 +264,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Through Another's Eyes; Hunted; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -278,7 +287,8 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         rewards: {
             gil: 6620,
             cp: 84,
-            loot: "High Arcana ×1"
+            loot: "High Arcana ×1",
+            other: "Frimelda joins the clan"
         },
         notes: "",
         tags: ["optional", "recruit", "multi-battle", "protection"]
@@ -319,7 +329,8 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         rewards: {
             gil: 4850,
             cp: 76,
-            loot: "Mahbeny ×2"
+            loot: "Mahbeny ×2",
+            other: "Geomancer job"
         },
         notes: "",
         tags: ["optional"]
@@ -337,7 +348,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Three-Point Strategy",
+        prerequisite: "Through Another's Eyes; Three-Point Strategy; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -347,12 +358,12 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         objective: "Defeat Maquis the Phantasm!",
         law: "Forbidden: Ranged Weapons – Attacks with bows, greatbows, guns, hand-cannons, and cards are forbidden.",
     enemies: [
-        { name: "Maquis the Phantasm", job: "Juggler", quantity: 6, notes: "Duelhorn boss. Splits into 6 at battle start — all copies are real. Level ~56. Has Double Wield and various veils (debuffs). Use AoE Illusion magick (Illusionist with Halve MP + MP Efficiency recommended). All 6 must be defeated." },
+        { name: "Maquis the Phantasm", job: "Ninja", quantity: 6, notes: "Duelhorn boss. Splits into six Ninja copies at battle start; all six must be defeated." },
     ],
         strategy: [
             "Maquis splits into six real copies at the start; every copy must be defeated.",
             "Ranged weapons are forbidden, but magick and non-weapon ranged abilities are legal. Illusion magick is excellent because it hits every copy.",
-            "Bring status recovery for veil debuffs and avoid letting Double Wield copies surround fragile units.",
+            "Bring status recovery for veil debuffs and avoid letting Ninja Tabi movement surround fragile units.",
             "If you cannot burst the field with Illusionists, focus one copy at a time and keep the party grouped around healers.",
         ],
         rewards: {
@@ -376,7 +387,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Memories Forged",
+        prerequisite: "Pirate Problems; Memories Forged; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -415,7 +426,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "The Last Duelhorn, I Want to Forget, complete game save",
+        prerequisite: "The Last Duelhorn; I Want to Forget; complete game save",
         requiredTalents: {
             negotiation: 54,
             aptitude: 0,
@@ -510,7 +521,7 @@ export const OPTIONAL_MISSIONS_B5: Mission[] = [
     ],
         strategy: [
             "Awareness is valuable because the field is trapped; lure enemies onto traps where possible.",
-            "A direct rush on Duke Snakeheart works, but clearing the support units is safer if your party cannot absorb his Arcanist spells.",
+            "A direct rush on Duke Snakeheart works, but the guide calls out the Defender and Parivir as the biggest support dangers to control or defeat along the way.",
             "Bring revival and healing support, and remember that back attacks are forbidden.",
         ],
         rewards: {

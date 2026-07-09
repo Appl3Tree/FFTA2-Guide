@@ -201,8 +201,8 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             { name: "Randomized Name", job: "Defender", quantity: 1, notes: "Whirl Burst, Mow Down, and Bulwark." },
         ],
         strategy: [
-            "Use fast and ranged units to disable the Hunter first.",
-            "Follow with the Parivir and White Mage, then clean up the Cannoneer and Defender.",
+            "Prioritize the Parivir because its abilities can inflict Slow and Immobilize.",
+            "Remove the White Mage quickly so the enemy clan cannot keep healing, then close on the ranged attackers.",
             "Avoid buff actions entirely under the law.",
         ],
         rewards: {
@@ -388,7 +388,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         ],
         strategy: [
             "Avoid rapiers and spears under the law.",
-            "Prioritize the Master Monk if your strategy triggers counters, then the Parivir for debuffs.",
+            "Prioritize the Berserker because the guide calls out its debuff abilities such as Confuse.",
             "Ranged attacks and magick help manage the enemy melee pressure.",
         ],
         rewards: {
@@ -475,7 +475,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         strategy: [
             "You may send only one clan member; choose a fast, well-equipped unit that can heal and deal ranged or high burst damage.",
             "Protect every Goug Watch member. If one dies, the quest fails.",
-            "Prioritize Sniper, Arcanist, and Illusionist threats while keeping watch members healthy.",
+            "Prioritize the Illusionist and Arcanist as the strongest threats, while keeping any watch member targeted by the Ninja or Parivir healthy.",
             "The allied Tinker can swing the fight with random effects, so this battle can require retries.",
         ],
         rewards: {
@@ -509,8 +509,8 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         objective: "Find the Dow Bridge key!",
         law: "Forbidden: Items – Items are forbidden.",
         enemies: [
-            { name: "Randomized Name", job: "Mimic", quantity: 3, notes: "Weak to every element; respawns can be farmed for high-level loot." },
-            { name: "Randomized Name", job: "Magick Pot", quantity: 1, notes: "Absorbs all elements; ignore it or use physical attacks only." },
+            { name: "Randomized Name", job: "Mimic", quantity: 3, notes: "Respawns when defeated, so fighting them is usually wasted effort." },
+            { name: "Randomized Name", job: "Magick Pot", quantity: 1, notes: "Occupies the corner while you search the six key spots." },
         ],
         battlefield: [
             "The key is hidden in one of six sparkling spots.",

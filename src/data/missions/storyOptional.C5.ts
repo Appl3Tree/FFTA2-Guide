@@ -27,12 +27,13 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Swimming – Entering a water tile is forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Geomancer", quantity: 3, notes: "PRIORITY: Use rain-enhanced water spells. Eliminate quickly with Fusiliers or ranged units." },
-        { name: "Randomized Name", job: "Wendigo", quantity: 1, notes: "Melee bruiser — use melee units to handle." },
-        { name: "Randomized Name", job: "Nagaraja", quantity: 1, notes: "Melee monster — use melee units to handle." },
+        { name: "Randomized Name", job: "Geomancer", quantity: 3, notes: "Rain gives them access to a strong water attack; they can also inflict status effects such as Immobilize and Disable." },
+        { name: "Randomized Name", job: "Wendigo", quantity: 1, notes: "Physically strong; magick is especially useful against it." },
+        { name: "Randomized Name", job: "Nagaraja", quantity: 1, notes: "Physically strong monster." },
     ],
         strategy: [
-            "Stay off water tiles. Kill Geomancers first with Fusiliers or ranged attackers — they use water spells in the rain.",
+            "Stay out of water to preserve the law bonus. Expect the rain to make the Geomancers' water attack more dangerous.",
+            "Bring a strong melee attacker for the Wendigo and Nagaraja, with magick support for the Wendigo and status recovery for Immobilize/Disable.",
         ],
         rewards: {
             gil: 4080,
@@ -55,6 +56,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Wanted: Sky Pirate Vaan; visit Graszton",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -64,13 +66,14 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Reaction Abilities – Reaction Abilities are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Geomancer", quantity: 2, notes: "Have Shining Flare, Nature's Embrace, and Artifice's Embrace. Priority targets." },
-        { name: "Randomized Name", job: "Geomancer", quantity: 1, notes: "Has Shining Flare and Nature's Embrace (default loadout)." },
-        { name: "Randomized Name", job: "Hellhound", quantity: 1, notes: "Has Shadowy Blow and standard abilities." },
-        { name: "Randomized Name", job: "Nidhogg", quantity: 1, notes: "Uses Fire and Lightning breath attacks." },
+        { name: "Randomized Name", job: "Geomancer", quantity: 3, notes: "Terrain-based attacks can cause Slow and deal heavy damage; Disable is useful if you can land it." },
+        { name: "Randomized Name", job: "Hellhound", quantity: 1, notes: "Easiest enemy in the group; the guide recommends killing it first." },
+        { name: "Randomized Name", job: "Nidhogg", quantity: 1, notes: "High HP and powerful attacks that become worse after Dragon Force; save it for last." },
     ],
         strategy: [
-            "Target Geomancers first. Nidhogg uses Fire/Lightning — bring units resistant to those elements.",
+            "Pick off the Hellhound first because it is the easiest target.",
+            "Use Disable against Geomancers if available, and be ready for Slow and terrain-based damage.",
+            "Leave the Nidhogg for last unless it overextends; Dragon Force makes its already heavy attacks more dangerous.",
         ],
         rewards: {
             gil: 5460,
@@ -93,7 +96,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 3,
-        prerequisite: "The Storage Shed",
+        prerequisite: "A Request; The Storage Shed",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -110,7 +113,8 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         { name: "Randomized Name", job: "Headless", quantity: 1, notes: "Uses Quake, Bone Shatter, and Sunder Earth." },
     ],
         strategy: [
-            "4 Prima Donna units join as allies. Target the Deathscythe first to stop Doom — then Great Malboro to prevent mass debuffs.",
+            "Four Prima Donna members join as allies. Bring strong long-range attackers and magick users so you can clear monsters quickly while they support you.",
+            "Several monsters can inflict disruptive statuses, especially the Great Malboro and Deathscythe, so status protection and fast focus fire matter more than slow setup.",
         ],
         rewards: {
             gil: 8670,
@@ -133,6 +137,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
@@ -142,11 +147,12 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         objective: "Defeat all foes within four rounds!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Baknamy", quantity: 3, notes: "All-monster battle. Must be killed within 4 rounds (possibly 2 rounds at higher difficulty)." },
+        { name: "Randomized Name", job: "Baknamy", quantity: 3, notes: "Must be defeated within 4 rounds; some begin on rooftops around Moorabella." },
         { name: "Randomized Name", job: "Luchorpan", quantity: 1, notes: "All-monster battle." },
     ],
         strategy: [
-            "4-unit party only. Bring Hunters and Mages — no melee. Must defeat all in 4 rounds (possibly 2).",
+            "You have 4 rounds, and some enemies start out of reach on rooftops. Bring long-range attacks, magick, Tricksters, Fusiliers, or Aurablast-style coverage.",
+            "The Head Editor and Owner are present as allies, but they are mostly cleanup help if an enemy is already weak.",
             "Vary each unit's action to avoid Copycat law violations.",
         ],
         rewards: {
@@ -161,7 +167,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         id: "C5-05",
         arc: "C5",
         name: "Ravager",
-        description: "To Clan <Name>, Think you're all that? Prive it! I'm waiting in the Galleria Deep! Tigrina, Ravager",
+        description: "To Clan Gully, Think you're all that? Prove it! I'm waiting in the Galleria Deep! Tigrina, Ravager",
         rank: 44,
         region: "The Galleria Deep",
         fee: 500,
@@ -170,6 +176,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 4,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -179,13 +186,14 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         objective: "Speed Battle vs. Tigrina",
         law: "Forbidden: Targeting Distant Units – Actions targeting units two or more tiles away are forbidden.",
     enemies: [
-        { name: "Flowsand Lord", job: "Yowie", quantity: 1, notes: "Speed battle mark. ~1600 HP. Weak to Wind. Use Mirror Items (X Potion doubled) and Wind attacks to burst HP. Also contested by Tigrina's team." },
-        { name: "Randomized Name", job: "Pit Beast", quantity: 2, notes: "Guard the Flowsand Lord — eliminate or bypass." },
+        { name: "Flowsand Lord", job: "Yowie", quantity: 1, notes: "Speed battle mark at the bottom of the area. You must land the killing blow before Tigrina." },
+        { name: "Tigrina", job: "Ravager", quantity: 1, notes: "Solo rival; her attacks are strong even though she fights alone." },
+        { name: "Randomized Name", job: "Pit Beast", quantity: 2, notes: "Guard the route to the Flowsand Lord." },
     ],
         strategy: [
-            "4-unit party (your team) vs Tigrina's team (3 units) vs Yowie mark. Must land the killing blow.",
-            "Use 2 Seeqs with Mirror Items + X Potions to deal ~800 burst damage. Gria Raptors with Wind attacks are also effective.",
-            "Close-range only due to law — position units adjacent to mark before attacking.",
+            "You need the killing blow on the Flowsand Lord. Move quickly down the map while healing through both Pit Beasts and Tigrina's pressure.",
+            "Try to surround the pit around the mark so Tigrina cannot get a clean opening for the final hit.",
+            "Completing this speed battle unlocks the Ravager job.",
         ],
         rewards: {
             gil: 6720,
@@ -208,6 +216,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 5,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 39,
             aptitude: 0,
@@ -227,6 +236,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
             "Assassin is the first priority because she can threaten the Devotee from range, followed by the Ninja and then the Parivir.",
             "The Ranger and Berserker are much weaker than the main trio and can be cleaned up after the dangerous enemies are controlled.",
             "Avoid Lightning entirely and protect the Devotee with intercepting tanks or high-speed attackers.",
+            "Completing this mission unlocks the Lanista job.",
         ],
         rewards: {
             gil: 3050,
@@ -249,6 +259,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 4,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
@@ -269,7 +280,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         rewards: {
             gil: 6620,
             cp: 82,
-            loot: ""
+            loot: "Orichalcum ×1"
         },
         notes: "",
         tags: ["optional", "timed"]
@@ -278,7 +289,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         id: "C5-13",
         arc: "C5",
         name: "A Lasting Peace",
-        description: "Clan <Name>, I wish to speak with you. Would you meet me at the Moorabella Aerodrome? Alys",
+        description: "Clan Gully, I wish to speak with you. Would you meet me at the Moorabella Aerodrome? Alys",
         rank: 20,
         region: "Moorabella",
         fee: 300,
@@ -320,7 +331,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         canDispatch: false,
         canCancel: false,
         members: 6,
-        prerequisite: "Bringer of Doom; Adelle mastered Hilo; read A New Path at the pub",
+        prerequisite: "Bringer of Doom; Adelle mastered Hilo; read the A New Path! notice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -330,17 +341,17 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         objective: "Get the Treasure!",
         law: "Forbidden: Targeting Self – Actions targeting the user are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Lamashtu", quantity: 1, notes: "Most dangerous monster in the encounter. Prioritize it before opening the route to the chest." },
+        { name: "Randomized Name", job: "Lamashtu", quantity: 1, notes: "Most dangerous monster; Eternal Sleep can inflict Sleep/Doom across the area and Kiss can Charm allies." },
         { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "Monster support enemy." },
         { name: "Randomized Name", job: "Bomb", quantity: 1, notes: "Monster support enemy." },
-        { name: "Randomized Name", job: "Golem", quantity: 2, notes: "Durable monster support enemies." },
+        { name: "Randomized Name", job: "Golem", quantity: 2, notes: "Durable monster support enemies; Helmsplitter can destroy equipment." },
     ],
         battlefield: [
             "Treasure chest objective. Defeat the monsters, then open the chest to complete the mission.",
         ],
         strategy: [
-            "Bring monster-killer tools such as Sidewinder and strong magick; all enemies are monsters.",
-            "Handle the Lamashtu first, then clear the support monsters and open the chest.",
+            "Bring ranged attackers or attack magick so status effects do not stall your approach.",
+            "Handle the Lamashtu first, then clear the support monsters. You cannot open the lone center chest until every enemy is defeated.",
             "Completing the mission teaches Adelle the Adelaide Heritor ability.",
         ],
         rewards: {

@@ -412,17 +412,17 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Death March II",
+        prerequisite: "The Dig; Death March, III; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
             teamwork: 0,
             adaptability: 44,
         },
-        dispatchRecommended: ["White Monk"],
+        dispatchRecommended: ["Berserker", "White Monk"],
         enemies: [],
         strategy: [
-            "Send a White Monk as the reliable petitioner match; Berserker or Gladiator may also work, but White Monk is always accepted.",
+            "Dispatch a Berserker or White Monk; the petitioner wants a combatant who can fight without relying on magick or weapons.",
         ],
         rewards: {
             gil: 5520,
@@ -537,13 +537,10 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Hume. Leg Shot and Arm Shot pressure." },
             { name: "Randomized Name", job: "Fusilier", quantity: 1, notes: "Moogle. Confuse, Blind, and Silence shots." },
         ],
-        battlefield: [
-            "The battlefield contains trap tiles.",
-        ],
         strategy: [
             "Ranged weapons are banned, so answer their range with magick, long-reach job skills, and careful advances.",
             "Defeat the Sniper and Cannoneer early, then remove Fusilier and Flintlock support before finishing Gaitsnipe.",
-            "Carry a healer and watch trap tiles while closing the gap.",
+            "Carry a healer while closing the gap against the all-ranged enemy crew.",
         ],
         rewards: {
             gil: 5410,
@@ -582,12 +579,11 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         ],
         battlefield: [
             "Seven gemstone sparkle spots must be collected.",
-            "Several gemstones are guarded by traps.",
             "New enemies appear every round until the gemstones are recovered.",
         ],
         strategy: [
             "Winning requires collecting all seven gemstones, not defeating the enemy force.",
-            "Use a White Mage or other recovery support for trap damage and Slow, but prioritize movement and collection over farming.",
+            "Use a White Mage or other recovery support for Slow, but prioritize movement and collection over farming.",
             "If enemies block safe paths, remove the Beastmaster and nearby Yellow Jellies before resuming collection.",
         ],
         rewards: {

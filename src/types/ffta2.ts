@@ -312,6 +312,7 @@ export interface ClanTrial {
     requiredTalents: string;
     lawRequirement: "Must obey" | "Can break if needed" | "Unknown";
     challenge: string;
+    privilegePathNote: string;
     titles: ClanTrialTitle[];
     notes: string[];
     completionTips: string[];

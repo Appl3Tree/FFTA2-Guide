@@ -17,6 +17,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: false,
         canCancel: false,
         members: 6,
+        prerequisite: "You Say Tomato; visit Camoa",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -55,6 +56,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 3,
+        prerequisite: "You Say Tomato; read Klesta Comes and Headhunter Friese notices",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -95,7 +97,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "It's a Trap",
+        prerequisite: "Grounded!; It's a Trap!; visit Fluorgis",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,
@@ -113,7 +115,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         strategy: [
             "Destroy every trap within 3 rounds; enemies all have Avoid Traps, so they cannot be used to trigger the objective for you.",
             "Bring a Ranger or other high-mobility trap clearer and spend early turns on the traps instead of trying to wipe the field.",
-            "Avoid all-unit targeting because of the law. If the Tonberry reaches you, disable or delay it long enough to finish the trap route.",
+            "Yellow traps Silence, green traps deal 10 HP damage, blue traps halve current HP, and purple traps Charm; avoid all-unit targeting because of the law.",
         ],
         rewards: {
             gil: 4830,
@@ -136,6 +138,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Wanted: Gilmunto",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -167,6 +170,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: false,
         canCancel: false,
         members: 6,
+        prerequisite: "Wanted: Ugohr; visit Graszton",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -206,6 +210,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Wanted: Gilmunto",
         requiredTalents: {
             negotiation: 8,
             aptitude: 0,
@@ -214,8 +219,10 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         },
         dispatchRecommended: ["Ranger"],
         objective: "Destroy all the Traps!",
+        law: "Forbidden: Targeting All Units - Actions targeting all units at once are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Baknamy", quantity: 4, notes: "All have Avoid Traps passive. Kill enemies first, then activate/destroy all trap tiles to complete." },
+        { name: "Randomized Name", job: "Baknamy", quantity: 3, notes: "Enemy group guarding the traps; simple enough to clear before trap cleanup." },
+        { name: "Randomized Name", job: "Luchorpan", quantity: 1, notes: "Stronger Baknamy variant guarding the trap field." },
     ],
         strategy: [
             "Defeat the Baknamy first, then destroy or activate every trap tile to complete the request.",
@@ -243,7 +250,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Wanted: Gilmunto",
+        prerequisite: "Wanted: Gilmunto; read Lang Means Trouble notice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -253,16 +260,16 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         objective: "Defeat the Lang Brothers!",
         law: "Forbidden: Actions by Nu Mou – Nu Mou may only move and perform basic attacks.",
     enemies: [
-        { name: "Lang Bro", job: "Plague", quantity: 2, notes: "Targets. Can petrify units that face them. Weak to Holy. Priority targets — do not expose your back to them." },
-        { name: "Randomized Name", job: "Bloody Orb", quantity: 3, notes: "Dangerous and fast. Weak to Holy. Fight off en route to the Plagues." },
-    ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
+        { name: "Lang Brother", job: "Fighter", quantity: 1, notes: "Eldest brother and main threat; Air Render makes him the priority target." },
+        { name: "Lang Brother", job: "Thief", quantity: 1, notes: "Knife-fighter support." },
+        { name: "Lang Brother", job: "Archer", quantity: 1, notes: "Ranged brother." },
+        { name: "Lang Brother", job: "Black Mage", quantity: 1, notes: "Magick brother, but only uses low-level magicks in the guide's assessment." },
         ],
         strategy: [
-            "Defeat both Lang Brothers, the two Plagues, while keeping your units' backs turned away from their petrifying gaze.",
+            "Defeat the four Lang Brothers: Fighter, Thief, Archer, and Black Mage.",
+            "Focus the Fighter first because Air Render is the only major threat called out in the guide.",
             "Nu Mou are restricted to movement and basic attacks; leave them out unless you only need simple attacks from them.",
-            "Use Holy damage on the Plagues and clear Bloody Orbs when they block access or threaten fast KOs.",
+            "The Black Mage only has low-level magicks, so clean up the remaining brothers after the Fighter falls.",
         ],
         rewards: {
             gil: 3380,
@@ -285,6 +292,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Now That's a Fire!; complete an auction",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -316,6 +324,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: false,
         canCancel: false,
         members: 6,
+        prerequisite: "Wanted: Gilmunto",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -354,7 +363,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
-        prerequisite: "Books of Magick",
+        prerequisite: "The Dig; Books of Magick; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -386,6 +395,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Now That's a Fire!; complete an auction",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -418,6 +428,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Now That's a Fire!; complete an auction",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -427,6 +438,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
     enemies: [],
         strategy: [
             "Non-combat mission — donate Gil (minimum 100) to Carm Mercantile to complete.",
+            "Cumulative donation rewards unlock at 10000 Gil intervals from Elixir through Ribbon, with Ribbon at 80000 Gil.",
         ],
         rewards: {
             gil: 0,
@@ -449,6 +461,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         canDispatch: false,
         canCancel: false,
         members: 6,
+        prerequisite: "Now That's a Fire!; complete an auction",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,

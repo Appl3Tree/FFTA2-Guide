@@ -271,8 +271,9 @@ export default function BazaarPanel() {
                         Bazaar Recipes
                     </h3>
                     <p className="text-[0.8rem] text-zinc-400">
-                        See which loot unlocks which equipment, with full stats
-                        and teaches pulled from the equipment data.
+                        See which loot unlocks shop equipment, then buy the item
+                        from the shop. Some one-stock items must be crafted again
+                        for extra copies.
                     </p>
                 </div>
 
@@ -673,4 +674,3 @@ export default function BazaarPanel() {
         </div>
     );
 }
-

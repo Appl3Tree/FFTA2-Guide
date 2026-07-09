@@ -17,6 +17,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Now That's a Fire!; read The Bonga Bugle notice; Goldsun",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -27,9 +28,8 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         law: "Forbidden: Attack – Attacking is Forbidden",
         enemies: [],
         strategy: [
-            "No combat — search the map for 3 buried treasures in shining sparkle tiles. No time limit.",
-            "1-person mission (Luso only). Cannot attack anyone. Simply examine the sparkle tiles on the map.",
-            "Use the Treasure Detector and prioritize large or very large treasures when possible.",
+            "Use the Treasure Detector while moving around the field. When you stand on a treasure site, the detector option appears.",
+            "You may skip small finds and dig up larger treasures instead. The quest ends after you dig up three treasures.",
         ],
         rewards: {
             gil: 1750,
@@ -52,6 +52,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Wanted: Ugohr; read The Bonga Bugle notice; Silversun",
         requiredTalents: {
             negotiation: 7,
             aptitude: 0,
@@ -61,12 +62,12 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         objective: "Defend the Head Editor and defeat all Foes!",
         law: "Forbidden: Copycat – Using the same action as the preceding unit is forbidden.",
         enemies: [
-            { name: "Randomized Name", job: "Deathscythe", quantity: 3, notes: "Undead — use Cure/Holy. Endless reinforcements; as one is killed another appears. 5 enemies on field at once total." },
-            { name: "Randomized Name", job: "Ghost", quantity: 2, notes: "Undead — use Exorcise/Holy. Reinforcements spawn to keep field at 5." },
+            { name: "Randomized Name", job: "Deathscythe", quantity: 1, notes: "Undead threat around the Head Editor." },
+            { name: "Randomized Name", job: "Ghost", quantity: 1, notes: "Undead threat around the Head Editor." },
         ],
         strategy: [
-            "5 enemies always on field — endless reinforcements. Must protect the Head Editor.",
-            "All undead — use Cure magick as an attack. Vary actions each turn to avoid Copycat law.",
+            "Protect the Head Editor while clearing the undead.",
+            "Black Magick works well, and recovery items or Cure spells can damage undead. Vary actions each turn to avoid Copycat law.",
             "After reducing undead to 0 HP, use Phoenix Down, Burial, or Exorcise on the tombstone to stop revival.",
         ],
         rewards: {
@@ -90,6 +91,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Pearls in the Deep; read The Bonga Bugle notice; Ashleaf",
         requiredTalents: {
             negotiation: 11,
             aptitude: 0,
@@ -106,8 +108,9 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         ],
         strategy: [
             "Race mission — get your unit to the Galmia P.R. target before the rival Jylland Free Press does.",
-            "Use highest movement units. Consider disabling or killing the Geomancer and Time Mage so the rival group cannot damage you or accelerate itself.",
+            "Use highest movement units. Consider defeating the Time Mage so the rival group cannot Haste or Quicken itself.",
             "Move to the space directly in front of the Galmia P.R. Illusionist to claim the scoop.",
+            "Grab the nearby treasure by the Head Editor if you can; the guide identifies it as Brigand's Gloves.",
         ],
         rewards: {
             gil: 3890,
@@ -130,6 +133,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Wanted: Sky Pirate Vaan; read The Bonga Bugle notice; Mistleaf",
         requiredTalents: {
             negotiation: 33,
             aptitude: 0,
@@ -146,8 +150,8 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             { name: "Randomized Name", job: "Nidhogg", quantity: 1, notes: "Has Fireball, Fire Breath, Dragon Force, and Bonecrusher." },
         ],
         strategy: [
-            "Enemy level ~34. If your units are above ~38, the law will block your attacks on lower-level enemies.",
-            "Prioritize Deathscythe (Doom), then Malboro (Bad Breath). Nidhogg and Werewolf are physical threats.",
+            "Send melee attackers after the Nidhogg and Werewolf, and use ranged attacks against the status-heavy enemies.",
+            "The Head Editor may give a variable bonus weapon for fast completion, including Brilliant Theorbo or Nirvana.",
         ],
         rewards: {
             gil: 6970,
@@ -171,6 +175,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Sleepless Nights; read The Bonga Bugle notice; Coppersun",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -186,8 +191,8 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Has Steal Gil, Rend MP, and Rend Speed." },
         ],
         strategy: [
-            "Answer the Prima Donna interview by picking the supportive fan option, then travel to Fluorgis for the battle.",
-            "3-unit party only, with Prima Donna allies helping. Head Editor has Critical: Vanish, but still protect him.",
+            "Answer the Prima Donna interview by picking the last option, then travel to Fluorgis for the battle.",
+            "Prima Donna allies help, but you still fail if the Head Editor falls.",
             "Remove whichever enemy is pressuring the Head Editor first: the Archer and Hunter threaten from range, while the Blue Mage brings White Wind and Bad Breath.",
         ],
         rewards: {
@@ -212,6 +217,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "A Request; read The Bonga Bugle notice; Emberleaf",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -224,8 +230,8 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             { name: "Randomized Name", job: "Randomized Clan", quantity: 6, notes: "Random enemy clan at a random location. Composition varies — adapt strategy based on what you face." },
         ],
         strategy: [
-            "Select 'wolves' at the interview to begin. Then travel to the randomly assigned location.",
-            "Protect the Head Editor. Enemy clan composition is random — use fast physical units against magic-heavy clans and vice versa.",
+            "Pick the third interview option, the wolf-howling answer, then travel to the assigned reporting location.",
+            "Protect the Head Editor against a random rival clan. Prepare as you would for a normal clan fight and keep healing available.",
         ],
         rewards: {
             gil: 7280,
@@ -249,6 +255,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Wanted: Gilmunto; read The Bonga Bugle notice; Rosefire",
         requiredTalents: {
             negotiation: 8,
             aptitude: 0,
@@ -258,14 +265,11 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         objective: "Place 5 pots on the tree stumps!",
         law: "Forbidden: Piercing Weapons – Attacks with rapiers and spears are forbidden.",
         enemies: [
-            { name: "Randomized Name", job: "Sprite", quantity: 1, notes: "Can debuff — check abilities. Endless reinforcements spawn." },
-            { name: "Randomized Name", job: "Baknamy", quantity: 1, notes: "Can debuff — check abilities." },
-            { name: "Randomized Name", job: "Worgen", quantity: 1, notes: "Can debuff. Reinforcements appear as enemies are killed." },
-            { name: "Randomized Name", job: "Wolf", quantity: 1, notes: "Can debuff." },
+            { name: "Randomized Name", job: "Enemy", quantity: 1, notes: "Enemies are present and more arrive every few turns; the guide does not specify an exact roster." },
         ],
         strategy: [
-            "Enemies steal pots from tree stumps — kill enemies quickly to keep pots in place.",
-            "Endless reinforcements. Place all 5 pots on stumps as fast as possible — kill enemies that intercept.",
+            "Place all five pots on the tree stumps in the middle of the area.",
+            "More enemies arrive every few turns, so do not spend time clearing the map. Attack only enemies blocking pot placement.",
         ],
         rewards: {
             gil: 2730,
@@ -288,6 +292,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "A Request; read The Bonga Bugle notice; Plumfrost",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -303,10 +308,9 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             { name: "Randomized Name", job: "Worgen/Rocktitan/Tonberry", quantity: 0, notes: "Alternate Nazan Mines route uses Worgens, Rocktitan, and Tonberry instead of bombs." },
         ],
         strategy: [
-            "Interview answer: declare him 'the next owner of the Bonga Bugle'. The reporting battle can be in the Rupie Mountains, Fluorgis, or Nazan Mines.",
-            "Protect the Head Editor AND the Owner (Level 1) — both are near-instantly KO'd by any hit.",
-            "For the Fluorgis bomb route, bring Hunters and Ice/Water Magick. Eliminate Grenades first, keep Bombs away from protected units.",
-            "Bring 2 healers — any enemy attack is near-fatal to the protected units.",
+            "Interview answer: \"You'll be Owner next!\" The reporting battle can be in the Rupie Mountains, Fluorgis, or Nazan Mines.",
+            "Protect both the Head Editor and Owner. They may try to attack enemies, so be ready to heal quickly.",
+            "The possible fights are Chocobos in the Rupie Mountains, Bombs in Fluorgis, or Worgens/Rocktitan/Tonberry in Nazan Mines.",
         ],
         rewards: {
             gil: 7900,
@@ -330,6 +334,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "You Say Tomato; read The Bonga Bugle notice; Bloodfire",
         requiredTalents: {
             negotiation: 6,
             aptitude: 0,
@@ -363,6 +368,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Rumors Abound; read The Bonga Bugle notice; Greenfire",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -378,11 +384,8 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         ],
         strategy: [
             "Interview password is 'simply lovely', then travel to Fluorgis for the battle.",
-            "Use Confuse or Charm to make thieves attack each other. Long-range units (Fusiliers, Cannoneers, Illusionists) can kill before they steal.",
-            "Place traps in front of your frontline to slow enemy approach. Scions are effective here.",
-        ],
-        battlefield: [
-            "The battlefield contains trap tiles that pose hazards",
+            "Keep the thieves at bay so they cannot steal and break the law. Ranger traps such as Sten Needle, Fusiliers, and Tricksters help control the approach.",
+            "Elementalist Fire Whip is useful if it Disables enemies before they reach you.",
         ],
         rewards: {
             gil: 3030,
@@ -406,6 +409,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Grounded!; read The Bonga Bugle notice; Skyfrost",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -422,7 +426,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             { name: "Viera: White Mage", quantity: 1, job: "White Mage", notes: "Has Cure and Esuna." },
         ],
         strategy: [
-            "Interview answer: 'SMIRK'. Battle takes place in Ruins of Delgantua.",
+            "Interview answer: pick the last option, \"*smirk*\". Battle takes place in the Ruins of Delgantua.",
             "Protect the Head Editor. The Sniper is dangerous because Beso Toxico can inflict Doom, while the Assassin starts close enough to remove early.",
             "Buffs are forbidden — rely on raw stats. Bring a healer with Esuna to counter the heavy debuff pressure.",
         ],
@@ -448,6 +452,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 5,
+        prerequisite: "Mountain Watch; read The Bonga Bugle notice; Blackfrost",
         requiredTalents: {
             negotiation: 13,
             aptitude: 0,

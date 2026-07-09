@@ -17,7 +17,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 1,
-        prerequisite: "An Earnest Multitude",
+        prerequisite: "The Dig; An Earnest Multitude; visit any town",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
@@ -31,8 +31,9 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         { name: "Randomized Name", job: "Ranger", quantity: 1, notes: "Only encountered if handling the Goug leg manually instead of dispatching." },
     ],
         strategy: [
-            "MUST be dispatched — the 6-day time limit makes it physically impossible to visit all four locations manually. Dispatch any unit.",
-            "If attempted manually, the Goug stop begins with a small battle before the remaining three stops; the time limit still makes dispatch the practical route.",
+            "Accept this quest in Goug to save travel time. The first stop starts with a Viking and Ranger, but the guide says to wander for two rounds and do not attack them.",
+            "When prompted while impersonating him, answer with Marnot's name.",
+            "Dispatch units to the other three locations after the Goug event; the 6-day limit is too tight to finish all four stops manually.",
         ],
         rewards: {
             gil: 2930,
@@ -55,6 +56,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Wanted: Sky Pirate Vaan; visit Graszton",
         requiredTalents: {
             negotiation: 33,
             aptitude: 0,
@@ -73,6 +75,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
             "Collect all six machinery parts from the sparkling points around Goug.",
             "The law punishes hitting lower-level units, so either route around enemies or rely on reactions/status until you know targets are safe.",
             "Bombs and Grenade are the largest area-damage risk; avoid leaving them at critical HP where Self-Destruct can punish clumped units.",
+            "There is a rare Elixir treasure in the upper-right area if you can safely grab it before finishing the parts.",
         ],
         rewards: {
             gil: 7210,
@@ -95,6 +98,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 4,
+        prerequisite: "Sleepless Nights; The Bangaa Brotherhood; The Nu Mou Nobles; read The Rivalry of the Rupies notice; Blackfrost",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -136,6 +140,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 3,
+        prerequisite: "Wanted: Sky Pirate Vaan; complete The Bangaa of the Rupies three times; complete The Nu Mou of the Rupies three times; read Rupie Mountain Open? notice; visit Graszton",
         requiredTalents: {
             negotiation: 33,
             aptitude: 0,
@@ -147,12 +152,12 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
     enemies: [
         { name: "House Bowen: Ravager", job: "Ravager", quantity: 1, notes: "Heavy physical attacker from House Bowen. Keep it tied up after the Assassin and Illusionist are controlled." },
         { name: "House Bowen: Fighter", job: "Fighter", quantity: 1, notes: "Melee bruiser from House Bowen. Lower priority than the status and all-field threats." },
-        { name: "House Bowen: Assassin", job: "Assassin", quantity: 1, notes: "PRIORITY: Death attacks threaten Mocedad. Eliminate first." },
-        { name: "House Bowen: Illusionist", job: "Illusionist", quantity: 1, notes: "PRIORITY: AoE illusion magick hits all units. Eliminate quickly." },
+        { name: "House Bowen: Assassin", job: "Assassin", quantity: 1, notes: "Dangerous, but often a later target because Vanish makes her hard to pin down." },
+        { name: "House Bowen: Illusionist", job: "Illusionist", quantity: 1, notes: "Primary priority; the guide calls out its damaging abilities." },
     ],
         strategy: [
             "3-unit party. Mocedad (Cannoneer) and Madreth (Arcanist) join as protected allies, with a Nu Mou Time Mage also aiding the fight.",
-            "Eliminate the Assassin and Illusionist first. Heal Mocedad and Madreth whenever needed.",
+            "Eliminate the Illusionist first, then manage the rest of House Bowen while the Assassin's Vanish makes her difficult to finish early.",
             "Buffs are forbidden, so use positioning, disabling statuses, and direct recovery instead of Haste/Protect/Shell-style setup.",
         ],
         rewards: {
@@ -177,6 +182,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Komodo Departure",
         requiredTalents: {
             negotiation: 7,
             aptitude: 0,
@@ -186,14 +192,12 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         objective: "Defeat 10 Foes and keep them from the tree!",
         law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Antlion", quantity: 4, notes: "Endless reinforcements — as each is killed, another replaces it. Kill 10 total. One also joins mid-battle even without kills. Gang up to kill quickly." },
+        { name: "Randomized Name", job: "Antlion", quantity: 1, notes: "Part of the 10 total enemies that pour into the ring-shaped area; 5 or 6 are on-screen at a time." },
+        { name: "Randomized Name", job: "Pit Beast", quantity: 1, notes: "Stronger than the Antlions; Sandstorm can heal Pit Beasts while hurting your clan." },
     ],
         strategy: [
-            "Station a Counter unit adjacent to the tree to block enemies from touching it.",
-            "Focus multiple units on each Antlion — don't fight 1v1. Kill all 10 as fast as possible.",
-        ],
-        battlefield: [
-            "The map features elevation differences",
+            "Split your party in half and send each group around the ring to intercept enemies before they reach the tree.",
+            "Pit Beasts are the stronger threat because Sandstorm can heal them while damaging you. Kill 10 enemies total to finish.",
         ],
         rewards: {
             gil: 3280,
@@ -215,13 +219,13 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         questType: "Battle",
         canDispatch: false,
         canCancel: true,
-        members: 6,
-        prerequisite: "Bangaa of the Rupies",
+        members: 4,
+        prerequisite: "Sleepless Nights; The Bangaa Brotherhood; The Nu Mou Nobles; read The Rivalry of the Rupies notice; Coppersun",
         requiredTalents: {
             negotiation: 0,
-            aptitude: 20,
+            aptitude: 0,
             teamwork: 20,
-            adaptability: 0,
+            adaptability: 20,
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Items – Items are forbidden.",
@@ -233,10 +237,9 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         { name: "Bangaa Brotherhood: Gladiator", job: "Gladiator", quantity: 1, notes: "PRIORITY: Very high offensive power. Eliminate first." },
     ],
         strategy: [
-            "Your allies: Arcanist (leader — must not die), Illusionist, and White Mage.",
+            "You fight alongside the Nu Mou Nobles: Arcanist, White Mage, and Illusionist allies.",
             "Items are banned, so bring reliable magick or ability-based healing and status removal.",
-            "Focus on the Gladiator first, then shut down the Bishop and Cannoneer before cleaning up the monk units.",
-            "Keep the allied Arcanist alive; losing the allied leader fails the fight even if your own party is healthy.",
+            "Focus the Master Monk and Gladiator as the strongest attackers, then eliminate the Cannoneer quickly because of its long range.",
         ],
         rewards: {
             gil: 10640,
@@ -258,6 +261,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "The Forests of Loar; Mistleaf",
         requiredTalents: {
             negotiation: 1,
             aptitude: 0,
@@ -266,7 +270,8 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Delivery mission — bring logs from The Forests of Loar, Towns of Loar, or Lands of Loar. More logs = better bonus reward. Logs are removed from Clan Primer upon delivery.",
+            "Delivery mission: give Old Man Boiboi your Wayfarer's Log. Logs come from The Forests of Loar, The Lands of Loar, The Towns of Loar, The Seas of Ordalia, The Wonders of Ordalia, The Wonders of Loar, and The Forgotten Places.",
+            "Bonus reward scales with how many logs you have: 1 X-Potion, 2 Elixir, 3 Mythril, 4 Waterwyrd Crystal, 5 Eureka Crystal, 6 Grimoire Stone, and 7 Ribbon the first time only.",
         ],
         rewards: {
             gil: 140,
@@ -289,6 +294,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "A Request; visit any town; Silversun",
         requiredTalents: {
             negotiation: 44,
             aptitude: 0,
@@ -303,12 +309,12 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         strategy: [
             "Survive through four rounds while fighting off endlessly respawning Mimics.",
             "Keep every unit above 20 HP to preserve the law bonus; healing and positioning matter more than chasing every kill.",
-            "The Mimics can drop useful loot, but do not let farming distract from surviving the round timer.",
+            "The Mimics can drop useful loot. A unit with Faerie Shoes or a Gria can reach the upper-left rare treasure chest containing Madu.",
         ],
         rewards: {
             gil: 6220,
             cp: 58,
-            loot: "Magick Fruit ×1"
+            loot: "Clear Sap ×1, Magick Fruit ×1"
         },
         notes: "",
         tags: ["optional", "chain"]

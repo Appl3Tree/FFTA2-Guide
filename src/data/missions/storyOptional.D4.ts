@@ -17,6 +17,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 39,
             aptitude: 0,
@@ -30,8 +31,8 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
             { name: "Randomized Name", job: "Malboro King", quantity: 1, notes: "Boss Malboro. Same skills plus stronger attacks. Highest priority." },
         ],
         strategy: [
-            "Bring White Mage with Esuna — Bad Breath inflicts mass debuffs. Use Wind Magick and Hunters (Sidewinder) only.",
-            "No Fire at all (law). Prioritize the Malboro King, then the Malboros with Counter.",
+            "Keep your distance from the Malboro group to reduce exposure to long-range status attacks.",
+            "Fire is banned by the petitioner and the law, so use ranged attacks and non-fire damage to pick off the Malboros one by one.",
         ],
         rewards: {
             gil: 3980,
@@ -54,6 +55,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -65,13 +67,15 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         enemies: [
             { name: "Nezzel the Alchemist", job: "Alchemist", quantity: 1, notes: "Mark. Has Flare, Poison, Toad, and Items. Luso is required; Cid is not." },
             { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Has Fira, Thundara, Blizzara, Blizzaga." },
+            { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Support unit in Nezzel's group." },
             { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Has Slow and Stop — dangerous support. Priority." },
             { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Has Blind, Sleep, and Silence — priority debuffer." },
             { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Has Roundhouse and Air Render." },
         ],
         strategy: [
             "Luso is required. Check tile height on the bottom screen — cannot move to h10+ tiles.",
-            "Eliminate Time Mage and Green Mage first to prevent Slow/Stop/Silence debuffs. Then focus on Nezzel.",
+            "You only need to defeat Nezzel to win. The Alchemist is the biggest threat because Flare hits hard; the Black Mage is also dangerous but starts far enough away that you have time.",
+            "The other enemies can be defeated for extra loot, but do not lose sight of the mark objective.",
         ],
         rewards: {
             gil: 1960,
@@ -94,6 +98,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "A Request; visit any town",
         requiredTalents: {
             negotiation: 39,
             aptitude: 0,
@@ -103,10 +108,10 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         objective: "Find the Buried Treasure!",
         law: "Forbidden: Summoning Scions – Summoning Scions is forbidden.",
         enemies: [
-            { name: "Randomized Name", job: "Antlion", quantity: 2, notes: "Have Sandstorm, Saliva, Subsidence, and Bonecrusher." },
+            { name: "Randomized Name", job: "Pit Beast", quantity: 2, notes: "Can block routes while you check the treasure sparkles." },
             { name: "Randomized Name", job: "Brown Chocobo", quantity: 1, notes: "Has Choco Cure, Choco Beak, Choco Guard." },
             { name: "Randomized Name", job: "Yellow Jelly", quantity: 1, notes: "Has Merge, Acid, Thundara, and Geomancy — Geomancy is the most dangerous ability." },
-            { name: "Randomized Name", job: "Drake", quantity: 1, notes: "Has Lightning, Thunder Breath, Shockbolt." },
+            { name: "Randomized Name", job: "Thunder Drake", quantity: 1, notes: "Lightning-based attacks can heal lightning enemies and damage your clan." },
         ],
         strategy: [
             "Treasure is hidden in one of 6 sparkles on the battlefield. Examine all of them — first sparkle you find may be the treasure.",
@@ -134,11 +139,12 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Making Music; visit Moorabella",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
-            teamwork: 15,
-            adaptability: 15,
+            teamwork: 13,
+            adaptability: 13,
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Being Robbed – Having gil or items stolen is forbidden.",
@@ -171,7 +177,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "The Ritual; I Want to Forget; Gifted",
+        prerequisite: "The Ritual; I Want to Forget; Gifted side quest",
         requiredItems: ["Ether ×1"],
         requiredTalents: {
             negotiation: 0,
@@ -222,8 +228,8 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         ],
         strategy: [
             "The law blocks actions targeting units two or more tiles away, so plan for melee-range attacks and short-range support.",
-            "Bring water or ice damage if available, but avoid leaving bomb-family enemies at critical HP next to clustered allies.",
-            "Spread out before finishing weakened Bombs or the Grenade to reduce self-destruct/fire burst risk.",
+            "Bring water-based attacks if available. The enemies can inflict Oil and use fire attacks that heal themselves while hurting you.",
+            "Spread out before finishing weakened Bombs or the Grenade to reduce self-destruct fire damage.",
         ],
         rewards: {
             gil: 4610,

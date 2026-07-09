@@ -10,7 +10,7 @@ export const CLAN_TRIAL_GUIDE: ClanTrialGuideSection[] = [
     {
         id: "what-they-are",
         title: "What Clan Trials actually are",
-        body: "Clan Trials are pub-side challenge battles paid for with Clan Points instead of gil. They are separate from normal quests: you pick a trial, choose one of its five title tiers, clear that title's objective, and receive the listed clan title, talent shifts, possible discount, rank progress, and privilege reward.",
+        body: "Clan Trials are pub-side challenge battles paid for with Clan Points instead of gil. They are separate from normal quests: you pick a trial, choose one of its five title tiers, talk to the judge at the trial site, clear that judge's challenge, and receive the listed clan title, talent shifts, possible discount, rank progress, and privilege reward.",
         bullets: [
             "Only one clan privilege can be selected at the start of a judge-led battle.",
             "If the judge leaves because you break the law, the active privilege shuts off with the rest of judge support.",
@@ -21,12 +21,15 @@ export const CLAN_TRIAL_GUIDE: ClanTrialGuideSection[] = [
     {
         id: "title-system",
         title: "Titles, ranks, and why repeats matter",
-        body: "Each trial offers five titles. Higher titles usually mean tighter round limits, more enemies, or harsher conditions, and each title has its own talent shift, clan rank, discount, and privilege reward. Clan rank does not stack from repeated trials; it tracks the highest-ranked title you have earned.",
+        body: "Each trial offers five title tiers. Higher tiers usually mean tighter round limits, more enemies, or harsher conditions, and each title has its own talent shift, clan rank, discount, and privilege line. The printed privilege row matters, but upgradeable privileges are sequential: clearing one high row does not grant every lower tier or every lower row's reward.",
         bullets: [
-            "A title grants its listed reward, not every reward from lower titles in the same trial.",
-            "Repeat or step through lower titles when you want their specific privileges, talent shifts, or discounts.",
-            "Your clan rank stays at your highest completed title rank until you earn a higher one.",
-            "Master Adventurers from General Training II is the highest rank target in the trial ladder.",
+            "Some trial families only place upgrade rewards on certain rows; hybrid trials can place meaningful privilege rewards on every difficulty.",
+            "If you have no Power privilege, clearing Dab Hands does not instantly give Power 3; it starts you at Power 1.",
+            "To build a privilege to its printed tier, repeat or step through eligible rows until the privilege has advanced one tier at a time.",
+            "Do not clear only the hardest difficulty once and assume the lower titles, discounts, or lower privilege rewards are also complete.",
+            "A title grants its own talent/rank/discount row, but upgradeable privileges advance one step at a time.",
+            "Clan titles can be replaced as your visible name, but earned benefits stay stacked.",
+            "Clan rank tracks the highest-ranked title you have earned; repeated lower clears do not lower it.",
         ],
     },
     {
@@ -120,7 +123,7 @@ export const CLAN_TRIAL_PRIORITIES: ClanTrialPriority[] = [
     {
         id: "caster-tools",
         title: "MP tools change caster pacing",
-        why: "MP Channeling and MP Efficiency make high-cost magic and summon-heavy teams much smoother, especially in longer fights where waiting for MP would otherwise slow everything down.",
+        why: "MP Channeling and MP Efficiency/Preservation make high-cost magic and summon-heavy teams much smoother, especially in longer fights where waiting for MP would otherwise slow everything down.",
         trial: "Aptitude-Adaptability / Teamwork-Aptitude",
     },
     {
@@ -143,12 +146,13 @@ export const CLAN_TRIALS: ClanTrial[] = [
         requiredTalents: "Adaptability 1",
         lawRequirement: "Must obey",
         challenge: "Use the Experiment command on Red Marshmallows. Watch the enemy's tell, then pick the matching command to make it flee. Clear every target before the round limit.",
+        privilegePathNote: "Efficient route: clear Scouts once for Empowered Moogles, then run Mimics twice if you can clear it reliably; each Mimics clear advances Agility one tier and gives the stronger Adaptability gain. Use Surveyors as the safer stepping-stone when Mimics is too tight, then return to Mimics later.",
         titles: [
             { title: "Scouts", clanRank: 6, talents: "Adaptability +4, Teamwork -3", privilege: "Empowered Moogles", discount: "None", objective: "Defeat 1 enemy in 4 rounds." },
             { title: "Observers", clanRank: 12, talents: "Adaptability +7, Teamwork -4", privilege: "None", discount: "None", objective: "Defeat 1 enemy in 3 rounds." },
             { title: "Surveyors", clanRank: 18, talents: "Adaptability +10, Teamwork -5", privilege: "Agility 2", discount: "None", objective: "Defeat 2 enemies in 4 rounds." },
             { title: "Imitators", clanRank: 24, talents: "Adaptability +13, Teamwork -6", privilege: "None", discount: "None", objective: "Defeat 2 enemies in 3 rounds." },
-            { title: "Mimics", clanRank: 30, talents: "Adaptability +16, Teamwork -7", privilege: "Agility 3", discount: "None", objective: "Defeat 3 enemies in 3 rounds." },
+            { title: "Mimics", clanRank: 30, talents: "Adaptability +14, Teamwork -7", privilege: "Agility 3", discount: "None", objective: "Defeat 3 enemies in 3 rounds." },
         ],
         notes: [
             "Red Marshmallow tells: spin and jump = Threaten; flop backward / hands-up motion = Surprise; spin in place = Stare.",
@@ -171,6 +175,7 @@ export const CLAN_TRIALS: ClanTrial[] = [
         requiredTalents: "Adaptability 20",
         lawRequirement: "Must obey",
         challenge: "Use Experiment tells against Red Marshmallows, Ice Flans, and Yellow Jellies. Each monster type has its own tells and commands.",
+        privilegePathNote: "Efficient route: clear Contrivers once for Libra, then run Master Improvisers repeatedly if you can handle the two-round, three-enemy version; it advances missing Agility tiers while giving the best title row here. Use Trailblazers as the safer upgrade step when Master Improvisers is not consistent yet.",
         titles: [
             { title: "Contrivers", clanRank: 36, talents: "Adaptability +19, Teamwork -8", privilege: "Libra", discount: "-2%", objective: "Defeat 1 enemy in 4 rounds." },
             { title: "Survivalists", clanRank: 42, talents: "Adaptability +22, Teamwork -9", privilege: "None", discount: "-4%", objective: "Defeat 1 enemy in 3 rounds." },
@@ -200,10 +205,11 @@ export const CLAN_TRIALS: ClanTrial[] = [
         requiredTalents: "Negotiation 10, Adaptability 10",
         lawRequirement: "Must obey",
         challenge: "Survive Cockatrices under Harming the Weak. If your units outlevel them, direct attacks can violate the law, so either kill only when legal or bunker down and endure the required turns.",
+        privilegePathNote: "Efficient route: target the highest row whose reward you currently want and can clear. Master Intercessors is the unique Non-Elemental Attacks pickup, Catalysts is the best Bonus Gil row, and Outriders is the Debuff Resistance row; lower gil rows are mainly safer steps or completion checks.",
         titles: [
             { title: "Followers", clanRank: 12, talents: "Adaptability +7, Aptitude -3, Negotiation +5, Teamwork -4", privilege: "Bonus Gil 1", discount: "-1%", objective: "Survive 2 rounds against 4 monsters." },
             { title: "Compromisers", clanRank: 24, talents: "Adaptability +13, Aptitude -4, Negotiation +11, Teamwork -6", privilege: "Bonus Gil 2", discount: "-2%", objective: "Survive 2 rounds against 6 monsters." },
-            { title: "Outriders", clanRank: 36, talents: "Adaptability +19, Aptitude -5, Negotiation +17, Teamwork -8", privilege: "Debuff Resistance 1", discount: "-3%", objective: "Survive 3 rounds against 6 monsters." },
+            { title: "Outriders", clanRank: 36, talents: "Adaptability +19, Aptitude -5, Negotiation +17, Teamwork -8", privilege: "Debuff Resistance 1-3 path", discount: "-3%", objective: "Survive 3 rounds against 6 monsters." },
             { title: "Catalysts", clanRank: 48, talents: "Adaptability +25, Aptitude -6, Negotiation +23, Teamwork -10", privilege: "Bonus Gil 3", discount: "-4%", objective: "Survive 3 rounds against 6 monsters." },
             { title: "Master Intercessors", clanRank: 60, talents: "Adaptability +31, Aptitude -7, Negotiation +29, Teamwork -12", privilege: "Non-Elemental Attacks", discount: "-5%", objective: "Survive 3 rounds against 6 monsters." },
         ],
@@ -229,11 +235,12 @@ export const CLAN_TRIALS: ClanTrial[] = [
         requiredTalents: "Aptitude 1",
         lawRequirement: "Unknown",
         challenge: "The judge places barrels around the field. Examine the winning barrel before the round limit. You only have three units, so routing matters.",
+        privilegePathNote: "Efficient route: clear Grease Monkeys once for Empowered Bangaa, then run Dab Hands twice if the two-round barrel search is reliable; each Dab Hands clear advances Power one tier and gives the best Aptitude gain. Use Machinists as the safer upgrade step when Dab Hands is too luck-tight.",
         titles: [
-            { title: "Grease Monkeys", clanRank: 6, talents: "Aptitude +4, Negotiation -3", privilege: "Empowered Bangaa", discount: "None", objective: "Find the winning barrel among 4 barrels in 4 rounds." },
-            { title: "Apprentices", clanRank: 12, talents: "Aptitude +7, Negotiation -4", privilege: "None", discount: "None", objective: "Find the winning barrel among 4 barrels in 3 rounds." },
-            { title: "Machinists", clanRank: 18, talents: "Aptitude +10, Negotiation -5", privilege: "Power 2", discount: "None", objective: "Find the winning barrel among 6 barrels in 4 rounds." },
-            { title: "Technicians", clanRank: 24, talents: "Aptitude +13, Negotiation -6", privilege: "None", discount: "None", objective: "Find the winning barrel among 6 barrels in 3 rounds." },
+            { title: "Grease Monkeys", clanRank: 6, talents: "Aptitude +4, Negotiation -3", privilege: "Empowered Bangaa", discount: "None", objective: "Find the winning barrel among 4 barrels in 3 rounds." },
+            { title: "Apprentices", clanRank: 12, talents: "Aptitude +7, Negotiation -4", privilege: "None", discount: "None", objective: "Find the winning barrel among 4 barrels in 4 rounds." },
+            { title: "Machinists", clanRank: 18, talents: "Aptitude +10, Negotiation -5", privilege: "Power 2", discount: "None", objective: "Find the winning barrel among 6 barrels in 3 rounds." },
+            { title: "Technicians", clanRank: 24, talents: "Aptitude +13, Negotiation -6", privilege: "None", discount: "None", objective: "Find the winning barrel among 6 barrels in 4 rounds." },
             { title: "Dab Hands", clanRank: 30, talents: "Aptitude +16, Negotiation -7", privilege: "Power 3", discount: "None", objective: "Find the winning barrel among 6 barrels in 2 rounds." },
         ],
         notes: [
@@ -262,9 +269,10 @@ export const CLAN_TRIALS: ClanTrial[] = [
             { title: "Craftsmen", clanRank: 36, talents: "Aptitude +19, Negotiation -8", privilege: "Empowered Seeq", discount: "-1%", objective: "Find the winning barrel among 4 barrels with 2 Bombs in 3 rounds." },
             { title: "Smiths", clanRank: 42, talents: "Aptitude +22, Negotiation -9", privilege: "None", discount: "-2%", objective: "Find the winning barrel among 4 barrels with 3 Bombs in 4 rounds." },
             { title: "Wrights", clanRank: 48, talents: "Aptitude +25, Negotiation -10", privilege: "Power 4", discount: "-3%", objective: "Find the winning barrel among 6 barrels with 4 Bombs in 3 rounds." },
-            { title: "Artisans", clanRank: 54, talents: "Aptitude +28, Negotiation -11", privilege: "None", discount: "-4%", objective: "Find the winning barrel among 6 barrels with 5 Bombs in 3 rounds." },
-            { title: "Master Artificers", clanRank: 60, talents: "Aptitude +31, Negotiation -12", privilege: "Power 5", discount: "-5%", objective: "Find the winning barrel among 6 barrels with 5 Bombs in 2 rounds." },
+            { title: "Artisans", clanRank: 54, talents: "Aptitude +28, Negotiation -11", privilege: "None", discount: "-4%", objective: "Find the winning barrel among 6 barrels with 2 Bombs in 4 rounds." },
+            { title: "Master Artificers", clanRank: 60, talents: "Aptitude +31, Negotiation -12", privilege: "Power 5", discount: "-5%", objective: "Find the winning barrel among 6 barrels with 2 Bombs in 2 rounds." },
         ],
+        privilegePathNote: "Efficient route: clear Craftsmen once for Empowered Seeq, then run Master Artificers repeatedly if you can manage the two-round barrel search; it fills missing Power tiers while giving the best Aptitude gain. Use Wrights as the safer Power 4 step when Master Artificers is not reliable yet.",
         notes: [
             "The Bombs are interference, not the win condition.",
             "The Ice law exists because the enemies are Bombs; it does not mean you should spend turns fighting them.",
@@ -273,7 +281,7 @@ export const CLAN_TRIALS: ClanTrial[] = [
         completionTips: [
             "Ignore Bombs unless they body-block an examine route or will KO a runner.",
             "Spread your four units across the barrel field immediately instead of grouping for combat.",
-            "For Master Artificers, reset bad barrel luck; five enemies plus six barrels in two turns leaves little room for recovery.",
+            "For Master Artificers, reset bad barrel luck; six barrels in two turns leaves little room for recovery even with only two Bombs interfering.",
         ],
     },
     {
@@ -284,9 +292,10 @@ export const CLAN_TRIALS: ClanTrial[] = [
         location: "The Galleria Deep",
         days: 20,
         price: "10 CP",
-        requiredTalents: "Teamwork 10, Aptitude 10",
+        requiredTalents: "Aptitude 10, Adaptability 10",
         lawRequirement: "Unknown",
         challenge: "Examine all shifting lights while enemies occupy the field. Each examined light moves the remaining lights, so map coverage matters more than kills.",
+        privilegePathNote: "Efficient route: clear the highest row tied to the utility you want. Master Explorers is the MP Channeling pickup, Voyagers is the strongest Smash Gauge Bonus row, and Travelers is the Debuff Resistance 1 row; lower Smash Gauge rows are safer steps or completion checks if Voyagers is too hard.",
         titles: [
             { title: "Travelers", clanRank: 12, talents: "Adaptability +5, Aptitude +7, Negotiation -4, Teamwork -3", privilege: "Debuff Resistance 1", discount: "None", objective: "Examine 3 lights in 4 rounds with 3 enemies present." },
             { title: "Prospectors", clanRank: 24, talents: "Adaptability +11, Aptitude +13, Negotiation -6, Teamwork -4", privilege: "Smash Gauge Bonus 1", discount: "None", objective: "Examine 3 lights in 4 rounds with 3 enemies present." },
@@ -316,8 +325,9 @@ export const CLAN_TRIALS: ClanTrial[] = [
         days: 20,
         price: "10 CP",
         requiredTalents: "All talents 1",
-        lawRequirement: "Must obey",
+        lawRequirement: "Can break if needed",
         challenge: "Defeat Sprites within the listed round limit without missing. Area attacks help, but accuracy matters because the law is Missing.",
+        privilegePathNote: "Efficient route: clear Novices once for Empowered Humes if you want it, clear Journeymen once for Regen, and repeat Veterans for Bonus CP if you can clear the three-round Sprite fight. Use Trainees or Professionals as safer Bonus CP steps when Veterans is not consistent yet.",
         titles: [
             { title: "Novices", clanRank: 10, talents: "+4 to all", privilege: "Empowered Humes", discount: "-1%", objective: "Defeat 4 Sprites." },
             { title: "Trainees", clanRank: 20, talents: "+8 to all", privilege: "Bonus CP 1", discount: "-2%", objective: "Defeat 5 Sprites." },
@@ -348,15 +358,17 @@ export const CLAN_TRIALS: ClanTrial[] = [
         requiredTalents: "All talents 40",
         lawRequirement: "Can break if needed",
         challenge: "A Zaghnal starts on the field and reinforcements arrive later. The practical plan is to burst the Zaghnal down before reinforcements make the timer unwinnable.",
+        privilegePathNote: "Efficient route: clear the highest row tied to the reward you want and can actually finish. Master Adventurers is the best Move row and can be repeated to fill missing Move tiers, while Braves, Heroes, and Legends are separate Regenra, Regenga, and Debuff Resistance pickups.",
         titles: [
-            { title: "Adepts", clanRank: 60, talents: "+24 to all", privilege: "Move 1", discount: "-8%", objective: "Defeat all foes in 4 rounds; 1 reinforcement arrives after 3 rounds." },
-            { title: "Braves", clanRank: 70, talents: "+28 to all", privilege: "Regenra", discount: "-10%", objective: "Defeat all foes in 4 rounds; 2 reinforcements arrive after 3 rounds." },
-            { title: "Heroes", clanRank: 80, talents: "+32 to all", privilege: "Regenga", discount: "-12%", objective: "Defeat all foes in 4 rounds; 3 reinforcements arrive after 3 rounds." },
-            { title: "Legends", clanRank: 90, talents: "+36 to all", privilege: "Debuff Resistance 1", discount: "-14%", objective: "Defeat all foes in 3 rounds; 2 reinforcements arrive after 2 rounds." },
-            { title: "Master Adventurers", clanRank: 100, talents: "+40 to all", privilege: "Move 2", discount: "-20%", objective: "Defeat all foes in 3 rounds; 3 reinforcements arrive after 2 rounds." },
+            { title: "Adepts", clanRank: 60, talents: "+24 to all", privilege: "Move 1", discount: "-8%", objective: "Defeat 1 Zaghnal and 1 Deadly Nightshade in 4 rounds." },
+            { title: "Braves", clanRank: 70, talents: "+28 to all", privilege: "Regenra", discount: "-10%", objective: "Defeat 1 Zaghnal, 1 Ice Flan, and 1 Deadly Nightshade in 4 rounds." },
+            { title: "Heroes", clanRank: 80, talents: "+32 to all", privilege: "Regenga", discount: "-12%", objective: "Defeat 1 Zaghnal, 1 Floating Eye, 1 Ahriman, and 1 Deadly Nightshade in 4 rounds." },
+            { title: "Legends", clanRank: 90, talents: "+36 to all", privilege: "Debuff Resistance 1-5 path", discount: "-14%", objective: "Defeat 1 Zaghnal, 1 Werewolf, and 1 Tonberry in 3 rounds." },
+            { title: "Master Adventurers", clanRank: 100, talents: "+40 to all", privilege: "Move 2", discount: "-20%", objective: "Defeat 1 Zaghnal, 2 Werewolves, and 1 Tonberry in 3 rounds." },
         ],
         notes: [
             "Master Adventurers is the highest clan-rank target in the trial ladder.",
+            "The table lists the full enemy set for each title; the Zaghnal starts first, then reinforcements escalate by title.",
             "Trying to obey the >20 damage law makes this much harder than it needs to be.",
         ],
         completionTips: [
@@ -376,6 +388,7 @@ export const CLAN_TRIALS: ClanTrial[] = [
         requiredTalents: "Negotiation 1",
         lawRequirement: "Must obey",
         challenge: "Defeat Dreamhares while respecting the distant-targeting law. Illude can Charm your units, so remove targets before they disrupt positioning.",
+        privilegePathNote: "Efficient route: clear Hagglers once for Empowered Nu Mou, then run Orators twice if you can clear the three-round Dreamhare fight; each Orators clear advances Luck one tier and gives the best Negotiation gain. Use Barterers as the safer Luck step when Orators is too demanding.",
         titles: [
             { title: "Hagglers", clanRank: 6, talents: "Aptitude -3, Negotiation +3", privilege: "Empowered Nu Mou", discount: "-1%", objective: "Defeat 2 Dreamhares." },
             { title: "Intermediaries", clanRank: 12, talents: "Aptitude -4, Negotiation +6", privilege: "None", discount: "-2%", objective: "Defeat 3 Dreamhares." },
@@ -411,8 +424,9 @@ export const CLAN_TRIALS: ClanTrial[] = [
             { title: "Counselors", clanRank: 42, talents: "Aptitude -9, Negotiation +21", privilege: "None", discount: "-7%", objective: "Defeat 3 Deadly Nightshades." },
             { title: "Conciliators", clanRank: 48, talents: "Aptitude -10, Negotiation +24", privilege: "Luck 4", discount: "-8%", objective: "Defeat 4 Deadly Nightshades." },
             { title: "Arbiters", clanRank: 54, talents: "Aptitude -11, Negotiation +27", privilege: "None", discount: "-9%", objective: "Defeat 5 Deadly Nightshades in 4 rounds." },
-            { title: "Master Negotiators", clanRank: 60, talents: "Aptitude -12, Negotiation +30", privilege: "Luck 5", discount: "-10%", objective: "Defeat 6 Deadly Nightshades in 3 rounds." },
+            { title: "Master Negotiators", clanRank: 60, talents: "Aptitude -12, Negotiation +30", privilege: "Luck 6", discount: "-10%", objective: "Defeat 6 Deadly Nightshades in 3 rounds." },
         ],
+        privilegePathNote: "Efficient route: clear Mediators once for Safe Keeping, then repeat Master Negotiators for missing Luck tiers if you can handle the three-round, six-Nightshade fight. Use Conciliators as the safer Luck step when Master Negotiators is too risky.",
         notes: [
             "Safe Keeping is the reason to do the first title: it protects items from theft and destruction.",
             "Ending next to any unit breaks the challenge. That includes allies and enemies.",
@@ -436,11 +450,12 @@ export const CLAN_TRIALS: ClanTrial[] = [
         requiredTalents: "Negotiation 10, Teamwork 10",
         lawRequirement: "Must obey",
         challenge: "Defeat Tonberries without using MP. Ranged attacks and one- or two-hit kills help avoid Tonberry punishment.",
+        privilegePathNote: "Efficient route: repeat Advocates for Bonus AP if you can clear the three-round Tonberry fight; use Speakers or Lectors as safer AP steps when needed. Champions and Master Judicers are separate targets for Debuff Resistance and Always Counter, so clear those rows when those rewards are the goal.",
         titles: [
             { title: "Speakers", clanRank: 12, talents: "Adaptability -3, Aptitude -4, Negotiation +7, Teamwork +5", privilege: "Bonus AP 1", discount: "-2%", objective: "Defeat 2 Tonberries in 4 rounds." },
             { title: "Lectors", clanRank: 24, talents: "Adaptability -4, Aptitude -6, Negotiation +13, Teamwork +11", privilege: "Bonus AP 2", discount: "-4%", objective: "Defeat 3 Tonberries in 4 rounds." },
             { title: "Advocates", clanRank: 36, talents: "Adaptability -5, Aptitude -8, Negotiation +19, Teamwork +17", privilege: "Bonus AP 3", discount: "-6%", objective: "Defeat 2 Tonberries in 3 rounds." },
-            { title: "Champions", clanRank: 48, talents: "Adaptability -6, Aptitude -10, Negotiation +25, Teamwork +23", privilege: "Debuff Resistance 1", discount: "-8%", objective: "Defeat 3 Tonberries in 3 rounds." },
+            { title: "Champions", clanRank: 48, talents: "Adaptability -6, Aptitude -10, Negotiation +25, Teamwork +23", privilege: "Debuff Resistance 1-4 path", discount: "-8%", objective: "Defeat 3 Tonberries in 3 rounds." },
             { title: "Master Judicers", clanRank: 60, talents: "Adaptability -7, Aptitude -12, Negotiation +31, Teamwork +29", privilege: "Always Counter", discount: "-10%", objective: "Defeat 2 Tonberries in 2 rounds." },
         ],
         notes: [
@@ -466,6 +481,7 @@ export const CLAN_TRIALS: ClanTrial[] = [
         requiredTalents: "Teamwork 1",
         lawRequirement: "Must obey",
         challenge: "Defeat Mimics. They are weak to every element, and the law expects MP use, so elemental magic is the intended clean answer.",
+        privilegePathNote: "Efficient route: clear Acquaintances once for Empowered Viera, then run Old Friends twice if you can clear the three-round Mimic fight; each Old Friends clear advances Speed one tier and gives the best Teamwork gain. Use Relations as the safer Speed step when Old Friends is too demanding.",
         titles: [
             { title: "Acquaintances", clanRank: 6, talents: "Adaptability -3, Teamwork +4", privilege: "Empowered Viera", discount: "None", objective: "Defeat 2 Mimics." },
             { title: "Associates", clanRank: 12, talents: "Adaptability -4, Teamwork +7", privilege: "None", discount: "None", objective: "Defeat 3 Mimics." },
@@ -496,6 +512,7 @@ export const CLAN_TRIALS: ClanTrial[] = [
         requiredTalents: "Teamwork 20",
         lawRequirement: "Must obey",
         challenge: "Defeat Chocobos before your Smash Gauge reaches 60%. The objective is fast damage with as few waste actions as possible.",
+        privilegePathNote: "Efficient route: clear Comrades once for Empowered Gria, then repeat Master Allies for missing Speed tiers if you can beat six Chocobos in three rounds under the Smash Gauge law. Use Boon Companions as the safer Speed step when Master Allies is not consistent.",
         titles: [
             { title: "Comrades", clanRank: 36, talents: "Adaptability -8, Teamwork +19", privilege: "Empowered Gria", discount: "-2%", objective: "Defeat 2 Chocobos." },
             { title: "Cohorts", clanRank: 42, talents: "Adaptability -9, Teamwork +22", privilege: "None", discount: "-4%", objective: "Defeat 3 Chocobos." },
@@ -524,20 +541,21 @@ export const CLAN_TRIALS: ClanTrial[] = [
         location: "The Aldanna Range",
         days: 20,
         price: "10 CP",
-        requiredTalents: "Aptitude 10, Adaptability 10",
+        requiredTalents: "Teamwork 10, Aptitude 10",
         lawRequirement: "Unknown",
         challenge: "Examine the teleporting magick urn the required number of times while Ahrimans guard the field. Killing Ahrimans is optional.",
+        privilegePathNote: "Efficient route: repeat Hands of Divinity for Bonus EXP if you can handle seven urn checks in three rounds; use Hands of Steel or Hands of Gold as safer EXP steps when needed. Hands of Silver and Master Hands are separate targets for Debuff Resistance 2 and MP Efficiency.",
         titles: [
             { title: "Hands of Steel", clanRank: 12, talents: "Adaptability -4, Aptitude +5, Negotiation -3, Teamwork +7", privilege: "Bonus EXP 1", discount: "None", objective: "Examine the urn 4 times in 4 rounds with 4 Ahrimans present." },
             { title: "Hands of Silver", clanRank: 24, talents: "Adaptability -6, Aptitude +11, Negotiation -4, Teamwork +13", privilege: "Debuff Resistance 2", discount: "None", objective: "Examine the urn 5 times in 4 rounds with 4 Ahrimans present." },
             { title: "Hands of Gold", clanRank: 36, talents: "Adaptability -8, Aptitude +17, Negotiation -5, Teamwork +19", privilege: "Bonus EXP 2", discount: "-1%", objective: "Examine the urn 6 times in 4 rounds with 5 Ahrimans present." },
             { title: "Hands of Divinity", clanRank: 48, talents: "Adaptability -10, Aptitude +23, Negotiation -6, Teamwork +25", privilege: "Bonus EXP 3", discount: "-3%", objective: "Examine the urn 7 times in 3 rounds with 5 Ahrimans present." },
-            { title: "Master Hands", clanRank: 60, talents: "Adaptability -12, Aptitude +29, Negotiation -7, Teamwork +31", privilege: "MP Efficiency", discount: "-5%", objective: "Examine the urn 8 times in 3 rounds with 5 Ahrimans present." },
+            { title: "Master Hands", clanRank: 60, talents: "Adaptability -12, Aptitude +29, Negotiation -7, Teamwork +31", privilege: "MP Efficiency / MP Preservation", discount: "-5%", objective: "Examine the urn 8 times in 3 rounds with 5 Ahrimans present." },
         ],
         notes: [
             "The urn teleports after every examine action.",
             "Ahrimans can Confuse units and use Roulette, so random KOs can wreck a good route.",
-            "Master Hands is the MP Efficiency reward.",
+            "Master Hands is the MP-cost reward, listed as MP Efficiency in the Dev data and MP Preservation in the pasted Clan Trials guide.",
         ],
         completionTips: [
             "Bring one or two White Mages or other reliable Raise users in case Roulette picks off a runner.",
@@ -623,7 +641,7 @@ export const CLAN_PRIVILEGE_ROADMAP: ClanPrivilegeRoadmapItem[] = [
     },
     {
         id: "mp-efficiency",
-        privilege: "MP Efficiency",
+        privilege: "MP Efficiency / MP Preservation",
         effect: "Halves MP costs.",
         trial: "Teamwork-Aptitude",
         title: "Master Hands",

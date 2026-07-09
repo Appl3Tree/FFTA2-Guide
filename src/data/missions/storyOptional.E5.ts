@@ -17,7 +17,7 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Wanted: Friends! Kupo",
+        prerequisite: "Wanted: Friends, Kupo!",
         requiredTalents: {
             negotiation: 33,
             aptitude: 0,
@@ -59,6 +59,7 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
+        prerequisite: "Fluorgis Cup; The Last Step; complete game save",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,

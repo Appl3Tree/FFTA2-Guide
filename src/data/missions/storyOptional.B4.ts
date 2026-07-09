@@ -14,9 +14,11 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         fee: 200,
         days: 10,
         questType: "Satisfy Petitioner",
-        canDispatch: false,
+        canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "The Yellow Wings; visit Camoa during Goldsun",
+        dispatchRecommended: ["Juggler", "Trickster"],
         requiredTalents: {
             negotiation: 4,
             aptitude: 0,
@@ -49,6 +51,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "Sleepless Nights; Making Port; read Duelhorn and An Invitation from Duelhorn notices",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -60,7 +63,8 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
     enemies: [
         { name: "Night Dancer", job: "Trickster", quantity: 1, notes: "The mark — a cross-dressing Bangaa Trickster. Only this unit needs to be defeated." },
         { name: "Randomized Name", job: "White Monk", quantity: 3, notes: "Have Earth Render, Snigger, and Hypochondria. Fight with shields (no normal attacks)." },
-        { name: "Randomized Name", job: "Templar", quantity: 2, notes: "Support Bangaa. Not required — only the Night Dancer must fall." },
+        { name: "Randomized Name", job: "Templar", quantity: 1, notes: "Support Bangaa. Not required — only the Night Dancer must fall." },
+        { name: "Randomized Name", job: "Gladiator", quantity: 1, notes: "Can use Bangaa Cry to inflict Confuse." },
     ],
         strategy: [
             "Defeat-mark mission — rush the Night Dancer (Trickster). The other 5 Bangaa don't need to die.",
@@ -87,7 +91,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "I've Been Had, Kupo!",
+        prerequisite: "A Request; I've Been Had, Kupo!; visit any town",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -130,6 +134,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Now That's a Fire!; complete an auction",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -148,7 +153,8 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         rewards: {
             gil: 2890,
             cp: 34,
-            loot: "Silver Liquid ×2"
+            loot: "Silver Liquid ×2",
+            other: "Fusilier job"
         },
         notes: "",
         tags: ["optional"]
@@ -163,9 +169,12 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         fee: 300,
         days: 20,
         questType: "Satisfy Petitioner",
-        canDispatch: false,
+        canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Now That's a Fire!; complete an auction",
+        dispatchRecommended: ["Seeq Ranger"],
+        objective: "Pick the right person for the job!",
         requiredTalents: {
             negotiation: 7,
             aptitude: 0,
@@ -197,13 +206,14 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Strong Lady",
+        prerequisite: "Making Music; Strong Lady; visit Moorabella",
         requiredTalents: {
             negotiation: 18,
             aptitude: 0,
             teamwork: 18,
             adaptability: 0,
         },
+        dispatchRecommended: ["Defender"],
         objective: "Protect Alys the Ensorceled and Defeat all Foes!",
         law: "Forbidden: Opportunity Commands – Opportunity Commands are forbidden.",
     enemies: [
@@ -215,8 +225,8 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
     ],
         strategy: [
             "Protect Alys while clearing the bandits.",
-            "Kill both Thieves first; they are fast, can steal, and one can disable with Dagger Toss.",
-            "Remove the White Mage next to prevent healing, then pressure the Alchemist before Flare and Poison wear you down.",
+            "Remove the White Mage to stop healing, then pressure the Alchemist before Flare wears you down.",
+            "The Thieves can Immobilize and steal, so control them while your attackers collapse on the healer and Alchemist.",
             "Opportunity Commands are forbidden, so do not use them even when the prompt looks tempting.",
         ],
         rewards: {
@@ -240,7 +250,8 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        requiredItems: ["Potion ×1"],
+        prerequisite: "Rumors Abound",
+        requiredItems: ["Potion ×1", "Hi-Potion ×1"],
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -249,7 +260,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Non-combat mission — deliver a Potion and Hi-Potion, then answer that the recipient is undead to complete.",
+            "Non-combat mission - deliver a Potion and Hi-Potion in Tramdine Fens. The dialogue answer does not change the completion.",
         ],
         rewards: {
             gil: 7880,
@@ -263,7 +274,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         id: "B4-08",
         arc: "B4",
         name: "The Eastwatch",
-        description: "Clan <Name> The might of your clan is renowned throughout Jylland. We have traveled from a land beyond where the sun rises in hopes of testing that might against our own. Will you grant us this battle? The Eastwatch",
+        description: "Clan Gully! The might of your clan is renowned throughout Jylland. We have traveled from a land beyond where the sun rises in hopes of testing that might against our own. Will you grant us this battle? The Eastwatch",
         rank: 25,
         region: "Moorabella",
         fee: 400,
@@ -272,6 +283,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Grounded!; visit Fluorgis",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -286,12 +298,14 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "Assassin", quantity: 1, notes: "PRIORITY: Has time magick. Eliminate first." },
     ],
         strategy: [
-            "No Scions (law). Kill the Assassin first (time magick), then the Veil Ninja, then the remaining Ninja and three Parivir.",
+            "No Scions (law). The three Parivirs are the main damage threats, while the Ninjas' Veils can disrupt your setup.",
+            "Disable from an Elementalist's Fire Whip can help control Parivirs if it lands.",
         ],
         rewards: {
             gil: 3910,
             cp: 50,
-            loot: "Moon Ring ×5"
+            loot: "Moon Ring ×5",
+            other: "Parivir job"
         },
         notes: "",
         tags: ["optional"]
@@ -306,9 +320,11 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         fee: 100,
         days: 20,
         questType: "Satisfy Petitioner",
-        canDispatch: false,
+        canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Wanted: Ugohr; visit Graszton",
+        dispatchRecommended: ["Green Mage"],
         requiredTalents: {
             negotiation: 7,
             aptitude: 0,
@@ -331,7 +347,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         id: "B4-10",
         arc: "B4",
         name: "Aid the Serpent",
-        description: "We've been after a certain mark for some time now, but have been foiled in our efforts to stop it. Who better to aid us than everyone's favourite swords-for-hire, Clan <Name>? Come, fight with us! Clan Serpentina",
+        description: "We've been after a certain mark for some time now, but have been foiled in our efforts to stop it. Who better to aid us than everyone's favorite swords-for-hire, Clan Gully? Come, fight with us! Clan Serpentina",
         rank: 39,
         region: "The Ruins of Delgantua",
         fee: 500,
@@ -340,7 +356,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
-        prerequisite: "Caravan Cry",
+        prerequisite: "Sky Pirate Vaan; Caravan Cry; With a Smile side quest; visit Graszton",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -384,7 +400,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 1,
-        prerequisite: "Under the Weather",
+        prerequisite: "Seeking the Stone; Under the Weather; visit any town",
         requiredTalents: {
             negotiation: 28,
             aptitude: 0,
@@ -416,6 +432,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 3,
+        prerequisite: "Rumors Abound",
         requiredTalents: {
             negotiation: 18,
             aptitude: 0,
@@ -440,7 +457,8 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         rewards: {
             gil: 8190,
             cp: 56,
-            loot: "Unpurified Ether ×2"
+            loot: "Unpurified Ether ×2",
+            other: "Spellblade job"
         },
         notes: "",
         tags: ["optional"]
@@ -455,9 +473,12 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         fee: 300,
         days: 20,
         questType: "Satisfy Petitioner",
-        canDispatch: false,
+        canDispatch: true,
         canCancel: true,
         members: 1,
+        prerequisite: "Grounded!; visit Fluorgis",
+        dispatchRecommended: ["Cannoneer", "Flintlock"],
+        objective: "Dispatch the right person for the job!",
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,
@@ -489,6 +510,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        prerequisite: "A Request; Aid the Serpent; read Sender Unknown notice",
         requiredTalents: {
             negotiation: 28,
             aptitude: 0,
@@ -531,7 +553,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
-        prerequisite: "A Chill in the Night",
+        prerequisite: "Sky Pirate Vaan; A Chill in the Night; visit Graszton",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -541,18 +563,15 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         objective: "Protect Ghi and Defeat all Foes!",
         law: "Forbidden: Targeting an Area – Actions targeting two or more tiles are forbidden.",
     enemies: [
-        { name: "Swordking", job: "Viking", quantity: 1, notes: "Priority target. Uses Thundara, Tsunami, and Pickpocket." },
-        { name: "Randomized Name", job: "Viking", quantity: 1, notes: "Uses Thunder or Thundara and Pickpocket." },
-        { name: "Randomized Name", job: "Juggler", quantity: 1, notes: "Uses Weapon Toss, Ring Toss, Dagger Toss, and Molotov Cocktail." },
-        { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Uses Steal Items, Steal Gil, and Cuisine (healing — eliminate quickly)." },
+        { name: "Swordking", job: "Viking", quantity: 1, notes: "Main enemy; uses Thundara and is the dangerous member of the trio." },
         { name: "Randomized Name", job: "Defender", quantity: 1, notes: "Uses Defend and Bulwark." },
         { name: "Randomized Name", job: "Templar", quantity: 1, notes: "Uses Silence and Haste." },
     ],
         strategy: [
             "Protect Ghi while defeating Swordking and his crew.",
             "Targeting an area is forbidden, so avoid multi-tile attacks and use precise single-target damage.",
-            "Defeat the Thief early to stop theft and Cuisine healing, then focus Swordking before Tsunami and Thundara wear down the party.",
-            "The Templar can Haste or Silence; remove it before it improves the enemy tempo.",
+            "Ghi starts Disabled and Immobilized but breaks out on his turn; keep him healed while he helps fight.",
+            "The Templar and Defender are manageable, but the Viking's Thundara makes him the real danger.",
         ],
         rewards: {
             gil: 5670,
@@ -575,6 +594,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         canDispatch: false,
         canCancel: true,
         members: 6,
+        prerequisite: "Making Music; read Bad Clan Rising notice",
         requiredTalents: {
             negotiation: 0,
             aptitude: 0,
@@ -592,13 +612,14 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         strategy: [
             "Defeat Lord Grayrl to unlock Viking.",
             "Each unit must move exactly three tiles before ending its turn; plan routes before committing to attacks.",
-            "Rushing Grayrl can end the mission quickly, but remove the Thief if Cuisine healing or theft starts dragging the fight out.",
+            "Take out the Juggler first if Stop becomes a problem, then rush Lord Grayrl on the ship.",
             "Use ranged abilities, magick, and high-move units to pressure Grayrl through his surrounding guards.",
         ],
         rewards: {
             gil: 5110,
             cp: 56,
-            loot: "Wyvern Wing ×2"
+            loot: "Wyvern Wing ×2",
+            other: "Viking job"
         },
         notes: "",
         tags: ["optional"]
