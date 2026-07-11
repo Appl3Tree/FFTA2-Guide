@@ -125,7 +125,7 @@ export const BAZAAR_RECIPES: BazaarRecipe[] = [
         section: "Thunder's Cry",
         rank: "Rank D",
         result: "Gae Bolg",
-        loot: ["Storm Stone", "Cruzle Brass", "Telaq Flower"],
+        loot: ["Thunder Stone", "Cruzle Brass", "Telaq Flower"],
     },
     {
         id: "thunders-cry-rank-e-atomos-blade",
@@ -839,7 +839,7 @@ export const BAZAAR_RECIPES: BazaarRecipe[] = [
         section: "Sacred Arms",
         rank: "Rank A",
         result: "Zanmato",
-        loot: ["Lightwing Crystal", "Bundles of Needles", "Aqua Galac"],
+        loot: ["Lightwing Crystal", "Bundle of Needles", "Aqua Galac"],
     },
     {
         id: "sacred-arms-rank-b-ama-no-murakumo",
@@ -1049,7 +1049,7 @@ export const BAZAAR_RECIPES: BazaarRecipe[] = [
         section: "Forgotten Firearms",
         rank: "Rank A",
         result: "Rocket Punch",
-        loot: ["Bundles of Needles", "Ancient Turtle Shell", "Strange Liquid"],
+        loot: ["Bundle of Needles", "Ancient Turtle Shell", "Strange Liquid"],
     },
     {
         id: "forgotten-firearms-rank-b-guang-cannon",
@@ -1154,7 +1154,7 @@ export const BAZAAR_RECIPES: BazaarRecipe[] = [
         section: "Whetted Axes",
         rank: "Rank D",
         result: "Broadaxe",
-        loot: ["Gikhet Lead", "Rat Pelt", "Mirror Pelt"],
+        loot: ["Gikhet Lead", "Rat Pelt", "Mirror Scale"],
     },
     {
         id: "battle-tested-bracers-rank-a-bone-armlets",
@@ -1301,7 +1301,7 @@ export const BAZAAR_RECIPES: BazaarRecipe[] = [
         section: "Grime-stained Gloves",
         rank: "Rank A",
         result: "Gleisburst",
-        loot: ["Waterwyrd Crystal", "Gold Chalice", "Tanned Beast Hide"],
+        loot: ["Waterwyrd Crystal", "Gold Chalice", "Bundle of Needles"],
     },
     {
         id: "grime-stained-gloves-rank-b-magick-hands",

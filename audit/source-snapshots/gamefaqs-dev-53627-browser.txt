@@ -1,0 +1,1053 @@
+*****************************************************************************
+
+       Final Fantasy Tactics A2: Grimoire of the Rift FAQ/Walkthrough
+                              For the Nintendo DS
+                     Version 1.25 (Last Updated 7/25/2011)
+                                By Devin Morgan
+
+    This file is Copyright (c)2008-2011 Devin Morgan. All rights reserved.
+
+*****************************************************************************
+
+Table of Contents
+
+1. What's New
+2. Introduction
+3. Controls
+4. Overview
+5. Walkthrough
+6. Quest List
+7. Side Quests
+8. Clan Trials
+9. Brightmoon Tor
+10. Jobs
+11. Monsters
+12. Head Gear
+13. Body Armor
+14. Weapons
+15. Shields
+16. Accessories
+17. Items
+18. Loot
+19. Bazaar Formulas
+20. Auction House
+21. Secrets/Tips and Tricks
+22. Credits
+23. Copyright Notice
+
+*****************************************************************************
+
+-=-=-=-=-=-=-=-=-=-=
+-=  1. What's New -=
+-=-=-=-=-=-=-=-=-=-=
+
+Version 1.25 (7/25/11): Added an alternate method of defeating the Blue King 
+of Cinquleur (Quest A5-03), thanks to Beth Gardner.
+
+Version 1.2 (3/4/11): Made a small addition to Quest E1-04 (Bonga Bugle - 
+Mistleaf) stating that the weapon reward can vary depending on how quickly 
+you finish the quest.
+
+Version 1.15 (12/6/10): Updated information of several Parivir abilities, as 
+well as the attack/defense values of the Sequencer and Peytral. Also, 
+additional information has been added to Quest D4-07 (I've Been Had, Kupo!) 
+regarding unlocking additional Quests.
+
+Version 1.1 (3/19/10): Made a small correction (changing Buster Sword to 
+Burglar Sword) in the Wyrmtamer ability listing, as well as the Magick Ballad 
+Bard ability (learn with the Shining Lute).
+
+Version 1.05 (1/5/09): Fixed a few errors, and added a bunch of things to the 
+Overview section.
+
+Version 1.0 (12/23/08): After a 3-month hiatus, I have now added information 
+previously missing from this guide (particularly to the Brightmoon Tor area; 
+the Final Quest description is in the Secrets section). As of now, this guide 
+is fully complete.
+
+Version 0.8 (9/23/08): Since the last update, the monster list (not including 
+Brightmoon Tor enemies as of yet), and the Clan Trials sections have been 
+completed. More to come soon.
+
+Version 0.65 (9/8/08): All of the equipment listings are now included in this 
+FAQ. The sections that are still left to do will be a bit longer, seeing as 
+there is a lot of information to organize from my notes and input into this 
+FAQ. Give it time, and the other sections will be filled in as well!
+
+Version 0.6 (9/3/08): At this point, all of the game's Jobs have been added 
+to this FAQ! More to come in the other sections, so stay tuned!
+
+Version 0.5 (8/20/08): At last, this is the first FAQ to cover ALL 300 
+quests! Plenty of side quests have been added to the appropriate section as 
+well, particularly related to the Heritor job and abilities, so check it out! 
+The Bazaar section is also complete at this point. As for the other sections, 
+they will be added at a more frequent rate than previously, since the general 
+walkthrough sections are pretty much done!
+
+Version 0.4 (8/13/08): The story walkthrough is now complete! I also have a 
+total of 285/300 quests logged in this FAQ. More Side Quests have been added, 
+specifically ones that give you the hidden characters (those will be listed 
+in the Secrets section). There is still more to come, so stay tuned!
+
+Version 0.35 (8/12/08): And now, the Quest List section covers 274/300 
+quests! I forgot to note in the previous update, but the story walkthrough 
+covers through the "Pirate Problems" quest.
+
+Version 0.3 (8/11/08): Currently, there are 265/300 quests covered in this 
+FAQ. I have also started to gradually fill in the equipment listings; nothing 
+substantial but it's getting there.
+
+Version 0.25 (8/8/08): There are now 243/300 regular quests completed in this 
+guide. Of course, there are also some more Bazaar formulas, and other bits 
+and pieces added. More to come soon!
+
+Version 0.2 (8/7/08): As of this update, around 225/300 quests have been 
+completed. More Bazaar entries have been added, and I have started to fill in 
+the Shields and Items sections. I also started a Side Quests section which 
+will detail those random encounters and events that occur on the area maps. 
+More work will be done there and other sections in due time.
+
+Version 0.15 (8/4/08): More quests have been added, bringing the rough amount 
+to 190/300. More Bazaar formulas have been added as well. The story 
+walkthrough covers through the "Seeking the Stone" quest, too.
+
+Version 0.1 (7/31/08): The first version. It covers approximately 150/300 
+quests thus far, as well as a good deal of Bazaar formulas. I am very well 
+aware that many sections of this guide are empty, but that is because I'm 
+working on the most important parts first (the quests). More will be added in 
+due time, please don't contact me about something that's not already here!
+
+*****************************************************************************
+
+-=-=-=-=-=-=-=-=-=-=-=
+-=  2. Introduction -=
+-=-=-=-=-=-=-=-=-=-=-=
+
+At last, the Final Fantasy Tactics series makes its debut on the Nintendo DS. 
+As a fan of the Playstation and GBA versions, I am quite pleased. It is the 
+same turn-based strategy game that we're all used to by now in the series, 
+with a bunch of added features and twists. There are 300 quests, which is 
+what the game is primarily based around, consisting of battles and other 
+events to gain experience, unlock jobs, and so on. There is a lot to be 
+covered in this game, so if you were a fan of the previous installments, you 
+will definitely like this one!
+
+*****************************************************************************
+
+-=-=-=-=-=-=-=-=-=
+-=  3. Controls -=
+-=-=-=-=-=-=-=-=-=
+
+NOTE: The Touch Screen can be used quite extensively as well, to substitute
+      for button pressing in many cases.
+
+World Map/Cities
+----------------
+
+Control Pad: Move cursor (hold B to make it move fast)
+
+A: Confirm selection
+
+B: Cancel selection, return cursor to current position on map
+
+X: Open Main Menu
+
+L/R: Move cursor to next area on map
+
+
+Battle Entry
+------------
+
+A: Confirm selection
+
+B: Cancel selection, remove highlighted unit
+
+X: Start battle
+
+Y: Check your units before battle, check enemy units (when highlighted)
+
+L/R: Switch between units to place in battle
+
+
+Battle
+------
+
+Control Pad: Move cursor
+
+A: Confirm selection, move cursor back to current ally unit's turn
+
+B: Cancel selection, and view range of highlighted unit
+
+X: Open Main Menu in battle
+
+Y: Check the currently selected enemy unit, toggle help box (when Commands
+   window is open)
+
+L/R: Move cursor to different units
+
+*****************************************************************************
+
+-=-=-=-=-=-=-=-=-=
+-=  4. Overview -=
+-=-=-=-=-=-=-=-=-=
+
+=================
+General Mechanics
+=================
+
+Final Fantasy Tactics Advance (hear by known as FFT-A) is the third product
+of Square's engulfment of Mission. It's a Strategy RPG (known as a Simulation
+RPG in Japan) based on the "world" of Final Fantasy. If you have played the
+original Final Fantasy Tactics, or any of the Ogre Battle/Tactics Ogre
+series, or even Advance Wars; this game should be familiar territory.
+Battles are turn-based and take place on what essentially is a grid. Each
+time it becomes a unit's turn, they will get a chance to move and execute an
+action. Each unit has 8 stats which determine different attributes:
+
+Move       - Amount of panels that unit can move each turn.
+Jump       - Maximum height that unit can scale.
+Evasion    - The % of attacks that unit can possibly dodge.
+Speed      - Determines the order and frequency of AT.
+Attack     - How strong that unit's physical attack will be.
+Defense    - How well that unit can defend a physical attack.
+Magick     - The strength of any magic cast by that unit.
+Resistance - How well that unit can resist a magical attack.
+
+There is no "casting" time for spells and abilities, not even for Jump (which 
+is highly unorthodox by Final Fantasy standards).
+
+FFTA2 is filled with many systems; some are old, some are revised, and some
+are brand spanking new. Because of their complexity, I might as well go over
+them one at a time for you:
+
+==========
+Job System
+==========
+
+FFT-A uses the Job System which was born from Final Fantasy III, built upon
+in Final Fantasy V, and almost perfected in Final Fantasy Tactics. It's also 
+used in Final Fantasy X-2 under the guise of "Dress Ups". Anyway, FFTA2 uses 
+a revised Job System, it defers from FFT's system like so:
+
+ * No more Job Points.
+ * The inclusion of Races and the abolishment of Sexes and Zodiac signs.
+ * The inclusion of an AP (Ability Points) system, ala Final Fantasy IX.
+ * A whole new collection of Jobs and abilities.
+ * New Jobs are learned by mastering abilities, not by Job Levels.
+
+
+=======================================
+Ability System/Opportunity Turns/Scions
+=======================================
+
+Ability System
+--------------
+
+The ability system is almost exactly like Final Fantasy IX's. Abilities are
+embedded in equipment; once you equip items (weapons, armor, etc.) on a unit 
+you will be able to use the abilities associated with that equipment. As soon 
+as you unequip those items, the unit will no longer be able to use those 
+abilities. However, you can permanently learn abilities by mastering them. To 
+"master" an ability, you must equip the item the ability is embedded in and 
+gain enough AP (Ability Points) to learn it. Be aware that you still have to 
+select Secondary, Reaction and Passive Abilities to use them. Movement 
+abilities are now "status effects" found in special shoes/boots.
+
+
+Opportunity Turns
+-----------------
+
+During battles, you will notice that a meter will gradually fill up as your 
+party members act. This is the Smash Gauge, which normally fills by 10% upon 
+completion of a successful action. When it completely fills for a given 
+character, they will have the option of performing an Opportunity ability at 
+their next turn. This ability depends on what units are immediately next to 
+you, and if they are enemies or allies. A list of these abilities is below:
+
+Ability           Surrounded By   Effects
+-------           -------------   -------
+Tough as Nails!   0 units         Protect + Shell on self
+Battle Shout!     1 ally          Attack^ and Resilience^ on all
+Fleet of Foot!    2 allies        Hastega on all
+Shield of Steel!  3 allies        Astra to all
+Second Wind!      4 allies        Curaga to all
+Flurry!           1 enemy         Attack enemy twice in a row
+Eye for Eye!      2 enemies       Attack all
+Frenzy!           3 enemies       Attack all
+Last Stand!       4 enemies       Attack all
+
+
+Scions
+------
+
+In this game, summoned monsters come in the form of Scions. They are accessed 
+by equipping specific accessories that allow for these moves to be performed. 
+In battle, your Smash Gauge will need to be filled in order for a Scion to be 
+summoned. Unfortunately, you cannot permanently learn a Scion's ability, so 
+you are only able to use it if you have that accessory equipped.
+
+
+=====
+Races
+=====
+
+In this game, in addition to the different jobs, there are seven races of 
+characters. Each race has its own set of jobs that it can become (after 
+meeting prerequisites, of course). Five of the races are available from the 
+start, but the other two races only become available after you complete 
+quests that grant you access to jobs that only those races may become. The 
+seven races, and the jobs that each can have, are as follows:
+
+Bangaa: Bishop, Cannoneer, Defender, Dragoon, Gladiator, Master Monk,
+        Templar, Trickster, Warrior, White Monk
+
+Gria: Geomancer, Hunter, Raptor, Ravager
+
+Hume: Archer, Black Mage, Blue Mage, Fighter, Hunter, Illusionist, Ninja,
+      Paladin, Parivir, Seer, Soldier, Thief, White Mage
+
+Moogle: Animist, Black Mage, Chocobo Knight, Flintlock, Fusilier, Juggler,
+        Moogle Knight, Thief, Time Mage, Tinker
+
+Nu Mou: Alchemist, Arcanist, Beastmaster, Black Mage, Illusionist, Sage,
+        Scholar, Time Mage, White Mage
+
+Seeq: Berserker, Lanista, Ranger, Viking
+
+Viera: Archer, Assassin, Elementalist, Fencer, Green Mage, Red Mage, Sniper,
+       Spellblade, Summoner, White Mage
+
+By looking at each race's set of possible jobs, you can get a rough idea of 
+what type of characters you can put in your party. One thing to note is that 
+the Gria is the only race which has an inherent ability to float, which will 
+enable characters of that race to reach areas that may otherwise be 
+inaccessible.
+
+
+====================
+Job/Race Recruitment
+====================
+
+During your travels on the area maps, you will surely come across individuals 
+who wish to be recruited into your party. Whether or not you admit them into 
+your clan is entirely up to you, and if you really want to build up these 
+recruits from scratch. The locations of such recruitment opportunities, as 
+well as exactly what you can expect to find, depends on the month and area 
+you are in. Here is a rundown of what you should expect to find in each 
+month:
+
+Month       Race    Location            Jobs
+-----       ----    --------            ----
+Ashleaf     Viera   Camoa               Archer, Fencer, Green Mage, Red Mage,
+                                        White Mage
+                    Rupie Mountains     Assassin, Elementalist, Sniper,
+                                        Spellblade, Summoner
+
+Blackfrost  Hume    Galleria Deep       Blue Mage, Fighter, Hunter, Paladin
+                    Sant D'alsa Bluff   Illusionist, Ninja, Parivir, Seer
+                    Targ Forest         Archer, Black Mage, Soldier, Thief,
+                                        White Mage
+
+Bloodfire   Bangaa  Aisenfield          Cannoneer, Defender, Master Monk,
+                                        Templar, Trickster
+                    Baptiste Hills      Bishop, Dragoon, Gladiator, Warrior,
+                                        White Monk
+
+Coppersun   Nu-Mou  Graszton            Beastmaster, Black Mage, White Mage
+                    Moorabella          Arcanist, Illusionist, Sage,
+                                        Time Mage
+                    Nazan Mines         Alchemist, Scholar
+
+Emberleaf   Gria    Fluorgis            Hunter, Raptor
+                    Zedlei Forest       Geomancer, Ravager
+            Seeq    Aldanna Range       Berserker, Ranger
+                    Tramdine Fens       Lanista, Viking
+
+Goldsun     Moogle  Bisga Greenlands    Animist, Black Mage, Thief
+                    Goug                Fusilier, Moogle Knight, Time Mage,
+                                        Tinker
+                    Neslowe Passage     Chocobo Knight, Flintlock, Juggler
+
+Greenfire   Bangaa  Aisenfield          Cannoneer, Defender, Master Monk,
+                                        Templar, Trickster
+                    Baptiste Hills      Bishop, Dragoon, Gladiator, Warrior,
+                                        White Monk
+
+Mistleaf    Viera   Camoa               Archer, Fencer, Green Mage, Red Mage,
+                                        White Mage
+                    Rupie Mountains     Assassin, Elementalist, Sniper,
+                                        Spellblade, Summoner
+
+Plumfrost   Gria    Fluorgis            Hunter, Raptor
+                    Zedlei Forest       Geomancer, Ravager
+            Seeq    Aldanna Range       Berserker, Ranger
+                    Tramdine Fens       Lanista, Viking
+
+Rosefire    Nu-Mou  Graszton            Beastmaster, Black Mage, White Mage
+                    Moorabella          Arcanist, Illusionist, Sage,
+                                        Time Mage
+                    Nazan Mines         Alchemist, Scholar
+
+Silversun   Moogle  Bisga Greenlands    Animist, Black Mage, Thief
+                    Goug                Fusilier, Moogle Knight, Time Mage,
+                                        Tinker
+                    Neslowe Passage     Chocobo Knight, Flintlock, Juggler
+
+Skyfrost    Hume    Galleria Deep       Blue Mage, Fighter, Hunter, Paladin
+                    Sant D'alsa Bluff   Illusionist, Ninja, Parivir, Seer
+                    Targ Forest         Archer, Black Mage, Soldier, Thief,
+                                        White Mage
+
+
+===========================
+Clan Bonuses/New Game Bonus
+===========================
+
+Overview
+--------
+
+When you start a new game, watch the introductory sequence as usual. You will 
+reach a point where you will be asked three questions, each of which you can 
+pick one of three answers to. These answers will determine the Clan Bonus 
+which you start the game with (as in, you don't have to complete Clan Trials 
+to obtain them). Clan Bonuses come into effect at the start of every battle 
+(you pick them from a list), and remain in effect until either the end of the 
+battle or if the current law is broken.
+
+
+Clan Bonuses
+------------
+
+The list of Clan Bonuses are as follows (note that this is the list at the 
+start of the game; by completing Clan Trials you can upgrade them):
+
+Agility up 1
+    Use: Very slightly improves chance to hit and avoid being hit.
+
+Bonus AP 1
+    Use: Slightly increases the ability points awarded for completing a
+         quest.
+
+Bonus EXP 1
+    Use: Slightly increases the experience points awarded for completing a
+         quest.
+
+Bonus Gil 1
+    Use: Slightly increases the gil awarded for completing a quest.
+
+Clan Points +1
+    Use: Slightly increases the clan points awarded for completing a quest.
+
+Luck up 1
+    Use: Very slightly increases critical hit rate and chance of an
+         Opportunity turn.
+
+Power up 1
+    Use: Very slightly increases damage dealt and reduces damage received.
+
+Smash Gauge 1
+    Use: Slightly increases the rate at which the smash gauge is filled.
+
+Speed up 1
+    Use: Very slightly raises speed.
+
+
+New Game Combinations
+---------------------
+
+The following is a list of the possible combinations in which you answer the 
+three questions at the start of a new game.
+
+Combo     Bonus
+-----     -----
+A A A     Bonus EXP 1
+A A B     Bonus Gil 1
+A A C     Luck up 1
+A B A     Bonus AP 1
+A B B     Clan Points +1
+A B C     Agility up 1
+A C A     Speed up 1
+A C B     Power up 1
+A C C     Smash Gauge 1
+B A A     Agility up 1
+B A B     Luck up 1
+B A C     Bonus Gil 1
+B B A     Smash Gauge 1
+B B B     Power up 1
+B B C     Clan Points +1
+B C A     Speed up 1
+B C B     Bonus EXP 1
+B C C     Bonus AP 1
+C A A     Bonus Gil 1
+C A B     Luck up 1
+C A C     Power up 1
+C B A     Agility up 1
+C B B     Bonus EXP 1
+C B C     Speed up 1
+C C A     Smash Gauge 1
+C C B     Clan Points +1
+C C C     Bonus AP 1
+
+*****************************************************************************
+
+-=-=-=-=-=-=-=-=-=-=-=
+-=  5. Walkthrough  -=
+-=-=-=-=-=-=-=-=-=-=-=
+
+Introduction
+------------
+
+The game opens with a couple of lines of dialogue from the main character. 
+You will get to name him, so keep the name as Luso for the purposes of this 
+FAQ. He will talk about his journal for a while more, then you will be able 
+to answer a few questions about summer vacation. Pick whatever you want, but 
+be warned that your selections will determine the bonus you receive at the 
+start of the game (the list of combinations can be found in the Overview 
+section above). Answer the three questions, then the bell will ring, 
+signifying the end of school. Luso doesn't get off so lucky, and is stuck 
+sorting books in the library. He will find an old book, but after writing his 
+name on one of the pages, he gets sucked into another world!
+
+The next scene will show a battle about to take place, when Luso magically 
+appears. The allies will call Luso over and make him join their clan in order 
+to survive here. You will get to meet Cid at this point, who is the guest in 
+this battle. The White Mage and Black Mage will serve to teach you the 
+commands in battle (assuming you never played a FFT game before). After the 
+tutorial is over, you will have to finish the battle by defeating Klesta, the 
+giant bird to the right.
+
+===============================
+Battle 1: Stranger in the Woods
+===============================
+
+Victory Circumstance: Defeat Klesta!
+Forbidden: Ranged Weapons
+Strategy: Two smaller enemies will wander into the area as the battle begins.
+          Ignore them and concentrate everyone's attacks on Klesta. Use the
+          Black Mage's magic attacks to cause more damage, and the White Mage
+          to heal if need be. Once Klesta's HP is down to about 1/3 its
+          total, it will run away and the battle ends.
+
+Following the battle, Luso, Cid, and the others will return to town and rest 
+up. When you are on the world map, you will be given a quick explanation on 
+what to do. For now, head to Wood Village directly to the east. Once there, 
+you will meet the rest of the clan inside the Pub and talk to Cid some more 
+about Luso's plight. You will also get to name the clan at this point (stick 
+with Gully). You will learn about obtaining quests in the Pub. When you go 
+back to the world map, visit the Pub again at Wood Village and accept the "A 
+Paw Full of Feathers" quest (it's the only one available, and it's the next 
+story mission).
+
+After that, you will leave, though Cid insists you should prepare for the 
+battle first. You will be on the world map, where your destination is shown 
+by a blue balloon. For now, go to the Shop in Wood Village. You can check out 
+what's for sale, though I wouldn't recommend buying anything right now. As 
+you leave, the shopkeeper will explain the concepts of loot and the Bazaar. 
+This will come in handy, since the only way to be able to buy different items 
+from the shop is to trade in loot at the Bazaar and create new items for 
+sale. Use the Bazaar and some of the loot you just obtained to make a 
+Broadsword, then buy one for Luso (use the Fitting room to equip your new 
+gear automatically).
+
+The shopkeeper will explain to you the concept of learning abilities from 
+your equipment. If you want to buy anything for the rest of your clan, go for 
+it, otherwise exit the shop. When you are ready to proceed, head to your 
+destination. You will meet some chocobos which will run off when the wolves 
+appear. The battle will then commence after Cid explains the laws and clan 
+privileges.
+
+
+================================
+Battle 2: A Paw Full of Feathers
+================================
+
+Victory Circumstance: Defeat all foes!
+Forbidden: Fire
+Strategy: You will be against two Wolves and a Baknamy in this battle.
+          Luckily your clan greatly outnumbers them, plus the enemies are
+          simple so this should be a quick and painless battle. Attack the
+          Wolves one at a time, having everyone attack (one round of everyone
+          attacking should kill a Wolf). Once they are done, go after the
+          Baknamy, which has slightly stronger attacks and more health. If
+          any of your units gets ganged up on, heal up with a White Mage or
+          by using items.
+
+Once the battle is over, you will see the chocobos return to the field. Luso 
+will reveal a journal which automatically records his adventures thus far. 
+When Luso and Cid leave the area, head back to Wood Village. As a side note, 
+if you want to save your game, go to the Main Menu while on the world map and 
+pick the System Menu option. Back in the village, you will overhear another 
+clan talking about bandits blocking the highroad to Camoa, and decide to see 
+if there is a quest for it.
+
+Cid will leave your party at this point. So, head back to the Pub and accept 
+the "The Yellow Wings" quest. There will be a couple other optional quests 
+which you can take as well. Do another quest, change your jobs around, 
+make/buy some new equipment, and when you are ready to proceed head to the 
+mark on your map.
+
+
+==========================
+Battle 3: The Yellow Wings
+==========================
+
+Victory Circumstance: Defeat all foes!
+Forbidden: Ice
+Strategy: In this battle, you face off against the bandits known as the
+          Yellow Wings. There are five of them: Thief, White Monk, Archer,
+          Black Mage, and Animist. Your best bet would be to eliminate the
+          Black Mage quickly, since he can cause the most damage to your
+          party. The White Monk has strong attack power, so be sure to
+          dispose of that early on as well. With Cid helping your clan here,
+          you should be in fine shape to win this battle easily.
+
+Once the battle ends, you will now be able to continue along the highroad to 
+Camoa. You will be briefed about the difference between area maps and world 
+maps, and how traveling between different areas takes a day. It explains it 
+well enough in the game itself. In order to leave the current area, you have 
+to move to the space where a sign with a blue arrow is located. Do so, then 
+head to Camoa.
+
+When you arrive in Camoa, Cid will talk to a guy named Ribs on the roof of a 
+nearby building. He will ask you for a tomato stalk, which leads up to your 
+next mission. Go to the Pub and check out the new quests that are available; 
+be sure to do some to gain experience and learn new abilities (change your 
+equipment/jobs as you master the abilities they hold). When you want to 
+progress in the storyline, take the "You Say Tomato" quest.
+
+
+========================
+Battle 4: You Say Tomato
+========================
+
+Victory Circumstance: Defeat all foes!
+Forbidden: Lightning
+Strategy: When you arrive here, you will find the tomatoes, as well as an
+          Alraune, whose drill can be sold for a nice profit. At that point,
+          Adelle will appear and offer to help in exchange for a cut of the
+          profits. With Cid in tow as well, you will have a total of 7 allies
+          in this battle against four Deadly Nightshades and the Alraune.
+          Take care of the Deadly Nightshades first as they are more
+          plentiful and weaker, then go after the Alraune. The enemies have
+          the ability to cast Blind and Silence on your group, so be careful!
+
+Following the battle, Adelle will leave with the biggest prize of all. There 
+isn't anything you can do for now, so head back to Camoa. There, Cid will 
+give Ribs the tomato stalks he asked for, as well as find out about a special 
+mage. You will spot Adelle wandering around, who Ribs will mention, and 
+explain how she is going after a mark at the Pub. So, head to the Pub and 
+check out the quest roster to find "Wanted: Ugohr". This is the next story 
+mission, so accept it. Take some other quests if you want, equip yourself at 
+the Shop, then when you're ready, head to Baptiste Hill for the next mission.
+
+
+=======================
+Battle 5: Wanted: Ugohr
+=======================
+
+Victory Circumstance: Defeat Ugohr!
+Forbidden: Restoring MP
+Strategy: For this battle, your primary target is the green-shelled Ugohr in
+          the back. Accompanying it are two Wolves and two Cockatrices, so
+          you may as well take care of them as well. The enemies have their
+          typical moves so it's nothing too spectacular, but the Great
+          Tortoise Ugohr has Counter, not to mention a few different attacks
+          which can be brutal on your clan. Hopefully you've been doing some
+          side quests and getting better gear along the way! Either way, you
+          should take out the intermediate enemies before going for the main
+          target. The Cockatrices will get the next move if you critically
+          weaken them, so try and hit them hard and fast so you don't have to
+          worry about an unexpected strike. When you get to the Ugohr, pummel
+          it with everything you have and you will succeed.
+
+After the battle, Cid and Luso will wonder why Adelle never showed up. They 
+leave and then she shows up, only to fall into their trap! Cid decides to 
+leave her in the trap after taking the prize. Now that you're done here, head 
+back to Camoa. While resting in the Pub, Adelle will appear and decides to 
+join your clan. You can't turn her away, so you may as well take her in. A 
+new path opens up leading to the Bisga Greenlands, so head that way and 
+continue southward to the Graszton Highroad. Once in that area, head to the 
+port town of Graszton.
+
+A scene will take place here between Cid and some guy who comes out to meet 
+him. Following this, Cid will be in bed with Luso at his side. Adelle will 
+come and Cid will tell you to go to Aldanna Range and find the mage. Now that 
+you know where to go next, head to the Pub and check out the latest quests. 
+Accept the "Wanted: Gilmunto" one to progress the story, then head to Aldanna 
+Range when you're ready to continue. You will have to pass through the 
+Galleria Deep on the way to the range.
+
+
+==========================
+Battle 6: Wanted: Gilmunto
+==========================
+
+Victory Circumstance: Defeat Gilmunto!
+Forbidden: Fire
+Strategy: On this mountain range, you will hear about Mist for the first time
+          and how the monsters you face here are different than ones you've
+          seen before. You will fight two Worgens, a Yellow Jelly, a Thunder
+          Drake, and an Asp (Gilmunto). The weakest enemies are the wolf-like
+          Worgens, so you should concentrate on them first. The Yellow Jelly
+          and Thunder Drake absorb Lightning attacks, so try to use ice-based
+          magicks or other elements if you have them instead. When you get to
+          Gilmunto, be extremely careful since it has high attack power and
+          can target multiple people at once. When you see it's close to
+          Gilmunto's turn, you should heal up any weaker members quickly. As
+          soon as you defeat Gilmunto, the mission is over.
+
+Following the battle, you will see Gilmunto on the ground in front of you. As 
+you approach it, a mysterious man will tell you to step back as it vanishes 
+into the Mist. You will find out this man is the old wizard Lezaford, the guy 
+you were searching for. Lezaford will take you back to his cottage to talk 
+about Luso's journal. After you leave, head back to Graszton and visit Cid. 
+After the scene there is done, head to the Pub and accept the next story 
+mission called "Now That's a Fire!", then go to Zedlei Forest to start it.
+
+
+============================
+Battle 7: Now That's a Fire!
+============================
+
+Victory Circumstance: Defeat all foes!
+Forbidden: Restoring MP
+Strategy: Here in the Zedlei Forest, you will find three Bombs, as well as
+          two Floating Eyes and a Red Marshmallow. These enemies are not too
+          difficult; you'll find the Floating Eyes to be the easiest of the
+          mix, sans their powerful Death Dive when they are in critical
+          health. The most difficult part is dealing with the Bombs,
+          particularly when they are low on health. If you get them to
+          critical, they have Quicken which lets them take the next turn, and
+          then they will Self-Destruct, causing massive damage to anyone
+          nearby. If you have a Black Mage, make sure they are here to cast
+          Blizzard/Blizzara on the Bombs to quickly dispatch them.
+
+Once the battle is over, Adelle will tell you a little more about the Auction 
+House. You then decide to go try an auction out, so head to Camoa or Graszton 
+and pick the new option on the town menu. After you complete an auction (it 
+doesn't matter what the results are, though ideally you would want to win), 
+there will be a number of new quests open to your access. Go to a Pub and 
+accept the Pearls in the Deep quest when you're ready to proceed with the 
+story. Don't forget to check your equipment and try out some new jobs 
+(hopefully you've been doing some quests to unlock certain jobs). Either way, 
+when you are ready, head to the Galleria Deep and enter the next battle.
+
+
+============================
+Battle 8: Pearls in the Deep
+============================
+
+Victory Circumstance: Defeat the Lord of the Flowsand!
+Forbidden: Actions by Nu Mou
+Strategy: In the Larva Den, you have to face a Yowie (the Flowsand Lord) at
+          the bottom. There will also be Antlions and Pit Beasts wandering
+          into the area, though you should focus on the big boss at the
+          bottom instead, as the smaller enemies will just keep coming in.
+          The Flowsand Lord itself is a tough foe, and its attacks are far
+          reaching and devastating. It can even use Draw In, which pulls an
+          ally into the pit and drains its health, healing itself in the
+          process. The best approach I've had here is to get your entire clan
+          to the bottom of the pit, and surround the boss, then let loose
+          with all your melee/magick attacks. Ignore the smaller enemies and
+          grab the treasures around the room if you desire. After the boss
+          attacks, heal up the member(s) that were hit and continue your
+          assault until you win.
+
+Following the battle, Luso will collect the moss needed for the tonic, as 
+well as some pearls for Adelle. After you leave the area, head back to 
+Graszton and check on Cid. He will mention going to the Rupie Mountains, 
+which means your next story quest is available and located in the mountains. 
+There are a number of new quests available as well, so go check them out at 
+the Pub. When you are ready to proceed, take the quest "Mountain Watch" and 
+head to the Rupie Mountains to undertake the next story mission.
+
+
+========================
+Battle 9: Mountain Watch
+========================
+
+Victory Circumstance: Defeat Ewen!
+Forbidden: Ice
+Strategy: When you arrive on the mountain, a Nightfall named Ewen will appear
+          and offer you gil for your Judge. Since Luso obviously declines,
+          Ewen calls the rest of his clan in (Sniper, Ninja, Assassin, and
+          Time Mage) and you must do battle. You only have to defeat Ewen in
+          order to complete the mission, but you can defeat the rest of the
+          clan for added experience and loot. His clan is not so difficult,
+          though Ewen and the Ninja have the Throw ability which can be
+          powerful, as well as the Sniper's ability to attack from a
+          distance. Additionally, Ewen bars the Judge from the battle, so you
+          won't be able to revive anyone should you die, plus you won't get
+          the law bonus at the end. Nonetheless, you should try to take out
+          the Time Mage before he can use Haste on the rest of the enemies,
+          then go for Ewen. Once you defeat Ewen, the battle ends.
+
+After the battle, Luso will find a piece of jewelry left behind by Ewen. He 
+will also find that the Judge is back in action, of course. Now, head back to 
+Graszton and talk to Cid about the piece you just found. He will tell you to 
+get it appraised, which you can do in Moorabella. So, head on over to that 
+city when you're ready. Luso will find out that the jeweler needs more time 
+to check out the item you brought, and will post a note in the Pub when it's 
+figured out. Luso also wants to go on the airship, but overhears a crowd 
+saying the Aerodrome is closed due to a prankster of some sort.
+
+For now, head to the Pub and check out the new quests that are available. It 
+would be worth it to do some if you haven't already been, so you can gain 
+more levels and unlock/try out new jobs. Whenever you're ready to progress 
+the storyline, accept the "Grounded!" quest and get going.
+
+
+====================
+Battle 10: Grounded!
+====================
+
+Victory Circumstance: Defeat Genius Ed!
+Forbidden: Harming the Weak
+Strategy: When you arrive aboard the airship, you will spot the perpetrator
+          right in front of you. At that point, a sky pirate named Vaan (of
+          FFXII fame) will appear and attempt to claim your target for
+          himself. Nonetheless, Vaan fights as a guest ally for this battle.
+          You are up against Genius Ed (a Sage), as well as his group (White
+          Mage, Time Mage, Berserker, Fusilier). If you've been doing a lot
+          of side quests, upholding the law here may be difficult; don't
+          worry about it if you really are overleveled like I was. Anyway,
+          your main target is Genius Ed, since the battle ends once you
+          defeat him. However, you should go after the White Mage first
+          obviously, followed by the Fusilier because of the status effects
+          he can inflict from a distance. Once Genius Ed is down, you win.
+
+Following the battle, Luso and Vaan will talk before another familiar face 
+from FFXII appears (Penelo). She will take Vaan away, who inadvertently 
+blurts out the location of some treasure, which means you'll be heading there 
+next. Since the prankster is captured, the airship is operational again, so 
+you can ride to Fluorgis. Head to the Aerodrome and pay the 300 gil to take 
+the skyferry over. Once there, visit the Pub to gain access to plenty of new 
+quests for you to undertake. When you're ready to advance the story once 
+more, accept the "Rumors Abound" quest and head to the Tramdine Fens as Vaan 
+had stated previously.
+
+
+========================
+Battle 11: Rumors Abound
+========================
+
+Victory Circumstance: Defeat all foes!
+Forbidden: Copycat
+Strategy: In this swampy area, you will come across a group of undead enemies
+          (Wraith, Ghost, Zombie), and a couple of live ones (Floating Eyes).
+          They are generally easy to defeat, though the Ghost and Wraith may
+          want to be targeted first since they can actually summon more
+          undead units to the battle. The Zombie can even drain some of your
+          health to replenish its own; be careful of that. As for defeating
+          the undead, you need to use a Phoenix Down or Raise (or a similar
+          ability like Exorcise) to completely destroy them at 0 HP. Once you
+          defeat all of the enemies, tombstones or completely banished, the
+          quest will be complete.
+
+Following the battle, Luso will collapse and a scene back in his real world 
+will commence. After he comes to, Adelle will be taking care of him while Cid 
+is resting outside. She will remind you to rest next time you visit a town, 
+so head to Fluorgis and Luso will get some sleep. Watch the flashbacks that 
+occur, then Cid will come to check on Luso. He will mention that a new quest 
+is at the Pub, relating to a spirit haunting someone else's dreams.
+
+When you have control again, head to the Pub and check out the new quests as 
+usual, and there are plenty of them! You should always try to do some side 
+quests along the way, since it helps to gain levels and loot, not to mention 
+new jobs and new equipment to be bought. Nonetheless, when you are ready to 
+proceed, accept the "Sleepless Nights" quest and head back to Nazan Mines to 
+undertake it.
+
+
+===========================
+Battle 12: Sleepless Nights
+===========================
+
+Victory Circumstance: Defeat the Oversoul!
+Forbidden: Debuffs
+Strategy: In this battle, you confront the source of the bad dreams, and of
+          course it is a ghost (Oversoul). It is accompanied by Wraiths, a
+          Bloody Orb, and a Zombie, but you only have to take out the
+          Oversoul. The Wraiths are most annoying with their ability to
+          revive fallen undead enemies, as well as the ability to Blind you,
+          so you may want to defeat them quickly. As for the Zombie and
+          Bloody Orb, they have a drain attack which harms you and heals
+          them, but it's nothing too crucial to be concerned over as they are
+          weak by comparison. It would help if you have a White Mage, since
+          healing spells cause damage to the undead creatures here. In case
+          you haven't caught on yet, you must use Raise (or something
+          similar) once you deplete their HP to 0 in order to completely
+          defeat the undead. The ghosts also like to cast Dark or Darkra to
+          damage you and heal themselves, so watch out when they run low on
+          HP. Once you defeat the Oversoul, the battle is over.
+
+Now that you have defeated the Oversoul, the spirit that haunted Luso (and 
+others) which caused the bad dreams disappears for good. After this, there 
+will be a number of flashbacks involving a variety of key characters in the 
+game. Once that is done, the three of you leave and a new line in the journal 
+appears.
+
+Head back to town and there will be a scene in the Pub where a musician is 
+playing. After the performance, the bard will leave after posting a bill at 
+the Pub. When you go back to the map, head back to the Pub and check out the 
+new quests that have just opened up. When you are ready to continue, take the 
+"Making Music" quest and head out to Aisenfield.
+
+
+=======================
+Battle 13: Making Music
+=======================
+
+Victory Circumstance: Defeat the Alchemist!
+Forbidden: Harming Females
+Strategy: Out here in the Aisenfield, you will find an Alchemist and his
+          Golems. He will spot you, at which point a Raptor and Ranger will
+          pop out and battle will commence. The Alchemist has abilities which
+          will bolster the other enemies, and the Golems are quite powerful
+          as physical attackers. Be careful of their Ranger, as he can set
+          traps you can potentially fall into. Pay attention to where he sets
+          them and stay clear of those locations. As the law states, you
+          cannot harm females, so you need to avoid the Raptor unless you
+          don't care about the law bonus. If any of your melee fighters has
+          the Cross-Counter ability (it comes from the Master Monk job), it
+          will come in handy when fighting the Golems up close, as well as
+          taking them down quickly. As for fighting the Alchemist, you want
+          to avoid using magick attacks since he has Absorb MP, and can use
+          magick attacks back at you. Plus, he can control the Golems to
+          attack you further if he so wanted to. Once you defeat the
+          Alchemist, the battle is won.
+
+Following the battle, Luso will collect the Strawood as requested. When he 
+leaves the area, head back to Fluorgis and you will come across Hurdy, the 
+petitioner from the quest you just completed. He will ask you to take the 
+wood to a shop and make an instrument out of it for him, and gives you a 
+Spiral Vine and 2500 Gil to get the job done.
+
+So, head to a shop and use the Bazaar to make the Brilliant Theorbo for him 
+(it's under the Hurdy's Request heading, in case this isn't obvious). Pay the 
+2500 Gil to buy it, then you will automatically bring it to Hurdy at the Pub. 
+He wants to join your clan, so let him and you will have your first Bard in 
+the clan! Be sure to equip him properly in the shop before you set out (as 
+well as the rest of your clan; don't forget to check out other jobs if you 
+haven't already been doing so).
+
+Cid will come in and mention that the appraiser from Moorabella has been in 
+contact about the ring from earlier. So, head back to Moorabella and there 
+will be a scene at the Pub where Adelle is waiting for Luso to return. A 
+strange woman with blue hair will talk to Adelle about joining her group, but 
+of course Adelle refuses. After the woman leaves, Luso and Cid return with 
+news about the magicite. It turns out it's stolen, and someone posted a quest 
+wanting it returned. Check the Pub for the new quests that have been made 
+available at this point. To progress the story, accept the quest "Seeking the 
+Stone" and head to the Bisga Greenlands to enter the battle there.
+
+
+============================
+Battle 14: Seeking the Stone
+============================
+
+Victory Circumstance: Defeat all foes!
+Forbidden: Targeting All Units
+Strategy: When you come here, you will hand over the magicite to the
+          petitioner, only to find out you were set up. When the enemies show
+          up, you will have to engage them in battle. They consist of two
+          Hunters, a Scholar, Paladin, Ranger, and Dragoon. As you would
+          guess, the Paladin is the strongest physical attacker, so you will
+          want to send a melee clan member to take him down. The Scholar can
+          have some devastating abilities on you if you give him enough time,
+          so you will want to defeat him quickly as well. The Ranger will
+          walk around setting traps, so you may want to keep an eye on where
+          he moves so you don't step on them! As for the rest of the
+          opposition, they generally use simple attacks on you, so you can
+          dispose of them at your leisure (don't take too long since their
+          attacks do hurt). Once you bring down the enemy clan, you're done!
+
+After the battle, Luso and Cid will talk about what just went down. They 
+decide to head back to town, seeing as they can't do anything without knowing 
+what the enemies are going to do. So, head back to town, any town will do (I 
+went to Graszton personally). There, you will overhear a conversation in the 
+Pub regarding the sky pirates you met earlier, as well as the Baron in 
+Graszton. Luso will of course want to check it out, so head back to the Pub 
+and check out the newly available quests. When you are ready to go on with 
+the story, accept the quest "Wanted: Sky Pirate Vaan" and head to the Rupie 
+Mountains.
+
+
+==================================
+Battle 15: Wanted: Sky Pirate Vaan
+==================================
+
+Victory Circumstance: Defeat all foes while defending the sky pirates!
+Forbidden: Not Moving 1 Tile
+Strategy: You will find Vaan and Penelo here surrounded by a group of
+          headhunters (Bishop, Ranger, Gladiator, Berserker, Lanista). Your
+          goal here is to protect Vaan and Penelo while defeating everyone
+          else. There's nothing really out of the ordinary in this battle;
+          the Ranger lays traps you should avoid, the Gladiator has strong
+          attacks, and the Lanista can use an ability called Charge! which
+          can break your armor. The Bishop will primarily heal the others, so
+          you may want to get to the top and defeat or Disable him early on.
+          The Lanista and Gladiator are the greatest threat to you, so your
+          priority should be to kill them. Remember that Vaan and Penelo will
+          be fighting as well, but you need to keep their health up. When you
+          defeat the opposition, you will get to hear their side of the story
+          and the quest will end.
+
+Following the battle, Cid will decide to head to Graszton to investigate the 
+situation. That is your next destination, so go there and meet Cid at the 
+Pub. After a bit of conversation and arguing, Hurdy will alert you of a new 
+bill posted at the Pub requesting your clan specifically. When you are ready, 
+accept "A Request" and get to the Ruins of Delgantua; I would recommend doing 
+some of the new quests to build up experience first, among other things, 
+though.
+
+
+=============================
+Battle 16: A Request (Part 1)
+=============================
+
+Victory Circumstance: Defeat Illua!
+Forbidden: Being Robbed
+Strategy: Upon your arrival, you will meet up with Illua, the blue-haired
+          woman who met Adelle earlier. After some conversation, you will
+          have to defeat her in battle. You are up against Illua (a
+          Nightshade), Ewen the Nightfall, an Elementalist, Seer, Spellblade,
+          and an Illusionist. The Spellblade has Doom Blade, which can cast
+          Doom on its target, which is not good since Illua banishes the
+          Judge before the battle even begins! The biggest threat by far is
+          Illua's Dimensional Rift ability, which takes away 75% of your
+          total HP in one shot, and it can hit a large area too. That said,
+          you must have a White Mage handy with at least Cura or Curaga, as
+          well as people who can use items. The Seer can cast the mid-level
+          attack magicks, the Illusionist and Elementalist can do their usual
+          elemental attacks from a distance, and the Nightfall has Dual
+          Wield. You should take out the mages one at a time, making sure to
+          cure up immediately if the Dimensional Rift is used, then you
+          should concentrate on Illua. Once you defeat her, this battle ends,
+          but the quest is not over yet!
+
+Following the first battle, Illua causes a reaction in Luso's journal, at 
+which point you find out it is in fact a grimoire. Illua will try to attack, 
+but Luso and company get sent off to another dimension. There, Lezaford will 
+appear and tell you to leave since it's very dangerous. At that point, a 
+portal will open and a giant demon hand will appear through it. Of course, 
+you have to defeat this thing as well, so get to it!
+
+
+=============================
+Battle 17: A Request (Part 2)
+=============================
+
+Victory Circumstance: Defeat the Neukhia!
+Forbidden: Opportunity Commands
+Strategy: In this second battle, you must face a Neukhia (the demon hand), as
+          well as two Plagues. Of course you will have to deal with the
+          Plague's abilities which can cause Confuse status on your clan
+          members, but the Neukhia is the much greater threat. Its abilities
+          can hit multiple members at once, causing lots of damage and status
+          effects (like Confuse). If you have a good melee character with
+          Dual Wield, you will want to send them right up to the demon hand
+          and do battle that way. A Juggler with Smile Toss to give your best
+          attacker a much sooner second chance will come in handy as well.
+          Don't worry so much about fighting the Plagues, as more enemies
+          will appear if you defeat them. Once you deplete the demon hand's

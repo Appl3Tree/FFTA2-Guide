@@ -3097,7 +3097,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     "potion-shell": {
         id: "potion-shell",
         setId: "cannonry",
-        name: "Potioni Shell",
+        name: "Potion Shell",
         description: [
             "Fire a potion-infused shell at the target. Restores HP.",
             "Requires: Hand-cannon.",

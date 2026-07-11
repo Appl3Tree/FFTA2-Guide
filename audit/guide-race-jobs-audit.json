@@ -1,0 +1,17 @@
+{
+  "guidePath": "/tmp/ffta2-dev-guide-full.txt",
+  "guideRaces": 7,
+  "appRaces": 8,
+  "mismatchCount": 0,
+  "mismatches": [],
+  "specialJobs": [
+    "Agent",
+    "Bard",
+    "Dancer",
+    "Keeper",
+    "Heritor",
+    "Nightshade",
+    "Sky Pirate"
+  ],
+  "note": "The GameFAQs race overview lists the seven recruitable races. The app also has a Special bucket for named/enemy-only jobs such as Agent, Bard, Dancer, Heritor, and Sky Pirate."
+}

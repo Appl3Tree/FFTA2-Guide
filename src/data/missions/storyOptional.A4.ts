@@ -341,8 +341,8 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         objective: "Defeat the Mutadragons!",
         law: "Forbidden: Targeting all Units – Actions targeting all units at once are forbidden.",
     enemies: [
-        { name: "Flaresky", job: "Mutadragon", quantity: 1, notes: "Weak to Holy. Use Paladins/Master Monks (Holy) or Hunters with Sidewinder." },
-        { name: "Gaiasea", job: "Mutadragon", quantity: 1, notes: "Weak to Ice. Use Black Mages, or Hunters with Sidewinder." },
+        { name: "Flaresky", job: "Mutadragon (large)", quantity: 1, notes: "Weak to Holy. Use Paladins/Master Monks (Holy) or Hunters with Sidewinder." },
+        { name: "Gaiasea", job: "Mutadragon (small)", quantity: 1, notes: "Weak to Ice. Use Black Mages, or Hunters with Sidewinder." },
         { name: "Lightland", job: "Mutadragon", quantity: 1, notes: "Weak to Earth. Use Elementalists, or Hunters with Sidewinder." },
     ],
         strategy: [

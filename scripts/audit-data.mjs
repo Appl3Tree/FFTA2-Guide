@@ -343,9 +343,13 @@ const nonMissionPrerequisitePatterns = [
     /^read\b/i,
     /^notice\b/i,
     /^complete (an|a|the)?\s*auction/i,
+    /^complete\b/i,
     /^complete game save/i,
     /^must be\b/i,
+    /^accept from\b/i,
     /^accept in\b/i,
+    /^side quest\b/i,
+    /^.+\bside quest$/i,
     /^adelle\b/i,
     /^where could he be\??$/i,
     /^the search$/i,
@@ -360,13 +364,13 @@ const nonMissionPrerequisitePatterns = [
     /^bloodfire$/i,
     /^blackfrost$/i,
     /^coppersun$/i,
+    /^rosefire$/i,
 ];
 
 function splitPrerequisiteText(prerequisite) {
-    const protectedText = (prerequisite ?? "").replace(
-        /I've Been Had, Kupo!/g,
-        "I've Been Had Kupo!",
-    );
+    const protectedText = (prerequisite ?? "")
+        .replace(/I've Been Had, Kupo!/g, "I've Been Had Kupo!")
+        .replace(/Wanted: Friends, Kupo!/g, "Wanted: Friends Kupo!");
 
     return protectedText
         .split(/[;,]/)
@@ -386,16 +390,33 @@ function missionNameIndex(missionsById) {
         "now that s a fire": "B2-11",
         "wanted ugohr": "B2-01",
         "wanted gilmunto": "B2-06",
+        "sky pirate vaan": "D4-11",
+        "wanted sky pirate vaan": "D4-11",
         "wanted friends kupo": "E5-12",
+        "wanted friends": "E5-12",
+        "kupo": "E5-12",
         "death march ii": "A3-08",
         "death march iii": "A3-11",
+        "iii": "A3-11",
         "the wayward drake": "B1-06",
         "ive been had kupo": "D4-07",
         "foodstuff nutrition": "C1-05",
         "bangaa of the rupies": "D1-05",
+        "the bangaa of the rupies": "D1-05",
+        "nu mou of the rupies": "D1-10",
+        "the nu mou of the rupies": "D1-10",
+        "kthili surveyors": "EX-KTHILI-SURVEYORS",
+        "kthili surveyors side quest": "EX-KTHILI-SURVEYORS",
+        "i got a bad feeling": "EX-I-GOT-A-BAD-FEELING",
+        "i got a bad feeling side quest": "EX-I-GOT-A-BAD-FEELING",
+        "gifted": "EX-GIFTED",
+        "gifted side quest": "EX-GIFTED",
+        "with a smile": "EX-WITH-A-SMILE",
+        "with a smile side quest": "EX-WITH-A-SMILE",
         "odd places upper right well": "A2-10",
         "odd places bottom left well": "A2-10",
         "odd places upper middle well": "A2-10",
+        "odd places upper left well": "A2-10",
     };
 
     for (const [alias, missionId] of Object.entries(aliases)) {
@@ -735,6 +756,14 @@ function isKnownDuplicateMissionId(group) {
 }
 
 function isKnownDuplicateMissionName(group) {
+    if (
+        group.key === "Chita on Weapons-Adepts" &&
+        group.entries.some((entry) => entry.id === "C2-12") &&
+        group.entries.some((entry) => entry.id === "D2-05")
+    ) {
+        return true;
+    }
+
     return group.entries.length === 2 &&
         group.entries[0].id === group.entries[1].id &&
         group.entries.some((entry) => entry.file.endsWith("storyMain.ts")) &&

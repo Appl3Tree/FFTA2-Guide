@@ -1,0 +1,59 @@
+{
+  "guidePath": "/tmp/ffta2-dev-guide-full.txt",
+  "guideItems": 403,
+  "appItems": 404,
+  "mismatchCount": 0,
+  "missingInAppCount": 0,
+  "sourceGapCount": 1,
+  "guideInternalAliases": [
+    {
+      "appName": "Kiku-ichimonji",
+      "guideEquipmentHeading": "Kiku-ichimongi",
+      "reason": "Guide Bazaar and ability references use Kiku-ichimonji; equipment heading appears inconsistent."
+    },
+    {
+      "appName": "Nagrarok",
+      "guideEquipmentHeading": "Nagnarok",
+      "reason": "Guide mission/reward references use Nagrarok; equipment heading appears inconsistent."
+    },
+    {
+      "appName": "Archer's Bane",
+      "guideEquipmentHeading": "Archer's Band",
+      "reason": "Guide ability tables and descriptions use Archer's Bane; Green Beret equipment line appears inconsistent."
+    },
+    {
+      "appName": "Magick Counter",
+      "guideEquipmentHeading": "Magick Country",
+      "reason": "Guide ability tables and descriptions use Magick Counter; Samite Coat equipment line appears inconsistent."
+    },
+    {
+      "appName": "Sanctify",
+      "guideEquipmentHeading": "Sanctity",
+      "reason": "Guide ability table uses Sanctify for Ogrenix; equipment line appears inconsistent."
+    },
+    {
+      "appName": "Shadow Shade Tome",
+      "guideEquipmentHeading": "Shadow Bolt Tome",
+      "reason": "Guide ability table uses Shadow Shade Tome for Veil of Wiyu; equipment line appears inconsistent."
+    },
+    {
+      "appName": "Viola",
+      "guideEquipmentHeading": "Voila",
+      "reason": "Guide story and ability table use Viola for Tiptaptwo; equipment line appears inconsistent."
+    },
+    {
+      "appName": "Cachusha teaches Critical: Evasion",
+      "guideEquipmentHeading": "Cachusha Abilities: N/A",
+      "reason": "Guide Geomancer and Spellblade ability tables list Critical: Evasion on Cachusha, despite the equipment line saying N/A."
+    }
+  ],
+  "mismatches": [],
+  "missingInApp": [],
+  "sourceGaps": [
+    {
+      "type": "missing-guide-equipment-block",
+      "appName": "Hurdy-gurdy",
+      "file": "src/data/equipment/equipment.weapons.ts"
+    }
+  ]
+}

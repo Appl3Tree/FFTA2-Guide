@@ -249,7 +249,7 @@ export const HELMET_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         name: "Iron Helm",
         category: "Helmet",
         bazaar_category: "Iron Armor E",
-        price: 200,
+        price: 300,
         helmetType: "Helm",
         atk: 0,
         def: 5,

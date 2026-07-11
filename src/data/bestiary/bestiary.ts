@@ -146,7 +146,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         absorb: null,
         immune: null,
         half: null,
-        weak: ["Lightning", "Holy"]
+        weak: ["Lightning", "Holy", "Water"]
     },
     "red-chocobo": {
         id: 'red-chocobo',
@@ -155,7 +155,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         absorb: null,
         immune: null,
         half: null,
-        weak: ["Lightning", "Holy"]
+        weak: ["Lightning", "Holy", "Water"]
     },
     "black-chocobo": {
         id: 'black-chocobo',
@@ -164,7 +164,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         absorb: null,
         immune: null,
         half: null,
-        weak: ["Lightning", "Holy"]
+        weak: ["Lightning", "Holy", "Water"]
     },
     "green-chocobo": {
         id: 'green-chocobo',
@@ -173,7 +173,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         absorb: null,
         immune: null,
         half: null,
-        weak: ["Lightning", "Holy"]
+        weak: ["Lightning", "Holy", "Water"]
     },
     "brown-chocobo": {
         id: 'brown-chocobo',
@@ -182,7 +182,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         absorb: null,
         immune: null,
         half: null,
-        weak: ["Lightning", "Holy"]
+        weak: ["Lightning", "Holy", "Water"]
     },
     "white-chocobo": {
         id: 'white-chocobo',
@@ -191,7 +191,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         absorb: null,
         immune: null,
         half: null,
-        weak: ["Lightning", "Holy"]
+        weak: ["Lightning", "Holy", "Water"]
     },
     cockatrice: {
         id: 'cockatrice',
@@ -312,7 +312,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
     },
     "mutadragon-purple": {
         id: 'mutadragon-purple',
-        job: 'Mutadragon',
+        job: 'Mutadragon (small)',
         description: "Often called the guardian of the earth, this dragon stirs for the first time in many years.",
         absorb: ["Fire"],
         immune: null,
@@ -384,7 +384,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
     },
     "mutadragon-white": {
         id: 'mutadragon-white',
-        job: 'Mutadragon',
+        job: 'Mutadragon (large)',
         description: "Often called the guardian of the earth, this dragon stirs for the first time in many years.",
         absorb: ["Dark"],
         immune: null,
@@ -409,9 +409,9 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         half: null,
         weak: ["Fire"]
     },
-    "happy-bunny": {
-        id: 'happy-bunny',
-        job: 'Happy Bunny',
+    "hoppy-bunny": {
+        id: 'hoppy-bunny',
+        job: 'Hoppy Bunny',
         description: "These seemingly harmless creatures strike at predators with bounding attacks.",
         absorb: ["Holy"],
         immune: null,
@@ -479,7 +479,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         absorb: null,
         immune: null,
         half: null,
-        weak: null
+        weak: ["Air"]
     },
     "floating-eye": {
         id: 'floating-eye',
@@ -587,7 +587,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         absorb: null,
         immune: null,
         half: null,
-        weak: null
+        weak: ["Air"]
     },
     "great-malboro": {
         id: 'great-malboro',
@@ -596,7 +596,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         absorb: null,
         immune: null,
         half: null,
-        weak: null
+        weak: ["Air"]
     },
     "malboro-king": {
         id: 'malboro-king',
@@ -605,7 +605,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         absorb: null,
         immune: null,
         half: null,
-        weak: null
+        weak: ["Air"]
     },
     cassie: {
         id: 'cassie',
@@ -614,7 +614,7 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         absorb: null,
         immune: null,
         half: null,
-        weak: null
+        weak: ["Air"]
     },
     kukunoch: {
         id: 'kukunoch',
@@ -642,6 +642,15 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         immune: null,
         half: null,
         weak: ["All elements"]
+    },
+    neukhia: {
+        id: 'neukhia',
+        job: 'Neukhia',
+        description: "The demon hand from the rift, accompanied by its pod, core, and wisp manifestations.",
+        absorb: ["Dark"],
+        immune: null,
+        half: ["Air", "Earth", "Fire", "Ice", "Lightning", "Water"],
+        weak: null
     },
     "neukhia-pod": {
         id: 'neukhia-pod',

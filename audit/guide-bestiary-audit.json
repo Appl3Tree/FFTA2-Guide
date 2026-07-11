@@ -1,0 +1,32 @@
+{
+  "guidePath": "/tmp/ffta2-dev-guide-full.txt",
+  "guideEnemies": 78,
+  "appEnemies": 98,
+  "mismatchCount": 0,
+  "mismatches": [],
+  "missingInAppCount": 0,
+  "missingInApp": [],
+  "missingInGuideCount": 20,
+  "missingInGuide": [
+    "Asp",
+    "Blackwind",
+    "Cerayn",
+    "Dark Behemoth",
+    "Evil Eye",
+    "Floraxion",
+    "Fury",
+    "Humbaba",
+    "Jormungand",
+    "Kukunoch",
+    "Magick Weapon",
+    "Nemeshis",
+    "Neukhia Core",
+    "Neukhia Pod",
+    "Neukhia Wisp",
+    "Opion",
+    "Orthros",
+    "Pavilsag",
+    "Tiamat",
+    "Varigarmanda"
+  ]
+}
