@@ -4,6 +4,7 @@ import React, {
     useContext,
     useEffect,
     useMemo,
+    useRef,
     useState,
 } from "react";
 import {
@@ -29,6 +30,18 @@ import {
 type ProgressMap = Record<string, boolean>;
 type AuthStatus = "disabled" | "loading" | "signed-out" | "signed-in";
 type SyncStatus = "local-only" | "idle" | "loading" | "syncing" | "saved" | "error";
+export type SyncConflictChoice = "local" | "cloud" | "merge";
+
+export interface SyncConflict {
+    local: ProgressMap;
+    cloud: ProgressMap;
+    merged: ProgressMap;
+    localOnly: string[];
+    cloudOnly: string[];
+    localCount: number;
+    cloudCount: number;
+    mergedCount: number;
+}
 
 export interface ProgressContextValue {
     checked: ProgressMap;
@@ -37,8 +50,10 @@ export interface ProgressContextValue {
     authStatus: AuthStatus;
     syncStatus: SyncStatus;
     authError: string | null;
+    syncConflict: SyncConflict | null;
     signInWithGoogle: () => Promise<void>;
     signOut: () => Promise<void>;
+    resolveSyncConflict: (choice: SyncConflictChoice) => void;
 }
 
 const ProgressContext = createContext<ProgressContextValue | undefined>(
@@ -75,6 +90,42 @@ function mergeProgress(local: ProgressMap, remote: ProgressMap): ProgressMap {
     return { ...remote, ...local };
 }
 
+function checkedKeys(progress: ProgressMap): string[] {
+    return Object.keys(progress).filter((key) => progress[key]).sort();
+}
+
+function progressCount(progress: ProgressMap): number {
+    return checkedKeys(progress).length;
+}
+
+function sameProgress(left: ProgressMap, right: ProgressMap): boolean {
+    const leftKeys = checkedKeys(left);
+    const rightKeys = checkedKeys(right);
+    return (
+        leftKeys.length === rightKeys.length &&
+        leftKeys.every((key, index) => key === rightKeys[index])
+    );
+}
+
+function createSyncConflict(local: ProgressMap, cloud: ProgressMap): SyncConflict {
+    const merged = mergeProgress(local, cloud);
+    const localKeys = checkedKeys(local);
+    const cloudKeys = checkedKeys(cloud);
+    const localSet = new Set(localKeys);
+    const cloudSet = new Set(cloudKeys);
+
+    return {
+        local,
+        cloud,
+        merged,
+        localOnly: localKeys.filter((key) => !cloudSet.has(key)),
+        cloudOnly: cloudKeys.filter((key) => !localSet.has(key)),
+        localCount: localKeys.length,
+        cloudCount: cloudKeys.length,
+        mergedCount: progressCount(merged),
+    };
+}
+
 function progressDocRef(userId: string) {
     if (!db) {
         throw new Error("Firestore is not configured.");
@@ -84,6 +135,7 @@ function progressDocRef(userId: string) {
 
 export function ProgressProvider({ children }: { children: React.ReactNode }) {
     const [checked, setChecked] = useState<ProgressMap>(readLocalProgress);
+    const checkedRef = useRef(checked);
     const [user, setUser] = useState<User | null>(null);
     const [authStatus, setAuthStatus] = useState<AuthStatus>(
         firebaseEnabled ? "loading" : "disabled",
@@ -93,8 +145,11 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     );
     const [authError, setAuthError] = useState<string | null>(null);
     const [remoteReady, setRemoteReady] = useState(false);
+    const [syncConflict, setSyncConflict] = useState<SyncConflict | null>(null);
+    const [syncRevision, setSyncRevision] = useState(0);
 
     useEffect(() => {
+        checkedRef.current = checked;
         writeLocalProgress(checked);
     }, [checked]);
 
@@ -109,6 +164,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
             setUser(nextUser);
             setAuthError(null);
             setRemoteReady(false);
+            setSyncConflict(null);
 
             if (!nextUser) {
                 setAuthStatus("signed-out");
@@ -124,10 +180,21 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
                 const remoteChecked = snapshot.exists()
                     ? ((snapshot.data().checked ?? {}) as ProgressMap)
                     : {};
+                const localChecked = checkedRef.current;
+                const localCount = progressCount(localChecked);
+                const cloudCount = progressCount(remoteChecked);
 
-                setChecked((localChecked) =>
-                    mergeProgress(localChecked, remoteChecked),
-                );
+                if (
+                    localCount > 0 &&
+                    cloudCount > 0 &&
+                    !sameProgress(localChecked, remoteChecked)
+                ) {
+                    setSyncConflict(createSyncConflict(localChecked, remoteChecked));
+                    setSyncStatus("idle");
+                    return;
+                }
+
+                setChecked(cloudCount > 0 ? remoteChecked : localChecked);
                 setRemoteReady(true);
                 setSyncStatus("saved");
             } catch (error) {
@@ -157,7 +224,6 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
                         schemaVersion: 1,
                         updatedAt: serverTimestamp(),
                     },
-                    { merge: true },
                 );
                 setSyncStatus("saved");
             } catch (error) {
@@ -171,7 +237,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         }, SYNC_DEBOUNCE_MS);
 
         return () => window.clearTimeout(timeout);
-    }, [checked, remoteReady, user]);
+    }, [checked, remoteReady, syncRevision, user]);
 
     const setCheck = useCallback((key: string, next?: boolean) => {
         setChecked((prev) => {
@@ -182,6 +248,27 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
                 return copy;
             }
             return { ...prev, [key]: value };
+        });
+    }, []);
+
+    const resolveSyncConflict = useCallback((choice: SyncConflictChoice) => {
+        setSyncConflict((current) => {
+            if (!current) {
+                return null;
+            }
+
+            const nextChecked =
+                choice === "local"
+                    ? current.local
+                    : choice === "cloud"
+                      ? current.cloud
+                      : current.merged;
+
+            setChecked(nextChecked);
+            setRemoteReady(true);
+            setSyncStatus("syncing");
+            setSyncRevision((revision) => revision + 1);
+            return null;
         });
     }, []);
 
@@ -209,6 +296,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         }
 
         setAuthError(null);
+        setSyncConflict(null);
         try {
             await firebaseSignOut(auth);
         } catch (error) {
@@ -226,8 +314,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
             authStatus,
             syncStatus,
             authError,
+            syncConflict,
             signInWithGoogle: handleGoogleSignIn,
             signOut: handleSignOut,
+            resolveSyncConflict,
         }),
         [
             authError,
@@ -235,7 +325,9 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
             checked,
             handleGoogleSignIn,
             handleSignOut,
+            resolveSyncConflict,
             setCheck,
+            syncConflict,
             syncStatus,
             user,
         ],

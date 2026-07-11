@@ -5,6 +5,8 @@ import {
     Cloud,
     Coffee,
     Github,
+    GitMerge,
+    HardDrive,
     Info,
     LogIn,
     LogOut,
@@ -18,7 +20,12 @@ import { RacesPanels } from "./components/meta/RacesPanels";
 import { RetroAchievementsPanels } from "./components/meta/RetroAchievementsPanels";
 import { MissionTabs } from "./components/missions/MissionTabs";
 import { ALL_MISSIONS } from "./data/missions/allMissions";
-import { ProgressProvider, useProgress } from "./components/ProgressContext";
+import {
+    ProgressProvider,
+    useProgress,
+    type SyncConflict,
+    type SyncConflictChoice,
+} from "./components/ProgressContext";
 import { EquipmentHub } from "./components/meta/EquipmentHub";
 import BazaarPanel from "./components/meta/BazaarPanel";
 import { AbilityHub } from "./components/meta/AbilityHub";
@@ -37,7 +44,7 @@ export default function App() {
 }
 
 function AppInner() {
-    const { checked } = useProgress();
+    const { checked, resolveSyncConflict, syncConflict } = useProgress();
     const [wideLayout, setWideLayout] = React.useState(() => {
         if (typeof window === "undefined") return false;
         return window.localStorage.getItem(STORAGE_KEY_WIDE_LAYOUT) === "true";
@@ -225,6 +232,12 @@ function AppInner() {
 
             {/* Floating global search drawer */}
             <GlobalSearchPanel />
+            {syncConflict ? (
+                <SyncConflictDialog
+                    conflict={syncConflict}
+                    onConfirm={resolveSyncConflict}
+                />
+            ) : null}
         </div>
     );
 }
@@ -235,13 +248,16 @@ function AuthSyncControl() {
         authStatus,
         signInWithGoogle,
         signOut,
+        syncConflict,
         syncStatus,
         user,
     } = useProgress();
     const [isBusy, setIsBusy] = React.useState(false);
 
     const syncLabel = user
-        ? syncStatus === "loading"
+        ? syncConflict
+            ? "Choose progress source"
+            : syncStatus === "loading"
             ? "Loading cloud progress"
             : syncStatus === "syncing"
               ? "Syncing to cloud"
@@ -336,6 +352,200 @@ function AuthSyncControl() {
             ) : null}
         </div>
     );
+}
+
+function SyncConflictDialog({
+    conflict,
+    onConfirm,
+}: {
+    conflict: SyncConflict;
+    onConfirm: (choice: SyncConflictChoice) => void;
+}) {
+    const [choice, setChoice] = React.useState<SyncConflictChoice>("merge");
+
+    const options: Array<{
+        choice: SyncConflictChoice;
+        description: string;
+        icon: React.ReactNode;
+        label: string;
+        total: number;
+    }> = [
+        {
+            choice: "local",
+            description: "Use only the progress saved in this browser.",
+            icon: <HardDrive className="h-4 w-4" />,
+            label: "Use Local",
+            total: conflict.localCount,
+        },
+        {
+            choice: "cloud",
+            description: "Use only the progress synced to your account.",
+            icon: <Cloud className="h-4 w-4" />,
+            label: "Use Cloud",
+            total: conflict.cloudCount,
+        },
+        {
+            choice: "merge",
+            description: "Keep anything checked in either place.",
+            icon: <GitMerge className="h-4 w-4" />,
+            label: "Merge Both",
+            total: conflict.mergedCount,
+        },
+    ];
+
+    return (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-6 backdrop-blur-sm">
+            <div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="sync-conflict-title"
+                className="max-h-[calc(100vh-2rem)] w-full max-w-2xl overflow-auto rounded-lg border border-zinc-700 bg-zinc-950 text-zinc-100 shadow-2xl shadow-black/40 ring-1 ring-white/10"
+            >
+                <div className="border-b border-zinc-800 px-4 py-4 sm:px-5">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-wide text-sky-300">
+                        Progress sync
+                    </p>
+                    <h2
+                        id="sync-conflict-title"
+                        className="mt-1 text-lg font-semibold tracking-tight"
+                    >
+                        Choose which progress to keep
+                    </h2>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-300">
+                        This browser and your cloud account both have checked
+                        progress, and they do not match. Pick the source you want
+                        to save going forward.
+                    </p>
+                </div>
+
+                <div className="space-y-4 px-4 py-4 sm:px-5">
+                    <div className="grid gap-3 sm:grid-cols-3">
+                        {options.map((option) => {
+                            const selected = choice === option.choice;
+                            return (
+                                <button
+                                    key={option.choice}
+                                    type="button"
+                                    onClick={() => setChoice(option.choice)}
+                                    className={[
+                                        "rounded-lg border p-3 text-left transition-colors focus:outline-none focus:ring-2 focus:ring-sky-300",
+                                        selected
+                                            ? "border-sky-400 bg-sky-400/10 text-white"
+                                            : "border-zinc-800 bg-zinc-900/80 text-zinc-200 hover:border-zinc-600",
+                                    ].join(" ")}
+                                    aria-pressed={selected}
+                                >
+                                    <span className="flex items-center justify-between gap-2">
+                                        <span className="inline-flex items-center gap-2 text-sm font-semibold">
+                                            {option.icon}
+                                            {option.label}
+                                        </span>
+                                        {selected ? (
+                                            <CheckCircle2 className="h-4 w-4 text-sky-300" />
+                                        ) : null}
+                                    </span>
+                                    <span className="mt-2 block text-2xl font-bold">
+                                        {option.total}
+                                    </span>
+                                    <span className="block text-xs text-zinc-400">
+                                        checked items
+                                    </span>
+                                    <span className="mt-2 block text-xs leading-relaxed text-zinc-300">
+                                        {option.description}
+                                    </span>
+                                </button>
+                            );
+                        })}
+                    </div>
+
+                    <details className="rounded-lg border border-zinc-800 bg-zinc-900/70">
+                        <summary className="cursor-pointer px-3 py-2 text-sm font-semibold text-zinc-200">
+                            Show differences
+                        </summary>
+                        <div className="grid gap-3 border-t border-zinc-800 p-3 sm:grid-cols-2">
+                            <DifferenceList
+                                emptyText="No checked items exist only locally."
+                                items={conflict.localOnly}
+                                title={`Only local (${conflict.localOnly.length})`}
+                            />
+                            <DifferenceList
+                                emptyText="No checked items exist only in cloud."
+                                items={conflict.cloudOnly}
+                                title={`Only cloud (${conflict.cloudOnly.length})`}
+                            />
+                        </div>
+                    </details>
+                </div>
+
+                <div className="flex flex-col gap-2 border-t border-zinc-800 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
+                    <p className="text-xs leading-relaxed text-zinc-400">
+                        Confirming writes the selected progress to local storage and
+                        Firebase for this guide.
+                    </p>
+                    <button
+                        type="button"
+                        onClick={() => onConfirm(choice)}
+                        className="inline-flex items-center justify-center rounded-lg bg-sky-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition-colors hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-200"
+                    >
+                        Confirm{" "}
+                        {choice === "merge"
+                            ? "Merge"
+                            : choice === "local"
+                              ? "Local"
+                              : "Cloud"}
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function DifferenceList({
+    emptyText,
+    items,
+    title,
+}: {
+    emptyText: string;
+    items: string[];
+    title: string;
+}) {
+    return (
+        <div>
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-zinc-400">
+                {title}
+            </h3>
+            {items.length > 0 ? (
+                <ul className="mt-2 max-h-44 space-y-1 overflow-auto pr-1 text-xs text-zinc-300">
+                    {items.map((item) => (
+                        <li
+                            key={item}
+                            className="rounded-md bg-zinc-950/70 px-2 py-1"
+                        >
+                            {formatProgressKey(item)}
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p className="mt-2 text-xs text-zinc-500">{emptyText}</p>
+            )}
+        </div>
+    );
+}
+
+function formatProgressKey(key: string): string {
+    const [scope, ...rest] = key.split(":");
+    const label =
+        scope === "mission"
+            ? "Mission"
+            : scope === "achievement"
+              ? "Achievement"
+              : scope === "trial"
+                ? "Clan trial"
+                : scope === "clan-trial"
+                  ? "Clan trial"
+                  : "Progress";
+    const detail = rest.join(":") || key;
+    return `${label}: ${detail.replace(/[_-]/g, " ")}`;
 }
 
 function StorageHelpTooltip({ text }: { text: string }) {
