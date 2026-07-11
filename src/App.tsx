@@ -32,8 +32,28 @@ import { AbilityHub } from "./components/meta/AbilityHub";
 import { GlobalSearchPanel } from "./components/meta/GlobalSearchPanel";
 import { FaqPanel } from "./components/meta/FaqPanel";
 import { ClanTrialsPanel } from "./components/meta/ClanTrialsPanel";
+import { CLAN_TRIALS } from "./data/meta/clanTrials";
+import {
+    GLOBAL_RETRO_ACHIEVEMENTS,
+    RETRO_ACHIEVEMENTS_BY_MISSION_ID,
+} from "./data/retroAchievements";
 
 const STORAGE_KEY_WIDE_LAYOUT = "ffta2-guide:wide-layout";
+
+const MISSION_NAME_BY_ID = new Map(
+    ALL_MISSIONS.map((mission) => [mission.id, mission.name]),
+);
+
+const RETRO_NAME_BY_ID = new Map(
+    [
+        ...GLOBAL_RETRO_ACHIEVEMENTS,
+        ...Object.values(RETRO_ACHIEVEMENTS_BY_MISSION_ID).flat(),
+    ].map((achievement) => [achievement.id, achievement.name]),
+);
+
+const CLAN_TRIAL_NAME_BY_ID = new Map(
+    CLAN_TRIALS.map((trial) => [trial.id, trial.name]),
+);
 
 export default function App() {
     return (
@@ -534,18 +554,36 @@ function DifferenceList({
 
 function formatProgressKey(key: string): string {
     const [scope, ...rest] = key.split(":");
-    const label =
-        scope === "mission"
-            ? "Mission"
-            : scope === "achievement"
-              ? "Achievement"
-              : scope === "trial"
-                ? "Clan trial"
-                : scope === "clan-trial"
-                  ? "Clan trial"
-                  : "Progress";
-    const detail = rest.join(":") || key;
-    return `${label}: ${detail.replace(/[_-]/g, " ")}`;
+
+    if (scope === "mission") {
+        const missionId = rest.join(":");
+        return `Mission: ${MISSION_NAME_BY_ID.get(missionId) ?? friendlyId(missionId)}`;
+    }
+
+    if (scope === "retro") {
+        const achievementId = rest.join(":");
+        return `RetroAchievement: ${
+            RETRO_NAME_BY_ID.get(achievementId) ?? friendlyId(achievementId)
+        }`;
+    }
+
+    if (scope === "trial" || scope === "clan-trial") {
+        const [trialId, ...titleParts] = rest;
+        const trialName = CLAN_TRIAL_NAME_BY_ID.get(trialId) ?? friendlyId(trialId);
+        const title = titleParts.join(":");
+        return title
+            ? `Clan trial: ${trialName} - ${title}`
+            : `Clan trial: ${trialName}`;
+    }
+
+    return `Progress: ${friendlyId(rest.join(":") || key)}`;
+}
+
+function friendlyId(value: string): string {
+    return value
+        .replace(/^ra-/, "")
+        .replace(/[_-]/g, " ")
+        .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
 function StorageHelpTooltip({ text }: { text: string }) {
