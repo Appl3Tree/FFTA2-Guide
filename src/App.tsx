@@ -1,5 +1,16 @@
 import React from "react";
-import { Github, Coffee, Maximize2, Minimize2 } from "lucide-react";
+import {
+    AlertCircle,
+    CheckCircle2,
+    Cloud,
+    Coffee,
+    Github,
+    Info,
+    LogIn,
+    LogOut,
+    Maximize2,
+    Minimize2,
+} from "lucide-react";
 import { SectionLabel } from "./components/ui/SectionLabel";
 import { Panel } from "./components/ui/Panel";
 import { BeforeYouStartPanel } from "./components/meta/BeforeYouStartPanel";
@@ -101,31 +112,34 @@ function AppInner() {
                                     .
                                 </p>
                             </div>
-                            <button
-                                type="button"
-                                onClick={() => setWideLayout((prev) => !prev)}
-                                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-xs font-semibold text-zinc-100 shadow-sm transition-colors hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-sky-300"
-                                aria-pressed={wideLayout}
-                                aria-label={
-                                    wideLayout
-                                        ? "Use default content width"
-                                        : "Use full window width"
-                                }
-                                title={
-                                    wideLayout
-                                        ? "Use default content width"
-                                        : "Use full window width"
-                                }
-                            >
-                                {wideLayout ? (
-                                    <Minimize2 className="h-4 w-4" />
-                                ) : (
-                                    <Maximize2 className="h-4 w-4" />
-                                )}
-                                <span className="hidden sm:inline">
-                                    {wideLayout ? "Default width" : "Full width"}
-                                </span>
-                            </button>
+                            <div className="flex shrink-0 flex-col items-stretch gap-2 sm:items-end">
+                                <AuthSyncControl />
+                                <button
+                                    type="button"
+                                    onClick={() => setWideLayout((prev) => !prev)}
+                                    className="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-xs font-semibold text-zinc-100 shadow-sm transition-colors hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-sky-300"
+                                    aria-pressed={wideLayout}
+                                    aria-label={
+                                        wideLayout
+                                            ? "Use default content width"
+                                            : "Use full window width"
+                                    }
+                                    title={
+                                        wideLayout
+                                            ? "Use default content width"
+                                            : "Use full window width"
+                                    }
+                                >
+                                    {wideLayout ? (
+                                        <Minimize2 className="h-4 w-4" />
+                                    ) : (
+                                        <Maximize2 className="h-4 w-4" />
+                                    )}
+                                    <span className="hidden sm:inline">
+                                        {wideLayout ? "Default width" : "Full width"}
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -212,5 +226,134 @@ function AppInner() {
             {/* Floating global search drawer */}
             <GlobalSearchPanel />
         </div>
+    );
+}
+
+function AuthSyncControl() {
+    const {
+        authError,
+        authStatus,
+        signInWithGoogle,
+        signOut,
+        syncStatus,
+        user,
+    } = useProgress();
+    const [isBusy, setIsBusy] = React.useState(false);
+
+    const syncLabel = user
+        ? syncStatus === "loading"
+            ? "Loading cloud progress"
+            : syncStatus === "syncing"
+              ? "Syncing to cloud"
+              : syncStatus === "saved"
+                ? "Cloud progress saved"
+                : syncStatus === "error"
+                  ? "Cloud sync issue"
+                  : "Cloud sync ready"
+        : "Progress saved locally";
+    const storageHelpText = user
+        ? "Signed-in progress is synced to Firebase under your account. Firestore security rules restrict each user to their own guide progress."
+        : "Progress is saved locally in this browser by default. Sign in to sync progress to your account through Firebase.";
+
+    const statusIcon =
+        syncStatus === "error" ? (
+            <AlertCircle className="h-3.5 w-3.5 text-rose-300" />
+        ) : syncStatus === "saved" ? (
+            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-300" />
+        ) : (
+            <Cloud className="h-3.5 w-3.5 text-sky-300" />
+        );
+
+    const handleSignIn = async () => {
+        setIsBusy(true);
+        try {
+            await signInWithGoogle();
+        } finally {
+            setIsBusy(false);
+        }
+    };
+
+    const handleSignOut = async () => {
+        setIsBusy(true);
+        try {
+            await signOut();
+        } finally {
+            setIsBusy(false);
+        }
+    };
+
+    if (authStatus === "disabled") {
+        return (
+            <div className="relative inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900/90 px-3 py-2 text-xs text-zinc-300">
+                <Cloud className="h-3.5 w-3.5 text-zinc-500" />
+                <span>Progress saved locally</span>
+                <StorageHelpTooltip text={storageHelpText} />
+            </div>
+        );
+    }
+
+    return (
+        <div className="flex flex-col items-stretch gap-1 sm:items-end">
+            <div className="inline-flex items-center justify-between gap-2 rounded-lg border border-zinc-700 bg-zinc-900/90 px-3 py-2 text-xs text-zinc-200 shadow-sm">
+                <span className="inline-flex min-w-0 items-center gap-2">
+                    {statusIcon}
+                    <span className="truncate">
+                        {user?.email ?? "Progress saved locally"}
+                    </span>
+                    <StorageHelpTooltip text={storageHelpText} />
+                </span>
+                {user ? (
+                    <button
+                        type="button"
+                        onClick={handleSignOut}
+                        disabled={isBusy}
+                        className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-semibold text-zinc-100 transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                        <LogOut className="h-3.5 w-3.5" />
+                        <span>Sign out</span>
+                    </button>
+                ) : (
+                    <button
+                        type="button"
+                        onClick={handleSignIn}
+                        disabled={isBusy || authStatus === "loading"}
+                        className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-semibold text-zinc-100 transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                        <LogIn className="h-3.5 w-3.5" />
+                        <span>Sign in</span>
+                    </button>
+                )}
+            </div>
+            {user ? (
+                <div className="text-right text-[0.68rem] text-zinc-500">
+                    {syncLabel}
+                </div>
+            ) : null}
+            {authError ? (
+                <div className="max-w-xs text-right text-[0.68rem] text-rose-300">
+                    {authError}
+                </div>
+            ) : null}
+        </div>
+    );
+}
+
+function StorageHelpTooltip({ text }: { text: string }) {
+    return (
+        <span className="group/help relative inline-flex shrink-0">
+            <button
+                type="button"
+                className="inline-flex h-5 w-5 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-sky-300"
+                aria-label="How progress storage works"
+            >
+                <Info className="h-3.5 w-3.5" />
+            </button>
+            <span
+                role="tooltip"
+                className="pointer-events-none fixed left-1/2 top-28 z-20 mt-2 w-72 max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-left text-[0.72rem] font-normal leading-relaxed text-zinc-200 opacity-0 shadow-xl shadow-black/30 ring-1 ring-white/10 transition-opacity group-hover/help:opacity-100 group-focus-within/help:opacity-100 sm:absolute sm:left-auto sm:right-0 sm:top-full sm:translate-x-0"
+            >
+                {text}
+            </span>
+        </span>
     );
 }

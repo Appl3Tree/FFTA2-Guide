@@ -104,7 +104,7 @@ Known source conflicts and validation decisions are recorded in `audit/validatio
 * **Vite** with `@vitejs/plugin-react-swc`
 * **TailwindCSS**
 * **lucide-react** for icons
-* **GitHub Pages** for deployment (`gh-pages` package)
+* **GitHub Pages** for deployment through GitHub Actions
 
 Supporting structure includes:
 

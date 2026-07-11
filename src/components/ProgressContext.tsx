@@ -6,12 +6,39 @@ import React, {
     useMemo,
     useState,
 } from "react";
+import {
+    onAuthStateChanged,
+    signInWithPopup,
+    signOut as firebaseSignOut,
+    type User,
+} from "firebase/auth";
+import {
+    doc,
+    getDoc,
+    serverTimestamp,
+    setDoc,
+} from "firebase/firestore";
+import {
+    auth,
+    db,
+    firebaseEnabled,
+    googleProvider,
+    GUIDE_SLUG,
+} from "../lib/firebase";
 
 type ProgressMap = Record<string, boolean>;
+type AuthStatus = "disabled" | "loading" | "signed-out" | "signed-in";
+type SyncStatus = "local-only" | "idle" | "loading" | "syncing" | "saved" | "error";
 
 export interface ProgressContextValue {
     checked: ProgressMap;
     setCheck: (key: string, next?: boolean) => void;
+    user: User | null;
+    authStatus: AuthStatus;
+    syncStatus: SyncStatus;
+    authError: string | null;
+    signInWithGoogle: () => Promise<void>;
+    signOut: () => Promise<void>;
 }
 
 const ProgressContext = createContext<ProgressContextValue | undefined>(
@@ -19,38 +46,136 @@ const ProgressContext = createContext<ProgressContextValue | undefined>(
 );
 
 const STORAGE_KEY_CHECKED = "ffta2Guide.checked";
+const SYNC_DEBOUNCE_MS = 1000;
+
+function readLocalProgress(): ProgressMap {
+    if (typeof window === "undefined") {
+        return {};
+    }
+    try {
+        const raw = window.localStorage.getItem(STORAGE_KEY_CHECKED);
+        return raw ? (JSON.parse(raw) as ProgressMap) : {};
+    } catch {
+        return {};
+    }
+}
+
+function writeLocalProgress(checked: ProgressMap) {
+    if (typeof window === "undefined") {
+        return;
+    }
+    try {
+        window.localStorage.setItem(STORAGE_KEY_CHECKED, JSON.stringify(checked));
+    } catch {
+        // Local persistence is best-effort; cloud sync still gets a chance.
+    }
+}
+
+function mergeProgress(local: ProgressMap, remote: ProgressMap): ProgressMap {
+    return { ...remote, ...local };
+}
+
+function progressDocRef(userId: string) {
+    if (!db) {
+        throw new Error("Firestore is not configured.");
+    }
+    return doc(db, "users", userId, "guides", GUIDE_SLUG);
+}
 
 export function ProgressProvider({ children }: { children: React.ReactNode }) {
-    const [checked, setChecked] = useState<ProgressMap>(() => {
-        if (typeof window === "undefined") {
-            return {};
-        }
-        try {
-            const raw = window.localStorage.getItem(STORAGE_KEY_CHECKED);
-            return raw ? (JSON.parse(raw) as ProgressMap) : {};
-        } catch {
-            return {};
-        }
-    });
+    const [checked, setChecked] = useState<ProgressMap>(readLocalProgress);
+    const [user, setUser] = useState<User | null>(null);
+    const [authStatus, setAuthStatus] = useState<AuthStatus>(
+        firebaseEnabled ? "loading" : "disabled",
+    );
+    const [syncStatus, setSyncStatus] = useState<SyncStatus>(
+        firebaseEnabled ? "idle" : "local-only",
+    );
+    const [authError, setAuthError] = useState<string | null>(null);
+    const [remoteReady, setRemoteReady] = useState(false);
 
     useEffect(() => {
-        if (typeof window === "undefined") {
+        writeLocalProgress(checked);
+    }, [checked]);
+
+    useEffect(() => {
+        if (!firebaseEnabled || !auth) {
+            setAuthStatus("disabled");
+            setSyncStatus("local-only");
             return;
         }
-        try {
-            window.localStorage.setItem(
-                STORAGE_KEY_CHECKED,
-                JSON.stringify(checked),
-            );
-        } catch {
-            // ignore
+
+        return onAuthStateChanged(auth, async (nextUser) => {
+            setUser(nextUser);
+            setAuthError(null);
+            setRemoteReady(false);
+
+            if (!nextUser) {
+                setAuthStatus("signed-out");
+                setSyncStatus("idle");
+                return;
+            }
+
+            setAuthStatus("signed-in");
+            setSyncStatus("loading");
+
+            try {
+                const snapshot = await getDoc(progressDocRef(nextUser.uid));
+                const remoteChecked = snapshot.exists()
+                    ? ((snapshot.data().checked ?? {}) as ProgressMap)
+                    : {};
+
+                setChecked((localChecked) =>
+                    mergeProgress(localChecked, remoteChecked),
+                );
+                setRemoteReady(true);
+                setSyncStatus("saved");
+            } catch (error) {
+                setAuthError(
+                    error instanceof Error
+                        ? error.message
+                        : "Unable to load cloud progress.",
+                );
+                setSyncStatus("error");
+            }
+        });
+    }, []);
+
+    useEffect(() => {
+        if (!firebaseEnabled || !user || !remoteReady) {
+            return;
         }
-    }, [checked]);
+
+        setSyncStatus("syncing");
+        const timeout = window.setTimeout(async () => {
+            try {
+                await setDoc(
+                    progressDocRef(user.uid),
+                    {
+                        checked,
+                        guideSlug: GUIDE_SLUG,
+                        schemaVersion: 1,
+                        updatedAt: serverTimestamp(),
+                    },
+                    { merge: true },
+                );
+                setSyncStatus("saved");
+            } catch (error) {
+                setAuthError(
+                    error instanceof Error
+                        ? error.message
+                        : "Unable to save cloud progress.",
+                );
+                setSyncStatus("error");
+            }
+        }, SYNC_DEBOUNCE_MS);
+
+        return () => window.clearTimeout(timeout);
+    }, [checked, remoteReady, user]);
 
     const setCheck = useCallback((key: string, next?: boolean) => {
         setChecked((prev) => {
             const value = next ?? !prev[key];
-            // If you uncheck, we can remove the key entirely to keep storage small.
             if (!value) {
                 const copy = { ...prev };
                 delete copy[key];
@@ -60,12 +185,60 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         });
     }, []);
 
+    const handleGoogleSignIn = useCallback(async () => {
+        if (!auth || !googleProvider) {
+            setAuthError("Firebase Auth is not configured.");
+            return;
+        }
+
+        setAuthError(null);
+        try {
+            await signInWithPopup(auth, googleProvider);
+        } catch (error) {
+            setAuthError(
+                error instanceof Error
+                    ? error.message
+                    : "Unable to sign in with Google.",
+            );
+        }
+    }, []);
+
+    const handleSignOut = useCallback(async () => {
+        if (!auth) {
+            return;
+        }
+
+        setAuthError(null);
+        try {
+            await firebaseSignOut(auth);
+        } catch (error) {
+            setAuthError(
+                error instanceof Error ? error.message : "Unable to sign out.",
+            );
+        }
+    }, []);
+
     const value = useMemo(
         () => ({
             checked,
             setCheck,
+            user,
+            authStatus,
+            syncStatus,
+            authError,
+            signInWithGoogle: handleGoogleSignIn,
+            signOut: handleSignOut,
         }),
-        [checked, setCheck],
+        [
+            authError,
+            authStatus,
+            checked,
+            handleGoogleSignIn,
+            handleSignOut,
+            setCheck,
+            syncStatus,
+            user,
+        ],
     );
 
     return (
@@ -82,4 +255,3 @@ export function useProgress(): ProgressContextValue {
     }
     return ctx;
 }
-
