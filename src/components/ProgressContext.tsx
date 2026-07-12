@@ -8,7 +8,10 @@ import React, {
     useState,
 } from "react";
 import {
+    createUserWithEmailAndPassword,
     onAuthStateChanged,
+    sendPasswordResetEmail,
+    signInWithEmailAndPassword,
     signInWithPopup,
     signOut as firebaseSignOut,
     type User,
@@ -51,6 +54,9 @@ export interface ProgressContextValue {
     syncStatus: SyncStatus;
     authError: string | null;
     syncConflict: SyncConflict | null;
+    createAccountWithEmail: (email: string, password: string) => Promise<void>;
+    resetPassword: (email: string) => Promise<void>;
+    signInWithEmail: (email: string, password: string) => Promise<void>;
     signInWithGoogle: () => Promise<void>;
     signOut: () => Promise<void>;
     resolveSyncConflict: (choice: SyncConflictChoice) => void;
@@ -290,6 +296,63 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         }
     }, []);
 
+    const handleEmailSignIn = useCallback(async (email: string, password: string) => {
+        if (!auth) {
+            setAuthError("Firebase Auth is not configured.");
+            return;
+        }
+
+        setAuthError(null);
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+        } catch (error) {
+            setAuthError(
+                error instanceof Error
+                    ? error.message
+                    : "Unable to sign in with email.",
+            );
+        }
+    }, []);
+
+    const handleEmailCreateAccount = useCallback(
+        async (email: string, password: string) => {
+            if (!auth) {
+                setAuthError("Firebase Auth is not configured.");
+                return;
+            }
+
+            setAuthError(null);
+            try {
+                await createUserWithEmailAndPassword(auth, email, password);
+            } catch (error) {
+                setAuthError(
+                    error instanceof Error
+                        ? error.message
+                        : "Unable to create account.",
+                );
+            }
+        },
+        [],
+    );
+
+    const handlePasswordReset = useCallback(async (email: string) => {
+        if (!auth) {
+            setAuthError("Firebase Auth is not configured.");
+            return;
+        }
+
+        setAuthError(null);
+        try {
+            await sendPasswordResetEmail(auth, email);
+        } catch (error) {
+            setAuthError(
+                error instanceof Error
+                    ? error.message
+                    : "Unable to send password reset email.",
+            );
+        }
+    }, []);
+
     const handleSignOut = useCallback(async () => {
         if (!auth) {
             return;
@@ -315,6 +378,9 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
             syncStatus,
             authError,
             syncConflict,
+            createAccountWithEmail: handleEmailCreateAccount,
+            resetPassword: handlePasswordReset,
+            signInWithEmail: handleEmailSignIn,
             signInWithGoogle: handleGoogleSignIn,
             signOut: handleSignOut,
             resolveSyncConflict,
@@ -323,7 +389,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
             authError,
             authStatus,
             checked,
+            handleEmailCreateAccount,
+            handleEmailSignIn,
             handleGoogleSignIn,
+            handlePasswordReset,
             handleSignOut,
             resolveSyncConflict,
             setCheck,

@@ -10,6 +10,7 @@ import {
     Info,
     LogIn,
     LogOut,
+    Mail,
     Maximize2,
     Minimize2,
 } from "lucide-react";
@@ -266,12 +267,12 @@ function AuthSyncControl() {
     const {
         authError,
         authStatus,
-        signInWithGoogle,
         signOut,
         syncConflict,
         syncStatus,
         user,
     } = useProgress();
+    const [authDialogOpen, setAuthDialogOpen] = React.useState(false);
     const [isBusy, setIsBusy] = React.useState(false);
 
     const syncLabel = user
@@ -299,15 +300,6 @@ function AuthSyncControl() {
         ) : (
             <Cloud className="h-3.5 w-3.5 text-sky-300" />
         );
-
-    const handleSignIn = async () => {
-        setIsBusy(true);
-        try {
-            await signInWithGoogle();
-        } finally {
-            setIsBusy(false);
-        }
-    };
 
     const handleSignOut = async () => {
         setIsBusy(true);
@@ -351,7 +343,7 @@ function AuthSyncControl() {
                 ) : (
                     <button
                         type="button"
-                        onClick={handleSignIn}
+                        onClick={() => setAuthDialogOpen(true)}
                         disabled={isBusy || authStatus === "loading"}
                         className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-semibold text-zinc-100 transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-60"
                     >
@@ -370,6 +362,200 @@ function AuthSyncControl() {
                     {authError}
                 </div>
             ) : null}
+            {authDialogOpen ? (
+                <AuthDialog onClose={() => setAuthDialogOpen(false)} />
+            ) : null}
+        </div>
+    );
+}
+
+function AuthDialog({ onClose }: { onClose: () => void }) {
+    const {
+        authError,
+        createAccountWithEmail,
+        resetPassword,
+        signInWithEmail,
+        signInWithGoogle,
+        user,
+    } = useProgress();
+    const [email, setEmail] = React.useState("");
+    const [mode, setMode] = React.useState<"signin" | "create">("signin");
+    const [password, setPassword] = React.useState("");
+    const [isBusy, setIsBusy] = React.useState(false);
+    const [resetMessage, setResetMessage] = React.useState<string | null>(null);
+
+    React.useEffect(() => {
+        if (user) {
+            onClose();
+        }
+    }, [onClose, user]);
+
+    const canSubmit = email.trim().length > 0 && password.length >= 6 && !isBusy;
+    const title = mode === "signin" ? "Sign in" : "Create account";
+
+    const handleEmailSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if (!canSubmit) {
+            return;
+        }
+
+        setIsBusy(true);
+        setResetMessage(null);
+        try {
+            if (mode === "signin") {
+                await signInWithEmail(email.trim(), password);
+            } else {
+                await createAccountWithEmail(email.trim(), password);
+            }
+        } finally {
+            setIsBusy(false);
+        }
+    };
+
+    const handleGoogleSubmit = async () => {
+        setIsBusy(true);
+        setResetMessage(null);
+        try {
+            await signInWithGoogle();
+        } finally {
+            setIsBusy(false);
+        }
+    };
+
+    const handleReset = async () => {
+        if (email.trim().length === 0 || isBusy) {
+            return;
+        }
+
+        setIsBusy(true);
+        setResetMessage(null);
+        try {
+            await resetPassword(email.trim());
+            setResetMessage("Password reset email sent.");
+        } finally {
+            setIsBusy(false);
+        }
+    };
+
+    return (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-6 backdrop-blur-sm">
+            <div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="auth-dialog-title"
+                className="w-full max-w-md rounded-lg border border-zinc-700 bg-zinc-950 text-zinc-100 shadow-2xl shadow-black/40 ring-1 ring-white/10"
+            >
+                <div className="border-b border-zinc-800 px-4 py-4 sm:px-5">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-wide text-sky-300">
+                        Cloud progress
+                    </p>
+                    <h2
+                        id="auth-dialog-title"
+                        className="mt-1 text-lg font-semibold tracking-tight"
+                    >
+                        {title}
+                    </h2>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-300">
+                        Use an account to sync this guide&apos;s progress across
+                        browsers and devices.
+                    </p>
+                </div>
+
+                <form className="space-y-3 px-4 py-4 sm:px-5" onSubmit={handleEmailSubmit}>
+                    <label className="block space-y-1.5 text-sm">
+                        <span className="font-semibold text-zinc-200">Email</span>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(event) => setEmail(event.target.value)}
+                            autoComplete="email"
+                            className="w-full rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-sm text-zinc-100 outline-none transition-colors placeholder:text-zinc-500 focus:border-sky-400 focus:ring-2 focus:ring-sky-300/30"
+                            placeholder="you@example.com"
+                        />
+                    </label>
+
+                    <label className="block space-y-1.5 text-sm">
+                        <span className="font-semibold text-zinc-200">Password</span>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(event) => setPassword(event.target.value)}
+                            autoComplete={
+                                mode === "signin"
+                                    ? "current-password"
+                                    : "new-password"
+                            }
+                            className="w-full rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-sm text-zinc-100 outline-none transition-colors placeholder:text-zinc-500 focus:border-sky-400 focus:ring-2 focus:ring-sky-300/30"
+                            placeholder="Minimum 6 characters"
+                        />
+                    </label>
+
+                    <button
+                        type="submit"
+                        disabled={!canSubmit}
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-sky-400 px-4 py-2 text-sm font-semibold text-zinc-950 transition-colors hover:bg-sky-300 disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                        <Mail className="h-4 w-4" />
+                        {mode === "signin" ? "Sign in with email" : "Create account"}
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={handleGoogleSubmit}
+                        disabled={isBusy}
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm font-semibold text-zinc-100 transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                        <LogIn className="h-4 w-4" />
+                        Continue with Google
+                    </button>
+
+                    {authError ? (
+                        <p className="rounded-lg border border-rose-500/40 bg-rose-500/10 px-3 py-2 text-xs leading-relaxed text-rose-200">
+                            {authError}
+                        </p>
+                    ) : null}
+                    {resetMessage ? (
+                        <p className="rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-xs leading-relaxed text-emerald-200">
+                            {resetMessage}
+                        </p>
+                    ) : null}
+                </form>
+
+                <div className="flex flex-col gap-2 border-t border-zinc-800 px-4 py-4 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-5">
+                    <div className="flex flex-wrap gap-x-3 gap-y-2">
+                        <button
+                            type="button"
+                            onClick={() =>
+                                setMode((current) =>
+                                    current === "signin" ? "create" : "signin",
+                                )
+                            }
+                            className="font-semibold text-sky-300 hover:text-sky-200"
+                        >
+                            {mode === "signin"
+                                ? "Create an account"
+                                : "Use existing account"}
+                        </button>
+                        {mode === "signin" ? (
+                            <button
+                                type="button"
+                                onClick={handleReset}
+                                disabled={email.trim().length === 0 || isBusy}
+                                className="font-semibold text-zinc-300 hover:text-zinc-100 disabled:cursor-not-allowed disabled:opacity-50"
+                            >
+                                Reset password
+                            </button>
+                        ) : null}
+                    </div>
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        className="font-semibold text-zinc-400 hover:text-zinc-100"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }
