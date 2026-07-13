@@ -78,19 +78,23 @@ function AppInner() {
         );
     }, [wideLayout]);
 
+    const isQuestReportMission = React.useCallback(
+        (mission: (typeof ALL_MISSIONS)[number]) =>
+            mission.arc !== "EX" && mission.arc !== "ME",
+        [],
+    );
+
     const questReportMissionIds = React.useMemo(
         () =>
-            ALL_MISSIONS.filter((mission) => mission.arc !== "EX").map(
-                (mission) => mission.id,
-            ),
-        [],
+            ALL_MISSIONS.filter(isQuestReportMission).map((mission) => mission.id),
+        [isQuestReportMission],
     );
     const otherMissionIds = React.useMemo(
         () =>
-            ALL_MISSIONS.filter((mission) => mission.arc === "EX").map(
+            ALL_MISSIONS.filter((mission) => !isQuestReportMission(mission)).map(
                 (mission) => mission.id,
             ),
-        [],
+        [isQuestReportMission],
     );
 
     const totalQuestReportMissions = questReportMissionIds.length;

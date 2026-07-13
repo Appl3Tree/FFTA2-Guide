@@ -12,6 +12,16 @@ import {
 
 function getMissionSortKey(mission: Mission) {
     const raw = (mission as any).id || mission.arc;
+    const extraMatch = raw.match(/^(EX|ME)-?(\d+)?/i);
+
+    if (extraMatch) {
+        return {
+            chapterLetter: extraMatch[1].toUpperCase() === "EX" ? "X" : "Y",
+            arcNumber: 0,
+            missionIndex: extraMatch[2] ? parseInt(extraMatch[2], 10) : 0,
+        };
+    }
+
     const match = raw.match(/^([A-E])(\d)(?:-(\d+))?/i);
 
     if (!match) {
@@ -47,7 +57,7 @@ type ArcFilter =
     | "C1" | "C2" | "C3" | "C4" | "C5"
     | "D1" | "D2" | "D3" | "D4" | "D5"
     | "E1" | "E2" | "E3" | "E4" | "E5"
-    | "EX";
+    | "EX" | "ME";
 
 const ARC_FILTERS: ArcFilter[] = [
     "ALL",
@@ -56,7 +66,7 @@ const ARC_FILTERS: ArcFilter[] = [
     "C1", "C2", "C3", "C4", "C5",
     "D1", "D2", "D3", "D4", "D5",
     "E1", "E2", "E3", "E4", "E5",
-    "EX",
+    "EX", "ME",
 ];
 
 type CompletionFilter = "ALL" | "COMPLETED" | "NOT_COMPLETED";
@@ -95,7 +105,7 @@ const TAG_FILTERS: MissionTag[] = [
 const TAG_LABELS: Partial<Record<MissionTag, string>> = {
     "job-unlock": "Job Unlock",
     "map-event": "Map Event",
-    "ex-mission": "EX / Other",
+    "ex-mission": "EX",
     auction: "Auction",
     treasure: "Treasure",
     missable: "Missable",

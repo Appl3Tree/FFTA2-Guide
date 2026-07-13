@@ -6,7 +6,7 @@ import type { Mission } from "../../types/ffta2";
 export const OPTIONAL_MISSIONS_EX: Mission[] = [
     {
         id: "ME-01",
-        arc: "EX",
+        arc: "ME",
         name: "The Search",
         description: "Adelle visits Lezaford's cottage to learn more about her powers and is directed toward Lennart.",
         region: "The Aldanna Range",
@@ -25,7 +25,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-02",
-        arc: "EX",
+        arc: "ME",
         name: "An Elegant Encounter",
         description: "Al-Cid asks Clan Gully to deliver a letter to a sky pirate and Penelo joins the search for Vaan.",
         region: "Fluorgis",
@@ -67,11 +67,11 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
         rewards: { gil: 2050, cp: 36, loot: "Lightwing Crystal x1", other: "Heritor job for Adelle" },
         notes:
             "Special map-event mission. Appears after The Search, following Adelle's Heritor unlock event chain.",
-        tags: ["optional", "map-event", "job-unlock", "chain"],
+        tags: ["optional", "job-unlock", "chain"],
     },
     {
         id: "ME-04",
-        arc: "EX",
+        arc: "ME",
         name: "Where Could He Be?",
         description: "Penelo tracks Vaan to Fluorgis, where Clan Gully must protect him from attackers.",
         region: "Fluorgis",
@@ -99,7 +99,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-05",
-        arc: "EX",
+        arc: "ME",
         name: "A Moment's Respite",
         description: "A short Fluorgis pub scene with Hurdy, Vaan, and Penelo.",
         region: "Fluorgis",
@@ -117,7 +117,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-06",
-        arc: "EX",
+        arc: "ME",
         name: "A Refined Recruit",
         description: "Al-Cid meets the clan again after A Dashing Duel and joins.",
         region: "Targ Wood",
@@ -135,7 +135,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-07",
-        arc: "EX",
+        arc: "ME",
         name: "I'm Back, Kupo!",
         description: "A Fluorgis scene that brings Hurdy back into the story after Seeking the Stone.",
         region: "Fluorgis",
@@ -153,7 +153,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-08",
-        arc: "EX",
+        arc: "ME",
         name: "Making Music (Flutegrass Battle)",
         description: "The optional monster battle for Flutegrass before crafting Hurdy's instrument.",
         region: "Sant D'alsa Bluff",
@@ -182,7 +182,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-09",
-        arc: "EX",
+        arc: "ME",
         name: "I Got A Bad Feeling",
         description: "Clan Gully pursues wounded Klesta after Throw Down and House Bowen arrives to help.",
         region: "Baptiste Hill",
@@ -206,7 +206,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-10",
-        arc: "EX",
+        arc: "ME",
         name: "A Bewitching Encounter",
         description: "A late-game Rupie Mountains monster encounter featuring lamias, flans, a drake, and a white chocobo.",
         region: "The Rupie Mountains",
@@ -234,7 +234,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-11",
-        arc: "EX",
+        arc: "ME",
         name: "A Hard Place",
         description: "A Fluorgis tortoise encounter against Great Tortoises, Toughskins, and an Adamantitan.",
         region: "Fluorgis",
@@ -260,7 +260,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-12",
-        arc: "EX",
+        arc: "ME",
         name: "Burning Soul",
         description: "A Kthili Sands post-Ritual monster encounter with bombs, pit beasts, and a red chocobo.",
         region: "Kthili Sands",
@@ -287,7 +287,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-13",
-        arc: "EX",
+        arc: "ME",
         name: "Dire Rotundity",
         description: "A postgame Aisenfield monster encounter with drakes, cockatrices, an axebeak, and a nagaraja.",
         region: "Aisenfield",
@@ -314,7 +314,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-14",
-        arc: "EX",
+        arc: "ME",
         name: "Fey Mischief",
         description: "A Targ Wood monster encounter with fae, a chocobo, and a baknamy.",
         region: "Targ Wood",
@@ -342,7 +342,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-15",
-        arc: "EX",
+        arc: "ME",
         name: "Formidable Strength",
         description: "An Aldanna Range monster encounter against zaghnals, headlesses, a loup-garou, and a brown chocobo.",
         region: "The Aldanna Range",
@@ -369,7 +369,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-16",
-        arc: "EX",
+        arc: "ME",
         name: "Just Desserts",
         description: "A Ruins of Delgantua flan encounter with a dangerous White Pudding.",
         region: "The Ruins of Delgantua",
@@ -397,7 +397,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-17",
-        arc: "EX",
+        arc: "ME",
         name: "One-Eyed Evil",
         description: "A Galleria Deep monster encounter built around ahriman-family gaze attacks and Roulette.",
         region: "The Galleria Deep",
@@ -424,7 +424,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-18",
-        arc: "EX",
+        arc: "ME",
         name: "Open Wide",
         description: "A Zedlei Forest monster encounter featuring malboros, green chocobos, and a hoppy bunny.",
         region: "Zedlei Forest",
@@ -451,7 +451,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-19",
-        arc: "EX",
+        arc: "ME",
         name: "Otherworldly Visitors",
         description: "A Tramdine Fens undead and lamia encounter led by a Deathscythe.",
         region: "Tramdine Fens",
@@ -478,7 +478,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-20",
-        arc: "EX",
+        arc: "ME",
         name: "Spirits of Nazan",
         description: "A Nazan Mines encounter with undead and Tonberries.",
         region: "Nazan Mines",
@@ -505,7 +505,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-21",
-        arc: "EX",
+        arc: "ME",
         name: "The Strength of the Wolf",
         description: "A Bisga Greenlands wolf-pack encounter across uneven ground.",
         region: "The Bisga Greenlands",
@@ -532,7 +532,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-22",
-        arc: "EX",
+        arc: "ME",
         name: "Wee Evil",
         description: "A Baptiste Hill small-monster encounter with hasting bunnies and baknamy-family enemies.",
         region: "Baptiste Hill",
@@ -559,7 +559,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-23",
-        arc: "EX",
+        arc: "ME",
         name: "Of a Feather",
         description: "A postgame Goug chocobo herd encounter with a possible rare Red Hawk spawn.",
         region: "Goug",
@@ -583,7 +583,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-24",
-        arc: "EX",
+        arc: "ME",
         name: "Graszton Seaways",
         description: "An auction-related Graszton clan battle against local seafarers.",
         region: "Graszton",
@@ -611,7 +611,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-25",
-        arc: "EX",
+        arc: "ME",
         name: "House Bowen (Map Event)",
         description: "An auction-related rematch with House Bowen as a roaming clan battle.",
         region: "The Neslowe Passage",
@@ -638,7 +638,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-26",
-        arc: "EX",
+        arc: "ME",
         name: "Jytras Pirata",
         description: "An auction-related Ordalia clan battle against Jytras Pirata.",
         region: "Aisenfield / Nazan Mines / Tramdine Fens",
@@ -666,7 +666,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-27",
-        arc: "EX",
+        arc: "ME",
         name: "Kthili Surveyors",
         description: "A Kthili Sands encounter where the surveyors demand payment or fight.",
         region: "Kthili Sands",
@@ -693,7 +693,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-28",
-        arc: "EX",
+        arc: "ME",
         name: "Moogle Porters",
         description: "An auction-related Neslowe Passage battle against the Moogle Porters.",
         region: "The Neslowe Passage",
@@ -720,7 +720,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-29",
-        arc: "EX",
+        arc: "ME",
         name: "The Camoa Braves",
         description: "An auction-related Camoa clan battle against two thieves and Bangaa support.",
         region: "Camoa",
@@ -746,7 +746,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-30",
-        arc: "EX",
+        arc: "ME",
         name: "The Veluga Pirates",
         description: "A Graszton pirate toll battle led by Lord Grayrl.",
         region: "Graszton",
@@ -774,7 +774,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-31",
-        arc: "EX",
+        arc: "ME",
         name: "Chita's Weaponers",
         description: "An auction-related Aldanna Range battle against Chita's Bangaa weaponers.",
         region: "The Aldanna Range",
@@ -800,7 +800,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-32",
-        arc: "EX",
+        arc: "ME",
         name: "Prima Donna",
         description: "An auction-related Fluorgis battle against Prima Donna's troupe.",
         region: "Fluorgis",
@@ -827,7 +827,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-33",
-        arc: "EX",
+        arc: "ME",
         name: "With a Smile",
         description: "A Duelhorn mage-clan ambush across several possible regions.",
         region: "Aisenfield / Zedlei Forest / Aldanna Range / Nazan Mines / Ruins of Delgantua",
@@ -854,7 +854,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-34",
-        arc: "EX",
+        arc: "ME",
         name: "Zedlei Consortium",
         description: "An auction-related Zedlei Forest battle against Seeq rangers and monsters.",
         region: "Zedlei Forest",
@@ -880,7 +880,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-35",
-        arc: "EX",
+        arc: "ME",
         name: "Seeker of Slaughter",
         description: "A Seeq checks Luso's KO count and rewards the clan for defeating enough enemies.",
         region: "The Ruins of Delgantua",
@@ -898,7 +898,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-36",
-        arc: "EX",
+        arc: "ME",
         name: "Detitlement",
         description: "Wizard D'Tidle removes the clan's current title.",
         region: "Kthili Sands",
@@ -915,7 +915,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-37",
-        arc: "EX",
+        arc: "ME",
         name: "Champ's Reward - Moorabella",
         description: "A local product reward for becoming the Moorabella area champion.",
         region: "The Galleria Deep",
@@ -930,7 +930,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-38",
-        arc: "EX",
+        arc: "ME",
         name: "Master's Reward - Graszton",
         description: "A region-master reward for Graszton.",
         region: "Zedlei Forest",
@@ -945,7 +945,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-39",
-        arc: "EX",
+        arc: "ME",
         name: "Master's Reward - Camoa",
         description: "A region-master reward for Camoa.",
         region: "Baptiste Hill",
@@ -960,7 +960,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-40",
-        arc: "EX",
+        arc: "ME",
         name: "Master's Reward - Moorabella",
         description: "A region-master reward for Moorabella.",
         region: "The Ruins of Delgantua",
@@ -975,7 +975,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-41",
-        arc: "EX",
+        arc: "ME",
         name: "Master's Reward - Fluorgis",
         description: "A region-master reward for Fluorgis.",
         region: "Nazan Mines",
@@ -990,7 +990,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-42",
-        arc: "EX",
+        arc: "ME",
         name: "Master's Reward - Goug",
         description: "A region-master reward for Goug.",
         region: "The Neslowe Passage",
@@ -1005,7 +1005,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-43",
-        arc: "EX",
+        arc: "ME",
         name: "The Luck-Stick Seller",
         description: "A Blackfrost Fluorgis event where the clan buys a luck-stick for later redemption.",
         region: "Fluorgis",
@@ -1023,7 +1023,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
     },
     {
         id: "ME-44",
-        arc: "EX",
+        arc: "ME",
         name: "The Luck-Stick Trader",
         description: "A Goldsun Fluorgis event where the clan redeems a purchased luck-stick for a prize.",
         region: "Fluorgis",
