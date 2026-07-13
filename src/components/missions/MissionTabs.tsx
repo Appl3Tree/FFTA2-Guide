@@ -2,9 +2,13 @@ import React from "react";
 import { ALL_MISSIONS } from "../../data/missions/allMissions";
 import type { Mission } from "../../types/ffta2";
 import { MissionCard } from "./MissionCard";
-import { MISSION_TAGS, type MissionTag } from "../../data/missions/missionTags";
+import type { MissionTag } from "../../data/missions/missionTags";
 import { RETRO_ACHIEVEMENTS_BY_MISSION_ID } from "../../data/retroAchievements";
 import { useProgress } from "../ProgressContext";
+import {
+    getMergedMissionTags,
+    getMissionSearchScore,
+} from "../../utils/missionSearch";
 
 function getMissionSortKey(mission: Mission) {
     const raw = (mission as any).id || mission.arc;
@@ -66,6 +70,11 @@ const COMPLETION_FILTERS: CompletionFilter[] = [
 const TAG_FILTERS: MissionTag[] = [
     "story",
     "optional",
+    "map-event",
+    "ex-mission",
+    "auction",
+    "treasure",
+    "missable",
     "job-unlock",
     "hunt",
     "notorious-mark",
@@ -85,6 +94,11 @@ const TAG_FILTERS: MissionTag[] = [
 
 const TAG_LABELS: Partial<Record<MissionTag, string>> = {
     "job-unlock": "Job Unlock",
+    "map-event": "Map Event",
+    "ex-mission": "EX / Other",
+    auction: "Auction",
+    treasure: "Treasure",
+    missable: "Missable",
     "notorious-mark": "Mark Hunt",
     "multi-battle": "Multi-Battle",
     "law-sensitive": "Law Sensitive",
@@ -93,15 +107,6 @@ const TAG_LABELS: Partial<Record<MissionTag, string>> = {
 
 function getTagLabel(tag: MissionTag): string {
     return TAG_LABELS[tag] ?? tag;
-}
-
-function pushSearchText(parts: string[], value?: string | string[] | null) {
-    if (!value) return;
-    if (Array.isArray(value)) {
-        parts.push(...value);
-    } else {
-        parts.push(value);
-    }
 }
 
 export function MissionTabs() {
@@ -145,66 +150,78 @@ export function MissionTabs() {
     };
 
     const missions = React.useMemo(() => {
-        return allMissions.filter((mission: Mission) => {
-            if (activeArc !== "ALL") {
-                if (mission.arc !== activeArc) return false;
-            }
-
-            if (missableRetrosOnly && !missableRetroMissionIds.has(mission.id)) {
-                return false;
-            }
-
-            const explicitTags = (mission.tags ?? []) as string[];
-            const overlayTags = (MISSION_TAGS[mission.id] ?? []) as MissionTag[];
-
-            const mergedTags = Array.from(
-                new Set<string>([...explicitTags, ...overlayTags]),
-            ).filter((t) => !!t);
-
-            if (selectedTags.length > 0) {
-                const hasAny = mergedTags.some((tag) =>
-                    selectedTags.includes(tag as MissionTag),
-                );
-                if (!hasAny) return false;
-            }
-
-            if (normalizedSearch.length > 0) {
-                const haystackParts: string[] = [];
-
-                haystackParts.push(mission.id);
-                haystackParts.push(mission.name);
-
-                if (mission.description) haystackParts.push(mission.description);
-                if (mission.region) haystackParts.push(mission.region);
-                if (mission.prerequisite) {
-                    haystackParts.push(mission.prerequisite);
-                }
-                pushSearchText(haystackParts, mission.rewards?.loot);
-                pushSearchText(haystackParts, mission.rewards?.items);
-                if (mission.notes) haystackParts.push(mission.notes);
-
-                haystackParts.push(...mergedTags);
-
-                const haystack = haystackParts.join(" ").toLowerCase();
-
-                if (!haystack.includes(normalizedSearch)) return false;
-            }
-
-            if (completionFilter !== "ALL") {
-                const key = `mission:${mission.id}`;
-                const isCompleted = !!checked[key];
-
-                if (completionFilter === "COMPLETED" && !isCompleted) {
-                    return false;
+        let filtered = allMissions
+            .map((mission: Mission) => {
+                if (activeArc !== "ALL") {
+                    if (mission.arc !== activeArc) return null;
                 }
 
-                if (completionFilter === "NOT_COMPLETED" && isCompleted) {
-                    return false;
+                if (
+                    missableRetrosOnly &&
+                    !missableRetroMissionIds.has(mission.id)
+                ) {
+                    return null;
                 }
+
+                const mergedTags = getMergedMissionTags(mission);
+
+                if (selectedTags.length > 0) {
+                    const hasAny = mergedTags.some((tag) =>
+                        selectedTags.includes(tag as MissionTag),
+                    );
+                    if (!hasAny) return null;
+                }
+
+                let searchScore = 0;
+                if (normalizedSearch.length > 0) {
+                    const score = getMissionSearchScore(
+                        mission,
+                        normalizedSearch,
+                        mergedTags,
+                    );
+                    if (score == null) return null;
+                    searchScore = score;
+                }
+
+                if (completionFilter !== "ALL") {
+                    const key = `mission:${mission.id}`;
+                    const isCompleted = !!checked[key];
+
+                    if (completionFilter === "COMPLETED" && !isCompleted) {
+                        return null;
+                    }
+
+                    if (completionFilter === "NOT_COMPLETED" && isCompleted) {
+                        return null;
+                    }
+                }
+
+                return { mission, searchScore };
+            })
+            .filter(
+                (entry): entry is { mission: Mission; searchScore: number } =>
+                    entry !== null,
+            );
+
+        if (normalizedSearch.length > 0) {
+            const bestScore = filtered.reduce(
+                (best, entry) => Math.max(best, entry.searchScore),
+                0,
+            );
+
+            if (bestScore >= 900) {
+                filtered = filtered.filter((entry) => entry.searchScore >= 820);
             }
 
-            return true;
-        });
+            filtered.sort((a, b) => {
+                if (b.searchScore !== a.searchScore) {
+                    return b.searchScore - a.searchScore;
+                }
+                return sortByArcAndIndex(a.mission, b.mission);
+            });
+        }
+
+        return filtered.map((entry) => entry.mission);
     }, [
         allMissions,
         activeArc,
@@ -309,7 +326,7 @@ export function MissionTabs() {
                         <input
                             type="text"
                             className="w-full sm:w-72 rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70"
-                            placeholder="Search missions (name, rewards, prerequisites...)"
+                            placeholder="Search missions (name, objective, rewards...)"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />

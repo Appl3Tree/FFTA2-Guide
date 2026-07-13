@@ -78,39 +78,64 @@ function AppInner() {
         );
     }, [wideLayout]);
 
-    const allMissionIds = React.useMemo(
-        () => ALL_MISSIONS.map((m) => m.id),
+    const questReportMissionIds = React.useMemo(
+        () =>
+            ALL_MISSIONS.filter((mission) => mission.arc !== "EX").map(
+                (mission) => mission.id,
+            ),
+        [],
+    );
+    const otherMissionIds = React.useMemo(
+        () =>
+            ALL_MISSIONS.filter((mission) => mission.arc === "EX").map(
+                (mission) => mission.id,
+            ),
         [],
     );
 
-    const totalMissions = allMissionIds.length;
-    const completedMissions = allMissionIds.filter(
+    const totalQuestReportMissions = questReportMissionIds.length;
+    const completedQuestReportMissions = questReportMissionIds.filter(
+        (id) => checked[`mission:${id}`],
+    ).length;
+    const completedOtherMissions = otherMissionIds.filter(
         (id) => checked[`mission:${id}`],
     ).length;
 
     const completionPct =
-        totalMissions === 0
+        totalQuestReportMissions === 0
             ? 0
-            : Math.round((completedMissions / totalMissions) * 1000) / 10;
+            : Math.round(
+                  (completedQuestReportMissions / totalQuestReportMissions) *
+                      1000,
+              ) / 10;
 
     const missionHeaderProgress = (
-        <div className="flex items-center justify-between gap-2 text-xs sm:text-sm">
-            <div className="text-zinc-600 dark:text-zinc-300">
-                <span className="font-semibold">
-                    {completedMissions} / {totalMissions}
-                </span>{" "}
-                missions completed
-            </div>
-            <div className="flex items-center gap-2">
-                <div className="h-1.5 w-28 sm:w-40 rounded-full bg-zinc-300/80 dark:bg-zinc-800 overflow-hidden">
+        <div className="flex flex-wrap items-center gap-1.5 text-[0.7rem] leading-none">
+            <div className="inline-flex h-7 items-center gap-2 rounded-md border border-violet-300/70 bg-violet-50/80 px-2 text-violet-950 shadow-sm dark:border-violet-800/70 dark:bg-violet-950/40 dark:text-violet-100">
+                <span className="font-semibold tabular-nums">
+                    {completedQuestReportMissions}/{totalQuestReportMissions}
+                </span>
+                <span className="md:hidden text-violet-800/80 dark:text-violet-200/80">
+                    Quests
+                </span>
+                <span className="hidden md:inline text-violet-800/80 dark:text-violet-200/80">
+                    Quest Report
+                </span>
+                <div className="h-1 w-14 overflow-hidden rounded-full bg-violet-200/80 dark:bg-violet-900">
                     <div
-                        className="h-full bg-violet-500 dark:bg-violet-300"
+                        className="h-full bg-violet-600 dark:bg-violet-300"
                         style={{ width: `${completionPct}%` }}
                     />
                 </div>
-                <span className="text-[0.7rem] text-zinc-500 dark:text-zinc-400">
+                <span className="tabular-nums text-violet-700 dark:text-violet-200">
                     {completionPct}%
                 </span>
+            </div>
+            <div className="inline-flex h-7 items-center gap-1.5 rounded-md border border-zinc-300/80 bg-zinc-100/70 px-2 text-zinc-600 dark:border-zinc-700/80 dark:bg-zinc-900/70 dark:text-zinc-300">
+                <span className="font-semibold tabular-nums text-zinc-800 dark:text-zinc-100">
+                    {completedOtherMissions}/{otherMissionIds.length}
+                </span>{" "}
+                <span>Other</span>
             </div>
         </div>
     );
@@ -217,7 +242,7 @@ function AppInner() {
 
                             <Panel
                                 title="Missions Hub"
-                                subtitle="Track main story and optional quests."
+                                subtitle="Track the 300 in-game Quest Report quests, plus separate other missions and map events."
                                 tone="purple"
                                 headerAddon={missionHeaderProgress}
                             >

@@ -27,13 +27,12 @@ import { resolveEnemyEquipment } from "../../utils/resolveEquipment";
 import { useProgress } from "../ProgressContext";
 import { getEnemyMetaForJob } from "../../data/bestiary/bestiary";
 import { getMissionPhaseSummary } from "../../utils/missionPhases";
+import {
+    getMissionSearchScore,
+    type MissionSearchResult,
+} from "../../utils/missionSearch";
 
 type TabKey = "missions" | "equipment" | "abilities" | "bazaar" | "retros";
-
-interface MissionWithBlob {
-    mission: Mission;
-    blob: string;
-}
 
 interface EquipmentWithBlob {
     item: EquipmentMeta;
@@ -92,166 +91,6 @@ function getEnemyDisplayName(enemy: Mission["enemies"][number], fallback: string
 
     const parts = [enemy.race, enemy.job].filter(Boolean);
     return parts.length > 0 ? parts.join(" ") : fallback;
-}
-
-function missionBlob(m: Mission): string {
-    // Mirror MissionCard + extra: arc, rank, fee/days, members, strategy, notes
-    const parts: string[] = [];
-
-    parts.push(m.id, m.name);
-
-    if ((m as any).arc) parts.push((m as any).arc);
-    if (m.questType) parts.push(m.questType);
-    if (m.region) parts.push(m.region);
-    if ((m as any).rank != null) parts.push(`Rank ${String((m as any).rank)}`);
-    if ((m as any).fee != null) parts.push(`${String((m as any).fee)} gil fee`);
-    if ((m as any).days != null) parts.push(`${String((m as any).days)} days`);
-    if ((m as any).members != null) {
-        parts.push(`${String((m as any).members)} members`);
-    }
-    if ((m as any).canDispatch) parts.push("Dispatch");
-    if ((m as any).canCancel) parts.push("Cancelable");
-
-    if (m.description) parts.push(m.description);
-    if ((m as any).objective) parts.push((m as any).objective);
-    if ((m as any).law) parts.push((m as any).law);
-    if ((m as any).strategy) parts.push((m as any).strategy);
-    if ((m as any).notes) parts.push((m as any).notes);
-
-    if (Array.isArray((m as any).tags)) {
-        parts.push(...((m as any).tags as string[]));
-    }
-
-    if (m.requiredItems) parts.push(...m.requiredItems);
-
-    if (m.requiredTalents) {
-        const t = m.requiredTalents;
-        if (t.negotiation) parts.push("Negotiation");
-        if (t.aptitude) parts.push("Aptitude");
-        if (t.teamwork) parts.push("Teamwork");
-        if (t.adaptability) parts.push("Adaptability");
-    }
-
-    if (m.dispatchRecommended && m.dispatchRecommended.length > 0) {
-        parts.push(...m.dispatchRecommended);
-    }
-
-    if (m.rewards) {
-        if (m.rewards.gil != null) {
-            parts.push(`${String(m.rewards.gil)} gil`);
-        }
-        if ((m.rewards as any).cp != null) {
-            parts.push(`${String((m.rewards as any).cp)} clan points`);
-        }
-        if ((m.rewards as any).loot) {
-            parts.push(String((m.rewards as any).loot));
-        }
-        pushText(parts, m.rewards.items);
-        if (m.rewards.abilities) parts.push(...m.rewards.abilities);
-        if ((m.rewards as any).other) {
-            parts.push(String((m.rewards as any).other));
-        }
-    }
-
-    if (m.enemies) {
-        for (const enemy of m.enemies) {
-            if (enemy.name && !isGenericEnemyName(enemy.name)) {
-                parts.push(enemy.name);
-            }
-            if (enemy.race) parts.push(enemy.race);
-            if (enemy.job) parts.push(enemy.job);
-            if (enemy.level) parts.push(`Level ${enemy.level}`);
-            if ((enemy as any).quantity) parts.push(`quantity ${(enemy as any).quantity}`);
-            if (enemy.notes) parts.push(enemy.notes);
-            
-            // Include bestiary metadata for the enemy's job
-            const meta = getEnemyMetaForJob(enemy.job);
-            if (meta) {
-                if (meta.description) parts.push(meta.description);
-                if (meta.absorb) parts.push(...meta.absorb);
-                if (meta.immune) parts.push(...meta.immune);
-                if (meta.half) parts.push(...meta.half);
-                if (meta.weak) parts.push(...meta.weak);
-            }
-            
-            // Include enemy abilities in search
-            if (enemy.abilities) {
-    const loadout = resolveEnemyLoadout(enemy.abilities);
-    if (loadout) {
-        if (loadout.A1) {
-            parts.push(loadout.A1.setName);
-            if (loadout.A1.setDescription) parts.push(loadout.A1.setDescription);
-            (loadout.A1.abilities ?? []).forEach((ab) => {
-                parts.push(ab.name);
-                pushText(parts, ab.description);
-                const abilityMeta = ABILITIES[ab.id];
-                if (abilityMeta?.blueMagic) parts.push("blue magic");
-            });
-        }
-        if (loadout.A2) {
-            parts.push(loadout.A2.setName);
-            (loadout.A2.abilities ?? []).forEach((ab) => {
-                parts.push(ab.name);
-                pushText(parts, ab.description);
-                const abilityMeta = ABILITIES[ab.id];
-                if (abilityMeta?.blueMagic) parts.push("blue magic");
-            });
-        }
-        if (loadout.R) {
-            parts.push(loadout.R.name);
-            pushText(parts, loadout.R.description);
-        }
-        if (loadout.P) {
-            parts.push(loadout.P.name);
-            pushText(parts, loadout.P.description);
-        }
-    }
-            }
-
-            // Include enemy equipment in search
-            if (enemy.equipment) {
-                const equip = resolveEnemyEquipment(enemy.equipment);
-                if (equip) {
-                    equip.forEach(item => {
-                        parts.push(item.name);
-                        if (item.category) parts.push(item.category);
-                        if (item.description) parts.push(item.description);
-                        
-                        // Include all equipment stats
-                        const statKeys = ["atk", "def", "mag", "rst", "eva", "spd", "jump", "move", "hp", "mp"];
-                        statKeys.forEach(key => {
-                            if ((item as any)[key] != null && (item as any)[key] !== 0) {
-                                parts.push(`${key.toUpperCase()} ${String((item as any)[key])}`);
-                            }
-                        });
-                        
-                        // Include equipment effects
-                        if ((item as any).immunity) parts.push(...(item as any).immunity);
-                        if ((item as any).absorb) parts.push(...(item as any).absorb);
-                        if ((item as any)["half-damage"]) parts.push(...(item as any)["half-damage"]);
-                        if ((item as any).resistance) parts.push(...(item as any).resistance);
-                        if ((item as any).weakness) parts.push(...(item as any).weakness);
-                        
-                        if (item.teaches) {
-                            Object.entries(item.teaches).forEach(([job, abilityIds]) => {
-                                parts.push(job);
-                                abilityIds.forEach(id => {
-                                    const ability = ABILITIES[id];
-                                    if (ability) {
-                                        parts.push(ability.name);
-                                        const set = ABILITY_SETS[ability.setId];
-                                        if (set) parts.push(set.name);
-                                    }
-                                });
-                            });
-                        }
-                    });
-                }
-            }
-        }
-    }
-
-    return parts.join(" ").toLowerCase();
 }
 
 function equipmentBlob(e: EquipmentMeta): string {
@@ -689,13 +528,13 @@ export function GlobalSearchPanel() {
     }, []);
 
     // Missions
-    const missionsWithBlob: MissionWithBlob[] = React.useMemo(
+    const missionSearchEntries: MissionSearchResult[] = React.useMemo(
         () =>
             [...ALL_MISSIONS]
                 .sort((a, b) => a.id.localeCompare(b.id))
                 .map((mission) => ({
                     mission,
-                    blob: missionBlob(mission),
+                    score: 0,
                 })),
         [],
     );
@@ -801,11 +640,33 @@ export function GlobalSearchPanel() {
     const q = query.trim().toLowerCase();
 
     const filteredMissions = React.useMemo(
-        () =>
-            !q
-                ? missionsWithBlob
-                : missionsWithBlob.filter((m) => m.blob.includes(q)),
-        [missionsWithBlob, q],
+        () => {
+            if (!q) return missionSearchEntries;
+
+            let matches = missionSearchEntries
+                .map(({ mission }) => {
+                    const score = getMissionSearchScore(mission, q);
+                    return score == null ? null : { mission, score };
+                })
+                .filter(
+                    (entry): entry is MissionSearchResult => entry !== null,
+                );
+
+            const bestScore = matches.reduce(
+                (best, entry) => Math.max(best, entry.score),
+                0,
+            );
+
+            if (bestScore >= 900) {
+                matches = matches.filter((entry) => entry.score >= 820);
+            }
+
+            return matches.sort((a, b) => {
+                if (b.score !== a.score) return b.score - a.score;
+                return a.mission.id.localeCompare(b.mission.id);
+            });
+        },
+        [missionSearchEntries, q],
     );
 
     const filteredEquipment = React.useMemo(

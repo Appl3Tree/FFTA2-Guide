@@ -407,4 +407,51 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "EX-01": ["story", "finale", "boss", "ex-mission"], // The Two Grimoires
     "EX-02": ["story", "finale", "boss", "ex-mission"], // From the Rift
     "EX-03": ["optional", "job-unlock", "chain", "ex-mission"], // Gifted – unlocks Heritor
+
+    // =========================
+    // Map-event side quests / other missions
+    // =========================
+    "ME-01": ["optional", "map-event", "chain", "story-cameo", "ex-mission"], // The Search
+    "ME-02": ["optional", "map-event", "chain", "recruit", "story-cameo", "ex-mission"], // An Elegant Encounter
+    "ME-04": ["optional", "map-event", "chain", "recruit", "protection", "story-cameo", "ex-mission"], // Where Could He Be?
+    "ME-05": ["optional", "map-event", "chain", "story-cameo", "ex-mission"], // A Moment's Respite
+    "ME-06": ["optional", "map-event", "recruit", "story-cameo", "ex-mission"], // A Refined Recruit
+    "ME-07": ["optional", "map-event", "chain", "story-cameo", "ex-mission"], // I'm Back, Kupo!
+    "ME-08": ["optional", "map-event", "chain", "law-sensitive", "missable", "ex-mission"], // Making Music map event
+    "ME-09": ["optional", "map-event", "chain", "boss", "law-sensitive", "ex-mission"], // I Got A Bad Feeling
+    "ME-10": ["optional", "map-event", "law-sensitive", "ex-mission"], // A Bewitching Encounter
+    "ME-11": ["optional", "map-event", "law-sensitive", "ex-mission"], // A Hard Place
+    "ME-12": ["optional", "map-event", "law-sensitive", "ex-mission"], // Burning Soul
+    "ME-13": ["optional", "map-event", "postgame", "law-sensitive", "ex-mission"], // Dire Rotundity
+    "ME-14": ["optional", "map-event", "law-sensitive", "ex-mission"], // Fey Mischief
+    "ME-15": ["optional", "map-event", "law-sensitive", "ex-mission"], // Formidable Strength
+    "ME-16": ["optional", "map-event", "law-sensitive", "ex-mission"], // Just Desserts
+    "ME-17": ["optional", "map-event", "law-sensitive", "ex-mission"], // One-Eyed Evil
+    "ME-18": ["optional", "map-event", "law-sensitive", "ex-mission"], // Open Wide
+    "ME-19": ["optional", "map-event", "law-sensitive", "ex-mission"], // Otherworldly Visitors
+    "ME-20": ["optional", "map-event", "law-sensitive", "ex-mission"], // Spirits of Nazan
+    "ME-21": ["optional", "map-event", "law-sensitive", "treasure", "ex-mission"], // The Strength of the Wolf
+    "ME-22": ["optional", "map-event", "law-sensitive", "ex-mission"], // Wee Evil
+    "ME-23": ["optional", "map-event", "postgame", "treasure", "law-sensitive", "ex-mission"], // Of a Feather
+    "ME-24": ["optional", "map-event", "law-sensitive", "treasure", "ex-mission"], // Graszton Seaways
+    "ME-25": ["optional", "map-event", "auction", "chain", "treasure", "law-sensitive", "ex-mission"], // House Bowen map event
+    "ME-26": ["optional", "map-event", "auction", "law-sensitive", "ex-mission"], // Jytras Pirata
+    "ME-27": ["optional", "map-event", "law-sensitive", "ex-mission"], // Kthili Surveyors
+    "ME-28": ["optional", "map-event", "auction", "law-sensitive", "ex-mission"], // Moogle Porters
+    "ME-29": ["optional", "map-event", "auction", "law-sensitive", "ex-mission"], // The Camoa Braves
+    "ME-30": ["optional", "map-event", "boss", "law-sensitive", "ex-mission"], // The Veluga Pirates
+    "ME-31": ["optional", "map-event", "auction", "law-sensitive", "ex-mission"], // Chita's Weaponers
+    "ME-32": ["optional", "map-event", "auction", "law-sensitive", "ex-mission"], // Prima Donna
+    "ME-33": ["optional", "map-event", "chain", "law-sensitive", "ex-mission"], // With a Smile
+    "ME-34": ["optional", "map-event", "auction", "law-sensitive", "ex-mission"], // Zedlei Consortium
+    "ME-35": ["optional", "map-event", "collection", "ex-mission"], // Seeker of Slaughter
+    "ME-36": ["optional", "map-event", "ex-mission"], // Detitlement
+    "ME-37": ["optional", "map-event", "auction", "treasure", "ex-mission"], // Champ's Reward - Moorabella
+    "ME-38": ["optional", "map-event", "auction", "treasure", "ex-mission"], // Master's Reward - Graszton
+    "ME-39": ["optional", "map-event", "auction", "treasure", "ex-mission"], // Master's Reward - Camoa
+    "ME-40": ["optional", "map-event", "auction", "treasure", "ex-mission"], // Master's Reward - Moorabella
+    "ME-41": ["optional", "map-event", "auction", "treasure", "ex-mission"], // Master's Reward - Fluorgis
+    "ME-42": ["optional", "map-event", "auction", "treasure", "ex-mission"], // Master's Reward - Goug
+    "ME-43": ["optional", "map-event", "treasure", "ex-mission"], // The Luck-Stick Seller
+    "ME-44": ["optional", "map-event", "treasure", "ex-mission"], // The Luck-Stick Trader
 };

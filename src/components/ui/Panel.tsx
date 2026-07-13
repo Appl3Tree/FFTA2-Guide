@@ -133,7 +133,6 @@ export function Panel({
                         className={`hidden sm:block h-10 w-1.5 shrink-0 rounded-full ${t.accent}`}
                     />
                     <div className="w-full flex flex-col gap-2">
-                        {headerAddon && <div>{headerAddon}</div>}
                         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
                             <div className="grid gap-1 sm:grid-cols-[minmax(8rem,14rem)_minmax(0,1fr)] sm:items-center sm:gap-4">
                                 <h2
@@ -150,6 +149,11 @@ export function Panel({
                                     </p>
                                 )}
                             </div>
+                            {headerAddon && (
+                                <div className="shrink-0 sm:ml-auto">
+                                    {headerAddon}
+                                </div>
+                            )}
                             <span
                                 className={`flex w-fit shrink-0 items-center gap-1 rounded-full px-2 py-1 text-[0.7rem] font-semibold uppercase tracking-wide text-zinc-700 dark:text-zinc-200 ${t.track}`}
                             >
