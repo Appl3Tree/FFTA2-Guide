@@ -544,6 +544,11 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                 <div className="text-[0.7rem] sm:text-xs text-zinc-300">
                                                     {ach.description}
                                                 </div>
+                                                {ach.notes && (
+                                                    <div className="text-[0.68rem] sm:text-[0.72rem] text-indigo-200">
+                                                        {ach.notes}
+                                                    </div>
+                                                )}
                                             </div>
                                         </li>
                                     ))}

@@ -219,6 +219,11 @@ export function RetroAchievementsPanels() {
                                                         <p className="text-[0.7rem] sm:text-xs text-zinc-500 dark:text-zinc-400">
                                                             {ach.description}
                                                         </p>
+                                                        {ach.notes && (
+                                                            <p className="text-[0.68rem] sm:text-[0.72rem] text-amber-700 dark:text-amber-300">
+                                                                {ach.notes}
+                                                            </p>
+                                                        )}
                                                     </div>
                                                 </label>
                                             </li>
