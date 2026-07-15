@@ -8,7 +8,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         id: "A1-02",
         arc: "A1",
         name: "Reagent Run",
-        description: "The muskmallow, favoured herb for treatment of ague, is again in season. Seeking herbalists to venture into Targ Wood and procure a upply. No previous experience required. Jylland Apothecary's League",
+        description: "The muskmallow, favored herb for treatment of ague, is again in season. Seeking herbalists to venture into Targ Wood and procure a supply. No previous experience required. -Jylland Apothecary's League",
         rank: 8,
         region: "Targ Wood",
         fee: 200,
@@ -19,9 +19,9 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         members: 6,
         requiredTalents: {
             negotiation: 0,
-            aptitude: 2,
+            aptitude: 0,
             teamwork: 0,
-            adaptability: 4,
+            adaptability: 0,
         },
         dispatchRecommended: ["Defender"],
         objective: "Collect a sample of muskmallow!",
@@ -108,11 +108,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             "The muskmallow sample is a shining sparkle objective on the map.",
             "Only one of the sparkling spots contains the muskmallow sample.",
         ],
-        strategy: [
-            "Reach and examine the muskmallow sparkle to collect the sample; you do not need to defeat every enemy if the route is clear.",
-            "Avoid knockback attacks because they break the law. Use regular damage, magick, and status control while moving toward the sample.",
-            "Dreamhares can annoy or delay units and Baknamy can drain MP, so clear only the enemies blocking your path.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 1580,
             cp: 16,
@@ -144,9 +140,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         dispatchRecommended: ["Defender"],
     enemies: [],
         strategy: [
-            "No combat — this is a pure trade. Bring Cactus Fruit ×1 and exchange it at the Targ Wood location.",
-            "Pick up Cactus Fruit from Reagent Run (A1-02) or from monsters that drop it; don't send it all to the Bazaar.",
-        ],
+            "No combat — this is a pure trade. Bring Cactus Fruit ×1 and exchange it at the Targ Wood location.",        ],
         rewards: {
             gil: 340,
             cp: 6,
@@ -159,7 +153,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         id: "A1-04",
         arc: "A1",
         name: "The Next Step",
-        description: "I seek someone to deliver medicine to a small village in Targ Wood. I would go myself, but there are those who would steal my secrets - as one who crafts potent potables - and it is deemed dangerous for me to go out and about. Please, this one favour I beg of you. Mack, Salve-Maker",
+        description: "I seek someone to deliver medicine to a small village in Targ Wood. I would go myself, but there are those who would steal my secrets-as one who crafts potent potables-and it is deemed dangerous for me to go out and about. Please, this one favor I beg of you. -Mack, Salve-maker",
         rank: 16,
         region: "Moorabella, Targ Wood",
         fee: 300,
@@ -177,9 +171,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         },
         enemies: [],
         strategy: [
-            "Non-combat delivery route: accept in Moorabella, then deliver Mack's medicine to the small village in Targ Wood.",
-            "Only one member is needed and no carried item is consumed from inventory.",
-        ],
+            "Non-combat delivery route: accept in Moorabella, then deliver Mack's medicine to the small village in Targ Wood.",        ],
         rewards: {
             gil: 1330,
             cp: 32,
@@ -192,7 +184,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         id: "A1-07",
         arc: "A1",
         name: "The Perfect Gift",
-        description: "It's nearly my mother's birthday, and I want to give her some flowers as a gift, kupo. I need someone to father some pretty, pink flowers for the bouquet. Genne, Devoted Son",
+        description: "It's nearly my mother's birthday, and I want to give her some flowers as a gift, kupo. I need someone to gather some pretty, pink flowers for the bouquet. -Genne, Devoted Son",
         rank: 6,
         region: "Camoa",
         fee: 200,
@@ -210,9 +202,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Delivery mission — no combat. Bring Prima Petal ×1 and deliver it at the Camoa location.",
-            "Prima Petal can be obtained from Reagent Run or as monster loot in Targ Wood-area missions.",
-        ],
+            "Delivery mission — no combat. Bring Prima Petal ×1 and deliver it at the Camoa location.",        ],
         rewards: {
             gil: 1050,
             cp: 12,
@@ -225,7 +215,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         id: "A1-08",
         arc: "A1",
         name: "Kids These Days",
-        description: "Some of our younger clan members have been carrying on in the pub, disturbing the peace, as it were. I reckon it's best to teach a good lesson now, and nip the problem in the bud. That's where you come in. Give 'em a good thrashing for me! Criek, Clan Criek leader",
+        description: "Some of our younger clan members have been carrying on in the pub, disturbing the peace, as it were. I reckon it's best to teach them a good lesson now, and nip the problem in the bud. That's where you come in. Give 'em a good thrashing for me! -Criek, Clan Criek Leader",
         rank: 8,
         region: "Targ Wood",
         fee: 200,
@@ -250,14 +240,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Fast nuisance unit. Watch for item or gil theft if the fight drags." },
         { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Air Render can hit from range and deal solid damage." },
     ],
-        strategy: [
-            "Pub setting — the first pub fight in the game, with all the hazard tiles that entails.",
-            "None of the enemies use magic, which is a significant advantage for your casters.",
-            "Prioritize the White Monk (Air Render) and the Fencer (Poison) first — their abilities are the biggest threats.",
-            "Take down the Warrior and Archer next; they hit hard but are straightforward.",
-            "The Soldier is purely a tank — save it for last.",
-            "Ice abilities and weapons are banned — use fire, lightning, physical, or neutral options.",
-        ],
+        strategy: [   ],
         rewards: {
             gil: 790,
             cp: 16,
@@ -270,7 +253,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         id: "A1-09",
         arc: "A1",
         name: "Watch Your Step",
-        description: "Oh, fie on him! I chased down a marked thief, and almost has him, too, when one of his traps tripped me up! Someone please bring him in! Finnes, Watch Chief",
+        description: "Oh, fie on him! I chased down a marked thief, and almost had him, too, when one of his traps tripped me up! Someone please bring him in! -Finnes, Watch Chief",
         rank: 33,
         region: "Fluorgis",
         fee: 500,
@@ -279,6 +262,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        dispatchRecommended: ["Ranger"],
         requiredTalents: {
             negotiation: 15,
             aptitude: 0,
@@ -296,12 +280,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             "The stolen goods are hidden in traps that must be set off or destroyed to complete the quest.",
             "Two treasures are on the upper wall.",
         ],
-        strategy: [
-            "Each unit must move exactly 3 tiles before ending their turn — count carefully or you'll incur a judge penalty.",
-            "Defeat the enemies before clearing the traps so you can safely finish the objective and collect the upper-wall treasures.",
-            "Prioritize the Vikings because their Thundara pressure is the most dangerous part of the fight.",
-            "Watch the Ranger; if it keeps laying traps, remove it before cleaning the field.",
-            "After the Seeq are down, set off or destroy every trap to recover the stolen goods."
+        strategy: [            "Defeat the enemies before clearing the traps so you can safely finish the objective and collect the upper-wall treasures.",           "After the Seeq are down, set off or destroy every trap to recover the stolen goods."
         ],
         rewards: {
             gil: 4830,
@@ -315,7 +294,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         id: "A1-10",
         arc: "A1",
         name: "The Trappings of Failure",
-        description: "In response to monster attacks in the region outlying the city proper, we set a number of traps to rid ourselves of the beasts once and for all. Alas, the traps had no effect. Worse still, they now pose a danage to our citizenry. Please destroy these traps before they can do any real harm. Camoa Ministry of Wildlife",
+        description: "In response to monster attacks in the regions outlying the city proper, we set a number of traps to rid ourselves of the beasts once and for all. Alas, the traps had no effect. Worse still, they now pose a danger to our citizenry. Please destroy these traps before they can do any real harm. -Camoa Ministry of Wildlife",
         rank: 12,
         region: "Targ Wood",
         fee: 300,
@@ -324,6 +303,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         canDispatch: true,
         canCancel: true,
         members: 6,
+        dispatchRecommended: ["Ranger"],
         requiredTalents: {
             negotiation: 4,
             aptitude: 0,
@@ -340,12 +320,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             "Five traps must be cleared by triggering them.",
             "Each trap removes half of the acting unit's current HP.",
         ],
-        strategy: [
-            "Kill all enemies before triggering the traps so Meteorite pressure does not punish injured units.",
-            "The >50 Damage law sounds restrictive, but at this rank your party likely won't overkill low-level Sprites anyway.",
-            "Sprites and the Banshee all have Meteorite, so keep units healthy and avoid bunching up.",
-            "After clearing the enemies, step on the trap tiles to complete the mission.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 390,
             cp: 24,
@@ -382,10 +357,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         { name: "Yellow Wings", job: "Animist", quantity: 1, notes: "Uses 100% Wool whenever possible." },
         { name: "Yellow Wings", job: "Thief", quantity: 1, notes: "Steals your gil — kill or keep gil-light units away." },
     ],
-        strategy: [
-            "You start at a level disadvantage. Kill the White Monk (dogman) first, then the Black Mage, then the Archer, leaving the Animist and Thief for last.",
-            "No Ice (law) — use fire, lightning, physical, or holy options instead.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 1750,
             cp: 6,
@@ -398,7 +370,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         id: "A1-14",
         arc: "A1",
         name: "A Voice from the Well",
-        description: "Every night I hear what sounds like a woman's voice calling to me from the rear garden. I've just moved residences, and don't care to move again - nor do I have the funds if I wanted to. It's rather disturbing to asy the least, and I'd appreciate it if someone would look into this. Lacado, Townsperson",
+        description: "Every night I hear what sounds like a woman's voice calling to me from the rear garden. I've just moved residences, and don't care to move again - nor do I have the funds if I wanted to. It's rather disturbing to say the least, and I'd appreciate it if someone would look into this. -Lacado, Townsperson",
         rank: 7,
         region: "Camoa",
         fee: 200,
@@ -423,12 +395,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         battlefield: [
             "Two Lamias begin near the party; the Lilith starts farther away.",
         ],
-        strategy: [
-            "Ranged weapons (bows, guns, etc.) are banned — shift archers and fusiliers to melee or magic roles.",
-            "Lamia-family Kiss can inflict several status effects, especially Confuse, so defeat the nearby Lamias quickly.",
-            "Move toward the yellow Lilith after the opening pair is controlled, then finish the remaining Lamia.",
-            "Magical ranged attacks (spells) are unaffected by the law — mages remain fully effective.",
-        ],
+        strategy: [            "Lamia-family Kiss can inflict several status effects, especially Confuse, so defeat the nearby Lamias quickly.",       ],
         rewards: {
             gil: 1160,
             cp: 14,
@@ -441,7 +408,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         id: "A1-15",
         arc: "A1",
         name: "The Star Seal",
-        description: "Have you hard of the",
+        description: "Have you heard of the \"Stone with No Name\"? Those philistines at the Akademy won't hear a word of it, but I think the Stone bears a message from the distant past. According to legend, holding the Star Seal to the Stone takes one to a hidden land, protected by watchful guardians. I ask you to find the truth. -Mauri, No-name researcher",
         rank: 8,
         region: "Targ Wood",
         fee: 200,
@@ -469,11 +436,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
             "After examining the Stone, the clan warps to a second battle area with another chest.",
         ],
         strategy: [
-            "Phase 1: defeat or move past the single Baknamy, collect the chest, then examine the Stone with No Name.",
-            "Phase 2: after the warp, collect the second chest while fighting Wolves, Sprites, a Werewolf, and another Baknamy.",
-            "Lightning attacks and weapons are banned in phase 1; Ice attacks and weapons are banned in phase 2.",
-            "Do not treat the chest count as one map with two chests: it is one chest in each part of the mission.",
-        ],
+            "Phase 1: defeat or move past the single Baknamy, collect the chest, then examine the Stone with No Name.",      ],
         rewards: {
             gil: 440,
             cp: 16,
@@ -486,7 +449,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         id: "A1-16",
         arc: "A1",
         name: "You Say Tomato",
-        description: "You say tomato, I say kill them all! Why kill vegetables, you ask? Har! Did I mention quivering stalks, or slavering fangs? I was for a stroll the other day and one bit clean through me britches! I doubt me or me britches are the only victims here. Help! Gusah, Greengrocer",
+        description: "You say tomato, I say kill them all! Why kill vegetables, you ask? Har! Did I mention quivering stalks, or slavering fangs? I was out for a stroll the other day and one bit clean through me britches! I doubt me or me britches are the only victims here. Help! -Gusah, Greengrocer",
         rank: 5,
         region: "Camoa",
         fee: 100,
@@ -507,11 +470,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         { name: "Randomized Name", job: "Deadly Nightshade", quantity: 4, notes: "The 'tomatoes' — weak, no real challenge. Three sit on the right side of the map." },
         { name: "Randomized Name", job: "Alraune", quantity: 1, notes: "Strongest foe ('hornhead'). Toxic attacks deal sustained damage. Kill last." },
     ],
-        strategy: [
-            "Adelle (a female Thief) joins as a 7th ally for this battle, giving you a numbers edge.",
-            "Take down the three Deadly Nightshades on the right first and rush a fast unit to grab the treasure chest in the lower-right corner. Then clear the rest and finish the Alraune.",
-            "No Lightning (law) — one of the easiest fights in the game.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 560,
             cp: 10,

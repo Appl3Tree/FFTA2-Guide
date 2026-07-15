@@ -1,0 +1,593 @@
+Home
+Boards
+News
+Q&A
+Community
+Contribute
+Games
+
+
+3DS
+Android
+Board/Card
+iOS
+PC
+PlayStation 3
+PlayStation 4
+PlayStation 5
+Switch
+Switch 2
+Vita
+Xbox 360
+Xbox One
+Xbox Series
+More Systems
+PCPS4PS5SWITCHSWITCH 2XBOX ONEXBOX SERIESMORE SYSTEMS 
+Log In Sign Up
+GameFAQs
+BOARDS
+NEWS
+Q&A
+COMMUNITY
+CONTRIBUTE
+GAMES
+Final Fantasy Tactics A2: Grimoire of the Rift – Blue Magick FAQ
+DS
+Home
+	
+Guides
+	
+Q&A
+	
+Cheats
+	
+Saves
+	
+Reviews
+	
+Media
+	
+Board
+	
+Blue Magick FAQ (DS) by Knightauron
+
+Version: 1.2 | Updated: 07/29/2008
+
+Final Fantasy Tactics A2: Grimoire of the Rift
+Blue Magick Guide
+By: Knightauron
+
+==============================================================================
+Table of Contents
+==============================================================================
+
+Part I: 		Introduction
+Part II:		Version History
+Part III:		What is a Blue Mage?
+Part IV:		Blue Magick Itself
+Part V:			Monster Locations
+Part VI:		Beastmaster Insturments
+Part VII:		Frequently Asked Questions
+Part VIII:		Class Combinations
+Part IX:		The Final Verdict
+Part X:			Legal and Contact Information
+Part XI:		Credits and Thanks
+
+==============================================================================
+Part I: Introduction
+==============================================================================
+
+Blue Magick is one of the recurring skill sets of the Final Fantasy universe.
+It involves learning enemy skills and using them, whether they are offensive
+or defensive.
+
+Blue mages themselves are very useful to the team, though take the longest to
+develop. This guide is devoted to helping you craft a powerful blue mage, or 
+at least a powerful arsenal of blue magick.
+
+==============================================================================
+Part II: Version History
+==============================================================================
+Version 1.0 - 07/04/2008, Wrote FAQ
+Version 1.1 - 07/07/2008, Fixed a couple small errors
+Version 1.2 - 07/08/2008, Fixed a couple more errors, added section on 
+	Beastmaster
+
+==============================================================================
+Part III: What is a Blue Mage?
+==============================================================================
+
+"These peculiar mages can learn the abilities of beasts and monsters, making 
+them their own."
+
+This is the in game description of blue mages, though it hardly even breaks
+the surface. Blue mages are one of the few magick classes that can support,
+fight, and heal all at the same time. They can add a whole new level to the
+playing field and pack some very deadly spells. First, the basics:
+
+Requirements:
+
+1 Black Magick A-Ability
+
+Equipment:
+
+Weapon - Sabers
+Armor - Clothing, Robes
+Head - Hats
+
+Stat Growth:
+
+HP:	84/6
+MP:	30/3
+SPD:	57/50%
+W. ATK:	80/8
+W. DEF:	88/9
+M. POW:	84/8
+M. RES:	92/9
+
+Blue Mages themselves do not excel in any area in particular. Their greatest
+advantage is their arsenal of magick abilities. Best used as a support class.
+
+==============================================================================
+Part IV: Blue Magick Itself
+==============================================================================
+
+A-Abilities:
+
+Unlike the other classes in FFTA2, Blue Mages learn their skills by having 
+that skill used on them while having the skill "Learn" equipped. However,
+because of Learn, the unit does not have to be a Blue Mage in order to learn
+Blue Magick.
+
+1. Magick Hammer
+MP Cost - 4
+Description - Deals damage to target's MP.
+Learned From - Bakanamy
+Usefulness - 2/10. Better to deal damage to the target's HP.
+
+2. White Wind
+MP Cost - 20
+Description - Heals other allies in a small area for user's current HP. Does
+not affect user.
+Learned From - Sprite
+Usefulness - 9/10. One of the best skills in the game. Costs 2 MP more 
+than Curaga and can cure for way more. The only downside to this skill is
+that the user does need to have a reasonable amount of HP in order for this
+skill to be effective.
+
+3. Angel Whisper
+MP Cost - 32
+Description - Recovers a little HP and grants Reraise.
+Learned From - Sprite
+Usefulness - 6/10. One of the only Reraise skills in the game. Probably 
+better than the regular Reraise if only for the fact that Blue Magick can
+offer more than White Magick in general.
+
+4. Night
+MP Cost - 22
+Description - Casts Sleep on all other units.
+Learned From - Lamia
+Usefulness - 4/10. Good if your team is immune to sleep, otherwise a little
+risky. Note that this skill does not affect the user.
+
+5. Screech
+MP Cost - 8
+Description - Deal damage and cause confuse.
+Learned From - Wolf
+Usefulness - 7/10. Confuse is always fun, plus it costs a low amount of MP.
+
+6. War Dance
+MP Cost - 12
+Description - Raise Attack in a small area.
+Learned From - Dreamhare
+Usefulness - 6/10. A nice simple buff that can be obtained early on.
+
+7. Roar
+MP Cost - 8
+Description - Remove Buffs from all units.
+Learned From - Werewolf
+Usefulness - 6/10. Good for teams that are heavy on buffs, but not
+to be used if your team uses a lot of buffs. You need a buff on your unit to
+learn.
+
+8. Sandstorm
+MP Cost - 12
+Description - Deals Earth Damage in a small area and inflicts blind.
+Learned From - Antlion
+Usefulness - 7/10. A solid attack skill that you can get early on. The
+Earth damage can act as a counter measure if your default weapon has a 
+different element. Blind is a nice effect too.
+
+9. Cornered
+MP Cost - 4
+Description - Deals a massive amount of damage if the user has health in
+the single digits.
+Learned From - Shelling (The turtle guys)
+Usefulness - 3/10. One of the riskiest skills in the game. It deals 999 damage
+100% of the time on one target, but can only be used if the user is at 1-9 HP.
+If you can actually get to that low level of health, begin spamming as much as
+you can. You will need Reraise on your Blue Mage to Learn this skill. The skill
+is called Limit Glove on Shellings.
+
+10. Matra Magick
+MP Cost - 22
+Description - Switches HP and MP of target.
+Learned From - Shelling
+Usefulness - 9/10. Thanks to the new MP system, this skill can slaughter. If 
+you use the proper clan privilages, you can OHkO a unit or two before the
+other team can even move.
+
+11. Bad Breath
+MP Cost - 8
+Description - Causes Blind, Silence and Poison in a T-shape in front of
+the user.
+Learned From - Malboro
+Usefulness - 2/10. In FFTA, this was one of the best skills in the game.
+In FFTA2, it suffered a massive nerf, cutting out most of the status
+effects and all the very useful ones.
+
+12. Eerie Sound Wave
+MP Cost - 8
+Description - Removes buffs on one unit.
+Learned From - Malboro
+Usefulness - 4/10. Like a pinpoint version of Roar for the same cost.
+
+13. Unction
+MP Cost - 8
+Description - Inflicts all units in a small area with Oil.
+Learned From - Red Flan
+Usefulness - 5/10. Good if your team has fire damage, otherwise not that
+great.
+
+14. Self-destruct
+MP Cost - 8
+Description - Sacrifice the user to deal massive damage to all surrounding
+units.
+Learned From - Bomb
+Usefulness - 6/10. Can deal some pretty heavy damage from behind, the only
+downside being you have to sacrifice the user. I think this deals fire damage,
+but I'm not 100% on that.
+
+15. Doom
+MP Cost - 8
+Description - Inflicts Doom on the target, which kills them in three turns.
+Learned From - Deathscythe
+Usefulness - 8/10. One of the only Hume skill that gives Doom, which can be
+very handy in the right circumstances.
+
+16. Roulette
+MP Cost - 12
+Description - Randomly kills a unit, friend or foe.
+Learned From - Ahriman
+Usefulness - 4/10. Really only good if your either outnumbered or feeling 
+lucky. Need to have Reraise on your unit to learn.
+
+17. Quake
+MP Cost - 12
+Description - Deals Earth damage to units in a small area. 
+Learned From - Headless
+Usefulness - 4/10. Like Sandstorm without the Blind. The only Blue Magick
+spell that can be used with Magick Frenzy. Credit goes to Bulbopon88 for
+pointing that out.
+
+18. Expose Weakness
+MP Cost - 8
+Description - Lower Defense and Resistance of the target.
+Learned From - Drake
+Usefulness - 5/10. I'm not a huge fan of debuffs, but this skill is one
+of the better ones.
+
+19. Mighty Guard
+MP Cost - 8
+Description - Raises the Defense and Resistance of the target.
+Learned From - Drake
+Usefulness - 8/10. The opposite of Expose Weakness. Good for weaker units.
+
+20. Dragon Force
+MP Cost - 8
+Description - Raises the Attack and Magick of the target.
+Learned From - Drake
+Usefulness - 8/10. Makes any unit stronger, whether they be caster or
+physical.
+
+P-Abilities:
+
+1. Immunity
+Description - Neither buffs nor debuffs can be removed from the user.
+Learned From - Survival Vest, 250 AP
+Usefulness - 4/10. There are better skills, such as Half MP/Turbo MP, or 
+Weapon Attack +. 
+
+2. Learn
+Description - The essential Blue Mage skill. When this skill is equipped, if
+a learnable is used on the Blue Mage, he learns that skill.
+Learned From - Light Saber, 100 AP
+Usefulness - 5/10. Absolutely necessary to learn Blue Magick. Otherwise
+completely useless.
+
+R-Abilities:
+
+1. MP Shield
+Description - Damage is dealt to MP before it is dealt to HP.
+Learned From - Mirage Vest, 300 AP
+Usefulness - 3/10. This skill depends on who it’s equipped on. For a caster,
+this skill isn't very useful without the ability Blood Price, seeing as how
+it depletes MP faster. For defensive skills, Reflex or Strike Back are better.
+
+==============================================================================
+Part V: Monster Locations
+==============================================================================
+
+Some of the monsters spawn in locations you may not be able to access until
+after you finish certain quests. These are the areas I know that the monsters
+appear in, and if I find another one that area will be added. Each area has
+different counters that occur during different months. This list will not
+include monsters found in quests.
+
+Bakanamy - These can be found in several locations. Targ Wood is a great
+location though because that encounter has Sprites, a Dreamhare and a Bakanamy
+
+Sprite - Again, Targ Wood is the best place for Sprites. One Sprite has
+White Wind, the other has Angel Whisper
+
+Lamia - The Rupie Mountains has three Lamias, each with Night. The Drake in
+the same area does NOT have any learnable skills.
+
+Dreamhare - Dreamhares can be found all over the place too, but Targ Wood is
+once again good because you can knock out four skills at once there.
+
+Wolf - The Bisga Greenlands has three Wolves, all with Screech, as well as
+three Werewolves, all with Roar.
+
+Werewolf - The Aldanna Range has three Werewolves and two Headless. All three
+Werewolves have Roar. The Bisga Greenlands has three Werewolves as well, as 
+well as three Wolves with Screech.
+
+Headless - The Aldanna Range has two Headless and three Werewolves. Only
+one of the Headless know Quake though.
+
+Drake - Aisenfield as three different Drakes, each having one of the three
+skills learned from Drakes.
+
+Malboro - Zedlei Forest has two Malboros, both of which have Bad Breath. The
+Green one has Eerie Sound Wave. The Dreamhare in the same area has War Dance. 
+
+Deathscythe - Tramdine Fens is the only place where I have found Deathscythes
+in an encounter. You need to finish the Witch of the Fens quests first.
+
+Flan - The Ruins of Delgantua has four varities of Flan, but only the Red
+one will give you Unction.
+
+Shelling - Flourgis has all three species of Shelling. The green ones give
+Cornered and the yellow one gives Matra Magick. Note that the green ones have
+a skill called Limit Glove, which is Cornered.
+
+Ahriman - The Galerria Deep has three Ahriaman's all of which have Roulette.
+Make sure to pack a Reraise.
+
+Antlion - Kthili Sands has two Antlions and three bombs. Both Antlions have
+Sandstorm, and the Red Bombs have Self-destruct.
+
+Bomb - Kthili Sands has 3 bombs, but only the red ones have Self-destruct.
+Be careful though, you cannot force Bombs to use Self-destruct with a
+beastmaster. Bring the Bomb into HP-Critical and it will Self-destruct next
+to the nearest target.
+
+==============================================================================
+Part VI: Beastmaster Instruments
+==============================================================================
+
+I know what you're thinking: If this is a Blue Magick guide, why is there a
+section on Beastmaster, a Nu Mou class? The answer is simple: Beastmasters
+make learning Blue Magick ten times easier and twenty times faster. It takes
+a little time to train a Beastmaster and you have to use a unit slot to bring
+him along (or a secondery skill slot if you use a Nu Mou regularly), but it
+is incredibly worth it. This section will cover the Beastmasters Beast Lore,
+and the insturments that teach those skills. Each Beast Lore skill requires
+only 150 ap to learn.
+
+Lamia Harp - Dreamhare, Deadly Nightshade
+
+Demon Bell - Bakanamy, Flan
+
+Glass Bell - Lamia
+
+War Trumpet - Wolf
+
+Conch Shell - Shelling
+
+Hurdy-Gurdy - Drake
+
+Satyr Flute - Headless
+
+Faerie Harp - Sprite, Antlion
+
+Blueleaf Flute - Malboro, Bomb
+
+Heal Chime - Cockatrice
+
+Frigid Viol - Werewolf
+
+Brilliant Theorbo - Ahriman, Floating Eye
+
+Black Quena - Undead, Ghosts, Deathscythes
+
+==============================================================================
+Part VII: Frequently Asked Questions
+==============================================================================
+
+Q: The skill I wanted to learn wasn't learned! What did I do wrong?
+A: You need to have Learn equipped. Nothing worse than having a hard to
+learn skill used on your unit and not having Learn equipped. So if you are
+planning on learning Blue Magick, be sure to have Learn equipped. Also, be
+sure that the skill is one of the twenty that can be learned.
+
+Q: I want Blue Magick but i hate the Blue Mage stat growth. Do I have to be 
+a Blue Mage to learn Blue Magick?
+A: The answer is thankfully no. As long as you have Learn equipped, you can
+learn Blue Magick, regardless of your job.
+
+Q: My unit died and didn't learn the skill! What happened?
+A: Reraise is your friend. If a skill kills your unit, he won't learn that
+skill. This status effect is needed to learn Cornered and Roulette.
+
+Q: This is taking way too long and the monsters are using the wrong skills. Is
+there a faster way to do this?
+A: Have a Beastmaster. No one said that monsters will focus on your Blue Mage.
+Beastmasters can make your life so easy by forcing the monsters to target your
+unit with the desired skill. This is also the most effective way of obtaining
+defensive or healing skills.
+
+Q: I don't have a Beastmaster! Can I still get the buffs and White Wind?
+A: When a Beastmaster is not available or you don't have the proper instrument,
+Confusion is a viable option for learning defensive skills. Confusing an enemy 
+leaves the chance to learn a defensive ability to fate, but it becomes a chance.
+
+Q: I have Learn equipped, but my unit still isn't learning the skill. What 
+happened?
+A: Certain skills require you to prepare ahead of time. Roar requires your
+unit to have a buff, and debuff skills require you to be vulnerable to those
+debuffs. One of the bigger ones is being immune to KO when trying to learn
+Roulette.
+
+Q: Are any skills one-time only or do any monsters become "extinct?"
+A: No skills are one time only, and to the best of my knowledge, all monsters
+can be fought in encounters, meaning all skills can be obtained regardless of
+what point you are at in the game.
+
+Q: This guide is awesome! What do you use your Blue Mage?
+A: Personally, I use a Hunter/Blue Mage. It takes a while, but a fully
+mastered Hunter/Blue Mage is a very useful and versitile unit. By the way,
+that same unit is my bewst unit.
+
+==============================================================================
+Part VIII: Class Combinations
+==============================================================================
+
+Blue Mage is probably the best as a secondary class. Blue mages don't have the
+best stat growth and their other abilities aren't that top notch. Thus,
+Blue Magick is best used as a secondary class. Blue Magick is exclusive to
+Humes, and can only be used with Hume jobs.
+
+1. Soldier/Blue Mage
+Soldiers don't have much MP, so they can't really use Blue Magick to its full
+potential. Some of the Buffs like Dragon Force and Might Guard are still good,
+and their high HP makes White Wind useful, but those are better if another
+unit gives them. Their support abilities don't really have good synergy with
+Blue Magick either. 
+
+2. Fighter/Blue Mage
+Same as Soldier.
+
+3. Paladin/Blue Mage
+Paladins actually have a reasonable amount of MP, not to mention solid defensive
+stats. Dragon Force on a Paladin can create a very nice tank that can deal a 
+nice amount of damage. Weapon Defense + can be very useful for tanking, and 
+Reflex is one of the best reaction abilities in the game. Not only that, but
+Paladins get some really good equipment. A pretty good combo if you ask me.
+
+4. Parivir/Blue Mage
+Parivirs are excellent attackers, but Blue Magick is more of a support ability.
+The two don't mix well in my opinion. Death Strike is neat though.
+
+5. Thief/Blue Mage
+Pretty much the same as the Soldier. Not really enough MP to bring out its full
+potential.
+
+6. Ninja/Blue Mage
+Ninjas have good speed growth, and a little MP. Ninjitsu mixed with blue magic
+can cover most every status ailment in the game. Critical: Haste isn't that 
+great of an ability in my opinion, and double sword is good for attacking.
+Other than the Blue Magick Ninjitsu combo, not very useful.
+
+7. Archer/Blue Mage
+Pretty much the same as Soldier.
+
+8. Hunter/Blue Mage
+Another good combo. Hunters can learn Ultima Shot, one of the most powerful
+skills in the game, especially since it can be used from far away. Also,
+since Hunters can use bows, you can keep the unit behind the tanks and support
+the other units with buffs and White Wind. Not only that, but you can almost
+never go wrong with Weapon Attack +.
+
+9. White Mage/Blue Mage
+Blue Mages can heal and cast Reraise. Hume white mages aren't as effective as
+Viera or Nu Mou White Mages anyways. Turbo MP doesn't help most of the Blue
+Magick skills, so it’s best not to go with that.
+
+10. Black Mage/Blue Mage
+Black Magick is all about attacking, but only has three elements to choose 
+from. Blue Magick can throw a little variety in there, plus throw in some
+nice debuffs. Geomancy can help Sandstorm, but doesn't help Blue Magick
+otherwise.
+
+11. Illusionist/Blue Mage
+Illusionists usually stay far away from combat to use their illusions. Not a
+great combo as Blue Magick is best used in the middle of the team. Half MP 
+isn't necessary, as most of the blue magic spells don't cost much MP in the
+first place.
+
+12. Seer/Blue Mage or Blue Mage Seer
+Magick Frenzy with some of the Blue Magicks could be fun, but other than that
+not overly exciting. Quake is the only Blue Magick that can activate Magick
+Frenzy anyways.
+This is one of the only class combos that work better the other way around,
+with Blue Mage primary. If tweaked right, Blue Mages can deal some reasonable
+physical damage with the Ninja Support Ability Double Sword. That with Magick
+Frenzy can do some nasty damage.
+
+==============================================================================
+Part IX: The Final Verdict
+==============================================================================
+
+Blue Mages are very versatile units, capable of handling almost any situation 
+and most any role. Though Blue Magick requires a lot of work, time, and most
+importantly, patience, it can be a major asset in the game. As for how you
+want to use it is your call. I only hope that you found this guide useful and
+informative.
+
+==============================================================================
+Part X: Legal and Contact Information
+==============================================================================
+
+This is my guide, written by me.
+
+If you want to use this guide on another page, simply contact me and I'll see
+what we can do. Do not use any of this information with your own name.
+
+Sites Using this FAQ:
+GameFAQs.com
+Gameradar.com
+Supercheats.com
+Neoseeker.com
+Mycheats.com
+
+Contact me at chrisrd4@hotmail.com if you would like to contribute or if I
+forgot something, or if you just want to like this FAQ.
+
+==============================================================================
+Part XI: Credits and Thanks
+==============================================================================
+
+Final Fantasy Tactics A2: Grimoire of the Rift was created by Square Enix.
+This guide was written by me, Knightauron.
+
+Thanks to GameFAQs for Hosting this guide
+Thanks to all the people on the message boards for encouraging me to write
+this guide
+Thanks to Terrance and James for the Stat Growth on Blue Mages.
+
+And thank you the reader for reading my first walkthrough.
+
+
+View in: Text Mode
+
+GameFAQsfacebook.com/GFAQstwitter.com/GameFAQsHelp / Contact UsChange Colors 
+
+gamespot.commetacritic.comfandom.comfanatical.com
+
+SitemapPartnershipsCareersTerms of UseDigital Services Act
+
+Privacy PolicyDo Not Sell My Personal InformationReport Ad
+
+© 2026 FANDOM, INC. ALL RIGHTS RESERVED.

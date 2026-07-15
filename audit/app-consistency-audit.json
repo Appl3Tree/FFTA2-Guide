@@ -1,0 +1,19 @@
+{
+  "counts": {
+    "abilitySets": 93,
+    "abilities": 636,
+    "equipment": 404,
+    "bazaarRecipes": 355,
+    "races": 8,
+    "raceJobs": 58,
+    "bestiary": 97,
+    "missions": 346,
+    "retroAchievements": 296,
+    "clanTrials": 14,
+    "clanRoadmapItems": 17,
+    "metaRows": 39,
+    "findings": 0
+  },
+  "byType": {},
+  "findings": []
+}

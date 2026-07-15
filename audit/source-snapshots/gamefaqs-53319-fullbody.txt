@@ -1,0 +1,4683 @@
+Home
+Boards
+News
+Q&A
+Community
+Contribute
+Games
+
+
+3DS
+Android
+Board/Card
+iOS
+PC
+PlayStation 3
+PlayStation 4
+PlayStation 5
+Switch
+Switch 2
+Vita
+Xbox 360
+Xbox One
+Xbox Series
+More Systems
+PCPS4PS5SWITCHSWITCH 2XBOX ONEXBOX SERIESMORE SYSTEMS 
+Log In Sign Up
+GameFAQs
+BOARDS
+NEWS
+Q&A
+COMMUNITY
+CONTRIBUTE
+GAMES
+Final Fantasy Tactics A2: Grimoire of the Rift – Guide and Walkthrough
+DS
+Home
+	
+Guides
+	
+Q&A
+	
+Cheats
+	
+Saves
+	
+Reviews
+	
+Media
+	
+Board
+	
+ 
+ 
+BOOKMARK 
+Would you recommend this Guide? Yes No
+Hide 
+Guide and Walkthrough (DS) by Major_Adama
+
+Version: 0.30 | Updated: 08/13/2009
+
+===============================================================================
+|Final Fantasy Tactics A2: Grimore of the Rift                                |
+|Version 0.30                                                                 |
+|Start Date: June 29, 2008                                                    |
+|Created By: Major_Adama (aka ligerzero459)                                   |
+===============================================================================
+
+===============================================================================
+Table of Contents:
+===============================================================================
+-------------------------------------------------------------------------------
+   #    Section Name                                                      Key
+-------------------------------------------------------------------------------
+  i.    Version Information -------------------------------------------- [VIN]
+1.0.    Copyright ------------------------------------------------------ [CPY]
+2.0.    Introduction
+    2.1.    Story ------------------------------------------------------ [STY]
+    2.2.    Controls --------------------------------------------------- [CON]
+3.0.    Characters ----------------------------------------------------- [CHA]
+4.0.    Walkthrough ---------------------------------------------------- [WLK]
+    4.1.    Missions --------------------------------------------------- [MIS]
+    4.2.    Quests ----------------------------------------------------- [QST]
+5.0.    Clan Info
+    5.1.    Clan Privileges -------------------------------------------- [CPV]
+    5.2.    Clan Trials ------------------------------------------------ [CTR]
+    5.3.    Laws ------------------------------------------------------- [LAW]
+6.0.    Items ---------------------------------------------------------- [ITM]
+    6.1.    Weapons
+        6.1.1.  Edged Weapons ------------------------------------------ [EWN]
+        6.1.2.  Bludgeons ---------------------------------------------- [BLD]
+        6.1.3.  Ranged Weapons ----------------------------------------- [RWN]
+    6.2.    Armors
+        6.2.1.  Helms -------------------------------------------------- [HLM]
+        6.2.2.  Armor -------------------------------------------------- [ARM]
+        6.2.3.  Shields ------------------------------------------------ [SHD]
+    6.3.    Accessories
+        6.3.1.  Boots -------------------------------------------------- [BOT]
+    6.4.    Bazaar ----------------------------------------------------- [BZR]
+    6.5.    Loot ------------------------------------------------------- [LOT]
+7.0.    Jobs
+    7.1.    Hume Jobs -------------------------------------------------- [HME]
+    7.2.    Nu Mou Jobs ------------------------------------------------ [NMO]
+    7.3.    Viera Jobs ------------------------------------------------- [VRA]
+    7.4.    Moogle Jobs ------------------------------------------------ [MOG]
+    7.5.    Bangaa Jobs ------------------------------------------------ [BGA]
+    7.6.    Gria Jobs -------------------------------------------------- [GRA]
+    7.7.    Seeq Jobs -------------------------------------------------- [SEQ]
+    7.8.    Special Units ---------------------------------------------- [SPE]
+    7.9.    Espers ----------------------------------------------------- [ESP]
+8.0    Ending and Credits ---------------------------------------------- [END]
+
+===============================================================================
+i.    Version Information ----------------------------------------------- [VIN]
+===============================================================================
+
+Left to Do:
+    * Finish Mission and Quest sections
+    * Finish Clan Info
+    * Finish Items
+    * Complete Job Section
+    * Many, many more things
+
+Version Updates:
+	* Version 0.30
+	  Date: August 12, 2009
+	  Okay, it's been a long time since I last updated the guide. School got in
+	  the way, but that should be a problem this coming year. Well, here's what
+	  I added:
+	  * New Quests
+	  * New Bazaar Info
+	  * More Laws
+	  More updates are on their way, and will be closer together then the last
+	  one.
+	  
+    * Version 0.28
+      Date: July 21, 2008
+      It's been a while since the last update. Added some new quests and some
+      new bazaar information. Also, got help on the special units section, so
+      that's mostly done now. Also, I'm trying to find out how many people this
+      guide is helping. If you have a sec, drop me a line and tell me if this
+      helped you at all.
+
+    * Version 0.25
+      Date: July 14, 2008
+      A few new quests and a Mission 8 are done. Also, I started on the job
+      section. It will be a lot better when it's completely done.
+      * New missions & quest information
+      * New Bazaar Info
+      * Added Item Info
+      * Started Job Section
+
+    * Version 0.20
+      Date: July 10, 2008
+      Okay, I'm back into this thing. I should be updating pretty often now.
+      * New missions
+      * New quest information
+      * More Laws
+      * New Bazaar Info
+      * Added Item Info
+
+    * Version 0.16
+      Date: July 9, 2008
+      It's been a while since the last update. I got distracted temporarily by
+      a Bioshock run. But I'm back to the guide now.
+      * Added new missions
+      * New quest information
+      * New Laws
+      * New Bazaar Info
+      * New Item Info
+
+    * Version 0.12
+      Date: July 2, 2008
+      * Added new quest information
+      * Started Clan Trials section
+      * Added new laws
+      * And just for looks, made the quest dividers more visible
+      * Decided to add the abilities to the weapons. Changed the entire
+        section
+      * New update expected tomorrow
+
+    * Version 0.1
+      Date: June 29, 2008
+      Okay, this is my first guide. I’ve started some before but never quite
+      finished any. Added some basic info and the first few quests.
+
+===============================================================================
+1.0.    Copyright ------------------------------------------------------- [CPY]
+===============================================================================
+
+
+This guide is the sole work and copyright of Ryan Mottley. My email
+is ligerzero459@gmail.com. Any sale of this guide is illegal, but you
+can give copies to your friends. If you see this FAQ on any website
+or publication other than those listed below, please tell me.
+
+Sites that have permission to post this guide:
+www.gamefaqs.com (original posting)
+www.cheatcc.com
+www.cheatplanet.com
+www.cheats.de
+www.gamesradar.com
+www.ign.com
+www.neoseeker.com
+www.supercheats.com
+
+Before I start, if you have any inquiries about this guide, or any
+information to give to me, make sure to add “FFTA2 Guide” to the
+subject line in some form. Otherwise the email filters won’t pick it up
+and it might get lost. I'll answer any question and give specific strategies
+for quests if needed. Just make sure to ask.
+
+Anyways, on to the guide!
+
+===============================================================================
+2.0.    Introduction
+===============================================================================
+
+
+Welcome to the world of Ivalice and Final Fantasy Tactics Advance 2.
+Here’s a brief look at the story of the new game.
+
+===============================================================================
+2.1.    Story ----------------------------------------------------------- [STY]
+===============================================================================
+
+            20th of Goldensun: The sun shines in an unfamiliar sky.
+                     Today is the day my adventure begins.
+
+                   Summer vacation’s so close I can taste it!
+                     Clean the library...are you kidding?
+                          That book, it looks old...
+
+                  “One is fated to fill these barren pages.
+                            Know you his name?”
+
+                                   Luso...
+
+===============================================================================
+2.2.    Controls -------------------------------------------------------- [CON]
+===============================================================================
+The controls of FFTA2 are fairly simple and are easy to learn. Here's
+the control scheme.
+
+World Map Controls
+==================
++ Control Pad ----------- Move cursor
+                          Make selections
+A Button ---------------- Confirm
+                          Advance to next message
+B Button ---------------- Cancel
+                          Move cursor to current
+                          position
+X Button ---------------- Main Menu
+Y Button ---------------- Help Menu
+L & R Button ------------ Switch units
+                          Choose destination
+
+Battle Controls
+===============
++ Control Pad ----------- Move cursor
+                          Make selections
+A Button ---------------- Confirm
+                          Advance to next message
+                          Move cursor to active unit
+                          Show commands
+B Button ---------------- Cancel
+                          Show allies & foes
+                          Show movement range
+X Button ---------------- Main Menu
+Y Button ---------------- Help Menu
+L & R Button ------------ Switch Units
+
+===============================================================================
+3.0.    Characters ------------------------------------------------------ [CHA]
+===============================================================================
+
+Here are a few of the main characters that you will meet on your
+journey around Ivalice:
+
+Luso – An energetic young boy with more than enough curiosity. Fearless, which
+gets him into trouble. A prankster, which also gets him into trouble. Never
+abandons someone in need.
+
+Cid – The leader of Clan Gully, Luso’s new family in Ivalice. A mentor and help
+to Luso in many ways, though ties to a mysterious organization shadow his past.
+Though a revgaji, Cid has mastered the jobs of the bangaa.
+
+Adelle – An attractive, competitive headhunter with few weaknesses...save a 
+love for gil. Seems cold, though it’s hard to say whether that's who she is, or
+the result of some internal conflict. Known to others as “Adelle the Cat.”
+
+Hurdy – A wandering Moogle minstrel. Younger brother to Montblanc and Nono, and
+former resident of the far-away city of Rabanastre. Encounters Luso in his
+travels and promises to compose a song for him.
+
+===============================================================================
+4.0.    Walkthrough ----------------------------------------------------- [WLK]
+===============================================================================
+
+SPOILERS AHEAD! SPOILERS AHEAD! SPOILERS AHEAD!
+The entire Missions walkthrough is basically one giant spoiler. If you do not
+want to have the story ruined for you, read only the mission that you are stuck
+on.
+SPOILERS AHEAD! SPOILERS AHEAD! SPOILERS AHEAD!
+
+As the game starts out, your character is thinking to himself just before he
+gets out of school for the summer. Midway through the cutscene, you have to
+take a small "quiz" about what you're going to do during the summer. Based on
+your responses, you will get different bonuses once you get ingame. The bonuses
+that i currently know are:
+
+Agility Up 2: The answers to get this are A, B, and C.
+Power Up 2: The answers to select are B, B, and B.
+
+After the quiz, the bell rings and class is dismissed. Well, all except Luso.
+He has to go to the library to clean it up as punishment for being late. When 
+he arrives there, the librarian is nowhere to be seen, and an old book is lying
+on the table. Luso goes over to look at it, but discovers that it blank halfway
+through. That is, except for the last page, which reads “One is fated to fill
+these barren pages. Know you his name?” As a joke, you write your name in the 
+book, and suddenly, you're falling through the air...
+
+===============================================================================
+4.1.    Missions -------------------------------------------------------- [MIS]
+===============================================================================
+
+*******************************************************
+-----------Mission 1 – Stranger in the Woods-----------
+*******************************************************
+Fee: ---
+Rank: 1
+Days: ---
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Defeat Mark
+
+The LAW - Ranged Weapons
+          Attacks with bows, greatbows, guns, hand-cannons and cards
+          are forbidden
+Objective: Defeat Klestra
+
+After the beginning scene, you fall into the world of Ivalice in
+the middle of a battlefield. After a short cutscene, where you join
+a clan to avoid death, you are thrust into battle as a Hume Soldier.
+Battling at your side are Cid, who you will find out more about
+later, a random Nu Mou Black Mage and a Viera White Mage. This is a
+fairly quick mission, mostly as an introduction to battle. People
+who played the original FFTA will slip easily back into the battle
+system. Those who are new to the FFTA universe will discover the
+system is easy to learn.
+
+You can quickly take out Klestra, or move to attack the two
+Cockatrices first. Either way, when you get Klestra down to about half
+health, it will run, ending the battle.
+
+Reward: 250 gil
+        Gikhet Lead x2
+        Faren Pollen x2
+
+CP Obtained: 2
+Law Bonus: Longbow
+*******************************************************
+
+After the battle, Cid takes you back to the pub in town, where you have
+some dinner and meet the rest of Clan Gully. It's kind of a boring name,
+but you can change it is you wish. After choosing a clan name, head
+to the desk to grab your next quest. Right now, there's only one there.
+
+*******************************************************
+-----------Mission 2 - A Paw Full of Feathers----------
+*******************************************************
+Fee: 100 gil
+Rank: 2
+Days: ---
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Battle
+
+The LAW - Fire
+          Weapons and abilities that use fire are forbidden
+Objective: Defeat all foes!
+
+As the mission starts, Cid and Luso walked into a field and Luso
+admires the Chocobos for a few seconds. Suddenly, you hear the howl
+of a wolf, and 2 wolves and a Baknamy enter the field. Time for
+business! Since this will be a fairly short battle, with few hits
+from the other side, you don't have to have a White Mage, so this
+could be your chance to break out your thief and get a little gil
+with his Steal gil ability. Also, this is the first time you get to
+choose a clan privilege. A clan privilege is a special bonus that
+you select and get as long as you obey the laws the judge declares.
+However, if you break the law, you lose both your clan privilege,
+and the ability to revive KO'd people while in battle.
+
+
+Once in battle, you should make quick work of the wolves and shift
+your focus to the Baknamy. When he falls, a short cutscene will
+play where you discover the first mystery that need to be solved in
+your quest to return home, a magick journal.
+
+Reward: 1050 gil
+        Snake Skin x2
+        Tiny Mushrooms x2
+        Fresh Water x4
+
+CP Obtained: 4
+Law Bonus: Metal Knuckles
+           Silken Robe
+*******************************************************
+
+Back at the pub, you hear a Blue Mage talking about the fact that the
+highroad to Camoa is being blocked by a group of bandits. Cid had
+wanted to head to Camoa to find some better jobs, so Luso suggests that
+they go and clear the highroad. It's off to grab the quest and then to
+defeat the bandits.
+
+*******************************************************
+--------------Mission 3 - The Yellow Wings-------------
+*******************************************************
+Fee: 100 gil
+Rank: 3
+Days: ---
+Location:
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Battle
+
+The LAW - Ice
+          Weapons and abilities that use ice are forbidden
+Objective: Defeat all foes!
+
+This is your first clan versus clan battle, and might be slightly
+more challenging than just fighting monsters. They have a thief, an
+animist, a white monk, a black mage, and an archer. The key is to
+take out the black mage as soon as you can, because he does the most
+damage out of everybody. After that, take whatever order you want
+to in order to finish the rest of them off. Once you're done, the
+highroad is open again and you can head to Camoa and new missions.
+
+Reward: 1750 gil
+        Lamia Scale x2
+        Sanative Needle x3
+        Earth Stone x3
+
+CP Obtained: 6
+Law Bonus: Glass Bell
+           Battle Boots
+           Hi-Potion
+*******************************************************
+
+When you walk into Camoa, the first thing that you and Cid do is
+head to talk to a guy named Ribs. He's a old friend of Cid's, back
+from a past life. He offers to give you some information...if you
+bring him a tomato stalk. As Luso and Cid walk away, Cid mentions
+that these aren't normal tomatoes...
+
+*******************************************************
+---------------Mission 4 - You Say Tomato--------------
+*******************************************************
+Fee: 100 gil
+Rank: 5
+Days: ---
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Battle
+
+The LAW - Lightning
+          Weapons and abilities that use lightning are forbidden
+Objective: Defeat all foes!
+
+As this mission starts, Luso realizes that the tomatoes are actually monsters,
+and starts considering never eating tomatoes again. As he's thinking, you hear
+a voice. Out walks Adelle, the headhunter. She wants to help you with your
+mission...for a price of course. You accept and offer her a four to one
+split. Go ahead a beat the crap out of the Nightshades and the Alraune. After
+having an entire battle to think, Luso decides that he's never going to eat
+tomatoes again. That begs the question...what's he gonna eat on his hamburgers?
+
+Reward: 560 gil
+        Fury Fragments x2
+        Silk Thread x2
+        Rabbit Pelt x2
+
+CP Obtained: 10
+Law Bonus: Barong
+           Iron Helm
+           Echo Herbs
+*******************************************************
+
+As Luso finds the tomato stalk, Cid reminds him about the drill. Just as
+Luso says he hasn't seen it, Adelle comes up to you to say goodbye. When
+you ask about her cut, she says don't worry about it...and holds up the
+drill. When she warps away, Cid yells, "I'll kill her...kill her! Kill!!"
+
+When you head back to town, you give the stalk to Ribs. In exchange he gives
+you some information. After a short history lesson, he tells you that the
+magicker that created the Laws and the Judges is still alive. For original
+FFTA players, that's a major revelation. Just before you get a list of places
+that he might be, you spot Adelle. You decide to head to the pub to pick
+up a new mission, hopefully beating Adelle out of the same job.
+
+*******************************************************
+----------------Mission 5: Wanted: Ugohr---------------
+*******************************************************
+Fee: 200 gil
+Rank: 8
+Days: ---
+Location: Baptiste Hill
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Headhunt
+
+The LAW - Restoring MP
+          Actions that restore MP are forbidden
+Objective: Defeat Ugohr!
+
+When you enter the battlefield, Adelle is nowhere to be seen. Cid makes a
+good point though when he says that she'll show up when all the hard work
+is done. Guess we'll have to watch out. But for now, it's down to
+business. Wipe the floor with Ugohr to end the battle.
+
+Reward: 1650 gil
+        Healing Water x4
+        Holy Stone x 3
+        Moonwood x3
+
+CP Obtained: 16
+Law Bonus: Danbukwood
+           Peppergrass
+           Phoenix Down
+*******************************************************
+
+After the hunt, Cid and Luso are discussing the fact that they hadn't
+found any rare stuff. Luso mentions the fact that Adelle hadn't shown up,
+and then he and Cid decide to take what they have and head back to
+town. Seconds after they leave, Adelle walks up, saying to herself that
+the good stuff had been right under their noses the whole time. She walks
+over to the dead corpse and suddenly she can't move her feet. Luso and Cid
+walk back over, talking about the trap that they had set. The take the
+bait that they had left and then demand the drill back. The problem is,
+she's already sold it. And when they ask for the gil instead, they find
+out that she's spent it all. So they settle for leaving her trapped there
+instead.
+
+Back in town, Luso is tired and asks if they can stay put for a while.
+Cid is okay with that, saying that there's no more information to be found
+anyway. He suggests heading to Graszton, to meet someone who might have some
+more info. Adelle, who was sitting at a nearby table listening, proclaims
+that heading to Graszton is a great idea and she'll come along to help, which
+is what friends do for friends. To this Cid replies, "Since when did we
+become "friends", and how do we end it?" Luso suggests that maybe she
+wants to pay us back for the drill...just as she orders a Starfruit 
+Surprise (this name may be wrong, writing from memory here) on your tab. So
+much for paying us back.
+
+ADELLE JOINS YOUR CLAN!
+
+Welcome to Graszton! The scene begins with Cid thanking someone for some
+information. As he leaves the house, an assassin appears. All Cid says
+is "So soon?" before he is shot. He slumps over onto the ground, seemingly
+dead. The assassin says, "You had a lot of nerve coming here, Cid." before
+he disappears into the night. In the next scene, Cid is lying on a bed with
+Luso standing next to him. Adelle walks in, concerned for Cid. Cid wakes up
+soon after and reveals that he knows the location of the mage we are looking
+for. He lives in the Aldanna Range. Cid orders us to go and find him. 
+Unfortunately, he won't be able to join us for this mission. He falls back to
+sleep. After a little prodding by Adelle, Luso decides to head off to the
+mountains...after a little monster clean-up.
+
+*******************************************************
+--------------Mission 6: Wanted: Gilmunto--------------
+*******************************************************
+Fee: 200
+Rank: 12
+Days: ---
+Location: The Aldanna Range
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Headhunt
+
+The LAW - Fire
+          Weapons and abilities that use fire are forbidden
+Objective: Defeat Gilmunto
+
+When you enter the battlefield, it seems to be covered in some fog. Adelle
+quickly corrects you and tells you that it's "Mist". "Mist" is the root of
+all magick in Ivalice. When you see the monsters, Luso notices that they
+look different. It turns out that Mist in high concentrations does
+strange things to monsters. but as Luso says, "There's nothing to do but
+fight."
+
+Reward: 1330 gil
+        Succulent Fruit x3
+        Storm Stone x5
+        Quality Pelt x2
+
+CP Obtained: 24
+Law Bonus: Iron Carapace
+           Gimble Stalk
+           Hi-potion
+*******************************************************
+
+When you defeat the mark, Adelle is wondering if the "Mist" makes monsters
+more valuable. Just before she touches the corpse, a voice calls out, telling
+her to stay away from it because the bonds holding the "Mist" are about to
+break. Sure enough, seconds later the monster breaks down into "Mist". You
+thank the old man for warning you and after a short conversation, you find
+out that he is Lezaford, the mage you're looking for. What great luck!
+
+Back at Lezaford's house, the mage tells you that you should be able to go
+back to your world and that, indeed, the journal is the key. It turns out
+that we have to do more quests to fill up the journal so that it gains power.
+Eventually, it will grow powerful enough to send Luso home. Well, Luso is
+all for it, so I guess back to Graszton to get Cid!
+
+Back at town, Luso and Adelle fill Cid in on the conversation. While speaking,
+Adelle brings up the ability to bid for territory at auctions. There are
+certain benefits to controlling an area, like lower prices for quests at the
+pub. Luso likes the sound of that, so he and Adelle head off to do a quest to
+earn the Clan Points for an auction.
+
+*******************************************************
+-------------Mission 7: Now That's a Fire!-------------
+*******************************************************
+Fee: 300 gil
+Rank: 14
+Days: ---
+Location: Zedlei Forest
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Battle
+
+The LAW - Restoring MP
+          Actions that restore MP are forbidden
+Objective: Defeat all foes!
+
+The mission that you take on is to clear out the forest of bombs. Let them
+come to you so you don't get attacked on the first turn. After that, rip
+them to shreds with a few well placed Blizzards.
+
+Reward: 2870 gil
+        Platinum x5
+        Agathis x3
+        Suspect Mushroom x1
+
+CP Obtained: 28
+Law Bonus: Sanative Needle
+           Iron Helm
+           Ether
+*******************************************************
+
+After the battle, Adelle and Luso sit down for a little rest and discuss the
+clan points that you're about to receive. Adelle says that you guys should
+head to the auction house, because auctions aren't held all the time. Before
+you leave, you find out a little information about auctions. That might come
+in handy later. Head to Camoa or Graszton like Adelle suggests.
+
+When you first get to the auction house, the man senses that you are a
+first-timer, so he gives you the rules. Read over them quickly and learn
+them. You'll most likely only be able to win one area. Choose which you might
+want and save most of your tokens for that. Also try to get some bonuses,
+because they give you a 5-piece token. Those can turn the tide of an auction
+in a pinch.
+
+After you finish, Luso talks about how fun the auctions are. At the same time,
+Adelle's true thief nature comes out again as she talks about the spoils she's
+gonna get from the areas that we control now. Oh well, nothing can be done
+about it. From here, you can head to the other auction houses or do Mission 8.
+
+*******************************************************
+-------------Mission 8: Pearls in the Deep-------------
+*******************************************************
+Fee: 300 gil
+Rank: 17
+Days: ---
+Location: The Galerria Deep
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Defeat Mark
+
+The LAW - Actions by Nu Mou
+          Nu Mou may only move and perform basic attacks
+Objective: Defeat the Lord of the Flowsand!
+
+Recommendations: 
+* Complete Clan Mates quest
+* Switch Bangaa's job to White Monk and equip Kaiser Knuckles for Air Render
+OR
+* Switch Bangaa's job to Gladiator and learn Beat Down
+* If you don't have many new clan members, change Moogle to Black Mage for this
+* Complete "To be a Fighter", and teach Luso Beat Down
+
+Your first observation when you enter the field is the giant crab in the corner
+of the map. Luso asks Adelle to warn him he she's gone crazy so that he can
+run while there's still time. After Adelle assures him of her sanity, you head
+into battle. There are two smaller Antlion's in addition to Flowsand Lord. They
+absorb any Earth-based attacks, while Lord Flowsand is immune to them. As you
+move down the hill, try to take out the Antlions so that they have to respawn.
+Hopefully, they respawn at the top of the hill. Continue down toward Flowsand
+Lord, dealing long range damage if you can. He will hit you hard with
+Gravity Flux as you close. The attack hits everyone at once, so, if you have
+the Eureka Crystal, use it when you get low. That way you get full HP on
+everyone and an attack and defense boost. Once you get people next to him, he
+will start drawing people in and healing himself using their HP. Heal when
+needed and pound at him, watching out for the Antlions. With some skill and a
+little luck, you will win the battle and sit back feeling very relieved.
+
+Reward: 3490 gil
+        Zingu Pearl x8
+
+CP Obtained: 34
+Law Bonus: Glass Bell
+*******************************************************
+
+After you finish of the Flowsand Lord, you see Adelle explaining to Luso where
+the moss and the pearls are. She wishes you luck and starts walking up the
+hill. When Luso asks here if she's coming with you, she replies, "No, it's
+dark and damp in there." Luso sighs that he should know better by now as he
+heads to grab the moss and pearls. After mucking around for a bit, Luso returns
+with the moss and a big pearl. Adelle thanks you and starts to walk away, when
+Luso says that he actually found one bigger pearl. When Adelle rushes back to
+get it, Luso hands her a nice big ball of mud. Ain't revenge grand?
+
+
+===============================================================================
+4.2.    Quests ---------------------------------------------------------- [QST]
+===============================================================================
+
+All the quests are organized according to their location in the
+Quest Report under Clan Info. If a Quest is listed as D4-3, that
+means that the quest is in box D4 on the Quest Report, in slot
+number 3. The slots are numbers like this:
+
+|-----------|
+|1 |2 |3 |4 |
+|5 |6 |7 |8 |
+|9 |10|11|12|
+|13|14|15|16|
+|-----------|
+
+-----------------------------------Section A-----------------------------------
+
+*******************************************************
+--------------------A1-2: Reagent Run------------------
+*******************************************************
+Fee: 200 gil
+Rank: 8
+Days: ---
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Satisfy Petitioner
+
+The LAW - Knockback
+          Actions that knock the target back are forbidden
+Objective: Locate muskmallow
+
+The easiest way to do this is to go ahead and kill everything, then
+search for the muskmallow. That way, you're not getting constantly
+damaged. Also, you have most likely encountered one of the most
+annoying laws in this game. Either you pray that you never get a
+critical hit, or you sandwich every person you intend to hit so that
+if you do get a critical hit, it doesn't knock them back. As long
+as they don't move, you don't get a law violation.
+
+After you kill everyone, start searching through all the grass
+stands. I think that the location is random, because I found out
+it's random in a later quest similar to this one.
+
+Reward: 1580 gil
+        Cactus Fruit x3
+        Nepenthis x1
+        Spruce x3
+
+CP Obtained: 16
+Law Bonus: Samson Sword
+           Round Shield
+           Antidote
+
+*******************************************************
+------------------A1-3: The First Step-----------------
+*******************************************************
+Fee: 100 gil
+Rank: 3
+Days: 20
+Location: Targ Wood
+Items(Required): Cactus Fruit
+Talents(Required): Negotiation >3
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Delivery
+
+Head to the spot and obtain your reward.
+
+Reward: 340 gil
+        Cruzle Brass x4
+        Crooked Fang x2
+        Zinconium x3
+
+CP Obtained: 6
+
+*******************************************************
+----------------A1-7: The Perfect Gift-----------------
+*******************************************************
+Fee: 200 gil
+Rank: 6
+Days: ---
+Location: Camoa
+Items(Required): Prima Petal x1
+Talents(Required): Negotiation >1
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Delivery
+
+Take the petal that you get from quest A1-10 and bring it to the
+son in Camoa.
+
+Reward: 1050 gil
+        Molting x2
+        Trusty Frying Pan x2
+        Water Stone x3
+
+CP Obtained: 12
+
+*******************************************************
+-----------------A1-8: Kids These Days-----------------
+*******************************************************
+Fee: 200 gil
+Rank: 8
+Days: 15
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >4
+                   Adaptability >4
+Quest Type: Battle
+
+The LAW - Ice
+          Weapons and abilities that use ice are forbidden
+Objective: Defeat all foes!
+
+This mission fought inside the pub, so there isn't a lot of space to move
+around in. My advise is to hold the stairs. It's a natural choke point
+that forces them to come to you and allows you to hit multiple people
+with your magick.
+
+Reward: 790 gil
+        Waltwood x3
+        Xergis Tin x4
+        Gikhet Lead x4
+
+CP Obtained: 16
+Law Bonus: Cruzle Brass
+           Sturdy Vine
+           Phoenix Down
+
+*******************************************************
+-------------A1-10: The Trappings of Failure-----------
+*******************************************************
+Fee: 300 gil
+Rank: 12
+Days: 20
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation >4
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >4
+Quest Type: Satisfy Petitioner
+
+The LAW - > 50 Damage
+          Dealing > 50 damage is forbidden
+Objective: Destroy the traps!
+
+Simple mission: walk over the traps and get hit by them. Kill some
+monsters along the way and pray for no critical hits. End of story.
+
+Oh, one more thing, watch out for the sprite's Meteorite attack. It
+is extremely powerful.
+
+Reward: 390 gil
+        Prima Petal x2
+        Mape Wood x3
+        Sturdy Vine x3
+
+CP Obtained: 24
+Law Bonus: Silver Bow
+           Platinum Shield
+           Knot of Rust
+
+*******************************************************
+--------------A1-14: A Voice from the Well-------------
+*******************************************************
+Fee: 200 gil
+Rank: 7
+Days: 20
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation >4
+                   Aptitude >4
+                   Teamwork 
+                   Adaptability 
+Quest Type: Investigation
+
+The LAW - Ranged Weapons
+          Attacks with bows, greatbows, guns, hand-cannons, and cards are
+          forbidden
+Objective: Defeat all foes!
+
+Your archer is useless in this battle, so I would change him to a different
+job for now. I made him a thief so that he would get the speed to move
+around the small field. The main thing to watch out for is the Liliith's
+Kiss attack. It dooms the character it touches.
+
+Reward: 1160 gil
+        Rat Tail x2
+        Bat Tail x2
+        Bomb Shell x4
+CP Obtained: 14
+Law Bonus: Barong
+           Green Beret
+           Ether
+
+*******************************************************
+------------------A1-15: The Star Seal-----------------
+*******************************************************
+Fee: 200 gil
+Rank: 8
+Days: 20
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation >4
+                   Aptitude >4
+                   Teamwork 
+                   Adaptability 
+Quest Type: Investigation
+
+Before the battle starts, a Nu Mou speaks to you and thanks you
+for coming. He hands you the Star Seal and asks you to touch the
+Star Seal to the Stone with No Name. Are you up to the challenge?
+
+The LAW - Lightning
+          Weapons and abilities that use lightning are forbidden
+Objective: Examine the Stone with No Name!
+
+Well, whether you are or not, the mission starts, with one enemy
+and the Stone with No Name on the other side of the field. He
+speaks to you and say "Stay...away." Like that's gonna happen.
+After you kill the one defender, head over to the Stone and touch
+it, ending the mission...
+
+Law Bonus: Metal Knuckles
+           Iron Helm
+           Ether
+
+The LAW - Ice
+          Weapons and abilities that use ice are forbidden
+Objective: Defeat all foes!
+
+...Or so it seemed. You find yourself transported to another location,
+and are faced by several enemies. Nothing to do but wipe the floor
+with them.
+
+Reward: 440 gil
+        Molting x2
+        Large Feather x1
+        Soul Ceffyl x5
+
+CP Obtained: 16
+Law Bonus: Kaiser Knuckles
+           Bronze Armor
+           Phoenix Down
+
+*******************************************************
+-------------------A2-1: Camoa Cup---------------------
+*******************************************************
+Fee: 300 gil
+Rank: 19
+Days: 10
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >4
+                   Adaptability >4
+Quest Type: Battle
+
+The LAW - Using MP
+          Actions that use MP are forbidden
+Objective: Defeat all foes!
+
+To start off, this law sucks like hardcore. Your mages are rendered
+useless, except as melee fighters. There are three rounds to the
+tournament, each progressively harder. Let's take a look at them:
+
+Bout 1 - VS The Yellow Wings
+This group should bring back memories. And they're out for revenge for
+you putting them behind bars. Try to wipe out the black mage and then
+move your attention to the others in whatever order you choose. Your
+black or white mage may die, revive them if you want to.
+
+Law Bonus: Silver Bow
+           Green Beret
+           Phoenix Down
+
+Bout 2 - VS The Edge of Magick
+As the name suggests, this team is made up of all mages: 3 Black Mages, 
+and one Time Mage, and one Green Mage. You won't be able to avoid getting
+pounded, just take them out as fast as you can.
+
+Law Bonus: Char Bow
+           Magus Robe
+           Antidote
+
+Bout 3 - VS The Camoa Braves
+(A friend of mine turned off my DS accidentally at this point. I'll repeat
+this quest as early as i can and complete this)
+
+Law Bonus: 
+           
+           
+
+Reward: 2400 gil
+
+CP Obtained:  
+
+*******************************************************
+------------------A2-3: The Moon Seal------------------
+*******************************************************
+Fee: 300 gil
+Rank: 18
+Days: 20
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation >8
+                   Aptitude >8
+                   Teamwork 
+                   Adaptability 
+Quest Type: Investigation
+
+The LAW - Lightning
+          Weapons and abilities that use lightning are forbidden
+Objective: Examine the Stone with No Name!
+
+Time to press another seal to another Stone with No Name. The Floating
+Eyes have low defense, and when they get low on HP, they might use their
+Death Dive move, which causes some damage to you, but kills them. After
+taking one or both of them out, run over the Baknamy and examine the stone.
+
+Law Bonus: Sanative Needle
+           Animal Bone
+           Gold Needle
+
+The LAW - Bludgeoning Weapons
+          Attacks with rods, staves, poles, knuckles, hammers and maces are
+          forbidden
+Objective: Defeat all foes!
+
+You had to have seen this coming. Touching the stone teleports you to another
+area, just like in "The Star Seal" mission. The match is about the same, just
+with stronger monsters. Watch out for the Lilith's Kiss attack, and everything
+should go fine.
+
+Reward: 1160 gil
+        Xergis Tin x1
+
+CP Obtained: 36
+Law Bonus: Animal Bone
+           Aged Linen Cloth
+           Knot of Rust
+
+*******************************************************
+--------------A2-4: Wanted: The Cyanwolf---------------
+*******************************************************
+Fee: 100 gil
+Rank: 3
+Days: 20
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >1
+                   Adaptability >1
+Quest Type: Headhunt
+
+The LAW - Ice
+          Weapons and abilities that use Ice are forbidden
+Objective: Defeat the Cyanwolf!
+
+Very straightforward match, defeat the 4 surrounding Wolves and then
+move into take out the Cyanwolf.
+
+Reward: 2630 gil
+        Wolf Pelt x3
+        Earth Stone x6
+        Tarkov Crystal x4
+
+CP Obtained: 6n
+Law Bonus: Silver Bow
+           Green Beret
+           Phoenix Down
+
+*******************************************************
+------------------A2-11: What Was Lost-----------------
+*******************************************************
+Fee: 200 gil
+Rank: 9
+Days: 20
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation >8
+                   Aptitude >8
+                   Teamwork 
+                   Adaptability 
+Quest Type: Investigation
+
+Well, if you remember Dayvis, it seems any misgivings you may have felt about
+him were right on the money. When asked where he went, make sure to say the
+Galerria Deep.
+
+Reward: 840 gil
+        Hedychium x2
+        Storm Stone x4
+
+CP Obtained: 18
+
+*******************************************************
+--------------A2-12: The Way of the Meek---------------
+*******************************************************
+Fee: 300 gil
+Rank: 15
+Days: 20
+Location: The Bisga Greenlands
+Items(Required): ---
+Talents(Required): Negotiation >8
+                   Aptitude 
+                   Teamwork >8
+                   Adaptability 
+Quest Type: Escort
+
+The LAW - Items
+          Items are forbidden
+Objective: Protect Dayvis and defeat all foes!
+
+The battle starts with you at the bottom of the canyon with Dayvis, and the
+bandits at the top. No use wasting time climbing, let them come to you. The
+Archer and the White Mage will most likely give you the most trouble. The
+Archer doesn't come down, so she can hit you on your way up to get her, while
+the White Mage retreats when he gets hurt and uses Cure. If you have a 
+Gladiator with Rush, lure them to the edge with a well-placed back to them
+and then knock them off the edge. As long as they're high enough up, it's
+an instant kill.
+
+Reward: 3400 gil
+        Superior Silk Thread x3
+        Earth Stone x3
+
+CP Obtained: ---
+Law Bonus: ---
+
+*******************************************************
+--------------A2-14: The Way of the Timid--------------
+*******************************************************
+Fee: 300 gil
+Rank: 18
+Days: 20
+Location: The Galerria Deep
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >9
+                   Adaptability >9
+Quest Type: Battle
+
+The LAW - Targeting Self
+          Actions that target the user are forbidden
+Objective: Defeat all foes!
+
+First thing first, this whole quest is a trap. Dayvis posted a fake quest to
+lure you and your clan into fighting his clan. You do still have to get that
+sword back though, so you have to take him out. Just use your usually battle
+strategies and this battle should be no problem for you. After you finish them
+off, you head to find the sword.
+
+Reward: 3330 gil
+        Spider Silk x1
+        Cod Scale x1
+        
+CP Obtained: 36
+Law Bonus: Animal Bone
+           Bat Tail
+           Knot of Rust          
+
+*******************************************************
+-------------------A2-15: Pirate Attack----------------
+*******************************************************
+Fee: 142
+Rank: 13
+Days: 20
+Location: Graszton
+Items(Required): ---
+Talents(Required): Negotiation >7
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >7
+Quest Type: Satisfy Petitioner
+
+The LAW - Harming Humes
+          Actions that harm Humes are forbidden
+Objective: Defeat Lord Grayrl before he boards the ships!
+
+Lord Grayrl seems to think he's going to be able walk up to the ship and take
+the jewels. But you're gonna throw a wrench in that plan. Don't worry about the
+other people, just go for the mark. Take out Grayrl and the cargo is safe.
+
+Reward: 2450 gil
+        Malboro Vine x2
+        Foul Liquid x4
+		Sturdy Bone x3
+        
+CP Obtained: 26
+Law Bonus: Animal Bone
+           Fresh Water
+           Echo Herbs
+
+*******************************************************
+----------------A2-16: Wanted: Big Eyes----------------
+*******************************************************
+Fee: 150 gil
+Rank: 17
+Days: 20
+Location: The Aldanna Range
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >9
+                   Adaptability >9
+Quest Type: Headhunt
+
+The LAW - Knockback
+          Actions that knock the target back are forbidden
+Objective: Defeat the Big Eyes!
+
+The people want you to kill all the Big Eyes on the map. Well, if you look
+around, every enemy on the map is a Big Eye, so I guess we're going on a hunt
+then. Also, the presence of the "Mist" doesn't bode well for the upcoming
+battle. The Eyes have the ability to confuse you, silence you, and to steal
+your HP. As you move to hit them, make sure to block any enemies you intend to
+hit in so you don't violate the law.
+
+Reward: 2940 gil
+        Prime Tanned Hide x1
+        Wyrm Carapace x1
+
+CP Obtained: 34
+Law Bonus: (violated the law. if you have this, plz send me the info) 
+
+*******************************************************
+-------------A3-3: Wanted: The Mirage Bunny------------
+*******************************************************
+Fee: 300 gil
+Rank: 19
+Days: 20
+Location: The Galerria Deep
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >11
+                   Adaptability >11
+Quest Type: Headhunt
+
+The LAW - Instruments and Books
+          Attacks with instruments and books are forbidden
+Objective: Defeat the Mirage Bunny!
+
+The Mirage Bunny is sitting over near the side of the map, surrounded by a
+bunch of other enemies. He calls on them to defend him when he sees you. Even
+so, this should be a fairly easy battle for you because of all the abilities
+you have at your disposal at this point. Kill him and the mission ends.
+
+Reward: 5710 gil
+        Pagoda Wood x5        
+
+CP Obtained: 38
+Law Bonus: Tyrant Hide
+           Damascus
+           Knot of Rust
+
+*******************************************************
+--------------A4-11: Red King of Cinquleur-------------
+*******************************************************
+Fee: 500 gil
+Rank: 44
+Days: 20
+Location: Baptiste Hill
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >6
+                   Adaptability >6
+Quest Type: Defeat Mark
+
+The LAW - Fire, Ice, Lightning
+          Weapons and abilities that use fire, ice, lightning are forbidden
+Objective: Defeat Red King Ruuj!
+
+The number one thing about this quest is not to attempt it before about level
+25 to 30. If you do, you will get totally creamed. The red mage you are up 
+against is level 44, with doublecast. Once you're the right level, come into
+the field prepared to fight. Since you can't use fire, ice or lightning, your
+Black Mages are useless for this fight. Instead, plan on using melee jobs and
+perhaps some earth or air elemental spells. Also, she is immune to all status
+effects, including Rend Magick, so bringing a Green Mage is not recommended.
+Keep throwing the blows, and eventually you'll overwhelm her.
+
+Reward: 8110 gil
+        Chocobo Skin x1
+        Coeurl Pelt x1
+
+CP Obtained: 88
+Law Bonus: Green Liquid
+		   Peppergrass
+
+-----------------------------------Section B-----------------------------------
+
+*******************************************************
+-----------B1-3: Sun-ripened Mayhem-----------
+*******************************************************
+Fee: 200 gil
+Rank: 7
+Days: 20
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation >7
+                   Aptitude 
+                   Teamwork >7
+                   Adaptability 
+Quest Type: Escort
+
+The LAW - Targeting All Units
+          Actions that target all units at once are forbidden
+Objective: Protect the tomatoes & defeat all foes!
+
+*Shudder* Tomatoes again. Except this time, we're not killing them, we're
+protecting them. The only problem is that they move toward the very thing that
+is trying to kill them, meaning you have to keep up with them to make sure they
+don't get killed as they attempt to defend themselves. Luckily, they're pretty
+strong and can dish out some good damage, which makes the enemies that they hit
+easier to take out. Just follow them, and you'll win in no time.
+
+Reward: 910 gil
+        Tomato Stalk x2
+        Iron Carapace x3
+        Bitter Sap x4
+
+CP Obtained: 14
+Law Bonus: Storm Stone
+           Great Serpent's Fang
+           Handkerchief
+
+*******************************************************
+--------------B1-5: Beetle in a Haystack---------------
+*******************************************************
+Fee: 200 gil
+Rank: 7
+Days: 20
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation >4
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Satisfy Petitioner
+
+The LAW - Lightning
+          Weapons and abilities that use lightning are forbidden
+Objective: Find the scarab beetle!
+
+Just like in the muskmallow quest, you have to search the grass for
+the beetle. Wipe out the monsters, and search the grass to find the
+beetle.
+
+Reward: 440 gil
+        Ball Moss x1
+        Wind Stone x3
+        Pointed Horn x1
+
+CP Obtained: 14
+Law Bonus: Char Bow
+           Bronze Armor
+           Echo Herbs
+
+*******************************************************
+------------------B1-6: Wayward Drake------------------
+*******************************************************
+Fee: 300 gil
+Rank: 15
+Days: 20 Days
+Location: The Aldanna Range
+Items(Required): ---
+Talents(Required): Negotiation >8
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >8
+Quest Type: Satisfy Petitioner
+
+The LAW - Ice
+          Weapons and abilities that use ice are forbidden
+Objective: Weaken Goud and defeat all foes!
+
+Okay, whatever you do don't kill Goud. Try to kill off the other monsters
+before you turn your attention to him. The drakes will run around the map a
+lot, so try to block any escape routes. Also, if you have any moves that can
+knock an enemy back, try to knock them off the cliff for some massive damage.
+Once you get Goud to HP Critical, the battle ends.
+
+Reward: 1330 gil
+        Pointed Horn x2
+        Dark Stone x5
+        Dragon Bone x2
+
+CP Obtained: 30
+Law Bonus: Animal Bone
+           Gikhet Lead
+           Hi-Potion
+
+*******************************************************
+--------------B1-7: The White of Its Eye---------------
+*******************************************************
+Fee: 200
+Rank: 21
+Days: 20
+Location: The Rupie Mountains
+Items(Required): ---
+Talents(Required): Negotiation >11
+                   Aptitude 
+                   Teamwork >11
+                   Adaptability 
+Quest Type: Escort
+
+The LAW - Fire, Ice, Lightning
+          Weapons and abilities that use Fire, Ice, or Lightning are forbidden
+Objective: Protect Chari & defeat all foes!
+
+Right off the bat, you notice your black mages have been rendered useless. But
+that's not a big deal. The enemies have fairly low defense for a high level.
+There are only three of them, and once you move across the bridge, you'll take
+them out in no time. Also, Chari has pretty good defense and a decent attack,
+so expect some help with your job on the attacking front.
+
+Reward: 4920 gil
+        Crusite Alloy x3
+
+CP Obtained: 42
+Law Bonus: Waltwood
+           Damascus
+           X-Potion
+
+*******************************************************
+----------------B1-9: Prepared with Love---------------
+*******************************************************
+Fee: 200 gil
+Rank: 6
+Days: ---
+Location: Targ Wood
+          Camoa
+Items(Required): ----
+Talents(Required): Negotiation >4
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Delivery
+
+This is a two-part mission, the picking up of the lunch, and the
+dropping off. First, pick up the lunch from the wife at the pub in
+the Targ Wood. Next, head Shaug Tablelands, just outside Camoa and
+enjoy the little cutscene for this easy quest.
+
+Reward: 350 gil
+        Cruzle Brass x6
+        Coral Fragments x1
+        Water Stone x4
+
+CP Obtained: 12
+
+*******************************************************
+--------------B1-10: Foodstuffs: Texture---------------
+*******************************************************
+Fee: 200 gil
+Rank: 8
+Days: 20
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation >4
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >4
+Quest Type: Satisfy Petitioner
+
+The LAW - Fire
+          Weapons and abilities that use fire are forbidden
+Objective: Procure the requested ingredients!
+
+Your objective is to kill two Dreamhares and then afterward, speak to
+the representative from the Iron Stomach. Fairly quick and simple.
+
+Reward: 620 gil
+        Animal Bone x3
+        Chocobo Skin x1
+        Rat Pelt x2
+
+CP Obtained: 16
+Law Bonus: Kaiser Knuckles
+           Armguards
+           Eye Drops
+
+*******************************************************
+---------------B1-11: Foodstuffs: Aroma----------------
+*******************************************************
+Fee: 300 gil
+Rank: 19
+Days: 20
+Location: Zedlei Forest
+Items(Required): ---
+Talents(Required): Negotiation >8
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >8
+Quest Type: Satisfy Petitioner
+
+The LAW – Knockback
+          Actions that knock the target are forbidden
+Objective: Procure the requested ingredients!
+From the request, it sounds like we have to kill four Malboros. They will use
+their capital Bad Breath attack on you, which will inflict a lot of status
+effects. Besides that, the battle isn't that hard. Just kill the other enemies
+that attempt to attack you as you move to kill the Malboros.
+
+Reward: 2800 gil
+        Crusader Tonic x2
+        Waltwood x3
+        Kempas x2
+
+CP Obtained: 38
+Law Bonus: Wind Stone
+           Sturdy Vine
+           Echo Herbs
+
+*******************************************************
+------------------B-14: Our Playground-----------------
+*******************************************************
+Fee: 200 gil
+Rank: 7
+Days: 20
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >4
+                   Adaptability >4
+Quest Type: Battle
+
+The LAW - Ice
+          Weapons and abilities that use ice are forbidden
+Objective: Defeat all foes!
+
+Some people have taken over some kids' playground and the kids have asked you
+to take it back. The people in this quest are very weak, so you can use this
+one to level up some of your weaker people.
+
+Reward: 700 gil
+        Insect Husk x2
+        Sanative Needle x6
+        Wind Stone x9
+
+CP Obtained: 14
+Law Bonus: Nepenthis
+
+*******************************************************
+------------------B1-15: Mushroom Chef-----------------
+*******************************************************
+Fee: 300 gil
+Rank: 11
+Days: ---
+Location: Baptiste Hill
+Items(Required): ---
+Talents(Required): Negotiation >6
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Item Recovery
+
+The LAW - Back Attack
+          Attacking a unit from behind is forbidden
+Objective: Find a Baptiste mushroom!
+
+Okay, bad law. But we can deal with it. These monsters will hit you
+with a wide variety of status effects: sleep, doom, charm, and slow.
+You can take out the monsters, but it will most likely get frustrating.
+The Baptiste mushroom is toward the right corner of the map.
+
+Reward: 980 gil
+        Aged Linen Thread x3
+        Cottonflue x4
+        Coeurl Pelt x3
+
+CP Obtained: 22
+Law Bonus: Nepenthis
+           Cactus Fruit
+
+*******************************************************
+--------------------B1-16: Showdown--------------------
+*******************************************************
+Fee: 200 gil
+Rank: 24
+Days: 20
+Location: Targ Wood
+Items(Required): Cloudy Sap x1
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >11
+                   Adaptability >11
+Quest Type: Defeat Mark
+
+The LAW - Back Attack
+          Attacking a unit from behind is forbidden
+Objective: Defeat Klestra!
+
+First thing you might notice when you get to the field is that it's the site of
+your first battle with Klestra. It seems that Bowen had gone to finish off
+Klestra by himself. Not the smartest idea, but we're here to pull his butt out
+of the fire. When you arrive, Bowen is taunting Klestra, trying to goad it into
+attacking him. He wants to take revenge for his wife's death. Fortunately for
+you, members of his House show up to calm him. After a little talking, you
+fight. Use all of your usual Klestra fighting tactics. After all, by now you
+should be a master of hurting him as fast and as much as possible. Klestra
+might pull out a new move, Fortify, but just ignore it, it doesn't do much to
+change the battle tide.
+Halfway through, Klestra lets out a cry and rises up, running away from you
+again...or does it. Just as it's about to fly away, Luso throws the Cloudy Sap
+in it's face, causing it to land again. Finally! Finish him off in the best way
+you know how and bask in the pleasure of finally killing him.
+
+Reward: 3030 gil
+        Cursed Coin x5
+        Skull x2
+        Vampyr Fang x2
+
+CP Obtained: 48
+Law Bonus: Chocobo Skin
+           Giant's Tanned Hide
+           Hi-Potion
+
+*******************************************************
+--------------------B2-3: Throw Down-------------------
+*******************************************************
+Fee: 300 gil
+Rank: 14
+Days: 20
+Location: Baptiste Hill
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >6
+                   Adaptability >6
+Quest Type: Defeat Mark
+
+The LAW - Harming the Weak
+          Actions that harm a lower level unit are forbidden
+Objective: Defeat Klestra!
+
+The headhunting clan House Bowen has asked for your help in taking down
+a monster. Specifically, Klestra. Yes, it's time to kill that son of a
+gun once and for all. Head up the mountain and start wailing on
+Klestra. The guests will take most of the damage, and they can't die,
+so try to attack from the side to avoid the Devour attack and you'll
+be fine. At the end of the battle, Klestra flees...again. The leader
+of House Bowen tells you not to give chase. Though we don't know the
+reason right away, we find out that Bowen's wife had been killed by
+Klestra when it had run away after being wounded.
+
+Reward: 2870 gil
+        Zingu Pearl Shell x3
+        Adamant Alloy x8
+        Green Liquid x4
+
+CP Obtained: 
+Law Bonus: Green Liquid
+
+*******************************************************
+----------------B2-5: A Simple Question----------------
+*******************************************************
+Fee: 200 gil
+Rank: 10
+Days: ---
+Location: The Aldanna Range
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >7
+                   Adaptability >7
+Quest Type: Investigation
+
+So the person had a question about the nature of the Judges. Well, who better
+to answer this question then the person who created the Judges. Lezaford gives
+you the notice "Concerning Judges", and the quest ends.
+
+Reward: 790 gil
+        Kuraisle Boxwood x2
+
+CP Obtained: 20
+
+*******************************************************
+-------------------B2-8: It's a Trap!------------------
+*******************************************************
+Fee: 400 gil
+Rank: 23
+Days: 20
+Location: The Aldanna Range
+Items(Required): ---
+Talents(Required): Negotiation >8
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >8
+Quest Type: Satisfy Petitioner
+
+The LAW - Targeting All Units
+          Actions targeting all units at once are forbidden
+Objective: Destroy all the traps!
+
+Sigh, so many misunderstandings. The monsters seem to think that you're the one
+who set all the traps. You have to choices...you can fight off the monsters for
+the EXP and then set off the traps, or you can just run around and set off the
+traps before the monsters have an opportunity to start attacking in full force.
+Either way, set off the traps and the mission ends.
+
+Reward: 2730 gil
+        Red Geeps x1
+		Wyrm Carapace x1
+		Zincatite x5
+	    
+CP Obtained: 46
+Law Bonus: Wolf Pelt
+
+*******************************************************
+---------------B2-9: Wanted: Lang Bros.----------------
+*******************************************************
+Fee: 300 gil
+Rank: 15
+Days: 20
+Location: The Bisga Greenlands
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >8
+                   Adaptability >8
+Quest Type: Headhunt
+
+The LAW - Actions by Nu Mou
+          Nu Mou may only move and perform basic attacks
+Objective: Defeat the Lang Brothers!
+
+From the conversation before the battle starts, you find out that these
+guys attacked their clan because someone spilled a drink on one of them.
+These guys are definitely pieces of crap, and for that, they need to be
+taken out. They move to you fairly fast, so they aren't too hard to beat.
+They do use Provoke a lot though, so don't expect too much control over
+your characters.
+
+Reward: 3380 gil
+        Leestone x5
+        Silk Bloom x2
+        Fine Wool x2
+
+CP Obtained: 30
+Law Bonus: Wind Stone
+           Power Fruit
+           Eye Drops
+
+*******************************************************
+----------------B2-10: Books of Magick----------------
+*******************************************************
+Fee: 300 gil
+Rank: 15
+Days: 10
+Location: The Aldanna Range
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >9
+                   Adaptability >9
+Quest Type: Investigation
+
+So this person is a student who is wondering what a grimoire is exactly. Once
+again, it's off to Lezaford's house to ask him what he knows. It turns out that
+any magick tome can be called a grimoire. And just like last time, after
+explaining it to you, he gives to notice, called "Concerning Grimoires".
+
+Reward: 2370 gil
+        Storm Sigil x2
+        Water Sigil x2
+
+CP Obtained: 30
+
+*******************************************************
+-------------------B2-14: Clan Mates-------------------
+*******************************************************
+Fee: 100
+Rank: 1
+Days: 20
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Satisfy Petitioner
+
+When you head to the quest location, you meet the Clan Mates Adventurer's
+Guild. What they do is match you up with a new clan member. In order to find
+out who they should give you, they ask you a few questions. After you finish
+they questions, they will give you specific class of person. The race of the
+person is dependent on the month and the class on the questions. Have fun
+getting a new clan mate.
+
+CP Obtained: 0
+
+*******************************************************
+-----------------B2-15: For the Cause------------------
+*******************************************************
+Fee: 100 gil
+Rank: 5
+Days: 20
+Location: Graszton
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >7
+                   Adaptability >7
+Quest Type: Satisfy Petitioner
+
+A group of people are asking for a donation to help save endangered monsters.
+You have to option to give 100 gil, 1000 gil, or nothing. The amount you give
+is completely up to you.
+
+CP Obtained: 0
+
+*******************************************************
+-------------------B3-1: Death March-------------------
+*******************************************************
+Fee: 190
+Rank: 13
+Days: 20
+Location: Graszton
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >9
+                   Adaptability >9
+Quest Type: Uphold the Law
+
+The LAW - Not Moving
+          Each unit must move at least 1 tile before ending it's turn
+Objective: Uphold the law and defeat all foes!
+
+
+
+Reward: 2440 gil
+        Dipraeu Bronze x3
+		
+CP Obtained: 46
+Law Bonus: Moon Bloom
+           Cactus Fruit
+           Holy Water
+
+*******************************************************
+---------------B3-3: A Lady's Proposition--------------
+*******************************************************
+Fee: 160 gil
+Rank: 25
+Days: 20
+Location: The Rupie Mountains
+Items(Required): ---
+Talents(Required): Negotiation >11
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >11
+Quest Type: Satisfy Petitioner
+
+The LAW - Harming the Weak
+          Actions that harm a lower level unit are forbidden
+Objective: Protect Syrenead and defeat all foes!
+
+When you start this mission, you'll quickly begin to wonder about Syrenead's
+sanity. For her first ever fight, she wants to fight a wyrm. It's a tough enemy
+and the law doesn't make it any easier to choose units to fight with. Just help
+her out and do damage if you can.
+
+Reward: 4500 gil
+        Zodiac Ore x8
+        Orichalcum x1
+
+CP Obtained: 50
+Law Bonus: (Unknown)
+
+*******************************************************
+----------------B3-13: Wanted: Barmaid!----------------
+*******************************************************
+Fee: 100
+Rank: 2
+Days: 10
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation >3
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >3
+Quest Type: Satisfy Petitioner
+
+This quest is quite simple. The guy just needs a cute girl to be a barmaid for
+14 days. Dispatch your Viera and head off to do other quests while you wait for
+her to return
+
+Reward: 880 gil
+        Knot of Rust x6
+        Ether x3
+        Phoenix Down x3
+
+CP Obtained: 4
+
+*******************************************************
+----------------B3-16: Knowing the Beast---------------
+*******************************************************
+Fee: 200 gil
+Rank: 6
+Days: 20
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation >4
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >4
+Quest Type: Satisfy Petitioner
+
+The LAW - Reaction abilities
+          Reaction abilities are forbidden
+Objective: Guard the bridges for 4 rounds
+
+As the objective states, you just have to guard the bridges for a total of
+4 rounds. The ending of a round is shown by stopwatch symbol in the turn
+counter. Go ahead and pound away at the monsters, though when you kill
+one, a new one will take it's place. After the end of round 4, the
+beastmaster announces he's finished and after a conversation with the
+Dreamhare, he gives you the Beastmaster job.
+
+Reward: 830 gil
+        Danbukwood x4
+        Skull x3
+        Clock Gear x4
+		
+New Job: Beastmaster
+
+CP Obtained: 12
+Law Bonus: Metal Knuckles
+           Magus Robe
+           Antidote
+
+*******************************************************
+---------------B4-9: Wanted: Shiny Maces---------------
+*******************************************************
+Fee: 100 gil
+Rank: 5
+Days: 20
+Location: The Bisga Greenlands
+Items(Required): ---
+Talents(Required): Negotiation >7
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >7
+Quest Type: Satisfy Petitioner
+
+Objective: Dispatch the right person for the job!
+
+For this quest, you must select someone who's class has the ability to hold
+maces. I would recommend sending a green mage. Then just wait 10 days, and
+it's done.
+
+Reward: 1110 gil
+        Aged Turtle Shell x1
+        Soft Cotton x1
+        Bone Chips x1
+
+CP Obtained: 10
+
+-----------------------------------Section C-----------------------------------
+
+*******************************************************
+----------------C1-11: An Earnest Search---------------
+*******************************************************
+Fee: 200 gil
+Rank: 9
+Days: ---
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation >8
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >8
+Quest Type: Satisfy Petitioner
+
+Just dispatch someone to complete this quickly. I recommend sending your
+archer.
+
+Reward: 1050 gil
+        Damascus x4
+        Birch x1
+        Quality Lumber x5
+
+CP Obtained: 18
+
+*******************************************************
+---------------C1-12: The Nu Mou Nobles----------------
+*******************************************************
+Fee: 300 gil
+Rank: 12
+Days: 20
+Location: Baptiste Hill
+Items(Required): Recall Grass x1
+                 Healing Water x1
+Talents(Required): Negotiation >9
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Delivery
+
+In this quest, you are taking the Recall Grass and Healing Water to an old
+arcanist, a caster of Arcane Magick. In reward for bringing him the stuff,
+he teaches you the secrets of Arcane Magick. Easy quest and you get a new job.
+
+Reward: 1680 gil
+        Body Ceffyl x3
+        Soul Ceffyl x3
+
+New Job: Arcanist
+
+CP Obtained: 24
+
+*******************************************************
+--------------C1-13: Seeding the Harvest---------------
+*******************************************************
+Fee: 200 gil
+Rank: 21
+Days: 20
+Location: Camoa
+Items(Required):  ---
+Talents(Required): Negotiation  >8
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >8
+Quest Type: Satisfy Petitioner
+
+The LAW - Knockback
+          Actions that knock the target back are forbidden
+Objective: Defeat 10 foes!
+
+The monsters are here to eat the flowers for the harvest and your job is to
+stop them. Set up you people facing both sets so that you can move out faster
+to kill them. Use your usual tactics to counter Knockback (I'm assuming you
+have some at this point) and watch the damage you take at this point. Not
+seeing the incoming enemies might cause you to take unnecessary damage too
+early in the battle. When only 1 monster remains & and no more enter the map,
+finish him off and the mission is complete.
+
+Reward: 9240 gil
+        Tiny Mushrooms x2
+
+CP Obtained: 42
+Law Bonus: Silk Bloom
+           Mirror Scale
+
+*******************************************************
+-----------------C1-14: A Harvest Hand-----------------
+*******************************************************
+Fee: 160
+Rank: 25
+Days: 20
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation >9
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >9
+Quest Type: Satisfy Petitioner
+
+The LAW - Harming the Weak
+          Actions that harm a lower level unit are forbidden
+Objective: Gather as much fruit as you can in 4 rounds
+
+Fruit gathering...shouldn't be to hard, right? Oh, wait, this is Ivalice. That
+means monsters in the orchard. That's no problem, you could just blast them to
+obliv...oh, right, the law won't let you do that. Basically, just avoid the
+monsters as best you can while running around and picking the fruit off of the
+trees. Choose fast characters for this quest, because you only have 4 rounds to
+get to some of the farther trees.
+
+Reward: 12830 gil
+        Healing Water x2
+        Insect Husk x1
+
+CP Obtained: 50
+Law Bonus: Rising Sun
+           Gimble Stalk
+
+*******************************************************
+----------------C1-16: It's the Thought----------------
+*******************************************************
+Fee: 200 gil
+Rank: 7
+Days: 20
+Location: Graszton
+Items(Required): Succulent Fruit x1
+Talents(Required): Negotiation >7
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Delivery
+
+Deliver the fruit to the quest arrow. Quest complete.
+
+Reward: 1120 gil
+        Fire Stone x5
+        Whisperweed x1
+        Gun Gear x2
+
+CP Obtained: 14
+
+*******************************************************
+------------------C2-2: Komodo Search------------------
+*******************************************************
+Fee: 150 gil
+Rank: 20
+Days: 20
+Location: The Galerria Deep
+Items(Required): ---
+Talents(Required): Negotiation >9
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Item Recovery
+
+The LAW - Restoring HP
+          Actions that restore HP are forbidden
+Objective: Gather all the potions!
+
+This is a really easy quest. All you have to do is search the sparkles of light
+on the ground to find the potions. There are enemies, but at this point they
+won't slow you down too much.
+
+Reward: 3660 gil
+        Silk Thread x2
+		
+CP Obtained: 40
+Law Bonus: (unknown)          
+           
+*******************************************************
+-------------------C2-4: Shipping Out------------------
+*******************************************************
+Fee: 300 gil
+Rank: 11
+Days: 20
+Location: Targ Wood
+          Graszton
+Items(Required): ---
+Talents(Required): Negotiation >7
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Delivery
+
+Head over to the Targ Wood and pick up the package, which is some spruce.
+Run it back over to the port at Graszton to get your reward.
+
+Reward: 700 gil
+        Recall Grass x2
+        Wool x1
+        Velvet x2
+
+CP Obtained: 22
+
+*******************************************************
+-----------------C2-5: Komodo Departure----------------
+*******************************************************
+Fee: 300 gil
+Rank: 16
+Days: 20
+Location: The Bisga Greenlands
+Items(Required): ---
+Talents(Required): Negotiation >7
+                   Aptitude 
+                   Teamwork >7
+                   Adaptability 
+Quest Type: Escort
+
+The LAW - Targeting an Area
+          Actions targeting two or more tiles are forbidden
+Objective: Protect the Komodo Trader and defeat all foes!
+
+There are bandits all around, ready to attack the trader, so so it seems.
+They are actually just a clan looking for some potions. They're even gonna
+pay for them. Just when it seems the quest is gonna end on a good note, we
+find out that the trader has already drunk all his extra potions. The clan
+then decides to take what they need, though they're still gonna leave money
+them. We can't let them do that though, so it's battle time. The enemies are
+spread up and down the hill and there are traps in your way. Take out the
+two guys at the bottom, and the Moogle Knight that comes down. If you're
+successful at that, then it's a snap to head up the hill and take out the
+Fusilier and the Archer.
+
+Reward: 2200 gil
+        Zodiac Ore x5
+        Cruzle Brass x3
+        Rabbit Tail x1
+
+CP Obtained: 32
+Law Bonus: Turtle Shell
+           White Thread
+           Remedy
+
+*******************************************************
+---------------C2-6: The Forests of Loar---------------
+*******************************************************
+Fee: 120 gil
+Rank: 15
+Days: 6
+Location: Targ Wood, The Bisga Grasslands, Zedlei Forest
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >9
+Quest Type: Meet Objectives
+
+The LAW - None
+          
+Objective: None
+
+Head around to the different locations and get the stamps for your log to
+complete the mission.
+
+Reward: 1750 gil
+        Faerie Wing x3
+
+CP Obtained: (Unknown)
+Law Bonus: (Unknown)
+
+*******************************************************
+---------------C3-3: Speed Battle, Kupo!---------------
+*******************************************************
+Fee: 200 gil
+Rank: 22
+Days: 20
+Location: The Galerria Deep
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >20
+                   Adaptability >20
+Quest Type: Meet Objectives
+
+The LAW - Not Moving
+          Each unit must move at least 1 tile before ending its turn
+Objective: Speed Battle vs. Scarface
+
+
+
+Reward: 12830 gil
+        Giant's Tanned Hide x5
+        Tanned Tyrant Hide x5        
+
+CP Obtained: 44
+Law Bonus: ---        
+
+*******************************************************
+-----------------C3-13: Kyrra, Dragoon-----------------
+*******************************************************
+Fee: 200 gil
+Rank: 7
+Days: 20
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Escort
+
+The LAW - Targeting an area
+          Actions targeting two or more tiles are forbidden
+Objective: Protect Kyrra and defeat all foes!
+
+When this mission first becomes available, you only have 6 members
+in your clan and two of them are mages. This law severely hinders
+their ability to do anything worthwhile. You have to choices: you
+can wait until a little later to take this mission on, or you can
+go ahead and attempt the mission now. I did it as soon as it became
+available, though I had to violate the law to win it.
+
+Reward: 690 gil
+        Xergis Tin x3
+        Wool x1
+        Animal Bone x3
+		
+New Job: Dragoon
+
+CP Obtained: 14
+Law Bonus: Rising Sun
+
+*******************************************************
+-----------------C3-14: Green Dominion-----------------
+*******************************************************
+Fee: 100 gil
+Rank: 2
+Days: ---
+Location: Targ Wood
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude
+				   Teamwork >3
+                   Adaptability >3
+Quest Type: Battle
+
+The LAW - Reaction Abilities
+          Reaction abilities are forbidden
+Objective: Defeat all foes!
+
+A group of Viera mages are out in the woods doing some strange
+magick, and someone wants you to investigate. When you show up,
+4 Viera are in a circle uttering some strange incantation. Since
+you've interrupted them, they turn to attack. After utterly
+flogging them, you discover that they were just trying to creating
+a new type of magick, Green Magick. As a gift, they give you the
+Green Mage job.
+
+Reward: 370 gil
+        Xergis Tin x4
+        Gikhet Lead x3
+        Birch x2
+		
+New Job: Green Mage
+
+CP Obtained: 4
+Law Bonus: Barong
+           Iron Helm
+           Eye Drops
+
+*******************************************************
+-----------------C4-1: Veis, Assassin------------------
+*******************************************************
+Fee: 300 gil
+Rank: 13
+Days: 20
+Location: The Rupie Mountains
+Items(Required): ---
+Talents(Required): Negotiation >8
+				   Aptitude
+				   Teamwork
+                   Adaptability >8
+
+Quest Type: Meet Objectives
+
+The LAW - Actions by Moogles
+          Moogles may only move and perform basic attacks
+Objective: Speed Battle vs. House Bowen
+
+Your entire objective in this battle is to kill the mark. Simple as that. Use
+one of your thieves to deal a little damage, and then stay out of the way as
+Veis finishes it off.
+
+Reward: 2280 gil
+        Bomb Shell x2
+        Giant Feather x1
+        Fire Stone x5
+		
+New Job: Assassin
+
+CP Obtained: 26
+Law Bonus: Earth Stone
+           Fresh Water
+           Antidote
+
+*******************************************************
+-----------------C4-2: To Be a Fighter-----------------
+*******************************************************
+Fee: 300 gil
+Rank: 14
+Days: 20
+Location: Moorabella
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork >8
+                   Adaptability >8
+Quest Type: Battle
+
+The LAW - Restoring MP
+          Actions that restore MP are forbidden
+Objective: Defeat all foes!
+
+If you loved the fighter job in the first game, you were probably waiting for
+this quest. Fighters hit hard and they hit fast. These ones are no exception.
+With Beat Down, they can inflict upwards of 90 damage easily if it hits. Their
+one weakness, however, is that they need to get close to you to do their
+damage. A few well placed black magick spells with do nice damage as they
+close to range. By now, you should at least have Thundara, so spells should
+be no problem. Now as you move forward, watch out for traps if you have Libra,
+and pray you don't hit any if you don't. After you shred the fighters, they
+agree to give you the secrets of their trade.
+
+Reward: 1600 gil
+        Tiger Hide x3
+        Peppergrass x1
+        Ice Stone x5
+
+New Job: Fighter
+
+CP Obtained: 28
+Law Bonus: Iron Carapace
+           Animal Bone
+           Hi-Potion
+
+*******************************************************
+---------------C4-6: Of Kupos and Cannons--------------
+*******************************************************
+Fee: 400 gil
+Rank: 22
+Days: 20
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation >11
+                   Aptitude >11
+                   Teamwork 
+                   Adaptability 
+Quest Type: Investigation
+
+The LAW - Debuffs
+          Debuffs are forbidden
+Objective: Survive for 4 rounds!
+
+You show up at the field and find out that the some Moogles testing their guns
+are behind all the noise. You ask them to keep it down, and they retort that
+they'll show you just how noisy they can be. Knock some sense into them for 4
+rounds. At the end of the 4th round, they surrender and promise to quit making
+noise at night. And, as a gift, they give you the knowledge to the Flintlock
+job!
+
+Reward: 2870 gil
+        Tyrant Hide x4
+        Alraune Drill x2
+        
+New Job: Flintlock
+		
+CP Obtained: 44
+Law Bonus: Iron Carapace
+
+*******************************************************
+------------C4-7: Instrument of Inspiration------------
+*******************************************************
+Fee: 150 gil
+Rank: 19
+Days: 20
+Location: Moorabella
+Items(Required): ---
+Talents(Required): Negotiation >11
+                   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Item Recovery
+
+The LAW - Copycat
+          Using the same action as the preceding unit is forbidden
+Objective: Help Mayhew find her concertina!
+
+Remember those item finding quests at the beginning of the game. Well, it looks
+like they're back, and still just as annoying as before. To counter the law,
+try to use special abilities and actions like Black and White Magick whenever
+you can.
+Looking at the starting line up, you're probably thinking, "Yay! I have some
+help." Unfortunately, you'd be wrong. Taking a look at the Seeq and the Moogle,
+you see that they are Levels 1 & 2. In spite of this, start beating down the
+monsters using normal tactics. The Seeq and Moogle will draw some fire away
+from you until they die. Use them well. Search for the concertina when you get
+the chance. I found it in the bottom-right corner of the map.
+
+Reward: 2350 gil
+        Hedychium Pollen x4
+        Leucojum x3
+
+CP Obtained: 38
+Law Bonus: Wolf Pelt
+           Black Thread
+           Ether
+
+-----------------------------------Section D-----------------------------------
+
+*******************************************************
+------------------D1-9: Tree Hugging-------------------
+*******************************************************
+Fee: 150 gil
+Rank: 15
+Days: 20
+Location: Graszton
+Items(Required): ---
+Talents(Required): Negotiation >7
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >7
+Quest Type: Satisfy Petitioner
+
+The LAW - Restoring MP
+          Actions that restore MP are forbidden
+Objective: Defeat 10 foes & keep them from the tree!
+
+During this mission, you have to hold 10 enemies from making it to the tree you
+start by. There are 2 main choke points that you can use to kill them. At each,
+only one monster can attack at once, so you won't take that much damage. Beware
+though, they will attempt to hit you with slow sometimes. It wears off
+eventually, but it makes waiting for a turn annoying. Other then that, this
+mission is a walk in the park.
+
+Reward: 3280 gil
+        Power Fruit x2
+        Teleq Flower x1
+        Dirty Wool x1
+
+CP Obtained: 30
+Law Bonus: Moon Bloom
+           Gun Gear
+           Holy Water
+
+*******************************************************
+-------------D2-16: Cilawa the Gluttonous-------------
+*******************************************************
+Fee: 100 gil
+Rank: 5
+Days: 20
+Location: Camoa
+Items(Required): Rat Tail x1
+Talents(Required): Negotiation >4
+				   Aptitude 
+                   Teamwork 
+                   Adaptability 
+Quest Type: Delivery
+
+You bring the Rat Tail to a Nu Mou time mage who's trying to make a
+special potion. Only problem is, he keeps eating his ingredients. Just
+like he does to the Rat Tail you just brought him. *sigh* Sometimes
+you have to wonder why we do quests.
+
+Reward: 560 gil
+        Tanned Hide x3
+        Ladies' Tresses x2
+        Cloudy Sap x3
+
+CP Obtained: 10
+
+-----------------------------------Section E-----------------------------------
+
+*******************************************************
+-------------E1-2: Bonga Bugle - Silversun-------------
+*******************************************************
+Fee: 400 gil
+Rank: 22
+Days: all month
+Location: Graszton
+Items(Required): ---
+Talents(Required): Negotiation 
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >9
+Quest Type: Meet Objectives
+
+The LAW - Copycat
+          Using the same action as the preceding unit is forbidden
+Objective: Defend the Head Editor & defeat all foes!
+
+RECOMMENDED ABILITY: White Monk - Exorcise
+
+The situations reporters get themselves into sometimes. The Head Editor of the
+Bonga Bugle has chosen to investigate the haunted area of Shadeholme. At first,
+he doesn't believe that the place is haunted, but he quickly changes his mind
+after seeing some ghosts. Now it's up to you to keep his butt alive. In order
+to win, you only have to get all the ghosts to 0 HP status, which is their KO.
+After a while, they'll revive and have full HP. The there are only two ways to
+completely get rid of a ghost that I know of. First, use a White Monk's
+Exorcise ability. It had a horrible hit rate unless the target is already in
+0 HP status, at which point it has a 100% hit rate. The second way is to get
+them to 0 HP and then use a Phoenix Down. The only problem is that after more
+than one regular Ghost is destroyed, the remaining on with use Wake the Dead to
+call another. You have to take out all of the Ghosts in one turn, either
+Exorcising them or forcing them into 0 HP status and then getting rid of them
+before they come back. Also, if you take to long, then any ghosts you killed
+will respawn on the sides of the map. This mission is slightly frustrating, but
+not impossible. After destroying or forcing all the ghosts into 0 HP (or a
+combo of this), the mission will end.
+
+Reward: 3030 gil
+        Trusty Frying Pan x4
+        Turtle Shell x2
+        Dipraeu Bronze x7
+
+CP Obtained: 36
+Law Bonus: Holy Stone
+           Quality Pelt
+           Maiden's Kiss
+
+*******************************************************
+--------------E1-3: Bonga Bugle - Ashleaf--------------
+*******************************************************
+Fee: 160 gil
+Rank: 22
+Days: all month
+Location: Camoa
+Items(Required): ---
+Talents(Required): Negotiation >11
+                   Aptitude 
+                   Teamwork 
+                   Adaptability >11
+Quest Type: Satisfy Petitioner
+
+The LAW - Ranged Weapons
+          Attacks with bows, greatbows, guns, hand-cannons, and cards are
+		  forbidden
+Objective: Help the Bonga Bugle get its scoop!
+
+You're racing another group to be the first person to interview a person. Use
+whatever means necessary to get the job done and be the first to the
+interviewee.
+
+Reward: 3890 gil
+        Zinconium x2
+        Cloudy Sap x2
+
+CP Obtained: 44
+Law Bonus: Barong
+
+===============================================================================
+5.0.    Clan Info
+===============================================================================
+
+===============================================================================
+5.1.    Clan Privileges ------------------------------------------------- [CPV]
+===============================================================================
+
+- Power
+    Power Up 1: Very Slightly increases damage dealt and reduces damage
+                received.
+    Power Up 2: Slightly increases damage dealt and reduces damage received.
+
+- Agility
+    Agility Up 1: Very slightly improves chance to hit and avoid being hit.
+    Agility Up 2: Slightly improves chance to hit and avoid being hit.
+
+- Speed
+    Speed up 1: Very slightly raises speed.
+
+- Luck
+    Luck 1: Very slightly increases critical hit rate and chance of an
+            Opportunity turn.
+
+- Race
+    Empowered Bangaa: Bangaa units receive bonuses to Attack, Defense, and
+                      other attributes.
+
+===============================================================================
+5.2.    Clan Trials ----------------------------------------------------- [CTR]
+===============================================================================
+
+---------------------Negotiation I---------------------
+Fee: 10 CP
+Rank: 10
+Days: 20
+Location: Camoa
+Talents(Required): Negotiation >1
+
+The LAW - Targeting Distant Units
+          Actions targeting units two or more tiles away are forbidden
+Objective: Defeat all foes and uphold the law!
+
+Law Bonus: Kaiser Knuckles
+           Armguards
+           Eye Drops
+
+Titles
+------
+Hagglers - Defeat 2 Enemies
++3 Negotiation, -3 Aptitude
+Quest Fees -1%, Item Prices -1%
+Clan Privilege: Empowered Nu Mou
+
+Intermediaries - Defeat 3 Enemies
++6 Negotiation, -4 Aptitude
+Quest Fees -2%, Item Prices -2%
+
+Barterers - Defeat 4 Enemies
++9 Negotiation, -5 Aptitude
+Quest Fees -3%, Item Prices -3%
+Clan Privilege: Luck Up 2
+
+Brokers - Defeat 5 Enemies in 4 Turns
++12 Negotiation, -6 Aptitude
+Quest Fees -4%, Item Prices -4%
+
+Orators - Defeat 6 Enemies in 3 Turns
++15 Negotiation, -7 Aptitude
+Quest Fees -5%, Item Prices -5%
+Clan Privilege: Luck Up 3
+
+===============================================================================
+5.3.    Laws ------------------------------------------------------------ [LAW]
+===============================================================================
+
+* Fire - Weapons and abilities that use fire are forbidden
+* Ice - Weapons and abilities that use ice are forbidden
+* Lightning - Weapons and abilities that use lightning are forbidden
+* Fire, Ice, Lightning - Weapons and abilities that use fire, ice, and
+                   lightning are forbidden
+* Piercing Weapons - Attacks with rapiers and spears are forbidden
+* Bludgeoning Weapons - Attacks with rods, staves, poles, knuckles, hammers,
+                   and maces are forbidden
+* Ranged Weapons - Attacks with bows, greatbows, guns, hand-cannons, and cards
+                   are forbidden
+* Instruments and Books - Attacks with instruments and books are forbidden
+* Harming Humes - Actions that harm Humes are forbidden
+* Harming Moogles - Actions that harm Moogles are forbidden
+* Harming the Weak - Actions that harm a lower level unit are forbidden
+* Attack - Attacking is forbidden
+* Items - Items are forbidden
+* Opportunity Commands - Opportunity commands are forbidden
+* Actions by Nu Mou - Nu Mou may only move and perform basic attacks
+* Actions by Moogles - Moogles may only move and perform basic attacks
+* Targeting Adjacent Units - Actions targeting adjacent tiles are forbidden
+* Targeting Distant Units - Actions targeting units two or more tiles away are
+                            forbidden
+* Targeting an Area - Actions targeting two or more tiles are forbidden
+* Targeting Self - Actions targeting the user are forbidden
+* Targeting All Units - Actions targeting all units at once are forbidden
+* Restoring HP - Actions that restore HP are forbidden
+* Restoring MP - Actions that restore MP are forbidden
+* Copycat - Using the same action as the preceding unit is forbidden
+* Knockback - Actions that knock the target back are forbidden
+* Back Attack - Attacking a unit from behind is forbidden
+* Missing - Missing with an action is forbidden
+* Debuffs - Debuffs are forbidden
+* Reaction Abilities - Reaction abilities are forbidden
+* > 20 Damage - Dealing > 20 damage is forbidden
+* > 50 Damage - Dealing > 50 damage is forbidden
+* Not Using MP - Actions that don't consume MP are forbidden
+* Not Moving - Each unit must move at least 1 tile before ending it's turn
+
+===============================================================================
+6.0.    Items ----------------------------------------------------------- [ITM]
+===============================================================================
+
+---------------------
+- Items
+---------------------
+        * Potion
+          Price: 30 gil
+          Description: A magick concoction that eases pain and heals wounds in
+          the blink of an eye.
+
+        * Hi-Potion
+          Price: ---
+          Description: A potion mixed for greater strength.
+
+        * Elixir
+          Price: ---
+          Description: This miraculous tincture completely restores both
+          health and magickal power to the drinker.
+
+        * Phoenix Down
+          Price: ---
+          Description: A magick feather with the power to revive those at
+          death's door.
+
+        * Gold Needle
+          Price: ---
+          Description: This magick needle breaks the enchantments that turn
+          flesh to stone.
+
+        * Echo Herbs
+          Price: 50 gil
+          Description: Cures silence
+
+        * Antidote
+          Price: 50 gil
+          Description: Cures poison
+
+        * Eye Drops
+          Price: 50 gil
+          Description: Cures blindness
+
+        * Remedy
+          Price: ---
+          Description: A tincture that cures what ails you.
+
+        * Knot of Rust
+          Price: ---
+          Description: A fused ball of metalworking detritus. Useful as
+          a thrown weapon, or a doorstop.
+
+        * Eureka Crystal
+          Price: ---
+          Description: A crystalline fragment discovered in the forbidden
+          reaches of Eureka. Its power heals wounds and improves combat
+          performance.
+
+===============================================================================
+6.1.    Weapons
+===============================================================================
+
+===============================================================================
+6.1.1.    Edged Weapons ------------------------------------------------- [EWN]
+===============================================================================
+
+---------------------
+- Knifes
+---------------------
+
+***********************************************************
+|Dagger                 |(1-H)|                           |
+******************************|                           |
+|Buy: 80       |Sell:         |                           |
+******************************|                           |
+|Move:    ---  Attack:     20 |                           |
+|Jump:    ---  Defense:    ---|                           |
+|Evasion: 2    Magick:     ---|                           |
+|Speed:   ---  Resistance: ---|                           |
+***********************************************************
+
+***********************************************************
+|Jackknife              |(1-H)|Steal gil                  |
+******************************|Thief: 200 AP              |
+|Buy: 160      |Sell:         |                           |
+******************************|gil Toss                   |
+|Move:    ---  Attack:     22 |Juggler: 200 AP            |
+|Jump:    ---  Defense:    ---|                           |
+|Evasion: 2    Magick:     ---|                           |
+|Speed:   ---  Resistance: ---|                           |
+***********************************************************
+
+***********************************************************
+|Kard                   |(1-H)|Steal Items                |
+******************************|Thief: 200 AP              |
+|Buy: 360      |Sell:         |                           |
+******************************|Silence Gas                |
+|Move:    ---  Attack:     27 |Ranger: 200 AP             |
+|Jump:    ---  Defense:    ---|                           |
+|Evasion: 4    Magick:     ---|                           |
+|Speed:   ---  Resistance: ---|                           |
+***********************************************************
+
+**********************************************************
+|Scramasax              |(1-H)|Loot Lv. 1                |
+******************************|Thief: 100 AP             |
+|Buy: 500      |Sell:         |                          |
+******************************|Ball Toss                 |
+|Move:    ---  Attack:     30 |Juggler: 350 AP           |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: 2    Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+---------------------
+- Swords
+---------------------
+
+**********************************************************
+|Shortsword             |(1-H)|                          |
+******************************|                          |
+|Buy: 100      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     22 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+***********************************************************
+|Broadsword             |(1-H)|First Aid                  |
+******************************|Soldier: 100 AP            |
+|Buy: 200      |Sell:         |                           |
+******************************|First Aid                  |
+|Move:    ---  Attack:     25 |Warrior: 100 AP            |
+|Jump:    ---  Defense:    ---|                           |
+|Evasion: ---  Magick:     ---|Oil Blade                  |
+|Speed:   ---  Resistance: ---|Spellblade: 300 AP         |
+***********************************************************
+
+***********************************************************
+|Buster Sword           |(1-H)|Rend Magick                |
+******************************|Soldier: 250 AP            |
+|Buy: 600      |Sell:         |                           |
+******************************|Rend Magick                |
+|Move:    ---  Attack:     30 |Warrior: 250 AP            |
+|Jump:    ---  Defense:    5  |                           |
+|Evasion: ---  Magick:     ---|Blood Price                |
+|Speed:   ---  Resistance: ---|Spellblade: 150 AP         |
+***********************************************************
+
+**********************************************************
+|Burglar Sword          |(1-H)|Gauge                     |
+******************************|Soldier: 150 AP           |
+|Buy: 1000     |Sell:         |                          |
+******************************|Stun Blade                |
+|Move:    ---  Attack:     35 |Spellblade: 200 AP        |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|Wyrmtamer                 |
+|Speed:   ---  Resistance: ---|Dragoon: 150 AP           |
+**********************************************************
+
+---------------------
+- Blades
+---------------------
+
+**********************************************************
+|Iron Blade             |(1-H)|                          |
+******************************|                          |
+|Buy: 150      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     25 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Sweep Blade            |(1-H)|Rush                      |
+******************************|Fighter: 100 AP           |
+|Buy: 220      |Sell:         |                          |
+******************************|Rush                      |
+|Move:    ---  Attack:     28 |Gladiator: 100 AP         |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Shadow Blade           |(1-H)|Beat Down                 |
+******************************|Fighter: 250 AP           |
+|Buy: 480      |Sell:         |                          |
+******************************|Beat Down                 |
+|Move:    ---  Attack:     33 |Gladiator: 250 AP         |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: 4    Magick:     ---|Moogle Rush               |
+|Speed:   ---  Resistance: ---|Moogle Knight: 250 AP     |
+**********************************************************
+
+**********************************************************
+|Sun Blade              |(1-H)|Blitz                     |
+******************************|Fighter: 250 AP           |
+|Buy: 480      |Sell:         |                          |
+******************************|Blitz                     |
+|Move:    ---  Attack:     33 |Gladiator: 250 AP         |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   2    Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Atomos Blade           |(1-H)|Air Render                |
+******************************|Fighter: 250 AP           |
+|Buy: 1200     |Sell:         |                          |
+******************************|Moogle Lance              |
+|Move:    ---  Attack:     38 |Moogle Knight: 250 AP     |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Venus Blade            |(1-H)|Doublehand                |
+******************************|Fighter: 250 AP           |
+|Buy: 580      |Sell:         |                          |
+******************************|Doublehand                |
+|Move:    ---  Attack:     33 |Gladiator: 250 AP         |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     2  |                          |
+|Speed:   2    Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Pearl Blade            |(1-H)|Moogle Shield             |
+******************************|Moogle Knight: 200 AP     |
+|Buy: 640      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     38 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     2  |                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Ogun Blade             |(1-H)|Wild Swing                |
+******************************|Fighter: 250 AP           |
+|Buy: 1350     |Sell:         |                          |
+******************************|Wild Swing                |
+|Move:    ---  Attack:     38 |Gladiator: 250 AP         |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     2  |                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+---------------------
+- Sabers
+---------------------
+
+**********************************************************
+|Light Saber            |(1-H)|Learn                     |
+******************************|Blue Mage: 100 AP         |
+|Buy: 100      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     22 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Blue Saber             |(1-H)|                          |
+******************************|                          |
+|Buy: 200      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     ---|                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+---------------------
+- Knightswords
+---------------------
+
+**********************************************************
+|Longsword              |(2-H)|                          |
+******************************|                          |
+|Buy: 380      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     32 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Defender               |(2-H)|Nurse                     |
+******************************|Paladin: 100 AP           |
+|Buy: 1000     |Sell:         |                          |
+******************************|Hibernate                 |
+|Move:    ---  Attack:     35 |Defender: 100 AP          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+---------------------
+- Rapiers
+---------------------
+
+**********************************************************
+|Battle Rapier          |(1-H)|                          |
+******************************|                          |
+|Buy: 100      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     20 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   2    Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Stinger                |(1-H)|Swarmstrike               |
+******************************|Fencer: 150 AP            |
+|Buy: 220      |Sell:         |                          |
+******************************|Thunder                   |
+|Move:    ---  Attack:     22 |Red Mage: 150 AP          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   2    Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Estoc                  |(1-H)|Featherblow               |
+******************************|Fencer: 200 AP            |
+|Buy: 280      |Sell:         |                          |
+******************************|Bolder Crush              |
+|Move:    ---  Attack:     24 |Elementalist: 200 AP      |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   2    Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Fleuret                |(1-H)|Earth Heal                |
+******************************|Elementalist: 200 AP      |
+|Buy: 360      |Sell:         |                          |
+******************************|Cure                      |
+|Move:    ---  Attack:     26 |Red Mage: 100 AP          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   2    Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Scarlet Rapier         |(1-H)|Fire Whip                 |
+******************************|Elementalist: 250 AP      |
+|Buy: 420      |Sell:         |                          |
+******************************|Fire                      |
+|Move:    ---  Attack:     28 |Red Mage: 150 AP          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     2  |                          |
+|Speed:   2    Resistance: ---|                          |
+**********************************************************
+
+---------------------
+- Greatswords
+---------------------
+
+**********************************************************
+|Barong                 |(2-H)|Rend Power                |
+******************************|Soldier: 250 AP           |
+|Buy: 1250     |Sell:         |                          |
+******************************|Parley                    |
+|Move:    ---  Attack:     37 |Paladin: 150 AP           |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Dagriohm               |(2-H)|Sneak Attack              |
+******************************|Ravager: 300 AP           |
+|Buy: 1450     |Sell:         |                          |
+******************************|Haunting Vision           |
+|Move:    ---  Attack:     38 |Lanista: 300 AP           |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|Monkey Grip               |
+|Speed:   ---  Resistance: ---|Soldier: 250 AP           |
+**********************************************************
+
+**********************************************************
+|Ancient Sword          |(2-H)|Rend MP                   |
+******************************|Soldier: 250 AP           |
+|Buy: 1450     |Sell:         |                          |
+******************************|Battle Cry                |
+|Move:    ---  Attack:     38 |Ravager: 200 AP           |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|Sword of Darkness         |
+|Speed:   ---  Resistance: ---|Lanista: 350 AP           |
+**********************************************************
+
+---------------------
+- Broadswords
+---------------------
+
+**********************************************************
+|Samson Sword/ Earth    |(2-H)|Rend Power                |
+******************************|Warrior: 250 AP           |
+|Buy: 1000     |Sell:         |                          |
+******************************|Power Crush               |
+|Move:    ---  Attack:     34 |Raptor: 250 AP            |
+|Jump:    ---  Defense:    5  |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Falchion               |(2-H)|Rend MP                   |
+******************************|Warrior: 250 AP           |
+|Buy: 1000     |Sell:         |                          |
+******************************|Mind Crush                |
+|Move:    ---  Attack:     34 |Raptor: 250 AP            |
+|Jump:    ---  Defense:    5  |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Predator               |(2-H)|Speed Crush               |
+******************************|Raptor: 350 AP            |
+|Buy: 1000     |Sell:         |                          |
+******************************|Monkey Grip               |
+|Move:    ---  Attack:     34 |Warrior: 250 AP           |
+|Jump:    ---  Defense:    5  |                          |
+|Evasion: ---  Magick:     5  |                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+---------------------
+- Katanas
+---------------------
+
+**********************************************************
+|Kunai                  |(1-H)|Throw                     |
+******************************|Ninja: 100 AP             |
+|Buy: 500      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     31 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Murasame               |(1-H)|Wind Slash                |
+******************************|Parivir: 200 AP           |
+|Buy: 500      |Sell:         |                          |
+******************************|Water Veil                |
+|Move:    ---  Attack:     31 |Ninja: 250 AP             |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|Aphonia                   |
+|Speed:   ---  Resistance: ---|Assassin: 200 AP          |
+**********************************************************
+
+---------------------
+- Spears
+---------------------
+
+**********************************************************
+|Short Spear            |(1-H)|                          |
+******************************|                          |
+|Buy: 300      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     29 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Javelin                |(1-H)|Jump                      |
+******************************|Dragoon: 150 AP           |
+|Buy: 500      |Sell:         |                          |
+******************************|Piercing Cry              |
+|Move:    ---  Attack:     31 |Templar: 400 AP           |
+|Jump:    2    Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Lava Spear             |(1-H)|Fire Breath               |
+******************************|Dragoon: 300 AP           |
+|Buy: 1180     |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     35 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+===============================================================================
+6.1.2.    Bludgeons ----------------------------------------------------- [BLD]
+===============================================================================
+
+---------------------
+- Rod
+---------------------
+
+**********************************************************
+|Rod                    |(1-H)|Fire                      |
+******************************|Black Mage: 100 AP        |
+|Buy: 60       |Sell:         |                          |
+******************************|Blizzard                  |
+|Move:    ---  Attack:     18 |Black Mage: 100 AP        |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     2  |Thunder                   |
+|Speed:   ---  Resistance: ---|Black Mage: 100 AP        |
+**********************************************************
+
+**********************************************************
+|Thunder Rod            |(1-H)|Thundara                  |
+******************************|Black Mage: 250 AP        |
+|Buy: 640      |Sell:         |                          |
+******************************|Tempest                   |
+|Move:    ---  Attack:     21 |Illusionist: 250 AP       |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     2  |Reflect                   |
+|Speed:   ---  Resistance: ---|Time Mage: 250 AP         |
+**********************************************************
+
+---------------------
+- Staff
+---------------------
+
+**********************************************************
+|White Staff            |(1-H)|Cure                      |
+******************************|White Mage: 100 AP        |
+|Buy: 100      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     19 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 5  |                          |
+**********************************************************
+
+**********************************************************
+|Staff of Protection    |(1-H)|Ifrit                     |
+******************************|Summoner: 300 AP          |
+|Buy: 480      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     21 |                          |
+|Jump:    ---  Defense:    5  |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 5  |                          |
+**********************************************************
+
+**********************************************************
+|Judicer's Staff        |(1-H)|Aero                      |
+******************************|Bishop: 200 AP            |
+|Buy:          |Sell:         |                          |
+******************************|Ramuh                     |
+|Move:    ---  Attack:     23 |Summoner: 300 AP          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     3  |                          |
+|Speed:   ---  Resistance: 5  |                          |
+**********************************************************
+
+**********************************************************
+|Healing Staff          |(1-H)|Cura                      |
+******************************|White Mage: 200 AP        |
+|Buy: 850      |Sell:         |                          |
+******************************|Cura                      |
+|Move:    ---  Attack:     25 |Bishop: 200 AP            |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|Kirin                     |
+|Speed:   ---  Resistance: 5  |Summoner: 250 AP          |
+**********************************************************
+
+---------------------
+- Poles
+---------------------
+
+**********************************************************
+|Cypress Pole           |(1-H)|Rend Armor                |
+******************************|Master Monk: 350 AP       |
+|Buy: 720      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     32 |                          |
+|Jump:    ---  Defense:    2  |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   2    Resistance: 2  |                          |
+**********************************************************
+
+---------------------
+- Knuckles
+---------------------
+
+**********************************************************
+|Leather Knuckles       |(1-H)|Attack Up                 |
+******************************|Berserker: 150 AP         |
+|Buy: 100      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     24 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: 2    Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Metal Knuckles         |(1-H)|Roundhouse                |
+******************************|White Monk: 150 AP        |
+|Buy: 300      |Sell:         |                          |
+******************************|Silver Disc               |
+|Move:    ---  Attack:     29 |Tinker: 250 AP            |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: 2    Magick:     ---|Inner Calm                |
+|Speed:   ---  Resistance: ---|Berserker: 250 AP         |
+**********************************************************
+
+**********************************************************
+|Rising Sun/ Fire       |(1-H)|Exoricise                 |
+******************************|White Monk: 250 AP        |
+|Buy: 400      |Sell:         |                          |
+******************************|Red Spring                |
+|Move:    ---  Attack:     31 |Tinker: 250 AP            |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: 2    Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Poison Knuckles        |(1-H)|Green Gear                |
+******************************|Tinker: 250 AP            |
+|Buy: 600      |Sell:         |                          |
+******************************|Scream                    |
+|Move:    ---  Attack:     33 |Berserker: 300 AP         |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: 2    Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Kaiser Knuckles        |(1-H)|Air Render                |
+******************************|White Monk: 250 AP        |
+|Buy:          |Sell:         |                          |
+******************************|Furore                    |
+|Move:    ---  Attack:     37 |Berserker: 200 AP         |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: 2    Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+---------------------
+- Instruments
+---------------------
+
+**********************************************************
+|Lamia Harp             |(1-H)|Dreamhare                 |
+******************************|Beastmaster: 150 AP       |
+|Buy: 200      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     21 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Demon Bell             |(1-H)|Baknamy                   |
+******************************|Beastmaster: 150 AP       |
+|Buy: 220      |Sell:         |                          |
+******************************|Flan                      |
+|Move:    ---  Attack:     22 |Beastmaster: 150 AP       |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Glass Bell             |(1-H)|Lamia                     |
+******************************|Beastmaster: 150 AP       |
+|Buy: 320      |Sell:         |                          |
+******************************|100% Wool                 |
+|Move:    ---  Attack:     25 |Animist: 200 AP           |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 1  |                          |
+**********************************************************
+
+---------------------
+- Hammers
+---------------------
+
+**********************************************************
+|Iron Hammer            |(2-H)|Pickpocket                |
+******************************|Viking: 250 AP            |
+|Buy: 220      |Sell:         |                          |
+******************************|Protect                   |
+|Move:    ---  Attack:     28 |Green Mage: 150 AP        |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 5  |                          |
+**********************************************************
+
+**********************************************************
+|War Hammer             |(2-H)|Strong-arm                |
+******************************|Viking: 250 AP            |
+|Buy: 1100     |Sell:         |                          |
+******************************|Shell                     |
+|Move:    ---  Attack:     34 |Green Mage: 150 AP        |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 5  |                          |
+**********************************************************
+
+---------------------
+- Maces
+---------------------
+
+**********************************************************
+|Battle Mace            |(1-H)|Water                     |
+******************************|Sage: 200 AP              |
+|Buy:          |Sell:         |                          |
+******************************|Sleep                     |
+|Move:    ---  Attack:     24 |Green Mage: 200 AP        |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Energy Mace            |(1-H)|Rasp                      |
+******************************|Alchemist: 250 AP         |
+|Buy:          |Sell:         |                          |
+******************************|Aero                      |
+|Move:    ---  Attack:     29 |Sage: 200 AP              |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     2  |Silence                   |
+|Speed:   ---  Resistance: 5  |Green Mage: 200 AP        |
+**********************************************************
+
+**********************************************************
+|Druid Mace             |(1-H)|Poison                    |
+******************************|Alchemist: 150 AP         |
+|Buy: 200      |Sell:         |                          |
+******************************|Blind                     |
+|Move:    ---  Attack:     26 |Sage: 150 AP              |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     3  |Blind                     |
+|Speed:   ---  Resistance: 5  |Green Mage: 150 AP        |
+**********************************************************
+
+===============================================================================
+6.1.3.    Ranged Weapons ------------------------------------------------ [RWN]
+===============================================================================
+
+---------------------
+- Bows
+---------------------
+
+**********************************************************
+|Shortbow               |(2-H)|                          |
+******************************|                          |
+|Buy: 100      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     17 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Longbow                |(2-H)|Focus                     |
+******************************|Archer: 100 AP            |
+|Buy: 120      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     19 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Char Bow               |(2-H)|Blackout                  |
+******************************|Archer: 250 AP            |
+|Buy:          |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     21 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Silver Bow             |( -H)|Burial                    |
+******************************|Archer: 200 AP            |
+|Buy:          |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     23 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+---------------------
+- Greatbows
+---------------------
+
+**********************************************************
+|Composite Bow          |(2-H)|                          |
+******************************|                          |
+|Buy: 220      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     21 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Windslash Bow/ Air     |(2-H)|Oust                      |
+******************************|Hunter: 150 AP            |
+|Buy: 500      |Sell:         |                          |
+******************************|Vanish                    |
+|Move:    ---  Attack:     23 |Sniper: 300 AP            |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: 2    Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Huntsman's Bow/ Earth  |(2-H)|Ague                      |
+******************************|Assassin: 250 AP          |
+|Buy: 850      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     25 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+---------------------
+- Guns
+---------------------
+
+**********************************************************
+|Goug Mk 29             |(1-H)|                          |
+******************************|                          |
+|Buy: 220      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     21 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Aiot Gun               |(1-H)|Fireshot                  |
+******************************|Fusilier: 150 AP          |
+|Buy: 500      |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     23 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Silver Cannon          |(1-H)|Blindshot                 |
+******************************|Fusilier: 200 AP          |
+|Buy: 850      |Sell:         |                          |
+******************************|Succor                    |
+|Move:    ---  Attack:     25 |Agent: 150 AP             |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Riot Gun               |(1-H)|Boltshot                  |
+******************************|Fusilier: 150 AP          |
+|Buy: 1050     |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     26 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Lost Gun               |(1-H)|Silenceshot               |
+******************************|Fusilier: 200 AP          |
+|Buy: 2400     |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     28 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+---------------------
+- Hand-cannons
+---------------------
+
+**********************************************************
+|Hand Cannon            |(1-H)|Potion Shell              |
+******************************|Cannoner: 300 AP          |
+|Buy:          |Sell:         |                          |
+******************************|Prime                     |
+|Move:    ---  Attack:     22 |Flintlock: 100 AP         |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+**********************************************************
+|Omnis Cannon           |(1-H)|Buckshot                  |
+******************************|Cannoneer: 150 AP         |
+|Buy: 500      |Sell:         |                          |
+******************************|Cure Cannon               |
+|Move:    ---  Attack:     24 |Flintlock: 250 AP         |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: ---|                          |
+**********************************************************
+
+---------------------
+- Cards
+---------------------
+
+**********************************************************
+|Four of Spades         |(1-H)|Hypochondria              |
+******************************|Trickster: 150 AP         |
+|Buy: 3800     |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     29 |                          |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: 2    Magick:     ---|                          |
+|Speed:   2    Resistance: ---|                          |
+**********************************************************
+
+===============================================================================
+6.2.    Armors
+===============================================================================
+
+===============================================================================
+6.2.1.    Helms --------------------------------------------------------- [HLM]
+===============================================================================
+
+---------------------
+- Helms
+---------------------
+
+**********************************************************
+|Bronze Helm                  |                          |
+******************************|                          |
+|Buy:          |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     ---|                          |
+|Jump:    ---  Defense:    4  |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 2  |                          |
+**********************************************************
+
+**********************************************************
+|Iron Helm                    |                          |
+******************************|                          |
+|Buy:          |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     ---|                          |
+|Jump:    ---  Defense:    5  |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 3  |                          |
+**********************************************************
+
+---------------------
+- Hats
+---------------------
+
+**********************************************************
+|Plumed Hat                   |                          |
+******************************|                          |
+|Buy:          |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     ---|                          |
+|Jump:    ---  Defense:    2  |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 5  |                          |
+**********************************************************
+
+**********************************************************
+|Green Beret                  |Archer's Bane             |
+******************************|Archer: 200 AP            |
+|Buy:          |Sell:         |                          |
+******************************|Archer's Bane             |
+|Move:    ---  Attack:     ---|Animist: 200 AP           |
+|Jump:    ---  Defense:    2  |                          |
+|Evasion: 2    Magick:     ---|                          |
+|Speed:   ---  Resistance: 2  |                          |
+**********************************************************
+
+**********************************************************
+|Circlet                      |                          |
+******************************|                          |
+|Buy:          |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     ---|                          |
+|Jump:    ---  Defense:    3  |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 6  |                          |
+**********************************************************
+
+===============================================================================
+6.2.2.    Armor --------------------------------------------------------- [ARM]
+===============================================================================
+
+---------------------
+- Heavy Armors
+---------------------
+
+**********************************************************
+|Linen Cuirass                |                          |
+******************************|                          |
+|Buy:          |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     ---|                          |
+|Jump:    ---  Defense:    28 |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 2  |                          |
+**********************************************************
+
+**********************************************************
+|Bronze Armor                 |                          |
+******************************|                          |
+|Buy:          |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     ---|                          |
+|Jump:    ---  Defense:    30 |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 3  |                          |
+**********************************************************
+
+---------------------
+- Light Armors
+---------------------
+
+**********************************************************
+|Leather Clothing             |                          |
+******************************|                          |
+|Buy:          |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     ---|                          |
+|Jump:    ---  Defense:    24 |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 4  |                          |
+**********************************************************
+
+**********************************************************
+|Chainmail                    |Counter                   |
+******************************|Thief: 150 AP             |
+|Buy:          |Sell:         |                          |
+******************************|Counter                   |
+|Move:    ---  Attack:     28 |White Monk: 150 AP        |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 4  |                          |
+**********************************************************
+
+---------------------
+- Robes
+---------------------
+
+**********************************************************
+|Hempen Robe                  |                          |
+******************************|                          |
+|Buy:          |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     ---|                          |
+|Jump:    ---  Defense:    17 |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 32 |                          |
+**********************************************************
+
+**********************************************************
+|Silken Robe                  |                          |
+******************************|                          |
+|Buy:          |Sell:         |                          |
+******************************|                          |
+|Move:    ---  Attack:     ---|                          |
+|Jump:    ---  Defense:    17 |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 38 |                          |
+**********************************************************
+
+**********************************************************
+|Magus Robe                   |Critical: Quicken         |
+******************************|Time Mage: 450 AP         |
+|Buy:          |Sell:         |                          |
+******************************|Resistance Up             |
+|Move:    ---  Attack:     ---|Geomancer: 150 AP         |
+|Jump:    ---  Defense:    17 |                          |
+|Evasion: ---  Magick:     ---|                          |
+|Speed:   ---  Resistance: 40 |                          |
+**********************************************************
+
+===============================================================================
+6.2.3.    Shields ------------------------------------------------------- [SHD]
+===============================================================================
+
+---------------------
+- Shields
+---------------------
+
+**********************************************************
+|Bronze Shield                |Shieldbearer              |
+******************************|Soldier: 150 AP           |
+|Buy:          |Sell:         |                          |
+******************************|Shieldbearer              |
+|Move:    ---  Attack:     ---|Warrior: 150 AP           |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: 5    Magick:     ---|Shieldbearer              |
+|Speed:   ---  Resistance: 2  |Fencer: 150 AP            |
+**********************************************************
+
+**********************************************************
+|Round Shield                 |Shieldbearer              |
+******************************|Sage: 150 AP              |
+|Buy:          |Sell:         |                          |
+******************************|Shieldbearer              |
+|Move:    ---  Attack:     ---|Moogle Knight: 150 AP     |
+|Jump:    ---  Defense:    ---|                          |
+|Evasion: 7    Magick:     ---|                          |
+|Speed:   ---  Resistance: 2  |                          |
+**********************************************************
+
+**********************************************************
+|Platinum Shield              |Shieldbearer              |
+******************************|Viking: 150 AP            |
+|Buy:          |Sell:         |                          |
+******************************|Shieldbearer              |
+|Move:    ---  Attack:     ---|Raptor: 150 AP            |
+|Jump:    ---  Defense:    1  |                          |
+|Evasion: 10   Magick:     ---|                          |
+|Speed:   ---  Resistance: 5  |                          |
+**********************************************************
+
+===============================================================================
+6.3.    Accessories
+===============================================================================
+
+===============================================================================
+6.3.1    Boots ---------------------------------------------------------- [BOT]
+===============================================================================
+        * Battle Boots
+          Description: Leather boots, tanned to a hard, durable sheen.
+
+        * Armguards
+          Description: The cloth of these armguards is specially fashioned to
+          resist tearing.
+
+===============================================================================
+6.4.    Bazaar ---------------------------------------------------------- [BZR]
+===============================================================================
+
+The Bazaar is the place where you trade in all the loot that you find out in 
+your vast quest for something worthwhile. Inside are various weapons and armor 
+types, each divided into 5 different levels. You combine loot within a 
+particular level in order to make a particular weapon and unlock it in the 
+main item shop.
+
+Apprentice Weapons
+------------------
+Level E
+* Gihket Lead + Faren Pollen = Broadsword
+
+Bronze Armor
+------------
+Level E
+* Gihket Lead + Cactus Fruit = Bronze Armor
+
+Colossal Sword
+--------------
+Level E
+* Cruzle Brass + Chocobo Skin + Nepenthis = Samson Sword
+
+Silver-sheened Armor
+--------------------
+Level D
+* Platinum + Peppergrass + Green Liquid = Platinum Helm
+
+Level B
+* Platinum + Hedychium + Yellow Liquid = Platinum Armor
+
+Smallswords
+-----------
+Level E
+* Xergis Tin + Animal Bone + Cactus Fruit = Kard
+
+Level D
+* Xergis Tin + Pointed Horn + Ball Moss = Scramasax
+
+Thunder's Cry
+-------------
+Level E
+* Soul Ceffyl + Gikhet Lead + Faren Pollen = Atomos Blade
+
+Level D
+* Storm Stone+ Cruzle Brass + Teleq Flower = Gae Bolg
+
+Storm-Forged Armaments
+----------------------
+Level D
+* Storm Stone + Zinconium + Sturdy Vine = Thunder Rod
+
+Level C
+* Storm Stone + Leestone + Silk Bloom = Thunder Robe
+
+Mark of the Goddess
+-------------------
+
+Time-tested Rods
+----------------
+Level D
+* Body Ceffyl + Leestone + Marrion Feather = Force Rod
+
+Gilt Accessories
+----------------
+
+Sundry Sabers
+-------------
+Level D
+* Earth Stone + Dipraeu Bronze + Hedychium = Shamshir
+
+Heavy Maces
+-----------
+Level D
+* Dark Stone + Zinconium + Succulent Fruit = Energy Mace
+
+Level C
+* Fire Stone + Zinconium + Whisperweed = Druid Mace
+
+Sharp-edged Katana
+------------------
+Level E
+* Earth Stone + Xergis Tin + Prima Petal = Kunai
+
+Level D
+* Fire Stone + Xergis Tin + Suspect Mushroom = Ashura
+
+Pugilist's Gear
+---------------
+Level E
+* Trusty Frying Pan + Rabbit Tail + Power Fruit = Headband
+
+Survival Set
+-----------
+Level E
+* Gikhet Lead + Snake Skin +Tiny Mushrooms = Jackknife
+* Bat Tail + Molting + Large Feather = Shadow Blade
+
+Level D
+* Cursed Coin + Tiger Hide + Malboro Vine = Green Beret
+
+Level C
+* Gun Gear + Tiger Hide + Power Fruit = Survival Vest
+
+Battle-hardened Armor
+---------------------
+Level E
+* Clock Gear + Tanned Hide + Ladies' Tresses = Chainmail
+
+Level D
+* Gikhet Lead + Prime Tanned Hide + Moon Bloom = Brigandine
+
+Silver Death
+------------
+Level C
+* Dark Stone + Clock Gear + Zingu Pearl Shell = Silver Cannon
+* Holy Stone + Trusty Frying Pan + Mirror Scale = Silver Rapier
+
+Rimebound Gear
+--------------
+Level E
+* Ice Stone + Sanative Needle + Fury Fragments = Ice Lance
+
+Level D
+* Ice Stone + Adamant Alloy + Molting = Icebrand
+
+Level C
+* Ice Stone + Zodiac Ore + Vampyr Fang = Ice Shield
+
+Steel of Living Flame
+---------------------
+Level E
+* Soul Ceffyl + Xergis Tin + Bomb Shell = Venus Blade
+* Soul Ceffyl + Sanative Needle + Bomb Shell = Scarlet Rapier
+
+Level D
+* Fire Stone + Cruzle Brass + Animal Bone = Lava Spear
+* Fire Stone + Cruzle Brass + Zingu Pearl = Flametongue
+
+Flash of Dawn
+-------------
+Level E
+* Soul Ceffyl + Cruzle Brass + Bomb Shell = Sun Blade
+
+Level D
+* Fire Stone + Adament Alloy + Bomb Shell = Rising Sun
+
+Arms of the Firelord
+--------------------
+Level D
+* Fire Stone + Zinconium + Iron Carapace = Firewheel Rod
+
+Level C
+* Fire Stone + Zinconium + Bomb Shell = Blaze Robe
+
+Sign of the Guardian
+--------------------
+Level E
+* Water Stone + Cruzle Brass + Coral Fragments = Staff of Protection
+* Tarkov Crystal + Zinconium + Turtle Shell = Armguards
+
+Level D
+* Wind Stone + Zinconium + Fury Fragments = Defender
+
+Astrologer's Aid
+----------------
+
+Night's Embrace
+---------------
+Level E
+* Dark Stone + Zinconium + Skull = Apocalypse
+
+Tempting Fate
+-------------
+
+Battle-tested Swords
+--------------------
+Level E
+* Tarkov Crystal + Zinconium + Dragon Bone = Lionheart
+
+Level D
+* Body Ceffyl + Platinum + Zingu Pearl = Ragnarok
+
+Level C
+* Soul Ceffyl + Platinum + Cod Scale = Lonhengrin
+
+Level B
+* Tarkov Crystal + Platinum + Cod Scale = Arch Sword
+
+Seal of the Templar
+-------------------
+
+Uncommon Swords
+---------------
+Level E
+* Earth Stone + Xergis Tin + Crooked Fang = Buster Sword
+
+Level D
+* Earth Stone + Xergis Tin + Dragon Bone = Burglar Sword
+
+Lethal Blades
+-------------
+Level E
+* Wind Stone + Gikhet Lead + Animal Bone = Sweep Blade
+
+Level D
+* Water Stone + Xergis Tin + Gimble Stalk = Ogun Blade
+* Water Stone + Cruzle Brass + Zingu Pearl Shell = Pearl Blade
+
+Level C
+* Storm Stone + Zodiac Ore + Lamia Scale = Paraiba Blade
+
+The Drowned
+-----------
+Level E
+* Water Stone + Xergis Tin + Healing Water = Murasame
+
+Level D
+* Water Stone + Dipraeu Bronze + Healing Water = Aqua Saber
+
+Turquoise Trappings
+-------------------
+Level E
+* Water Stone + Trusty Frying Pan + Fresh Water = Blue Saber
+
+Sacred Arms
+-----------
+
+Rust-stained Guns
+-----------------
+Level E
+* Wind Stone + Sanative Needle + Cloudy Sap = Aiot Gun
+
+Level D
+* Storm Stone + Clock Gear + Green Liquid = Riot Gun
+* Wind Stone + Gun Gear + Yellow Liquid = Lost Gun
+
+Gift of Stone
+-------------
+Level E
+* Zinconium + Pointed Horn + Bitter Sap = Diamond Sword
+
+Level D
+* Adamant Alloy + Zingu Pearl + Bitter Sap = Diamond Helm
+
+Rust-stained Helms
+------------------
+Level E
+* Adamant Alloy + Crooked Fang + Green Liquid = Barbut
+
+Level D
+* Adamant Alloy + Bone Chips + Malboro Wine = Close Helmet
+
+Light Blades
+------------
+
+Ornamented Blade
+----------------
+Level E
+* Sanative Needle + Lamia Scale + Fresh Water = Rapier
+
+Level D
+* Sanative Needle + Molting + Fresh Water = Fleuret
+
+Forgotten Firearms
+------------------
+Level E
+* Clock Gear + Iron Carapace + Cloudy Sap = Omnis Cannon
+
+Whetted Axes
+------------
+Level D
+* Gikhet Lead + Rat Pelt + Mirror Scale = Broadaxe
+
+Level C
+* Adamant Alloy + Coeurl Pelt + Great Serpent's Fang = Hammerhead
+
+Battle-tested Bracers
+---------------------
+
+Soot-stained Shields
+--------------------
+Level E
+* Cruzle Brass + Quality Pelt + Lamia Scale = Round Shield
+
+Iron Armor
+----------
+Level D
+* Trusty Frying Pan + Zingu Pearl Shell = Iron Armor
+
+Ornamented Spears
+-----------------
+Level E
+* Xergis Tin + Animal Bone + Wool = Javelin
+
+Level D
+* Dipraeu Bronze + Wyrm Carapace + Velvet = Partisan
+
+Level C
+* Crusite Alloy + Vampyr Fang + Black Thread = Kain's Lance
+
+Unyielding Strength
+-------------------
+Level D
+* Earth Stone + Adamant Alloy + Rat Tail = Adamant Vest
+
+Battle Gear
+-----------
+Level E
+* Wind Stone + Dipraeu Bronze + Rat Skin = Battle Boots
+
+Level D
+* Tarkov Crystal + Cursed Coin + Quality Pelt = Battle Bamboo
+
+Grime-stained Gloves
+--------------------
+Level E
+* Earth Stone + Zinconium + Wolf Pelt = Metal Knuckles
+
+Level D
+* Dark Stone + Xergis Tin + Bat Tail = Poison Knuckles
+
+Level C
+* Storm Stone + Adamant Alloy + Giant's Tanned Hide = Kaiser Knuckles
+
+Heavy Swords
+------------
+Level E
+* Earth Stone + Gikhet Lead + Wolf Pelt = Predator
+
+Level D
+* Water Stone + Zodiac Ore + Coeurl Pelt = El-Cid
+* Wind Stone + Zodiac Ore + Tanned Hide = Stribog
+
+Power Within
+------------
+
+Vermillion Vestments
+--------------------
+
+Arms of the Icelord
+-------------------
+Level E
+* Ice Stone + Zinconium + Dirty Wool = Sleet Rod
+
+Mirrored Gear
+-------------
+
+Voice of the Wind
+-----------------
+Level E
+* Wind Stone + Cruzle Brass + Small Feather = Windslash Bow
+
+Level D
+* Wind Stone + Cursed Coin + Ahriman Wing = Djinn Flyssa
+* Wind Stone + Dipraeu Bronze + Giant Feather = Air Blade
+
+Crystal Gear
+------------
+
+Black-stained Armor
+-------------------
+Level D
+* Dipraeu Bronze + Green Liquid + Silk Thread = Platemail
+
+Solid Hammers
+-------------
+Level E
+* Xergis Tin + Spruce + Fresh Water = Iron Hammer
+
+Level D
+* Cruzle Brass + Cottonflue + Cloudy Sap = War Hammer
+
+Sage's Bequest
+--------------
+Level C
+* Holy Stone + Leestone + Rose Branch = Sage Crosier
+
+Fencing Foils
+-------------
+Level E
+* Earth Stone + Sanative Needle + Birch = Estoc
+
+Level D
+* Ice Stone + Sanative Needle + Moonwood = Flamberge
+
+Uncommon Poles
+--------------
+Level E
+* Soul Ceffyl + Leestone + Spruce = Cypress Pole
+
+Level C
+* Body Ceffyl + Leestone + Quality Lumber = Gokuu Pole
+
+Swords of Destruction
+---------------------
+Level E
+* Zodiac Ore + Great Serpent's Fang + Danbukwood = Hardedge
+
+Heavy Bows
+----------
+
+Greatswords
+-----------
+Level E
+* Cruzle Brass + Animal Bone + Waltwood = Barong
+* Xergis Tin + Insect Husk + Birch = Xankbras
+
+Level D
+* Sanative Needle + Pointed Horn + Spruce = Ancient Sword
+* Gikhet Lead + Iron Carapace + Mape Wood = Dagriohm
+
+Ill-tuned Instruments
+---------------------
+Level E
+* Gikhet Lead + Skull + Danbukwood = Demon Bell
+
+Level D
+* Cruzle Brass + Skull + Moonwood = Glass Bell
+* Trusty Frying Pan + Aged Turtle Shell + Mape Wood = War Trumpet
+
+Grab Bag
+--------
+Level E
+* Cruzle Brass + Agathis + Ahriman Wing = Tonfa
+
+Level D
+* Platinum + Birch + Aged Linen Thread = Kwigon Blade
+* Dipraeu Bronze + Cottonflue + Superior Silt Thread = Oblige
+
+Stealth Set
+----------
+Level E
+* Bat Tail + Molting + Large Feather = Shadow Blade
+
+Exotic Armor
+------------
+
+Dog-eared Cards
+---------------
+Level E
+* Rat Tail + Recall Grass + Yellow Liquid = Four of Spades
+
+Bauble
+------
+
+Black Vestments
+---------------
+
+Bulky Robes
+-----------
+Level E
+* Tarkov Crystal + Rabbit Pelt + Silk Thread = Silken Robe
+
+Level D
+* Earth Stone + Coeurl Pelt + Soft Cotton = Chameleon Robe
+
+Faded Caps
+----------
+Level E
+* Fire Stone + Rabbit Pelt + Wool = Circlet
+
+Level D
+* Soul Ceffyl + Tanned Hide + Velvet = Wizard's Hat
+
+Roadworn Boots
+--------------
+Level D
+* Fire Stone + Wolf Pelt + Fine Wool = Spiked Boots
+
+Cursed Armor
+------------
+
+Faerie Set
+----------
+Level A
+* Star Fragments + Stradivari + Faerie Wings = Faerie Shoes
+
+Magicked Protectives
+--------------------
+Level E
+* Tarkov Crystal + Tiny Mushrooms + ?Silk Thread? = Magus Robe
+
+Malodorous Bow
+--------------
+
+Moldy Tomes
+-----------
+Level C
+* Hedychium Pollen + Kempas +Yellow Liquid = Veil of Wiyu
+* Tiny Mushrooms + Kempas + Strange Liquid = Enavia Chronicles
+
+Maelstrom's Might
+-----------------
+Level E
+* Storm Stone + Recall Grass + Waltwood = Judicer's Staff
+
+Ornamented Bows
+---------------
+Level E
+* Molting + Sturdy Vine + Mape Wood = Longbow
+
+Hallowed Arms
+-------------
+Level D
+* Holy Stone + Waltwood + Healing Water = Healing Staff
+* Holy Stone + Waltwood + Crusader Tonic = Cleansing Staff
+
+Strength of Earth
+-----------------
+Level E
+* Earth Stone + Spruce + Aged Linen Thread = Huntsman's Bow
+
+Greatbows
+---------
+Level E
+* Wind Stone + Danbukwood + Ahriman Wing = Cranequin
+
+Level D
+* Water Sigil + Agathis + Silk Thread = Hunting Bow
+
+===============================================================================
+6.5.    Loot ------------------------------------------------------------ [LOT]
+===============================================================================
+
+To be added later...
+
+===============================================================================
+7.0.    Jobs
+===============================================================================
+
+The job system in Final Fantasy Tactics A2 is one of the most extensive in the
+Final Fantasy universe. Each race has it's own special job set, though some of
+the jobs overlap. Here's a list of the jobs that I've found.
+
+===============================================================================
+7.1.    Hume Jobs ------------------------------------------------------- [HME]
+===============================================================================
+
+*******************************************************************************
+| Job Name       | Required Abilities          | Quest to Unlock              |
+*******************************************************************************
+|Soldier         |---                          |                              |
+*******************************************************************************
+|White Mage      |Soldier x1                   |                              |
+*******************************************************************************
+|Thief           |---                          |                              |
+*******************************************************************************
+|Black Mage      |White Mage x1                |                              |
+*******************************************************************************
+|Archer          |Soldier x1                   |                              |
+*******************************************************************************
+|Paladin         |Soldier x3                   |                              |
+*******************************************************************************
+|Fighter         |Soldier x3                   |"To Be a Fighter"             |
+*******************************************************************************
+|Hunter          |Archer x3                    |                              |
+*******************************************************************************
+|Parivir         |Fighter x3                   |"The East Watch"              |
+*******************************************************************************
+|Blue Mage       |Black Mage x1                |                              |
+*******************************************************************************
+|Illusionist     |White Mage x2, Black Mage x4 |                              |
+*******************************************************************************
+|Seer            |White Mage x4                |"The Cat's Meow"              |
+*******************************************************************************
+|Ninja           |Thief x4                     |                              |
+*******************************************************************************
+
+===============================================================================
+7.2.    Nu Mou Jobs ----------------------------------------------------- [NMO]
+===============================================================================
+
+*******************************************************************************
+| Job Name       | Required Abilities          | Quest to Unlock              |
+*******************************************************************************
+|White Mage      |---                          |                              |
+*******************************************************************************
+|Black Mage      |---                          |                              |
+*******************************************************************************
+|Beastmaster     |---                          |                              |
+*******************************************************************************
+|Time Mage       |Black Mage x5                |                              |
+*******************************************************************************
+|Illusionist     |White Mage x2, Black Mage x4 |                              |
+*******************************************************************************
+|Sage            |White Mage x2, Beastmaster x2|                              |
+*******************************************************************************
+|Alchemist       |Illusionist x2               |                              |
+*******************************************************************************
+|Arcanist        |Time Mage x2                 |                              |
+*******************************************************************************
+|Scholar         |Sage x1, Time Mage x1        |                              |
+*******************************************************************************
+
+===============================================================================
+7.3.    Viera Jobs ------------------------------------------------------ [VRA]
+===============================================================================
+
+To be added later...
+
+===============================================================================
+7.4.    Moogle Jobs ----------------------------------------------------- [MOG]
+===============================================================================
+
+To be added later...
+
+===============================================================================
+7.5.    Bangaa Jobs ----------------------------------------------------- [BGA]
+===============================================================================
+
+To be added later...
+
+===============================================================================
+7.6.    Gria Jobs ------------------------------------------------------- [GRA]
+===============================================================================
+
+To be added later...
+
+===============================================================================
+7.7.    Seeq Jobs ------------------------------------------------------- [SEQ]
+===============================================================================
+
+To be added later...
+
+===============================================================================
+7.8.    Special Units --------------------------------------------------- [SPE]
+===============================================================================
+
+Throughout the game, there are special characters that come and join your clan,
+sometimes for a long time, some for a brief period. Here's a list of some of
+those people and their starting jobs and unique jobs (Thanks to Triiti for
+this).
+
+Adelle - Hume
+-------------
+Main Character
+Starting Job: Thief
+Unique Job: Heritor
+
+Progress through the main story to obtain Adelle.
+
+Cid - Bangaa
+------------
+Main Character
+Starting Job: Gladiator
+No Special Job
+
+Cid is with you from the beginning of the game.
+
+Hurdy - Moogle
+--------------
+Main Character
+Starting Job: Bard
+Unique Job: Bard
+
+Progress through the main story to obtain Hurdy.
+Can not become a Chocobo Knight.
+
+Vaan - Hume
+-----------
+Supporting Character
+Starting Job: Pirate
+Unique Job: Pirate
+
+Vaan comes as a pair with Penelo.
+Complete story quest "Pirate Problems".
+
+Penelo - Hume
+-------------
+Supporting Character
+Starting Job: Dancer
+Unique Job: Dancer
+
+Penelo comes in a pair with Vaan.
+Complete story quest "Pirate Problems".
+
+El-Cid - Hume
+-------------
+Supporting Character
+Starting Job: Agent
+Unique Job: Agent
+
+The only job available to him is Agent.
+
+Frimelda - Hume
+---------------
+Secret Character
+Starting Job: Paladin
+No Special Job
+
+Complete side quest "Memories Forged" to recruit her.
+Duel Wield mastered!
+
+===============================================================================
+7.9.    Espers ---------------------------------------------------------- [ESP]
+===============================================================================
+
+To be added later...
+
+===============================================================================
+8.0.    Ending and Credits ---------------------------------------------- [END]
+===============================================================================
+Thank you for reading my guide. If you find something major that I missed,
+please send that information to ligerzero459@gmail.com. Make sure to put
+"FFTA2" in the subject line so that I can reply to you.
+
+Special Thanks To:
+Kakason - for lots of Bazaar information
+finalfantasy.wikia.com - Job information
+Triiti - for Special Unit information
+
+Copyright 2008
+Created By: Ryan Mottley
+E-mail: ligerzero459@gmail.com
+
+View in: Text Mode
+
+GameFAQsfacebook.com/GFAQstwitter.com/GameFAQsHelp / Contact UsChange Colors 
+
+gamespot.commetacritic.comfandom.comfanatical.com
+
+SitemapPartnershipsCareersTerms of UseDigital Services Act
+
+Privacy PolicyDo Not Sell My Personal InformationReport Ad
+
+© 2026 FANDOM, INC. ALL RIGHTS RESERVED.

@@ -30,10 +30,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         { name: "Magick Weapon", job: "Magick Weapon", quantity: 1, notes: "Hardest boss in the game. 2000+ HP. Can Charm and Doom your units. Use Ultima attacks and high-level physical units. ReRaise on all party members is critical." },
     ],
         strategy: [
-            "The Magick Weapon is a high-level Upsilon with close to 2000 HP; do not attempt it until the clan is very high level.",
-            "Beguile can Charm and Doom multiple units, so equip Fortune Rings, Ribbons, Orb of Minwu, or equivalent protection.",
-            "Mist explodes after two rounds and damages the whole clan; recover with abilities because Items are banned.",
-            "Dual Wield and Ultima abilities such as Ultima Masher, Ultima Charge, or Ultima Sword greatly shorten the fight.",
+            "The Magick Weapon is a high-level Upsilon with close to 2000 HP; do not attempt it until the clan is very high level.",           "Dual Wield and Ultima abilities such as Ultima Masher, Ultima Charge, or Ultima Sword greatly shorten the fight.",
         ],
         rewards: {
             gil: 24960,
@@ -70,9 +67,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
     ],
         strategy: [
             "Mirror Mail reflects magick, so avoid offensive spells and lean on melee or long-range physical attackers.",
-            "Ribbon prevents debuffs, and Tranq improves the accuracy of Last Breath and Nightmare.",
-            "No HP restoration is allowed, so bring high max HP units and do not attempt the fight before roughly level 40.",
-        ],
+            "Ribbon prevents debuffs, and Tranq improves the accuracy of Last Breath and Nightmare.",        ],
         rewards: {
             gil: 13090,
             cp: 99,
@@ -141,10 +136,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         { name: "Black King Nware", job: "Black Mage", quantity: 1, notes: "Moogle. Absorbs Fire, Ice, and Lightning — magick is useless. Uses Firaga, Thundaga, Blizzaga, Toadsong. Has Reflex. Use physical/melee or ranged weapons only. Cure Toad debuff with Esuna." },
     ],
         strategy: [
-            "Avoid fire, ice, and lightning magick because Nware absorbs those elements and can heal from them.",
-            "Use melee and long-range physical attackers such as Fusiliers and Tricksters, and exploit the opening before he has enough MP for high-tier spells.",
-            "Bring Esuna or Toad recovery, but do not apply debuffs because the law forbids them.",
-        ],
+            "Avoid fire, ice, and lightning magick because Nware absorbs those elements and can heal from them.",       ],
         rewards: {
             gil: 9820,
             cp: 99,
@@ -212,12 +204,8 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
     enemies: [
         { name: "White King Blanch", job: "White Mage", quantity: 1, notes: "Nu Mou. Level 88. Uses Scathe, Gigaflare, Bio (via Blood Price). Has MP Shield — forces frequent Blood Price. Use ranged attacks to drain HP." },
     ],
-        strategy: [
-            "Use high-accuracy attacks or Stop to avoid breaking the Missing law.",
-            "White King Blanch is a level 88 Nu Mou White Mage with Sage abilities such as Scathe, Gigaflare, and Bio.",
-            "Long-range attackers and Dual Wield users help force Blood Price HP loss while staying out of danger.",
-            "Do not rely on MP attrition: Blood Price lets him cast with HP, and MP Shield can make repeated hits awkward.",
-        ],
+        strategy: [            "White King Blanch is a level 88 Nu Mou White Mage with Sage abilities such as Scathe, Gigaflare, and Bio.",
+            "Long-range attackers and Dual Wield users help force Blood Price HP loss while staying out of danger.",        ],
         rewards: {
             gil: 13720,
             cp: 99,
@@ -258,9 +246,7 @@ export const OPTIONAL_MISSIONS_A5: Mission[] = [
         strategy: [
             "Bring the strongest six-member clan, Scion accessories, Ribbons, Fortune Rings, and Ninja Tabis.",
             "Defeat White King Blanch first so the kings cannot recover HP, then focus one king at a time.",
-            "Ultima abilities, Ranger Mirror Items, High Seraph's Plume, Zodiark from Ring of Precepts, and careful Scion use can swing the fight.",
-            "Keep everyone above 200 HP and stay spread out between turns to reduce the impact of multi-target pressure.",
-        ],
+            "Ultima abilities, Ranger Mirror Items, High Seraph's Plume, Zodiark from Ring of Precepts, and careful Scion use can swing the fight.",        ],
         rewards: {
             gil: 15440,
             cp: 99,

@@ -8,7 +8,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         id: "D1-01",
         arc: "D1",
         name: "An Earnest Delight",
-        description: "I seek the love of my life! My search has led me through city streets and far aboard. I have even taken up the pen, and met five charming ladies in my correspondence. Ah, but I've made a mess of things by scheduling a rendezvous with each of them on the same day! I need someone to meet four of the lucky damsels in my stead. Only the dashing need apply - I've a reputation to consider. Marnot, Pride of Fluorgis",
+        description: "I seek the love of my life! My search has led me through city streets and far abroad. I have even taken up the pen, and met five charming ladies in my correspondence. Ah, but I've made a mess of things by scheduling a rendezvous with each of them on the same day! I need someone to meet four of the lucky damsels in my stead. Only the dashing need apply-I've a reputation to consider! -Marnot, Pride of Fluorgis",
         rank: 25,
         region: "Goug, Tramdine Fens, Zedlei Forest, The Bisga Greenlands",
         fee: 400,
@@ -31,9 +31,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         { name: "Randomized Name", job: "Ranger", quantity: 1, notes: "Only encountered if handling the Goug leg manually instead of dispatching." },
     ],
         strategy: [
-            "Accept this quest in Goug to save travel time. The first stop starts with a Viking and Ranger, but the guide says to wander for two rounds and do not attack them.",
-            "When prompted while impersonating him, answer with Marnot's name.",
-            "Dispatch units to the other three locations after the Goug event; the 6-day limit is too tight to finish all four stops manually.",
+            "Accept this quest in Goug to save travel time. The first stop starts with a Viking and Ranger, but the guide says to wander for two rounds and do not attack them.",            "Dispatch units to the other three locations after the Goug event; the 6-day limit is too tight to finish all four stops manually.",
         ],
         rewards: {
             gil: 2930,
@@ -72,10 +70,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         { name: "Randomized Name", job: "Worgen", quantity: 1, notes: "Can become dangerous at critical HP and may call support." },
     ],
         strategy: [
-            "Collect all six machinery parts from the sparkling points around Goug.",
-            "The law punishes hitting lower-level units, so either route around enemies or rely on reactions/status until you know targets are safe.",
-            "Bombs and Grenade are the largest area-damage risk; avoid leaving them at critical HP where Self-Destruct can punish clumped units.",
-            "There is a rare Elixir treasure in the upper-right area if you can safely grab it before finishing the parts.",
+            "Collect all six machinery parts from the sparkling points around Goug.",           "There is a rare Elixir treasure in the upper-right area if you can safely grab it before finishing the parts.",
         ],
         rewards: {
             gil: 7210,
@@ -89,7 +84,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         id: "D1-05",
         arc: "D1",
         name: "The Bangaa of the Rupies",
-        description: "This rivalry has gone on for many long years... high time we finished it once and for all! Those cowards in the Nu Mou Nobles have had it coming, and with a little extra muscle from you, we'll see they get it! The battlefield will be the Rupie Mountains. Come prepared! Mocedad, Bangaa Brotherhood",
+        description: "This rivalry has gone on for many longs years... high time we finished it once and for all! Those cowards in the Nu Mou Nobles have had it coming, and with a little extra muscle from you, we'll see they get it! The battlefield will be the Rupie Mountains. Come prepared! -Mocedad, Bangaa Brotherhood",
         rank: 50,
         region: "The Rupie Mountains",
         fee: 500,
@@ -115,10 +110,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         { name: "Nu Mou Nobles: Black Mage", job: "Black Mage", quantity: 1, notes: "Offensive caster. Silence or defeat early." },
     ],
         strategy: [
-            "You fight alongside the Bangaa Brotherhood: Gladiator, Bishop, and Cannoneer allies.",
-            "White Mage is the cleanest first target to stop healing, then pressure the Black Mage and Arcanist before the casters overwhelm the field.",
-            "Fire is banned, so rely on physical pressure, non-fire magick, and the allied Cannoneer once it begins attacking.",
-        ],
+            "You fight alongside the Bangaa Brotherhood: Gladiator, Bishop, and Cannoneer allies.",       ],
         rewards: {
             gil: 4970,
             cp: 99,
@@ -155,11 +147,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         { name: "House Bowen: Assassin", job: "Assassin", quantity: 1, notes: "Dangerous, but often a later target because Vanish makes her hard to pin down." },
         { name: "House Bowen: Illusionist", job: "Illusionist", quantity: 1, notes: "Primary priority; the guide calls out its damaging abilities." },
     ],
-        strategy: [
-            "3-unit party. Mocedad (Cannoneer) and Madreth (Arcanist) join as protected allies, with a Nu Mou Time Mage also aiding the fight.",
-            "Eliminate the Illusionist first, then manage the rest of House Bowen while the Assassin's Vanish makes her difficult to finish early.",
-            "Buffs are forbidden, so use positioning, disabling statuses, and direct recovery instead of Haste/Protect/Shell-style setup.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 10030,
             cp: 99,
@@ -195,9 +183,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         { name: "Randomized Name", job: "Antlion", quantity: 1, notes: "Part of the 10 total enemies that pour into the ring-shaped area; 5 or 6 are on-screen at a time." },
         { name: "Randomized Name", job: "Pit Beast", quantity: 1, notes: "Stronger than the Antlions; Sandstorm can heal Pit Beasts while hurting your clan." },
     ],
-        strategy: [
-            "Split your party in half and send each group around the ring to intercept enemies before they reach the tree.",
-            "Pit Beasts are the stronger threat because Sandstorm can heal them while damaging you. Kill 10 enemies total to finish.",
+        strategy: [            "Pit Beasts are the stronger threat because Sandstorm can heal them while damaging you. Kill 10 enemies total to finish.",
         ],
         rewards: {
             gil: 3280,
@@ -237,9 +223,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         { name: "Bangaa Brotherhood: Gladiator", job: "Gladiator", quantity: 1, notes: "PRIORITY: Very high offensive power. Eliminate first." },
     ],
         strategy: [
-            "You fight alongside the Nu Mou Nobles: Arcanist, White Mage, and Illusionist allies.",
-            "Items are banned, so bring reliable magick or ability-based healing and status removal.",
-            "Focus the Master Monk and Gladiator as the strongest attackers, then eliminate the Cannoneer quickly because of its long range.",
+            "You fight alongside the Nu Mou Nobles: Arcanist, White Mage, and Illusionist allies.",            "Focus the Master Monk and Gladiator as the strongest attackers, then eliminate the Cannoneer quickly because of its long range.",
         ],
         rewards: {
             gil: 10640,
@@ -253,6 +237,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         id: "D1-13",
         arc: "D1",
         name: "Memories",
+        description: "Ayeee! I've lost my precious wayfarer's log, the one I used in my youth. It's gone! Gone! How can I go to my grave with this hanging over me? Would someone care to give me their wayfarer's log? It might serve well enough to bring back the memories... -Old Man Boiboi",
         rank: 15,
         region: "Targ Wood",
         fee: 300,
@@ -285,7 +270,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         id: "D1-14",
         arc: "D1",
         name: "'Tis the Season",
-        description: "Tis the season again, the season for those horrid mimics to start spawning. We need someone to hold them back long enough for our researchers to finish their work.",
+        description: "Tis the season again...the season for those horrid mimics to start spawning. Oh, I want to get rid of them this year in the worst way, but it will take a while to activate my magickal device that should put an end to the infestation. I need someone to hold them off until it gets going! -Center for Mimic Control Research -Assistant to the Chief",
         rank: 29,
         region: "The Neslowe Passage",
         fee: 500,
@@ -307,9 +292,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         { name: "Randomized Name", job: "Mimic", quantity: 5, notes: "Mimics keep respawning during the four-round survival objective. They use Rock and Scissors-style attacks." },
     ],
         strategy: [
-            "Survive through four rounds while fighting off endlessly respawning Mimics.",
-            "Keep every unit above 20 HP to preserve the law bonus; healing and positioning matter more than chasing every kill.",
-            "The Mimics can drop useful loot. A unit with Faerie Shoes or a Gria can reach the upper-left rare treasure chest containing Madu.",
+            "Survive through four rounds while fighting off endlessly respawning Mimics.",            "The Mimics can drop useful loot. A unit with Faerie Shoes or a Gria can reach the upper-left rare treasure chest containing Madu.",
         ],
         rewards: {
             gil: 6220,

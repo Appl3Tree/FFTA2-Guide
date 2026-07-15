@@ -636,7 +636,8 @@ export const ARMOR_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         eva: 2,
         spd: 2,
         jump: 1,
-        description: "This sturdy armor is fashioned to resonate with the tides of battle, strengthening in times of direst need.",
+        additionalEffect: "Defense increases by 1 each time an Opportunity Turn is used, up to 128.",
+        description: "This sturdy armor is fashioned to resonate with the tides of battle, strengthening it in times of direst need.",
     },
     platemail: {
         id: "platemail",

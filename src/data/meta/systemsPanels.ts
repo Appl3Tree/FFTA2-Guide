@@ -10,7 +10,7 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         paragraphs: [
             "Clan privileges are battle bonuses you choose before judge-led fights. They keep working only while the Judge remains in the battle; breaking the law turns off the privilege, removes revival support, and costs the law bonus for that fight.",
             "Trials are the main source of new privileges and privilege upgrades, but the title row matters. Clearing a higher row does not grant every lower row beneath it. If you want every privilege tied to a trial family, you must earn those rows or repeat the upgrade rows until the privilege has advanced step by step.",
-            "Your visible clan title can change as you earn new titles, but clan rank, talent changes, and unlocked privileges are not wiped out by switching titles. Clan rank behaves like a highest-title marker rather than a score that repeats endlessly from farming the same easy row; discounts should be treated as title-row rewards, not as an endlessly stacked permanent pile."
+            "Your visible clan title comes from the most recently completed trial and is mainly a display label. Changing it does not remove benefits earned from earlier trial rows: the guide explicitly says those benefits stack. Talent changes and unlocked privilege upgrades also remain in effect."
         ],
         bullets: [
             "Only one clan privilege can be active at a time in battle.",
@@ -60,8 +60,8 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         tone: "emerald",
         paragraphs: [
             "Recruitment is not purely random. Traveling recruits depend on the in-game month and region, so the race and job pool changes as the calendar turns. If you are hunting a specific race, check the right month first instead of wandering everywhere.",
-            "Clan Mates is the directed recruitment quest in Targ Wood. It is a no-combat quest where you answer questions about what the clan needs, then receive a new clan member. It appears after the auction phase opens; if it is not showing up, make sure Now That's a Fire!, an auction, and The Star Seal are cleared.",
-            "Clan rank matters because better titles can improve the quality of recruits. That makes Clan Trials indirectly useful even when you are not chasing a battle privilege: higher rank gives the recruitment system more room to offer stronger or more specialized units."
+            "Clan Mates is the directed recruitment quest in Targ Wood. It is a no-combat quest where the activation month determines the recruit's race and four answers steer the offered job. It appears after Now That's a Fire! and completion of an auction.",
+            "The recruitment guide reports that a new recruit's level is based on the clan's average level, capped at level 30. Jobs must already be unlocked before they can be recruited, and some advanced jobs also require further story progress."
         ],
         bullets: [
             "Map recruits: month plus region controls the available race/job pool.",
@@ -77,8 +77,8 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         tone: "yellow",
         paragraphs: [
             "Opportunity turns are occasional special actions or buffs. Luck privileges can raise the chance of seeing them, but they are still unreliable enough that you should treat them as bonuses rather than a plan.",
-            "The Smash Gauge normally rises when a unit completes a successful action. When it fills for that unit, the next turn can offer an Opportunity Command based on adjacent units: allies tend to create buffs, while adjacent enemies create attack commands.",
-            "Positioning matters because the exact command depends on how many allies or enemies are next to the acting unit. Several missions also ban Opportunity Commands, so check the law before counting on one."
+            "An Opportunity Command is random rather than triggered by the Smash Gauge. When one appears, the command depends on adjacent units: allies create buffs, while adjacent enemies create melee attack commands. You can move before using it to change the arrangement, but the opportunity does not carry over to the next turn.",
+            "Positioning matters because the exact command depends on how many allies or enemies are next to the acting unit. An adjacent enemy takes priority over allies, while an even split of two enemies and two allies produces no command. Several missions also ban Opportunity Commands, so check the law before counting on one."
         ],
         bullets: [
             "No adjacent units: self Protect and Shell.",
@@ -93,13 +93,14 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         subtitle: "Powerful summons with strict timing.",
         tone: "purple",
         paragraphs: [
-            "Scions are large summon effects tied to the Smash Gauge and specific accessories. A unit needs the right accessory equipped and a filled Smash Gauge before it can use that Scion.",
+            "Scions are large summon effects tied to the Smash Gauge and specific accessories. A unit needs the right accessory equipped and at least 25% Smash Gauge before it can use that Scion; saving more gauge strengthens the effect.",
             "Scion abilities are not mastered through AP and are not permanently learned. If the unit removes the accessory, that Scion command is no longer available.",
             "Several missions and laws forbid summoning Scions, and gauge timing can be awkward, so use them as a powerful option rather than your only hard-fight plan. Smash Gauge Bonus privileges help if you want to build around them."
         ],
         bullets: [
             "Accessory equipped: required for the specific Scion command.",
-            "Smash Gauge filled: required before the summon can be used.",
+            "Smash Gauge at 25% or more: required before the summon can be used; saving more gauge strengthens its effect.",
+            "Once per battle: a Scion cannot be summoned a second time in the same fight.",
             "No AP mastery: Scion commands come from the accessory, not permanent learning.",
             "When a mission law bans Scions, plan a normal damage route instead of treating the summon as backup."
         ]
@@ -111,14 +112,14 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         tone: "lime",
         paragraphs: [
             "Chocobos matter because Chocobo Knights need mounts to be more than a novelty. The guide places chocobos in random encounters by region, so finding a specific color is partly about checking the right map and partly about waiting for encounters to spawn.",
-            "Random encounters do not stack indefinitely. If you want a new encounter to appear, clear the old one instead of leaving it sitting on the map forever.",
+            "A random encounter remains for 10 days if ignored and reappears 50 days from its initial appearance. If defeated, that location's encounter respawns 120 days after completion. Other events on the same tile can take priority and temporarily hide the encounter.",
             "For practical routing, treat chocobo hunting as a side project once the relevant class and regions are available. Do not stall main progression for it unless you specifically want a Chocobo Knight plan."
         ],
         bullets: [
             "Targ Wood: Yellow; Kthili Sands: Red; Galleria Deep: Black.",
             "Zedlei Forest: Green; Aldanna Range: Brown; Rupie Mountains: White.",
             "Goug can produce a random chocobo color.",
-            "Random encounters are timing-based, so clear existing encounters when you are trying to cycle for a mount."
+            "Random encounters follow location-specific timing, so clearing one starts that location's longer defeated-encounter respawn cycle."
         ]
     },
     {

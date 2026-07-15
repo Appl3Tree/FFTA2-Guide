@@ -34,10 +34,7 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
             { name: "Randomized Name", job: "Trickster", quantity: 1, notes: "Long-range card attacks." },
             { name: "Randomized Name", job: "Lanista", quantity: 1, notes: "Melee attacker." },
         ],
-        strategy: [
-            "Gria are restricted to move and basic attack only; avoid relying on Gria abilities.",
-            "Prioritize the Blue Mage's status pressure, the White Mage's healing, and the White Monk's high-damage attacks.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 6130,
             cp: 72,
@@ -67,9 +64,7 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
             adaptability: 54,
         },
         enemies: [],
-        strategy: [
-            "No combat — Montblanc, Marche's companion from FFTA, is the unsigned letter writer. Head to Baptiste Hill and he joins your clan as a Black Mage. Do not refuse him.",
-        ],
+        strategy: [        ],
         rewards: {
             gil: 7880,
             cp: 98,
@@ -108,11 +103,7 @@ export const OPTIONAL_MISSIONS_E5: Mission[] = [
             { name: "Randomized Name", job: "Spellblade", race: "Viera", quantity: 1, notes: "Stun and Maim Blade." },
             { name: "Randomized Name", job: "Fencer", race: "Viera", quantity: 1, notes: "Swarmstrike, Featherblow, and Piercing Blow." },
         ],
-        strategy: [
-            "For the law bonus, do not attack the Viera escort. Focus all damage on Al-Cid.",
-            "Al-Cid does not meaningfully attack; he primarily covers the Viera, so burst him down with your strongest attackers.",
-            "Fighting the Viera escort is possible but much harder because they overlevel you and the law forbids harming them.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 8790,
             cp: 99,

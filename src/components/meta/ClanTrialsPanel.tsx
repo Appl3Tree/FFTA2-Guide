@@ -1,8 +1,7 @@
 import React from "react";
-import { Check, Search, Trophy } from "lucide-react";
+import { Check, Search } from "lucide-react";
 import {
     CLAN_TRIAL_GUIDE,
-    CLAN_TRIAL_PRIORITIES,
     CLAN_TRIALS,
     CLAN_TALENTS,
     CLAN_PRIVILEGE_ROADMAP,
@@ -10,15 +9,15 @@ import {
 import { Panel } from "../ui/Panel";
 import { useProgress } from "../ProgressContext";
 
-const KEY_GUIDE_IDS = ["what-they-are", "title-system", "recommended-route"];
+const KEY_GUIDE_IDS = ["what-they-are", "title-system", "talents"];
 
 const START_TAKEAWAYS: Record<string, string> = {
     "what-they-are":
         "Spend Clan Points, choose one title row, clear the judge's challenge, and watch whether that trial fails on law-breaking.",
     "title-system":
         "Each title row is its own clear; upgradeable privileges climb one tier at a time, even when you clear a high difficulty.",
-    "recommended-route":
-        "Prioritize AP, CP, Move, Power, Speed, and Safe Keeping before niche race boosts or completion cleanup.",
+    talents:
+        "Quest and trial requirements use four clan talents; trial rows can raise some values and lower others.",
 };
 
 const TRIAL_RANKS = Array.from(new Set(CLAN_TRIALS.map((trial) => trial.rank))).sort(
@@ -84,9 +83,7 @@ export function ClanTrialsPanel() {
         KEY_GUIDE_IDS.includes(section.id),
     );
 
-    const earlyRoadmapItems = CLAN_PRIVILEGE_ROADMAP.filter(
-        (item) => item.priority === "Early" || item.priority === "Useful",
-    ).slice(0, 6);
+    const earlyRoadmapItems = CLAN_PRIVILEGE_ROADMAP.slice(0, 6);
 
     const filteredTrials = React.useMemo(() => {
         const query = trialSearch.trim().toLowerCase();
@@ -190,7 +187,7 @@ export function ClanTrialsPanel() {
                             Trial Browser
                         </h3>
                         <p className="text-xs text-zinc-600 dark:text-zinc-300">
-                            Browse by clan rank, then open a trial to inspect its
+                            Browse by trial rank, then open a trial to inspect its
                             five title difficulties.
                         </p>
                         <p className="mt-1 hidden text-xs text-zinc-500 sm:block dark:text-zinc-400">
@@ -320,47 +317,6 @@ export function ClanTrialsPanel() {
                         </div>
 
                         <TrialDetail trial={activeTrial} />
-                    </div>
-                </section>
-
-                <section className="space-y-3">
-                    <header>
-                        <h3 className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-                            Recommended Targets
-                        </h3>
-                        <p className="text-xs text-zinc-600 dark:text-zinc-300">
-                            Good rewards to chase before completion cleanup.
-                        </p>
-                    </header>
-                    <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-                        {CLAN_TRIAL_PRIORITIES.map((priority) => (
-                            <article
-                                key={priority.id}
-                                className="rounded-lg border border-zinc-200/80 bg-white/80 p-3 dark:border-zinc-700/70 dark:bg-zinc-900/40"
-                            >
-                                <div className="flex items-start gap-2">
-                                    <Trophy className="mt-0.5 h-4 w-4 shrink-0 text-zinc-600 dark:text-zinc-300" />
-                                    <div className="space-y-1">
-                                        <h4 className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-                                            {priority.title}
-                                        </h4>
-                                        <p className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-200">
-                                            {priority.why}
-                                        </p>
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                setRankFilter("All");
-                                                setTrialSearch(priority.trial);
-                                            }}
-                                            className="inline-flex rounded-full bg-zinc-200/80 px-2 py-0.5 text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-800 transition-colors hover:bg-zinc-300 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
-                                        >
-                                            {priority.trial}
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        ))}
                     </div>
                 </section>
 
@@ -501,17 +457,12 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
                 {trial.challenge}
             </div>
 
-            <div className="mt-3 rounded-lg border border-cyan-200 bg-cyan-50/80 p-3 text-sm leading-relaxed text-cyan-950 dark:border-cyan-800/60 dark:bg-cyan-950/20 dark:text-cyan-100">
-                <span className="font-semibold">Privilege path:</span>{" "}
-                {trial.privilegePathNote}
-            </div>
-
             <div className="mt-3 overflow-hidden rounded-lg border border-zinc-200/80 dark:border-zinc-700/70">
                 <div className="hidden grid-cols-[0.45fr_0.8fr_1.2fr_1fr_0.8fr_1.5fr] gap-2 bg-zinc-100/90 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-300 md:grid">
                     <span>Done</span>
                     <span>Title / rank</span>
                     <span>Talent shift</span>
-                    <span>Privilege path</span>
+                    <span>Clan privilege</span>
                     <span>Discount</span>
                     <span>Objective</span>
                 </div>
@@ -537,13 +488,10 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
                                 </label>
                                 <div>
                                     <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                                        Title / rank
+                                        Title
                                     </span>
                                     <div className="font-semibold text-zinc-950 dark:text-zinc-50">
                                         {title.title}
-                                    </div>
-                                    <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                                        Clan rank {title.clanRank}
                                     </div>
                                 </div>
                                 <div>
@@ -554,7 +502,7 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
                                 </div>
                                 <div>
                                     <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                                        Privilege path
+                                        Clan privilege
                                     </span>
                                     <div className="font-medium text-zinc-900 dark:text-zinc-100">
                                         {title.privilege}
@@ -578,8 +526,9 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
                 </ul>
             </div>
 
-            <div className="mt-3 grid gap-3 md:grid-cols-2">
-                <div>
+            {(trial.notes.length > 0 || trial.completionTips.length > 0) && (
+                <div className="mt-3 grid gap-3 md:grid-cols-2">
+                {trial.notes.length > 0 && <div>
                     <h5 className="text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
                         Guide notes
                     </h5>
@@ -588,8 +537,8 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
                             <li key={note}>{note}</li>
                         ))}
                     </ul>
-                </div>
-                <div>
+                </div>}
+                {trial.completionTips.length > 0 && <div>
                     <h5 className="text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
                         How to beat it
                     </h5>
@@ -598,8 +547,9 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
                             <li key={tip}>{tip}</li>
                         ))}
                     </ul>
+                </div>}
                 </div>
-            </div>
+            )}
         </article>
     );
 }
@@ -607,18 +557,17 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
 function RoadmapTable() {
     return (
         <div className="overflow-hidden rounded-lg border border-zinc-200/80 dark:border-zinc-700/70">
-            <div className="hidden grid-cols-[1.1fr_1.2fr_1fr_1.4fr_0.7fr] gap-3 bg-zinc-100/90 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-300 md:grid">
+            <div className="hidden grid-cols-[1.1fr_1.2fr_1fr_1.4fr] gap-3 bg-zinc-100/90 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-300 md:grid">
                 <span>Privilege</span>
                 <span>Effect</span>
                 <span>Trial / title</span>
                 <span>Objective</span>
-                <span>Priority</span>
             </div>
             <ul className="divide-y divide-zinc-200/80 dark:divide-zinc-700/70">
                 {CLAN_PRIVILEGE_ROADMAP.map((item) => (
                     <li
                         key={item.id}
-                        className="grid gap-2 bg-white/80 px-3 py-3 text-sm text-zinc-700 dark:bg-zinc-900/40 dark:text-zinc-200 md:grid-cols-[1.1fr_1.2fr_1fr_1.4fr_0.7fr] md:gap-3"
+                        className="grid gap-2 bg-white/80 px-3 py-3 text-sm text-zinc-700 dark:bg-zinc-900/40 dark:text-zinc-200 md:grid-cols-[1.1fr_1.2fr_1fr_1.4fr] md:gap-3"
                     >
                         <div>
                             <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
@@ -650,14 +599,6 @@ function RoadmapTable() {
                                 Objective
                             </span>
                             <div>{item.objective}</div>
-                        </div>
-                        <div>
-                            <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                                Priority
-                            </span>
-                            <span className="inline-flex rounded-full bg-zinc-200/80 px-2 py-0.5 text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100">
-                                {item.priority}
-                            </span>
                         </div>
                     </li>
                 ))}

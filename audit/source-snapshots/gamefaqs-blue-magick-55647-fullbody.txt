@@ -1,0 +1,608 @@
+Home
+Boards
+News
+Q&A
+Community
+Contribute
+Games
+
+
+3DS
+Android
+Board/Card
+iOS
+PC
+PlayStation 3
+PlayStation 4
+PlayStation 5
+Switch
+Switch 2
+Vita
+Xbox 360
+Xbox One
+Xbox Series
+More Systems
+PCPS4PS5SWITCHSWITCH 2XBOX ONEXBOX SERIESMORE SYSTEMS 
+Log In Sign Up
+GameFAQs
+BOARDS
+NEWS
+Q&A
+COMMUNITY
+CONTRIBUTE
+GAMES
+Final Fantasy Tactics A2: Grimoire of the Rift – Blue Magick Guide
+DS
+Home
+	
+Guides
+	
+Q&A
+	
+Cheats
+	
+Saves
+	
+Reviews
+	
+Media
+	
+Board
+	
+Blue Magick Guide (DS) by creedorofl
+
+Updated: 02/03/2009
+
+
+=============================================================================
+                          Learning Blue Magic Guide
+                                by CreeDo
+=============================================================================
+
+
+
+[INTRODUCTION]
+This guide is to make it easier for you to master the Blue Mage job or to
+learn just skills you want. It lists the locations of monsters who can teach
+you these skills and explains how to equip yourself to make it easier.
+
+
+
+[GENERAL STRATEGY]
+The basic idea is to send your blue magic 'students' and 1 beastmaster into
+certain random battles. First you kill the monsters that can't teach you 
+anything. If there are 2 or more monsters who can teach you the same skill, 
+you only need to keep 1 alive. Once the distractions are gone, you surround 
+the monster(s) you're learning from and get everyone close to it. Then use 
+the beastmaster to make it use the skills you want to learn.
+
+Not every battle will go smoothly. Sometimes you need to keep 2 or 3 monsters 
+alive because each one teaches you something. Surrounding them all won't be
+possible. Others can teleport or fly so you must chase after them. But others 
+can hit from anywhere on the map so only the beastmaster must follow them.
+A few skills cannot be forced by your beastmaster so you'll need patience to
+learn those. Some have a high mp cost so you must feed the monster ether.
+
+It's easier to do this when you're far in the game, and everyone's a high 
+level. You'll take a lot of damage and eat a lot of debuffs doing this, so
+having a good HP, equipment and jobs is important. You can learn these skills 
+even after beating the game and doing all 300 (301) quests.
+
+
+
+[===========================================================================]
+
+
+
+[JOB SETUP]
+- You don't need to be a blue mage to learn skills. You can use one long
+enough to master the "Learn" support ability from the Light Saber.
+
+- Once you've set "Learn", you might try powerful jobs that can do lots of 
+damage or equip good weapons and armor. It's actually not bad to stay as a 
+blue mage... they are pretty strong when equipped with a talwar and it's fun
+to try the new skills you just learned, some of which are very good. 
+It also makes it easier to see what skills your blue mage has or still needs.
+
+- Remove reaction abilities that cause damage. You don't want to accidentally
+kill the monster you're trying to learn from. The ideal ability is reflex.
+Absorb damage is also fine. You might figure Evade Magic would also make 
+sense, but then you might avoid some of the spells you're trying to learn. 
+
+                     :::::Useful Jobs/Secondary Jobs::::::
+
+- White Mage (sub) -
+Two skills require Reraise to learn. You can get Reraise from Angel Rings,
+but if you don't have enough rings, you'll need White Magic to do it. You may
+even want Reraise and Angel Ring both, since it's easy to come back to life 
+with low HP and then immediately get killed again. You'll also want the 
+Refresh ability to remove bad debuffs and of course Cure to heal damage.
+
+- Items (sub) -
+At least one item user is very useful to give the monsters Ethers, so you can
+be sure they have enough MP to use the spell you want to learn. Items are
+also a good safety valve in case things go wrong, you can heal or raise units
+and give them ether so they can use powerful spells like Ultima. You may find
+knots of rust or dark matter useful to remove a little bit of HP on Shellings
+(see below) or to smack a teammate who is charmed/confused.
+
+- Hunter -
+Hunters are great for dishing out big damage. They work as a main or subjob.
+You will mostly use Sidewinder to damage unwanted enemies, and Ultima Shot
+if it's available. The ability 'Hunting' is great for learning Cornered. 
+It does a tiny bit of damage, and the enemy can only hit with Cornered when 
+his HP is 10 or less. So if your regular attack might do too much damage 
+and kill him, you can use Hunting to safely wear his HP down bit by bit.
+
+- Time Mage -
+This will be the subjob for your Nu Mou beastmaster. You can haste yourself 
+and make the enemy use their skills want more frequently. You can use slow on
+it, and of course haste your party. You can also stop other monsters that you
+want to keep alive, so they don't harrass you while you're busy with the
+current monster. You can quicken your items user to feed them ethers. In some
+cases you will even want to quicken a monster to get it to keep trying skills
+that you can't force (like Roulette). 
+
+- Any 'asskicker' job combo. If you are fielding less than 5 Blue Mages, then
+you will have at least one open slot. Fill that slot with your strongest 
+units, who can kill off unwanted monsters fast and make life easier. Some 
+well-known nasty combinations include:
+   Paladin/Paravir with Geomancy - huge damage elemental skills, no MP cost.
+   Paladin/Seer with Dual Wield - use magic frenzy to hit 3 times.
+   Trickster or Cannoneer/Gladiator with Halve MP - fast long range ultimas.
+   Assassin/Green Mage with Halve MP - Tranq yourself then get easy OHKO's.
+   Red Mage/Summoner with Halve MP - Doublecast summons, damages a big area.
+   (beastmaster)/Sage with Halve MP - Bring a 2nd beastmaster who can Ultima.
+   Ranger with Item Lore - use Mirror X-Potions for easy 400 damage.
+   Fusilier/Moogle Knight or Juggler - Spam stopshot to end enemy harrassment
+   and occasionally bust out Ultima or use smile tosses where needed.
+
+My job setup was mostly Blue Mages with White Magic or Hunting as a sub.
+There are stronger setups, but really you spend most of the battle skipping
+turns, waiting for the beastmaster's turn and staying alive. So the exact 
+setup doesn't matter. Just be sure to bring along at least 2 with white magic
+and 1 with items.
+
+=============================================================================
+
+[EQUIPMENT SETUP]
+
+- *ANGEL RINGS* for everyone. You must have Reraise to survive Cornered (aka
+Limit Glove)and Roulette. If you don't survive them, you don't learn them. 
+Without angel rings, you must waste turns casting reraise, so just use them.
+It's not hard to get lots of them, just use the following strategy:
+
+ 1. Make 4 Thieves who have Lv. 3 and Lv. 4 loot mastered.
+ 2. Look for the "Of A Feather" random battle to appear near Goug. If it's 
+    not there, sleep 20 days at the witch's & check again. Repeat as needed.
+ 3. Enter the battle with your 4 thieves plus Al-Cid. Also bring a strong
+    unit who can easily kill enemies and also use either Stop or Stone. 
+    An Assassin is perfect. Use green magic to Tranq her and to sleep 
+    enemies. A Fusilier with Stopshot is also ok.
+ 4. Use Al-Cid's "Interrogate" to see which chocobos have Lightwing Crystals
+    or Mythril. These are 2 of the ingredients needed to make Angel Rings.
+    Steal as much of each as you can. It's important to stop or stone the
+    enemies carrying these items... it makes stealing from them easier. 
+    Kill anything that doesn't carry the loot you want. It takes patience; 
+    you might end up stealing loot you didn't want and then you must try 
+    again, but your success rate will be cut in half (from 100% to 50% to 
+    25% on the third attempt. After that it's not worth bothering). 
+    Each enemy has an unlimited amount of the loot they carry, so in theory 
+    you can steal more than 1 from each. That also means that if you get the
+    wrong loot, you won't have a better chance on your next try, you might 
+    get the same wrong thing. I consider it a good battle if I get 3 useful
+    pieces of loot.
+5.  Use your Assassin/Green Mage to finish off enemies who aren't useful or
+    who have already given up the loot you need. Have her use sleep when you
+    can hit 2 or 3 enemies with it. Otherwise use Shadowstitch or Rockseal on
+    the guys who carry the good loot. Use Last Breath on the rest.
+    Also, once you know for sure which enemies are worth stealing from, you
+    can kill Al-Cid so you don't have to waste time skipping his turns.
+6.  The third ingredient to Make Angel Rings is a Wyrmtwig. To get these,
+    sleep in the witch hut until the "Wonders of Loar" quest is available 
+    in the Pub. Dispatch the quest, sending your 4 highest level units. 
+    I think around lv. 60 or so they will jump up and down when placed in 
+    the dispatch slot, which means they're guaranteed to succeed.
+    Go straight from the pub to the witch hut and sleep 200 days. They will
+    return from dispatch successfully and you'll get a Wyrmtwig as a reward.
+    You may need to sleep again to make the quest reappear on the roster.
+    Repeat until you have enough.
+
+After you have the needed loot, make an Angel Ring at the shop. It's in the 
+Mystic Arms category, level A. You can only build one at a time, then you 
+must buy it and return to the bazaar screen and build another. You can get by
+with 5 or so, but you might want to make more anyway... the final quest
+has a really hard bout where multiple angel rings are very useful.
+While you're at the shop, load up on ether.
+
+- REMOVE debuff protection items, like Orb of Minwu and Ribbons. A lot of the
+skills you learn are debuffs, and if you're protected from them you can't 
+learn them. That's why it's important to bring that White Magic sub. You can
+keep the Orb of Minwu on your beastmaster, and you might also want something
+that protects against stop and doom.
+
+- NINJA TABI, because it sucks being too far away to surround a monster... 
+or if you're too far away to get hit with the skill you want to learn.
+
+- GOOD ARMOR, with high resistance ratings. You'll be taking lots of damage.
+
+=============================================================================
+
+[THE SKILLS]
+
+I'll also list which monster teaches it. They're roughly in order of 
+usefulness, from best to worst, though of course opinions will vary. I try 
+to name the lowest level monster that can teach the skill, but some of these 
+skills can be learned from multiple enemies and I might have gotten a name 
+wrong (but I'll make sure know which monsters I mean in the walkthrough).
+
+- Matra Magick (Adamantitan)
+  This switches HP and MP, with about a 50% success rate. Since MP is
+  usually under 100 (especially at the start), this will almost always
+  bring the target to critical, so one more attack will finish them.
+  If the enemy's MP is 0 (which you can make happen with an MP draining
+  ability) then Matra Magic will kill them. It's pretty much an Instant KO
+  spell with a decent success rate. On rare occasion, you will use it on
+  a teammate if he's been building MP for a while and is near death.
+
+- Angel Whisper (Sprite)
+  Grants reraise to any target, and has decent range. Also restores some HP,
+  enough to be useful just as a cure spell. 
+
+- White Wind (Sprite)
+  Pretty much the strongest cure spell in the game, it can target multiple
+  panels like a regular cure, but it restores HP equal to your own current 
+  HP. So the healthier you are, the stronger it is. If you're at a high 
+  level, this will usually be much stronger than curaga or similar spells,
+  even if the user has already lost some HP.
+
+- Sandstorm (Antlion)
+  A generic magic spell that hits multiple panels. Causes earth damage, which
+  isn't very common, and has a high chance of inflicting the blind debuff.
+
+- Quake (Headless)
+  More or less the same thing as Sandstorm, but doesn't cause blind. The only
+  reason you'd use this instead is because it can work with the Seer's
+  Magic Frenzy ability.
+
+- Doom (Deathscythe)
+  Cast doom on a target with a decent (60%ish) success rate. While three
+  turns is enough time for you to kill the enemy some other way, Doom is nice
+  at the start of the battle when you can't get close enough to use a better
+  skill and you only have a little bit of MP. You can try Doom with no risk
+  and if it hits, you can ignore that target for the rest of the battle.
+
+- Bad Breath (Malboro)
+  Inflicts Blind, Silence and Poison on enemies. Hits multiple panels in a
+  T-shaped area in front of you. It's worth using when enemies line up nicely
+  for it, and you can nail 3 or more in one turn. Good vs. mages.
+
+- War Dance (Dreamhare)
+  Give the Attack Up buff to units in an area. While Dragon Force is nicer,
+  this lets you hit up to 5 teammates in one turn, so it's more useful.
+  Buffs like Attack Up seem to last forever so you'll use this right away.
+
+- Dragon Force (Nidhogg)
+  Give Attack Up and Magic Up to 1 unit. Good range. 
+
+- Mighty Guard (Thunder Drake)
+  Give Defense Up and Resistance Up to 1 unit. Also has good range.
+  Better than doing Protect/Shell because it lasts longer.
+
+- Expose Weakness (Fire Drake)
+  Give Defense Down and Resistance Down to 1 unit, the opposite of Mighty
+  Guard. Worth using on enemies with high HP so you can finish them faster.
+
+- Screech (Wolf)
+  Do a bit of damage from long range to 1 unit, plus a good chance of causing
+  the Confuse debuff. Might be worth using if you're too far to hit an enemy
+  and Sandstorm can't be used without hitting a teammate.
+
+- Magick Hammer (Baknamy)
+  Removes some MP from 1 target. If you're too far to hurt them and you 
+  can see they have enough MP to use a nasty spell on their next turn, 
+  you may find this worth trying.
+
+- Self-Destruct (Bomb)
+  Blow yourself up, doing huge damage to nearby units. Generally dying is not
+  a good way to win battles, but the damage from this nasty, 800+ sometimes. 
+  So if you're in a hurry and you're sure to win anyway, you can use it to 
+  take out even the strongest enemy in 1 turn. If you see the chance to hit 
+  2 or 3 enemies, go for it. You got an angel ring, right?
+
+- Cornered (aka Limit Glove)(Great Tortoise)
+  If your HP is in single digits, this move will hit for 999 damage. Has the
+  same success rate as a normal attack. You can use Self-Destruct and a very
+  low level unit with an angel ring to set this skill up.
+  Credit to "tried42long" for sharing this tactic with us, he has a video on
+  Youtube showing it: http://www.youtube.com/watch?v=WQ7J8Ofh9dQ
+
+- Roulette (Plague)
+  Randomly KO's 1 unit. Can be on your team or the enemy's. While this is a
+  gamble, it's not entirely insane to use it. One way to make it useful is to
+  enter a tough battle with only 1 Roulette user. Since you will be facing 5 
+  or 6 enemies, the odds of hitting an enemy are pretty high. You can use
+  equipment that is immune to instant KO like the Master sword to prevent it,
+  or just load up on Angel Rings. A video of this strategy is here:
+  http://www.youtube.com/watch?v=-ux8XGwOHpc
+  Credit again to "tried42long".
+
+- Unction (Red Marshmallow)
+  Causes the Oil debuff, which makes the target take extra damage from fire
+  element attacks. You almost have to set your party up specifically
+  to make use of this, and even then it's not that hot. Get it? Haha.
+
+- Eerie Sound Wave (Malboro)
+  Dispels buffs from 1 unit. I find dispel skills are pretty useless, because
+  instead of indirectly hurting the enemy by removing a buff, you can just
+  directly hurt them by causing damage. An exception might be to remove 
+  the reraise debuff from enemies. Killing them twice is a pain in the ass.
+
+- Roar (Werewolf)
+  Dispels buffs from everyone on the screen, including teammates. You'd only
+  use this if the enemy has been buffing themselves like crazy and you have
+  virtually no active buffs. Otherwise... see above.
+
+- Night (Lamia)
+  Puts everyone on the map to sleep except for the person using the spell.
+  I guess if you have lots of females with ribbons, or some other equipment
+  that protects against sleep, this could be useful to sleep the whole enemy
+  team. Might be worth experimenting with.
+
+=============================================================================
+
+[THE WALKTHROUGH]
+
+Here I list of the random battles you need and where they appear. You can 
+learn more than 1 skill in most of them. They aren't the only battles where 
+you can learn skills, but they are available throughout the game and are 
+pretty easy if your level is high. The way they work (I think) is they're 
+available for a few days (10? 20?) and then they go away for about 50 days 
+before popping up again.
+
+Remember: bring White Magic, items, plenty of ether, beastmaster with time
+magic sub, and angel rings.
+
+Something else to think about before you go in is how many Blue Mages you
+plan on teaching. Adelle, Frimelda (aka Blago), and Vaan can learn it as
+well as your hume generics and Luso. It's easiest to bring all of them into
+the battle to learn at once. One nice setup is 2 beastmasters, 1 with time 
+magic sub, the other with sagacity. You use the Halve MP support ability 
+and maybe also the MP Efficiency clan privelege. Then one beastmaster 
+supports with time magic, the other just ultimas all the useless enemies.
+
+You don't have to do these in any order. Some are easier than others.
+You'll have to pass time to get them to appear. On the western continent, you
+can use Lezaford's hut to sleep 20 or 60 days. But after beating the game, 
+this becomes a pain in the ass and it's almost better to just walk from the
+ruins of delgantua to targ wood. Each lap burns 10 days. On the eastern
+continent it's easier, just use the witch hut.
+
+BATTLE A -  (learn Angel Whisper, White Wind, Magic Hammer)
+"Fey Mischief" (Targ Wood)
+Difficulty: easy
+--------------------------
+Remember this from the beginning of the game? The enemies leveled up but 
+they're still no big threat. Kill the bunny, chocobo and red sprite.
+Don't kill either blue sprite, you need them both. They look identical but 
+only one can teach you White Wind, and the other teaches Angel Whisper. The 
+Baknamy (goblin thing) teaches Magic Hammer and will use it a lot even if
+you don't coach him with a beastmaster. Hit him with slow or stop & go after 
+the sprites first (which are harder to debuff). Surround one with your whole 
+squad and hastega your beastmaster and item user. Feed the Sprite ethers and 
+have the beastmaster keep forcing the skill out of them until everyone's 
+learned it. White wind is easier, it can target multiple panels and you may 
+only need to make the sprite to use it twice to teach everyone. Since it 
+restores HP, you may need to be hurt for it to be learnable. Have a teammate 
+smack anyone who isn't hurt yet, just to be sure they learn it.
+
+The other skill, Angel Whisper, will take longer but it's no big deal.
+Once you have a Sprite's skill, kill it, and save the Baknamy for last.
+
+
+BATTLE B -  (learn War Dance, Bad Breath, Eerie Soundwave)
+"Open Wide" (Zedlei Forest)
+Difficulty: a little tougher
+--------------------------
+The enemies here are a bit stronger, and will cast buffs on each other. The
+bunny especially is annoying and you can't kill it. Kill the green chocobos
+and the purple Malboro. Keep the green Malboro and the Dreamhare. Surround
+the dreamhare first, and try to cluster your units so that when you make it 
+use War Cry, it hits 2 or 3 guys at once. Once everyone's learned it, slay 
+it and the slow Malboro will be easy. Again try to line people up to get
+multiple hits with Bad Breath (it will probably try this even without the 
+beastmaster). Have your item user or white mage remove the annoying debuffs.
+Once you've mastered that, don't kill it yet, you must then give all your 
+blue mages some kind of buff. It doesn't matter what, try to pick something
+that's more or less permanent. If someone has Blue Magic available, now's a
+good time to hit everyone with War Cry or Angel Whisper. Then force the 
+Malboro to dispel the buffs one by one.
+
+
+BATTLE C -  (learn Screech, Roar)
+"The Strength of the Wolf" (Bisga Greenlands)
+Difficulty: mildy annoying
+--------------------------
+Roar is easy to learn here, the Werewolf uses it every chance it gets. Just
+keep buffing anyone who needs to learn it, and eventually you'll get it. 
+Of the red and purple wolves, you only need 1, get rid of the other 2. 
+There are 2 werewolves so you can kill one and spare the other until roar 
+is mastered, then take him out. The only trouble in this battle is if you 
+have a low level unit (in my case Vaan), then a strong attack from the wolves 
+will almost kill you. Also irritating is when you're down to 1 wolf and it 
+uses the "summon pack" ability to bring another. In that case, the other 
+will be a low level brown wolf. Learn screech from that one and kill the 
+rest, since brown ones can't use summon pack. If anyone gets confused and
+you want to fix it, a knot of rust works great.
+
+
+BATTLE D -  (learn Quake)
+"Formidable Strength" (Aldanna Range)
+Difficulty: medium
+--------------------------
+These enemies can do some damage, but luckily you only need to save one. You
+can kill all the werewolves and the chocobo. My memory is fuzzy but I think
+there's 2 Headlesses, and only one of them can teach you Quake, so be careful
+which you kill. Since it's an area affect spell you can easily teach 2 or 3 
+units at once. Definitely helpful to have an asskicker unit here, everyone's
+got pretty high HP.
+
+
+BATTLE E -  (learn Self Destruct, Sandstorm)
+"Burning Soul" (Kthili Sands)
+Difficulty: easyish
+--------------------------
+If you're at a high level, these guys can't hurt you much. The chocobo 
+always runs into a Charm trap at the start to help you out. You need only 1 
+of the big spiders (Antlions), so kill the other. Kill the blue bomb as well.
+Kill the red chocobo last since he's your buddy. Surround the antlion and 
+learn Sandstorm, then kill it and and surround a bomb. This is a little 
+tricky - you must get it into critical and coax it into self-destructing. 
+They won't let the beastmaster force it to blow up (aww come on!)
+There are only two things that can make this battle a pain. First, the traps 
+are a nuisance. The second is that you must remember to bring White Magic 
+(or a Blue Mage with Angel Whisper) to cast Reraise. The bombs must kill 
+themselves to teach you Self-Destruct, and with reraise they can come back
+and teach someone else. Don't let the charmed chocobo accidentally kill it.
+Reraise yourself to be sure you survive the explosion. You may even want to 
+leave the 2nd bomb alive just to be safe.
+
+
+BATTLE F -  (learn Dragon Force, Mighty Guard, Expose Weakness)
+"Dire Rotundity" (Aisenfield)
+Difficulty: medium
+--------------------------
+This can get hairy, as you must leave 3 different monsters alive, and they
+do lots of damage. But actually learning the skills is super easy, as they
+can't miss and have pretty good range. Work that beastmaster hard. Hastega 
+everyone at the start, and have them chase after and kill the cute 
+fat cockatrices, which use Wake-Up Call (aka Chicken Quicken). You'll leave
+the two drakes and the dragonish Nidhogg. Try to learn mighty guard first 
+from the yellow drake, then kill it and learn Dragon Force from the Nidhogg. 
+The red drake will be last and will use Expose Weakness on its own. I think 
+the Nidhogg can also use it. Mighty guard will cancel it out if you're 
+worried about dying. They key to here is to watch HP and keep healing.
+
+
+BATTLE G -  (learn Matra Magic, Cornered)
+"A Hard Place" (Fluorgis)
+Difficulty: a bit tough
+--------------------------
+This can be frustrating if you're not prepared. To learn Matra Magic you must
+let yourself get knocked into critical HP (usually) and to learn Cornered 
+you have to actually die. The turtles will piss you off with headbutt
+(immobilize), Resonate (disable), and Munch (destroys your weapon or armor. 
+Don't wear really rare stuff). Send your stronger units (hunters etc.) to 
+the top and kill the purple toughskins first, they can't teach you anything 
+and their Resonate skill is a pain. Don't kill the yellow turtle. You have 
+3 green turtles. In theory you only need 1, but since you must bring them 
+to critical HP you might keep a 2nd alive just in case. Kill the 3rd.
+
+This goes a bit faster if you split up. All the heavy hitters who rushed to 
+the top should surround the yellow turtle (Adamantite) and 1 item guy should 
+feed it ether, then the beastmaster forces it to use Matra Magic. The success
+rate is low so you must try many times. Once someone has learned matra magic, 
+send him down towards the green turtles and try it on them if possible. 
+Keep the beastmaster and item guy up top, you won't need him for the green 
+turtle(s), they will spam Limit Glove once their HP is low. By the way,
+Cornered = Limit Glove, it's just a different name.
+
+To learn it, you must get a green turtle down to 9 or less HP. It will keep
+trying Limit Glove whenever it's critical, but it misses unless HP is below 
+10. Getting their HP that low is tricky. Getting them to critical HP is easy,
+but then you must find a way to chip off 10-40 HP without killing it. The 
+hunter can use 'Hunting' to do it, remember that you can adjust the damage a 
+little depending on whether you're facing the front, side, or back.
+If Hunting looks like it'll cause too much damage, try dark matter (~16 
+damage) or knots of rust (usually less than 10 damage). In my case, I used 
+Vaan. He was so low level, his physical attacks always caused 1 damage.
+
+This is one of the skills where an Angel Ring or Reraise is NOT optional,
+Cornered WILL kill you, and only reraise lets you 'survive' it, though you 
+technically died. You will also want reraise for Matra Magic victims. It 
+helps to use time magic to stop/slow the green turtles while you're busy 
+with the yellow one.
+
+A note - reraise brings you back to life even if you break the law, so just
+ignore the law. It works whether you cast the spell or use an Angel Ring.
+
+
+BATTLE H -  (learn Doom, Night)
+"Otherworldly Visitors" (Aisenfield)
+Difficulty: makes me sad
+--------------------------
+Battles with the undead suck because they keep coming back. You really want
+some kind of skill to banish them, like the Hunter's Oust. You can also
+petrify them. Get rid of the 3 ghosts, they're useless. Save the deathscythe
+and 1 of the Lamias. The Deathscythe keeps teleporting away so you must chase
+him all over the map. Keep forcing him to use Doom, it's a bit tedious due 
+to doom's low success rate. You can help things along by sleeping or stopping
+your own teammates. Hope he doesn't use his other skill, it's a pain.
+Ignore the law and forget the Lamia, as it will use Night on its own and 
+isn't a huge threat. Once everyone's learned Doom, banish the Deathscythe and
+get everyone far away from the Lamia. You only need to chase it with the
+beastmaster to force it to use Night, and if it's far from everyone else 
+it won't use other attacks to hassle them.
+
+
+BATTLE I -  (learn Unction)
+"Just Desserts" (Ruins of Delgantua)
+Difficulty: easyish
+--------------------------
+Here you just need to kill all the jellies except the red one. Also kill 
+the flying eyeballs. The only thing to watch out for is the 'Acid' skill,
+which causes some nasty debuffs. Mostly only the yellow jelly uses it.
+Cluster everyone together and trap the red jelly, hit them with unction, and
+maybe use refresh if you've gotten hosed by too many debuffs.
+
+BATTLE J -  (learn Roulette)
+"One Eyed Evil" (Galerria Deep)
+Difficulty: tough
+--------------------------
+Probably the hardest skill to master if you're trying to teach a lot of guys,
+but with a little luck it's not bad. Kill every enemy except one of the big 
+eyeballs (I can't remember if they're Plagues or Ahrimans). Once you're down 
+to that last enemy, cast Reraise on it. Also reraise everyone on your team 
+who doesn't already have an Angel Ring. You can't force it to use Roulette, 
+so you can skip the beastmaster and just bring an asskicker instead. Equip 
+that unit with something that prevents instant KO, like the Master Sword.
+Now it's just a waiting game. The eyeball will use Roulette about 50% of the
+time. Once it KO's someone and they learn it, you should kill them again.
+That way you improve the odds that Roulette will hit someone useful next time
+instead of hitting the same guy again. The downside is you might lose once
+you get down to just two guys. 
+
+
+=============================================================================
+                              Summary & Credits
+=============================================================================
+
+That's pretty much it, once you've mastered Blue Magic you'll find it's a lot
+of fun to bring along. One handy combo is to use it with your seer, cast 
+dragon force on yourself, then use dual wield magic frenzy with Quake. You 
+can also use Recharge to get access to the stronger Blue Magic. Have fun with
+Matra Magic. Try bashing someone with a Magic Hammer to get MP to 0, then
+use a Juggler with Smile Toss (or Time Mage with Quicken/Haste) to give you
+another turn before they recover. Matra Magic them and they die. Or a less
+elaborate version of this is to have a teammate get their MP to 0 just before
+your turn. And check out the videos on Roulette and Cornered abuse.
+
+Thanks to:
+Gamefaqs FFTA2 message board, where all the good info is.
+Gamespot FFTA2 message board, which also has some nice info.
+tried42long, the guy who showed that matra magic isn't the only strong
+offensive skill in your arsenal.
+Element_Seraph, who lists some strong builds I never knew about on the board.
+Warfreak, for an awesome and very large general FAQ that I've used a lot.
+
+View in: Text Mode
+
+GameFAQsfacebook.com/GFAQstwitter.com/GameFAQsHelp / Contact UsChange Colors 
+
+gamespot.commetacritic.comfandom.comfanatical.com
+
+SitemapPartnershipsCareersTerms of UseDigital Services Act
+
+Privacy PolicyDo Not Sell My Personal InformationReport Ad
+
+© 2026 FANDOM, INC. ALL RIGHTS RESERVED.

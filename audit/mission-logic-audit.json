@@ -1,0 +1,11 @@
+{
+  "counts": {
+    "missions": 346,
+    "withLaw": 258,
+    "withStrategy": 232,
+    "findings": 0,
+    "fixes": 0,
+    "reviews": 0
+  },
+  "findings": []
+}

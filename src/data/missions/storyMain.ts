@@ -33,6 +33,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "A1-01",
         arc: "A1",
         name: "Stranger in the Woods",
+        description: "Monster in Targ Wood! We hunters of the village tried to stop 'im, to no avail. Somebody do somethin', please! You don't need to kill 'im, just drivin' 'im off will do. -Heriward, Wood Village Hunter",
         rank: 1,
         questType: "Story Battle",
         region: "Targ Wood",
@@ -71,11 +72,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 equipment: [],
             },
         ],
-        strategy: [
-            "Have Luso and Cid focus on Klesta while a White Mage keeps them patched up.",
-            "Use your Black Mage to chip away at the boss from a safe distance.",
-            "Pick off smaller birds only when it’s safe; the clear condition is pushing Klesta down, not a full wipe."
-        ],
+        strategy: [      ],
         rewards: {
             gil: 250,
             cp: 2,
@@ -87,6 +84,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "A1-06",
         arc: "A1",
         name: "A Paw Full of Feathers",
+        description: "What's in the woods? Wolves, that's what! And my chocobos are so put out, they're molting early. Somebody, rid us of these horrible howlers! -Chocobo Corral \"Sasasha\"",
         rank: 2,
         questType: "Story Battle",
         fee: 100,
@@ -132,11 +130,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 ]
             }
         ],
-        strategy: [
-            "Bring a White Mage for sustain; focused healing keeps your frontline from getting overwhelmed.",
-            "Use sturdy melee (Soldier/Warrior-type jobs) to body-block wolves and prevent backline dives.",
-            "Avoid any fire-element skills or weapons; lean on neutral weapon attacks and non-fire spells instead."
-        ],
+        strategy: [      ],
         rewards: {
             gil: 1050,
             cp: 4,
@@ -473,6 +467,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "C3-01",
         arc: "C3",
         name: "Mountain Watch",
+        description: "Kuknir Travel is looking for guards to escort touring groups headed for the Rupie Mountains. The Marsa Wayfarers Association has been gaining on them of late. Kuknir want safety as a selling point, most like. -Shink, Pub Patron",
         rank: 20,
         questType: "Story Battle",
         fee: 300,
@@ -511,15 +506,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Haste/Slow support. Remove if it starts controlling the turn economy.",
             },
         ],
-        strategy: [
-            "WARNING: Ewen removes the judge at the start — there is no clan privilege and no reviving fallen units. Every KO is permanent for this fight.",
-            "Try to take out the Time Mage before it can Haste the enemy clan, then go for Ewen to end the mission.",
-            "Ewen and the Ninja both have Throw, and Ewen's Nightfall class can hit hard even against sturdy units.",
-            "The Sniper can pick off back-line units from long range — eliminate them early or keep your squishiest units out of line of sight.",
-            "Assassins can inflict instant KO with Doom Fist — don't let them reach your healers.",
-            "Since you cannot revive, play conservatively: use items, stay healed, and only engage when you can guarantee safety.",
-            "Ice is banned — use physical skills, fire, lightning, or holy damage instead."
-        ],
+        strategy: [  ],
         rewards: {
             gil: 2450,
             cp: 40,
@@ -531,6 +518,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "C3-06",
         arc: "C3",
         name: "Grounded!",
+        description: "Airship malfunction due to mechanical sabotage and inspections resulting from same have grounded our regular flight to Fluorgis. The party or parties responsible have yet to be apprehended. Calling all clans to aid us! -Moorabella Aerodrome Security",
         rank: 21,
         questType: "Story Battle",
         fee: 400,
@@ -569,15 +557,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Healer. Defeat early so Genius Ed and the frontline cannot recover.",
             },
         ],
-        strategy: [
-            "The judge is back for this fight — use your clan privilege and aim for the law bonus.",
-            "Vaan joins as a guest ally after trying to claim Genius Ed for himself.",
-            "Upholding Harming the Weak can be awkward if side quests have pushed your levels high; do not let the law distract you from the win target.",
-            "Take out the White Mage first so Genius Ed and the front line cannot be healed back up.",
-            "Then pressure the Fusilier, whose ranged status shots can disrupt your party from across the airship.",
-            "The Berserker goes berserk but is easy to counter once isolated; don’t let it rampage through your healers.",
-            "Genius Ed (the Sage) is the mark — focus him once the support is thinned or neutralized."
-        ],
+        strategy: [  ],
         rewards: {
             gil: 4780,
             cp: 42,
@@ -589,6 +569,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "C3-11",
         arc: "C3",
         name: "Rumors Abound",
+        description: "Rumors whisper of an unimaginable treasure sleeping deep within Tramdine Fens. Some say it is the Dozen-and-One Knights of Aisen's hoard, others that it is a cache of Rozarrian wealth... Whets the palate, does it not? Well? In the mood for a treasure hunt? -Kanaq, Pub Regular *No evidence has been found to support above rumors. -The Management",
         rank: 22,
         questType: "Story Battle",
         fee: 400,
@@ -621,14 +602,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Undead support. Can drain HP to heal itself; finish with Phoenix Down or Exorcise to stop it from returning.",
             },
         ],
-        strategy: [
-            "The Wraith and Ghosts are top priority because they can summon more undead into the battle if left alone.",
-            "Ghosts inflict Sleep and Silence — keep Esuna or Remedies on hand and don’t cluster units so one sleep touch can’t cascade.",
-            "The Zombie can drain HP to replenish itself; do not let it linger while you are cleaning up tombstones.",
-            "Floating Eyes can confuse units; spread your formation to limit friendly-fire chaos.",
-            "All undead take damage from Cure spells and are permanently killed only by Exorcise or Phoenix Down — use those to prevent them rising again.",
-            "Copycat law: vary your actions each turn. If the previous unit attacked, your unit should cast a spell, use an item, or take a support action instead."
-        ],
+        strategy: [   ],
         rewards: {
             gil: 2770,
             cp: 44,
@@ -640,6 +614,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "C3-16",
         arc: "C3",
         name: "Sleepless Nights",
+        description: "My dreams have been troubled of late. It started the night after my visit to Nazan Mines. I cannot sleep, my arms and legs are leaden, and even plump Bisga game- hen tastes like ash. They say a creature within the mines weaves ill-omened dreams. I fear...I fear I may be a victim. Please, stop it before I go mad. -Dabool, Geologist",
         rank: 24,
         questType: "Story Battle",
         fee: 400,
@@ -672,13 +647,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Undead support. Use Cure damage and Phoenix Down or Exorcise to keep it down.",
             },
         ],
-        strategy: [
-            "Debuffs are banned — build your team around pure damage, healing, and buffs only.",
-            "Start by clearing the Bloody Orb (easiest of the escorts) then work through the Wraiths and Zombie.",
-            "All undead units (Wraiths and Zombie) take damage from Cure spells. Finish them with Exorcise or Phoenix Down so they don't rise again.",
-            "The Oversoul is the mark and the last target — save your biggest hitters for it.",
-            "Use Protect and Shell freely since buffs are legal; sustain your party and grind down the opposition."
-        ],
+        strategy: [    ],
         rewards: {
             gil: 3780,
             cp: 48,
@@ -690,6 +659,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "D4-01",
         arc: "D4",
         name: "Making Music",
+        description: "The timber of the strawood trees growing near Fluorgis makes the best instruments, kupo! You'll get some for me, won't you, kupo? Oh, thank you! Thank you! -Hurdy, Itinerant Bard *Oh, if you find some flutegrass too, that'd be awful nifty, kupo!",
         rank: 27,
         questType: "Story Battle",
         fee: 400,
@@ -722,13 +692,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Golem-type enemies that the Alchemist can control via Beastmaster."
             },
         ],
-        strategy: [
-            "The Raptor is the only female enemy — you cannot harm it under the law. Use immobilize, disable, or simply avoid it and let it waste turns.",
-            "Focus all damage on the male enemies: the Alchemist, Ranger, and Headless golems.",
-            "Prioritize the Ranger early — Mirror Items can turn your own healing or offensive items against you.",
-            "Kill the Alchemist quickly once the Golems and Ranger are neutralized; Beastmaster makes the Golems more dangerous while he lives.",
-            "Astra on the Alchemist grants status immunity for a turn — wait it out before spending debuff actions on him."
-        ],
+        strategy: [    ],
         rewards: {
             gil: 4730,
             cp: 54,
@@ -740,6 +704,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "D4-06",
         arc: "D4",
         name: "Seeking the Stone",
+        description: "I search for a piece of magicite the color of silver. I'm sure it was in my laboratory just the other day... Please, if you know something-anything at all-let me know. My laboratory is in the Bisga Greenlands. -Narph, Magick Akademy Scholar",
         rank: 29,
         questType: "Story Battle",
         fee: 400,
@@ -784,14 +749,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Gria Hunter with Vitals Shot — can deal disproportionate burst damage."
             },
         ],
-        strategy: [
-            "AoE abilities that target all units on the field are banned — stick to single-target and multi-target abilities with defined areas.",
-            "Prioritize the Ranger first: Silence Gas will shut down your mages and casters mid-fight.",
-            "The Gria Hunter's Vitals Shot can reduce a unit to 1 HP in one hit — keep your healers away from her and react fast.",
-            "The Paladin uses Cover to intercept attacks on allies; don't waste burst turns when Cover is active, or pull him away from the target first.",
-            "The Hunter's Rend MP can drain your spell slots over time — keep enough MP in reserve to handle emergencies.",
-            "Narph the Scholar covers all three main elements (earth, ice, lightning) — there's no easy elemental immunity play; absorb through raw HP and healing."
-        ],
+        strategy: [   ],
         rewards: {
             gil: 5480,
             cp: 58,
@@ -803,6 +761,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "D4-11",
         arc: "D4",
         name: "Wanted: Sky Pirate Vaan",
+        description: "Apprehend the sky pirates Vaan and Penelo! Those scurvy scum of the skies infiltrated the Beltorey Manse and made an attempt on the baron's life. A commensurate reward is promised the one who can bring them in. -House Beltorey",
         rank: 32,
         questType: "Story Battle",
         fee: 500,
@@ -841,14 +800,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Uses Cure, Water, and Dispel — sustains the enemy team."
             },
         ],
-        strategy: [
-            "Vaan and Penelo are guests who must survive — protect them, especially from the Gladiator who can one-shot them.",
-            "Consider intentionally breaking the movement law early — the Gladiator behind Penelo can deal 200+ damage and the judge’s penalty is less costly than losing a guest.",
-            "The Gladiator is the biggest immediate threat — rush it before it reaches Vaan or Penelo.",
-            "The Ranger’s Mirror Items can reflect healing items back — either stop using items around it or eliminate it early.",
-            "Kill the Bishop quickly to prevent it from undoing your damage with Cure or stripping your buffs with Dispel.",
-            "The mountain terrain is uneven — use ranged attacks to cover height differences and reduce the movement tax of the law."
-        ],
+        strategy: [   ],
         rewards: {
             gil: 5040,
             cp: 64,
@@ -860,6 +812,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "D4-16",
         arc: "D4",
         name: "A Request",
+        description: "For Clan Gully, a request. I must speak with you. I await in the Ruins of Delgantua. P.S. I trust you enjoyed my gift?",
         rank: 34,
         questType: "Story Battle",
         fee: 500,
@@ -892,15 +845,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Viera Spellblade with Poison Blade, Sleep Blade, and more — can apply debilitating status effects through weapon attacks."
             },
         ],
-        strategy: [
-            "WARNING: Illua removes the judge — no clan privilege, no reviving fallen units. Every KO is permanent.",
-            "Another mission follows this one immediately — conserve MP and items as best you can.",
-            "Don’t bother using revival or raise abilities; the judge is gone and they won’t work.",
-            "Focus burst damage on Illua to end the fight before attrition can set in — she’s the key to clearing.",
-            "Ewen’s Dual Wield makes him a massive physical threat; if you can’t burst Illua first, neutralize Ewen with disable or bind.",
-            "The Viera Spellblade’s status-infused blade attacks (Poison, Sleep) can cripple your units — keep Remedies or Esuna available.",
-            "No one in this fight can steal, so the law is effectively a non-issue — focus on the combat itself."
-        ],
+        strategy: [  ],
         rewards: {
             gil: 6550,
             cp: 68,
@@ -912,6 +857,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "E5-01",
         arc: "E5",
         name: "The Dig",
+        description: "It's the 410th Goug Mines Salvage Run! Ancient machineries lie in the dark depths below Goug, and we're going to dig 'em up, kupo! You never know what you might find, kupo! -Goug Machinists Alliance",
         rank: 37,
         questType: "Story Battle",
         fee: 500,
@@ -938,13 +884,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Uses Choco Flame — a fire-elemental attack (note: law bans your fire use, not theirs)."
             },
         ],
-        strategy: [
-            "Fire, Ice, and Lightning are all banned — you lose access to the three most common elemental spells. Bring Hunters, physical jobs, and off-element options like Wind or Holy.",
-            "The four Mooglebane are the real threat: high attack power, and they advance quickly.",
-            "Red Chocobo's Choco Meteor can deal massive non-elemental damage to multiple units — keep your party spread to limit splash.",
-            "Bring ranged physical units (Hunters, Snipers) as your primary damage dealers since many magic options are locked out.",
-            "Focus the Mooglebane first before they overwhelm your formation, then clean up the Chocobos."
-        ],
+        strategy: [    ],
         rewards: {
             gil: 7580,
             cp: 74,
@@ -956,6 +896,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "E5-06",
         arc: "E5",
         name: "Through Another’s Eyes",
+        description: "Monsters have settled in to the area around the ancient stone heads of Kthili Sands. Not only are our surveys being delayed, I fear there may be nothing left to survey if those monsters have their way with the ruins! Please, somebody, rid us of them! -Rothwall, Archaeologikal Survey Team",
         rank: 40,
         questType: "Story Battle",
         fee: 500,
@@ -988,13 +929,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Monster pressure while Luso talks Adelle back to her senses."
             },
         ],
-        strategy: [
-            "Luso must talk to Adelle three times to complete the mission; damaging her down is not the win condition.",
-            "Do not kill Adelle. Keep Luso alive and position him so he can safely spend turns talking.",
-            "Ranged weapons are banned, so archers, snipers, gunners, hand-cannon users, and card users must switch roles.",
-            "Use the rest of the party to distract Adelle and clear the monsters, prioritizing the Thunder Drake before the Zaghnals and Pit Beasts.",
-            "Bring healing support and keep it away from the front line; Adelle's Lennart can hit four units in a line."
-        ],
+        strategy: [    ],
         rewards: {
             gil: 9100,
             cp: 80,
@@ -1006,6 +941,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "E5-11",
         arc: "E5",
         name: "Pirate Problems",
+        description: "\"Lord Even, was it? Heard you're in possession of that rarest of treasures, the 'Black Cat,' and we're coming to Camoa for it! See you soon! Swiftest of the Sky Pirates, Vaan & Penelo\" Wanted: Someone to deal with sky pirates. -Fohgginus Eden",
         rank: 46,
         questType: "Story Battle",
         fee: 500,
@@ -1051,11 +987,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Impostor companion; can be ignored if rushing the mark."
             },
         ],
-        strategy: [
-            "The mark is Van — a fake 'Vaan' impostor. Target him to end the mission.",
-            "If preserving the law, do not harm the Bangaa Cannoneer. Work around it or disable/control it without damage.",
-            "Either rush Van immediately or clear the Fighter/Ravager flank and Sniper first, then finish Van."
-        ],
+        strategy: [      ],
         rewards: {
             gil: 10470,
             cp: 92,
@@ -1067,6 +999,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "E5-16",
         arc: "E5",
         name: "The Ritual",
+        description: "At last, the day when all my dreams shall know fruition is nigh! Just a few finishing touches remain. I trust you'll be on hand to celebrate? I'll be waiting at the ruins. -Illua",
         rank: 47,
         questType: "Story Battle",
         fee: 500,
@@ -1081,14 +1014,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Final boss of the main arc. Very fast and hits extremely hard."
             },
         ],
-        strategy: [
-            "This is the final main story boss battle — bring your absolute best units.",
-            "Illua is fast; she will act early and often. Your party needs to be durable and capable of sustained damage.",
-            "Commit to sustained physical and magical attacks. She is not invincible, just very dangerous.",
-            "Move your units to converge on Illua quickly — spreading out only gives her more turns to act freely.",
-            "Male units cannot be harmed by the law, but Illua herself is female and can be freely targeted. Focus entirely on her.",
-            "Keep your healer protected and at distance. One bad turn without healing can cascade into a wipe."
-        ],
+        strategy: [   ],
         rewards: {
             gil: 9870,
             cp: 94,
@@ -1112,12 +1038,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Powered up by the Grimoire of the Rift. Very dangerous — she is even more formidable than the previous encounter."
             },
         ],
-        strategy: [
-            "All buff abilities and positive status effects are banned — no Protect, Shell, Haste, Bravery, or Faith. Build your party around raw stats and healing only.",
-            "Ranged attacks and magic from the back line are effective — keep your squishier units away from Illua's melee range.",
-            "Pure physical attackers with high Strength are ideal here since buffs that would normally amplify them are gone.",
-            "Once Illua falls, the story continues immediately into the next and final battle. Conserve what you can.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 0,
             cp: 0,
@@ -1153,14 +1074,7 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Final phase. Can summon crystals — destroying the crystals damages the Core and prevents them from punishing the party."
             },
         ],
-        strategy: [
-            "Reaction abilities are banned — unequip them before entering or you'll waste the slot. Build around action abilities and passives only.",
-            "Split into pairs to hunt the Wisp: it vanishes every time it's hit, so you need units spread across the map to catch it wherever it reappears.",
-            "Once the Wisp is down, regroup and destroy the Pod — it deals persistent chip damage that will drain you during the Core fight if left alive.",
-            "The Core is the final target. It's a long sustained fight — strong healing, high-damage physical and magical attacks, and generous item usage are key.",
-            "When the Core spawns crystals, switch immediately to destroying them. Doing so deals damage to the Core and stops the crystals from punishing your team.",
-            "This is the final battle of the main story — use everything you have. There is no saving for 'later'.",
-        ],
+        strategy: [   ],
         rewards: {
             gil: 0,
             cp: 0,

@@ -84,7 +84,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         id: "D5-03",
         arc: "D5",
         name: "Stowaways",
-        description: "There are murmurings among our passengers that there are ghosts aboard the airships. Though understandably concerned, we are yet mindful that rumour is not fact. We need someone trustworthy to investigate, and, in the event that there is a ghostly infestation, remedy the problem with all haste. Jylland Airship Inspection Board",
+        description: "There are murmurings among our passengers that there are ghosts aboard the airships. Though understandably concerned, we are yet mindful that rumor is not fact. We need someone trustworthy to investigate, and, in the event that there is a ghostly infestation, remedy the problem with all haste. -Jylland Airship Inspection Board",
         rank: 23,
         region: "Fluorgis",
         fee: 400,
@@ -109,11 +109,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             { name: "Randomized Name", job: "Ahriman", quantity: 2, notes: "Has Demonic Gaze and Bewitching Glance — avoid facing them. Priority." },
             { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "Has Parasite and Counter." },
         ],
-        strategy: [
-            "Keep units adjacent to allies to avoid Solitude law violations. Fight in tight formation.",
-            "Bring Exorcise for Ghosts. Prioritize Ahrimans (face away) and Deathscythe (stops Doom).",
-            "After clearing the airship, the quest leaves you in Moorabella.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 2610,
             cp: 46,
@@ -126,7 +122,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         id: "D5-05",
         arc: "D5",
         name: "Wanted: Devotees!",
-        description: "Wanted: The criminals known as the Devotees! - Duo responsible for several acts of theft. - Though to be involved in arms deals. - Thought to be followers of a certain band of musicians. Jylland Sovereignty Society",
+        description: "Wanted: The criminals known as the Devotees! -Duo responsible for several acts of theft. -Thought to be involved in arms deals. -Thought to be followers of a certain band of musicians. -Jylland Sovereignty Society",
         rank: 25,
         region: "The Ruins of Delgantua",
         fee: 400,
@@ -152,9 +148,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         ],
         strategy: [
             "Prerequisite: must complete all 5 Nightwatch missions AND Stone with No Name.",
-            "Before the battle, answer each of the five papers with the option that contains \"Prima Donna\".",
-            "Melee only (Ranged Weapons forbidden). Devotees are trivial (level 1–2) but their monster bodyguards are much stronger. Focus bodyguards first if they block your path.",
-        ],
+            "Before the battle, answer each of the five papers with the option that contains \"Prima Donna\".",        ],
         rewards: {
             gil: 5130,
             cp: 50,
@@ -190,9 +184,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             { name: "Randomized Name", job: "Luchorpan", quantity: 1, notes: "Has Magick Hammer and Mutilate." },
         ],
         strategy: [
-            "House Bowen joins as allies, making the four-round limit much easier.",
-            "Stay off water tiles and deploy high-Jump units to navigate Fluorgis quickly.",
-        ],
+            "House Bowen joins as allies, making the four-round limit much easier.",        ],
         rewards: {
             gil: 6620,
             cp: 86,
@@ -226,9 +218,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             { name: "Randomized Name", job: "Ghost", quantity: 2, notes: "Touch abilities — use Exorcise." },
             { name: "Randomized Name", job: "Zombie", quantity: 2, notes: "Have Drain Touch and Miasma." },
         ],
-        strategy: [
-            "Adelle is required. All enemies are undead, so bring Phoenix Downs, Raise, Exorcise, or similar tools to finish tombstones at 0 HP.",
-            "You only need to defeat Gade to win; focus him quickly unless Ghosts or Zombies are blocking your route.",
+        strategy: [            "You only need to defeat Gade to win; focus him quickly unless Ghosts or Zombies are blocking your route.",
         ],
         rewards: {
             gil: 3940,
@@ -294,10 +284,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             { name: "Smoldering Incubus", job: "Incubus", quantity: 1, notes: "Mark. Cannot be approached directly; uses powerful ranged attacks and group Charm/Doom pressure." },
         ],
         strategy: [
-            "Equip Adelle with Chirijiraden immediately and use Hilo for long-range damage.",
-            "Bring long-range attackers such as Hunters with Sidewinder, Cannoneers, Flintlocks, or Fusiliers. This battle is mostly ranged artillery.",
-            "Use Ribbons or Orbs of Minwu where possible to blunt Charm and Doom, and keep dedicated healing/revival ready.",
-        ],
+            "Equip Adelle with Chirijiraden immediately and use Hilo for long-range damage.",       ],
         rewards: {
             gil: 10240,
             cp: 90,
@@ -310,7 +297,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
         id: "D5-14",
         arc: "D5",
         name: "The Shrine of the Paling Gods",
-        description: "Came across a worrying notice in the pub about something strange happenings at the shrines of the Paling Gods in Tramdine Fens. It sounds like there has been a growing number of monster sightings in the area. Might be worth looking into.",
+        description: "Came across a worrying notice in the pub about something strange happening at the shrines of the Paling Gods in Tramdine Fens. It sounds like there has been a growing number of monster sightings in the area. Might be worth looking into.",
         rank: 38,
         region: "Tramdine Fens",
         questType: "Satisfy Petitioner",
@@ -371,10 +358,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             { name: "Randomized Name", job: "Axebeak", quantity: 1, notes: "Can use Wake-Up Call to Quicken other enemies." },
             { name: "Randomized Name", job: "Rocktitan", quantity: 1, notes: "Headbutt can Immobilize if it gets close." },
         ],
-        strategy: [
-            "Only Nesiaam must fall. Avoid chip attacks that could break the < 20 Damage law.",
-            "If clearing support first, prioritize Fire Drakes because Mesmerize can Charm your units, then handle Axebeak and Rocktitan control effects.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 6300,
             cp: 72,
@@ -411,10 +395,7 @@ export const OPTIONAL_MISSIONS_D5: Mission[] = [
             { name: "Randomized Name", job: "Thunder Drake", quantity: 1, notes: "Support monster that may get in the way." },
             { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Support monster that may get in the way." },
         ],
-        strategy: [
-            "Only Ljda must be defeated. Move quickly and pressure her to end the fight early.",
-            "Avoid Knockback abilities entirely; even accidental knockback breaks the law.",
-            "If support enemies block you, handle the Banshee first because its Holy and Meteorite are the biggest danger.",
+        strategy: [           "If support enemies block you, handle the Banshee first because its Holy and Meteorite are the biggest danger.",
         ],
         rewards: {
             gil: 5430,

@@ -31,11 +31,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             { name: "Randomized Name", job: "Zombie", quantity: 3, notes: "Undead — use Cure/Holy to damage. Clear tombstones with Phoenix Down, Burial, or Exorcise to prevent resurrection." },
             { name: "Randomized Name", job: "Black Chocobo", quantity: 1, notes: "Choco Flame is strong; dispatch it if it blocks survey routes." },
         ],
-        strategy: [
-            "Survey all geological points to complete mission. Enemies don't need to be killed but make surveying easier.",
-            "Use Cure on Zombies to damage them. Keep facing away from Ahrimans at all times.",
-            "There are six sparkle survey points. Enemies do not need to die, but clearing paths makes the route safer.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 5000,
             cp: 48,
@@ -72,10 +68,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             { name: "Randomized Name", job: "Ghoul", quantity: 1, notes: "Has Darkra, Absorb Damage, Miasma, and Drain Touch. Clear tombstone with Phoenix Down or Exorcise." },
             { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "Has Vampire and Supersonic Wave." },
         ],
-        strategy: [
-            "Survey all six geological points. Use Exorcise on undead units and Phoenix Down on tombstones to prevent resurrection.",
-            "If clearing enemies, prioritize Plague for Roulette or Ghoul/Zombie for undead pressure, then Bloody Orb.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 5250,
             cp: 66,
@@ -114,10 +107,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Magick Frenzy support/damage threat." },
             { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Lifebane can inflict Doom; treat this as a priority threat." },
         ],
-        strategy: [
-            "Must investigate all 6 sparkle points. Killing enemies makes this much easier.",
-            "Send fastest units to eliminate the Cannoneer, Trickster, Seer, or Master Monk depending on the immediate threat.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 10250,
             cp: 84,
@@ -155,12 +145,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             { name: "Randomized Name", job: "Plague", quantity: 1, notes: "Has Roulette and Binding Circle." },
             { name: "Randomized Name", job: "Malboro King", quantity: 1, notes: "Heavy debuffer." },
         ],
-        strategy: [
-            "Close-range only (law). Rush sparkle points with fastest units. Enemies respawn infinitely — only kill to clear a path.",
-            "The enemy mix includes Tonberry Kings, Plagues, Malboro Kings, Behemoths, and Reavers. Killing one only brings in another random replacement, so do not fight more than necessary.",
-            "Bring strong healing and status recovery because the monster group is dangerous even when you are only clearing paths.",
-            "Charge purple cannon points to fire the magick cannon if you decide to fight the monster waves.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 15250,
             cp: 99,
@@ -173,7 +158,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         id: "E2-09",
         arc: "E2",
         name: "The Finest Blade",
-        description: "You know the shelled beasts that walk this land with their long-forgotten foes' swords lodged in their backs? One such beast is the toughskin, and it is rare, for few blades can so much as scratch its reddish hide, said to be the hardest of all its ilk. And yet there are rumours that one has been spotted, and with sword! I would very much like to see such a sword. Bring it to me! Metallurgist Steeling",
+        description: "You know the shelled beasts that walk this land with their long- forgotten foes' swords lodged in their backs? One such beast is the toughskin, and it is rare, for few blades can so much as scratch its reddish hide, said to be the hardest of all its ilk. And yet there are rumors that one has been spotted, and with sword! I would very much like to see such a sword. Bring it to me! -Metallurgist Steeling",
         rank: 42,
         region: "The Neslowe Passage",
         fee: 500,
@@ -198,9 +183,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             { name: "Randomized Name", job: "Pit Beast", quantity: 2, notes: "Guard the mark. Not required." },
         ],
         strategy: [
-            "Only need to defeat the Blade Biter (Toughskin). Eliminate the Hoppy Bunny first — its Go-Go Dance is Haste for enemies.",
-            "Rocktitans and Pit Beasts don't need to be killed unless they block you.",
-        ],
+            "Only need to defeat the Blade Biter (Toughskin). Eliminate the Hoppy Bunny first — its Go-Go Dance is Haste for enemies.",        ],
         rewards: {
             gil: 7740,
             cp: 84,
@@ -213,7 +196,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         id: "E2-10",
         arc: "E2",
         name: "A Charm for Luck",
-        description: "Lyze, my beloved, has left to travel the world seeking riches. He says he'll return when he's wealthy enough for us to be married. But it's not wealth I want, it's him. My only wish is that he returns safely. I seek someone to bring him a charm to keep him safe. Remie, Waiting Anxiously",
+        description: "Lyze, my beloved, has left to travel the world seeking riches. He says he'll return when he's wealthy enough for us to be married. But it's not wealth I want, it's him! My only wish is that he return safely. I seek someone to bring him a charm to keep him safe. -Remie, Waiting anxiously",
         rank: 15,
         region: "Tramdine Fens, Nazan Mines",
         fee: 300,
@@ -271,11 +254,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             { name: "Randomized Name", job: "Ranger", quantity: 2, notes: "One uses Sten Needle/Love Potion/Camouflage; one uses Silence Gas/Leech/Mirror Items." },
             { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Uses Scream, Furore, Ground Shaker, and Smite of Rage." },
         ],
-        strategy: [
-            "Bring a Darklord Crystal. Refuse the 50 Gil offer to trigger the battle and earn the proper reward.",
-            "The law requires elemental effects, so use Fire, Ice, Lightning, Water, Wind, Earth, Holy, or Dark attacks.",
-            "Your party starts split into three groups, each facing a Seeq and a flan. Rejoin your force if individual groups are weak.",
-            "Watch for Ranger traps and Mirror Items.",
+        strategy: [          "Watch for Ranger traps and Mirror Items.",
         ],
         battlefield: [
             "The Zedlei Forest map has traps already laid about, and the Rangers can add more during the fight.",
@@ -348,10 +327,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             { name: "Randomized Name", job: "Ghost", quantity: 5, notes: "Undead with Sleep/Silence touches; one can use Flash. Use Cure/Holy and finish tombstones." },
             { name: "Randomized Name", job: "Wraith", quantity: 1, notes: "Central threat. Can use Darkga; prioritize if fighting aggressively." },
         ],
-        strategy: [
-            "Bring Items, Exorcise, Burial, or Phoenix Downs so defeated undead stay down.",
-            "Avoid area-targeting abilities. Single-target Cure/Holy damage works well against the undead.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 4260,
             cp: 50,
@@ -364,7 +340,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         id: "E2-14",
         arc: "E2",
         name: "A Treasured Heirloom",
-        description: "My most treasured family heirloom - a gil snapper shell - has broken clean in two! That shell has been handed down for generations as a charm to bring good fortune to our family business. That it's broken is an affront to my ancestors, and I fear it may bring ill luck on my trade. I seek someone to catch a gil snapper and replace the broken shell! Money's no object - I don't need gil, I need a gil snapper! Maat, Dealer of Antiquities",
+        description: "My most treasured family heirloom-a gil snapped shell-has broken clean in two! That shell has been handed down for generations as a charm to bring good fortune to our family business. That it's broken is an affront to my ancestors, and I fear it may bring ill luck on my trade. I seek someone to catch a gil snapper and replace the broken shell! Money's no object-I don't need gil, I need a gil snapper! -Maat, Dealer of Antiquities",
         rank: 28,
         region: "Sant D'alsa Bluff",
         fee: 400,
@@ -387,10 +363,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             { name: "Randomized Name", job: "Banshee", quantity: 2, notes: "Meteorite and other nasty abilities — eliminate first." },
             { name: "Randomized Name", job: "Great Tortoise", quantity: 2, notes: "Tank — high defense. Lower priority." },
         ],
-        strategy: [
-            "Eliminate Banshees first, then focus the Gil Snapper. Great Tortoises can be left for last.",
-            "No Fire/Ice/Lightning — use Wind, Holy, and physical attacks.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 5170,
             cp: 56,
@@ -403,7 +376,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         id: "E2-15",
         arc: "E2",
         name: "Picnic Pleasure",
-        description: "I'll be taking my children in my class on a picnic soon, but now I hear monsters have been sighted near our picnic spot, and frankly, I'm a little concerned. Could someone go ahead and make sure it's safe? Thil, Child Warder-in-Training",
+        description: "Greetings! Bonga Bugle Head Editor here! This month, we're taking a look at haunted spots, starting with that most forbidding of places, Shadeholme! ...Um, someone go with me, please! Note: the actual location of our report will be top secret! -Head Editor, Bonga Bugle",
         rank: 26,
         region: "Nazan Mines",
         fee: 400,
@@ -444,7 +417,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         id: "E2-16",
         arc: "E2",
         name: "Escort Wanted",
-        description: "I'm designing the fastest airship ever built, and I need to find a light, but strong metal to use for the gears, kupo. I believe the Goug Mines might hold the object of my search, but they also hold horde of monsters! I seek an armed escort to accompany and protect me, kupo. Thamas, Airship Architect",
+        description: "I'm designing the fastest airship ever built, and I need to find a light, but strong metal to use for the gears, kupo. I believe the Goug Mines might hold the object of my search, but they also hold hordes of monsters! I seek an armed escort to accompany and protect me, kupo. -Thamas, Airship Architect",
         rank: 41,
         region: "Goug",
         fee: 500,
@@ -468,11 +441,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
             { name: "Randomized Name", job: "Deathscythe", quantity: 2, notes: "Undead/Reaper enemies with Darkga and Doom. One can addle with Steal Thoughts, another has Deep Sleep." },
             { name: "Randomized Name", job: "Headless", quantity: 3, notes: "Physical monsters. Some have Sunder Earth or Bonecrusher; weaker than the Lamashtu and Deathscythes." },
         ],
-        strategy: [
-            "Protect Thamas while clearing all foes. Avoid knockback/critical effects that would break the law.",
-            "Disable or burst down the Lamashtu first, then handle Deathscythes and finish their tombstones with Phoenix Down or Exorcise.",
-            "Headless are the least urgent unless they are blocking Thamas.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 7180,
             cp: 82,

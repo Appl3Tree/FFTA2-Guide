@@ -72,11 +72,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
             { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Has Blind, Sleep, and Silence — priority debuffer." },
             { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Has Roundhouse and Air Render." },
         ],
-        strategy: [
-            "Luso is required. Check tile height on the bottom screen — cannot move to h10+ tiles.",
-            "You only need to defeat Nezzel to win. The Alchemist is the biggest threat because Flare hits hard; the Black Mage is also dangerous but starts far enough away that you have time.",
-            "The other enemies can be defeated for extra loot, but do not lose sight of the mark objective.",
-        ],
+        strategy: [            "You only need to defeat Nezzel to win. The Alchemist is the biggest threat because Flare hits hard; the Black Mage is also dangerous but starts far enough away that you have time.",        ],
         rewards: {
             gil: 1960,
             cp: 64,
@@ -89,7 +85,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         id: "D4-08",
         arc: "D4",
         name: "Beneath the Sands",
-        description: "Need someone to head over to Kthili Sands and look for my treasure. Buried it out there a chocobo's age ago, and now I can't remember where it's at. Went looking for it myself, but didn't have any luck. Maybe you'll do better. Ricard, Former treasure hunter",
+        description: "Need someone to head over to Kithili Sands and look for my treasure. Buried it out there a chocobo's age ago, and now I can't remember where it's at. Went looking for it myself, but didn't have any luck. Maybe you'll do better. -Ricard, Former treasure hunter",
         rank: 40,
         region: "Kthili Sands",
         fee: 500,
@@ -113,11 +109,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
             { name: "Randomized Name", job: "Yellow Jelly", quantity: 1, notes: "Has Merge, Acid, Thundara, and Geomancy — Geomancy is the most dangerous ability." },
             { name: "Randomized Name", job: "Thunder Drake", quantity: 1, notes: "Lightning-based attacks can heal lightning enemies and damage your clan." },
         ],
-        strategy: [
-            "Treasure is hidden in one of 6 sparkles on the battlefield. Examine all of them — first sparkle you find may be the treasure.",
-            "Watch for hidden charm traps while checking sparkles. A Ranger with Awareness can help if you are clearing the map thoroughly.",
-            "Clear enemies quickly to focus on searching sparkles. Yellow Jelly's Geomancy is the biggest threat.",
-        ],
+        strategy: [            "Watch for hidden charm traps while checking sparkles. A Ranger with Awareness can help if you are clearing the map thoroughly.",        ],
         rewards: {
             gil: 6270,
             cp: 80,
@@ -130,7 +122,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         id: "D4-09",
         arc: "D4",
         name: "Airship S.O.S.!",
-        description: "No one's noticed yet, but an airship sitting in the dock has been hijacked. O don't want to contact the watch and cause a commotion, so I'm posting for help here. Neah, Accidental Witness",
+        description: "No one's noticed yet, but an airship sitting in the dock has been hijacked. I don't want to contact the watch and cause a commotion, so I'm posting for help here. -Neah, Accidental Witness",
         rank: 19,
         region: "Moorabella",
         fee: 300,
@@ -152,10 +144,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
             { name: "Randomized Name", job: "Thief", quantity: 3, notes: "Has Steal Gil — being stolen from violates the law. Kill from range or use Safeguard to prevent theft." },
             { name: "Randomized Name", job: "Soldier", quantity: 2, notes: "Has Provoke (inflicts Berserk). Manageable threat." },
         ],
-        strategy: [
-            "Use ranged attacks to kill Thieves before they can steal from you. Safeguard clan privilege also prevents theft.",
-            "Enemies are low level — unlocked after getting Hurdy. Should be well under your level.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 2960,
             cp: 38,
@@ -188,9 +177,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
         enemies: [],
         strategy: [
             "Bring an Ether to Tramdine Fens. The petitioner leaves a note pointing to the true delivery location, which changes between repeats.",
-            "Possible note destinations: Goug, Nazan Mines, The Ruins of Delgantua, Zedlei Forest, and Zellea, the Forbidden Land.",
-            "This quest can be completed five times; after the fifth delivery, it stops appearing.",
-        ],
+            "Possible note destinations: Goug, Nazan Mines, The Ruins of Delgantua, Zedlei Forest, and Zellea, the Forbidden Land.",        ],
         rewards: {
             gil: 7880,
             cp: 60,
@@ -226,9 +213,7 @@ export const OPTIONAL_MISSIONS_D4: Mission[] = [
             { name: "Randomized Name", job: "Red Marshmallow", quantity: 2, notes: "Flan-type support that resists physical damage better than Bombs." },
             { name: "Randomized Name", job: "Grenade", quantity: 1, notes: "Stronger bomb-type enemy. Watch for Oil plus fire damage." },
         ],
-        strategy: [
-            "The law blocks actions targeting units two or more tiles away, so plan for melee-range attacks and short-range support.",
-            "Bring water-based attacks if available. The enemies can inflict Oil and use fire attacks that heal themselves while hurting you.",
+        strategy: [            "Bring water-based attacks if available. The enemies can inflict Oil and use fire attacks that heal themselves while hurting you.",
             "Spread out before finishing weakened Bombs or the Grenade to reduce self-destruct fire damage.",
         ],
         rewards: {

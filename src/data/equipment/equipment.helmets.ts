@@ -32,7 +32,7 @@ export const HELMET_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         gender: "Female-only",
         immunity: ["Several debuffs"],
         notes: "Immune: Several debuffs",
-        description: "A great hairdo alone can't ward off evil. Leave that to the magicked stones on this hairpin. .",
+        description: "A great hairdo alone can't ward off evil. Leave that to the magicked stones on this hairpin.",
     },
     blackHat: {
         id: "blackHat",
@@ -286,7 +286,7 @@ export const HELMET_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         rst: 5,
         eva: 0,
         spd: 0,
-        description: "A study hat adorned with a rather garish feather.",
+        description: "A sturdy hat adorned with a rather garish feather.",
     },
     ribbon: {
         id: "ribbon",

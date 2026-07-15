@@ -42,7 +42,7 @@ export const INTRO_PANELS: MetaPanel[] = [
         subtitle: "Keeping the Judge on your side without feeling restricted.",
         tone: "amber",
         paragraphs: [
-            "Every battle in FFTA2 comes with a Judge and a law. Follow the law and you keep access to your chosen clan privilege, revival support, and the law bonus reward for that fight. Break it and the Judge leaves: the privilege shuts off, fallen units cannot be revived until the battle ends, and the law bonus is lost.",
+            "In Judge-led battles, the law is fixed for that battle. Follow it and you keep access to your chosen clan privilege, the ability to revive KO'd units, and the law bonus reward. Break it and the Judge leaves: the privilege shuts off, KO'd units cannot be revived for the rest of the battle, and the law bonus is lost. Reraise still works after a law break.",
             "Most laws fall into a few simple patterns: banning a specific element, disallowing a weapon type, or restricting a category of actions like items or debuffs. Some late-game laws are more unusual, like punishing repeated actions or attacks against certain races or level differences.",
             "The goal of this guide is not to make you play scared of laws. For each story mission, notes will call out when a law is especially awkward and when it’s reasonable to ignore it. Many fights are easier if you accept a law break in exchange for a safer or faster clear."
         ],
@@ -61,7 +61,7 @@ export const INTRO_PANELS: MetaPanel[] = [
         paragraphs: [
             "Loot is the backbone of FFTA2’s equipment system. Instead of buying most gear directly, you trade monster drops and mission rewards into the Bazaar, which then unlocks new weapons, armor, and accessories in shops.",
             "The guide assumes you are feeding most of your loot into Bazaar recipes as you go. You don’t need to memorize exact combinations: the important part is that you steadily unlock new tiers of weapons, staves, bows, and armor so that your clan’s abilities and survivability keep pace with story ranks.",
-            "Some loot comes from normal fights, but marks and certain quest chains provide higher-quality drops that push Bazaar tiers forward faster. Clan Trials matter for a different reason: their privileges, talents, and rank gains can make the fights that feed your Bazaar much easier."
+            "Some loot comes from normal fights, but marks and certain quest chains provide higher-quality drops that push Bazaar tiers forward faster. Clan Trials matter for a different reason: their privileges and talent changes can make the fights that feed your Bazaar much easier."
         ],
         bullets: [
             "Check the Bazaar whenever you finish a handful of missions; new recipes often appear in small bursts.",
@@ -76,12 +76,12 @@ export const INTRO_PANELS: MetaPanel[] = [
         subtitle: "Optional content that quietly carries your clan.",
         tone: "red",
         paragraphs: [
-            "Clan trials, sidequests, and mark hunts sit alongside the main story and quietly define how strong your clan feels. Trials unlock and upgrade clan privileges, improve clan talents or rank, and help open later quests, while marks and notable sidequests shower you with extra loot, gil, and unique items.",
+            "Clan trials, sidequests, and mark hunts sit alongside the main story and quietly define how strong your clan feels. Trials unlock and upgrade clan privileges, change clan talents, award clan titles and fee discounts, and help open later quests, while marks and notable sidequests provide extra loot, gil, and unique items.",
             "The guide will occasionally nudge you toward specific trials or marks when they line up naturally with the story or when their rewards are too efficient to ignore. You don’t have to clear every optional mission, but doing none of them makes later arcs feel much harsher than intended.",
             "Think of this content as a toolbox: when the story starts to push back, you dip into marks, trials, and chains to grab more power, then return to the next arc once you feel comfortably ahead again."
         ],
         bullets: [
-            "Use clan trials to unlock stronger privileges and improve clan talents or rank rather than treating them as one-off curiosities.",
+            "Use clan trials to unlock stronger privileges, change clan talents, and earn titles and fee discounts rather than treating them as one-off curiosities.",
             "Mix marks and sidequests into your route whenever you feel undergeared or short on gil and loot.",
             "Pay attention to quest chains that unlock jobs, equipment, or high-quality loot; they often pay off for many hours afterward.",
             "Don’t feel obligated to 100% everything during the story—this guide is structured so you can leave some content for cleanup and postgame."

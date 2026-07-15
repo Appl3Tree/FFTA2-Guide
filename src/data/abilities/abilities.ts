@@ -1410,14 +1410,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
             "Damages units in an area (Lightning-elemental).",
         ],
     },
-    "grand-cross": {
-        id: "grand-cross",
-        setId: "abyss",
-        name: "Grand Cross",
-        description: [
-            "Physical attack.",
-        ],
-    },
     consumption: {
         id: "consumption",
         setId: "abyss",
@@ -1442,14 +1434,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
             "Reduces MP to 0 in a large area.",
         ],
     },
-    dispelja: {
-        id: "dispelja",
-        setId: "abyss",
-        name: "Dispelja",
-        description: [
-            "Removes buffs from all opponents.",
-        ],
-    },
     apocalypse: {
         id: "apocalypse",
         setId: "abyss",
@@ -1458,44 +1442,12 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
             "Inflicts Confuse on units in an area.",
         ],
     },
-    gigadust: {
-        id: "gigadust",
-        setId: "abyss",
-        name: "Gigadust",
-        description: [
-            "Deals magical damage to all enemeis.",
-        ],
-    },
     catastrophe: {
         id: "catastrophe",
         setId: "abyss",
         name: "Catastrophe",
         description: [
             "Lowers Defense and Resistance of untis in an area with 100% accuracy.",
-        ],
-    },
-    "punishing-ray": {
-        id: "punishing-ray",
-        setId: "abyss",
-        name: "Punishing Ray",
-        description: [
-            "Damages one unit.",
-        ],
-    },
-    "restoration-ray": {
-        id: "restoration-ray",
-        setId: "abyss",
-        name: "Restoration Ray",
-        description: [
-            "Restores Neukhia Wisp's HP.",
-        ],
-    },
-    "charge-ray": {
-        id: "charge-ray",
-        setId: "abyss",
-        name: "Charge Ray",
-        description: [
-            "Bestows Neukhia Charge on Neukhia Wisp.",
         ],
     },
     "sanctify-abyss": {
@@ -5684,14 +5636,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
             "Tears holes in the fabric of time. Reduces the HP of units in a large area by 75%.",
         ],
     },
-    "abyssal-slash": {
-        id: "abyssal-slash",
-        setId: "guile",
-        name: "Abyssal Slash",
-        description: [
-            "Summon a vision of the great abyss above the battlefield, maddening all who gaze into its depths. Damages and STOPS targets.",
-        ],
-    },
     annul: {
         id: "annul",
         setId: "guile",
@@ -5706,14 +5650,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Rebirth",
         description: [
             "Infuse the user's body with Mist. Fully restores the user's HP and removes all debuffs.",
-        ],
-    },
-    sheol: {
-        id: "sheol",
-        setId: "guile",
-        name: "Sheol",
-        description: [
-            "Shift the sands of time in the user's favor. Slow and Immobilize for all foes, Haste and Regen for all allies.",
         ],
     },
     impervious: {

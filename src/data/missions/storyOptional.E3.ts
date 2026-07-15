@@ -69,10 +69,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             "Six sparkling licra ore spots must be examined.",
             "A few treasures can be picked up in the mines.",
         ],
-        strategy: [
-            "Collect all six licra ore spots; defeating every undead enemy is optional.",
-            "Bring fast/high-movement units if you want to finish by collection, or bring Raise/Phoenix Down/Exorcise/Burial support if clearing the undead.",
-            "Avoid area-targeting abilities because of the law.",
+        strategy: [           "Avoid area-targeting abilities because of the law.",
         ],
         rewards: {
             gil: 4990,
@@ -111,10 +108,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             { name: "Randomized Name", job: "Great Tortoise", quantity: 2, notes: "Strong physical attackers guarding the path to Entz." },
         ],
         strategy: [
-            "No elemental attacks at all, including elemental weapon damage.",
-            "You only need to defeat Entz. The guide recommends ignoring the undead and beating down Entz with strong non-elemental attacks once you reach him.",
-            "Use non-elemental abilities or Mirror Items; verify weapons before attacking under the law.",
-        ],
+            "No elemental attacks at all, including elemental weapon damage.",       ],
         rewards: {
             gil: 5740,
             cp: 54,
@@ -127,6 +121,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         id: "E3-10",
         arc: "E3",
         name: "Wanted: Hatchery Worker",
+        objective: "Dispatch the right person for the job!",
         description: "My precious chocobos will begin laying eggs soon, and I want to take on an additional hand to work in the hatchery. - No experience required - All applicants welcome - Room and board to be provided - Duration : 15 Days Yew, Chocobo Rancher",
         rank: 18,
         region: "Targ Wood",
@@ -145,9 +140,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         },
         enemies: [],
         strategy: [
-            "Send a Chocobo Knight or Beastmaster for 15 days; either job satisfies the hatchery work.",
-            "Keep Chocobo Knight available if you are hunting rare chocobos; send Beastmaster instead.",
-        ],
+            "Send a Chocobo Knight or Beastmaster for 15 days; either job satisfies the hatchery work.",        ],
         rewards: {
             gil: 2560,
             cp: 36,
@@ -160,7 +153,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         id: "E3-11",
         arc: "E3",
         name: "Abducted!",
-        description: "My girl was taken from my arms last night! Maybe they spotted her in that beauty contest she won, and ... Oh! The horror! Were they jealous of her victory? Someone save my beauty for me! Bunbassa",
+        description: "My girl was taken from my arms last night! Maybe they spotted her in that beauty contest she won, and... Oh! Were they jealous of her victory? Someone save my beauty for me! -Bunbassa",
         rank: 30,
         region: "Aisenfield",
         fee: 400,
@@ -185,9 +178,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
             { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Has Esuna, Fira, and Magick Counter; lowest immediate threat." },
         ],
         strategy: [
-            "This is a straightforward four-enemy fight. The Seer is the weakest, and the Ninja can Confuse or Silence but does not have Dual Wield.",
-            "Use your numbers advantage and avoid relying on Seeq actions under the law.",
-        ],
+            "This is a straightforward four-enemy fight. The Seer is the weakest, and the Ninja can Confuse or Silence but does not have Dual Wield.",        ],
         rewards: {
             gil: 4970,
             cp: 60,
@@ -220,9 +211,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         law: "Forbidden: Restoring HP – Actions that restore HP are forbidden.",
         enemies: [],
         strategy: [
-            "Do not interfere. You are there to watch Grant the Master Monk fight his Paladin rival.",
-            "Ignore the ground shaking and moving around your own units; the observed duel ends before the environmental damage becomes the point.",
-        ],
+            "Do not interfere. You are there to watch Grant the Master Monk fight his Paladin rival.",        ],
         rewards: {
             gil: 6850,
             cp: 99,
@@ -323,10 +312,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         },
         objective: "Deliver a white chocobo to Yew!",
         enemies: [],
-        strategy: [
-            "Use a Chocobo Knight to capture a White Chocobo before turning in the quest.",
-            "Weaken the White Chocobo to critical HP, mount it with a Chocobo Knight, then deliver it to Targ Wood.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 1750,
             cp: 74,
@@ -357,10 +343,7 @@ export const OPTIONAL_MISSIONS_E3: Mission[] = [
         },
         objective: "Deliver the red chocobo!",
         enemies: [],
-        strategy: [
-            "Capture a Red Chocobo with a Chocobo Knight before turning in the quest.",
-            "Weaken the Red Chocobo to critical HP, mount it with a Chocobo Knight, then deliver it to Targ Wood.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 1750,
             cp: 92,

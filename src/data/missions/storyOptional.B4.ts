@@ -8,7 +8,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         id: "B4-01",
         arc: "B4",
         name: "Great Land Festival",
-        description: "It will be Silversun soon, and in Camoa Silversun means the Great Land Festival! We're looking for people to join in the festivities and help decorate our town! The work will last for ten days, with lodging and board provided! Come one, come all! Camoa Great Land Festival Committee",
+        description: "It will be Silversun soon, and in Camoa Silversun means the Great Land Festival! We're looking for people to join in the festivities and help decorate our town! The work will last for ten days, with lodging and board provided! Come on, come all! -Camoa Great Land Festival Committee",
         rank: 7,
         region: "Camoa",
         fee: 200,
@@ -42,7 +42,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         id: "B4-02",
         arc: "B4",
         name: "Strong Lady",
-        description: "That old man dressed up as a lady was fighting, ohm and he was strong. Real strong! And the clan that lost got dragged off somewheres. I cried a little then, and he gave me a sweet. Anonymous Child",
+        description: "That old man dressed up as a lady was fighting, oh, and he was strong. Real strong! And the clan that lost got dragged off somewheres. I cried a little then, and he gave me a sweet. But I thought I should tell someone anyway. -Crybaby Kocott",
         rank: 30,
         region: "Camoa",
         fee: 400,
@@ -67,9 +67,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "Gladiator", quantity: 1, notes: "Can use Bangaa Cry to inflict Confuse." },
     ],
         strategy: [
-            "Defeat-mark mission — rush the Night Dancer (Trickster). The other 5 Bangaa don't need to die.",
-            "Harming the Weak (law) — if you outlevel them, focus the mark and avoid over-hitting low-level adds.",
-        ],
+            "Defeat-mark mission — rush the Night Dancer (Trickster). The other enemies don't need to be defeated.",        ],
         rewards: {
             gil: 5320,
             cp: 60,
@@ -82,7 +80,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         id: "B4-03",
         arc: "B4",
         name: "I Want to Forget",
-        description: "I love someone whom I can never have. The very thought haunts me each moment I draw breath. It is more than I can bear. And so I wish to quit this mortal life. There is a substance known as zombie powder which may grant me the relief I so deseperately seek. Please, find this and bring it to me. End my suffering. Glefein",
+        description: "I love someone whom I can never have. The very thought haunts me each moment I draw breath. It is more than I can bear. And so I wish to quit this mortal life. There is a substance known as zombie powder which may grant me the relief I so desperately seek. Please, find this and bring it to me. End my suffering. -Glefein",
         rank: 33,
         region: "Tramdine Fens",
         fee: 500,
@@ -107,12 +105,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         battlefield: [
             "The map features elevation differences",
         ],
-        strategy: [
-            "Choose the outcome before fighting: defeating Zombies yields Zombie Powder, while defeating Dreamhares yields Ezel's Draught.",
-            "Defeating both groups gives Zombie Powder. If you want Ezel's Draught, avoid killing the Zombies.",
-            "Holy damage is excellent against Zombies, while Fire works well on Dreamhares.",
-            "Actions costing 20 or more MP are forbidden, so check spell costs before entering.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 7880,
             cp: 66,
@@ -125,7 +118,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         id: "B4-04",
         arc: "B4",
         name: "The Goug Consortium",
-        description: "Kupo! Some members of our department went to field-test our latest prototype, but they haven't returned, kupo! We need someone to see if they're all right. If that gun were to fall into the wrong hands, kupo... Goug Consortium",
+        description: "Kupo! Some members of our department went to field-test our latest prototype, but they haven't returned, kupo! We need someone to see if they're all right. If that gun were to fall into the wrong hands...well, let's not think of that! -Goug Consortium -Department of Ranged Mutilation",
         rank: 17,
         region: "Zedlei Forest",
         fee: 300,
@@ -146,9 +139,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Fusilier", quantity: 6, notes: "Moogle gunners — fast, ranged, and positioned on high ground. Nearly impossible to reach with melee." },
     ],
-        strategy: [
-            "Six Fusiliers hold the high ground with guns. Bring your own Mages and ranged attackers to trade fire — melee units will struggle to close in.",
-            "No AoE (law) — single-target everything.",
+        strategy: [            "Targeting all units is forbidden, so avoid all-unit/full-field effects. Normal area targeting is not the law issue here; just keep attacks controlled around the high-ground Fusiliers.",
         ],
         rewards: {
             gil: 2890,
@@ -224,11 +215,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Uses Cure, Cura, Esuna — eliminate to deny healing." },
     ],
         strategy: [
-            "Protect Alys while clearing the bandits.",
-            "Remove the White Mage to stop healing, then pressure the Alchemist before Flare wears you down.",
-            "The Thieves can Immobilize and steal, so control them while your attackers collapse on the healer and Alchemist.",
-            "Opportunity Commands are forbidden, so do not use them even when the prompt looks tempting.",
-        ],
+            "Protect Alys while clearing the bandits.",            "The Thieves can Immobilize and steal, so control them while your attackers collapse on the healer and Alchemist.",        ],
         rewards: {
             gil: 5410,
             cp: 68,
@@ -241,7 +228,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         id: "B4-07",
         arc: "B4",
         name: "Under the Weather",
-        description: "I'm... not feeling well of late. A but under the weather you might say. Could someone bring a potion ... and a hi-potion to Tramdine Fens for me? Many Thanks. Lotice, Friend to no physician",
+        description: "I'm...not feeling well of late. A bit under the weather, you might say. Could someone bring a potion...and a hi-potion to Tramdine Fens for me? Many thanks. -Lotice, Friend to no physician",
         rank: 11,
         region: "Tramdine Fens",
         fee: 300,
@@ -259,9 +246,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             adaptability: 18,
         },
     enemies: [],
-        strategy: [
-            "Non-combat mission - deliver a Potion and Hi-Potion in Tramdine Fens. The dialogue answer does not change the completion.",
-        ],
+        strategy: [        ],
         rewards: {
             gil: 7880,
             cp: 22,
@@ -274,7 +259,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         id: "B4-08",
         arc: "B4",
         name: "The Eastwatch",
-        description: "Clan Gully! The might of your clan is renowned throughout Jylland. We have traveled from a land beyond where the sun rises in hopes of testing that might against our own. Will you grant us this battle? The Eastwatch",
+        description: "Clan Gully! The might of your clan is renowned throughout Jylland. We have traveled from a land beyond where the sun rises in hopes of testing that might against our own. Will you face us in battle? -Zengen, The Eastwatch",
         rank: 25,
         region: "Moorabella",
         fee: 400,
@@ -297,10 +282,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "Ninja", quantity: 2, notes: "One has Veil abilities (debuffs) — kill that one second." },
         { name: "Randomized Name", job: "Assassin", quantity: 1, notes: "PRIORITY: Has time magick. Eliminate first." },
     ],
-        strategy: [
-            "No Scions (law). The three Parivirs are the main damage threats, while the Ninjas' Veils can disrupt your setup.",
-            "Disable from an Elementalist's Fire Whip can help control Parivirs if it lands.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 3910,
             cp: 50,
@@ -314,7 +296,8 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         id: "B4-09",
         arc: "B4",
         name: "Wanted: Shiny Maces",
-        description: "Ngaaa! I'm short-handed! Don't have anyone to polish up these maces! You interested? If you can so much as hold a mace, you're the right one for the job! Ten days or so ought to help me clear out the backlog. Chita, Chita's Weapons",
+        objective: "Dispatch the right person for the job!",
+        description: "Ngaaa! I'm short-handed! Don't have anyone to polish up these maces! You interested? If you can so much as hold a mace, you're the right one for the job! Ten days or so ought to help me clear out the backlog. -Chita, Chita's Weaponers",
         rank: 5,
         region: "The Bisga Greenlands",
         fee: 100,
@@ -332,9 +315,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             adaptability: 7,
         },
     enemies: [],
-        strategy: [
-            "Dispatch mission — send a mace-wielder (Green Mage, Sage, or Alchemist) for 10 days.",
-        ],
+        strategy: [        ],
         rewards: {
             gil: 1110,
             cp: 10,
@@ -373,12 +354,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "White Mage", quantity: 1, notes: "Uses Cura, Esuna, and Flare." },
         { name: "Randomized Name", job: "Beastmaster", quantity: 1, notes: "Uses Shadow Shade Tome (Scholar ability). Beast Lore is ineffective here." },
     ],
-        strategy: [
-            "Duke Snakeheart is the mark; defeating him completes the headhunt even if support units remain.",
-            "Viera actions are restricted to movement and basic attacks, so leave Viera out or use them only as simple attackers.",
-            "Rush Snakeheart with fast physical units because his Defense is low, and interrupt or disable the White Mage if healing starts delaying the kill.",
-            "Spread out enough to reduce the impact of Scathe/Gigaflare-style magick, then clean up the mages only if they block the route to Snakeheart.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 5320,
             cp: 78,
@@ -391,7 +367,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         id: "B4-11",
         arc: "B4",
         name: "A Chill in the Night",
-        description: "Night after night monsters plague the lands surrounding our homes. Something must be done, but I'm too frightened to do anything myself. Please, find the source of these monsters and drive them from our lands! Tod Hapwell",
+        description: "Night after night monsters plague the lands surrounding our home. Something must be done, but I'm too frightened to do anything myself. Please, find the source of these monsters and drive them from our lands! -Tod Hapwell",
         rank: 19,
         region: "Fluorgis",
         fee: 300,
@@ -408,9 +384,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
             adaptability: 28,
         },
     enemies: [],
-        strategy: [
-            "Story cutscene mission — no combat. Visit Fluorgis to trigger events involving Frimelda Lotice.",
-        ],
+        strategy: [        ],
         rewards: {
             gil: 5080,
             cp: 38,
@@ -423,7 +397,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         id: "B4-12",
         arc: "B4",
         name: "To Be a Spellblade",
-        description: "Magick and steel: two paths seemingly at odds. Yet both heed the spellblade and her will. One may not undertake the trial to become a spellblade alone, and I would have your fight at my side. Hana, Red Mage",
+        description: "Magick and steel: two paths seemingly at odds. Yet both heed the spellblade and her will. One may not undertake the trial to become a spellblade alone, and I would have you fight at my side. -Hana, Red Mage",
         rank: 28,
         region: "Moorabella",
         fee: 400,
@@ -449,11 +423,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "White Mage", quantity: 2, notes: "Viera. Healer — total of 10 Viera must be defeated. Hana (Red Mage guest with Doublecast) is the VIP." },
     ],
         strategy: [
-            "Protect Hana and defeat ten Viera attackers across the waves.",
-            "Gria can only move and use basic attacks, so avoid relying on Gria abilities for this mission.",
-            "Prioritize Assassins and Green Mages because Silence, Slow, and debuffs can leave Hana exposed.",
-            "Hana is a Red Mage guest with Doublecast; keep enemies off her while she contributes damage and support.",
-        ],
+            "Protect Hana and defeat ten Viera attackers across the waves.",      ],
         rewards: {
             gil: 8190,
             cp: 56,
@@ -527,11 +497,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "Seer", quantity: 1, notes: "Support caster with Esuna, Sandstorm, and Expose Weakness." },
         { name: "Randomized Name", job: "Master Monk", quantity: 1, notes: "Uses Withering Strike, Body Slam, Greased Lightning, and Counter." },
     ],
-        strategy: [
-            "Bring elemental offense so the Non-Elemental Effects law does not trap your main damage dealers.",
-            "Focus the Ninja first; its evasion and Blink Counter make it the most dangerous piece and the practical win target.",
-            "Keep healing or defensive support near Duke Snakeheart while ranged or high-movement units collapse on the enemy back line.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 6010,
             cp: 90,
@@ -567,12 +533,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "Defender", quantity: 1, notes: "Uses Defend and Bulwark." },
         { name: "Randomized Name", job: "Templar", quantity: 1, notes: "Uses Silence and Haste." },
     ],
-        strategy: [
-            "Protect Ghi while defeating Swordking and his crew.",
-            "Targeting an area is forbidden, so avoid multi-tile attacks and use precise single-target damage.",
-            "Ghi starts Disabled and Immobilized but breaks out on his turn; keep him healed while he helps fight.",
-            "The Templar and Defender are manageable, but the Viking's Thundara makes him the real danger.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 5670,
             cp: 66,
@@ -610,11 +571,7 @@ export const OPTIONAL_MISSIONS_B4: Mission[] = [
         { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Uses Steal Items, Steal Gil, and Cuisine (healing — priority target)." },
     ],
         strategy: [
-            "Defeat Lord Grayrl to unlock Viking.",
-            "Each unit must move exactly three tiles before ending its turn; plan routes before committing to attacks.",
-            "Take out the Juggler first if Stop becomes a problem, then rush Lord Grayrl on the ship.",
-            "Use ranged abilities, magick, and high-move units to pressure Grayrl through his surrounding guards.",
-        ],
+            "Defeat Lord Grayrl to unlock Viking.",            "Take out the Juggler first if Stop becomes a problem, then rush Lord Grayrl on the ship.",        ],
         rewards: {
             gil: 5110,
             cp: 56,

@@ -1,0 +1,587 @@
+Home
+Boards
+News
+Q&A
+Community
+Contribute
+Games
+
+
+3DS
+Android
+Board/Card
+iOS
+PC
+PlayStation 3
+PlayStation 4
+PlayStation 5
+Switch
+Switch 2
+Vita
+Xbox 360
+Xbox One
+Xbox Series
+More Systems
+PCPS4PS5SWITCHSWITCH 2XBOX ONEXBOX SERIESMORE SYSTEMS 
+Log In Sign Up
+GameFAQs
+BOARDS
+NEWS
+Q&A
+COMMUNITY
+CONTRIBUTE
+GAMES
+Final Fantasy Tactics A2: Grimoire of the Rift – Recruitment Guide
+DS
+Home
+	
+Guides
+	
+Q&A
+	
+Cheats
+	
+Saves
+	
+Reviews
+	
+Media
+	
+Board
+	
+Recruitment Guide (DS) by zoharemulator
+
+Version: 1.3 | Updated: 07/22/2008
+
+-------------------------------------------------------------------------------
+
+Final Fantasy Tactics A2
+Recruitment Guide
+Author: Antitype (osafune.edge[at]gmail.com)
+Last Updated: 2008.07.21
+Revision: 1.3
+
+-------------------------------------------------------------------------------
+** TABLE OF CONTENTS
+-------------------------------------------------------------------------------
+
+
+1) Introduction
+2) Summary                                                              [xsumm]
+3) Recruitment by Map                                                    [xmap]
+4) Recruitment by Quest                                                [xquest]
+5) Race-Month Correlation List                                          [xlist]
+6) NPC Recruitment                                                       [xnpc]
+7) Frequently Asked Questions                                            [xfaq]
+8) Credits / Thanks
+
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+** 1. Introduction
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+Ever since the game released in the US, there have been numerous topics on the
+GameFAQs message boards asking about how to recruit new party members. The game
+does NOT make it obvious, and so I've decided to create a guide for it.
+
+This originally started out as a thread on the message boards, and I intended
+to have it stickied. But after a week or so, and while TWO other posts got
+stickied before this, it seemed like the mods were unwilling to sticky it
+despite many requests to do so within the topic. Perhaps it was because it was
+a more specialized guide, so they wanted it in FAQ format. In any case... here
+it is. :)
+
+Version History:
+1.3 - Added Al-Cid, Montblanc recruitment. Added some FAQs.
+1.2 - Added Frimelda, Penelo, Vaan recruitment. Added some FAQs.
+1.1 - Added/moved summary section. Placeholder section for NPC recruitment.
+1.0 - Recruitment guide created
+
+Future versions:
+How to recruit special units. (Vaan, Penelo, etc.)
+
+*******************************************************************************
+* NOTICE                                                                      *
+*******************************************************************************
+*                                                                             *
+* My (one) previous FAQ has actually been posted on random sites. The ONLY    *
+* site that may use this guide is GameFAQs and Neoseeker. If you see this, or *
+* any part of  it, on another site, please let me know.                       *
+*                                                                             *
+* To reiterate, sites that MAY USE this guide:                                *
+*  - www.gamefaqs.com                                                         *
+*  - www.neoseeker.com                                                        *
+*                                                                             *
+*******************************************************************************
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+** 2. Summary                                                           [xsumm]
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+In case you don't want to read all of this FAQ, here are the highlights:
+
+RECRUITMENT BY MAP:
+ - You can only recruit certain races during certain months, in certain areas.
+   A list for the races and their corresponding areas/months can be found in
+   section 5.
+ - You cannot recruit until you reach Camoa (i.e. have world map access)
+ - You cannot recruit someone whose class you don't have unlocked yet. Your
+   units don't have to be able to change to the job, just have it unlocked.
+   (It can't say ?????? but it can be greyed out.)
+ - If you have the class unlocked and still have trouble, advance the story
+   and try again.
+ - One race per area per year. If you've already gotten a unit in an area,
+   you will not find another one there for another year.
+ - Gria cannot be recruitable until you do the airship quest, then you can
+   recruit them immediately in Fluorgis.
+ - Viera cannot be recruitable until you do the Moon Seal quest.
+ - TIP: Saving before you recruit randomizes the unit. So if you get an
+   unwanted unit, you can reset and try again.
+
+RECRUITMENT BY QUEST:
+ - The recruitment quest "Clan Mates" will not appear until after you complete
+   the auction quest (story-related).
+ - The MONTH in which you activate the quest will determine which race you get.
+   Refer to section 5 for the list.
+ - You can control the JOB CLASS of the unit you recruit. You will be asked
+   four questions -- refer to section 5 for the answers/job classes.
+ - If you do not have the class unlocked but you use the answers for that
+   class, you will be offered a replacement. If you refuse, you will have to
+   answer the questions again. This occurs up to 3 times, afterwards, the
+   recruitment guy gives up.
+
+NPC RECRUITMENT:
+ - Coming soon.
+
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+** 3. Recruitment by Map                                                 [xmap]
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+*******************************************************************************
+* IMPORTANT NOTE                                                              *
+*******************************************************************************
+*                                                                             *
+* You cannot recruit until you have access to the world map (as opposed to    *
+* the area map). If you don't know what I'm talking about, you haven't gotten *
+* out of Targ Forest yet. You need to be able to reach at least Camoa.        *
+*                                                                             *
+* Also, I wouldn't start attempting to recruit until you meet Lezaford. This  *
+* is because if you go to his cabin after you've met him, you will be able to *
+* sleep there. Sleeping passes the time VERY quickly -- you can choose by     *
+* increments of 20, 60, or even 200 days! Just fyi, there are 12 months,      *
+* 240 days in a year.                                                         *
+*                                                                             *
+*******************************************************************************
+
+-------------------------------------------------------------------------------
+** 3.1. How to recruit
+-------------------------------------------------------------------------------
+You can only recruit certain races during certain months, in certain areas.
+Yes, recruiting new members is that much of a pain. A list for the races and
+their corresponding areas/months can be found in section 5.
+
+So when you visit a certain area in a certain month, you will get a random
+pop-up message on the map that will show a new recruit is available. Here is
+exactly what happens:
+
+Example: Hume in Targ Forest, Blackfrost or Skyfrost.
+1. The month is Blackfrost or Skyfrost.
+2. You walk into Targ Forest.
+3. When you enter the area, an event bubble will appear.
+4. When you walk to the spot on the map, the recruit will ask to join.
+5. You can view his stats, equipment, abilities before recruiting him.
+6. If you choose to recruit, s/he joins.
+
+Tip: Save before walking into the spot where the recruit asks to join. This way
+you can reset the game until you get a unit with the most desired job and stats.
+Of course for obvious reasons, the race will not change.
+
+-------------------------------------------------------------------------------
+** 3.2. Things to know
+-------------------------------------------------------------------------------
+
+If you look at section 5, the race-month list, you will see that you can
+recruit all job types. You might be thinking, wow, I can get advanced classes
+really early! Well, sorry, you can't.
+
+Before you can encounter a specific class, you will need to have UNLOCKED the
+class for yourself. Meaning, on your "change class" menu, the class you want
+to recruit must be present (not ?????). None of your units have to be able to
+change into the class, the class merely has to be UNLOCKED.
+
+Another thing to note is that even if you have the class unlocked, you will
+need to have progressed far enough into the story to recruit them. Sorry, I
+don't know EXACTLY when the "advanced" classes become available, but if you're
+having trouble encountering them, just advance the story a little more and try
+again.
+
+If you're STILL having trouble, it might be because you can only recruit
+ONE race PER area PER year. This means if you got a Bangaa in Baptiste Hills
+already, you cannot recruit another one in the same area until one year passes.
+However, you can still recruit in the other area, which is Aisenfield for
+Bangaa. Note that for the advanced classes, you have to be far enough in the
+story to be able to recruit them. Also, Seeq/Gria count as "one" unit so
+if you get a "basic" Seeq in The Aldanna Range, you cannot get a "basic" Gria
+in Fluorgis.
+
+Note about Gria: You cannot recruit Gria even though their Ravager and
+Geomancer classes are available in Zedlei Forest on the main continent.
+You MUST have reached the new continent (after the airship quest), and then
+Gria will be immediately available for recruit in Fluorgis.
+
+Note about Viera: You must do the quest "Moon Seal" first. "Moon Seal" appears
+in the quest menu after you do "Star Seal." If you have done "Star Seal" but
+"Moon Seal" doesn't appear in your quest menu, do a couple more story quests
+and it should appear. I believe I was able to recruit Viera after I met
+Lezaford, but that might not be the earliest chance.
+
+TIP: Saving before you recruit randomizes the unit. So if you get an unwanted
+unit, you can reset and try again.
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+** 4. Recruitment by Quest                                             [xquest]
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+*******************************************************************************
+* IMPORTANT NOTE                                                              *
+*******************************************************************************
+*                                                                             *
+* It is general consensus here on the GF boards that you will not be able to  *
+* get the recruitment quest until AFTER the auction event. After that, it     *
+* will appear in the pub menu like any normal quest. The quest is called      *
+* "Clan Mates" and it is Rank 1. It does respawn after some time, so feel     *
+* free to advance the calendar if you want to do it again.                    *
+*                                                                             *
+*******************************************************************************
+
+The MONTH in which you activate the quest will determine which race you get.
+So if you do the quest in Blackfrost, you will get a Hume; if you do it in
+Ashleaf, you will get a Viera. Refer to section 5 for the list.
+
+You can however control the JOB CLASS of the unit you recruit. You will be
+asked four questions -- the answers are below.
+
+Note that if you DO NOT have a job unlocked and you try to get it, the
+recruitment guy WILL NOT give you the unit. Instead he'll offer you a
+replacement unit. If you refuse this, he will ask you the questions again --
+up to 3 times, in which he gives up.
+
+Hume
+----------------------
+AAAA Thief
+AAAB Soldier
+AABA Fighter
+AABB Paladin
+ABAA Thief
+ABAB Soldier
+ABBA Ninja
+ABBB Parivir
+BAAA Black Mage
+BAAB Archer
+BABA Blue Mage
+BABB Hunter
+BBAA Black Mage
+BBAB White Mage
+BBBA Illusionist
+BBBB Seer
+
+Bangaa
+----------------------
+AAAA White Monk
+AAAB Master Monk
+AABA Gladiator
+AABB White Monk
+ABAA White Monk
+ABAB White Monk
+ABBA Dragoon
+ABBB Dragoon
+BAAA Warrior
+BAAB Defender
+BABA Warrior
+BABB Warrior
+BBAA Cannoneer
+BBAB Templar
+BBBA Bishop
+BBBB Trickster
+
+Nu-Mou
+----------------------
+AAAA Illusionist
+AAAB Black Mage
+AABA Sage
+AABB Beastmaster
+ABAA Arcanist
+ABAB Black Mage
+ABBA Sage
+ABBB Scholar
+BAAA White Mage
+BAAB White Mage
+BABA Alchemist
+BABB Beastmaster
+BBAA Time Mage
+BBAB Time Mage
+BBBA White Mage
+BBBB Beastmaster
+
+Moogle
+----------------------
+AAAA Animist
+AAAB Chocobo Knight
+AABA Moogle Knight
+AABB Animist
+ABAA Tinker
+ABAB Fusilier
+ABBA Black Mage
+ABBB Moogle Knight
+BAAA Animist
+BAAB Flintlock
+BABA Time Mage
+BABB Thief
+BBAA Fusilier
+BBAB Black Mage
+BBBA Juggler
+BBBB Thief
+
+Viera
+----------------------
+AAAA Archer
+AAAB Fencer
+AABA Archer
+AABB Spellblade
+ABAA Green Mage
+ABAB White Mage
+ABBA Red Mage
+ABBB Green Mage
+BAAA Assassin
+BAAB Fencer
+BABA Archer
+BABB Sniper
+BBAA Elementalist
+BBAB White Mage
+BBBA Summoner
+BBBB White Mage
+
+Seeq/Gria
+----------------------
+AAAA Raptor
+AAAB Viking
+AABA Raptor
+AABB Viking
+ABAA Lanista
+ABAB Lanista
+ABBA Geomancer
+ABBB Geomancer
+BAAA Berserker
+BAAB Ravager
+BABA Berserker
+BABB Ravager
+BBAA Ranger
+BBAB Ranger
+BBBA Hunter
+BBBB Hunter
+
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+** 5. Race-Month Correlation List                                       [xlist]
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Hume - Blackfrost, Skyfrost
+-------------------------------------------------------------------------------
+Targ Forest - Soldier, Thief, White Mage, Black Mage, Archer
+Galerria Deep - Paladin, Fighter, Blue Mage, Hunter
+Sant D'alsa Bluff - Parivir, Ninja, Illusionist, Seer
+
+-------------------------------------------------------------------------------
+Bangaa - Greenfire, Bloodfire
+-------------------------------------------------------------------------------
+Baptiste Hills - Warrior, White Monk, Dragoon, Gladiator, Bishop
+Aisenfield - Defender, Master Monk, Templar, Cannoneer, Trickster
+
+-------------------------------------------------------------------------------
+Nu-Mou - Rosefire, Coppersun
+-------------------------------------------------------------------------------
+Graszton - White Mage, Black Mage, Beastmaster
+Moorabelle - Time Mage, Arcanist, Illusionist, Sage
+Nazan Mines - Alchemist, Scholar
+
+-------------------------------------------------------------------------------
+Moogle - Goldsun, Silversun
+-------------------------------------------------------------------------------
+Bisga Greenlands - Animist, Thief, Black Mage
+Goug - Moogle Knight, Fusilier, Tinker, Time Mage
+Neslowe Passage - Chocobo Knight, Juggler, Flintlock
+
+-------------------------------------------------------------------------------
+Viera - Ashleaf, Mistleaf
+-------------------------------------------------------------------------------
+Camoa - Fencer, Archer, White Mage, Green Mage, Red Mage
+Rupie Mountains - Elementalist, Spellblade, Summoner, Assassin, Sniper
+
+-------------------------------------------------------------------------------
+Gria - Emberleaf, Plumfrost ** MONTHS SHARED WITH SEEQ **
+-------------------------------------------------------------------------------
+Fluorgis - Hunter, Raptor
+Zedlei Forest - Ravager, Geomancer
+
+-------------------------------------------------------------------------------
+Seeq - Emberleaf, Plumfrost ** MONTHS SHARED WITH GRIA **
+-------------------------------------------------------------------------------
+Aldanna Range - Berserker, Ranger
+Tramdine Fens - Lanista, Viking
+
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+** 6. NPC Recruitment                                                    [xnpc]
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+
+FRIMELDA:
+
+You recruit Frimelda by finishing a chain of quests. Here is the order:
+1. Under the Weather
+2. A Chill in the Night
+3. Show of Strength
+4. Hunted
+5. Memories Forged (recruited here)
+6. The Way of the Sword (solo battle using Frimelda here)
+
+PENELO:
+
+You must be at the end of the game, right before the last quest to get Penelo
+and Vaan. The last quest is "The Ritual." Also you can tell by looking at the
+top DS screen. If there is only room for one more line to appear, that's it.
+
+Go to Fluorgis. An event bubble should appear. Go and you will meet Al-Cid,
+and afterwards Penelo will join you.
+
+VAAN:
+
+After recruiting Penelo, another event bubble will appear on the same map.
+Win the battle and Vaan will join.
+
+AL-CID:
+
+After recruiting Vaan and Penelo, complete the quest "A Dashing Duel." Then,
+finish the game. After saving a "GAME COMPLETE" file, reload it. Go to a pub
+and read the notices. There should be a post called "An Elegant Letter." Go
+to Targ Woods to encounter Al-Cid.
+
+MONTBLANC:
+
+You need to be post-game (GAME COMPLETE file) and need three things:
+1. Giga's Pendant (quest: "Camoa Cup")
+2. Pin of Order (quest: "Fluorgis Cup")
+3. Earrings of the Dead (quest: "The Last Step")
+
+Then you will get a quest called "Wanted: Friends, Kupo" in the pub.
+
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+** 7. Frequently Asked Questions                                         [xfaq]
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+
+Feel free to ask your questions here:
+http://boards.gamefaqs.com/gfaqs/genmessage.php?board=937330&topic=43927949
+(If it's not dead yet...)
+
+Email me only if you can't find your answer here or on the boards.
+
+***** WHEN IN DOUBT, ADVANCE THE STORY MORE! *****
+
+Q: Why can't I recruit [xx] class?
+A: You must be trying to recruit an "advanced" class. Look at section 5's list.
+   Initially, you can ONLY recruit the first set of classes if you are doing
+   this by map. In the case of both map and quest recruitment, you will also
+   need to have unlocked the class you're trying to recruit. If you're still
+   having trouble, you might need to be farther along in the story.
+
+Q: The recruitment by quest answers aren't right.
+A: I didn't write that part, the list was given to me. I haven't verified its
+   accuracy 100%, so use it at your own risk. However it hasn't given me any
+   trouble for the times I've tried to recruit specific units. Also note that
+   you cannot recruit a particular class until you 1) have unlocked the class
+   and 2) progressed along in the story. No, I'm not sure "how far" you need
+   to progress.
+
+Q: Why are the new recruited units so low level?
+A: The level of new recruits is based on the average level of your clan UP TO
+   LEVEL 30. (Yes, thank you guys for all the emails.) This is still not 100%
+   confirmed, but based on all 1098498 of you who sent me emails, this is the
+   best theory I can come up with. Makes sense to me. Please let me know if
+   there's anything wrong with it :)
+
+Q: I've heard that if you do clan trials, you can be able to recruit the
+   advanced units. Is this true?
+A: On the boards, it's been suspected that in order to unlock recruitment of
+   the more advanced classes, you have to do clan trials OR get far enough
+   into the story. I've found that the CLAN TRIALS part is probably wrong.
+   I haven't done many clan trials, and yet I can recruit all of the classes.
+   So, I believe you JUST HAVE TO BE FAR ENOUGH into the story to recruit.
+
+Q: What are the order of the months?
+A: Blackfrost, Skyfrost, Greenfire, Bloodfire, Rosefire, Coppersun, Goldsun,
+   Silversun, Ashleaf, Mistleaf, Emberleaf, Plumfrost, repeat.
+
+Q: What happens if my party is full and I try to recruit?
+A: You are given the option of replacing an existing party member. Also, if you
+   do dismiss an existing member, they will automatically be stripped of their
+   equipment so you don't have to worry about that.
+
+Q: What are some other factors that affect recruitment?
+A: Pasted from email:
+
+"The second thing I wanted to mention is about the affect that doing clan
+trials can have.  I have started the game a few times and I have found that
+having a higher clan title gets me MORE OPPORTUNITIES to recruit people,
+even if they are for the regular jobs." - crajonpau
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+** 8. Credits / Thanks
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+
+GameFAQs     - The obvious. Best FAQ site ever :)
+scraadin     - Providing information on recruitment by quest
+theforkwiz   - Providing list of localized area names and list of the recruit
+               quest Q&A's
+X. Zantrobus - Providing information on recruiting with a full party
+Aramil       - Average level recruitment info
+Kyle P.      - Average level recruitment info
+crajonpau    - Average level recruitment info, clan stuff
+
+And everyone else who helped to bump my recruitment thread!
+I see you guys are still doing it... lol. Thanks! :)
+
+
+-------------------------------------------------------------------------------
+
+View in: Text Mode
+
+GameFAQsfacebook.com/GFAQstwitter.com/GameFAQsHelp / Contact UsChange Colors 
+
+gamespot.commetacritic.comfandom.comfanatical.com
+
+SitemapPartnershipsCareersTerms of UseDigital Services Act
+
+Privacy PolicyDo Not Sell My Personal InformationReport Ad
+
+© 2026 FANDOM, INC. ALL RIGHTS RESERVED.

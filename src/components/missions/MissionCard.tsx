@@ -24,6 +24,146 @@ function getEnemyDisplayName(enemy: Mission["enemies"][number], fallback: string
     return parts.length > 0 ? parts.join(" ") : fallback;
 }
 
+function getLawGuidance(law?: string): string | null {
+    if (!law) return null;
+
+    const normalized = law.toLowerCase();
+
+    if (normalized.includes("targeting all units")) {
+        return "Law reminder: avoid all-unit/full-field effects. Ordinary area attacks are only a law issue if the law also forbids targeting an area.";
+    }
+
+    if (normalized.includes("targeting an area") || normalized.includes("targeting area")) {
+        return "Law reminder: avoid area or multi-tile targeting. Use single-target actions instead.";
+    }
+
+    if (normalized.includes("targeting distant units")) {
+        return "Law reminder: target only adjacent or point-blank units; actions aimed two or more tiles away break the law.";
+    }
+
+    if (normalized.includes("targeting adjacent units")) {
+        return "Law reminder: avoid point-blank or adjacent targeting. Use ranged, magick, or long-reach actions instead.";
+    }
+
+    if (normalized.includes("targeting self")) {
+        return "Law reminder: avoid actions that target the user, including self-buffs and self-heals.";
+    }
+
+    if (normalized.includes("ranged weapons")) {
+        return "Law reminder: bows, greatbows, guns, hand-cannons, and cards are forbidden; ranged spells and non-weapon skills are still separate from that weapon ban.";
+    }
+
+    if (normalized.includes("fire, ice, lightning")) {
+        return "Law reminder: fire, ice, and lightning weapons or abilities are forbidden. Use neutral or other-element damage.";
+    }
+
+    if (normalized.includes("fire")) {
+        return "Law reminder: avoid fire-element weapons and abilities.";
+    }
+
+    if (normalized.includes("ice")) {
+        return "Law reminder: avoid ice-element weapons and abilities.";
+    }
+
+    if (normalized.includes("lightning")) {
+        return "Law reminder: avoid lightning-element weapons and abilities.";
+    }
+
+    if (normalized.includes("restoring hp")) {
+        return "Law reminder: HP restoration is forbidden, including Cure-style healing and healing items.";
+    }
+
+    if (normalized.includes("restoring mp")) {
+        return "Law reminder: MP restoration is forbidden, including Ethers and MP-recovery actions.";
+    }
+
+    if (normalized.includes("using mp")) {
+        return "Law reminder: avoid actions that consume MP. Favor basic attacks, weapon skills, and other MP-free options.";
+    }
+
+    if (normalized.includes("items")) {
+        return "Law reminder: item use is forbidden. Bring ability-based recovery and utility instead.";
+    }
+
+    if (normalized.includes("buffs and debuffs")) {
+        return "Law reminder: avoid both stat/status buffs and debuffs. Passive gear protection is safer than applying status effects.";
+    }
+
+    if (normalized.includes("receiving buffs and debuffs")) {
+        return "Law reminder: do not let your units receive buffs or debuffs. Status immunity and prevention matter more than cleanup.";
+    }
+
+    if (normalized.includes("buffs")) {
+        return "Law reminder: avoid buffing actions such as Haste, Protect, Shell, and similar positive statuses.";
+    }
+
+    if (normalized.includes("debuffs")) {
+        return "Law reminder: avoid inflicting negative statuses or stat-down effects.";
+    }
+
+    if (normalized.includes("reaction abilities")) {
+        return "Law reminder: unequip reaction abilities before entering so counters do not trigger a penalty.";
+    }
+
+    if (normalized.includes("opportunity commands")) {
+        return "Law reminder: do not use Opportunity Commands, even when the prompt appears.";
+    }
+
+    if (normalized.includes("copycat")) {
+        return "Law reminder: vary actions from turn to turn; repeating the previous unit's action breaks the law.";
+    }
+
+    if (normalized.includes("knockback")) {
+        return "Law reminder: avoid abilities that push, rush, or knock targets back.";
+    }
+
+    if (normalized.includes("back attack")) {
+        return "Law reminder: avoid striking from directly behind the target.";
+    }
+
+    if (normalized.includes("harming the weak")) {
+        return "Law reminder: check levels before attacking; damaging lower-level units breaks the law.";
+    }
+
+    if (/\bharming (humes?|bangaa|nu mou|viera|moogles?|seeq|gria|males?|females?)\b/.test(normalized)) {
+        return "Law reminder: avoid damaging the protected unit type, including splash damage, counters, and friendly fire.";
+    }
+
+    if (normalized.includes("< 20 damage") || normalized.includes("< 100 damage")) {
+        return "Law reminder: weak hits break the law. Use reliable damage boosts or skip attacks that may fall under the threshold.";
+    }
+
+    if (normalized.includes("> 50 damage")) {
+        return "Law reminder: heavy hits break the law. Use low-damage actions and avoid burst setups.";
+    }
+
+    if (normalized.includes("hp <= 20") || normalized.includes("< 200 hp")) {
+        return "Law reminder: keep affected units above the HP threshold before ending turns or taking risks.";
+    }
+
+    if (normalized.includes("not moving")) {
+        return "Law reminder: move the required number of tiles before acting or ending the unit's turn.";
+    }
+
+    if (normalized.includes("grouping")) {
+        return "Law reminder: avoid ending turns clustered with too many adjacent units.";
+    }
+
+    if (normalized.includes("solitude")) {
+        return "Law reminder: end turns next to an ally whenever possible.";
+    }
+
+    if (normalized.includes("swimming")) {
+        return "Law reminder: avoid entering water tiles.";
+    }
+
+    if (normalized.includes("height")) {
+        return "Law reminder: watch tile elevation before ending a turn.";
+    }
+
+    return "Law reminder: build your actions around the listed forbidden condition.";
+}
+
 export function MissionCard({ mission }: { mission: Mission }) {
     const [open, setOpen] = React.useState(false);
 
@@ -80,6 +220,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
     const hasEnemies = enemies && enemies.length > 0;
     const hasStrategy = strategy && strategy.length > 0;
     const hasNotes = notes && notes.trim().length > 0;
+    const lawGuidance = getLawGuidance(law);
     const phaseSummary = getMissionPhaseSummary(mission);
     const enemyRows = phaseSummary
         ? phaseSummary.phases.flatMap((phase) => [
@@ -468,6 +609,11 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                 <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
                                     <u>STRATEGY</u>
                                 </h4>
+                                {lawGuidance && (
+                                    <p className="mb-2 rounded-md border border-amber-700/50 bg-amber-950/30 px-2.5 py-1.5 text-[0.7rem] sm:text-xs text-amber-100">
+                                        {lawGuidance}
+                                    </p>
+                                )}
                                 {phaseSummary ? (
                                     <div className="space-y-2 text-xs sm:text-sm text-zinc-100">
                                         {phaseSummary.sharedStrategy.length > 0 && (

@@ -661,15 +661,6 @@ export const ENEMIES: Record<EnemyId, EnemyMeta> = {
         half: null,
         weak: null
     },
-    "neukhia-core": {
-        id: 'neukhia-core',
-        job: 'Neukhia Core',
-        description: "The heart of the Neukhia. The fires of the Apocalypse burn within its light.",
-        absorb: null,
-        immune: null,
-        half: null,
-        weak: null
-    },
     "neukhia-wisp": {
         id: 'neukhia-wisp',
         job: 'Neukhia Wisp',

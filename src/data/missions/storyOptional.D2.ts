@@ -136,7 +136,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         id: "D2-05",
         arc: "D2",
         name: "Chita on Weapons-Adepts",
-        description: "Chita's Weaponers return for the third and final speed battle challenge.",
+        description: "Ngaaa! It's just no good! I've sung the praises of focus and determination high and low, but it just doesn't seem to stick! Nothing for it but for me to give a lecture to end all lectures! -Chita, Chita's Weaponers",
         rank: 49,
         region: "The Ruins of Delgantua",
         fee: 500,
@@ -159,10 +159,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         { name: "Chita's Weaponers", job: "Randomized", quantity: 4, notes: "Rival speed-battle team. They are melee attackers; block their access to the Reaver and prevent them from landing the finishing blow." },
     ],
         strategy: [
-            "Speed battle: land the final blow on the Reaver before Chita's Weaponers do.",
-            "The law bans rapiers and spears, so swap weapon loadouts before entering.",
-            "Winning the final Chita challenge grants the Materia Blade as an additional reward.",
-        ],
+            "Speed battle: land the final blow on the Reaver before Chita's Weaponers do.",       ],
         rewards: {
             gil: 7550,
             cp: 98,
@@ -176,7 +173,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         id: "D2-06",
         arc: "D2",
         name: "Bug Hunt",
-        description: "I need someone to catch these really rare antlions for me. They're supposed to be different colours from the other antlions. I never seen them myself, but they're supposed to live in the forest, or grasslands, or something like that. Oh, and I heard of one being seen near Moorabella once, too. Eckt, Bug Collector",
+        description: "I need someone to catch these really rare antlions for me. They're supposed to be different colors from the other antlions. I never seen them myself, but they're supposed to live in the forest, or grasslands, or something like that. Oh, and I heard of one being seen near Moorabella once, too. -Eckt, Bug Collector",
         rank: 30,
         region: "Zedlei Forest, The Bisga Greenlands, Moorabella",
         fee: 400,
@@ -206,10 +203,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         { name: "White Antlion", job: "Pit Beast", quantity: 1, notes: "Moorabella battle — DO NOT KILL. This is the target to capture." },
     ],
         strategy: [
-            "Three-location hunt across Zedlei Forest, The Bisga Greenlands, and Moorabella. Do not kill the colored Pit Beast/Antlion targets — defeat all other enemies.",
-            "Zedlei Forest: leave the Blue Antlion alive. The Chocobo can heal and the Great Tortoise hits hardest, so remove whichever is causing more trouble before cleaning up the regular Antlions.",
-            "Bisga Greenlands: leave the Green Antlion alive. The targets start close together, so be careful with area attacks.",
-            "Moorabella: leave the White Antlion alive. Clear the Werewolves' physical pressure, pick off Lamias from range before their status effects stick, and leave the Sprite for last if Reflect is not disrupting you.",
+            "Three-location hunt across Zedlei Forest, The Bisga Greenlands, and Moorabella. Do not kill the colored Pit Beast/Antlion targets — defeat all other enemies.",           "Moorabella: leave the White Antlion alive. Clear the Werewolves' physical pressure, pick off Lamias from range before their status effects stick, and leave the Sprite for last if Reflect is not disrupting you.",
         ],
         rewards: {
             gil: 2650,
@@ -223,7 +217,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         id: "D2-07",
         arc: "D2",
         name: "The Show's Not Over...",
-        description: "I am a songstress. My voice is my livelihood. I have a series of performances scheduled, but I've come down with a terrible sore throat. I cna't possible perform in this condition. I've heard sweet sap can soothe the pain. Would you bring me some? Teis, Songstress",
+        description: "I am a songstress. My voice is my livelihood. I have a series of performances scheduled, but I've come down with a terrible sore throat. I can't possibly perform in this condition. I've heard sweet sap can soothe the pain. Would you bring me some? -Teis, Songstress",
         rank: 17,
         region: "Fluorgis",
         fee: 300,
@@ -256,7 +250,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         id: "D2-08",
         arc: "D2",
         name: "Fluffy Flier?",
-        description: "Reports from the Neslowe Passage tell of a fluffy flying creature among a dangerous monster pack.",
+        description: "I saw someone fly over a volcano the other day! Flitting through the air right over the hot flowing lava, they were! My mom says I'm full of it, but I know what I saw. Could someone go check it out? -Uwattyo, Adventurous Boy",
         rank: 38,
         region: "The Neslowe Passage",
         fee: 500,
@@ -280,11 +274,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         { name: "Randomized Name", job: "Brown Chocobo", quantity: 1, notes: "Support monster." },
         { name: "Randomized Name", job: "Fire Drake", quantity: 1, notes: "Uses Fire Breath and Mesmerize." },
     ],
-        strategy: [
-            "Take down the Sprites and Banshee first; their speed and Meteorite-style pressure can spiral quickly.",
-            "The Banshee can also inflict Stone on multiple targets, so bring recovery and finish the fight before the round-end tremors start damaging everyone.",
-            "Scions are banned, so rely on standard magick and ranged damage.",
-        ],
+        strategy: [            "The Banshee can also inflict Stone on multiple targets, so bring recovery and finish the fight before the round-end tremors start damaging everyone.",        ],
         rewards: {
             gil: 5410,
             cp: 76,
@@ -322,9 +312,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "Can debuff — watch out." },
         { name: "Randomized Name", job: "Adamantitan", quantity: 1, notes: "Munch can break armor; be careful when engaging it." },
     ],
-        strategy: [
-            "Recipe pages are in shining sparkles on the battlefield — examine them after clearing enemies.",
-            "Defeat the Lamia first because it is closest to your route. A Dragoon can reach the higher ledge earlier.",
+        strategy: [            "Defeat the Lamia first because it is closest to your route. A Dragoon can reach the higher ledge earlier.",
             "Be careful around the Adamantitan because Munch can break armor, and expect the Cockatrices to be among the last enemies on the upper level.",
         ],
         rewards: {
@@ -372,7 +360,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         id: "D2-11",
         arc: "D2",
         name: "Cake: The Catastrophe",
-        description: "Lea finished baking her grandmother's special cake, but a monster like a great ball of feathers stole the cake, box and all.",
+        description: "It took me five days, but I finally finished baking my grandmother's special cake-but on my way to deliver it to my father, I was set upon by a monster like a great ball of feathers, and it stole the cake, box and all! Won't someone please get it back for me? -Lea, Who is often set upon by monsters",
         rank: 27,
         region: "Kthili Sands",
         fee: 500,
@@ -396,10 +384,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         { name: "Randomized Name", job: "Cockatrice", quantity: 2, notes: "Can Haste itself and use Peck/Scatter." },
         { name: "Randomized Name", job: "Axebeak", quantity: 1, notes: "Can petrify units with Stone Breath and grant extra turns with Wake-Up Call." },
     ],
-        strategy: [
-            "Bladed weapons are banned, so bring poles, bows, guns, knuckles, rods, staves, or magick users.",
-            "Control the Axebeak and Cockatrices early to prevent status and extra-turn problems, then focus down the Rocktitan and Pit Beasts.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 6830,
             cp: 74,
@@ -445,7 +430,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         id: "D2-13",
         arc: "D2",
         name: "My Secret Shame",
-        description: "Udite's exam papers have scattered around Moorabella. Recover them before anyone sees the embarrassing marks.",
+        description: "That Killan has done it again! He's thrown my final exam papers out the window. If anyone learns the mark I received, I'll never be able to show my face in the Akademy again. I think the papers are still in the forest behind the school. Gather them and return them with all haste! -Udite, Second Year Akademy Student",
         rank: 25,
         region: "Moorabella",
         fee: 400,
@@ -470,9 +455,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         { name: "Randomized Name", job: "Deadly Nightshade", quantity: 2, notes: "Low threat; clear after the stronger support enemies." },
     ],
         strategy: [
-            "Gather all six sparkling exam papers; the quest ends as soon as the sixth paper is collected.",
-            "You can rush the papers, but clearing enemies first gives safer movement and more enemy loot.",
-            "Defeat the Sprite and Hoppy Bunny first, then clean up the Dreamhare and Deadly Nightshades.",
+            "Gather all six sparkling exam papers; the quest ends as soon as the sixth paper is collected.",            "Defeat the Sprite and Hoppy Bunny first, then clean up the Dreamhare and Deadly Nightshades.",
         ],
         rewards: {
             gil: 2720,
@@ -486,7 +469,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         id: "D2-14",
         arc: "D2",
         name: "Maintaining the Balance",
-        description: "The creatures of Tramdine Fends are on the brink of catastrophe! A swell in the number of antlions have driven the native cockatrices into decline. If something isn't done, they'll disappear from the fens altogether. Please travel to Tramdine Fens and thin the antlion population. Baran, Society of the Protection of Monsters.",
+        description: "The creatures of Tramdine Fens are on the brink of catastrophe! A swell in the number of antlions has driven the native cockatrices into decline. If something isn't done, they'll disappear from the fens altogether. Please travel to Tramdine Fens and thin the antlion population. -Baran, Society for the Protection of Monsters",
         rank: 27,
         region: "Tramdine Fens",
         fee: 400,
@@ -543,9 +526,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Cockatrice", quantity: 5, notes: "Can give themselves Haste, which is the main annoyance in an otherwise simple battle." },
     ],
-        strategy: [
-            "Spread units widely to avoid Grouping law violations.",
-            "Move in quickly and defeat all five Cockatrices; their self-Haste is the only guide-called complication.",
+        strategy: [            "Move in quickly and defeat all five Cockatrices; their self-Haste is the only guide-called complication.",
         ],
         rewards: {
             gil: 3290,
@@ -578,9 +559,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         },
         enemies: [],
         strategy: [
-            "Delivery mission — bring Rat Tail ×1 to Cilawa in Camoa.",
-            "No combat. This is an early simple hand-in; save one Rat Tail before spending loot at the Bazaar.",
-        ],
+            "Delivery mission — bring Rat Tail ×1 to Cilawa in Camoa.",        ],
         rewards: {
             gil: 560,
             cp: 10,

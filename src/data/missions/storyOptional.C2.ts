@@ -32,12 +32,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         { name: "Randomized Name", job: "Baknamy", quantity: 2, notes: "Close-range blockers around the trap route; clear them with job abilities instead of Attack." },
         { name: "Randomized Name", job: "Luchorpan", quantity: 2, notes: "Support monsters near the traps. Keep ranged or magick users ready so they do not pin down your trap clearer." },
     ],
-        strategy: [
-            "Normal Attack is forbidden, but job abilities, magick, items, and reaction abilities are still legal.",
-            "Eliminate or disable the Tonberry King first, then clear Baknamy and Luchorpans that block access to the traps.",
-            "Bring a Ranger or high-mobility unit to reach every trap tile, and keep the trap clearer protected while the rest of the party controls enemies.",
-            "Trap colors matter: green deals light damage, purple Charms, blue halves current HP, and yellow Silences.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 9450,
             cp: 92,
@@ -76,11 +71,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         battlefield: [
             "Potion sparkle spots are scattered through The Galleria Deep.",
         ],
-        strategy: [
-            "Collect every potion sparkle to complete the mission; defeating all monsters is not required if you can move safely.",
-            "Restoring HP is forbidden, so prevent damage instead of relying on Cure or item healing.",
-            "Prioritize the Wendigo first if it blocks collection routes, then use Fire against the Ice Drakes and Blue Flans.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 3660,
             cp: 40,
@@ -93,7 +84,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         id: "C2-03",
         arc: "C2",
         name: "Komodo Arrival",
-        description: "Finally! We've arrived in Moorabella! I've done it, Celestine! Except ... now there 's a problem. Can someone come and help me, please? Komodo Trader",
+        description: "Finally! We've arrived in Moorabella! I've done it, Celestine! Except...now there's a problem. Can someone come and help me, please? -Komodo Trader",
         rank: 25,
         region: "Moorabella",
         fee: 400,
@@ -119,11 +110,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         { name: "Randomized Name", job: "Geomancer", quantity: 1, notes: "Multiple Geomancy skills." },
         { name: "Randomized Name", job: "Time Mage", quantity: 1, notes: "Uses Slow and Time. At the back — harder to reach." },
     ],
-        strategy: [
-            "Targeting all units is forbidden, so avoid Illusion, all-field effects, and any action that would include every unit on the map.",
-            "Remove the Illusionist before Freezeblink can punish your whole party, then take out the Black Mage and Archer to reduce damage and status pressure.",
-            "The Time Mage starts farther back; send a mobile unit around the frontline once the dangerous casters are under control.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 3330,
             cp: 50,
@@ -136,7 +123,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         id: "C2-04",
         arc: "C2",
         name: "Shipping Out",
-        description: "We're up to our ears in shipping orders. It's getting so bad, I've even thought about taking on baknamy! As it is, the freight keeps piling up, and we don't have enough hands to keep it moving. If you aren't afraid of a little hard work, we've got a job for you.",
+        description: "We're up to our ears in shipping orders. It's getting so bad, I've even thought about taking on baknamy! As it is, the freight keeps piling up, and we don't have enough hands to keep it moving. If you aren't afraid fo a little hard work, we've got a job for you. -Noy, Long-ear Freight",
         rank: 11,
         region: "Targ Wood, Graszton",
         fee: 300,
@@ -168,7 +155,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         id: "C2-05",
         arc: "C2",
         name: "Komodo Departure",
-        description: "I have to deliver some merchandise, and the road promises to be treacherous. Guards needed! Pay: 2200 Gil. The successful applicant will have confidence in their sword arm, be passionate about their work, and love to quaff potions. Komodo Potions",
+        description: "I have to deliver some merchandise, and the road promises to be treacherous. Guards needed! Pay: 2,200 gil The successful applicant will have confidence in their sword arm, be passionate about their work, and love to quaff potions. -Komodo Potions",
         rank: 16,
         region: "The Bisga Greenlands",
         fee: 300,
@@ -194,11 +181,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         { name: "Randomized Name", job: "Warrior", quantity: 2, notes: "Ground-route physical attackers." },
         { name: "Randomized Name", job: "Moogle Knight", quantity: 1, notes: "Uses Moogle Lance-style pressure and is more dangerous than the trader can handle alone." },
     ],
-        strategy: [
-            "Avoid area targeting entirely; most offensive magick will violate the law, so favor single-target ranged and melee abilities.",
-            "Split pressure between the high-ground Archer/Fusilier and the ground route enemies around the trader.",
-            "Bring Phoenix Downs or Raise/Arise support because the Komodo Trader is fragile and the map is trap-laden.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 2200,
             cp: 32,
@@ -211,7 +194,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         id: "C2-06",
         arc: "C2",
         name: "The Forests of Loar",
-        description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 6 days and receive a stamp on your wayfarer's log to win valuable prizes. Marsa Wayfarers Association List of Destinations: - Targ Wood - The Bisga Greenlands - Zedlei Forest",
+        description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 6 days and receive a stamp in your wayfarer's log to win valuable prizes! -Marsa Wayfarers Association List of Destinations: -Targ Wood -The Bisga Greenlands -Zedlei Forest",
         rank: 15,
         region: "Targ Wood, The Bisga Greenlands, Zedlei Forest",
         fee: 300,
@@ -243,7 +226,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         id: "C2-07",
         arc: "C2",
         name: "The Lands of Loar",
-        description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 5 days and receive a stamp on your wayfarer's log to win valuable prizes. Marsa Wayfarers Association List of Destination: - Baptiste Hill - The Bisga Greenlands - The Aldanna Range",
+        description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 5 days and receive a stamp in your wayfarer's log to win valuable prizes! -Marsa Wayfarers Association List of Destinations: -Baptiste Hill -The Bisga Greenlands -The Aldanna Range",
         rank: 16,
         region: "Baptiste Hill, The Bisga Greenlands, The Aldanna Range",
         fee: 300,
@@ -275,11 +258,11 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         id: "C2-08",
         arc: "C2",
         name: "The Towns of Loar",
-        description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 7 days and receive a stamp on your wayfarer's log to win valuable prizes. Marsa Wayfarers Association List of Destinations: - Camoa - Graszton - Moorabella",
+        description: "-Annual Wayfarer's Expedition!- Visit all the below areas within 7 days and receive a stamp in your wayfarer's log to win valuable prizes! -Marsa Wayfarers Association List of Destinations: -Camoa -Graszton -Moorabella",
         rank: 17,
         region: "Camoa, Graszton, Moorabella",
         fee: 300,
-        days: 7,
+        days: 20,
         questType: "Meet Objectives",
         canDispatch: true,
         canCancel: true,
@@ -307,7 +290,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         id: "C2-09",
         arc: "C2",
         name: "The Genuine Article",
-        description: "Even among wares as fine as Galmia Pepe's there are distinctions. Of late, a large number of counterfeit De'vine Ribbons - one of our finest prodicts - have made their way to market. We would like someone to put a stop to this. Galmia Pepe",
+        description: "Even among wares as fine as Galmia Pepe's there are distinctions. Of late, a large number of counterfeit De'vine Ribbons-one of our finest products-have made their way to market. The counterfeiters are trying to pass off ribbons from the cassie variant of malboro-a vastly inferior specimen. We must act quickly if we are to protect the reputation of our house. Look into the matter with all haste. -Galmia Pepe, Office of Quality Assurance",
         rank: 17,
         region: "Graszton",
         fee: 300,
@@ -330,10 +313,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Moogle Thief with Moogle Lance (ranged) — kill to stop ranged harassment." },
         { name: "Randomized Name", job: "Thief", quantity: 2, notes: "Steal items — kill from range or use Safeguard." },
     ],
-        strategy: [
-            "Four Thieves who all steal items. Take out the Moogle Thief (ranged Moogle Lance) so you can pummel the rest with melee and ranged units.",
-            "No Buffs (law) — rely on raw stats. The dual-wield head Thief hits hardest.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 2170,
             cp: 34,
@@ -375,11 +355,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         battlefield: [
             "The map features elevation differences",
         ],
-        strategy: [
-            "The >100 damage law makes heavy burst risky; use moderate-damage skills, status, and controlled follow-up hits instead of your strongest attacks.",
-            "Use the map height to your advantage. Focus the White Monk first to stop Render skills, then remove the Ninja/Viking and both Thieves.",
-            "Safeguard or quick disables are useful because this chain continues the counterfeit-ribbon thief theme.",
-        ],
+        strategy: [            "Use the map height to your advantage. Focus the White Monk first to stop Render skills, then remove the Ninja/Viking and both Thieves.",        ],
         rewards: {
             gil: 2980,
             cp: 42,
@@ -413,11 +389,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Cassie", quantity: 6, notes: "Malboro variant. Uses Honeyed Breath, Cloying Breath (debuffs), and Charm. 2 have Love Song (healing). Use Sidewinder (Hunters) or Wind-element attacks." },
     ],
-        strategy: [
-            "Buffs and debuffs are forbidden, but the Cassies can still pressure you with Charm and breath effects; bring Esuna-style recovery and status immunity where possible.",
-            "Prioritize the two Cassies with Love Song so they cannot undo your damage, then clean up the remaining Malboro variants with Wind attacks or Hunter Sidewinder.",
-            "Spread out to reduce breath value and avoid using any support action that the law treats as a buff or debuff.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 3430,
             cp: 44,
@@ -452,10 +424,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         { name: "Randomized Name", job: "Golem", quantity: 1, notes: "Speed battle: you and Chita's Weaponers race to kill it. Weak to Wind — use Shining Air or Sidewinder. Heal it if the enemy team gets too close to stealing the kill." },
     ],
         strategy: [
-            "Win by landing the killing blow on the Golem before Chita's Weaponers do.",
-            "Do not bring rods, staves, poles, knuckles, hammers, or maces because bludgeoning weapons are forbidden.",
-            "Use Wind damage such as Shining Air or Sidewinder, and heal or delay the Golem if the rival team is about to steal the final hit.",
-        ],
+            "Win by landing the killing blow on the Golem before Chita's Weaponers do.",       ],
         rewards: {
             gil: 5900,
             cp: 78,
@@ -468,7 +437,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
         id: "C2-15",
         arc: "C2",
         name: "Chita on Weapons-Novices",
-        description: "Ngaaa! The youth these days can't wield a weapon to save their lives! ... Feh! Nothing for it but to teach 'em myself. Chita, Chita's Weaponers",
+        description: "Ngaaa! The youths these days can't wield a weapon to save their lives! ...Feh! Nothing for it but to teach 'em myself. -Chita, Chita's Weaponers",
         rank: 33,
         region: "The Galleria Deep",
         fee: 500,
@@ -489,11 +458,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Deathscythe", quantity: 1, notes: "Speed battle: race Chita's Weaponers to the kill. Undead — use X Potion (with Item Lore) for 400 damage to finish quickly. Heal if enemy is about to steal the kill." },
     ],
-        strategy: [
-            "This is a speed battle, so only the killing blow on the Deathscythe matters.",
-            "Ranged weapons are forbidden; use melee, magick, or item damage instead of bows, greatbows, guns, hand-cannons, or cards.",
-            "Because Deathscythe is undead, X-Potion with Item Lore is an excellent finisher. Heal or stall the target if Chita's team is positioned to claim the kill.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 4920,
             cp: 66,
@@ -534,10 +499,7 @@ export const OPTIONAL_MISSIONS_C2: Mission[] = [
             "The map features elevation differences",
         ],
         strategy: [
-            "Climb toward the peak and search the five sparkle spots until you uncover the Kupoppy Flower.",
-            "The mission ends as soon as the correct sparkle is examined, so high-Move or high-Jump units can shorten the fight.",
-            "Avoid knockback attacks because of the law. Use magick or ranged job abilities to handle Wolves and Werewolves across height differences.",
-        ],
+            "Climb toward the peak and search the five sparkle spots until you uncover the Kupoppy Flower.",       ],
         rewards: {
             gil: 3400,
             cp: 50,

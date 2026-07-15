@@ -40,7 +40,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     {
         id: "revive-allies",
         question: "How do I revive someone during battle?",
-        answer: "Early on, buy Phoenix Downs and give a unit the Item action ability so they can actually use them. Later options include White Mage's Raise, White Monk's Revive, and Summoner's Phoenix. If you broke the law and lost the judge, do not count on judge support to bail out fallen units.",
+        answer: "Early on, buy Phoenix Downs and give a unit the Item action ability so they can actually use them. Later options include White Mage's Raise, White Monk's Revive, and Summoner's Phoenix. Once the Judge is gone, including after your clan breaks the law, KO'd units cannot be revived during that battle. Reraise is the exception: the Blue Magick guide confirms that it still returns a unit after a law break.",
         tags: ["Battle", "Items"],
     },
     {
@@ -70,13 +70,13 @@ export const FAQ_ITEMS: FaqItem[] = [
     {
         id: "clan-trials",
         question: "What are clan trials and talents actually for?",
-        answer: "Clan Trials are judge-issued challenge battles that change Negotiation, Aptitude, Teamwork, and Adaptability, raise clan rank, unlock titles, and supply clan privileges. Each difficulty/title row is its own clear. Upgradeable privileges advance one step at a time, so a high-difficulty clear does not automatically grant every lower title reward or instantly finish the whole privilege ladder. Repeat or step through eligible rows when you want the lower titles, discounts, or missing upgrade tiers.",
+        answer: "Clan Trials are judge-issued challenge battles that change Negotiation, Aptitude, Teamwork, and Adaptability, award titles and fee discounts, and supply clan privileges. Each difficulty/title row is its own clear. Upgradeable privileges advance one step at a time, so a high-difficulty clear does not automatically grant every lower title reward or instantly finish the whole privilege ladder. Repeat or step through eligible rows when you want the lower titles, discounts, or missing upgrade tiers.",
         tags: ["Clan Trials", "Talents"],
     },
     {
         id: "clan-title-stacking",
         question: "If my clan title changes, do I lose the old benefits?",
-        answer: "You do not lose the important progression you earned: clan rank tracks your highest title, talent changes persist, and upgradeable privileges keep their highest unlocked version. Do not assume the visible title gives every lower row too, and do not treat discounts as permanently stacked across every old title; clear or repeat the rows tied to the rewards you actually want.",
+        answer: "No. Your visible clan title is simply the title from the most recently completed Clan Trial, while benefits already earned from other trial rows remain stacked. Talent changes and unlocked privilege upgrades also persist. Clearing a higher row does not automatically award every lower row, so clear or repeat the rows tied to the rewards and privilege upgrades you still need.",
         tags: ["Clan Trials", "Titles"],
     },
     {
@@ -100,7 +100,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     {
         id: "clan-mates-recruitment",
         question: "How do I control recruitment and the Clan Mates quest?",
-        answer: "There are two recruitment flows. Map recruits can appear while traveling, and their race/job pool depends on the in-game month and region. Clan Mates is the directed recruitment quest in Targ Wood: it appears after the auction phase opens, and if it is missing, make sure Now That's a Fire!, the first auction, and The Star Seal are all cleared. The quest has no combat; answer the Nu Mou's questions to steer what kind of unit you receive.",
+        answer: "There are two recruitment flows. Map recruits can appear while traveling, and their race/job pool depends on the in-game month and region. Clan Mates is the directed recruitment quest in Targ Wood: it appears after Now That's a Fire! and completion of an auction. The quest has no combat; its activation month determines the recruit's race, and your four answers steer the job offered.",
         tags: ["Recruiting", "Clan Mates"],
     },
     {
@@ -118,13 +118,13 @@ export const FAQ_ITEMS: FaqItem[] = [
     {
         id: "opportunity-turns",
         question: "Should I rely on opportunity turns?",
-        answer: "No. Opportunity turns come from the Smash Gauge filling as units complete actions, then offer a special command based on adjacent allies or enemies. The results can be strong, such as party buffs or multi-target attacks, but the setup is positional and several missions forbid Opportunity Commands outright. Treat them as a bonus, not a route plan.",
+        answer: "No. Opportunity turns occur randomly, although Luck privileges raise their chance. They offer a special command based on adjacent allies or enemies; you can move before using the command to change the arrangement. The results can be strong, such as party buffs or multi-target attacks, but several missions forbid Opportunity Commands outright. Treat them as a bonus, not a route plan.",
         tags: ["Battle", "Opportunity"],
     },
     {
         id: "scions",
         question: "When should I use Scions?",
-        answer: "Use Scions as big swings when the Smash Gauge is filled, the unit has the relevant summoning accessory equipped, and the law allows them. Scion abilities are not permanently learned from AP; without the accessory, that unit cannot use that Scion. Several missions ban Scion summoning, so do not make them your only answer to hard fights. Smash Gauge Bonus privileges help if you want to build around them.",
+        answer: "Use Scions as big swings once the Smash Gauge reaches at least 25%, the unit has the relevant summoning accessory equipped, and the law allows them. Saving more gauge strengthens the effect, but a Scion can be summoned only once per battle. Scion abilities are not permanently learned from AP; without the accessory, that unit cannot use that Scion. Several missions ban Scion summoning, so do not make them your only answer to hard fights.",
         tags: ["Scions", "Smash Gauge"],
     },
     {

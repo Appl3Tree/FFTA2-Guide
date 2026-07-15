@@ -8,7 +8,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         id: "B1-01",
         arc: "B1",
         name: "A Step Further",
-        description: "I seek someone to escort me to Targ Wood, providing protect as necessary. I am off to work for the Imperial League of Physicians in Rozarria, and I would like to visit the places dear to my heart one last time before I leave. Thank you. Mack, Scholar at Large",
+        description: "I seek someone to escort me to Targ Wood, providing protection as necessary. I am off to work for the Imperial League of Physicians in Rozarria, and I would like to visit the places dear to my heart one last time before I leave. Thank you. -Mack, Scholar at large",
         rank: 19,
         region: "Targ Wood",
         fee: 300,
@@ -34,11 +34,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Uses Oil and Sleep." },
         { name: "Randomized Name", job: "Scholar", quantity: 1, notes: "Uses Thunder and Shadow Tomes." },
     ],
-        strategy: [
-            "Keep Mack protected under the Solitude law: end each turn with an adjacent ally, including Mack's turns when possible.",
-            "Eliminate the Black Mage, Time Mage, and Scholar quickly; their long-range magick and Stop/Slow pressure are the guide's main danger callouts.",
-            "Bring Esuna or status recovery for Sleep/Oil and arrange the party in pairs so no unit accidentally ends a turn isolated.",
-        ],
+        strategy: [            "Eliminate the Black Mage, Time Mage, and Scholar quickly; their long-range magick and Stop/Slow pressure are the guide's main danger callouts.",        ],
         rewards: {
             gil: 4690,
             cp: 38,
@@ -70,9 +66,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Trade the Ocktor Tome of Medicine for Mack's magickal earrings in Targ Wood.",
-            "Bring the tome and complete the trade route; there is no combat.",
-        ],
+            "Trade the Ocktor Tome of Medicine for Mack's magickal earrings in Targ Wood.",        ],
         rewards: {
             gil: 4260,
             cp: 30,
@@ -108,11 +102,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Cockatrice", quantity: 4, notes: "Defeat all 4. Do not harm the 3 Deadly Nightshade allies (the tomatoes)." },
     ],
-        strategy: [
-            "Protect the three Deadly Nightshade tomatoes. Do not target them with area attacks or friendly fire.",
-            "Only the four Cockatrices need to be defeated. Keep the fight small and controlled so the tomatoes are not caught in crossfire.",
-            "Targeting all units is forbidden, so avoid full-map or all-unit effects and use single-target attacks instead.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 910,
             cp: 14,
@@ -148,10 +138,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "Initial wave." },
     ],
         strategy: [
-            "Find Nero by examining shiny sparkle points, with most of the search spots across the two bridges on the far side of the map.",
-            "Avoid lightning attacks and weapons because of the law. Use fire, ice, wind, earth, holy, dark, or physical damage instead.",
-            "Clear Axebeaks and Wolves only when they block a search route, then keep checking sparkles until the Scarab Beetle is found.",
-        ],
+            "Find Nero by examining shiny sparkle points, with most of the search spots across the two bridges on the far side of the map.",       ],
         rewards: {
             gil: 440,
             cp: 14,
@@ -164,7 +151,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         id: "B1-06",
         arc: "B1",
         name: "Wayward Drake",
-        description: "I awoke one morning to find my drake, Goud, missing without a trace. I haven't the slightest notion where he might have gone. Well, that's not entirely true. I've heard rumour that a drake was recently sighted in the Aldanna Range. I need someone to venture there and discover whether or not it is my dear Goud. Mr. Grann",
+        description: "I awoke one morning to find my drake, Goud, missing without a trace. I haven't the slightest notion where he might have gone. Well, that's not entirely true. I've heard rumor that a drake was recently sighted in the Aldanna Range. I need someone to venture there and discover whether or not it is my dear Goud. -Mr. Grann",
         rank: 15,
         region: "The Aldanna Range",
         fee: 300,
@@ -189,9 +176,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Randomized Name", job: "Werewolf", quantity: 1, notes: "Defeat. Fast melee." },
     ],
         strategy: [
-            "Clear the Thunder Drakes and Werewolf first, then carefully weaken Goud (the Fire Drake) to HP Critical without killing it.",
-            "No Ice (law). Use precise ability damage on Goud to control its HP.",
-        ],
+            "Clear the Thunder Drakes and Werewolf first, then carefully weaken Goud (the Fire Drake) to HP Critical without killing it.",        ],
         rewards: {
             gil: 1330,
             cp: 30,
@@ -204,7 +189,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         id: "B1-07",
         arc: "B1",
         name: "The White of Its Eye",
-        description: "My pet's gone and run away again. How many times does this make? I've lost count! Her name's Chari, and I saved her from the other bloody orbs that picked on her because she was a different colour. You'd think she'd be a bit more grateful, but she just keeps running away. Someone help me find her! She has a beautiful white ... coat? It should make her easy to tell apart. Fes",
+        description: "My pet's gone and run away again. How many times does this make? I've lost count! Her name's Chari, and I saved her from the other bloody orbs that picked on her because she was a different color. You'd think she'd be a little more grateful, but she just keeps running away. Someone help me find her! She has a beautiful white...coat? It should make her easy to tell apart. -Fes",
         rank: 21,
         region: "The Rupie Mountains",
         fee: 400,
@@ -227,10 +212,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Randomized Name", job: "Floating Eye", quantity: 3, notes: "Defeat these hostile eyes. Do not harm Chari, the white Bloody Orb ally; heal Chari if needed." },
     ],
         strategy: [
-            "Protect Chari, the white Bloody Orb. Do not hit Chari with area attacks or the elemental damage banned by the law.",
-            "Defeat the three hostile Floating Eyes while keeping Chari alive. Chari can hit hard too, but heal her if the enemies focus her down.",
-            "Fire, ice, and lightning are forbidden, so bring neutral physical attacks, non-banned magick, or monster-killer abilities.",
-        ],
+            "Protect Chari, the white Bloody Orb. Do not hit Chari with area attacks or the elemental damage banned by the law.",       ],
         rewards: {
             gil: 4920,
             cp: 42,
@@ -243,7 +225,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         id: "B1-08",
         arc: "B1",
         name: "Flown the Coop",
-        description: "I was taking one of the cockatrices for a walk in the Menagerie grounds when it flew into a frenzy and lashed out at me with its beak. Before I knew what had happened, it had fluttered over the pen fence and run away. This is the second time one of our monsters has gotten away from me in recent days, and if Mr. Grann finds out, I won't hear the end of it! I need someone to recover the cockatrice before anyone notice it's missing. It answers to the name of Okta. Keeper Lloyd, Grann's Menagerie",
+        description: "I was taking one of the cockatrices for a walk in the Menagerie grounds when it flew into a frenzy and lashed out at me with its beak. Before I knew what had happened, it had fluttered over the pen fence and run away. This is the second time one of our monsters has gotten away from me in recent days, and if Mr. Grann finds out, I won't hear the end of it! I need someone to recover the cockatrice before anyone notices it's missing. It answers to the name of Okta. -Keeper Lloyd, Grann's Menagerie",
         rank: 25,
         region: "Fluorgis",
         fee: 400,
@@ -270,10 +252,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             "Several hidden traps sit along the path down to the lower area.",
         ],
         strategy: [
-            "Defeat the three regular Cockatrices first, then weaken Okta to HP Critical without killing it.",
-            "Bladed weapons are forbidden, so avoid knives, swords, blades, sabers, katanas, axes, knightswords, greatswords, and broadswords.",
-            "Use controlled non-bladed damage on Okta near the end; abilities are safer than critical-hit-prone normal attacks.",
-        ],
+            "Defeat the three regular Cockatrices first, then weaken Okta to HP Critical without killing it.",       ],
         rewards: {
             gil: 4500,
             cp: 50,
@@ -426,11 +405,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             ]
         },
     ],
-        strategy: [
-            "Defeat exactly the two Dreamhares required for the ingredient request; killing too many or too few of the wrong fluffy targets fails the foodstuff condition.",
-            "Do not use Fire attacks or fire-element weapons because of the law.",
-            "The Hoppy Bunnies can inflict Blind, Silence, and Sleep, so either disable them without killing the needed count or keep status recovery ready while focusing the Dreamhares.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 620,
             cp: 16,
@@ -467,9 +442,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Randomized Name", job: "Deadly Nightshade", quantity: 1, notes: "Wrong ingredient target; defeat only if it blocks movement or threatens a key unit." },
     ],
         strategy: [
-            "Kill exactly four Malboros, then talk to the apprentice to complete the request.",
-            "Knockback is forbidden, so use precise single-target attacks and avoid abilities with push effects.",
-            "Alraunes and Deadly Nightshades can be defeated for safety or to cycle spawns, but they are not the requested ingredient.",
+            "Kill exactly four Malboros, then talk to the apprentice to complete the request.",            "Alraunes and Deadly Nightshades can be defeated for safety or to cycle spawns, but they are not the requested ingredient.",
         ],
         rewards: {
             gil: 2800,
@@ -483,7 +456,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         id: "B1-12",
         arc: "B1",
         name: "Foodstuffs: Appearance",
-        description: "Foodstuffs needed. You will be required to catch specific monsters at a specific location. The details are as follows: - Must be yellow and lustrous - Enough to feed nine - One is enough for three jellies Too many is no good. Too few is also no good. Poison Tasters Guild",
+        description: "Foodstuffs needed. You will be required to catch specific monsters at a specific location. The details are as follows: -Must be yellow and lustrous. -Enough to feed nine. -One is enough for three servings. Too many is no good. Too few is also no good. -Poison Tasters Guild \"The Iron Stomach\"",
         rank: 29,
         region: "The Bisga Greenlands",
         fee: 400,
@@ -506,10 +479,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Randomized Name", job: "Assorted Flan", quantity: 1, notes: "Wrong ingredient targets appear alongside the Yellow Jellies; defeat them only to cycle respawns or clear danger." },
     ],
         strategy: [
-            "Kill exactly three Yellow Jellies, then talk to the apprentice to end the quest successfully.",
-            "Other flans can be defeated to cycle respawns, but do not lose track of the exact Yellow Jelly count.",
-            "Fire, ice, and lightning are forbidden. Use wind, water, earth, holy, dark, non-elemental abilities, or monster-killer attacks.",
-        ],
+            "Kill exactly three Yellow Jellies, then talk to the apprentice to end the quest successfully.",       ],
         rewards: {
             gil: 5920,
             cp: 58,
@@ -522,7 +492,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         id: "B1-14",
         arc: "B1",
         name: "Our Playground",
-        description: "Some old creeps moved in on our playground! The place with the cool odl well! Now my old woman's sayin' it's a good opportunity for me to study and stuff. Can you believe it? Someone drive those creeps away! Obuta, Camoa Kids Leader",
+        description: "Some old creeps moved in on our playground! The place with the cool old well! Now my old woman's sayin' it's a good opportunity for me to study and stuff. Can you believe it!? Someone drive those creeps away! -Obuta, Camoa Kids Leader",
         rank: 7,
         region: "Camoa",
         fee: 200,
@@ -551,10 +521,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             "The Rangers can plant traps as they move; avoid stepping where a Ranger recently acted.",
         ],
         strategy: [
-            "Defeat the full Zedlei Consortium group: Yellow Jelly, Grenade, Malboro, Berserker, and two Rangers.",
-            "Avoid ice attacks and weapons because of the law. Use fire, lightning, wind, physical, or non-elemental damage.",
-            "The Grenade is the most disruptive support enemy; remove it if its ranged magick threatens your path through the Consortium group.",
-        ],
+            "Defeat the full Zedlei Consortium group: Yellow Jelly, Grenade, Malboro, Berserker, and two Rangers.",       ],
         rewards: {
             gil: 700,
             cp: 14,
@@ -595,10 +562,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
             "Several mushroom sparkle spots are present; one is the Baptiste Mushroom and the others are poisonous decoys.",
         ],
         strategy: [
-            "Search mushroom sparkles until you find the Baptiste Mushroom. The mission ends once the correct mushroom is found.",
-            "Poisonous mushrooms can inflict bad status, so bring Esuna, items, or a healer if you want to search before clearing enemies.",
-            "The Lilith is the most disruptive enemy because Night can put nearby units to sleep; remove it before methodically checking sparkles.",
-        ],
+            "Search mushroom sparkles until you find the Baptiste Mushroom. The mission ends once the correct mushroom is found.",       ],
         rewards: {
             gil: 980,
             cp: 22,
@@ -635,9 +599,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
     ],
         strategy: [
             "Bring Cloudy Sap. Once Klesta reaches half health, it tries to flee and the sap grounds it so you can finish the fight.",
-            "House Bowen arrives to help, but the win condition is still to defeat Klesta for good.",
-            "Klesta has over 900 HP, so bring strong attackers and keep healing ready during the longer boss fight.",
-            "Back attacks are forbidden, so attack from the side or front even when Klesta turns away.",
+            "House Bowen arrives to help, but the win condition is still to defeat Klesta for good.",            "Back attacks are forbidden, so attack from the side or front even when Klesta turns away.",
         ],
         rewards: {
             gil: 3030,

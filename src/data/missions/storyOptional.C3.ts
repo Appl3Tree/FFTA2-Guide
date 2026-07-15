@@ -36,10 +36,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         { name: "Scarface Clan", job: "Hunter", quantity: 1, notes: "Rival speed-battle clan member." },
     ],
         strategy: [
-            "This is a speed battle: win by landing the killing blow on the random mark before Scarface's rival clan does.",
-            "Every unit must move at least one tile before ending its turn, so plan legal movement even for casters and item users.",
-            "Clear or disable the Baknamy if they block your route, but watch Scarface's HP closely and heal it if the rival clan is about to claim the final hit.",
-        ],
+            "This is a speed battle: win by landing the killing blow on the random mark before Scarface's rival clan does.",       ],
         rewards: {
             gil: 12830,
             cp: 44,
@@ -71,9 +68,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Delivery mission — bring Bat Tail ×1 to Mille in Moorabella.",
-            "No combat. Keep at least one Bat Tail out of the Bazaar if you plan to complete this immediately.",
-        ],
+            "Delivery mission — bring Bat Tail ×1 to Mille in Moorabella.",        ],
         rewards: {
             gil: 2140,
             cp: 32,
@@ -110,11 +105,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         { name: "Randomized Name", job: "Hellhound", quantity: 2, notes: "Controlled wolf-type monsters. One uses Chilling Blow and one uses Fiery Blow; both can use Summon Pack and Fangs." },
         { name: "Cluckatrice", job: "Cluckatrice", quantity: 2, notes: "Guest monsters to protect. The Beastmaster can make the Hellhounds attack them." },
     ],
-        strategy: [
-            "Rush the Beastmaster. The listed objective says to protect the Cluckatrices and defeat all foes, but defeating the Beastmaster completes the mission.",
-            "Disable or burst down the Beastmaster before he can direct the Hellhounds into the protected Cluckatrices.",
-            "Bring a healer or defensive support in case the Cluckatrices take early damage.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 2400,
             cp: 72,
@@ -127,7 +118,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         id: "C3-08",
         arc: "C3",
         name: "Cleaning to Ordalia",
-        description: "Looking for helpers to swab an airship. We haven't had the crew to properly clean her for some time now. It would be a shame to put her out of service, si we'll have you cleaning her mid-flight. Oh, and watch out for the rats. Jylland Airship Inspection Board",
+        description: "Looking for helpers to swab an airship. We haven't had the crew to properly clean her for some time now. It would be a shame to put her out of service, so we'll have you cleaning her mid-flight. Oh, and watch out for the rats. -Jylland Airship Inspection Board",
         rank: 22,
         region: "Moorabella",
         fee: 400,
@@ -149,9 +140,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         { name: "Randomized Name", job: "Mimic", quantity: 6, notes: "Delay enemies aboard the airship. Ignore unless they block cleaning routes." },
     ],
         strategy: [
-            "Clean all sparkle spots by the end of the fourth round: three on deck, one on the back right wing, and one on each front wing.",
-            "Use your fastest, highest-move units and send two units toward the far wing spots immediately.",
-        ],
+            "Clean all sparkle spots by the end of the fourth round: three on deck, one on the back right wing, and one on each front wing.",        ],
         rewards: {
             gil: 180,
             cp: 44,
@@ -190,10 +179,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         { name: "Randomized Name", job: "Sprite", quantity: 1, notes: "Can threaten with Meteorite; physically fragile." },
     ],
         strategy: [
-            "Search the sparkling points around Tramdine Fens to recover the wedding ring.",
-            "Ranged weapons are banned, so use melee, magick, or non-banned abilities while moving between search points.",
-            "The Sprite is fragile but dangerous if it gets time to cast; clear it early if it blocks the route.",
-        ],
+            "Search the sparkling points around Tramdine Fens to recover the wedding ring.",       ],
         rewards: {
             gil: 4610,
             cp: 52,
@@ -236,12 +222,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         { name: "Khamja Assassin", job: "Assassin", quantity: 1, notes: "STAGE 2. Has Shadowbind, Last Breath, Aphonia. PRIORITY 1 — Last Breath instantly kills." },
     ],
         strategy: [
-            "TWO-STAGE BATTLE. Luso and Cid are forced party members in both stages.",
-            "STAGE 1 (Harming the Weak law): Enemies are underleveled. Move one unit adjacent to Calea to end the stage — no combat needed. Use a Gria to fly over Floating Eyes if blocked.",
-            "STAGE 2 (Copycat law): Khamja thugs arrive mid-battle. Your HP carries over — bring a White Mage. Vary each unit's action each turn to avoid Copycat violations.",
-            "Kill Assassin (Last Breath) and Parivir first. Then Seer (healer) and Lanista. Arcanist and Master Monk last.",
-            "LOSE if any enemy unit ends their turn within 3 tiles of Calea.",
-        ],
+            "TWO-STAGE BATTLE. Luso and Cid are forced party members in both stages.",           "Kill Assassin (Last Breath) and Parivir first. Then Seer (healer) and Lanista. Arcanist and Master Monk last.",        ],
         rewards: {
             gil: 7880,
             cp: 80,
@@ -254,7 +235,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         id: "C3-13",
         arc: "C3",
         name: "Kyrra, Dragoon",
-        description: "There's trouble brewing in Targ Wood! Come across a young bangaa run afoul of a band of ne'er-do-wells. Thinking I'd be little good against so many, I ran, hoping to find some as might defend him well and proper. Ksava, Woodcutter",
+        description: "There's trouble brewing in Targ Wood! Came across a young bangaa run afoul of a band of ne'er-do- wells. Thinking I'd be little good against so many, I ran, hoping to find some as might defend him well and proper. -Ksava, Woodcutter",
         rank: 7,
         region: "Targ Wood",
         fee: 200,
@@ -276,10 +257,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         { name: "Randomized Name", job: "White Monk", quantity: 3, notes: "PRIORITY: Have Air Render — eliminate all three first. Melee only due to AoE law." },
         { name: "Randomized Name", job: "Warrior", quantity: 2, notes: "Standard Bangaa melee. Lower priority than the White Monks." },
     ],
-        strategy: [
-            "Protect Kyrra while defeating all five Bangaa attackers.",
-            "Targeting an area is forbidden, so use single-target attacks, single-target magick, and direct healing only.",
-            "The three White Monks are the danger because Air Render can reach Kyrra and your back line; eliminate them before cleaning up the Warriors.",
+        strategy: [           "The three White Monks are the danger because Air Render can reach Kyrra and your back line; eliminate them before cleaning up the Warriors.",
         ],
         rewards: {
             gil: 690,
@@ -354,9 +332,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
         },
     ],
         strategy: [
-            "Defeat the four Green Mages while avoiding reaction abilities entirely.",
-            "Miss Midori has Sleep and Blind, so give status protection to your key attackers or remove her first.",
-        ],
+            "Defeat the four Green Mages while avoiding reaction abilities entirely.",        ],
         rewards: {
             gil: 370,
             cp: 4,
@@ -398,9 +374,7 @@ export const OPTIONAL_MISSIONS_C3: Mission[] = [
     ],
         strategy: [
             "Protect BOTH the Mamatrice and her Cluckatrice. Enemies focus their attacks on the birds — intercept with your units.",
-            "Eliminate the Black Mage first (highest spell damage), then Viking, then Soldier. All three have Critical: Berserk.",
-            "Minimum 20 damage per attack (law) — use physical attackers. Positioning between enemies and birds is more important than kill order.",
-        ],
+            "Eliminate the Black Mage first (highest spell damage), then Viking, then Soldier. All three have Critical: Berserk.",        ],
         rewards: {
             gil: 7880,
             cp: 99,

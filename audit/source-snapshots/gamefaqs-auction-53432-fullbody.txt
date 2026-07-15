@@ -1,0 +1,1109 @@
+Home
+Boards
+News
+Q&A
+Community
+Contribute
+Games
+
+
+3DS
+Android
+Board/Card
+iOS
+PC
+PlayStation 3
+PlayStation 4
+PlayStation 5
+Switch
+Switch 2
+Vita
+Xbox 360
+Xbox One
+Xbox Series
+More Systems
+PCPS4PS5SWITCHSWITCH 2XBOX ONEXBOX SERIESMORE SYSTEMS 
+Log In Sign Up
+GameFAQs
+BOARDS
+NEWS
+Q&A
+COMMUNITY
+CONTRIBUTE
+GAMES
+Final Fantasy Tactics A2: Grimoire of the Rift – Auction FAQ
+DS
+Home
+	
+Guides
+	
+Q&A
+	
+Cheats
+	
+Saves
+	
+Reviews
+	
+Media
+	
+Board
+	
+Auction FAQ (DS) by WiinolikePS3
+
+Version: 1.9 | Updated: 07/27/2008
+
+-----------------------------------------------------------------------
+
+Final Fantasy Tactics A2
+Auction FAQ
+Author: WiinolikePS3 (E-mail @ WiinolikePS3@gmail.com)
+Last Update: 07/14/2008
+Version: 1.9
+
+----------------------------------------------------------------------------
+TABLE OF CONTENTS
+----------------------------------------------------------------------------
+
+
+1)  Introduction                                    Fintro
+2)  What is an Auction?                        Fauction
+3)  How do you play?                            Fplay
+4)  Reading their next move                   Fmove
+5)  Auction Goals & Prizes                     Fprizes
+6)  Auction House and Area Locations          Flocation
+7)  Complete Auction Details                          Fdetails
+8) Items Won from Auctions                            Fitems
+9)  Update Log                                                 Fupdates
+10)  General FAQ and Credits                         Fcredits
+
+
+
+------------------------------------------------------------------------------
+1) INTRODUCTION                                                  Fintro
+------------------------------------------------------------------------------
+
+Feel free to use this guide and all the information in it, but if 
+you decide to post this on ANY SITE, I expect all credit. Also, if you see this 
+guide on any site other than GameFAQS, please let me know by email.
+I repeat again: This guide is ONLY for GameFAQS, and if posted elsewhere, 
+I want to be told, and I want the credit.
+
+
+------------------------------------------------------------------------------
+2) WHAT IS AN AUCTION                                             Fauction
+------------------------------------------------------------------------------
+
+In FFTA2, instead of gaining Clan Territory by doing missions like 
+in the first game, you participate in auctions once a year. In those 
+auctions, you are given tokens, and you place those tokens up in 
+real-time, like an auction. At the end, whoever has the highest bid 
+gains the area. There are also prizes that you earn for reaching 
+certain goals, such as a number of auctions you participate in, 
+or the number of wins. For more information on those goals and 
+the prizes you get, go to Part 4, Auction Goals & Prizes. Like before, 
+when you gain control of an area, you gain some benefits. 
+Here are the benefits you can earn:
+-------------------------------------------------------------------------
+-You will randomly be given an item from a shop from an area you own.
+
+-A rival clan will fight you, remarking on how you own the area, 
+in some way or another.
+
+-You will earn discounts on LOCAL quest fees and shop items.
+(Only for areas with Pubs and Shops)
+-------------------------------------------------------------------------
+Also, if you win all of the auctions in an area, and become the 
+"Champions for life", you will auction for items, not territory, because 
+you permanently own the territories.
+
+-----------------------------------------------------------------------------
+3) HOW DO YOU PLAY?                                          Fplay
+-----------------------------------------------------------------------------
+
+First, you start off by waiting for "Auctioning Season", which happens to be 
+the first month of every year. Go to any town that has an auctioning house 
+(Camoa, Grazton, etc.) and go on in. Go ahead and say you want to Enter, 
+which will cost you 20 CP. If you have already unlocked the Token Shop, you can
+use it after entering. The prices for the Token Shop are as follows-
+----------------------------
+1 Coin Token- 5 CP
+2 Coin Token- 10 CP
+3 Coin Token- 20 CP
+5 Coin Token- 70 CP (!)
+----------------------------
+If, somehow, you have not yet unlocked the prizes for getting a certain # of 
+Tokens, but you have unlocked the shop, the shop is a good way to meet the 
+goal quickly. Now that you have bought your Tokens, start the auction.
+You'll have the option before each auction for an area to skip it, but this is 
+pointless, and you may as well just pass every turn if you don't want to 
+auction for that area, just to boost your PASS record. Now that you've 
+started auctioning, you'd better learn how to play. The game tells you 
+briefly how to auction, but there is much more behind the scenes than 
+what you're told. First, I'll go over the basics...
+---------------------------------------------------------------------
+- Each turn, press the button for the number of coins you want to wager.
+At the end of that turn, they will be added to your total for that round.
+
+- Every auction is divided into turns, which go at different speeds and are 
+differently spaced. The length of time for each turn can be anywhere from 
+painstakingly long, to just enough time to push the button.
+
+- Obviously, you compete against rival clans for the most amount of coins 
+in a round to win the area.
+
+- If you are in a position indicated by a BONUS marker at the end of a round, 
+(eg. BONUS 4th), you will gain a 5-coin Token at the end of that turn.
+
+- The reigning champion of an area (whoever had it before the auction) 
+will recieve a 1-coin head start at the start of the auction.
+
+- There is a 30-coin limit for each round. If anyone reaches this goal, 
+the round ends and they are declared the victor.
+
+- If there is a tie for 1st, the reigning champion 
+(whoever had the title last time) will be declared the winner.
+
+- If there is a tie for 1st and neither of them are the reigning champs, 
+the winner will be random.
+--------------------------------------------------------------------------
+Well, that's all there is to it, on the top. This FAQ will tell you all the 
+details of how to win at every auction, since there is much more to 
+mastering auctions than simply putting all of your 3 and 5 coin Tokens 
+out whenever possible.
+
+------------------------------------------------------------------------------
+4) READING THEIR NEXT MOVE                                Fmove
+------------------------------------------------------------------------------
+
+There's no way you're going to scrape by and become Champion For Life if you 
+don't conserve your tokens by barely beating your foes at each auction, and the 
+only way to do that is to read their next move.
+
+This part is actually quite simple, as there are merely six different gestures
+to watch out for. (Look for the gestures made by the clan reps. from other 
+clans, in case that wasn't clear)
+----------------------------------------------------------------------------
+- A speech bubble over their heads means that they're still talking to other 
+clan members, and don't know what to do yet. This is very frusterating 
+during quick turns, as this pose can last for a long time.
+
+- When they shake their heads and look down, they're going to pass the turn. 
+Normally, they don't do this unless they're going for a bonus, or they simply 
+don't have enough tokens.
+
+- If they strike a "Stare-Down" pose, by spreading their legs apart and 
+staring forwards, they are going to use 1 coin this turn.
+
+- If they walk in place, they are going to use 2 coins.
+
+- If they punch at the air aggressively, they are going to use 3 coins.
+
+- If they raise their hands over their heads and a ! appears over their head, 
+they are going to use 5 coins. This one is the easiest to spot, and you'd 
+better watch out for it. Luckily, only one clan is able to do this WITHOUT 
+getting a bonus.
+---------------------------------------------------------------------------
+Now, what do you do with this? In the beginning, it's going to be fairly hard 
+(especially in larger auctions) to read everyone's movements at once. 
+Instead, wait for a few turns, (I don't mean PASS, but just follow your 
+instincts and do what seems smart) and wait for there to be one or two 
+opponents that clearly want to win. In that case, try to start off getting 
+one coin ahead of them, then mimic their every move. This way,
+you can scrape by with using just the amount you need. 
+While that was just a basic strategy, later on, I'll update this FAQ an 
+include much more in-depth strategies.
+
+------------------------------------------------------------------------------
+5) AUCTION GOALS AND PRIZES                     Fprizes
+------------------------------------------------------------------------------
+
+After a set of auctions, a record of the following catagories will be updated:
+- Games Played
+- Bonuses Earned
+- 1st Place Finishes
+- 2nd Place Finishes
+- 3rd Place Finishes
+- 1 Token Coins Obtained
+- 2 Token Coins Obtained
+- 3 Token Coins Obtained
+- 5 Token Coins Obtained
+- Turns Passed
+
+You will gain prizes for "Mastering" a  catagory. To master it, you must reach 
+a certain number for them. The bar next to the catagory will fill up 
+accordingly, and once if fills all the way up, a star will appear next 
+to it, and it will be mastered.
+
+Here is a list of the number you need to match the catagories. 
+
+!!! This Section is not yet complete. Sorry... !!!
+-------------------------------
+- Games Played - 15
+- Bonuses Earned - 20
+- 1st Place Finishes - 5
+- 2nd Place Finishes - 5
+- 3rd Place Finishes - 5
+- 1 Token Coins Obtained - 10
+- 2 Token Coins Obtained - 10
+- 3 Token Coins Obtained - 10
+- 5 Token Coins Obtained - 10
+- Turns Passed - 30
+-------------------------------
+Seperate from this, there is a menu that shows you how you can earn auction 
+related prizes. Here are the requirements, as well as the prizes you earn. 
+
+(Prize descriptions will be listed after this list)
+---------------------------------------------------------------------------
+- Requirement -                                                       - Prize -
+Control all the areas in a region                            Champions for Life
+
+Master # of games played                                     Token shop opens
+
+Master # of Bonuses obtained                                 Ribbon
+
+Master # of 1st place victories                                    *Help?*
+
+Master # of 2nd place finishes                                     Elixir
+
+Master # of 3rd place finishes                                   10,000 Gil
+
+Master # of 1-coin Tokens obtained                              1-coin Tokens +
+
+Master # of 2-coin Tokens obtained                              2-coin Tokens +
+
+Master # of 3-coin Tokens obtained                              3-coin Tokens +
+
+Master # of 5-coin Tokens obtained                              5-coin Tokens +
+
+Master # of Passes                                                        200 CP
+----------------------------------------------------------------------------
+Champions for Life- You will permenantly gain control of the areas for 
+that auction house. Instead of auctioning for area, you will auction for 
+useful items.
+!!! You cannot earn this in your first Auction. !!!
+
+Token Shop opens- You will be able to access the token shop before auctions. 
+For token prices, go to the beginning of Part 3 of this FAQ.
+
+1-coin Tokens + - At the start of an auction, you have an extra 1-coin token.
+
+2-coin Tokens + - At the start of an auction, you have an extra 2-coin token.
+
+3-coin Tokens + - At the start of an auction, you have an extra 3-coin token.
+
+5-coin Tokens + - At the start of an auction, you have a 5-coin token. (Hehehe)
+
+Elixer- Item that fully restores target's HP and MP.
+
+10,000 Gil- Duh. 10k gil.
+
+Ribbon - It's not an auction related item, but oh well. In case you don't know,
+a Ribbon is a Female-only item (Adelle, Gria or Viera, with the exception of 
+a unit with ribbon-bearer) that blocks ALL Debuffs.
+------------------------------------------------------------------------------
+6) AUCTION HOUSE AND AREA LOCATIONS              Flocation
+------------------------------------------------------------------------------
+This section is simply a list of where the auction houses are, and what areas 
+are up for grabs there. This is listed again in section 7, but this is the
+quickest way to find what you can get in each location.
+
+-------------------------------------------------------------------------------
+ -Auction House Location-                                  -Areas up for grabs-
+
+Camoa                                Camoa, Targ Wood, Baptiste Hill
+
+Graszton       Graszton, The Bisga Greenlands, The Aldanna Range, Zedlei Forest
+
+Moorabella                                       Moorabella, The Galerria Deep,
+                                    The Rupie Mountains, The Ruins of Delgantua
+
+Fluorgis                Fluorgis, Tramdine Fens, Sant D'alsa Bluff, Nazan Mines
+
+Goug                        Goug, Aisenfield, Kthili Sands, The Neslowe Passage
+
+------------------------------------------------------------------------------
+7) FULL AUCTION DETAILS                                          Fdetails
+------------------------------------------------------------------------------
+This section is composed of the full, in-depth details of each auction.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+A NOTE ON AUCTIONS!!!
+
+While most of the time, auctions follow the EXACT layout described here,
+sometimes, the bonuses are completely random. HOWEVER! This normally happens
+with only 1-3 auctions per season (as in, individual auctions, not a whole set)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+This includes:
+
+- How many tokens you start off with (not including the token + bonuses)
+
+- Which clans you will face
+
+- Most determined rival clan (which clan will normally come in 1st)
+
+- Complete details of each turn in an auction, including length and bonuses
+
+- A brief description of what you should do in that auction
+
+WAIT! First, before you go on, I must explain something quickly.
+
+When describing the turns in an auction, for the length, I will describe them
+as Very Short, Short, Medium, Long, and Very Long.
+
+TOO SHORT = 1/2 second
+Very Short = 1 second
+Short = 1.5 seconds
+Medium = 2 seconds
+Long = 3 seconds
+Very Long = 4 seconds
+
+___________________________________________________________
+
+Auction House --- Camoa
+
+Starting Tokens --- |6| 1-Tokens, |5| 2-Tokens, |6| 3-Tokens.
+
+Rival Clans --- Camoa Braves, House Minymum, House Eden.
+
+Auction 1 --- Camoa
+Most Determined --- Camoa Braves
+- Turn 1 -
+Very Long, No Bonuses
+- Turn 2 -
+Very Long, No Bonuses
+- Turn 3 -
+Very Long, No Bonuses
+- Turn 4 -
+Very Long, No Bonuses
+- Turn 5 -
+Very Long, No Bonuses
+- Turn 6 -
+Very Long, No Bonuses
+
+Stategy --- Your very first auction, and the easiest. It's easy to read
+the movements of the Camoa Brave since you have so much time each turn,
+so try to stay just one ahead of them, to conserve tokens for later.
+
+Auction 2 --- Targ Wood
+Most Determined --- House Minymum / Eden
+- Turn 1 -
+Long, No Bonus
+- Turn 2 -
+Long, 1st Place Bonus
+- Turn 3 -
+Long, No Bonus
+- Turn 4 -
+Long, No Bonus
+
+Stategy --- Not much harder than the first one. Just get a lead in the
+beginning at all costs, and stick with it. The bonus is well worth it!
+
+Auction 3 --- Baptiste Hill
+Most Determined --- Camoa Braves
+- Turn 1 -
+Long, 3rd Place Bonus
+- Turn 2 -
+Long, No Bonus
+- Turn 3 -
+Long, No Bonus
+- Turn 4 -
+Long, 2nd Place Bonus
+- Turn 5 -
+Long, No Bonus
+- Turn 6 -
+Long, No Bonus
+- Turn 7 -
+Long, No Bonus
+
+Strategy --- That 3rd place bonus at the beginning may seem nice, but it's hard
+to get. read the movements right, and you may just get it. Go for the 2nd place
+bonus, since it's easier to get. Go all out after it, since this is already the
+last auction in this house.
+
+___________________________________________________________
+
+Auction House --- Graszton
+
+Starting Tokens --- |10| 1-Tokens, |6| 2-Tokens, |6| 3-Tokens.
+
+Rival Clans --- All Loar Side except Air Bandits
+
+Auction 1 --- Graszton
+Most Determined --- Grazton Shipyard
+- Turn 1 -
+Very Long, No Bonus
+- Turn 2 -
+Very Long, No Bonus
+- Turn 3 -
+Long, No Bonus
+- Turn 4 -
+Medium, No Bonus
+- Turn 5 -
+Medium, No Bonus
+- Turn 6 -
+Short, No Bonus
+
+Strategy --- The only thing special about this one is the introduction of
+varying turn lengths. Just keep ahead of the best clan, and it'll be easy.
+
+Auction 2 --- The Bisga Greens
+Most Determined --- ANY AND ALL/ Culinary Crusade
+- Turn 1 -
+Very Long, No Bonus
+- Turn 2 -
+Very Long, 2nd Place Bonus
+- Turn 3 -
+Very Long, No Bonus
+- Turn 4 -
+Very Long, No Bonus
+- Turn 5 -
+Very Long, 2nd Place Bonus
+- Turn 6 -
+Very Long, No Bonus
+
+Strategy --- This one is nice and long, so you can easily read movements.
+Also, both the bonuses are for 2nd place, which means you should be able to get
+them both. If you aren't too sure of your abilites yet, at least get one.
+
+Auction 3 --- The Aldanna Range
+Most Determined --- ANY AND ALL/ Culinary Crusade
+- Turn 1 -
+Medium, 3rd Place Bonus
+- Turn 2 -
+Medium, 2nd Place Bonus
+- Turn 3 -
+Medium, 1st Place Bonus
+
+Strategy --- This one is screaming for you to get all the bonuses. Don't.
+This is an easy one to win, because the other clans are obsessing over the
+3rd and 2nd place bonuses. Win this one, and grab the 1st Place bonus. It'll be
+nice to have for the last auction.
+
+Auction 4 --- Zedlei Forest
+Most Determined --- 
+- Turn 1 -
+Medium, No Bonus
+- Turn 2 -
+Medium, 4th Place Bonus
+- Turn 3 -
+Medium, No Bonus
+- Turn 4 -
+Medium, 1st Place Bonus
+- Turn 5 -
+Short, No Bonus
+- Turn 6 -
+Short, No Bonus
+- Turn 7 -
+Short, No Bonus
+
+Strategy --- Come on, this is the last auction! Go all out! The 1st place bonus
+should give you a little push, so just keep on using your best tokens!
+
+___________________________________________________________
+
+Auction House --- Moorabella
+
+Starting Tokens --- |9| 1-Tokens, |10| 2-Tokens, |8| 3-Tokens.
+
+Rival Clans --- ANY AND ALL (Loar Side)
+
+
+Auction 1 --- Moorabella
+Most Determined --- Culinary Crusade
+- Turn 1 -
+Long, No Bonus
+- Turn 2 -
+Long, No Bonus
+- Turn 3 -
+Long, 5th Place Bonus
+- Turn 4 -
+Long, No Bonus
+- Turn 5 -
+Long, 4th Place Bonus
+- Turn 6 -
+Long, No Bonus
+- Turn 7 -
+Long, No Bonus
+- Turn 8 -
+Long, 2nd Place Bonus
+
+Strategy --- Ugh. The Sky Bandits and Culinary Crusade will have you spending
+many, MANY of your tokens on this one. If you can, USE THE TOKEN SHOP. In fact,
+don't even try becoming Champions for Life until you can buy a few extra
+5-Tokens. Also, IGNORE THE BONUSES.
+
+Auction 2 --- The Galerria Deep
+Most Determined --- House Prost (Wow, not Culinary Crusade!)
+- Turn 1 -
+Long, No Bonus
+- Turn 2 -
+Medium, No Bonus
+- Turn 3 -
+Medium, 2nd Place Bonus
+- Turn 4 -
+Short, No Bonus
+- Turn 5 -
+Short, 4th Place Bonus
+
+Strategy --- Go for the 2nd Place bonus. Then, use that boost at the last two
+turns, because you're going to need it, since most of the other clans got that
+4th Place Bonus, and will probably use it in the next round, meaning
+it's going to be VERY difficult.
+
+Auction 3 --- The Rupie Mountains
+Most Determined --- Air Bandits/ Culinary Crusade
+- Turn 1 -
+Medium, No Bonus
+- Turn 2 -
+Medium, No Bonus
+- Turn 3 -
+Short, No Bonus
+- Turn 4 -
+Short, 3rd Place Bonus
+- Turn 5 -
+Very Short, No Bonus
+- Turn 6 -
+TOO SHORT, No Bonus
+
+Strategy --- This one gets shorter, and shorter and shorter... Luckily, the
+other clans usually don't use more than 10 tokens if you can get a big lead.
+Use three 3-Tokens at the beginning, then try to just use 2 and 1 Tokens
+until the end.
+
+Auction 4 --- The Ruins of Delgantua
+Most Determined --- Culinary Crusade
+- Turn 1 -
+Medium, No Bonus
+- Turn 2 -
+Medium, No Bonus
+- Turn 3 -
+Medium, No Bonus
+- Turn 4 -
+Medium, No Bonus
+- Turn 5 -
+Medium, No Bonus
+- Turn 6 -
+Medium, No Bonus
+- Turn 7 -
+Medium, No Bonus
+- Turn 8 -
+Medium, No Bonus
+
+Strategy --- This one is simple. It's the last auction, and no bonuses.
+GO ALL OUT. By now, most of the other clans have next to no tokens left.
+
+___________________________________________________________
+
+Auction House --- Fluorgis
+
+Starting Tokens --- |8| 1-Tokens, |8| 2-Tokens, |8| 3-Tokens.
+
+Rival Clans --- House Eden, Jystras Mercantile, Goug Consortium, Naturalist So.
+The Jystras Group
+
+
+Auction 1 --- Fluorgis
+Most Determined --- EVERYONE (But House Eden)
+- Turn 1 -
+Very Long, No Bonus
+- Turn 2 -
+Medium, No Bonus
+- Turn 3 -
+Medium, No Bonus
+- Turn 4 -
+Short, 4th Place Bonus
+- Turn 5 -
+Short, No Bonus
+- Turn 6 -
+Short, No Bonus
+- Turn 7 -
+Short, No Bonus
+
+Strategy --- AGH! This one is a major pain! The other clans go all out, which
+means that you have to, too. Still, if you have any 5-Tokens, save them. For
+some odd reason, House Eden does absolutely nothing (Usually) in this one.
+
+Auction 2 --- Tramdine Fens
+Most Determined --- The Jystras Group, Jystras Mercantile.
+- Turn 1 -
+Very Short, No Bonus
+- Turn 2 -
+Very Short, 1st Place Bonus
+- Turn 3 -
+Very Short, 2nd Place Bonus
+- Turn 4 -
+Medium, 5th Place Bonus
+- Turn 5 -
+Very Short, No Bonus
+- Turn 6 -
+Very Short, 3rd Place Bonus
+
+Strategy --- This one is VERY fast paced. Still, make sure you get the 1st
+Place bonus near the beginning, and use it to boost you through.
+
+Auction 3 --- Sant D'Alsa Bluff
+Most Determined --- Naturalist Society
+- Turn 1 -
+Short, 5th Place Bonus
+- Turn 2 -
+Long, No Bonus
+- Turn 3 -
+Short, No Bonus
+- Turn 4 -
+Medium, No Bonus
+- Turn 5 -
+Short, No Bonus
+- Turn 6 -
+Medium, No Bonus
+- Turn 7 -
+Very Short, 1st Place Bonus
+
+Strategy --- Triiiicky. For this one... Eh... just make sure you win.
+Also, you NEED to cut it close, since your opponents are so determined to win.
+
+Auction 4 --- Nazan Mines
+Most Determined --- Naturalist Society, Jystras Group
+- Turn 1 -
+Very Short, No Bonus
+- Turn 2 -
+TOO SHORT, No Bonus
+- Turn 3 -
+TOO SHORT, No Bonus
+- Turn 4 -
+TOO SHORT, 2nd Place Bonus
+- Turn 5 -
+TOO SHORT, No Bonus
+- Turn 6 -
+TOO SHORT, No Bonus
+
+Strategy --- Unless you abused the shop, you'll probably be out of good tokens
+by now. Just make sure you get the 2nd place bonus, then play two 5-Tokens
+at the very end to win. This one is gonna be a close victory...
+
+___________________________________________________________
+
+Auction House --- Goug
+
+Starting Tokens --- |2| 1-Tokens, |2| 2-Tokens, |2| 3-Tokens.
+
+Rival Clans --- ANY AND ALL
+
+
+Auction 1 --- Goug
+Most Determined --- Goug Consortium
+- Turn 1 -
+Medium, 4th Place Bonus
+- Turn 2 -
+Medium, No Bonus
+- Turn 3 -
+Medium, 4th Place Bonus
+- Turn 4 -
+Short, No Bonus
+
+Strategy --- YOU NEED THAT FIRST BONUS. There are very few tokens available, so
+unless you bought lots of 3-Tokens in the shop, you're going to need every
+last 1-Token. BE CONSERVATIVE.
+
+Auction 2 --- Aisenfield
+Most Determined --- Goug Consortium
+- Turn 1 -
+Short, No Bonus
+- Turn 2 -
+Very Short, 2nd Place Bonus
+- Turn 3 -
+TOO SHORT, 3rd Place Bonus
+- Turn 4 -
+TOO SHORT, 1st Place Bonus
+- Turn 5 -
+TOO SHORT, 3rd Place Bonus
+- Turn 6 -
+Short, No Bonus
+
+Strategy --- Try to get the 2nd place and 1st place bonuses. That's really
+all there is to say, other than to BE CONSERVATIVE.
+
+Auction 3 --- Kthili Sands
+Most Determined --- Prima Donna
+- Turn 1 -
+Long, 5th Place Bonus
+- Turn 2 -
+Medium, No Bonus
+- Turn 3 -
+Medium, No Bonus
+- Turn 4 -
+Medium, No Bonus
+- Turn 5 -
+Medium, 3rd Place Bonus
+- Turn 6 -
+Short, No Bonus
+- Turn 7 -
+Medium, No Bonus
+- Turn 8 -
+Short, No Bonus
+
+Strategy --- AAARGH. You're probably out of Tokens by now, and chances are, the
+other clans aren't. Just try to struggle through this one... you kinda NEED to
+use the Token Shop...
+
+Auction 4 --- The Neslowe Passage
+Most Determined --- Whoever still has tokens >_>
+- Turn 1 -
+Short, No Bonus
+- Turn 2 -
+TOO SHORT, No Bonus
+- Turn 3 -
+Short, 3rd Place Bonus
+- Turn 4 -
+TOO SHORT, No Bonus
+- Turn 5 -
+Short, No Bonus
+- Turn 6 -
+TOO SHORT, No Bonus
+- Turn 7 -
+Short, No Bonus
+- Turn 8 -
+TOO SHORT, No Bonus
+
+Strategy --- ARGHGHGHGH. If you don't get that bonus, you're doomed. GET IT.
+Then, use the couple tokens you have left. This is the FINAL auction in the
+game (if you've beaten all the others), so it's SUPPOSED to be hard.
+
+___________________________________________________________
+
+------------------------------------------------------------------------------
+8) ITEMS WON FROM AUCTIONS                                 Fitems
+------------------------------------------------------------------------------
+There are so many items that can be won from auctions, it is extremely hard
+to get a complete list. Despite that, most of the items that can be won are
+listed here. I have gone through more than 60 auctions to find these items, 
+so most, possibly even all, of the items will be listed here. Also, since I've 
+seen each of the Grand Prizes several times, I'm almost positive that I have 
+all of them listed.
+
+Also, a quick tip discovered by Gabriel-
+
+"I've discovered a little trick for getting the items you want from the 
+auction house.  If you save your game just before the auction house 
+season starts, you will be able to reload your game over and over until 
+the auction house spawns a treasure pool that has items you want from it."
+
+Thanks!
+
+
+[Camoa]
+Prizes:
+Aegis Shield
+Arbalest
+Blood Sword
+Bracers
+Brevis
+Brigand's Gloves
+Carabineer Mail
+Chocobo Shield
+Cinquedea
+Crown Scepter
+Épée-prisme
+Faerie Shoes
+Francisca
+Gastrophetes
+Jambiya
+Kain's Lance
+Mirror Mail
+Ogrenix
+Onion Sword
+Reverie Shield
+Samite Coat
+Serpent Staff
+Swordbreaker
+Talwar
+Tiara
+Venus Blade
+White Robe
+
+Grand Prizes:
+Black Hat
+Ever Robe
+Gleisburst
+Judicer's Coat
+Mjolnir
+Ribbon
+Veil of Wiyu
+Zeus Mace
+
+------------------------------------------------
+[Graszton]
+Prizes:
+Aegis Shield
+Adamant Blade
+Arbalest
+Barette
+Brigand's Gloves
+Cachusha
+Cat Claw
+Chocobo Shield
+Crescent Bow
+Giant’s Helmet
+Golden Axe
+Grimoire Stone
+Hardedge
+Ivory Pole
+Kiku-ichimonji
+Lilith Rod
+Luabreaker
+Magick Ring
+Magick Robe
+Mandragora
+Masamune
+Max's Oathbow
+Oblige
+Stardust Rod
+Sumihomura
+Target Bow
+Trident
+Yoichi Bow
+Zanmato
+Zweihander
+
+Grand Prizes:
+Genji Armour/Armor
+Genji Gloves
+Genji Helm
+Genji Shield
+Ninja Tabi
+Ragetsu-denbu (Ninja Dual-weilding sword)
+Scarab Charm
+Tome of Ending
+
+
+
+
+
+------------------------------------------------
+[Moorabella]
+Prizes:
+Artemis Bow
+Black Robe
+Blueleaf Flute
+Bone Plate
+Dark Matter
+Ebon Blade
+Edaroya Scriptures
+Eureka Crystal
+Excalibur
+Gauntlets
+Gokuu Pole
+Golden Amulet
+Greataxe
+Life Crosier
+Lotus Mace
+Madu
+Nirvana
+Orb of Minwu
+Orichalcum Dirk
+Perseus Bow
+Pomegranate Staff
+Save the Queen
+Sledgehammer
+Survivor
+Templar Cloth
+Tiger Fangs
+Vajra
+White Robe
+
+
+
+Grand Prizes:
+Diabolique
+Estrella
+Gaius Caligae
+Red Robe
+Sages Robe
+Seventh Heaven
+Soulsaber
+The Fallen Angel
+
+
+------------------------------------------------
+[Flourgis]
+Prizes:
+Ace of Spades
+Adamant Armor
+Bone Armlets
+Cheer Staff
+Eight Fluted Pole
+Elixir
+Empyreal Armband
+Fortune Ring
+Frigid Viol
+Grimoire Stone
+Gupti Aga
+Hanya Mask
+Last Letter
+Luminous Robe
+Manganese Saber
+Marduk
+Master Bow
+Master Sword
+Materia Armor
+Materia Blade
+Maximillain Armor
+Morning Star
+Partisan
+Peacemaker
+Six of Diamonds
+Spring Staff
+Templar Shield
+Vitanova
+White Hat
+White Robe
+Winged Boots
+
+Grand Prizes:
+Galmia Frock
+Galmia Shoes
+Golden Skullcap
+Kotetsu
+Lordly Robe
+Shield of the Four
+Staff of the Magi
+Tournesol
+
+------------------------------------------------
+[Goug]
+Prizes:
+Ayvuir Red
+Beastsword
+Brint Frock
+Claymore
+Dark Matter
+Death Claws
+Dromaeo
+Elixir
+Faerie Harp
+Femme Fatale
+Giot Gun
+Godhand
+Guang Cannon
+Harpe
+Heal Chime
+Heretic Rod
+King of Hearts
+Ligatur
+Longbarrel
+Magic Hands
+Massive Bazooka
+Outsider
+Paraiba Blade
+Reaper's Robe
+Rhomphaia
+Ruby Earing
+Scorpion Tail
+Vigilante
+Wingsong Rapier
+
+Grand Prizes:
+Angel Ring
+Bomb Arm
+Dragon Whisker
+Ensanguined Shield
+Joker
+Malbow
+Rocket Punch
+Tonberrian 
+
+
+
+
+Nevermind about the credit part. ALL CREDIT FOR THIS SECTION GOES TO eagle1294!
+
+
+------------------------------------------------------------------------------
+9) UPDATE LOG                                                      Fupdate
+------------------------------------------------------------------------------
+7/5/08
+Version 0.1-0.6. Started Guide.
+
+7/7/08
+Version 0.8. Added complete Camoa and Grazton details.
+
+7/8/08
+Version 1.0. Added Complete Goug, Fluorgis, and Moorabella details.
+
+7/9/08
+Version 1.6. Added items obtained from auctions. *Takes deep breath*
+
+7/12/08
+Version 1.7. Thanks to several helpful emails, I corrected which sword gives
+you dual weild, Ragetsu-denbu, NOT Sumihora. Sorry for the mixup.
+Also, I added a few more items.
+
+7/14/08
+Version 1.8. Thanks to Rufus, for noticing that Mastering Passes gets you more
+CP.
+
+7/23/08
+Version 1.9.Updated a couple mistakes.
+
+
+
+
+
+------------------------------------------------------------------------------
+10) GENERAL FAQ AND CREDITS                                  Fcredits
+------------------------------------------------------------------------------
+
+Q: Why do you have the requirements for mastering some, but not all the goals?
+
+A: I didn't decide to make this FAQ until I had already long-since 
+mastered them. I still have to start a new file and play though long 
+enough to figure it out. Sorry for the trouble... D=
+
+
+Q: Your Strategy for ********** isn't that good.
+
+A: I'm not the master of Auctions, so if you want, just disregard my suggestion
+and do what you want. These are the ways I found easiest to win every auction
+in that set.
+
+
+Q: ********************* is incorrect.
+
+A: While that isn't a question, if there's any part of the FAQ that is 
+incorrect or is unclear, please let me know, 
+by GameFAQS or by email.
+
+Q: Some things look uneven, marginwise.
+
+A: Yeah... I had no idea about the margin limit
+until I submitted the FAQ. Sorry about this...
+
+
+Credits:
+-Square Enix and Nintendo, for the game
+-GameFAQS, for, well, having the site
+-You, for reading this FAQ AND NOT STEALING IT 
+-Me, for making the FAQ
+-Luan Frota, Ryan nguyen, Slay111, and Jay Wright for correcting me about the
+Sumihora and Ragetsu-Denbu mixup!
+-The Auction List thread at GameFAQS, for the complete list of prizes won from
+auctions!
+-THE GYMNOTIDE for a few corrections about winning auctions and prizes
+-Gabriel for the soft-reset trick
+-Rufus, for noticing that Mastering Passes gives you 200 CP.
+
+
+
+END.
+
+
+View in: Text Mode
+
+GameFAQsfacebook.com/GFAQstwitter.com/GameFAQsHelp / Contact UsChange Colors 
+
+gamespot.commetacritic.comfandom.comfanatical.com
+
+SitemapPartnershipsCareersTerms of UseDigital Services Act
+
+Privacy PolicyDo Not Sell My Personal InformationReport Ad
+
+© 2026 FANDOM, INC. ALL RIGHTS RESERVED.

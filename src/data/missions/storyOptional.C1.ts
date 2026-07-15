@@ -33,12 +33,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Uses Choco Cure and Choco Recharge." },
         { name: "Randomized Name", job: "Toughskin", quantity: 2, notes: "Uses Limit Glove, Headbutt, and Sonic Spin." },
     ],
-        strategy: [
-            "Defeat the support monsters first, then weaken Titoise to HP Critical without killing it.",
-            "Ice is forbidden. Titoise is weak to wind and thunder, so use controlled hits from those elements once it is isolated.",
-            "The Red Chocobo is the biggest immediate threat because Choco Meteor can punish grouped units; remove it early.",
-            "Use abilities rather than normal attacks when Titoise is low to reduce the chance of an accidental critical KO.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 4080,
             cp: 80,
@@ -51,7 +46,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         id: "C1-02",
         arc: "C1",
         name: "Hellhound Astray",
-        description: "I was cleaning out Helda's pen - one of our hellhounds - and when I finished she was gone! She must have broken free of her chain, but I know who they'll blame! Helda's one of Mrs. Zamaree's favourites, and you can be sure that if she finds her missing, there will be, well, hell to pay. I need someone to find Helda and bring her back before she's missed! Keeper, Leena, Grann's Menagerie",
+        description: "I was cleaning out Helda's pen-one of our hellhounds-and when I finished she was gone! She must have broken free of her chain, but I know who they'll blame! Helda's one of Mrs. Zamaree's favorites, and you can be sure that if she finds her missing, there will be, well, hell to pay. I need someone to find Helda and bring her back before she's missed! -Keeper Leena, Grann's Menagerie",
         rank: 39,
         region: "Kthili Sands",
         fee: 500,
@@ -76,11 +71,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         { name: "Randomized Name", job: "Hellhound", quantity: 2, notes: "Defeat before targeting Helda." },
     ],
         strategy: [
-            "Defeat the Worgens and regular Hellhounds first, then weaken Helda to HP Critical without killing her.",
-            "Bludgeoning weapons are forbidden. Swap rod, staff, pole, knuckle, hammer, and mace users to other weapons or ability-based roles before entering.",
-            "Worgens can immobilize your units; clear them early so you can control Helda's HP safely.",
-            "Use precise damage on Helda near the end and stop attacking as soon as she reaches critical HP.",
-        ],
+            "Defeat the Worgens and regular Hellhounds first, then weaken Helda to HP Critical without killing her.",      ],
         rewards: {
             gil: 7370,
             cp: 78,
@@ -93,7 +84,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         id: "C1-03",
         arc: "C1",
         name: "My Little Carrot",
-        description: "Oh, it's terrible. Simply terrible! My poor little Carrot has gone wild all of a sudden and hied off to gods now where! Her eyes ... Oh, her eyes were like unto a malboro's! I hope you can bring her back, but if you can't, perhaps you could put her out of her misery? Mrs. Zamaree, A certain menagerie owner's wife.",
+        description: "Oh, it's terrible! Simply terrible! My poor little Carrot has gone wild all of a sudden and hied off to gods know where! Her eyes... Oh, her eyes were like unto a malboro's! I hope you can bring her back, but if you can't, perhaps you could put her out of her misery? -Mrs. Zamaree, A certain menagerie owner's wife",
         rank: 43,
         region: "Zedlei Forest",
         fee: 500,
@@ -121,12 +112,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         battlefield: [
             "Charm traps are scattered around the battlefield; step carefully while rushing Carrot.",
         ],
-        strategy: [
-            "Defeat Carrot to win, but remove the Tonberry immediately before Karma starts deleting units.",
-            "Carrot can heal and apply Regen, so focus sustained damage rather than spreading hits across every monster.",
-            "Avoid dealing less than 20 damage because of the law. Use strong attacks, wind/thunder magick, or Sidewinder-style monster damage.",
-            "Clear Great Malboros if their status pressure disrupts the rush; otherwise keep pressure on Carrot.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 6090,
             cp: 86,
@@ -139,7 +125,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         id: "C1-04",
         arc: "C1",
         name: "An Earnest Multitude",
-        description: "I seek the love of my life! My search has led me through city streets and far abroad. I have even taken up the pen, and met four charming ladies in my correspondence. Ah, but I've made a mess of things by scheduling a rendezvous with each of them on the same day! I need someone to meet three of the lucky damsels in my stead. Only the dashing need apply - I've a reputation to consider! Marnot, Pride of Fluorgis",
+        description: "I seek the love of my life! My search has led me through city streets and far abroad. I have even taken up the pen, and met three charming ladies in my correspondence. Ah, but I've made a mess of things by scheduling a rendezvous with each of them on the same day! I need someone to meet three of the lucky damsels in my stead. Only the dashing need apply-I've a reputation to consider! -Marnot, Pride of Fluorgis",
         rank: 19,
         region: "Fluorgis, Moorabella, Targ Wood",
         fee: 300,
@@ -195,9 +181,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         { name: "Randomized Name", job: "Floating Eye", quantity: 1, notes: "TARGET: 'Blue, round, feathered, long of tail.' Defeat Floating Eyes to procure the ingredient — more spawn as you kill them." },
     ],
         strategy: [
-            "Read the description: the target is the Floating Eye (blue, round, feathered, long tail). Defeat exactly four Floating Eyes to collect the ingredient; more spawn as you go.",
-            "Vary actions each turn (Copycat law). Then speak to the Bishop to finish.",
-        ],
+            "Read the description: the target is the Floating Eye (blue, round, feathered, long tail). Defeat exactly four Floating Eyes to collect the ingredient; more spawn as you go.",        ],
         rewards: {
             gil: 3780,
             cp: 60,
@@ -235,11 +219,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         battlefield: [
             "Treasure chests are present on the battlefield",
         ],
-        strategy: [
-            "Open treasure chests before killing the Mimics if you want the extra loot.",
-            "Kill exactly two Mimics for the requested ingredient. Zahak respawns, so only fight it to clear space.",
-            "Harming the Weak is forbidden; check levels before using area attacks or counter-heavy setups.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 8420,
             cp: 80,
@@ -252,7 +232,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         id: "C1-07",
         arc: "C1",
         name: "An Earnest Quandary",
-        description: "I seek the love of my life! My search has led me through city streets and far aboard. I have even taken up the pen, and met three charming ladies in my correspondence. Ah, but I've made a mess of things by scheduling a rendezvous with each of them on the same day! I need someone to meet two of the lucky damsels in my stead. Only the dashing need apply - I've a reputation to consider! Marnot, Pride of Fluorgis",
+        description: "I seek the love of my life! My search has led me through city streets and far abroad. I have even taken up the pen, and met three charming ladies in my correspondence. Ah, but I've made a mess of things by scheduling a rendezvous with each of them on the same day! I need someone to meet two of the lucky damsels in my stead. Only the dashing need apply-I've a reputation to consider! -Marnot, Pride of Fluorgis",
         rank: 14,
         region: "Camoa, Graszton",
         fee: 300,
@@ -285,6 +265,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         id: "C1-09",
         arc: "C1",
         name: "House Bowen's Challenge",
+        description: "Clan Gully, You've kept yourselves busy since our last meeting. Care to test your sword arm against us in a speed battle? Or have you lost your edge? -Bowen of House Bowen",
         rank: 30,
         region: "Targ Wood",
         fee: 400,
@@ -306,10 +287,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         { name: "Rafflesia", job: "Rafflesia", quantity: 1, notes: "~1200 HP (shown as ???). Weak to Fire. Damages and debuffs units that approach. Stay at ranged distance — use Fire magick and Hunters with Sidewinder." },
     ],
         strategy: [
-            "This is a speed battle against House Bowen: your clan must land the killing blow on the Rafflesia before the rival team does.",
-            "Targeting self is forbidden, so avoid self-only buffs and self-targeted recovery while racing for damage.",
-            "Use Fire magick, Hunter Sidewinder, and other ranged damage to avoid the Rafflesia's close-range cloud effects. Heal or delay the Rafflesia if House Bowen is about to steal the final hit.",
-        ],
+            "This is a speed battle against House Bowen: your clan must land the killing blow on the Rafflesia before the rival team does.",       ],
         rewards: {
             gil: 4590,
             cp: 60,
@@ -363,7 +341,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         id: "C1-11",
         arc: "C1",
         name: "An Earnest Search",
-        description: "I seek the love of my life! My search has lead me through city streets and far abroad. I have even taken up the pen, and met two charming ladies in my correspondence. Ah, but I've made a mess of things by scheduling a rendezvous with each of them on the same day! I need someone to meet one of the lucky damsels in my stead. Only the dashing need apply - I've a reputation to consider. Marnot, Pride of Fluorgis",
+        description: "I seek the love of my life! My search has led me through city streets and far abroad. I have even taken up the pen, and met two charming ladies in my correspondence. Ah, but I've made a mess of things by scheduling a rendezvous with each of them on the same day! I need someone to meet one of the lucky damsels in my stead. Only the dashing need apply - I've a reputation to consider! -Marnot, Pride of Fluorgis",
         rank: 9,
         region: "Targ Wood",
         fee: 200,
@@ -396,7 +374,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         id: "C1-12",
         arc: "C1",
         name: "The Nu Mou Nobles",
-        description: "I am called Madreth, clan leader of the Nu Mou Nobles. I seek a king soul to fetch a phial of healing water and a shead of recall grass. We wait beneath the lone tree on Baptiste Hill. Madreth",
+        description: "I am called Madreth, clan leader of the Nu Mou Nobles. I seek a kind soul to fetch a phial of healing water and a sheaf of recall grass. We wait beneath the lone tree on Baptiste Hill. -Madreth, No Mou Nobles",
         rank: 12,
         region: "Baptiste Hill",
         fee: 300,
@@ -430,7 +408,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         id: "C1-13",
         arc: "C1",
         name: "Seeding the Harvest",
-        description: "***** Help Wanted! ***** It's seeding time again, and each year we lose crops to raiding monsters. We seek hardened adventurers to stand between our livelihood and their fiendish claws. Farmers' Cooperative",
+        description: "*****Help Wanted!***** It's seeding time again, and each year we lose crops to raiding monsters. We seek hardened adventurers to stand between our livelihood and their fiendish claws! -T.K. Corral",
         rank: 21,
         region: "Camoa",
         fee: 400,
@@ -451,10 +429,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Randomized Monster", quantity: 10, notes: "A varied mix with no fixed pattern; defeat 10 total. They surround you — make a last stand." },
     ],
-        strategy: [
-            "Defeat 10 foes. Don't move — let the enemy come to you and make a defensive last stand. Bring a White Mage to keep the team alive.",
-            "Don't bunch up too tightly so AoE attacks can't hit 3-5 units at once.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 9240,
             cp: 42,
@@ -488,10 +463,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Randomized Monster", quantity: 6, notes: "Monster level scales to clan average. Endless reinforcements — focus on gathering, not killing. Stand adjacent to red-dotted fruit trees and use the Gather command." },
     ],
-        strategy: [
-            "4-round timer — use fastest units. Stand by fruit trees and use Gather. Kill monsters only to clear a path.",
-            "Bring Hunters and a Healer — monsters level-scale to your clan. More fruit gathered = better loot bonus.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 12830,
             cp: 50,
@@ -539,7 +511,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         id: "C1-16",
         arc: "C1",
         name: "It's the Thought",
-        description: "I've been thinking of getting a gift for my employer. A little treat of sorts-but something healthy. They saw succulent fruit has a number of benefits. But not too many, I hope. If he were any healthier, he would work me to death! Tagore, Aspiring Apprentice",
+        description: "I've been thinking of getting a gift for my employer. A little treat of sorts - but something healthy. They say succulent fruit has a number of benefits. But not too many, I hope. If he were any healthier, he would work me to death! -Tagore, Aspiring Apprentice",
         rank: 7,
         region: "Graszton",
         fee: 200,
@@ -558,9 +530,7 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
         },
         enemies: [],
         strategy: [
-            "Delivery mission — bring Succulent Fruit ×1 to Graszton.",
-            "This is a one-member delivery with no combat.",
-        ],
+            "Delivery mission — bring Succulent Fruit ×1 to Graszton.",        ],
         rewards: {
             gil: 1120,
             cp: 14,

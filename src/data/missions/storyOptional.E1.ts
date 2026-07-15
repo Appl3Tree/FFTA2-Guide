@@ -8,7 +8,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         id: "E1-01",
         arc: "E1",
         name: "Bonga Bugle - Goldsun",
-        description: "Greetings! Bonga Bugle Head Editor here! This month: the Field of Hidden Treasures! A place where treasures are said to spring into being beneath the ground ... all by themselves! Reporting assistants wanted. Head Editor, Bonga Bugle",
+        description: "Greetings! Bonga Bugle Head Editor here! This month's special: the Field of Hidden Treasures! A place where treasures are said to spring into being beneath the ground...all by themselves! Reporting assistants wanted. -Head Editor, Bonga Bugle",
         rank: 22,
         region: "Baptiste Hill",
         fee: 400,
@@ -43,7 +43,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         id: "E1-02",
         arc: "E1",
         name: "Bonga Bugle - Silversun",
-        description: "Greetings! Bonga Bugle Head Editor here! This moth, we're taking a look at haunted spots, starting with that most forbidding of places, Shadeholme! ... Um, someone go with me please! Note: The actual location of our report will be top secret! Head Editor, Bonga Bugle",
+        description: "Greetings! Bonga Bugle Head Editor here! This month, we're taking a look at haunted spots, starting with that most forbidding of places, Shadeholme! ...Um, someone go with me, please! Note: the actual location of our report will be top secret! -Head Editor, Bonga Bugle",
         rank: 18,
         region: "Graszton",
         fee: 300,
@@ -67,9 +67,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         ],
         strategy: [
             "Protect the Head Editor while clearing the undead.",
-            "Black Magick works well, and recovery items or Cure spells can damage undead. Vary actions each turn to avoid Copycat law.",
-            "After reducing undead to 0 HP, use Phoenix Down, Burial, or Exorcise on the tombstone to stop revival.",
-        ],
+            "Black Magick works well, and recovery items or Cure spells can damage undead. Vary actions each turn to avoid Copycat law.",        ],
         rewards: {
             gil: 3030,
             cp: 36,
@@ -106,10 +104,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             { name: "Jylland Free Press: Green Mage", quantity: 1, job: "Green Mage", notes: "Has Leap — increases unit movement distance." },
             { name: "Jylland Free Press: Geomancer", quantity: 1, job: "Geomancer", notes: "Offensive Geomancy makes this the highest-damage rival." },
         ],
-        strategy: [
-            "Race mission — get your unit to the Galmia P.R. target before the rival Jylland Free Press does.",
-            "Use highest movement units. Consider defeating the Time Mage so the rival group cannot Haste or Quicken itself.",
-            "Move to the space directly in front of the Galmia P.R. Illusionist to claim the scoop.",
+        strategy: [           "Move to the space directly in front of the Galmia P.R. Illusionist to claim the scoop.",
             "Grab the nearby treasure by the Head Editor if you can; the guide identifies it as Brigand's Gloves.",
         ],
         rewards: {
@@ -192,9 +187,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         ],
         strategy: [
             "Answer the Prima Donna interview by picking the last option, then travel to Fluorgis for the battle.",
-            "Prima Donna allies help, but you still fail if the Head Editor falls.",
-            "Remove whichever enemy is pressuring the Head Editor first: the Archer and Hunter threaten from range, while the Blue Mage brings White Wind and Bad Breath.",
-        ],
+            "Prima Donna allies help, but you still fail if the Head Editor falls.",       ],
         rewards: {
             gil: 4590,
             cp: 60,
@@ -208,7 +201,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         id: "E1-08",
         arc: "E1",
         name: "Bonga Bugle - Emberleaf",
-        description: "Greetings from the Bonga Bugle! This month we'll be investigating a true scourge upon the land - crime syndicates! As I am ... somewhat concerned for my safety, I want someone to come with me! Head Editor, Bonga Bugle * Selection by intervgiew. Wolves only. Sheep need not apply!",
+        description: "Greetings from the Bonga Bugle! This month we'll be investigating a true scourge upon the land- crime syndicates! As I am...somewhat concerned for my safety, I want someone to come with me! -Head Editor, Bonga Bugle *Selection by interview. Wolves only. Sheep need not apply!",
         rank: 38,
         region: "Moorabella",
         fee: 500,
@@ -268,9 +261,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             { name: "Randomized Name", job: "Enemy", quantity: 1, notes: "Enemies are present and more arrive every few turns; the guide does not specify an exact roster." },
         ],
         strategy: [
-            "Place all five pots on the tree stumps in the middle of the area.",
-            "More enemies arrive every few turns, so do not spend time clearing the map. Attack only enemies blocking pot placement.",
-        ],
+            "Place all five pots on the tree stumps in the middle of the area.",        ],
         rewards: {
             gil: 2730,
             cp: 30,
@@ -283,7 +274,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         id: "E1-12",
         arc: "E1",
         name: "Bonga Bugle - Plumfrost",
-        description: "Greetings! Bonga Bugle Head Editor here! This month, we'll be getting up close and personal with the man himself, the Bugle Owner! All who wish to see just what our great Owner is made of had better not miss this unique opportunity! Head Editor, Bonga Bugle *There will be interviews. The secret phrase is: \"You'll be owner next!\"",
+        description: "Greetings from the Bonga Bugle! This month, we'll be getting up close and personal with the man himself, the Bugle Owner! All who wish to see just what our great Own is made of had better not miss this unique opportunity! -Head Editor, Bonga Bugle *There will be interviews. The secret phrase is: \"You'll be owner next!\" (Transportation costs reimbursed.)",
         rank: 43,
         region: "Moorabella",
         fee: 500,
@@ -343,9 +334,16 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         },
         enemies: [],
         strategy: [
-            "No combat — Luso acts as a shop clerk for 10 customers. Answer correctly for a bonus score.",
-            "Key answers: Malbow (ranged bow/distance weapon), Bomb Arm (weapon named after a monster), Frilly Shirt (shirt for a Bangaa), Handkerchief (cures Oil), Prima Donna Boxers (what the Seeq wants), Golden Armour (grants Critical: Haste), Elixir (give to the Tonberry).",
-            "Bonus reward depends on correct answers: 0 gives Knot of Rust, 8-9 gives Elixir, and 10 gives Eureka Crystal.",
+            "Play the role of the shopkeeper in Wood Village, in Targ Wood. Ten customers appear, and requests can repeat.",
+            "Counter: Headband or Chainmail. Fix Disable: Bandage. Handle my moves: Katana. Glasses: Stage star glasses.",
+            "Cure Oil: Handkerchief. Garment: Green one-piece dress. Cure Silence: Echo Herbs. Gun without picking: Silver Cannon.",
+            "Cure Stone: Gold Needle. Critical: Haste: Golden Armor. Archer's Bane: Green Beret. Hit from far away: Huntsman's Bow or Malbow.",
+            "Blur: Fortune Ring. Cure Toad: Maiden's Kiss. Two-handed weapon: Sledgehammer, Xankbras, or Iron Hammer.",
+            "Packs a punch: Flame Rod. Halve MP: Luminous Robe. Instrument: Faerie Harp. Turbo MP: White Robe.",
+            "Any shirt: Frilly Shirt. Bonecrusher: Dragon Mail. Weapon named after a monster: Malbow, Bomb Arm, or Lilith Rod.",
+            "Weapon usable with a shield: Javelin or Murasame. Spear: Gae Bolg. Defense Up: Diamond Armor. Magick Counter: Samite Coat.",
+            "Elixir request: Elixir. Either Chocobo 'Kweh' request: middle choice. Perfect boxers: Prima Donna boxers.",
+            "Added rewards: 0 correct gives Knot of Rust, 1-7 gives no added reward, 8-9 gives Elixir, and 10 gives Eureka Crystal.",
         ],
         rewards: {
             gil: 1230,
@@ -383,9 +381,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             { name: "Randomized Name", job: "Viking", quantity: 1, notes: "Physical support with disruptive utility. Keep it occupied while ranged units remove Thieves." },
         ],
         strategy: [
-            "Interview password is 'simply lovely', then travel to Fluorgis for the battle.",
-            "Keep the thieves at bay so they cannot steal and break the law. Ranger traps such as Sten Needle, Fusiliers, and Tricksters help control the approach.",
-            "Elementalist Fire Whip is useful if it Disables enemies before they reach you.",
+            "Interview password is 'simply lovely', then travel to Fluorgis for the battle.",            "Elementalist Fire Whip is useful if it Disables enemies before they reach you.",
         ],
         rewards: {
             gil: 3030,
@@ -400,7 +396,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         id: "E1-15",
         arc: "E1",
         name: "Bonga Bugle - Skyfrost",
-        description: "Greetings from the Bonga Bugle! This moth we'll be taking a look at special places, traveling far and wide across Jylland to find the best and the most beautiful. And I'll need assistants! Head Editor, Bonga Bugle * Selection by Interview. Cool and collected applicants preferred.",
+        description: "Greetings from the Bonga Bugle! This month we'll be taking a look at special places, traveling far and wide across Jylland to find the best and the most beautiful! And I'll need assistants! -Head Editor, Bonga Bugle *Selection by interview. Cool and collected applicants preferred.",
         rank: 31,
         region: "Moorabella",
         fee: 400,
@@ -426,10 +422,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             { name: "Viera: White Mage", quantity: 1, job: "White Mage", notes: "Has Cure and Esuna." },
         ],
         strategy: [
-            "Interview answer: pick the last option, \"*smirk*\". Battle takes place in the Ruins of Delgantua.",
-            "Protect the Head Editor. The Sniper is dangerous because Beso Toxico can inflict Doom, while the Assassin starts close enough to remove early.",
-            "Buffs are forbidden — rely on raw stats. Bring a healer with Esuna to counter the heavy debuff pressure.",
-        ],
+            "Interview answer: pick the last option, \"*smirk*\". Battle takes place in the Ruins of Delgantua.",       ],
         rewards: {
             gil: 4940,
             cp: 64,
@@ -463,9 +456,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         law: "Forbidden: Attack – Attacking is forbidden.",
         enemies: [],
         strategy: [
-            "Talk to the townsfolk and knock on doors in Moorabella to tally New Year's resolutions.",
-            "The correct answer is random; ask all 13 possible respondents, then report the most common category to the Head Editor.",
-        ],
+            "Talk to the townsfolk and knock on doors in Moorabella to tally New Year's resolutions.",        ],
         rewards: {
             gil: 8750,
             cp: 38,

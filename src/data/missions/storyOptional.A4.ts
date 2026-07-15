@@ -35,11 +35,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Status support and Doublecast pressure. Remove before it disables key attackers." },
         { name: "Randomized Name", job: "White Monk", quantity: 1, notes: "Air Render-style ranged monk pressure. Keep wounded units out of line." },
     ],
-        strategy: [
-            "Defeat Clan Centurio's White Mage first; he also has Sage abilities such as Gigaflare.",
-            "Remove the Archer before Doom or Charm lands, then stop the Green Mage's Doublecast status pressure.",
-            "Keep damage at 20 or higher to satisfy the law, and clean up the Viking, Soldier, and White Monk once the support units are down.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 8510,
             cp: 99,
@@ -80,9 +76,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
     ],
         strategy: [
             "Fire is forbidden, so use non-fire pressure against the ice-themed clan.",
-            "Defeat the Gladiator and Parivir before they punish the front line, then remove the Summoner, Illusionist, Black Mage, and Scholar.",
-            "The Summoner and Illusionist can hit multiple units from range, so do not let them sit behind the melee units for long.",
-        ],
+            "Defeat the Gladiator and Parivir before they punish the front line, then remove the Summoner, Illusionist, Black Mage, and Scholar.",        ],
         rewards: {
             gil: 3150,
             cp: 52,
@@ -119,10 +113,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         { name: "Randomized Name", job: "Beastmaster", quantity: 1, notes: "Can command nearby monsters." },
         { name: "Randomized Name", job: "Rocktitan", quantity: 1, notes: "High defense. Use ranged/magick." },
     ],
-        strategy: [
-            "Only 4 of your units are allowed because House Bowen joins as backup allies — an easy fight.",
-            "Kill from range or use Safeguard to avoid being robbed by the two Thieves. Let House Bowen help thin the enemies.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 5460,
             cp: 70,
@@ -160,10 +151,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         battlefield: [
             "Numerous terrain traps are hidden around Floraxion's map; Ranger Awareness helps reveal them.",
         ],
-        strategy: [
-            "Floraxion is the required target; the Great Malboros are support threats that make melee approaches risky.",
-            "Viera are restricted to movement and basic attacks, so rely on non-Viera casters, Hunters, or melee units for abilities.",
-            "Use Fire damage against Floraxion, bring Awareness if you have a Ranger for the hidden terrain traps, and carry status recovery for Floraxion and the Great Malboros.",
+        strategy: [           "Use Fire damage against Floraxion, bring Awareness if you have a Ranger for the hidden terrain traps, and carry status recovery for Floraxion and the Great Malboros.",
         ],
         rewards: {
             gil: 6760,
@@ -236,10 +224,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         { name: "Mark IV", job: "Chocobo Knight", quantity: 1, notes: "Rides a White Chocobo. Has Choco Beak and Choco Recharge." },
         { name: "Mark V", job: "Flintlock", quantity: 1, notes: "Has Prime and Ether Boost." },
     ],
-        strategy: [
-            "Missing is forbidden — use only high-accuracy attacks, or Stop the enemy so attacks can't miss. Defeating all five Moogle Rangers completes the mission.",
-            "Kill the Black Mage first (heavy magick), then mop up the rest.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 6090,
             cp: 64,
@@ -275,9 +260,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
     ],
         strategy: [
             "Ruuj has Ribbon protection and Doublecast, so do not rely on status ailments.",
-            "Use strong ranged attackers and non-forbidden magick to avoid Counter while respecting the Fire/Ice/Lightning ban.",
-            "If your clan is around the mid-20s with strong jobs, focus damage and heal through Doublecast pressure.",
-        ],
+            "Use strong ranged attackers and non-forbidden magick to avoid Counter while respecting the Fire/Ice/Lightning ban.",        ],
         rewards: {
             gil: 8110,
             cp: 88,
@@ -290,6 +273,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         id: "A4-12",
         arc: "A4",
         name: "Wanted: Tutor!",
+        objective: "Dispatch the right person for the job!",
         description: "I seek a talented home tutor for my son, for seven days during the summer holidays. The successful applicant will have a good attitude, and be willing to live in our home for the duration. Marianna, House Havemille Head Maid",
         rank: 16,
         region: "Moorabella",
@@ -346,9 +330,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         { name: "Lightland", job: "Mutadragon", quantity: 1, notes: "Weak to Earth. Use Elementalists, or Hunters with Sidewinder." },
     ],
         strategy: [
-            "Three Mutadragons hit hard with fire, ice, lightning, and holy attacks, and most debuffs will not work on them.",
-            "Use your strongest attackers, favor safe ranged damage where possible, and steal their accessories if you bring a Thief.",
-        ],
+            "Three Mutadragons hit hard with fire, ice, lightning, and holy attacks, and most debuffs will not work on them.",        ],
         rewards: {
             gil: 7490,
             cp: 72,
@@ -384,9 +366,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
     ],
         strategy: [
             "Using MP is forbidden, so use physical attackers, Fusiliers, Cannoneers, Snipers, Assassins, Ninjas, or Gladiators.",
-            "Stopshot is especially effective because Blue King Bliu is not immune to Stop.",
-            "Avoid extended melee trades unless you can survive Counter plus Dual Wield and Magick Frenzy follow-up.",
-        ],
+            "Stopshot is especially effective because Blue King Bliu is not immune to Stop.",        ],
         rewards: {
             gil: 7810,
             cp: 99,
@@ -399,6 +379,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         id: "A4-16",
         arc: "A4",
         name: "Wanted: Woodworker",
+        objective: "Dispatch the right person for the job!",
         description: "My roof's about to collapse under the weight of all this snow. If I don't shore it up soon, that'll be the end of the whole thing! But the job is bigger than I can manage on my own, so I'm gonna need a second pair of hands to finish it up. I figure she'll take about five days to get squared away. Bique, Retired Woodworker",
         rank: 16,
         region: "Moorabella",
@@ -416,9 +397,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
             adaptability: 13,
         },
         enemies: [],
-        strategy: [
-            "Dispatch mission - no combat. Send a Green Mage equipped with a hammer to fit the woodworker request.",
-        ],
+        strategy: [        ],
         rewards: {
             gil: 2520,
             cp: 32,

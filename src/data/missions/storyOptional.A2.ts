@@ -37,9 +37,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             { name: "Camoa Braves", job: "Warrior", quantity: 1, notes: "Final bout leader." },
         ],
         strategy: [
-            "This is a three-bout tournament with no rest or party swap between fights.",
-            "No MP use means healing should come from items if preserving the law; heal before ending each bout.",
-            "Entry: Black Mage, White Monk, Animist/Archer, then Thief. Elimination: Black Mages first, then Time/Green Mage. Final: White Monk and disabling Thieves first.",
+            "This is a three-bout tournament with no rest or party swap between fights.",            "Entry: Black Mage, White Monk, Animist/Archer, then Thief. Elimination: Black Mages first, then Time/Green Mage. Final: White Monk and disabling Thieves first.",
         ],
         rewards: { gil: 2400, cp: 38, loot: "Gigas Pendant ×1" },
         notes: "",
@@ -72,10 +70,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             { name: "Randomized Name", job: "Zaghnal", quantity: 1, notes: "Phase 2 heavy hitter." },
             { name: "Randomized Name", job: "Baknamy", quantity: 1, notes: "Phase 2 support enemy." },
         ],
-        strategy: [
-            "Use ranged attackers for the whole quest because phase 2 bans targeting adjacent units.",
-            "Phase 1: reach and examine the stone while minimizing damage; Lilith and Baknamy are the priority if fighting.",
-            "Phase 2: let enemies approach and defeat them from range. Elementalist Fire Whip can help disable the tougher enemies.",
+        strategy: [           "Phase 2: let enemies approach and defeat them from range. Elementalist Fire Whip can help disable the tougher enemies.",
         ],
         rewards: { gil: 3590, cp: 56, loot: "Dragon Bone ×2, Onion ×2" },
         notes: "",
@@ -106,11 +101,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             { name: "Randomized Name", job: "Lilith", quantity: 2, notes: "Phase 2; Kiss can inflict Charm or Doom." },
             { name: "Randomized Name", job: "Baknamy", quantity: 1, notes: "Phase 2 support enemy." },
         ],
-        strategy: [
-            "Phase 1 can be rushed by examining the stone, but HP/MP carry into phase 2.",
-            "Avoid lightning in phase 1 and bludgeoning weapons in phase 2.",
-            "Bring Esuna. In phase 2, control Werewolves and Lamashtu first, then clean up Liliths and Baknamy.",
-        ],
+        strategy: [            "Avoid lightning in phase 1 and bludgeoning weapons in phase 2.",        ],
         rewards: { gil: 1160, cp: 36, loot: "Xergis Tin ×2" },
         notes: "",
         tags: ["optional"]
@@ -137,10 +128,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             { name: "Randomized Name", job: "Wolf", quantity: 4, notes: "Escort pack blocking the path." },
         ],
         strategy: [
-            "Fight through the Wolves to reach the Cyanwolf; it is difficult to bypass them from the starting position.",
-            "If Screech confuses an ally, have a weak unit hit them to snap them out without causing too much damage.",
-            "Avoid ice attacks under the law.",
-        ],
+            "Fight through the Wolves to reach the Cyanwolf; it is difficult to bypass them from the starting position.",       ],
         rewards: { gil: 2630, cp: 6, loot: "Wolf Pelt ×3, Earth Stone ×6, Tarkov Crystal ×4" },
         notes: "",
         tags: ["optional", "hunt", "notorious-mark"]
@@ -187,7 +175,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         id: "A2-06",
         arc: "A2",
         name: "The Stone With No Name",
-        description: "My teacher, Mauri, discovered the message within the Stone with No Name, yet he passed away before he could see his research through till the end. He once told me that the Stone with No Name is three stones in one, the magickal instrument of antiquity that sealed off an Otherworld from our knowledge. He told me never to go near the Stone, nor pry too deep into its secrets. But...I would see his research completed. Taura, Favored pupil",
+        description: "My teacher, Mauri discovered the message within the Stone with No Name, yet he passed away before he could see his research till the end. He once told me that the \"Stone with No Name is three stones in one, the magickal instrument of antiquity that sealed off an Otherworld from our knowledge.\" He told me never to go near the Stone, nor pry too deep into its secrets. But...I would see his research completed. -Taura, Favored pupil",
         rank: 42,
         region: "The Ruins of Delgantua",
         fee: 500,
@@ -206,9 +194,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         ],
         strategy: [
             "Phase 1: reach the back and examine all three stones. Do not rely on HP-restoring actions.",
-            "Phase 2: defeat Demon Wall before it pushes the party off the edge.",
-            "Disable reaction abilities for phase 2 if you want to preserve the law, then focus strong single-target damage on the wall.",
-        ],
+            "Phase 2: defeat Demon Wall before it pushes the party off the edge.",        ],
         rewards: { gil: 6530, cp: 84, loot: "Mythril ×1" },
         notes: "",
         tags: ["optional"]
@@ -229,9 +215,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         prerequisite: "Wanted: Sky Pirate Vaan; An Unfamiliar Land; visit Graszton",
         requiredTalents: { negotiation: 0, aptitude: 0, teamwork: 33, adaptability: 33 },
         enemies: [],
-        strategy: [
-            "Investigation dispatch to The Aldanna Range; Lezaford explains Scions. No combat.",
-        ],
+        strategy: [        ],
         rewards: { gil: 5040, cp: 34, loot: "Lightwing Crystal ×3" },
         notes: "",
         tags: ["optional"]
@@ -252,9 +236,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         prerequisite: "Grounded!; A Simple Question; visit Fluorgis",
         requiredTalents: { negotiation: 0, aptitude: 0, teamwork: 15, adaptability: 15 },
         enemies: [],
-        strategy: [
-            "Investigation dispatch to The Aldanna Range; Lezaford answers the question about Judges. No combat.",
-        ],
+        strategy: [        ],
         rewards: { gil: 1580, cp: 30, loot: "Ice Sigil ×4" },
         notes: "",
         tags: ["optional"]
@@ -300,7 +282,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         id: "A2-10",
         arc: "A2",
         name: "Odd Places",
-        description: "There is a well about which strange rumours always spring up around this time of year. They say it glows in the depth of night, when all lies sleeping, or that monsters not usually seen in these parts appear, even that there are sometimes more wells, or fewer. Could someone please find out the truth? Typical Camoan Housewife",
+        description: "There is a well about which strange rumors always spring up around this time of year. They say it glows in the depth of night, when all lies sleeping, or that monsters not usually seen in these parts appear, even that there are sometimes more wells, or fewer. Could someone please find out the truth? -Typical Camoan Housewife",
         rank: 39,
         region: "Camoa",
         fee: 500,
@@ -319,11 +301,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             { name: "Randomized Name", job: "Bomb", notes: "Upper-right well encounter after Wanted: Sky Pirate Vaan; Self-Destruct threat." },
             { name: "Randomized Name", job: "Adamantitan", notes: "Bottom-left well encounter after A Request; Sonic Spin, Munch, and Matra Magick." },
         ],
-        strategy: [
-            "Only one well can be examined per acceptance; repeat the quest to access every destination.",
-            "Upper-left: Axebeak after Seeking the Stone. Upper-middle: Fire Drake after A Request. Upper-right: Bomb after Wanted: Sky Pirate Vaan. Bottom-left: Adamantitan after A Request.",
-            "Examining wells can send the clan to otherwise inaccessible Ordalia-side locations; use this to open map access.",
-        ],
+        strategy: [            "Upper-left: Axebeak after Seeking the Stone. Upper-middle: Fire Drake after A Request. Upper-right: Bomb after Wanted: Sky Pirate Vaan. Bottom-left: Adamantitan after A Request.",        ],
         rewards: { gil: 9450, cp: 78, loot: "Fire Sigil ×3" },
         notes: "",
         tags: ["optional"]
@@ -382,11 +360,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             "Enemies begin with strong height advantage.",
             "One chest and one urn are present.",
         ],
-        strategy: [
-            "Do not let Dayvis die. Items are banned, so use magick/abilities for healing.",
-            "Use mages and ranged units to answer the high-ground Archer and Black Mage while agile units climb the left side.",
-            "Prioritize White Mage once reachable, then clean up the melee units.",
-        ],
+        strategy: [      ],
         rewards: { gil: 3400, cp: 30, loot: "Superior Silk Thread ×3, Earth Stone ×3" },
         notes: "",
         tags: ["optional"]
@@ -414,10 +388,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             { name: "Doubler", job: "Red Mage", quantity: 1, notes: "Elimination bout; Ribbon, Doublecast, Doubleshot, Counter, Attack Up. Steal Ribbon if possible." },
             { name: "Bedeviled", job: "Master Monk", quantity: 1, notes: "Final bout; Dark Fist, Withering Strike, Cross-Counter, Magick Counter, Destroyer." },
         ],
-        strategy: [
-            "Only one unit fights all three bouts; pick someone self-sufficient with strong attacks and healing.",
-            "Beat Copykat quickly, then defeat Doubler while avoiding the elemental law. Steal Ribbon if your champion can.",
-            "Final bout is hardest. Keep HP high and avoid relying on reaction abilities against the Master Monk.",
+        strategy: [           "Final bout is hardest. Keep HP high and avoid relying on reaction abilities against the Master Monk.",
         ],
         rewards: { gil: 2730, cp: 48, loot: "Pin of Order ×1" },
         notes: "",
@@ -452,11 +423,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         battlefield: [
             "Traps are present; defensive positioning can lure enemies into them.",
         ],
-        strategy: [
-            "Do not self-target, including self-healing.",
-            "Prioritize the White Monk first because Air Render is the biggest immediate threat, then watch the Archer's Wallet Shot before cleaning up the rest.",
-            "Bring Esuna support for debuffs, but avoid self-targeting under the law.",
-        ],
+        strategy: [      ],
         rewards: { gil: 3330, cp: 36, loot: "Spider Silk ×1, Cod Scale ×1" },
         notes: "",
         tags: ["optional"]
@@ -488,11 +455,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
         battlefield: [
             "The bow of the ship creates a two-tile choke point.",
         ],
-        strategy: [
-            "You only need to defeat Lord Grayrl. Block the boarding path and focus him when he reaches your line.",
-            "To preserve the law, avoid damaging the Archer and Black Mage; otherwise, they are dangerous enough that breaking the law can make the fight easier.",
-            "Gria or other high-ground ranged units can help snipe the non-Hume pirates from the ship area.",
-        ],
+        strategy: [      ],
         rewards: { gil: 2450, cp: 26, loot: "Malboro Vine ×2, Foul Liquid ×4, Sturdy Bone ×3" },
         notes: "",
         tags: ["optional", "story-cameo", "chain"]
@@ -518,11 +481,7 @@ export const OPTIONAL_MISSIONS_A2: Mission[] = [
             { name: "Randomized Name", job: "Plague", quantity: 2, notes: "Priority; can inflict Stone, Charm, Confuse, and other status effects from range." },
             { name: "Randomized Name", job: "Bloody Orb", quantity: 3, notes: "Fast eyeball enemies with Silence/debuff pressure." },
         ],
-        strategy: [
-            "Do not bring knockback-heavy setups, and avoid critical knockback if trying to preserve the law.",
-            "Bring Esuna/Gold Needles and ranged magick. Plagues are the dangerous targets; kill them before Bloody Orbs if possible.",
-            "Holy damage is useful if available, but standard Cure spells are not the same as holy attacks here.",
-        ],
+        strategy: [            "Bring Esuna/Gold Needles and ranged magick. Plagues are the dangerous targets; kill them before Bloody Orbs if possible.",        ],
         rewards: { gil: 2940, cp: 34, loot: "Prime Tanned Hide ×1, Wyrm Carapace ×1" },
         notes: "",
         tags: ["optional", "hunt", "notorious-mark"]

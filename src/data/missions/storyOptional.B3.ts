@@ -8,7 +8,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         id: "B3-01",
         arc: "B3",
         name: "Death March",
-        description: "- The Game Is On - Wanted: Participants for the greatest game in Ivalice! This time, it's the Death March. To the victor goes the spoils. - Rules of the Game - * Uphold the Law Bronkrise Gamer's Guild",
+        description: "-The Game Is On!- Wanted: Participants for the greatest game in Ivalice! This time, it's the Death March. To the victor go the spoils. -Rules of the Game- *Uphold the law -Bronkrise Gamer's Guild",
         rank: 23,
         region: "Graszton",
         fee: 400,
@@ -35,12 +35,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Has one Rend skill and Mug." },
         { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Has Steal Items, Steal Gil, and Doublehand (passive, not used offensively)." },
     ],
-        strategy: [
-            "Every unit must move at least one tile before ending its turn. Plan movement first, then choose actions.",
-            "Defeat the Black Mage first to cut down incoming spell damage, then remove the White Mage so the enemy cannot recover.",
-            "The White Monk can hit at range with Air Render; do not leave fragile casters exposed after moving.",
-            "Avoid cornering yourself while obeying the movement law; leave each unit a legal tile to move into next turn.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 2440,
             cp: 46,
@@ -76,11 +71,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         { name: "Randomized Name", job: "Nagaraja", quantity: 1, notes: "Boss wyrm at the peak. Syrenead is a guest ally who tends to stay back and support." },
     ],
         strategy: [
-            "Protect Syrenead while defeating the Ivory Wyrm.",
-            "The cliff climb is the main positional problem, so mobile units, magick, bows, and long-reach job abilities are the safest way to pressure the wyrm.",
-            "Harming the Weak is forbidden; avoid wide attacks near Syrenead or any lower-level unit.",
-            "Let sturdy units body-block while ranged attackers handle the Wyrm from safer ground.",
-        ],
+            "Protect Syrenead while defeating the Ivory Wyrm.",            "Harming the Weak is forbidden; avoid wide attacks near Syrenead or any lower-level unit.",        ],
         rewards: {
             gil: 4500,
             cp: 50,
@@ -114,11 +105,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
     enemies: [
         { name: "Mamatrice", job: "Cockatrice", quantity: 1, notes: "Klesta's mother. 800+ HP. Dangerous at close range — use Hunters (Sidewinder) and magick from a distance. Law makes damage output very slow." },
     ],
-        strategy: [
-            "Defeat the Mamatrice while staying under the >100 damage law; avoid your strongest burst attacks and use controlled mid-damage hits.",
-            "Use strong melee fighters and long-range magick users while closing across the snowy field.",
-            "The Mamatrice cannot move, so set up stable positions and keep healing ready while wearing her down.",
-        ],
+        strategy: [            "Use strong melee fighters and long-range magick users while closing across the snowy field.",        ],
         rewards: {
             gil: 2700,
             cp: 44,
@@ -153,10 +140,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Nagaraja", quantity: 1, notes: "Target wyrm. Weaken to HP Critical; do not kill it." },
     ],
-        strategy: [
-            "Protect Syrenead. The goal is to leave the Ivory Wyrm at HP Critical (not killed), so use controlled ability damage and Hunters with Sidewinder.",
-            "Bring healers. Harming the Weak (law) — be careful not to over-damage low-level foes.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 5740,
             cp: 62,
@@ -169,7 +153,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         id: "B3-08",
         arc: "B3",
         name: "Unfamiliar Folk",
-        description: "I saw some unfamiliar folk in the Ruins of Delgantua. It's just a feeling, but I don't think they're from around here. I don't think they're even from Jylland! They looked like thgey were planning something. ... Maybe someone aught inquire further? Perna, Professor of Archaeology",
+        description: "I saw some unfamiliar folk in the Ruins of Delgantua. It's just a feeling, but I don't think they're from around here. I don't think they're even from Jylland! They looked like they were planning something. ...Maybe someone aught inquire further? -Perna, Professor of Archaeology",
         rank: 24,
         region: "The Ruins of Delgantua",
         fee: 400,
@@ -194,12 +178,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Dangerous status/self-buff enemy; prioritize after the Black Mage." },
         { name: "Randomized Name", job: "Animist", quantity: 1, notes: "Lowest-threat member of the group." },
     ],
-        strategy: [
-            "Humes can only move and use basic attacks, so lean on non-Hume jobs for abilities and healing.",
-            "Remove the Black Mage first, then the Soldier and Warrior, because the guide calls those the most dangerous enemies.",
-            "The enemy group leans on status effects and self-buffs, so bring recovery and long-distance attacks.",
-            "Non-Hume units can struggle crossing the water, making bows, guns, and magick especially useful.",
-        ],
+        strategy: [           "The enemy group leans on status effects and self-buffs, so bring recovery and long-distance attacks.",        ],
         rewards: {
             gil: 2940,
             cp: 48,
@@ -212,7 +191,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         id: "B3-09",
         arc: "B3",
         name: "A Lady's Insistence",
-        description: "The wyrm I keep at our home is well behaved and docile, but a group of our neighbours have voiced complaint. Such ignorance ... To appease them, I've resolved to cut off my poor pet's horn - that should make him appear less fearsome. This is easier said than done, however, and I shall require help. Syrenead Sie Hyskaris",
+        description: "The wyrm I keep at our home is well-behaved and docile, but a group of our neighbors have voiced complaint. Such ignorance... To appease them, I've resolved to cut off my poor pet's horn- that should make him appear less fearsome. This is easier said than done, however, and I shall require help. -Syrenead Sie Hyskaris",
         rank: 30,
         region: "Moorabella",
         fee: 400,
@@ -235,11 +214,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         { name: "Randomized Name", job: "Nagaraja", quantity: 1, notes: "Objective: weaken to HP Critical; do not kill it. The law forbids normal attacks, but abilities and magick still work." },
     ],
         strategy: [
-            "Protect Syrenead and weaken the Ivory Wyrm to HP Critical; do not kill it.",
-            "Normal Attack is forbidden, but job abilities and magick are legal. Build the party around controllable ability damage.",
-            "The Wyrm stays mostly stationary, so take your time setting up safe angles and healing Syrenead before lowering it to critical HP.",
-            "Stop attacking as soon as the Wyrm reaches critical HP.",
-        ],
+            "Protect Syrenead and weaken the Ivory Wyrm to HP Critical; do not kill it.",      ],
         rewards: {
             gil: 8510,
             cp: 60,
@@ -252,7 +227,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         id: "B3-11",
         arc: "B3",
         name: "Duelhorn",
-        description: "There's a forest not too far from where I live and at night I see, well, shapes flitting through the trees ... or something. I've gone during the day, but no one's there. Could someone go and look into it? I get this feeling there're more of them every time. Anonymous",
+        description: "There's a forest not too far from where I live, and at night I see, well, shapes flitting through the trees...or something. I've gone during the day, but no one's there. Could someone go and look into it? I get this feeling there're more of them every day... -Mooshe the Timid",
         rank: 26,
         region: "Baptiste Hill",
         fee: 400,
@@ -327,7 +302,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         id: "B3-14",
         arc: "B3",
         name: "Making Port",
-        description: "There's a ship coming in to port soon I got a bad feelin about. The chief says the paperwork checks out - no problem. No problem with the paperwork? That's suspicious right there! Someone look into this for me. Dock Worker",
+        description: "There's a ship coming in to port soon I got a bad feeling about. The chief says the paperwork checks out-no problem. No problem with the paperwork? That's suspicious right there! You show me a seaman's shipping writ, and I'll show you a document not fit for feeding to a goat! Someone look into this, would you? -Anonymous, Graszton Port Authority",
         rank: 25,
         region: "Graszton",
         fee: 400,
@@ -352,10 +327,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         { name: "Duelhorn Commander", job: "Ninja", quantity: 1, notes: "Four Commanders member." },
     ],
         strategy: [
-            "You only need to defeat one of the Four Commanders to end the battle.",
-            "Pick a safe target and focus them down; the Summoner and Arcanist can hurt more than the Trickster's long-range cards.",
-            "Watch the Harming the Opposite Sex law when choosing attackers and targets.",
-        ],
+            "You only need to defeat one of the Four Commanders to end the battle.",       ],
         rewards: {
             gil: 4380,
             cp: 50,
@@ -368,6 +340,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         id: "B3-16",
         arc: "B3",
         name: "Knowing the Beast",
+        description: "Never become attached. The rules on this are clear. But it is not so easy to leave one who has fought so long at your side. A dreamhare I had ensorceled lamed its leg and lies wounded in the mountains near Camoa. Will you help me rescue the poor creature? -Ceva, Beastmaster",
         rank: 6,
         region: "Camoa",
         fee: 200,
@@ -389,12 +362,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         { name: "Randomized Name", job: "Wolf", quantity: 2, notes: "Initial wave. Enemy reinforcements keep crossing the bridges after each wave is killed." },
         { name: "Randomized Name", job: "Baknamy", quantity: 2, notes: "Initial wave. Use two frontline tanks to block the bridges and ranged support behind." },
     ],
-        strategy: [
-            "Guard the bridge for four rounds; survival and blocking lanes matter more than chasing every reinforcement.",
-            "Remove reaction abilities before entering because they are forbidden and can trigger law penalties unexpectedly.",
-            "Use two sturdy frontliners to hold the bridge mouths while ranged and magick users attack from behind them.",
-            "When a wave falls, expect more enemies to cross. Stay in formation instead of overextending.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 830,
             cp: 12,

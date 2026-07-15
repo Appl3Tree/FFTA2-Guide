@@ -1,0 +1,93 @@
+Home
+Boards
+News
+Q&A
+Community
+Contribute
+Games
+
+
+3DS
+Android
+Board/Card
+iOS
+PC
+PlayStation 3
+PlayStation 4
+PlayStation 5
+Switch
+Switch 2
+Vita
+Xbox 360
+Xbox One
+Xbox Series
+More Systems
+PCPS4PS5SWITCHSWITCH 2XBOX ONEXBOX SERIESMORE SYSTEMS 
+Log In Sign Up
+GameFAQs
+BOARDS
+NEWS
+Q&A
+COMMUNITY
+CONTRIBUTE
+GAMES
+Intro & Facts
+Final Fantasy Tactics A2: Grimoire of the Rift  —Random Encounter Calendar (DS)
+Home
+	
+Guides
+	
+Q&A
+	
+Cheats
+	
+Saves
+	
+Reviews
+	
+Media
+	
+Board
+	
+Random Encounter Calendar (DS) by ClassyWizard
+
+Version: 2.0 | Updated: 05/04/2026
+
+Next: All Random Encounters w/ Locations 
+Table of Contents
+Intro & Facts
+All Random Encounters w/ Locations
+Random Encounter Calculator
+Game Calendar
+Intro & Facts
+
+So... I just can't be bothered to search for random encounters any longer. I've played this game for a long time, and this has just become a hassle. What I had created here previously has proven to be incorrect, so naturally I have killed it and am making a calculator instead of a calendar because: from my more recent findings, a calendar is an extremely bad method to predict random encounters.
+
+NOTES ON RANDOM ENCOUNTERS
+
+*** Random Encounters will last for 10 days. Once those days are up, the random encounter will disappear. The random encounter will reappear 50 days from the initial appearance date, or 40 days from the disappearance date
+
+Example
+If the "random encounter" appears on the 1st of Plumfrost, then the encounter will disappear on the 11th; 50 days past the 1st of Plumfrost & 40 days past the 11th of Plumfrost would be the 11th of Skyfrost. Therefore, the next encounter for that location would be on the 11th of Skyfrost.
+
+*** Random Encounters, if engaged and defeated, will respawn 120 days from the actual day the encounter was completed. 121 days from the day the encounter was started.
+
+Example
+If the "random encounter" is begun on the 12th of Mistleaf & thereby finished on the 13th of Mistleaf, the next opportunity to engage that random encounter is the 13th of Bloodfire)
+
+*** Random Encounters are lower in priority than "Wanted: Clan!". Therefore, if "Wanted: Clan!" shows up on the same tile as the random encounter is predicted to show up, move yourself onto the tile and clear "Wanted: Clan!" so the random encounter can show up. Other encounters besides "Wanted: Clan!" may also take priority over random encounters, keep that in mind.
+
+See the table of contents for an In-Game Calendar as well as a list of ALL random encounters. I may add more detail to the random encounter should I feel like it (perhaps the associated laws for each).
+
+I am presently working on an Excel Spreadsheet creating the calculator. I will link it here if I can find no way to integrate a complex tool into this guide. There is currently a thread on the accuracy of the "Random Encounter Calendar", please reach out there if you have any suggestions for how I might integrate a calculator tool into this guide. I would much rather have all the calculations be done right from the guide if possible than have those interested download an Excel Spreadsheet.
+
+Next: All Random Encounters w/ Locations 
+GameFAQsfacebook.com/GFAQstwitter.com/GameFAQsHelp / Contact UsChange Colors 
+
+gamespot.commetacritic.comfandom.comfanatical.com
+
+SitemapPartnershipsCareersTerms of UseDigital Services Act
+
+Privacy PolicyDo Not Sell My Personal InformationReport Ad
+
+© 2026 FANDOM, INC. ALL RIGHTS RESERVED.

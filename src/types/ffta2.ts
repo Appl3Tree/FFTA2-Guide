@@ -294,7 +294,6 @@ export interface FaqItem {
 
 export interface ClanTrialTitle {
     title: string;
-    clanRank: number;
     talents: string;
     privilege: string;
     discount: string;
@@ -312,17 +311,9 @@ export interface ClanTrial {
     requiredTalents: string;
     lawRequirement: "Must obey" | "Can break if needed" | "Unknown";
     challenge: string;
-    privilegePathNote: string;
     titles: ClanTrialTitle[];
     notes: string[];
     completionTips: string[];
-}
-
-export interface ClanTrialPriority {
-    id: string;
-    title: string;
-    why: string;
-    trial: string;
 }
 
 export interface ClanTrialGuideSection {
@@ -346,5 +337,4 @@ export interface ClanPrivilegeRoadmapItem {
     trial: string;
     title: string;
     objective: string;
-    priority: "Early" | "Useful" | "Specialist" | "Completion";
 }

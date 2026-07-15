@@ -8,7 +8,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         id: "C4-01",
         arc: "C4",
         name: "Veis, Assassin",
-        description: "I am Veis, a warrior pilgrim traveling the world and taking such widsom as she will give. I have come to Jylland to train for a time with House Bowen, a hunter clan of some renown. I request a guide to show me to them. Seeker Veis, Assassin",
+        description: "I am Veis, a warrior pilgrim traveling the world and taking such wisdom as she will give. I have come to Jylland to train for a time with House Bowen, a hunter clan of some renown. I request a guide to show me to them. -Seeker Veis, Assassin",
         rank: 13,
         region: "The Rupie Mountains",
         fee: 300,
@@ -31,9 +31,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         { name: "House Bowen", job: "Rival Clan", quantity: 1, notes: "Rival clan trying to defeat the Malboro King first; the guide only calls out their Illusionist as a ranged attacker." },
     ],
         strategy: [
-            "Move onto the bridge in front of your starting position and attack the Malboro King from range with options like Air Render or Black Magick.",
-            "You only need the final blow. Blocking the bridge limits House Bowen's access; the Illusionist is the main rival who can still contribute from range.",
-            "Completing this mission unlocks the Assassin job.",
+            "Move onto the bridge in front of your starting position and attack the Malboro King from range with options like Air Render or Black Magick.",            "Completing this mission unlocks the Assassin job.",
         ],
         rewards: {
             gil: 2280,
@@ -47,7 +45,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         id: "C4-02",
         arc: "C4",
         name: "To Be a Fighter",
-        description: "Who will you find at the front line of any army worth its salt? Fighters, and plenty of 'em. Prove yourself worthy. Best us in combat, and we'll teach you the ways of the sword and fist. Jeroge, Mailed Fist Regular",
+        description: "Who will you find at the front line of any army worth its salt? Fighters, and plenty of 'em. Prove yourself worthy. Best us in combat, and we'll teach you the ways of the sword and fist. -Jeorge, Mailed Fist Regular",
         rank: 14,
         region: "Moorabella",
         fee: 300,
@@ -71,11 +69,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Standard melee unit." },
         { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Bangaa Warrior; the guide specifically warns about Air Render." },
     ],
-        strategy: [
-            "This is a direct physical fight. Bring your best melee units, offensive magick, and normal healing support.",
-            "Prioritize the three Fighters because Aurablast can hit multiple clan members at once. Watch the Warrior's Air Render while closing in.",
-            "Completing this mission unlocks the Fighter job.",
-        ],
+        strategy: [            "Prioritize the three Fighters because Aurablast can hit multiple clan members at once. Watch the Warrior's Air Render while closing in.",        ],
         rewards: {
             gil: 1600,
             cp: 28,
@@ -88,7 +82,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         id: "C4-05",
         arc: "C4",
         name: "Popocho's Chocobos",
-        description: "Kupo! My precious chocobos have all run off! Every last one of them! It looks like they've headed for the mountains in the Aldanna Range. I need someone to ifnd them before the monsters do, kupo! Popocho, Chocobo Knight",
+        description: "Kupo! My precious chocobos have all run off! Every last one of them! It looks like they've headed for the mountains in the Aldanna Range. I need someone to find them before the monsters do, kupo! -Popocho, Chocobo Knight",
         rank: 27,
         region: "The Aldanna Range X 3",
         fee: 400,
@@ -105,7 +99,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
             adaptability: 0,
         },
         objective: "Protect Popocho and his chocobos!",
-        law: "Forbidden: > 50 Damage – Dealing > 50 Damage is forbidden.",
+        law: "Stage 1: Forbidden: > 50 Damage. Stage 2: Forbidden: Actions by Moogles. Stage 3: Forbidden: Actions by Humes.",
     enemies: [
         { name: "Randomized Name", job: "Werewolf", quantity: 2, notes: "Round 1. Attacking near the Chocobo — priority targets. Use Wind attacks (Shining Air)." },
         { name: "Randomized Name", job: "Wolf", quantity: 1, notes: "Round 1." },
@@ -117,9 +111,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         { name: "Randomized Name", job: "Ghost", quantity: 1, notes: "Round 3. Finish at 0 HP with Raise, a Phoenix Down, or another anti-undead action." },
     ],
         strategy: [
-            "Three-stage battle in the Aldanna Range. 4-unit party only.",
-            "Round 1 protects one Yellow Chocobo against a Wolf, two Werewolves, and a Zaghnal; use controlled damage because the first law forbids hits over 50.",
-            "Round 2 protects two Green Chocobos against Ice Flans and Wendigos. Fire-based attacks help against the ice enemies, and Wendigos hit hard enough to deserve early attention.",
+            "Three-stage battle in the Aldanna Range. 4-unit party only.",            "Round 2 protects two Green Chocobos against Ice Flans and Wendigos. Fire-based attacks help against the ice enemies, and Wendigos hit hard enough to deserve early attention.",
             "Round 3 protects Popocho plus Black and White Chocobos against a Zahak, two Ice Drakes, and a Ghost. Clear the nearer enemies first, then deal with the slower Zahak.",
             "Completing all three fights unlocks the Chocobo Knight job.",
         ],
@@ -158,9 +150,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
     ],
         strategy: [
             "Survive for 4 rounds. Flintlocks must Prime before firing, which gives you a free round between cannon attacks to heal and reposition.",
-            "Watch the icon above a Flintlock's head to tell when it is primed. The attacks are not severe if your healer keeps pace.",
-            "Completing this mission unlocks the Flintlock job.",
-        ],
+            "Watch the icon above a Flintlock's head to tell when it is primed. The attacks are not severe if your healer keeps pace.",        ],
         rewards: {
             gil: 2870,
             cp: 44,
@@ -196,12 +186,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Can become dangerous if its status effects stick; remove it early." },
         { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "Supports the enemy group while you search the sparkle spots." },
     ],
-        strategy: [
-            "The concertina is hidden in a shiny sparkle on the battlefield — examine it to complete the objective.",
-            "Mayhew's Devotees are present but not very useful, so plan to handle both fighting and searching yourself.",
-            "Use fire-based attacks against the Ice Drakes and take the Lamia seriously because of its status effects.",
-            "Completing this mission unlocks the Raptor job.",
-        ],
+        strategy: [           "Use fire-based attacks against the Ice Drakes and take the Lamia seriously because of its status effects.",        ],
         rewards: {
             gil: 2350,
             cp: 38,
@@ -287,7 +272,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         id: "C4-10",
         arc: "C4",
         name: "Sleight of Hand",
-        description: "Tricksters by name and trade are masters of sleight of hand. Beat them at their own tricks and they will share the trickster trade.",
+        description: "Tricksters by name and trade are we-masters of sleight of hand. Beat us at our own tricks and the tricks of the trickster trade are yours for the trick...er, taking! -Glackta, Trickster Extraordinaire",
         rank: 23,
         region: "Nazan Mines",
         fee: 400,
@@ -313,9 +298,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
             "A high-jump unit with Jump 4 can reach the far-left high ledge chest containing a Ribbon.",
         ],
         strategy: [
-            "Bring a healer because five Tricksters can pressure you from long range with card attacks.",
-            "The law is awkward because Tricksters can inflict status effects such as Immobilize and Berserk; status protection helps preserve the law bonus.",
-            "Completing this battle unlocks the Trickster job.",
+            "Bring a healer because five Tricksters can pressure you from long range with card attacks.",            "Completing this battle unlocks the Trickster job.",
         ],
         rewards: {
             gil: 2790,
@@ -329,7 +312,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         id: "C4-11",
         arc: "C4",
         name: "Kidnapping!?",
-        description: "Prima Donna's manager cannot reach the troupe before an upcoming concert and fears they have been kidnapped.",
+        description: "I can't get word to Prima Donna, and I've tried everything! We've got a concert coming up, too... Surely they haven't been kidnapped...have they? Oh, gods, they have! Someone look into this, please! -Manager, Prima Donna",
         rank: 30,
         region: "Sant D'alsa Bluff",
         fee: 400,
@@ -356,10 +339,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         { name: "Prima Donna Devotee", job: "Time Mage", quantity: 1, notes: "Weak support unit on the right side." },
     ],
         strategy: [
-            "Use high-move units and Haste to intercept Prima Donna before any enemy reaches the water.",
-            "Immobilize flying or fast enemies if available, but avoid back attacks to preserve the law bonus.",
-            "Blocking water-entry tiles can buy enough time to clean up the field.",
-        ],
+            "Use high-move units and Haste to intercept Prima Donna before any enemy reaches the water.",       ],
         rewards: {
             gil: 3030,
             cp: 60,
@@ -372,7 +352,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         id: "C4-13",
         arc: "C4",
         name: "Banbanga!",
-        description: "The Tri-Bangaa Temple welcomes novices seeking guidance in the martial arts. Handed down over many hundred years, the martial arts are considered by many the pinnacle of melee combat. Temper body and mind as we share with you the secret of these arts. Monks of the Tri-Bangaa Temple",
+        description: "The Tri-Bangaa Temple welcomes novices seeking guidance in the martial arts. Handed down over many hundred years, the martial arts are considered by many the pinnacle of melee combat. Temper body and mind as we share with you the secrets of these arts. -Monks of the Tri-Bangaa Temple",
         rank: 29,
         region: "Nazan Mines",
         fee: 400,
@@ -397,9 +377,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         { name: "Randomized Name", job: "White Monk", quantity: 2, notes: "Has Roundhouse and Counter. Lower priority." },
     ],
         strategy: [
-            "Fight from range where possible. The three Master Monks can attack twice and become more dangerous at low HP.",
-            "Dual Wield, Black Magick, and Elementalist Fire Whip-style pressure are guide-backed ways to end the fight before their melee damage snowballs.",
-            "Completing this battle unlocks the Master Monk job.",
+            "Fight from range where possible. The three Master Monks can attack twice and become more dangerous at low HP.",            "Completing this battle unlocks the Master Monk job.",
         ],
         rewards: {
             gil: 5340,
@@ -413,7 +391,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         id: "C4-14",
         arc: "C4",
         name: "The Cat's Meow",
-        description: "I saw it with me own eyes! A white cat as big as a man if it was a goot, it was. Leastwise, I think it were a cat. Prowling about the Rupie Mountains plain as day. Well, strutting about in a place with monsters like that will get it eaten alive in no time flat. Will you go and save it? Maerwynn, Cat Lover",
+        description: "I saw it with me own eyes! A white cat as big as a man if it was a foot, it was. Leastwise, I think it were a cat. Prowling about the Rupie Mountains plain as day. Well, strutting about in a place with monsters like that will get it eaten alive in no time flat. Will you go and save it? -Maerwynn, Cat Lover",
         rank: 27,
         region: "The Rupie Mountains",
         fee: 400,
@@ -438,9 +416,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
     ],
         strategy: [
             "Cross the map quickly because Roye starts far from your clan and can get cornered.",
-            "Do not rely on adjacent physical attacks against Wendigos; use magick or abilities while respecting the Ranged Weapons law.",
-            "Roye can fight back with Magick Frenzy, but protecting him still matters. Completing the quest unlocks the Seer job.",
-        ],
+            "Do not rely on adjacent physical attacks against Wendigos; use magick or abilities while respecting the Ranged Weapons law.",        ],
         rewards: {
             gil: 6150,
             cp: 56,
@@ -453,7 +429,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         id: "C4-15",
         arc: "C4",
         name: "The Storage Shed",
-        description: "Mayhew needs help checking the storage shed after hearing someone inside.",
+        description: "Help! Someone's in my storage shed! What if it's a thief? I can't go out there alone to check... someone come with me! -Mayhew, Prima Donna",
         rank: 6,
         region: "Tramdine Fens",
         fee: 200,
@@ -472,10 +448,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Harming Gria – Actions that harm gria are forbidden.",
     enemies: [],
-        strategy: [
-            "The guide does not call out a specific enemy roster; it describes the fight as a very easy late-appearing battle against enemies at level 10 or below.",
-            "Bring any reliable attackers and avoid harming Gria to keep the law bonus.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 690,
             cp: 12,

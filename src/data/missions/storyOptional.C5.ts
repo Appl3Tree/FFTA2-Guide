@@ -8,7 +8,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         id: "C5-01",
         arc: "C5",
         name: "Geomancer's Way - Rain",
-        description: "Geomancers bend nature to their will. Our society has established a series of trials for prospective geomancers to determine whether they are worthy to share in our knowledge. The Trial of Venomed Rain is the second of four trials. When you are ready to be tested, come. Naturalist Society",
+        description: "Geomancers bend nature to their will. Our society has established a series of trials for prospective geomancers to determine whether they are worthy to share in our knowledge. The Trial of Venomed Rain is the second trial. When you are ready to continue your journey down the path, come. -Naturalist Society",
         rank: 36,
         region: "Tramdine Fens",
         fee: 500,
@@ -31,9 +31,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         { name: "Randomized Name", job: "Wendigo", quantity: 1, notes: "Physically strong; magick is especially useful against it." },
         { name: "Randomized Name", job: "Nagaraja", quantity: 1, notes: "Physically strong monster." },
     ],
-        strategy: [
-            "Stay out of water to preserve the law bonus. Expect the rain to make the Geomancers' water attack more dangerous.",
-            "Bring a strong melee attacker for the Wendigo and Nagaraja, with magick support for the Wendigo and status recovery for Immobilize/Disable.",
+        strategy: [            "Bring a strong melee attacker for the Wendigo and Nagaraja, with magick support for the Wendigo and status recovery for Immobilize/Disable.",
         ],
         rewards: {
             gil: 4080,
@@ -72,9 +70,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
     ],
         strategy: [
             "Pick off the Hellhound first because it is the easiest target.",
-            "Use Disable against Geomancers if available, and be ready for Slow and terrain-based damage.",
-            "Leave the Nidhogg for last unless it overextends; Dragon Force makes its already heavy attacks more dangerous.",
-        ],
+            "Use Disable against Geomancers if available, and be ready for Slow and terrain-based damage.",        ],
         rewards: {
             gil: 5460,
             cp: 70,
@@ -113,9 +109,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         { name: "Randomized Name", job: "Headless", quantity: 1, notes: "Uses Quake, Bone Shatter, and Sunder Earth." },
     ],
         strategy: [
-            "Four Prima Donna members join as allies. Bring strong long-range attackers and magick users so you can clear monsters quickly while they support you.",
-            "Several monsters can inflict disruptive statuses, especially the Great Malboro and Deathscythe, so status protection and fast focus fire matter more than slow setup.",
-        ],
+            "Four Prima Donna members join as allies. Bring strong long-range attackers and magick users so you can clear monsters quickly while they support you.",        ],
         rewards: {
             gil: 8670,
             cp: 94,
@@ -151,10 +145,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         { name: "Randomized Name", job: "Luchorpan", quantity: 1, notes: "All-monster battle." },
     ],
         strategy: [
-            "You have 4 rounds, and some enemies start out of reach on rooftops. Bring long-range attacks, magick, Tricksters, Fusiliers, or Aurablast-style coverage.",
-            "The Head Editor and Owner are present as allies, but they are mostly cleanup help if an enemy is already weak.",
-            "Vary each unit's action to avoid Copycat law violations.",
-        ],
+            "You have 4 rounds, and some enemies start out of reach on rooftops. Bring long-range attacks, magick, Tricksters, Fusiliers, or Aurablast-style coverage.",       ],
         rewards: {
             gil: 6620,
             cp: 80,
@@ -190,9 +181,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         { name: "Tigrina", job: "Ravager", quantity: 1, notes: "Solo rival; her attacks are strong even though she fights alone." },
         { name: "Randomized Name", job: "Pit Beast", quantity: 2, notes: "Guard the route to the Flowsand Lord." },
     ],
-        strategy: [
-            "You need the killing blow on the Flowsand Lord. Move quickly down the map while healing through both Pit Beasts and Tigrina's pressure.",
-            "Try to surround the pit around the mark so Tigrina cannot get a clean opening for the final hit.",
+        strategy: [            "Try to surround the pit around the mark so Tigrina cannot get a clean opening for the final hit.",
             "Completing this speed battle unlocks the Ravager job.",
         ],
         rewards: {
@@ -233,11 +222,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         { name: "Owner", job: "Berserker", quantity: 1, notes: "Weak support enemy compared to the high-level trio." },
     ],
         strategy: [
-            "Assassin is the first priority because she can threaten the Devotee from range, followed by the Ninja and then the Parivir.",
-            "The Ranger and Berserker are much weaker than the main trio and can be cleaned up after the dangerous enemies are controlled.",
-            "Avoid Lightning entirely and protect the Devotee with intercepting tanks or high-speed attackers.",
-            "Completing this mission unlocks the Lanista job.",
-        ],
+            "Assassin is the first priority because she can threaten the Devotee from range, followed by the Ninja and then the Parivir.",      ],
         rewards: {
             gil: 3050,
             cp: 52,
@@ -272,11 +257,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         { name: "Randomized Name", job: "Baknamy", quantity: 3, notes: "Must be defeated within four rounds." },
         { name: "Randomized Name", job: "Luchorpan", quantity: 1, notes: "Must be defeated within four rounds." },
     ],
-        strategy: [
-            "Four-unit timed battle. Bring monster hunters and fast damage dealers to clear all four enemies before the round limit.",
-            "You may receive fast allied help from Parivir, Ninja, and Assassin units, but plan to do the killing yourself.",
-            "Debuffs are banned, so lean on raw damage, buffs, and turn manipulation.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 6620,
             cp: 82,
@@ -306,9 +287,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
             adaptability: 54,
         },
     enemies: [],
-        strategy: [
-            "No battle — cutscene conclusion to the Duelhorn questline. Alys gives you the Ring of Precepts (Scion summoning item).",
-        ],
+        strategy: [        ],
         rewards: {
             gil: 7000,
             cp: 40,
@@ -322,7 +301,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         id: "C5-16",
         arc: "C5",
         name: "Unplumbed Depths",
-        description: "Rumor has it that the Neslowe Passage hides treasure for those bold enough to explore its depths.",
+        description: "Came across a curious notice in the pub about a new tunnel discovered in the Neslowe Passage. A little exploration may turn up the treasure the passage is rumored to hold.",
         rank: 49,
         region: "The Neslowe Passage",
         fee: 0,
@@ -349,10 +328,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         battlefield: [
             "Treasure chest objective. Defeat the monsters, then open the chest to complete the mission.",
         ],
-        strategy: [
-            "Bring ranged attackers or attack magick so status effects do not stall your approach.",
-            "Handle the Lamashtu first, then clear the support monsters. You cannot open the lone center chest until every enemy is defeated.",
-            "Completing the mission teaches Adelle the Adelaide Heritor ability.",
+        strategy: [           "Completing the mission teaches Adelle the Adelaide Heritor ability.",
         ],
         rewards: {
             gil: 11150,

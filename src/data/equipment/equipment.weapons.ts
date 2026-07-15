@@ -53,7 +53,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
             Assassin: ["last-breath"],
             Parivir: ["lifethread-blade"],
         },
-        description: "The last enemy had been slain, the last banner burnt, yet the sword still rang with the din of battle.",
+        description: "The last enemy has been slain, the last banner burnt, yet the sword still rang with the din of battle.",
     },
     aiotGun: {
         id: "aiotGun",
@@ -1631,7 +1631,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         teaches: {
             Fusilier: ["iceshot"],
         },
-        description: "The only thing wider than the barrel on the gun is the hole it leaves in your enemies.",
+        description: "The only thing wider than the barrel of this gun is the hole it leaves in your enemies.",
     },
     glassBell: {
         id: "glassBell",
@@ -1745,7 +1745,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         teaches: {
             Viking: ["doublehand"],
         },
-        description: "Demons once stormed Ivalice wielding these giant axes. Had they been larger still, it is like that men could not have used them to drive the demons back.",
+        description: "Demons once stormed Ivalice wielding these giant axes. Had they been larger still, it is likely that men could not have used them to drive the demons back.",
     },
     guangCannon: {
         id: "guangCannon",
@@ -2049,7 +2049,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         mag: 0,
         eva: 0,
         spd: 0,
-        description: "Sometimes it's better to crush a helm than cleave it. On such occasions, reach for this sword.",
+        description: "Though lacking in destructive power, this sword is light and easy to use.",
     },
     ironHammer: {
         id: "ironHammer",
@@ -2261,7 +2261,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
             Berserker: ["furore"],
             "White Monk": ["air-render"],
         },
-        description: "One the right hand, these battle knuckles are capable of dealing as much damage as a sword or spear.",
+        description: "On the right hands, these battle knuckles are capable of dealing as much damage as a sword or rapier.",
     },
     kard: {
         id: "kard",
@@ -3250,7 +3250,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         teaches: {
             "Moogle Knight": ["moogle-disarm"],
         },
-        description: "Gemstones fused into the steel make this blade almost as costly as it is deadly.",
+        description: "Gemstones infused into the steel make this blade almost as costly as it is deadly.",
     },
     partisan: {
         id: "partisan",
@@ -3714,6 +3714,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         eva: 2,
         spd: 2,
         jump: 1,
+        additionalEffect: "Attack increases by 1 each time an Opportunity Turn is used, up to 131.",
         description: "Awoken from long slumber, this sword awaits the right moment to reveal its powers.",
     },
     serpentStaff: {
@@ -4331,6 +4332,7 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         name: "The Fallen Angel",
         category: "Weapon",
         bazaar_category: "Pride of the Templar A",
+        price: 17800,
         weaponType: "Knightsword",
         atk: 72,
         def: 0,

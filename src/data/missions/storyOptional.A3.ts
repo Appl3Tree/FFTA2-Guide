@@ -45,10 +45,7 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             { name: "Prima Donna", job: "Spellblade", quantity: 1, notes: "Final bout; priority target because of Poison Blade, Stun Blade, Death Sickle, Immobilize, and Doom-style pressure." },
             { name: "Prima Donna", job: "Raptor", quantity: 1, notes: "Final bout; Disable-capable physical pressure." },
         ],
-        strategy: [
-            "Treat the cup as three consecutive battles with no recovery screen; heal before ending each bout.",
-            "Keep units separated to obey Grouping, and favor safe ranged or long-reach attacks that do not leave allies adjacent.",
-            "In the entry bout, defeat the Red Chocobo first, then the Black Chocobo, while exploiting the chocobos' lightning weakness.",
+        strategy: [           "In the entry bout, defeat the Red Chocobo first, then the Black Chocobo, while exploiting the chocobos' lightning weakness.",
             "In the elimination bout, remove the White Mage, Spellblade, Elementalist, and Sniper before cleaning up the remaining Viera.",
             "In the final bout, defeat the Spellblade first, then the Raptor or Hunter, and stabilize before finishing Prima Donna.",
         ],
@@ -90,11 +87,7 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             { name: "Randomized Name", job: "Thunder Drake", quantity: 1, notes: "Elemental support monster." },
             { name: "Randomized Name", job: "Headless", quantity: 1, notes: "Strong attacker; best handled from range." },
         ],
-        strategy: [
-            "Focus the Mirage Bunny because the quest ends when the mark falls and reinforcements can continue appearing until then.",
-            "Use fire-based damage against the Mirage Bunny and avoid feeding elemental heals to the flans and drakes.",
-            "Bring status recovery for Charm and other disruption, and finish the mark quickly once it reaches critical HP.",
-        ],
+        strategy: [            "Use fire-based damage against the Mirage Bunny and avoid feeding elemental heals to the flans and drakes.",        ],
         rewards: {
             gil: 5710,
             cp: 38,
@@ -149,14 +142,10 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             { name: "House Bowen", job: "Illusionist", quantity: 1, notes: "Final bout; priority after the Assassin because it can hit the whole clan." },
             { name: "House Bowen", job: "Ravager", quantity: 1, notes: "Final bout frontline pressure." },
         ],
-        strategy: [
-            "Build a versatile party because the law changes every bout and there is no between-bout recovery screen.",
-            "Entry: take down the Black Mage and White Monk first while MP use is banned.",
+        strategy: [            "Entry: take down the Black Mage and White Monk first while MP use is banned.",
             "Second: do not rely on Viera action abilities; eliminate the Juggler before Smile Toss or Dagger Toss swings the tempo.",
             "Third: items are banned, so bring non-item recovery and defeat the Sage, then Illusionist.",
-            "Elimination: focus the Illusionist and Sniper, then heal fully before the final bout.",
-            "Final: Targeting Distant Units shuts down long-range plans; close in on Veis and the Illusionist, then finish the Fighter and Ravager.",
-        ],
+            "Elimination: focus the Illusionist and Sniper, then heal fully before the final bout.",        ],
         rewards: {
             gil: 4290,
             cp: 68,
@@ -194,10 +183,7 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             { name: "Randomized Name", job: "Deadly Nightshade", quantity: 1, notes: "Plant monster support." },
         ],
         strategy: [
-            "Only Florah must fall, but the Malboro enemies can overwhelm the party with status effects if ignored.",
-            "Use controlled low-damage attacks to obey the > 50 Damage law, and carry status recovery for Bad Breath effects.",
-            "Florah's defense is high, so clearing the plant monsters first can make the mark safer to surround and finish.",
-        ],
+            "Only Florah must fall, but the Malboro enemies can overwhelm the party with status effects if ignored.",       ],
         rewards: {
             gil: 4010,
             cp: 42,
@@ -237,10 +223,7 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             { name: "Randomized Name", job: "Elementalist", quantity: 1, notes: "Fire Whip, Shining Air, and Sliprain; dangerous status pressure." },
             { name: "Randomized Name", job: "Trickster", quantity: 1, notes: "Suggestion, Hypochondria, and Traumatize." },
         ],
-        strategy: [
-            "Plan movement before selecting actions: failing to move exactly one tile fails the law-based objective.",
-            "Bring long-range attacks and magick because limited movement makes closing distance slow.",
-            "Defeat the Parivir first, then remove status-heavy enemies such as Elementalist, Fusilier, Juggler, and Trickster.",
+        strategy: [           "Defeat the Parivir first, then remove status-heavy enemies such as Elementalist, Fusilier, Juggler, and Trickster.",
         ],
         rewards: {
             gil: 2770,
@@ -303,9 +286,7 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         strategy: [
             "Treat this as a five-bout endurance tournament and heal before ending each round.",
             "Entry: defeat the Summoner and Red Chocobo Knight before the rest of Fyrebird.",
-            "Second: do not buff; keep the healer protected and focus the Dual Wield Fighter.",
-            "Third: Solitude requires adjacent allies, so maintain formation while removing the Sniper, White Mage, and Black Mage.",
-            "Elimination: move every turn and defeat the Spellblade first, followed by the Raptor.",
+            "Second: do not buff; keep the healer protected and focus the Dual Wield Fighter.",            "Elimination: move every turn and defeat the Spellblade first, followed by the Raptor.",
             "Final: do not restore MP; defeat the Dual Wield Ninja first, then thin the Parivirs and Assassin.",
         ],
         rewards: {
@@ -342,11 +323,7 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             { name: "Tonberrion", job: "Tonberry King", quantity: 1, notes: "Mark group leader. Absorbs dark and takes half damage from all elements." },
             { name: "Randomized Name", job: "Tonberry", quantity: 3, notes: "Stalk, Knife, and Karma pressure; must be defeated with the king within four rounds." },
         ],
-        strategy: [
-            "Keep distance until you are ready to burst them down; stalked units are the ones in immediate danger.",
-            "Use physical ranged attacks such as Aurablast, Sidewinder, Flintlock attacks, and other non-elemental abilities because Tonberries resist elemental magick and absorb dark.",
-            "Bring Haste and healing support, but vary actions carefully to obey Copycat during the four-round timer.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 3190,
             cp: 46,
@@ -386,11 +363,7 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             { name: "Randomized Name", job: "Elementalist", quantity: 1, notes: "Fire Whip, Shining Air, and Sliprain; Disable pressure." },
             { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Tranq, Blind, and Silence." },
         ],
-        strategy: [
-            "Count movement carefully: failing to move exactly three tiles fails the objective outright.",
-            "Defeat the Assassin first, then Elementalist and Trickster to reduce KO, Disable, Poison, and debuff pressure.",
-            "Once the status users are down, remove the Ninja and the two support mages.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 5030,
             cp: 82,
@@ -403,6 +376,7 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
         id: "A3-12",
         arc: "A3",
         name: "Wanted: Combatants",
+        objective: "Dispatch the right person for the job!",
         description: "We have an unexpected opening in the roster of our forthcoming tourney. We do not often invite outsiders, but if the tourney is to go ahead, we must. Combatant with experience in a clan tourney preferred. Shadow Tourney Overseer",
         rank: 35,
         region: "Graszton",
@@ -489,12 +463,7 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             { name: "Hopcroft", job: "Arcanist", quantity: 1, notes: "Final bout; Graviga removes half of current HP." },
             { name: "Hopcroft", job: "Raptor", quantity: 1, notes: "Final bout frontline." },
         ],
-        strategy: [
-            "Bring the strongest six-member party available and carry Scion-summoning accessories if using battle completion.",
-            "Entry: defeat the Sage, Illusionist, and Sniper while ensuring every hit deals at least 100 damage.",
-            "Second: do not use ranged weapons; collapse onto the Seer and Parivir, then stop the Green Mage's debuffs.",
-            "Third: keep everyone above 20 HP and remove the Spellblade before dealing with the Raptor/Hunter core. The Raptor carries a stealable Ribbon if you can spare a steal action.",
-            "Fourth: avoid all-unit targeting and cut down the Dual Wield Ninja and Parivirs before they snowball.",
+        strategy: [           "Second: do not use ranged weapons; collapse onto the Seer and Parivir, then stop the Green Mage's debuffs.",            "Fourth: avoid all-unit targeting and cut down the Dual Wield Ninja and Parivirs before they snowball.",
             "Fifth: avoid back attacks; defeat the White Mage with physical attacks because Delite Delta reflects magick.",
             "Elimination: avoid lightning and remove the Illusionist before Bowen and the Ravager grind down the front line.",
             "Final: vary actions under Copycat; defeat the Ninja, Arcanist, White Mage, and Black Mage before the remaining frontliners.",
@@ -537,11 +506,7 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             { name: "Randomized Name", job: "Archer", quantity: 1, notes: "Hume. Leg Shot and Arm Shot pressure." },
             { name: "Randomized Name", job: "Fusilier", quantity: 1, notes: "Moogle. Confuse, Blind, and Silence shots." },
         ],
-        strategy: [
-            "Ranged weapons are banned, so answer their range with magick, long-reach job skills, and careful advances.",
-            "Defeat the Sniper and Cannoneer early, then remove Fusilier and Flintlock support before finishing Gaitsnipe.",
-            "Carry a healer while closing the gap against the all-ranged enemy crew.",
-        ],
+        strategy: [            "Defeat the Sniper and Cannoneer early, then remove Fusilier and Flintlock support before finishing Gaitsnipe.",        ],
         rewards: {
             gil: 5410,
             cp: 48,
@@ -581,11 +546,7 @@ export const OPTIONAL_MISSIONS_A3: Mission[] = [
             "Seven gemstone sparkle spots must be collected.",
             "New enemies appear every round until the gemstones are recovered.",
         ],
-        strategy: [
-            "Winning requires collecting all seven gemstones, not defeating the enemy force.",
-            "Use a White Mage or other recovery support for Slow, but prioritize movement and collection over farming.",
-            "If enemies block safe paths, remove the Beastmaster and nearby Yellow Jellies before resuming collection.",
-        ],
+        strategy: [      ],
         rewards: {
             gil: 4820,
             cp: 54,

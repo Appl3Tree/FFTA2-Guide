@@ -75,10 +75,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             { name: "Randomized Name", job: "Adamantitan", quantity: 1, notes: "High defense; can inflict Immobilize with Headbutt." },
             { name: "Randomized Name", job: "Rocktitan", quantity: 2, notes: "High HP/defense; can inflict Immobilize with Headbutt." },
         ],
-        strategy: [
-            "Do not use bladed weapons; ranged abilities such as Sidewinder and magick are safe.",
-            "Air-based magick is useful, but expect a long fight because the enemies have high HP.",
-        ],
+        strategy: [       ],
         rewards: {
             gil: 9230,
             cp: 99,
@@ -91,7 +88,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         id: "E4-03",
         arc: "E4",
         name: "Flantastic Finish",
-        description: "Zedlei Flan, a specialty from the forest of the same name, is a delicate dessert that melts in one's mouth, before melting one's heart. Only the freshest ingredients will do for this treat! Grosso, Culinary Crusade",
+        description: "Zedlei Flan, a specialty from the forest of the same name, is a delicate desert that melts in one's mouth, before melting one's heart. Only the freshest ingredients will do for this treat! -Grosso, Culinary Crusade",
         rank: 50,
         region: "Zedlei Forest",
         fee: 500,
@@ -118,9 +115,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             { name: "Randomized Name", job: "Lilith", quantity: 1, notes: "Priority target; Kiss can inflict Doom or Charm." },
             { name: "Randomized Name", job: "White Chocobo", quantity: 1, notes: "Good capture opportunity for a Chocobo Knight." },
         ],
-        strategy: [
-            "Defeat every enemy except the Red Marshmallow first.",
-            "Prioritize Hoppy Bunny and Lilith to reduce Haste, Doom, and Charm pressure.",
+        strategy: [            "Prioritize Hoppy Bunny and Lilith to reduce Haste, Doom, and Charm pressure.",
             "After the other enemies are gone, weaken the Red Marshmallow to critical HP to complete the quest.",
         ],
         rewards: {
@@ -135,7 +130,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         id: "E4-04",
         arc: "E4",
         name: "The Art of Gastronomy",
-        description: "My latest culinary adventure has brought me to the delightfully dangerous world of behemoth cuisine. The meat must be won fresh, and only a disciplined clan can keep the kitchen from becoming the meal. Grosso, Culinary Crusade",
+        description: "A connoisseur of fine cuisine is always in search of the next great meal. I am happy to tell you that meal is here, my friends! If you think you have what it takes to appreciate the finest of gastronomical delights, meet me in Aisenfield! -Grosso, Culinary Crusade",
         rank: 47,
         region: "Aisenfield",
         fee: 500,
@@ -157,12 +152,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             { name: "Randomized Name", job: "Behemoth", quantity: 4, notes: "Physical bruisers and the core threat of the quest. They can hit hard and pressure the party quickly." },
             { name: "Randomized Name", job: "Reaver", quantity: 1, notes: "Support threat alongside the Behemoths; do not let it freely harass your healer." },
         ],
-        strategy: [
-            "Leave Humes at home or keep them inactive because the law forbids Hume actions.",
-            "Bring strong non-Hume damage dealers and a reliable healer; the Behemoths are sturdy physical enemies.",
-            "Ice damage is useful against Behemoths. Focus one target down at a time instead of spreading damage across the pack.",
-            "Keep the healer protected and reduce incoming pressure quickly; four Behemoths can overwhelm a loose formation.",
-        ],
+        strategy: [     ],
         rewards: {
             gil: 10700,
             cp: 94,
@@ -201,10 +191,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             { name: "Randomized Name", job: "Defender", quantity: 1, notes: "Whirl Burst, Mow Down, and Bulwark." },
         ],
         strategy: [
-            "Prioritize the Parivir because its abilities can inflict Slow and Immobilize.",
-            "Remove the White Mage quickly so the enemy clan cannot keep healing, then close on the ranged attackers.",
-            "Avoid buff actions entirely under the law.",
-        ],
+            "Prioritize the Parivir because its abilities can inflict Slow and Immobilize.",       ],
         rewards: {
             gil: 4590,
             cp: 72,
@@ -276,10 +263,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Steal Gil plus Fire/Ice/Bolt shots and Counter." },
         ],
         strategy: [
-            "Keep each hit at 100 damage or less.",
-            "Defeat the Tinker first if possible, then the Fusilier to reduce status pressure.",
-            "Keep the Animist away from allies so Cuisine cannot repeatedly heal the watch.",
-        ],
+            "Keep each hit at 100 damage or less.",       ],
         rewards: {
             gil: 6620,
             cp: 90,
@@ -292,7 +276,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         id: "E4-08",
         arc: "E4",
         name: "Wall of Flame",
-        description: "Bombs have been streaming out of the crater on Firewyrm Mount. We're in the process of forming a brigade of mages to deal with the threat, but we need more time. Hold back the bombs for us until we've finished our preparations! Jank, Goug Firehouse",
+        description: "Bombs have been streamling out of the crater on Firewyrm Mount. We're in the process of forming a brigade of mages to deal with the threat, but we need more time. Hold back the bombs for us until we've finished our preparations! -Jank, Goug Firehouse",
         rank: 29,
         region: "Goug",
         fee: 400,
@@ -313,10 +297,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         enemies: [
             { name: "Randomized Name", job: "Bomb", notes: "Endless bomb wave; replacements appear immediately when defeated." },
         ],
-        strategy: [
-            "Survive for three full rounds; killing every Bomb is neither required nor possible because replacements spawn.",
-            "Avoid Ice despite it being the natural weakness. Bring healing and fire-resistant gear if available.",
-            "Watch Bombs at critical HP because Self-Destruct can cause heavy damage.",
+        strategy: [           "Watch Bombs at critical HP because Self-Destruct can cause heavy damage.",
         ],
         rewards: {
             gil: 4270,
@@ -386,11 +367,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Scream, Furore, Ground Shaker, Smite of Rage, Counter, and Charged Attacks." },
             { name: "Randomized Name", job: "Fighter", quantity: 1, notes: "Wild Swing, Air Blast, Back Draft, MP Shield, and Doublehand." },
         ],
-        strategy: [
-            "Avoid rapiers and spears under the law.",
-            "Prioritize the Berserker because the guide calls out its debuff abilities such as Confuse.",
-            "Ranged attacks and magick help manage the enemy melee pressure.",
-        ],
+        strategy: [            "Prioritize the Berserker because the guide calls out its debuff abilities such as Confuse.",        ],
         rewards: {
             gil: 7000,
             cp: 76,
@@ -431,10 +408,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             "Hold the line at the barrel near the starting area; if an enemy gets past it, the quest fails.",
         ],
         strategy: [
-            "Survive for three rounds while stopping enemies from passing the barrel.",
-            "Defeated eyeballs are replaced, so focus on blocking and control rather than clearing the map.",
-            "Keep all units above 20 HP to avoid breaking the law.",
-        ],
+            "Survive for three rounds while stopping enemies from passing the barrel.",       ],
         rewards: {
             gil: 6390,
             cp: 62,
@@ -474,10 +448,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         ],
         strategy: [
             "You may send only one clan member; choose a fast, well-equipped unit that can heal and deal ranged or high burst damage.",
-            "Protect every Goug Watch member. If one dies, the quest fails.",
-            "Prioritize the Illusionist and Arcanist as the strongest threats, while keeping any watch member targeted by the Ninja or Parivir healthy.",
-            "The allied Tinker can swing the fight with random effects, so this battle can require retries.",
-        ],
+            "Protect every Goug Watch member. If one dies, the quest fails.",            "Prioritize the Illusionist and Arcanist as the strongest threats, while keeping any watch member targeted by the Ninja or Parivir healthy.",        ],
         rewards: {
             gil: 7650,
             cp: 96,
@@ -517,10 +488,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             "Opening Dow Bridge unlocks direct Goug to Kthili Sands travel.",
         ],
         strategy: [
-            "Search sparkling spots until you find the Dow Bridge key.",
-            "Enemies respawn when killed, so clearing the map is not required.",
-            "Items are banned; bring magick healing if you expect to take damage.",
-        ],
+            "Search sparkling spots until you find the Dow Bridge key.",       ],
         rewards: {
             gil: 7180,
             cp: 96,
@@ -559,9 +527,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
         ],
         strategy: [
             "Protect Kismunt, the guest Alchemist, while defeating all enemies.",
-            "Use ice attacks and healing support; most enemies heal from fire and attack with fire.",
-            "Finish quickly. The volcano begins damaging all units after the ground starts trembling around round 3-4.",
-        ],
+            "Use ice attacks and healing support; most enemies heal from fire and attack with fire.",        ],
         rewards: {
             gil: 10820,
             cp: 80,
