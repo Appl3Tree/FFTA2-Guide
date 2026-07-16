@@ -514,6 +514,31 @@ function TrialDetail({
                 {trial.challenge}
             </div>
 
+            {(trial.notes.length > 0 || trial.completionTips.length > 0) && (
+                <div className="mt-3 grid gap-3 md:grid-cols-2">
+                {trial.notes.length > 0 && <div>
+                    <h5 className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+                        Notes
+                    </h5>
+                    <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-200">
+                        {trial.notes.map((note) => (
+                            <li key={note}>{note}</li>
+                        ))}
+                    </ul>
+                </div>}
+                {trial.completionTips.length > 0 && <div>
+                    <h5 className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+                        How to beat it
+                    </h5>
+                    <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-200">
+                        {trial.completionTips.map((tip) => (
+                            <li key={tip}>{tip}</li>
+                        ))}
+                    </ul>
+                </div>}
+                </div>
+            )}
+
             <div className="mt-3 overflow-hidden rounded-md border border-zinc-200/80 dark:border-zinc-700/70">
                 <ul className="divide-y divide-zinc-200/80 dark:divide-zinc-700/70">
                     {trial.titles.map((title, titleIndex) => {
@@ -602,31 +627,6 @@ function TrialDetail({
                     })}
                 </ul>
             </div>
-
-            {(trial.notes.length > 0 || trial.completionTips.length > 0) && (
-                <div className="mt-3 grid gap-3 md:grid-cols-2">
-                {trial.notes.length > 0 && <div>
-                    <h5 className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
-                        Notes
-                    </h5>
-                    <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-200">
-                        {trial.notes.map((note) => (
-                            <li key={note}>{note}</li>
-                        ))}
-                    </ul>
-                </div>}
-                {trial.completionTips.length > 0 && <div>
-                    <h5 className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
-                        How to beat it
-                    </h5>
-                    <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-200">
-                        {trial.completionTips.map((tip) => (
-                            <li key={tip}>{tip}</li>
-                        ))}
-                    </ul>
-                </div>}
-                </div>
-            )}
         </article>
     );
 }
