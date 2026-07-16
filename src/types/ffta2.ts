@@ -51,6 +51,23 @@ export interface RequiredTalents {
     adaptability?: number;
 }
 
+export interface MissionRecruitmentResult {
+    job: string;
+    answers: string[];
+    race?: string;
+}
+
+export interface MissionRecruitmentGroup {
+    race: string;
+    months: string[];
+    results: MissionRecruitmentResult[];
+}
+
+export interface MissionRecruitmentGuide {
+    instructions: string[];
+    groups: MissionRecruitmentGroup[];
+}
+
 export interface Mission {
     id: string;
     arc: string;
@@ -79,6 +96,7 @@ export interface Mission {
     tags?: string[];
     missable?: boolean;
     retroAchievementIds?: string[];
+    recruitmentGuide?: MissionRecruitmentGuide;
 }
 
 export interface RetroAchievement {

@@ -2240,7 +2240,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     immunity: {
         id: "immunity",
         setId: "passive",
-        name: "immunity",
+        name: "Immunity",
         description: [
             "Neither buffs nor debuffs can be removed from the user.",
         ],
@@ -3148,7 +3148,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     tank: {
         id: "tank",
         setId: "passive",
-        name: "tank",
+        name: "Tank",
         description: [
             "Enables the user to equip helms and heavy armor, regardless of their current job.",
         ],
@@ -3237,7 +3237,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     pummel: {
         id: "pummel",
         setId: "martial-arts",
-        name: "pummel",
+        name: "Pummel",
         description: [
             "Attack the target with two consecutive punches.",
         ],
@@ -5316,14 +5316,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Interrogate",
         description: [
             '"What do my little birds have to say?"',
-            "Reveal the loot and items the target is carrying. Also reveals the location of traps and invisible units.",
-        ],
-    },
-    reveal: {
-        id: "reveal",
-        setId: "reconnaissance",
-        name: "Reveal",
-        description: [
             "Reveal the loot and items the target is carrying. Also reveals the location of traps and invisible units.",
         ],
     },

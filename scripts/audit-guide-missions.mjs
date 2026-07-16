@@ -34,7 +34,8 @@ function normalizeComparableField(field, value) {
     const normalized = normalize(value);
     const typoNormalized = normalized
         .replace(/\bgalerria\b/g, "galleria")
-        .replace(/\bwrapons\b/g, "weapons");
+        .replace(/\bwrapons\b/g, "weapons")
+        .replace(/\bchan mates\b/g, "clan mates");
     if (field === "law") {
         return typoNormalized
             .replace(/^forbidden /, "")
@@ -443,6 +444,51 @@ function parseGuideSideQuests() {
     return quests;
 }
 
+function parseFinaleBattles() {
+    const battles = new Map();
+    const definitions = [
+        {
+            id: "EX-01",
+            name: "The Two Grimoires",
+            start: "Battle 22: The Two Grimoires",
+            end: "Battle 23: From the Rift",
+            objective: "Defeat Illua!",
+            law: "Buffs",
+        },
+        {
+            id: "EX-02",
+            name: "From the Rift",
+            start: "Battle 23: From the Rift",
+            end: "-=-=-=-=-=-=-=-=-=-=\n-=  6. Quest List -=",
+            objective: "Defeat the Neukhia!",
+            law: "Reaction Abilities",
+        },
+    ];
+
+    for (const definition of definitions) {
+        const start = guide.indexOf(definition.start);
+        const end = guide.indexOf(definition.end, start + definition.start.length);
+        if (start < 0 || end <= start) continue;
+        const block = guide.slice(start, end);
+        battles.set(definition.id, {
+            id: definition.id,
+            name: definition.name,
+            block,
+            sourceText: normalize(block),
+            objective: definition.objective,
+            law: definition.law,
+            region: undefined,
+            prerequisite: undefined,
+            dispatchRecommended: [],
+            requiredTalents: {},
+            rewards: {},
+            prose: block,
+        });
+    }
+
+    return battles;
+}
+
 function parseWarfreakBlocks(text, sourcePath) {
     const headingMatches = [
         ...[...text.matchAll(/^--==(.+?)==--$/gm)].map((match) => ({
@@ -580,12 +626,16 @@ const guideEquivalentFields = new Set([
     "B5-07:law",
     "C3-10:objective",
     "C3-10:law",
+    // The Dev FAQ repeats "Adepts" here; the in-game trilogy and two
+    // independent references identify the final Chita quest as "Masters".
+    "D2-05:name",
     "ME-40:name",
 ]);
 
 const appMissions = collectAppMissions();
 const guideQuests = parseGuideQuests();
 const guideSideQuests = parseGuideSideQuests();
+const finaleBattles = parseFinaleBattles();
 const supplementalGuideBlocks = supplementalGuides.map((source) => parseWarfreakBlocks(source.text, source.file));
 const findings = [];
 
@@ -655,6 +705,8 @@ function supplementalBlockForMission(mission) {
 function guideForMission(mission) {
     const guideQuest = guideQuests.get(mission.id);
     if (guideQuest) return guideQuest;
+    const finaleBattle = finaleBattles.get(mission.id);
+    if (finaleBattle) return finaleBattle;
     const sideKey = sideQuestAliases.get(normalize(mission.name)) ?? normalize(mission.name);
     return guideSideQuests.get(sideKey) ?? supplementalBlockForMission(mission);
 }

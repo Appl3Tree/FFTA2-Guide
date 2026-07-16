@@ -272,7 +272,7 @@ export const OPTIONAL_MISSIONS_A1: Mission[] = [
         objective: "Defeat all Foes and Destroy all Traps!",
         law: "Forbidden: Not Moving 3 Tiles – Each unit must move exactly 3 tiles before ending its turn.",
     enemies: [
-        { name: "Randomized Name", job: "Berserker", notes: "Seeq bruiser. Dangerous, but the Vikings and Ranger are the guide's priority threats." },
+        { name: "Randomized Name", job: "Berserker", notes: "Seeq bruiser. Dangerous, but the Vikings and Ranger are higher-priority threats." },
         { name: "Randomized Name", job: "Viking", notes: "Priority target. Thundara can hit hard if the clan is clustered or under-healed." },
         { name: "Randomized Name", job: "Ranger", quantity: 1, notes: "Can lay more traps while you are trying to clear the stolen goods from the field." },
     ],

@@ -3,11 +3,11 @@ import { Check, Search } from "lucide-react";
 import {
     CLAN_TRIAL_GUIDE,
     CLAN_TRIALS,
-    CLAN_TALENTS,
-    CLAN_PRIVILEGE_ROADMAP,
 } from "../../data/meta/clanTrials";
 import { Panel } from "../ui/Panel";
 import { useProgress } from "../ProgressContext";
+import { PanelProgress } from "../ui/PanelProgress";
+import { useChecklistPreferences } from "../ChecklistPreferencesContext";
 
 const KEY_GUIDE_IDS = ["what-they-are", "title-system", "talents"];
 
@@ -74,16 +74,23 @@ function getPrivilegeRewards(trial: (typeof CLAN_TRIALS)[number]) {
 
 export function ClanTrialsPanel() {
     const { checked } = useProgress();
-    const [activeTrialId, setActiveTrialId] = React.useState("negotiation-teamwork");
+    const { isChecklistEnabled, isScopeEnabled } = useChecklistPreferences();
+    const trackingEnabled = isChecklistEnabled("clanTrials");
+    const [activeTrialId, setActiveTrialId] = React.useState("adaptability-i");
     const [rankFilter, setRankFilter] = React.useState<RankFilter>("All");
     const [trialSearch, setTrialSearch] = React.useState("");
-    const [showRoadmap, setShowRoadmap] = React.useState(false);
+    const trackedProgressKeys = CLAN_TRIALS.filter((trial) =>
+        isScopeEnabled("clanTrials", trial.id),
+    ).flatMap((trial) =>
+        trial.titles.map((title) => `trial:${trial.id}:${title.title}`),
+    );
+    const completedTitleClears = trackedProgressKeys.filter(
+        (key) => checked[key],
+    ).length;
 
     const keyGuideSections = CLAN_TRIAL_GUIDE.filter((section) =>
         KEY_GUIDE_IDS.includes(section.id),
     );
-
-    const earlyRoadmapItems = CLAN_PRIVILEGE_ROADMAP.slice(0, 6);
 
     const filteredTrials = React.useMemo(() => {
         const query = trialSearch.trim().toLowerCase();
@@ -122,21 +129,34 @@ export function ClanTrialsPanel() {
     }, [filteredTrials]);
 
     const activeTrial =
-        CLAN_TRIALS.find((trial) => trial.id === activeTrialId) ??
+        filteredTrials.find((trial) => trial.id === activeTrialId) ??
         filteredTrials[0] ??
-        CLAN_TRIALS[0]!;
+        null;
 
     React.useEffect(() => {
-        if (!filteredTrials.some((trial) => trial.id === activeTrialId)) {
-            setActiveTrialId(filteredTrials[0]?.id ?? CLAN_TRIALS[0]!.id);
+        if (
+            filteredTrials.length > 0 &&
+            !filteredTrials.some((trial) => trial.id === activeTrialId)
+        ) {
+            setActiveTrialId(filteredTrials[0]!.id);
         }
     }, [activeTrialId, filteredTrials]);
 
     return (
         <Panel
             title="Clan Trials"
-            subtitle="What trials unlock, which rewards matter, and how talents fit into progression."
+            subtitle="Plan trial clears, title rewards, privileges, and clan talent changes."
             tone="cyan"
+            defaultOpen
+            collapsible={false}
+            headerAddon={trackingEnabled && trackedProgressKeys.length > 0 ? (
+                <PanelProgress
+                    completed={completedTitleClears}
+                    label="Title clears"
+                    tone="cyan"
+                    total={trackedProgressKeys.length}
+                />
+            ) : undefined}
         >
             <div className="space-y-4 sm:space-y-5" data-testid="clan-trials-content">
                 <section className="space-y-3" aria-labelledby="clan-trials-start">
@@ -201,16 +221,18 @@ export function ClanTrialsPanel() {
                             <span className="sr-only">Search clan trials</span>
                             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
                             <input
+                                type="search"
                                 value={trialSearch}
                                 onChange={(event) => setTrialSearch(event.target.value)}
                                 placeholder="Search Bonus AP, barrels, Tonberries, Move..."
-                                className="w-full rounded-lg border border-zinc-300/80 bg-white px-9 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-300/60 dark:border-zinc-700 dark:bg-zinc-950/70 dark:text-zinc-50 dark:placeholder:text-zinc-500 dark:focus:border-cyan-500"
+                                className="min-h-11 w-full rounded-lg border border-zinc-300/80 bg-white px-9 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-300/60 dark:border-zinc-700 dark:bg-zinc-950/70 dark:text-zinc-50 dark:placeholder:text-zinc-500 dark:focus:border-cyan-500"
                             />
                         </label>
 
                         <div
                             className="flex gap-2 overflow-x-auto pb-1"
                             aria-label="Clan trial rank filters"
+                            role="group"
                         >
                             {(["All", ...TRIAL_RANKS] as const).map((filter) => (
                                 <button
@@ -218,7 +240,7 @@ export function ClanTrialsPanel() {
                                     type="button"
                                     onClick={() => setRankFilter(filter)}
                                     aria-pressed={rankFilter === filter}
-                                    className={`shrink-0 rounded-full border px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wide transition-colors ${
+                                    className={`min-h-11 shrink-0 rounded-md border px-3 py-1 text-xs font-semibold uppercase transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 ${
                                         rankFilter === filter
                                             ? "border-cyan-400 bg-cyan-100 text-cyan-900 dark:border-cyan-500/80 dark:bg-cyan-950/70 dark:text-cyan-100"
                                             : "border-zinc-300 bg-white text-zinc-600 hover:border-zinc-400 dark:border-zinc-700 dark:bg-zinc-950/50 dark:text-zinc-300 dark:hover:border-zinc-600"
@@ -230,12 +252,13 @@ export function ClanTrialsPanel() {
                         </div>
                     </div>
 
+                    {activeTrial ? (
                     <div className="grid gap-3 xl:grid-cols-[minmax(16rem,0.8fr)_minmax(0,1.2fr)]">
                         <div className="grid content-start gap-3">
                             {groupedTrials.map((group) => (
                                 <section key={group.rank} className="space-y-2">
                                     <div className="flex items-center justify-between gap-2 border-b border-zinc-200/80 pb-1 dark:border-zinc-700/70">
-                                        <h4 className="text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+                                        <h4 className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
                                             Rank {group.rank}
                                         </h4>
                                         <span className="text-[0.68rem] text-zinc-500 dark:text-zinc-400">
@@ -246,18 +269,24 @@ export function ClanTrialsPanel() {
                                     <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-1">
                                         {group.trials.map((trial) => {
                                             const isActive = trial.id === activeTrial.id;
+                                            const trialTrackingEnabled =
+                                                isScopeEnabled(
+                                                    "clanTrials",
+                                                    trial.id,
+                                                );
                                             const completedTitles = trial.titles.filter(
                                                 (title) =>
                                                     checked[`trial:${trial.id}:${title.title}`],
                                             ).length;
                                             const isComplete =
+                                                trialTrackingEnabled &&
                                                 completedTitles === trial.titles.length;
                                             const privilegeRewards =
                                                 getPrivilegeRewards(trial);
 
                                             return (
+                                                <React.Fragment key={trial.id}>
                                                 <button
-                                                    key={trial.id}
                                                     type="button"
                                                     onClick={() => setActiveTrialId(trial.id)}
                                                     aria-pressed={isActive}
@@ -278,6 +307,7 @@ export function ClanTrialsPanel() {
                                                                 {trial.location} · {trial.law}
                                                             </p>
                                                         </div>
+                                                        {trialTrackingEnabled ? (
                                                         <div className="flex shrink-0 flex-col items-end gap-1">
                                                             {isComplete && (
                                                                 <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[0.65rem] font-semibold text-emerald-800 dark:bg-emerald-900/70 dark:text-emerald-100">
@@ -290,6 +320,7 @@ export function ClanTrialsPanel() {
                                                                 {trial.titles.length}
                                                             </span>
                                                         </div>
+                                                        ) : null}
                                                     </div>
                                                     <div
                                                         className="mt-2 flex flex-wrap gap-1"
@@ -309,6 +340,17 @@ export function ClanTrialsPanel() {
                                                         ))}
                                                     </div>
                                                 </button>
+                                                {isActive ? (
+                                                    <div className="md:col-span-2 xl:hidden">
+                                                        <TrialDetail
+                                                            trial={trial}
+                                                            trackingEnabled={
+                                                                trialTrackingEnabled
+                                                            }
+                                                        />
+                                                    </div>
+                                                ) : null}
+                                                </React.Fragment>
                                             );
                                         })}
                                     </div>
@@ -316,91 +358,38 @@ export function ClanTrialsPanel() {
                             ))}
                         </div>
 
-                        <TrialDetail trial={activeTrial} />
+                        <div className="hidden xl:block">
+                            <TrialDetail
+                                trial={activeTrial}
+                                trackingEnabled={isScopeEnabled(
+                                    "clanTrials",
+                                    activeTrial.id,
+                                )}
+                            />
+                        </div>
                     </div>
-                </section>
-
-                <section className="space-y-3">
-                    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                        <header>
-                            <h3 className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-                                Privilege Roadmap
-                            </h3>
-                            <p className="text-xs text-zinc-600 dark:text-zinc-300">
-                                A compact reward lookup. Keep the full table hidden until needed.
-                            </p>
-                        </header>
-                        <button
-                            type="button"
-                            onClick={() => setShowRoadmap((prev) => !prev)}
-                            className="inline-flex w-fit rounded-full border border-zinc-300 bg-white/80 px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-wide text-zinc-700 hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200 dark:hover:bg-zinc-800"
-                            aria-expanded={showRoadmap}
+                    ) : (
+                        <div
+                            role="status"
+                            className="rounded-lg border border-zinc-200/80 bg-white/70 p-4 text-sm text-zinc-600 dark:border-zinc-700/70 dark:bg-zinc-900/40 dark:text-zinc-300"
                         >
-                            {showRoadmap ? "Hide roadmap" : "Show roadmap"}
-                        </button>
-                    </div>
-
-                    {!showRoadmap && (
-                        <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
-                            {earlyRoadmapItems.map((item) => (
-                                <button
-                                    key={item.id}
-                                    type="button"
-                                    onClick={() => {
-                                        setRankFilter("All");
-                                        setTrialSearch(item.trial);
-                                    }}
-                                    className="rounded-lg border border-zinc-200/80 bg-white/80 p-3 text-left text-sm transition-colors hover:border-cyan-300 hover:bg-cyan-50/60 dark:border-zinc-700/70 dark:bg-zinc-900/40 dark:hover:border-cyan-700/70 dark:hover:bg-cyan-950/20"
-                                >
-                                    <div className="font-semibold text-zinc-950 dark:text-zinc-50">
-                                        {item.privilege}
-                                    </div>
-                                    <div className="mt-1 text-xs text-zinc-600 dark:text-zinc-300">
-                                        {item.trial} · {item.title}
-                                    </div>
-                                </button>
-                            ))}
+                            No clan trials match the current search and rank filter.
                         </div>
                     )}
-
-                    {showRoadmap && <RoadmapTable />}
                 </section>
 
-                <section className="space-y-3">
-                    <header>
-                        <h3 className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-                            Clan Talents
-                        </h3>
-                        <p className="text-xs text-zinc-600 dark:text-zinc-300">
-                            Progression gates, not unit stats.
-                        </p>
-                    </header>
-                    <div className="grid gap-3 md:grid-cols-2">
-                        {CLAN_TALENTS.map((talent) => (
-                            <article
-                                key={talent.id}
-                                className="rounded-lg border border-zinc-200/80 bg-white/80 p-3 dark:border-zinc-700/70 dark:bg-zinc-900/40"
-                            >
-                                <h4 className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
-                                    {talent.name}
-                                </h4>
-                                <p className="mt-1 text-sm leading-relaxed text-zinc-700 dark:text-zinc-200">
-                                    {talent.summary}
-                                </p>
-                                <p className="mt-2 text-xs leading-relaxed text-zinc-600 dark:text-zinc-300">
-                                    <span className="font-semibold">Watch for:</span>{" "}
-                                    {talent.watchFor}
-                                </p>
-                            </article>
-                        ))}
-                    </div>
-                </section>
             </div>
         </Panel>
     );
 }
 
-function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
+function TrialDetail({
+    trackingEnabled,
+    trial,
+}: {
+    trackingEnabled: boolean;
+    trial: (typeof CLAN_TRIALS)[number];
+}) {
     const { checked, setCheck } = useProgress();
     const completedTitles = trial.titles.filter(
         (title) => checked[`trial:${trial.id}:${title.title}`],
@@ -418,17 +407,19 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
                         {trial.days} days
                     </p>
                 </div>
-                <span className="w-fit rounded-full bg-cyan-100 px-2 py-1 text-[0.68rem] font-semibold uppercase tracking-wide text-cyan-900 dark:bg-cyan-950 dark:text-cyan-100">
+                <span className="w-fit rounded-full bg-cyan-100 px-2 py-1 text-[0.68rem] font-semibold uppercase text-cyan-900 dark:bg-cyan-950 dark:text-cyan-100">
                     {trial.lawRequirement}
                 </span>
             </div>
+            {trackingEnabled ? (
             <p className="mt-2 text-xs font-medium text-zinc-600 dark:text-zinc-300">
                 {completedTitles} / {trial.titles.length} difficulties completed
             </p>
+            ) : null}
 
-            <dl className="mt-3 grid gap-2 sm:grid-cols-3">
+            <dl className="mt-3 grid gap-3 sm:grid-cols-[minmax(0,0.75fr)_minmax(10rem,1.4fr)_minmax(7rem,0.8fr)]">
                 <div>
-                    <dt className="text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+                    <dt className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
                         Law
                     </dt>
                     <dd className="mt-0.5 text-sm text-zinc-700 dark:text-zinc-200">
@@ -436,7 +427,7 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
                     </dd>
                 </div>
                 <div>
-                    <dt className="text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+                    <dt className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
                         Required talents
                     </dt>
                     <dd className="mt-0.5 text-sm text-zinc-700 dark:text-zinc-200">
@@ -444,7 +435,7 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
                     </dd>
                 </div>
                 <div>
-                    <dt className="text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+                    <dt className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
                         Titles
                     </dt>
                     <dd className="mt-0.5 text-sm text-zinc-700 dark:text-zinc-200">
@@ -457,69 +448,69 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
                 {trial.challenge}
             </div>
 
-            <div className="mt-3 overflow-hidden rounded-lg border border-zinc-200/80 dark:border-zinc-700/70">
-                <div className="hidden grid-cols-[0.45fr_0.8fr_1.2fr_1fr_0.8fr_1.5fr] gap-2 bg-zinc-100/90 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-300 md:grid">
-                    <span>Done</span>
-                    <span>Title / rank</span>
-                    <span>Talent shift</span>
-                    <span>Clan privilege</span>
-                    <span>Discount</span>
-                    <span>Objective</span>
-                </div>
+            <div className="mt-3 overflow-hidden rounded-md border border-zinc-200/80 dark:border-zinc-700/70">
                 <ul className="divide-y divide-zinc-200/80 dark:divide-zinc-700/70">
-                    {trial.titles.map((title) => {
+                    {trial.titles.map((title, titleIndex) => {
                         const progressKey = `trial:${trial.id}:${title.title}`;
                         const isComplete = !!checked[progressKey];
 
                         return (
                             <li
                                 key={title.title}
-                                className="grid gap-2 bg-white/70 px-3 py-3 text-sm text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-200 md:grid-cols-[0.45fr_0.8fr_1.2fr_1fr_0.8fr_1.5fr] md:gap-2"
+                                className="bg-white/70 px-3 py-3 text-sm text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-200"
                             >
-                                <label className="flex items-center gap-2 text-sm font-semibold text-zinc-700 dark:text-zinc-200 md:items-start">
-                                    <input
-                                        type="checkbox"
-                                        checked={isComplete}
-                                        onChange={() => setCheck(progressKey)}
-                                        className="mt-0.5 h-4 w-4 rounded border-zinc-300 text-cyan-600 focus:ring-cyan-400 dark:border-zinc-600 dark:bg-zinc-950"
-                                        aria-label={`Mark ${trial.name} - ${title.title} complete`}
-                                    />
-                                    <span className="md:hidden">Complete</span>
-                                </label>
-                                <div>
-                                    <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                                        Title
-                                    </span>
-                                    <div className="font-semibold text-zinc-950 dark:text-zinc-50">
-                                        {title.title}
+                                {trackingEnabled ? (
+                                    <label className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md font-semibold text-zinc-950 focus-within:ring-2 focus-within:ring-cyan-300 dark:text-zinc-50">
+                                        <input
+                                            type="checkbox"
+                                            checked={isComplete}
+                                            onChange={(event) =>
+                                                setCheck(progressKey, event.target.checked)
+                                            }
+                                            className="h-5 w-5 shrink-0 rounded border-zinc-300 text-cyan-600 focus:ring-cyan-400 dark:border-zinc-600 dark:bg-zinc-950"
+                                            aria-label={`Mark ${trial.name} - ${title.title} complete`}
+                                        />
+                                        <span>{title.title}</span>
+                                        <span className="ml-auto text-xs font-normal tabular-nums text-zinc-500 dark:text-zinc-400">
+                                            {titleIndex + 1} of {trial.titles.length}
+                                        </span>
+                                    </label>
+                                ) : (
+                                    <div className="flex min-h-11 items-center justify-between gap-3 font-semibold text-zinc-950 dark:text-zinc-50">
+                                        <span>{title.title}</span>
+                                        <span className="text-xs font-normal tabular-nums text-zinc-500 dark:text-zinc-400">
+                                            {titleIndex + 1} of {trial.titles.length}
+                                        </span>
                                     </div>
-                                </div>
-                                <div>
-                                    <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+                                )}
+                                <div className="mt-2">
+                                    <span className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
                                         Talent shift
                                     </span>
-                                    <div>{title.talents}</div>
+                                    <TalentShift value={title.talents} />
                                 </div>
-                                <div>
-                                    <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                                        Clan privilege
-                                    </span>
-                                    <div className="font-medium text-zinc-900 dark:text-zinc-100">
-                                        {title.privilege}
+                                <dl className="mt-3 grid grid-cols-[minmax(0,1fr)_5rem] gap-x-4 gap-y-3">
+                                    <div>
+                                        <dt className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+                                            Clan privilege
+                                        </dt>
+                                        <dd className="mt-0.5 font-medium text-zinc-900 dark:text-zinc-100">
+                                            {title.privilege}
+                                        </dd>
                                     </div>
-                                </div>
-                                <div>
-                                    <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                                        Discount
-                                    </span>
-                                    <div>{title.discount}</div>
-                                </div>
-                                <div>
-                                    <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                                        Objective
-                                    </span>
-                                    <div>{title.objective}</div>
-                                </div>
+                                    <div>
+                                        <dt className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+                                            Discount
+                                        </dt>
+                                        <dd className="mt-0.5 tabular-nums">{title.discount}</dd>
+                                    </div>
+                                    <div className="col-span-2">
+                                        <dt className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+                                            Objective
+                                        </dt>
+                                        <dd className="mt-0.5">{title.objective}</dd>
+                                    </div>
+                                </dl>
                             </li>
                         );
                     })}
@@ -529,8 +520,8 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
             {(trial.notes.length > 0 || trial.completionTips.length > 0) && (
                 <div className="mt-3 grid gap-3 md:grid-cols-2">
                 {trial.notes.length > 0 && <div>
-                    <h5 className="text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                        Guide notes
+                    <h5 className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+                        Notes
                     </h5>
                     <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-200">
                         {trial.notes.map((note) => (
@@ -539,7 +530,7 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
                     </ul>
                 </div>}
                 {trial.completionTips.length > 0 && <div>
-                    <h5 className="text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+                    <h5 className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
                         How to beat it
                     </h5>
                     <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-200">
@@ -554,55 +545,33 @@ function TrialDetail({ trial }: { trial: (typeof CLAN_TRIALS)[number] }) {
     );
 }
 
-function RoadmapTable() {
+function TalentShift({ value }: { value: string }) {
+    const parts = value.split(",").map((part) => part.trim()).filter(Boolean);
+
     return (
-        <div className="overflow-hidden rounded-lg border border-zinc-200/80 dark:border-zinc-700/70">
-            <div className="hidden grid-cols-[1.1fr_1.2fr_1fr_1.4fr] gap-3 bg-zinc-100/90 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-600 dark:bg-zinc-900/80 dark:text-zinc-300 md:grid">
-                <span>Privilege</span>
-                <span>Effect</span>
-                <span>Trial / title</span>
-                <span>Objective</span>
-            </div>
-            <ul className="divide-y divide-zinc-200/80 dark:divide-zinc-700/70">
-                {CLAN_PRIVILEGE_ROADMAP.map((item) => (
-                    <li
-                        key={item.id}
-                        className="grid gap-2 bg-white/80 px-3 py-3 text-sm text-zinc-700 dark:bg-zinc-900/40 dark:text-zinc-200 md:grid-cols-[1.1fr_1.2fr_1fr_1.4fr] md:gap-3"
+        <div className="mt-1 flex flex-wrap gap-1.5">
+            {parts.map((part) => {
+                const match = part.match(/^(.+?)\s+([+-]\d+)$/);
+                const talent = match?.[1] ?? part;
+                const delta = match?.[2] ?? "";
+                const isPositive = delta.startsWith("+");
+
+                return (
+                    <span
+                        key={part}
+                        className={`inline-flex items-center gap-1 rounded-md border px-2 py-1 text-xs font-semibold leading-none ${
+                            isPositive
+                                ? "border-emerald-200 bg-emerald-50 text-emerald-800 dark:border-emerald-800/80 dark:bg-emerald-950/30 dark:text-emerald-100"
+                                : "border-rose-200 bg-rose-50 text-rose-800 dark:border-rose-800/80 dark:bg-rose-950/30 dark:text-rose-100"
+                        }`}
                     >
-                        <div>
-                            <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                                Privilege
-                            </span>
-                            <div className="font-semibold text-zinc-950 dark:text-zinc-50">
-                                {item.privilege}
-                            </div>
-                        </div>
-                        <div>
-                            <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                                Effect
-                            </span>
-                            <div>{item.effect}</div>
-                        </div>
-                        <div>
-                            <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                                Trial / title
-                            </span>
-                            <div className="font-medium text-zinc-900 dark:text-zinc-100">
-                                {item.trial}
-                            </div>
-                            <div className="text-xs text-zinc-500 dark:text-zinc-400">
-                                {item.title}
-                            </div>
-                        </div>
-                        <div>
-                            <span className="md:hidden text-[0.68rem] font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-                                Objective
-                            </span>
-                            <div>{item.objective}</div>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+                        <span>{talent}</span>
+                        {delta ? (
+                            <span className="tabular-nums">{delta}</span>
+                        ) : null}
+                    </span>
+                );
+            })}
         </div>
     );
 }

@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-07-16T05:22:17.447Z",
+  "coverage": {
+    "canonicalMissions": 346,
+    "questReportMissions": 300,
+    "otherMissions": 46,
+    "combatMissions": 254,
+    "nonCombatMissions": 92,
+    "sourceValidatedOverrides": 73,
+    "clanMatesRaceGroups": 6,
+    "clanMatesAnswerMappings": 96,
+    "findings": 0
+  },
+  "validation": [
+    "Final merged mission objects, including generated guidance",
+    "Combat objectives, laws, enemy identities, and multi-step strategy",
+    "Noncombat mission guidance and intentional no-enemy objectives",
+    "All source-validated mission overrides",
+    "Clan Mates month, race, class, and answer-code coverage",
+    "Known high-risk quest mechanics and missable Flutegrass routing",
+    "No external guide attribution or URLs in mission-facing data"
+  ],
+  "byType": {},
+  "findings": []
+}

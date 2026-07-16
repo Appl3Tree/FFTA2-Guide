@@ -172,7 +172,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Actions by Humes – Humes may only move and perform basic attacks.",
     enemies: [
-        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "Guide's first priority target." },
+        { name: "Randomized Name", job: "Black Mage", quantity: 1, notes: "First priority target because of its ranged magick." },
         { name: "Randomized Name", job: "Archer", quantity: 2, notes: "Status-heavy ranged enemies." },
         { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Dangerous status/self-buff enemy; prioritize after the Black Mage." },
         { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Dangerous status/self-buff enemy; prioritize after the Black Mage." },
@@ -288,7 +288,7 @@ export const OPTIONAL_MISSIONS_B3: Mission[] = [
         objective: "Dispatch the right person for the job",
     enemies: [],
         strategy: [
-            "Dispatch mission - send a female clan member, with Viera as the guide-backed safe pick, for 14 days.",
+            "Dispatch mission - send a female clan member; a Viera is a reliable fit for the 14-day assignment.",
         ],
         rewards: {
             gil: 880,

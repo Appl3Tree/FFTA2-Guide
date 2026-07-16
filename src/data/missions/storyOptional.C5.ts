@@ -65,7 +65,7 @@ export const OPTIONAL_MISSIONS_C5: Mission[] = [
         law: "Forbidden: Reaction Abilities – Reaction Abilities are forbidden.",
     enemies: [
         { name: "Randomized Name", job: "Geomancer", quantity: 3, notes: "Terrain-based attacks can cause Slow and deal heavy damage; Disable is useful if you can land it." },
-        { name: "Randomized Name", job: "Hellhound", quantity: 1, notes: "Easiest enemy in the group; the guide recommends killing it first." },
+        { name: "Randomized Name", job: "Hellhound", quantity: 1, notes: "Easiest enemy in the group and a practical first target." },
         { name: "Randomized Name", job: "Nidhogg", quantity: 1, notes: "High HP and powerful attacks that become worse after Dragon Force; save it for last." },
     ],
         strategy: [

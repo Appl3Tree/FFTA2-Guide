@@ -135,7 +135,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
     {
         id: "D2-05",
         arc: "D2",
-        name: "Chita on Weapons-Adepts",
+        name: "Chita on Weapons-Masters",
         description: "Ngaaa! It's just no good! I've sung the praises of focus and determination high and low, but it just doesn't seem to stick! Nothing for it but for me to give a lecture to end all lectures! -Chita, Chita's Weaponers",
         rank: 49,
         region: "The Ruins of Delgantua",
@@ -307,7 +307,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         law: "Forbidden: Lightning – Weapons and abilities that use lightning are forbidden.",
     enemies: [
         { name: "Randomized Name", job: "Axebeak", quantity: 1, notes: "Blocks access to recipe pages." },
-        { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Closest enemy on your path; the guide recommends defeating it first." },
+        { name: "Randomized Name", job: "Lamia", quantity: 1, notes: "Closest enemy on the route and the most efficient first target." },
         { name: "Randomized Name", job: "Cockatrice", quantity: 2, notes: "Stay on the top level and can Haste/Quicken themselves." },
         { name: "Randomized Name", job: "Bloody Orb", quantity: 1, notes: "Can debuff — watch out." },
         { name: "Randomized Name", job: "Adamantitan", quantity: 1, notes: "Munch can break armor; be careful when engaging it." },
@@ -488,7 +488,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Reaction Abilities – Reaction abilities are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Antlion", quantity: 5, notes: "All Antlions; status effects can be annoying but the guide describes the fight as straightforward." },
+        { name: "Randomized Name", job: "Antlion", quantity: 5, notes: "All Antlions; status effects can be disruptive, but the fight is otherwise straightforward." },
     ],
         strategy: [
             "Bring reliable attackers and finish the five Antlions while respecting the Reaction Abilities law.",
@@ -526,7 +526,7 @@ export const OPTIONAL_MISSIONS_D2: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Cockatrice", quantity: 5, notes: "Can give themselves Haste, which is the main annoyance in an otherwise simple battle." },
     ],
-        strategy: [            "Move in quickly and defeat all five Cockatrices; their self-Haste is the only guide-called complication.",
+        strategy: [            "Move in quickly and defeat all five Cockatrices; their self-Haste is the main complication.",
         ],
         rewards: {
             gil: 3290,

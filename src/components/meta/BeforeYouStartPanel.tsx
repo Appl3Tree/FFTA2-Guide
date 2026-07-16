@@ -1,5 +1,5 @@
 import React from "react";
-import { Search } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 import { Panel } from "../ui/Panel";
 import { INTRO_PANELS } from "../../data/meta/introPanels";
 import { SYSTEMS_PANELS } from "../../data/meta/systemsPanels";
@@ -21,6 +21,9 @@ function matchesPanel(panel: MetaPanel, query: string) {
 
 export function BeforeYouStartPanel() {
     const [query, setQuery] = React.useState("");
+    const [openTopics, setOpenTopics] = React.useState<Record<string, boolean>>(
+        {},
+    );
     const normalizedQuery = query.trim().toLowerCase();
     const introPanels = React.useMemo(
         () => INTRO_PANELS.filter((panel) => matchesPanel(panel, normalizedQuery)),
@@ -37,95 +40,136 @@ export function BeforeYouStartPanel() {
             title="Before You Start"
             subtitle="Heads-up notes and systems to keep in mind as you begin your FFTA2 run."
             tone="pink"
+            defaultOpen
         >
-            <div className="space-y-5 mt-3">
-                <div className="space-y-2">
-                    <label className="relative block">
-                        <span className="sr-only">Search system guidance</span>
-                        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
-                        <input
-                            value={query}
-                            onChange={(event) => setQuery(event.target.value)}
-                            placeholder="Search laws, Bazaar, auctions, Scions, recruitment..."
-                            className="w-full rounded-lg border border-zinc-300/80 bg-white px-9 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-300/60 dark:border-zinc-700 dark:bg-zinc-950/70 dark:text-zinc-50 dark:placeholder:text-zinc-500 dark:focus:border-pink-500"
-                        />
-                    </label>
-                    {normalizedQuery && (
-                        <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                            Showing {matchCount} of{" "}
-                            {INTRO_PANELS.length + SYSTEMS_PANELS.length} sections.
-                        </p>
-                    )}
-                </div>
+            <div className="space-y-4">
+                <label className="relative block">
+                    <span className="sr-only">Search system guidance</span>
+                    <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400" />
+                    <input
+                        type="search"
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        placeholder="Search laws, Bazaar, auctions, Scions, recruitment..."
+                        className="min-h-11 w-full rounded-md border border-zinc-700 bg-zinc-950 px-9 py-2 text-base text-zinc-50 placeholder:text-zinc-500 focus:border-fuchsia-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-400 sm:text-sm"
+                    />
+                </label>
 
-                {/* Intro / how-to-use sections */}
-                {introPanels.map((panel) => (
-                    <section key={panel.id} className="space-y-3">
-                        <header className="space-y-1">
-                            <h3 className="text-sm sm:text-base font-semibold tracking-tight">
-                                {panel.title}
-                            </h3>
-                            {panel.subtitle && (
-                                <p className="text-xs sm:text-[0.8rem] text-zinc-600 dark:text-zinc-300">
-                                    {panel.subtitle}
-                                </p>
-                            )}
-                        </header>
+                <p role="status" className="text-xs text-zinc-400">
+                    {normalizedQuery
+                        ? `${matchCount} of ${INTRO_PANELS.length + SYSTEMS_PANELS.length} topics match.`
+                        : `${INTRO_PANELS.length + SYSTEMS_PANELS.length} focused topics. Open only what you need.`}
+                </p>
 
-                        <div className="space-y-3 text-sm sm:text-[0.9rem]">
-                            {panel.paragraphs.map((p, idx) => (
-                                <p key={idx}>{p}</p>
-                            ))}
-
-                            {panel.bullets && panel.bullets.length > 0 && (
-                                <ul className="list-disc list-inside space-y-1">
-                                    {panel.bullets.map((b, idx) => (
-                                        <li key={idx}>{b}</li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
-                        <hr className="border-dashed border-zinc-300/70 dark:border-zinc-700/70" />
-                    </section>
-                ))}
-
-                {/* Systems / mechanics sections */}
-                {systemsPanels.map((panel) => (
-                    <section key={panel.id} className="space-y-3">
-                        <header className="space-y-1">
-                            <h3 className="text-sm sm:text-base font-semibold tracking-tight">
-                                {panel.title}
-                            </h3>
-                            {panel.subtitle && (
-                                <p className="text-xs sm:text-[0.8rem] text-zinc-600 dark:text-zinc-300">
-                                    {panel.subtitle}
-                                </p>
-                            )}
-                        </header>
-
-                        <div className="space-y-3 text-sm sm:text-[0.9rem]">
-                            {panel.paragraphs.map((p, idx) => (
-                                <p key={idx}>{p}</p>
-                            ))}
-
-                            {panel.bullets && panel.bullets.length > 0 && (
-                                <ul className="list-disc list-inside space-y-1">
-                                    {panel.bullets.map((b, idx) => (
-                                        <li key={idx}>{b}</li>
-                                    ))}
-                                </ul>
-                            )}
-                            <hr className="border-dashed border-zinc-300/70 dark:border-zinc-700/70" />
-                        </div>
-                    </section>
-                ))}
-
-                {matchCount === 0 && (
-                    <p className="rounded-lg border border-zinc-200/80 bg-white/70 p-3 text-sm text-zinc-600 dark:border-zinc-700/70 dark:bg-zinc-900/40 dark:text-zinc-300">
+                {matchCount === 0 ? (
+                    <p className="border-y border-zinc-800 py-4 text-sm text-zinc-400">
                         No system notes match that search.
                     </p>
+                ) : (
+                    <div className="space-y-5">
+                        <TopicGroup
+                            label="Essentials"
+                            onToggle={(topicId) =>
+                                setOpenTopics((current) => ({
+                                    ...current,
+                                    [topicId]: !current[topicId],
+                                }))
+                            }
+                            openTopics={openTopics}
+                            topics={introPanels}
+                        />
+                        <TopicGroup
+                            label="Systems and progression"
+                            onToggle={(topicId) =>
+                                setOpenTopics((current) => ({
+                                    ...current,
+                                    [topicId]: !current[topicId],
+                                }))
+                            }
+                            openTopics={openTopics}
+                            topics={systemsPanels}
+                        />
+                    </div>
                 )}
             </div>
         </Panel>
+    );
+}
+
+function TopicGroup({
+    label,
+    onToggle,
+    openTopics,
+    topics,
+}: {
+    label: string;
+    onToggle: (topicId: string) => void;
+    openTopics: Record<string, boolean>;
+    topics: MetaPanel[];
+}) {
+    if (topics.length === 0) return null;
+
+    return (
+        <section aria-label={label}>
+            <h3 className="mb-2 text-xs font-semibold uppercase text-zinc-400">
+                {label}
+            </h3>
+            <div className="divide-y divide-zinc-800 border-y border-zinc-800">
+                {topics.map((topic) => {
+                    const isOpen = openTopics[topic.id] === true;
+                    const contentId = `guide-topic-${topic.id}`;
+
+                    return (
+                        <article key={topic.id}>
+                            <button
+                                type="button"
+                                aria-controls={contentId}
+                                aria-expanded={isOpen}
+                                onClick={() => onToggle(topic.id)}
+                                className="flex min-h-14 w-full items-center justify-between gap-3 px-2 py-2.5 text-left transition-colors hover:bg-zinc-900/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fuchsia-300"
+                            >
+                                <span className="min-w-0">
+                                    <span className="block text-sm font-semibold text-zinc-100">
+                                        {topic.title}
+                                    </span>
+                                    {topic.subtitle ? (
+                                        <span className="mt-0.5 block text-xs leading-relaxed text-zinc-400">
+                                            {topic.subtitle}
+                                        </span>
+                                    ) : null}
+                                </span>
+                                <ChevronDown
+                                    className={`h-4 w-4 shrink-0 text-zinc-400 transition-transform ${
+                                        isOpen ? "rotate-180" : ""
+                                    }`}
+                                />
+                            </button>
+
+                            {isOpen ? (
+                                <div
+                                    id={contentId}
+                                    className="space-y-3 bg-zinc-950/50 px-3 py-3 text-sm leading-relaxed text-zinc-300 sm:px-4"
+                                >
+                                    {topic.paragraphs.map((paragraph, index) => (
+                                        <p key={`${topic.id}:paragraph:${index}`}>
+                                            {paragraph}
+                                        </p>
+                                    ))}
+                                    {topic.bullets?.length ? (
+                                        <ul className="list-disc space-y-1 pl-5">
+                                            {topic.bullets.map((bullet, index) => (
+                                                <li key={`${topic.id}:bullet:${index}`}>
+                                                    {bullet}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    ) : null}
+                                </div>
+                            ) : null}
+                        </article>
+                    );
+                })}
+            </div>
+        </section>
     );
 }

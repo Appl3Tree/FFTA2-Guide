@@ -108,84 +108,136 @@ export function Panel({
     subtitle,
     tone = "blue",
     headerAddon,
+    defaultOpen = false,
+    collapsible = true,
     children,
 }: {
     title: string;
     subtitle?: string;
     tone?: PanelTone;
     headerAddon?: React.ReactNode;
+    defaultOpen?: boolean;
+    collapsible?: boolean;
     children: React.ReactNode;
 }) {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(collapsible ? defaultOpen : true);
+    const [hasOpened, setHasOpened] = useState(
+        collapsible ? defaultOpen : true,
+    );
+    const panelId = React.useId();
+    const titleId = `${panelId}-title`;
+    const subtitleId = subtitle ? `${panelId}-subtitle` : undefined;
+    const contentId = `${panelId}-content`;
     const t = toneClasses[tone];
+
+    const toggleOpen = () => {
+        if (!open) {
+            setHasOpened(true);
+        }
+        setOpen((value) => !value);
+    };
 
     return (
         <section
-            className={`rounded-lg border ${t.border} bg-white/85 dark:bg-zinc-950/80 ring-1 ${t.ring} shadow-sm shadow-black/5 dark:shadow-black/25 overflow-hidden transition-colors`}
+            className={`overflow-hidden rounded-lg border ${t.border} bg-white/85 shadow-sm shadow-black/5 ring-1 ${t.ring} transition-colors dark:bg-zinc-950/80 dark:shadow-black/25`}
+            data-panel-title={title}
+            aria-labelledby={titleId}
+            aria-describedby={subtitleId}
         >
-            <button
-                type="button"
-                onClick={() => setOpen((v) => !v)}
-                className="group w-full text-left px-4 py-3 sm:px-5 sm:py-3.5 text-zinc-900 dark:text-zinc-50 flex items-center justify-between gap-3 bg-white/70 hover:bg-white dark:bg-zinc-900/40 dark:hover:bg-zinc-900/70 transition-colors"
+            <header
+                className={`group relative grid w-full items-center gap-x-3 gap-y-2 bg-white/70 px-4 py-3 text-left text-zinc-900 transition-colors sm:px-5 sm:py-3.5 dark:bg-zinc-900/40 dark:text-zinc-50 ${
+                    collapsible
+                        ? `grid-cols-[auto_minmax(0,1fr)_auto] hover:bg-white dark:hover:bg-zinc-900/70 ${
+                              headerAddon
+                                  ? "lg:grid-cols-[auto_minmax(0,1fr)_minmax(15rem,19rem)_auto]"
+                                  : ""
+                          }`
+                        : `grid-cols-[auto_minmax(0,1fr)] ${
+                              headerAddon
+                                  ? "lg:grid-cols-[auto_minmax(0,1fr)_minmax(15rem,19rem)]"
+                                  : ""
+                          }`
+                }`}
             >
-                <div className="w-full flex items-center gap-3">
-                    <span
-                        className={`hidden sm:block h-10 w-1.5 shrink-0 rounded-full ${t.accent}`}
-                    />
-                    <div className="w-full flex flex-col gap-2">
-                        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
-                            <div className="grid gap-1 sm:grid-cols-[minmax(8rem,14rem)_minmax(0,1fr)] sm:items-center sm:gap-4">
-                                <h2
-                                    className={`flex items-center gap-2 text-base sm:text-lg font-semibold tracking-tight leading-tight ${t.title}`}
-                                >
-                                    <span
-                                        className={`inline-block h-2.5 w-2.5 shrink-0 rounded-full sm:hidden ${t.accent}`}
-                                    />
-                                    <span>{title}</span>
-                                </h2>
-                                {subtitle && (
-                                    <p className="text-xs sm:text-sm leading-snug text-zinc-600 dark:text-zinc-300 max-w-2xl">
-                                        {subtitle}
-                                    </p>
-                                )}
-                            </div>
-                            {headerAddon && (
-                                <div className="shrink-0 sm:ml-auto">
-                                    {headerAddon}
-                                </div>
-                            )}
-                            <span
-                                className={`flex w-fit shrink-0 items-center gap-1 rounded-full px-2 py-1 text-[0.7rem] font-semibold uppercase tracking-wide text-zinc-700 dark:text-zinc-200 ${t.track}`}
-                            >
-                                <span className="hidden sm:inline">
-                                    {open ? "Hide" : "Show"}
-                                </span>
-                                {open ? (
-                                    <ChevronUp className="h-3.5 w-3.5" />
-                                ) : (
-                                    <ChevronDown className="h-3.5 w-3.5" />
-                                )}
-                            </span>
-                        </div>
-                    </div>
+                <span
+                    aria-hidden="true"
+                    className={`h-2.5 w-2.5 shrink-0 rounded-full transition-transform group-hover:scale-110 motion-reduce:transition-none sm:h-10 sm:w-1.5 ${t.accent}`}
+                />
+                <div className="min-w-0 self-center">
+                    <h2
+                        id={titleId}
+                        className={`text-base font-semibold leading-tight sm:text-lg ${t.title}`}
+                    >
+                        {title}
+                    </h2>
+                    {subtitle ? (
+                        <p
+                            id={subtitleId}
+                            className="mt-1 min-w-0 text-xs leading-snug text-zinc-600 sm:text-sm dark:text-zinc-300"
+                        >
+                            {subtitle}
+                        </p>
+                    ) : null}
                 </div>
-            </button>
+                {headerAddon ? (
+                    <div
+                        className={
+                            collapsible
+                                ? "col-span-2 col-start-2 row-start-2 min-w-0 lg:col-span-1 lg:col-start-3 lg:row-start-1 lg:self-center"
+                                : "col-start-2 row-start-2 min-w-0 lg:col-start-3 lg:row-start-1 lg:self-center"
+                        }
+                    >
+                        {headerAddon}
+                    </div>
+                ) : null}
+                {collapsible ? (
+                    <>
+                        <span
+                            aria-hidden="true"
+                            className={`col-start-3 row-start-1 flex min-h-9 w-11 shrink-0 items-center justify-center gap-1 justify-self-end rounded-md px-2 py-1 text-[0.72rem] font-semibold uppercase text-zinc-700 dark:text-zinc-200 sm:w-[4.75rem] ${
+                                headerAddon
+                                    ? "lg:col-start-4"
+                                    : "lg:col-start-3"
+                            } ${t.track}`}
+                        >
+                            <span className="hidden sm:inline">
+                                {open ? "Hide" : "Show"}
+                            </span>
+                            {open ? (
+                                <ChevronUp className="h-4 w-4" />
+                            ) : (
+                                <ChevronDown className="h-4 w-4" />
+                            )}
+                        </span>
+                        <button
+                            type="button"
+                            onClick={toggleOpen}
+                            aria-controls={contentId}
+                            aria-describedby={subtitleId}
+                            aria-expanded={open}
+                            aria-labelledby={titleId}
+                            className="absolute inset-0 z-10 rounded-[7px] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sky-300"
+                        />
+                    </>
+                ) : null}
+            </header>
 
-            {open && (
-                <div className="border-t border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/85 dark:bg-zinc-950/50">
+            {hasOpened ? (
+                <div
+                    id={contentId}
+                    hidden={!open}
+                    className="border-t border-zinc-200/80 bg-zinc-50/85 dark:border-zinc-800 dark:bg-zinc-950/50"
+                >
                     <div
                         className="
-                            border border-zinc-200/70 dark:border-zinc-700/70 
-                            rounded-lg
-                            p-4 sm:p-5 
-                            bg-white/70 dark:bg-zinc-900/20
+                            p-4 sm:p-5
                             space-y-4 text-sm text-zinc-800 dark:text-zinc-100/90
                         "
                     >
                         {children}
                     </div>
                 </div>
-            )}
+            ) : null}
         </section>
     );
 }

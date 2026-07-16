@@ -403,7 +403,7 @@ export const OPTIONAL_MISSIONS_E2: Mission[] = [
         ],
         strategy: [
             "No Fire/Ice/Lightning. Use long-range options from jobs like Fusilier and Sniper, or non-banned Fighter abilities.",
-            "Focus the three colored flans first because they can use magick to hurt you and heal themselves, and the guide calls out Stop risk.",
+            "Focus the three colored flans first because they can use magick to hurt the clan, heal themselves, and create Stop risk.",
         ],
         rewards: {
             gil: 4800,

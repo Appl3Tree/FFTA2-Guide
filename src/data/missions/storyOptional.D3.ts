@@ -339,7 +339,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         enemies: [],
         strategy: [
             "Capture a Yellow Chocobo with a Moogle Chocobo Knight before turning in the quest.",
-            "The guide recommends searching Targ Wood for the Fey Mischief encounter. Defeat every other enemy, weaken the Yellow Chocobo to critical HP, move the Chocobo Knight next to it, and mount it.",
+            "Search Targ Wood for the Fey Mischief encounter. Defeat every other enemy, weaken the Yellow Chocobo to critical HP, move the Chocobo Knight next to it, and mount it.",
             "Keep the Chocobo Knight mounted after the battle, then return to Targ Wood to deliver the chocobo to Yew.",
         ],
         rewards: {
@@ -374,7 +374,7 @@ export const OPTIONAL_MISSIONS_D3: Mission[] = [
         enemies: [],
         strategy: [
             "Capture a Black Chocobo with a Moogle Chocobo Knight before accepting the delivery turn-in.",
-            "The guide recommends the Galleria Deep during Coppersun for the One-eyed Evil encounter. Defeat every other enemy, weaken the Black Chocobo to critical HP, then mount it with the Chocobo Knight.",
+            "Search the Galleria Deep during Coppersun for the One-eyed Evil encounter. Defeat every other enemy, weaken the Black Chocobo to critical HP, then mount it with the Chocobo Knight.",
         ],
         rewards: {
             gil: 1750,

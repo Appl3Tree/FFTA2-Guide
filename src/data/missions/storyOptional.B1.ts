@@ -34,7 +34,7 @@ export const OPTIONAL_MISSIONS_B1: Mission[] = [
         { name: "Randomized Name", job: "Green Mage", quantity: 1, notes: "Uses Oil and Sleep." },
         { name: "Randomized Name", job: "Scholar", quantity: 1, notes: "Uses Thunder and Shadow Tomes." },
     ],
-        strategy: [            "Eliminate the Black Mage, Time Mage, and Scholar quickly; their long-range magick and Stop/Slow pressure are the guide's main danger callouts.",        ],
+        strategy: [            "Eliminate the Black Mage, Time Mage, and Scholar quickly; their long-range magick and Stop or Slow pressure are the main dangers.",        ],
         rewards: {
             gil: 4690,
             cp: 38,

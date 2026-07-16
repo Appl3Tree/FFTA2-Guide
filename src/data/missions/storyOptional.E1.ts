@@ -105,7 +105,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
             { name: "Jylland Free Press: Geomancer", quantity: 1, job: "Geomancer", notes: "Offensive Geomancy makes this the highest-damage rival." },
         ],
         strategy: [           "Move to the space directly in front of the Galmia P.R. Illusionist to claim the scoop.",
-            "Grab the nearby treasure by the Head Editor if you can; the guide identifies it as Brigand's Gloves.",
+            "Grab the nearby treasure by the Head Editor if you can; it contains Brigand's Gloves.",
         ],
         rewards: {
             gil: 3890,
@@ -258,7 +258,7 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         objective: "Place 5 pots on the tree stumps!",
         law: "Forbidden: Piercing Weapons – Attacks with rapiers and spears are forbidden.",
         enemies: [
-            { name: "Randomized Name", job: "Enemy", quantity: 1, notes: "Enemies are present and more arrive every few turns; the guide does not specify an exact roster." },
+            { name: "Randomized Name", job: "Enemy", quantity: 1, notes: "Enemies are present and additional units arrive every few turns; the exact roster varies." },
         ],
         strategy: [
             "Place all five pots on the tree stumps in the middle of the area.",        ],
@@ -295,8 +295,8 @@ export const OPTIONAL_MISSIONS_E1: Mission[] = [
         enemies: [
             { name: "Randomized Name", job: "Grenade", quantity: 2, notes: "Fluorgis route. Has Flame Attack, Spark, Firaga, and Bonecrusher (reaction)." },
             { name: "Randomized Name", job: "Bomb", quantity: 2, notes: "Fluorgis route. Has Self-Destruct, Flame Attack, Fira, MP Shield, and Blood Price." },
-            { name: "Randomized Name", job: "Chocobo", quantity: 0, notes: "Alternate Rupie Mountains route uses a Chocobo group instead of bombs." },
-            { name: "Randomized Name", job: "Worgen/Rocktitan/Tonberry", quantity: 0, notes: "Alternate Nazan Mines route uses Worgens, Rocktitan, and Tonberry instead of bombs." },
+            { name: "Possible Rupie Mountains group", job: "Chocobo", notes: "The Rupie Mountains route uses a Chocobo group instead of the Fluorgis bombs." },
+            { name: "Possible Nazan Mines group", job: "Worgen / Rocktitan / Tonberry", notes: "The Nazan Mines route uses Worgens, a Rocktitan, and a Tonberry instead of the Fluorgis bombs." },
         ],
         strategy: [
             "Interview answer: \"You'll be Owner next!\" The reporting battle can be in the Rupie Mountains, Fluorgis, or Nazan Mines.",

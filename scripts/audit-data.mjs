@@ -711,7 +711,7 @@ function collectPlaceholders() {
                 ? propertyString(parentProp.parent, "id", sourceFile)
                 : undefined;
 
-            if (node.text === "" && propName && allowedEmptyProperties.has(propName)) {
+            if (node.text === "" && (!propName || allowedEmptyProperties.has(propName))) {
                 return;
             }
 
@@ -756,14 +756,6 @@ function isKnownDuplicateMissionId(group) {
 }
 
 function isKnownDuplicateMissionName(group) {
-    if (
-        group.key === "Chita on Weapons-Adepts" &&
-        group.entries.some((entry) => entry.id === "C2-12") &&
-        group.entries.some((entry) => entry.id === "D2-05")
-    ) {
-        return true;
-    }
-
     return group.entries.length === 2 &&
         group.entries[0].id === group.entries[1].id &&
         group.entries.some((entry) => entry.file.endsWith("storyMain.ts")) &&

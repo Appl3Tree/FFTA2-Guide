@@ -17,7 +17,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
         enemies: [],
         strategy: [       ],
         rewards: { gil: 0, other: "Unlocks Gifted" },
-        notes: "Map-event side quest from the Dev guide's Side Quests section.",
+        notes: "Map-event side quest that continues the sky-pirate storyline.",
         tags: ["optional", "map-event", "chain", "story-cameo"],
     },
     {
@@ -171,7 +171,7 @@ export const OPTIONAL_MISSIONS_EX: Mission[] = [
         objective: "Defeat Klesta!",
         law: "Forbidden: Opportunity Commands - Opportunity Commands are forbidden.",
         enemies: [
-            { name: "Klesta", job: "Crushatrice", quantity: 1, notes: "Boss. Around level 20 in Dev's guide; has Fortify and Devour, and flees after being defeated." },
+            { name: "Klesta", job: "Crushatrice", quantity: 1, notes: "Boss around level 20 with Fortify and Devour; flees after being defeated." },
         ],
         strategy: [      ],
         rewards: { gil: 1470, cp: 34, loot: "Mirror Scale x3, Yellow Liquid x4" },

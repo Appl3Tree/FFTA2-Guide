@@ -1,5 +1,6 @@
 import React from "react";
 import { BAZAAR_RECIPES } from "../../data/bazaarRecipes";
+import { isRepeatCraftResult } from "../../data/bazaarRepeatCraft";
 import {
     EQUIPMENT,
     WEAPON_RULES,
@@ -9,6 +10,12 @@ import {
     type EquipmentMeta,
 } from "../../data/equipment/equipment";
 import { ABILITIES, ABILITY_SETS } from "../../data/abilities/abilities";
+import { bazaarScopeId } from "../../data/checklistScopes";
+import { useChecklistPreferences } from "../ChecklistPreferencesContext";
+import { useProgress } from "../ProgressContext";
+import { Panel } from "../ui/Panel";
+import { PanelProgress } from "../ui/PanelProgress";
+import { RepeatCraftBadge } from "../ui/RepeatCraftBadge";
 
 type RuleDetails = {
     jobs?: string;
@@ -180,6 +187,7 @@ interface BazaarRecipeWithSearch {
     loot: string[];
     searchBlob: string;
     equipment: EquipmentMeta | null;
+    repeatCraft: boolean;
 }
 
 interface BazaarSection {
@@ -187,8 +195,45 @@ interface BazaarSection {
     recipes: BazaarRecipeWithSearch[];
 }
 
+export function BazaarRecipesPanel() {
+    const { checked } = useProgress();
+    const { isChecklistEnabled, isScopeEnabled } = useChecklistPreferences();
+    const trackingEnabled = isChecklistEnabled("bazaar");
+    const trackedRecipes = BAZAAR_RECIPES.filter((recipe) =>
+        isScopeEnabled("bazaar", bazaarScopeId(recipe.result)),
+    );
+    const completedRecipes = trackedRecipes.filter(
+        (recipe) => checked[`bazaar:${recipe.id}`],
+    ).length;
+
+    return (
+        <Panel
+            title="Bazaar Recipes"
+            subtitle="Use loot to unlock shop stock, then buy or re-craft extra copies."
+            tone="lime"
+            defaultOpen
+            headerAddon={
+                trackingEnabled && trackedRecipes.length > 0 ? (
+                    <PanelProgress
+                        completed={completedRecipes}
+                        label="Recipes"
+                        tone="cyan"
+                        total={trackedRecipes.length}
+                    />
+                ) : undefined
+            }
+        >
+            <BazaarPanel />
+        </Panel>
+    );
+}
+
 export default function BazaarPanel() {
+    const { checked, setCheck } = useProgress();
+    const { isChecklistEnabled, isScopeEnabled } = useChecklistPreferences();
+    const trackingEnabled = isChecklistEnabled("bazaar");
     const [query, setQuery] = React.useState("");
+    const searchId = React.useId();
 
     const sections = React.useMemo<BazaarSection[]>(() => {
         const withSearch: BazaarRecipeWithSearch[] = BAZAAR_RECIPES.map(
@@ -198,6 +243,8 @@ export default function BazaarPanel() {
                 parts.push(r.rank);
                 parts.push(r.result);
                 parts.push(r.loot.join(" "));
+                const repeatCraft = isRepeatCraftResult(r.result);
+                if (repeatCraft) parts.push("repeat craft multi craft one stock");
 
                 const searchBlob = parts.join(" ").toLowerCase();
                 const equipment =
@@ -207,6 +254,7 @@ export default function BazaarPanel() {
                     ...r,
                     searchBlob,
                     equipment,
+                    repeatCraft,
                 };
             },
         );
@@ -266,24 +314,23 @@ export default function BazaarPanel() {
     return (
         <div className="space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                <div>
-                    <h3 className="text-base font-semibold text-zinc-50">
-                        Bazaar Recipes
-                    </h3>
-                    <p className="text-[0.8rem] text-zinc-400">
-                        See which loot unlocks shop equipment, then buy the item
-                        from the shop. Some one-stock items must be crafted again
-                        for extra copies.
-                    </p>
-                </div>
+                <p className="max-w-2xl text-sm leading-relaxed text-zinc-400">
+                    See which loot unlocks shop equipment. A Repeat craft label
+                    means the recipe stocks one copy; submit it again after a
+                    purchase to stock another.
+                </p>
 
                 <div className="flex items-center gap-2">
+                    <label htmlFor={searchId} className="sr-only">
+                        Search bazaar recipes
+                    </label>
                     <input
-                        type="text"
+                        id={searchId}
+                        type="search"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="Search by result, loot, section, or rank…"
-                        className="w-full sm:w-80 rounded-md border border-zinc-700 bg-zinc-900/60 px-3 py-1.5 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-emerald-500/70 focus:border-emerald-500/70"
+                        className="min-h-11 w-full rounded-md border border-zinc-700 bg-zinc-900/60 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-emerald-500/70 focus:outline-none focus:ring-2 focus:ring-emerald-500/70 sm:w-80"
                     />
                 </div>
             </div>
@@ -296,27 +343,42 @@ export default function BazaarPanel() {
                 <div className="space-y-3">
                     {filteredSections.map((section) => {
                         const isOpen = openSections[section.section] === true;
+                        const trackedSectionRecipes = section.recipes.filter(
+                            (recipe) =>
+                                isScopeEnabled(
+                                    "bazaar",
+                                    bazaarScopeId(recipe.result),
+                                ),
+                        );
+                        const completedSectionRecipes = trackedSectionRecipes.filter(
+                            (recipe) => checked[`bazaar:${recipe.id}`],
+                        ).length;
 
                         return (
                             <section
                                 key={section.section}
-                                className="rounded-2xl border border-zinc-800/70 bg-zinc-950/40"
+                                className="rounded-lg border border-zinc-800/70 bg-zinc-950/40"
                             >
                                 <button
                                     type="button"
                                     onClick={() => toggleSection(section.section)}
-                                    className="flex w-full items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 text-left"
+                                    aria-expanded={isOpen}
+                                    className="flex min-h-11 w-full items-center justify-between px-3 py-2.5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-lime-300 sm:px-4 sm:py-3"
                                 >
                                     <div>
-                                        <h4 className="text-sm font-semibold text-zinc-100">
+                                        <h3 className="text-sm font-semibold text-zinc-100">
                                             {section.section}
-                                        </h4>
+                                        </h3>
                                         <p className="text-[0.75rem] text-zinc-500">
                                             {section.recipes.length} recipe
                                             {section.recipes.length === 1 ? "" : "s"}
+                                            {trackingEnabled &&
+                                            trackedSectionRecipes.length > 0
+                                                ? ` | ${completedSectionRecipes}/${trackedSectionRecipes.length} complete`
+                                                : ""}
                                         </p>
                                     </div>
-                                    <span className="text-[0.7rem] uppercase tracking-[0.16em] text-emerald-300">
+                                    <span className="text-[0.7rem] uppercase text-emerald-300">
                                         {isOpen ? "Hide" : "Show"}
                                     </span>
                                 </button>
@@ -326,6 +388,14 @@ export default function BazaarPanel() {
                                         <ul className="space-y-2.5">
                                             {section.recipes.map((recipe) => {
                                                 const equip = recipe.equipment;
+                                                const recipeKey = `bazaar:${recipe.id}`;
+                                                const recipeTrackingEnabled =
+                                                    isScopeEnabled(
+                                                        "bazaar",
+                                                        bazaarScopeId(recipe.result),
+                                                    );
+                                                const recipeComplete =
+                                                    !!checked[recipeKey];
                                                 const subtypeLabel =
                                                     equip && buildSubtypeLabel(equip);
                                                 const ruleDetails =
@@ -413,7 +483,7 @@ export default function BazaarPanel() {
                                                         key: "basics",
                                                         content: (
                                                             <>
-                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                     <u>BASICS</u>
                                                                 </h4>
                                                                 <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
@@ -461,7 +531,7 @@ export default function BazaarPanel() {
                                                         key: "stats",
                                                         content: (
                                                             <>
-                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                     <u>STATS</u>
                                                                 </h4>
                                                                 <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
@@ -495,7 +565,7 @@ export default function BazaarPanel() {
                                                         key: "rules",
                                                         content: (
                                                             <>
-                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                     <u>RULES</u>
                                                                 </h4>
                                                                 <dl className={dlRulesClass}>
@@ -523,7 +593,7 @@ export default function BazaarPanel() {
                                                         key: "teaches",
                                                         content: (
                                                             <>
-                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                     <u>TEACHES</u>
                                                                 </h4>
                                                                 <div className="mt-0.5 text-[0.7rem] sm:text-xs text-zinc-300">
@@ -579,13 +649,37 @@ export default function BazaarPanel() {
                                                         className="flex flex-col gap-1.5"
                                                     >
                                                         <div>
-                                                            <div className="flex flex-wrap items-center gap-1.5">
-                                                                <span className="font-semibold text-zinc-50">
-                                                                    {recipe.result}
-                                                                </span>
-                                                                <span className="inline-flex items-center rounded-full bg-emerald-100/10 border border-emerald-500/70 px-1.5 py-px text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-emerald-300">
-                                                                    {recipe.rank}
-                                                                </span>
+                                                            <div className="flex items-start justify-between gap-3">
+                                                                <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+                                                                    <span className="font-semibold text-zinc-50">
+                                                                        {recipe.result}
+                                                                    </span>
+                                                                    <span className="inline-flex items-center rounded-full bg-emerald-100/10 border border-emerald-500/70 px-1.5 py-px text-[0.65rem] font-semibold uppercase text-emerald-300">
+                                                                        {recipe.rank}
+                                                                    </span>
+                                                                    {recipe.repeatCraft ? (
+                                                                        <RepeatCraftBadge />
+                                                                    ) : null}
+                                                                </div>
+                                                                {recipeTrackingEnabled ? (
+                                                                    <label className="flex min-h-11 shrink-0 cursor-pointer items-center gap-2 rounded-md px-2 text-xs font-semibold text-zinc-300 hover:bg-zinc-900/70 focus-within:ring-2 focus-within:ring-lime-300">
+                                                                        <input
+                                                                            type="checkbox"
+                                                                            aria-label={`Mark ${recipe.result} crafted`}
+                                                                            checked={recipeComplete}
+                                                                            onChange={(event) =>
+                                                                                setCheck(
+                                                                                    recipeKey,
+                                                                                    event.target.checked,
+                                                                                )
+                                                                            }
+                                                                            className="h-5 w-5 rounded border-zinc-500 text-lime-500 focus:ring-lime-400"
+                                                                        />
+                                                                        <span className="hidden sm:inline">
+                                                                            Crafted
+                                                                        </span>
+                                                                    </label>
+                                                                ) : null}
                                                             </div>
                                                             <div className="mt-0.5 text-[0.75rem] text-zinc-400">
                                                                 Loot Required:{" "}
@@ -634,7 +728,7 @@ export default function BazaarPanel() {
                                                                                             isLast;
 
                                                                                         const sectionClass =
-                                                                                            "rounded-2xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3" +
+                                                                                            "rounded-md border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3" +
                                                                                             (shouldSpan
                                                                                                 ? " md:col-span-2"
                                                                                                 : "");

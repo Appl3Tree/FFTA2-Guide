@@ -4,11 +4,11 @@ import type { MetaPanel } from "../../types/ffta2";
 export const INTRO_PANELS: MetaPanel[] = [
     {
         id: "how-to-use",
-        title: "How to Use This Guide",
+        title: "How to Use the App",
         subtitle: "Where to start and how to read mission entries.",
         tone: "blue",
         paragraphs: [
-            "This guide is built around FFTA2’s main story arcs, from the opening A1 missions all the way through the final battles. Each mission card is meant to be something you can glance at quickly while playing, not a wall of spoilers.",
+            "The mission route covers FFTA2’s main story arcs, from the opening A1 missions through the final battles. Each mission card is designed for a quick glance while playing, without becoming a wall of spoilers.",
             "Every mission entry includes its arc label, rank, location or region, law, enemy mix, and a short set of battlefield and strategy notes. The idea is that you can check what you’re walking into, decide whether you’re ready, and see which laws or enemy types might cause trouble.",
             "Optional content, marks, and quest chains are folded into the broader route rather than separated into a pure side-quest dump. When you see references to marks or chains here, they’re chosen because they support the main progression: more loot, better gear, or key abilities that smooth out later story fights."
         ],
@@ -27,7 +27,7 @@ export const INTRO_PANELS: MetaPanel[] = [
         paragraphs: [
             "The early game is forgiving as long as you bring a balanced squad. You don’t need perfect stat growth or rare gear to get through the first arcs; you just need a couple of solid frontliners, at least one reliable healer, and some way to hit clustered enemies.",
             "FFTA2 strongly rewards flexible job picks. Humes in particular can branch into many physical and hybrid roles, while Viera, Bangaa, and Nu Mou provide early access to key support and damage jobs. You can safely rotate a few units through basic jobs to unlock their better options without falling behind.",
-            "Don’t panic about min-maxing or power-leveling right away. The guide assumes a relatively normal pace: you clear missions as they appear, dip into a few sidequests and marks for extra loot and CP, and let abilities accumulate naturally."
+            "Don’t panic about min-maxing or power-leveling right away. A normal pace works well: clear missions as they appear, dip into sidequests and marks for extra loot and CP, and let abilities accumulate naturally."
         ],
         bullets: [
             "Aim for 2–3 melee-oriented units, 1 dedicated healer, and 1–2 ranged or caster slots in your starting lineup.",
@@ -44,7 +44,7 @@ export const INTRO_PANELS: MetaPanel[] = [
         paragraphs: [
             "In Judge-led battles, the law is fixed for that battle. Follow it and you keep access to your chosen clan privilege, the ability to revive KO'd units, and the law bonus reward. Break it and the Judge leaves: the privilege shuts off, KO'd units cannot be revived for the rest of the battle, and the law bonus is lost. Reraise still works after a law break.",
             "Most laws fall into a few simple patterns: banning a specific element, disallowing a weapon type, or restricting a category of actions like items or debuffs. Some late-game laws are more unusual, like punishing repeated actions or attacks against certain races or level differences.",
-            "The goal of this guide is not to make you play scared of laws. For each story mission, notes will call out when a law is especially awkward and when it’s reasonable to ignore it. Many fights are easier if you accept a law break in exchange for a safer or faster clear."
+            "You do not need to play scared of laws. Mission notes call out especially awkward restrictions and situations where ignoring one may be reasonable. Many fights are easier if you accept a law break in exchange for a safer or faster clear."
         ],
         bullets: [
             "Always glance at the law before you commit to a mission; small changes in your lineup (different weapons or spell loadouts) can save a run.",
@@ -60,7 +60,7 @@ export const INTRO_PANELS: MetaPanel[] = [
         tone: "purple",
         paragraphs: [
             "Loot is the backbone of FFTA2’s equipment system. Instead of buying most gear directly, you trade monster drops and mission rewards into the Bazaar, which then unlocks new weapons, armor, and accessories in shops.",
-            "The guide assumes you are feeding most of your loot into Bazaar recipes as you go. You don’t need to memorize exact combinations: the important part is that you steadily unlock new tiers of weapons, staves, bows, and armor so that your clan’s abilities and survivability keep pace with story ranks.",
+            "Feed most loot into Bazaar recipes as you go. You don’t need to memorize every combination; steadily unlocking new tiers of weapons, staves, bows, and armor keeps abilities and survivability aligned with story ranks.",
             "Some loot comes from normal fights, but marks and certain quest chains provide higher-quality drops that push Bazaar tiers forward faster. Clan Trials matter for a different reason: their privileges and talent changes can make the fights that feed your Bazaar much easier."
         ],
         bullets: [
@@ -77,14 +77,14 @@ export const INTRO_PANELS: MetaPanel[] = [
         tone: "red",
         paragraphs: [
             "Clan trials, sidequests, and mark hunts sit alongside the main story and quietly define how strong your clan feels. Trials unlock and upgrade clan privileges, change clan talents, award clan titles and fee discounts, and help open later quests, while marks and notable sidequests provide extra loot, gil, and unique items.",
-            "The guide will occasionally nudge you toward specific trials or marks when they line up naturally with the story or when their rewards are too efficient to ignore. You don’t have to clear every optional mission, but doing none of them makes later arcs feel much harsher than intended.",
+            "Specific trials and marks are highlighted when they line up naturally with the story or offer especially efficient rewards. You don’t have to clear every optional mission, but doing none of them makes later arcs feel much harsher than intended.",
             "Think of this content as a toolbox: when the story starts to push back, you dip into marks, trials, and chains to grab more power, then return to the next arc once you feel comfortably ahead again."
         ],
         bullets: [
             "Use clan trials to unlock stronger privileges, change clan talents, and earn titles and fee discounts rather than treating them as one-off curiosities.",
             "Mix marks and sidequests into your route whenever you feel undergeared or short on gil and loot.",
             "Pay attention to quest chains that unlock jobs, equipment, or high-quality loot; they often pay off for many hours afterward.",
-            "Don’t feel obligated to 100% everything during the story—this guide is structured so you can leave some content for cleanup and postgame."
+            "Don’t feel obligated to complete everything during the story; some content can wait for cleanup and postgame."
         ]
     }
 ];

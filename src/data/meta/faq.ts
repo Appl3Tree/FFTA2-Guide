@@ -40,7 +40,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     {
         id: "revive-allies",
         question: "How do I revive someone during battle?",
-        answer: "Early on, buy Phoenix Downs and give a unit the Item action ability so they can actually use them. Later options include White Mage's Raise, White Monk's Revive, and Summoner's Phoenix. Once the Judge is gone, including after your clan breaks the law, KO'd units cannot be revived during that battle. Reraise is the exception: the Blue Magick guide confirms that it still returns a unit after a law break.",
+        answer: "Early on, buy Phoenix Downs and give a unit the Item action ability so they can actually use them. Later options include White Mage's Raise, White Monk's Revive, and Summoner's Phoenix. Once the Judge is gone, including after your clan breaks the law, KO'd units cannot be revived during that battle. Reraise is the exception and still returns a unit after a law break.",
         tags: ["Battle", "Items"],
     },
     {

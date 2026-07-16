@@ -28,7 +28,7 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         law: "Forbidden: Actions by Moogles – Moogles may only move and perform basic attacks",
     enemies: [
         { name: "Malboro King", job: "Malboro King", quantity: 1, notes: "Speed battle mark. You must land the finishing blow before House Bowen does." },
-        { name: "House Bowen", job: "Rival Clan", quantity: 1, notes: "Rival clan trying to defeat the Malboro King first; the guide only calls out their Illusionist as a ranged attacker." },
+        { name: "House Bowen", job: "Rival Clan", quantity: 1, notes: "Rival clan trying to defeat the Malboro King first; their Illusionist supplies ranged pressure." },
     ],
         strategy: [
             "Move onto the bridge in front of your starting position and attack the Malboro King from range with options like Air Render or Black Magick.",            "Completing this mission unlocks the Assassin job.",
@@ -64,10 +64,10 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         objective: "Defeat all Foes!",
         law: "Forbidden: Restoring MP – Actions that restore MP are forbidden.",
     enemies: [
-        { name: "Randomized Name", job: "Fighter", quantity: 3, notes: "Primary threat group; the guide calls out Aurablast as strong multi-target damage." },
+        { name: "Randomized Name", job: "Fighter", quantity: 3, notes: "Primary threat group; Aurablast provides strong multi-target damage." },
         { name: "Randomized Name", job: "Soldier", quantity: 1, notes: "Standard melee unit." },
         { name: "Randomized Name", job: "Thief", quantity: 1, notes: "Standard melee unit." },
-        { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Bangaa Warrior; the guide specifically warns about Air Render." },
+        { name: "Randomized Name", job: "Warrior", quantity: 1, notes: "Bangaa Warrior whose Air Render creates ranged physical pressure." },
     ],
         strategy: [            "Prioritize the three Fighters because Aurablast can hit multiple clan members at once. Watch the Warrior's Air Render while closing in.",        ],
         rewards: {
@@ -447,7 +447,12 @@ export const OPTIONAL_MISSIONS_C4: Mission[] = [
         },
         objective: "Defeat all Foes!",
         law: "Forbidden: Harming Gria – Actions that harm gria are forbidden.",
-    enemies: [],
+    enemies: [
+        { name: "Old Man Boi Boi", job: "Sage", quantity: 1, notes: "Uses Water and Aero." },
+        { name: "Komodo Trader", job: "Soldier", quantity: 1, notes: "Uses First Aid, Rend Power, and Rend Magick." },
+        { name: "Devotee", job: "Lanista", quantity: 1, notes: "Uses Souleater and Sword of Darkness." },
+        { name: "Devotee", job: "Time Mage", quantity: 1, notes: "Uses Haste to support the group." },
+    ],
         strategy: [       ],
         rewards: {
             gil: 690,

@@ -26,7 +26,7 @@ export const CLAN_TRIAL_GUIDE: ClanTrialGuideSection[] = [
             "Repeat or clear eligible rows to advance an upgradeable privilege one tier at a time.",
             "A title grants its own talent and discount row, but upgradeable privileges advance one step at a time.",
             "Clan titles can be replaced as your visible name, but earned benefits stay stacked.",
-            "The visible title is the most recently completed trial title; the guide describes the title itself as a display label.",
+            "The visible title is the most recently completed trial title and functions as a display label.",
         ],
     },
     {
@@ -427,7 +427,7 @@ export const CLAN_TRIALS: ClanTrial[] = [
         notes: [
             "The urn teleports after every examine action.",
             "Ahrimans can Confuse units and use Roulette, so random KOs can wreck a good route.",
-            "Master Hands is the MP-cost reward, listed as MP Efficiency in the Dev data and MP Preservation in the pasted Clan Trials guide.",
+            "Master Hands is the MP-cost reward, also labeled MP Efficiency or MP Preservation in different in-game data sets.",
         ],
         completionTips: [
             "Bring one or two White Mages or other reliable Raise users in case Roulette picks off a runner.",

@@ -10,7 +10,7 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         paragraphs: [
             "Clan privileges are battle bonuses you choose before judge-led fights. They keep working only while the Judge remains in the battle; breaking the law turns off the privilege, removes revival support, and costs the law bonus for that fight.",
             "Trials are the main source of new privileges and privilege upgrades, but the title row matters. Clearing a higher row does not grant every lower row beneath it. If you want every privilege tied to a trial family, you must earn those rows or repeat the upgrade rows until the privilege has advanced step by step.",
-            "Your visible clan title comes from the most recently completed trial and is mainly a display label. Changing it does not remove benefits earned from earlier trial rows: the guide explicitly says those benefits stack. Talent changes and unlocked privilege upgrades also remain in effect."
+            "Your visible clan title comes from the most recently completed trial and is mainly a display label. Changing it does not remove benefits earned from earlier trial rows; those benefits stack. Talent changes and unlocked privilege upgrades also remain in effect."
         ],
         bullets: [
             "Only one clan privilege can be active at a time in battle.",
@@ -42,7 +42,7 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         subtitle: "Why some units succeed and others fail.",
         tone: "indigo",
         paragraphs: [
-            "Dispatch success is driven by more than vibes. The guide breaks it down as a combination of unit strength, equipment-boosted stats, quest rank, required clan talents, leader suitability, member compatibility, MVP/leader value, and whether the job matches a recommended role.",
+            "Dispatch success combines unit strength, equipment-boosted stats, quest rank, required clan talents, leader suitability, member compatibility, MVP or leader value, and whether the job matches a recommended role.",
             "The practical takeaway is simpler than the math: send strong, well-equipped units; make the best-fitting unit the leader; respect recommended jobs; and do not ignore required clan talents. Hard mode also raises the target difficulty, so a setup that barely passes on normal can fail there.",
             "Many dispatch quests can be played manually instead. Manual play is often better early because you keep the experience and loot, and it avoids sending away a unit you still need for other missions."
         ],
@@ -61,7 +61,7 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         paragraphs: [
             "Recruitment is not purely random. Traveling recruits depend on the in-game month and region, so the race and job pool changes as the calendar turns. If you are hunting a specific race, check the right month first instead of wandering everywhere.",
             "Clan Mates is the directed recruitment quest in Targ Wood. It is a no-combat quest where the activation month determines the recruit's race and four answers steer the offered job. It appears after Now That's a Fire! and completion of an auction.",
-            "The recruitment guide reports that a new recruit's level is based on the clan's average level, capped at level 30. Jobs must already be unlocked before they can be recruited, and some advanced jobs also require further story progress."
+            "A new recruit's level is based on the clan's average level, capped at level 30. Jobs must already be unlocked before they can be recruited, and some advanced jobs also require further story progress."
         ],
         bullets: [
             "Map recruits: month plus region controls the available race/job pool.",
@@ -111,7 +111,7 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         subtitle: "Where mounts come from.",
         tone: "lime",
         paragraphs: [
-            "Chocobos matter because Chocobo Knights need mounts to be more than a novelty. The guide places chocobos in random encounters by region, so finding a specific color is partly about checking the right map and partly about waiting for encounters to spawn.",
+            "Chocobos matter because Chocobo Knights need mounts to be more than a novelty. Chocobo colors appear in region-specific random encounters, so finding one means checking the right map and waiting for encounters to spawn.",
             "A random encounter remains for 10 days if ignored and reappears 50 days from its initial appearance. If defeated, that location's encounter respawns 120 days after completion. Other events on the same tile can take priority and temporarily hide the encounter.",
             "For practical routing, treat chocobo hunting as a side project once the relevant class and regions are available. Do not stall main progression for it unless you specifically want a Chocobo Knight plan."
         ],
@@ -147,7 +147,7 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         paragraphs: [
             "Once you’re deep into the story, fights stop being about raw levels and start being about how well your jobs and abilities mesh. Speed and turn order, reaction abilities, and positioning all matter a lot more when enemies can one-round squishier units.",
             "The core of FFTA2’s late-game power comes from stacking strong passives and reactions on jobs that can actually use them. Things like counter-style abilities, MP-efficient skills, and ways to ignore terrain or height let you control engagements instead of just trading hits.",
-            "This guide assumes you will gradually upgrade from simple early-game builds into more synergistic teams: units that act often, hit hard without draining all their MP, and can survive being focused for a turn or two while your healer recovers the line."
+            "Gradually upgrade from simple early-game builds into more synergistic teams: units that act often, hit hard without draining all their MP, and can survive being focused for a turn or two while your healer recovers the line."
         ]
     },
     {
@@ -156,9 +156,9 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         subtitle: "Which optional lines are worth tracking.",
         tone: "emerald",
         paragraphs: [
-            "Not every side mission is created equal. Some exist mostly for flavor or minor rewards, while others unlock powerful jobs, repeatable loot, or entire new segments of the game. The guide highlights chains that meaningfully change what your clan can do or open up new strategies.",
+            "Not every side mission is created equal. Some exist mostly for flavor or minor rewards, while others unlock powerful jobs, repeatable loot, or entire new segments of the game. Prioritize chains that expand what your clan can do or open new strategies.",
             "Examples include story-adjacent arcs that introduce important characters, mission lines that lead to rare weapons or accessories, and chains that deepen the Heritor, sky pirate, or clan storyline payoffs. When these show up, the notes will make it clear why they are worth your time.",
-            "You do not need to juggle a spreadsheet of quest names. Use this panel as a reminder that, when the guide calls out a chain explicitly, it’s because finishing it now either makes the upcoming story smoother or saves you tedious cleanup later."
+            "You do not need to juggle a spreadsheet of quest names. A highlighted chain is worth attention because finishing it now can make the upcoming story smoother or save tedious cleanup later."
         ]
     },
     {
@@ -169,16 +169,16 @@ export const SYSTEMS_PANELS: MetaPanel[] = [
         paragraphs: [
             "After the final story missions, FFTA2 opens up into a long tail of high-rank marks, leftover quests, and optimization projects. The danger is not that the content is impossible, but that it can feel directionless if you just accept missions at random.",
             "A good postgame loop alternates between: clearing remaining story-adjacent chains, tackling tougher marks to scoop up top-tier loot, and experimenting with late-game job combinations that you didn’t have the space to try during the main arcs.",
-            "Use this guide’s mission lists and notes to build small goal sets: finish a specific chain, unlock a certain class, or grab gear that pushes a favorite build to its final form. Treat postgame as a series of short, focused projects instead of one giant checklist."
+            "Use the mission lists and notes to build small goal sets: finish a specific chain, unlock a certain class, or grab gear that pushes a favorite build to its final form. Treat postgame as a series of short, focused projects instead of one giant checklist."
         ]
     },
     {
         id: "closing",
         title: "Final Notes & Closing Thoughts",
-        subtitle: "Wrap up the guide.",
+        subtitle: "Set your own endgame goals.",
         tone: "purple",
         paragraphs: [
-            "FFTA2 is built to reward tinkering. This guide gives you a safe route through the story, points you at the most efficient trials, marks, and chains, and outlines the systems that matter most—but there is a lot of room to customize along the way.",
+            "FFTA2 is built to reward tinkering. The suggested route covers efficient trials, marks, chains, and the systems that matter most, but there is still plenty of room to customize along the way.",
             "If you followed the suggested arcs and dipped into optional content when recommended, you should now have a clan that can handle anything Ivalice throws at it: story rematches, remaining quests, and your own challenge runs.",
             "From here, feel free to bend the rules. Try jobs you skipped, chase 100% completion, or replay arcs with different clan compositions. Use the mission and systems panels as reference when you need them, and ignore them when you already know exactly how you want to break the game."
         ]

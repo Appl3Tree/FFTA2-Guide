@@ -185,7 +185,7 @@ export const OPTIONAL_MISSIONS_A4: Mission[] = [
         },
     enemies: [],
         strategy: [
-            "Dispatch mission - no combat. Send a unit who can equip instruments, with Animist or Chocobo Knight as the guide-backed fits, for 6 days.",
+            "Dispatch mission - no combat. Send a unit who can equip instruments, such as an Animist or Chocobo Knight, for 6 days.",
         ],
         rewards: {
             gil: 2420,

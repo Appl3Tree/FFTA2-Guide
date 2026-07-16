@@ -367,7 +367,7 @@ export const OPTIONAL_MISSIONS_E4: Mission[] = [
             { name: "Randomized Name", job: "Berserker", quantity: 1, notes: "Scream, Furore, Ground Shaker, Smite of Rage, Counter, and Charged Attacks." },
             { name: "Randomized Name", job: "Fighter", quantity: 1, notes: "Wild Swing, Air Blast, Back Draft, MP Shield, and Doublehand." },
         ],
-        strategy: [            "Prioritize the Berserker because the guide calls out its debuff abilities such as Confuse.",        ],
+        strategy: [            "The Berserker has abilities that cause debuffs such as Confuse, so defeat it first.",        ],
         rewards: {
             gil: 7000,
             cp: 76,

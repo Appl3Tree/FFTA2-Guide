@@ -7,28 +7,10 @@ import React, {
     useRef,
     useState,
 } from "react";
-import {
-    createUserWithEmailAndPassword,
-    onAuthStateChanged,
-    sendPasswordResetEmail,
-    signInWithEmailAndPassword,
-    signInWithPopup,
-    signOut as firebaseSignOut,
-    type User,
-} from "firebase/auth";
-import {
-    doc,
-    getDoc,
-    serverTimestamp,
-    setDoc,
-} from "firebase/firestore";
-import {
-    auth,
-    db,
-    firebaseEnabled,
-    googleProvider,
-    GUIDE_SLUG,
-} from "../lib/firebase";
+import type { User } from "firebase/auth";
+import { firebaseEnabled, GUIDE_SLUG } from "../lib/firebaseConfig";
+
+type FirebaseRuntime = typeof import("../lib/firebase");
 
 type ProgressMap = Record<string, boolean>;
 type AuthStatus = "disabled" | "loading" | "signed-out" | "signed-in";
@@ -132,16 +114,24 @@ function createSyncConflict(local: ProgressMap, cloud: ProgressMap): SyncConflic
     };
 }
 
-function progressDocRef(userId: string) {
-    if (!db) {
+function progressDocRef(runtime: FirebaseRuntime, userId: string) {
+    const database = runtime.db;
+    if (!database) {
         throw new Error("Firestore is not configured.");
     }
-    return doc(db, "users", userId, "guides", GUIDE_SLUG);
+    return runtime.doc(
+        database,
+        "users",
+        userId,
+        "guides",
+        GUIDE_SLUG,
+    );
 }
 
 export function ProgressProvider({ children }: { children: React.ReactNode }) {
     const [checked, setChecked] = useState<ProgressMap>(readLocalProgress);
     const checkedRef = useRef(checked);
+    const firebaseRuntimeRef = useRef<FirebaseRuntime | null>(null);
     const [user, setUser] = useState<User | null>(null);
     const [authStatus, setAuthStatus] = useState<AuthStatus>(
         firebaseEnabled ? "loading" : "disabled",
@@ -160,75 +150,127 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     }, [checked]);
 
     useEffect(() => {
-        if (!firebaseEnabled || !auth) {
+        let active = true;
+        let unsubscribe: (() => void) | undefined;
+
+        if (!firebaseEnabled) {
             setAuthStatus("disabled");
             setSyncStatus("local-only");
             return;
         }
 
-        return onAuthStateChanged(auth, async (nextUser) => {
-            setUser(nextUser);
-            setAuthError(null);
-            setRemoteReady(false);
-            setSyncConflict(null);
-
-            if (!nextUser) {
-                setAuthStatus("signed-out");
-                setSyncStatus("idle");
-                return;
-            }
-
-            setAuthStatus("signed-in");
-            setSyncStatus("loading");
-
+        const initializeFirebase = async () => {
             try {
-                const snapshot = await getDoc(progressDocRef(nextUser.uid));
-                const remoteChecked = snapshot.exists()
-                    ? ((snapshot.data().checked ?? {}) as ProgressMap)
-                    : {};
-                const localChecked = checkedRef.current;
-                const localCount = progressCount(localChecked);
-                const cloudCount = progressCount(remoteChecked);
+                const runtime = await import("../lib/firebase");
+                if (!active) return;
 
-                if (
-                    localCount > 0 &&
-                    cloudCount > 0 &&
-                    !sameProgress(localChecked, remoteChecked)
-                ) {
-                    setSyncConflict(createSyncConflict(localChecked, remoteChecked));
-                    setSyncStatus("idle");
+                firebaseRuntimeRef.current = runtime;
+                const auth = runtime.auth;
+                if (!auth) {
+                    setAuthStatus("disabled");
+                    setSyncStatus("local-only");
                     return;
                 }
 
-                setChecked(cloudCount > 0 ? remoteChecked : localChecked);
-                setRemoteReady(true);
-                setSyncStatus("saved");
+                unsubscribe = runtime.onAuthStateChanged(
+                    auth,
+                    async (nextUser) => {
+                        if (!active) return;
+
+                        setUser(nextUser);
+                        setAuthError(null);
+                        setRemoteReady(false);
+                        setSyncConflict(null);
+
+                        if (!nextUser) {
+                            setAuthStatus("signed-out");
+                            setSyncStatus("idle");
+                            return;
+                        }
+
+                        setAuthStatus("signed-in");
+                        setSyncStatus("loading");
+
+                        try {
+                            const snapshot = await runtime.getDoc(
+                                progressDocRef(runtime, nextUser.uid),
+                            );
+                            if (!active) return;
+
+                            const remoteChecked = snapshot.exists()
+                                ? ((snapshot.data().checked ?? {}) as ProgressMap)
+                                : {};
+                            const localChecked = checkedRef.current;
+                            const localCount = progressCount(localChecked);
+                            const cloudCount = progressCount(remoteChecked);
+
+                            if (
+                                localCount > 0 &&
+                                cloudCount > 0 &&
+                                !sameProgress(localChecked, remoteChecked)
+                            ) {
+                                setSyncConflict(
+                                    createSyncConflict(
+                                        localChecked,
+                                        remoteChecked,
+                                    ),
+                                );
+                                setSyncStatus("idle");
+                                return;
+                            }
+
+                            setChecked(
+                                cloudCount > 0 ? remoteChecked : localChecked,
+                            );
+                            setRemoteReady(true);
+                            setSyncStatus("saved");
+                        } catch (error) {
+                            if (!active) return;
+                            setAuthError(
+                                error instanceof Error
+                                    ? error.message
+                                    : "Unable to load cloud progress.",
+                            );
+                            setSyncStatus("error");
+                        }
+                    },
+                );
             } catch (error) {
+                if (!active) return;
                 setAuthError(
                     error instanceof Error
                         ? error.message
-                        : "Unable to load cloud progress.",
+                        : "Unable to initialize cloud progress.",
                 );
+                setAuthStatus("disabled");
                 setSyncStatus("error");
             }
-        });
+        };
+
+        void initializeFirebase();
+
+        return () => {
+            active = false;
+            unsubscribe?.();
+        };
     }, []);
 
     useEffect(() => {
-        if (!firebaseEnabled || !user || !remoteReady) {
+        const runtime = firebaseRuntimeRef.current;
+        if (!firebaseEnabled || !runtime || !user || !remoteReady) {
             return;
         }
 
         setSyncStatus("syncing");
         const timeout = window.setTimeout(async () => {
             try {
-                await setDoc(
-                    progressDocRef(user.uid),
+                await runtime.setDoc(
+                    progressDocRef(runtime, user.uid),
                     {
                         checked,
                         guideSlug: GUIDE_SLUG,
                         schemaVersion: 1,
-                        updatedAt: serverTimestamp(),
+                        updatedAt: runtime.serverTimestamp(),
                     },
                 );
                 setSyncStatus("saved");
@@ -279,14 +321,17 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     }, []);
 
     const handleGoogleSignIn = useCallback(async () => {
-        if (!auth || !googleProvider) {
+        const runtime = firebaseRuntimeRef.current;
+        const auth = runtime?.auth;
+        const googleProvider = runtime?.googleProvider;
+        if (!runtime || !auth || !googleProvider) {
             setAuthError("Firebase Auth is not configured.");
             return;
         }
 
         setAuthError(null);
         try {
-            await signInWithPopup(auth, googleProvider);
+            await runtime.signInWithPopup(auth, googleProvider);
         } catch (error) {
             setAuthError(
                 error instanceof Error
@@ -297,14 +342,20 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     }, []);
 
     const handleEmailSignIn = useCallback(async (email: string, password: string) => {
-        if (!auth) {
+        const runtime = firebaseRuntimeRef.current;
+        const auth = runtime?.auth;
+        if (!runtime || !auth) {
             setAuthError("Firebase Auth is not configured.");
             return;
         }
 
         setAuthError(null);
         try {
-            await signInWithEmailAndPassword(auth, email, password);
+            await runtime.signInWithEmailAndPassword(
+                auth,
+                email,
+                password,
+            );
         } catch (error) {
             setAuthError(
                 error instanceof Error
@@ -316,14 +367,20 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
 
     const handleEmailCreateAccount = useCallback(
         async (email: string, password: string) => {
-            if (!auth) {
+            const runtime = firebaseRuntimeRef.current;
+            const auth = runtime?.auth;
+            if (!runtime || !auth) {
                 setAuthError("Firebase Auth is not configured.");
                 return;
             }
 
             setAuthError(null);
             try {
-                await createUserWithEmailAndPassword(auth, email, password);
+                await runtime.createUserWithEmailAndPassword(
+                    auth,
+                    email,
+                    password,
+                );
             } catch (error) {
                 setAuthError(
                     error instanceof Error
@@ -336,14 +393,16 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     );
 
     const handlePasswordReset = useCallback(async (email: string) => {
-        if (!auth) {
+        const runtime = firebaseRuntimeRef.current;
+        const auth = runtime?.auth;
+        if (!runtime || !auth) {
             setAuthError("Firebase Auth is not configured.");
             return;
         }
 
         setAuthError(null);
         try {
-            await sendPasswordResetEmail(auth, email);
+            await runtime.sendPasswordResetEmail(auth, email);
         } catch (error) {
             setAuthError(
                 error instanceof Error
@@ -354,14 +413,16 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     }, []);
 
     const handleSignOut = useCallback(async () => {
-        if (!auth) {
+        const runtime = firebaseRuntimeRef.current;
+        const auth = runtime?.auth;
+        if (!runtime || !auth) {
             return;
         }
 
         setAuthError(null);
         setSyncConflict(null);
         try {
-            await firebaseSignOut(auth);
+            await runtime.firebaseSignOut(auth);
         } catch (error) {
             setAuthError(
                 error instanceof Error ? error.message : "Unable to sign out.",

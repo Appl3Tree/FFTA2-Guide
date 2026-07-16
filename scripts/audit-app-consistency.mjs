@@ -618,7 +618,6 @@ const aggregateMissionEnemyJobs = new Set([
     "Randomized Clan",
     "Randomized Monster",
     "Rival Clan",
-    "Worgen/Rocktitan/Tonberry",
 ]);
 
 function bestiaryHasJob(job) {
@@ -631,14 +630,19 @@ function knownNonBestiaryJobExists(job) {
     return knownNonBestiaryJobs.has(alias);
 }
 
+function missionEnemyJobExists(job) {
+    if (aggregateMissionEnemyJobs.has(job)) return true;
+
+    const jobs = job.split(/\s*\/\s*/).filter(Boolean);
+    return jobs.every(
+        (entry) => bestiaryHasJob(entry) || knownNonBestiaryJobExists(entry),
+    );
+}
+
 for (const mission of missions.values()) {
     for (const enemy of mission.enemies) {
         if (!enemy.job || enemy.job === "—") continue;
-        if (
-            !bestiaryHasJob(enemy.job) &&
-            !knownNonBestiaryJobExists(enemy.job) &&
-            !aggregateMissionEnemyJobs.has(enemy.job)
-        ) {
+        if (!missionEnemyJobExists(enemy.job)) {
             add(findings, {
                 type: "mission-enemy-job-not-indexed",
                 file: mission.file,

@@ -1,54 +1,21 @@
 import React from "react";
+import {
+    RotateCcw,
+    Search,
+    SlidersHorizontal,
+} from "lucide-react";
 import { ALL_MISSIONS } from "../../data/missions/allMissions";
 import type { Mission } from "../../types/ffta2";
-import { MissionCard } from "./MissionCard";
 import type { MissionTag } from "../../data/missions/missionTags";
 import { RETRO_ACHIEVEMENTS_BY_MISSION_ID } from "../../data/retroAchievements";
-import { useProgress } from "../ProgressContext";
+import { missionScopeId } from "../../data/checklistScopes";
 import {
     getMergedMissionTags,
     getMissionSearchScore,
 } from "../../utils/missionSearch";
-
-function getMissionSortKey(mission: Mission) {
-    const raw = (mission as any).id || mission.arc;
-    const extraMatch = raw.match(/^(EX|ME)-?(\d+)?/i);
-
-    if (extraMatch) {
-        return {
-            chapterLetter: extraMatch[1].toUpperCase() === "EX" ? "X" : "Y",
-            arcNumber: 0,
-            missionIndex: extraMatch[2] ? parseInt(extraMatch[2], 10) : 0,
-        };
-    }
-
-    const match = raw.match(/^([A-E])(\d)(?:-(\d+))?/i);
-
-    if (!match) {
-        return {
-            chapterLetter: "Z",
-            arcNumber: 99,
-            missionIndex: 999,
-        };
-    }
-
-    const [, letterRaw, arcNumRaw, indexRaw] = match;
-    const chapterLetter = letterRaw.toUpperCase();
-    const arcNumber = parseInt(arcNumRaw, 10);
-    const missionIndex = indexRaw ? parseInt(indexRaw, 10) : 0;
-
-    return { chapterLetter, arcNumber, missionIndex };
-}
-
-function sortByArcAndIndex(a: Mission, b: Mission) {
-    const A = getMissionSortKey(a);
-    const B = getMissionSortKey(b);
-
-    if (A.chapterLetter < B.chapterLetter) return -1;
-    if (A.chapterLetter > B.chapterLetter) return 1;
-    if (A.arcNumber !== B.arcNumber) return A.arcNumber - B.arcNumber;
-    return A.missionIndex - B.missionIndex;
-}
+import { useChecklistPreferences } from "../ChecklistPreferencesContext";
+import { useProgress } from "../ProgressContext";
+import { MissionCard } from "./MissionCard";
 
 type ArcFilter =
     | "ALL"
@@ -57,7 +24,10 @@ type ArcFilter =
     | "C1" | "C2" | "C3" | "C4" | "C5"
     | "D1" | "D2" | "D3" | "D4" | "D5"
     | "E1" | "E2" | "E3" | "E4" | "E5"
-    | "EX" | "ME";
+    | "EX"
+    | "ME";
+
+type CompletionFilter = "ALL" | "COMPLETED" | "NOT_COMPLETED";
 
 const ARC_FILTERS: ArcFilter[] = [
     "ALL",
@@ -66,15 +36,8 @@ const ARC_FILTERS: ArcFilter[] = [
     "C1", "C2", "C3", "C4", "C5",
     "D1", "D2", "D3", "D4", "D5",
     "E1", "E2", "E3", "E4", "E5",
-    "EX", "ME",
-];
-
-type CompletionFilter = "ALL" | "COMPLETED" | "NOT_COMPLETED";
-
-const COMPLETION_FILTERS: CompletionFilter[] = [
-    "ALL",
-    "COMPLETED",
-    "NOT_COMPLETED",
+    "EX",
+    "ME",
 ];
 
 const TAG_FILTERS: MissionTag[] = [
@@ -103,41 +66,79 @@ const TAG_FILTERS: MissionTag[] = [
 ];
 
 const TAG_LABELS: Partial<Record<MissionTag, string>> = {
-    "job-unlock": "Job Unlock",
-    "map-event": "Map Event",
-    "ex-mission": "EX",
-    auction: "Auction",
-    treasure: "Treasure",
-    missable: "Missable",
-    "notorious-mark": "Mark Hunt",
-    "multi-battle": "Multi-Battle",
-    "law-sensitive": "Law Sensitive",
-    "story-cameo": "Story Cameo",
+    "job-unlock": "Job unlock",
+    "map-event": "Map event",
+    "ex-mission": "EX mission",
+    "notorious-mark": "Mark hunt",
+    "multi-battle": "Multi-battle",
+    "law-sensitive": "Law sensitive",
+    "story-cameo": "Story cameo",
 };
 
+const MOBILE_BATCH_SIZE = 30;
+
 function getTagLabel(tag: MissionTag): string {
-    return TAG_LABELS[tag] ?? tag;
+    return TAG_LABELS[tag] ?? `${tag.charAt(0).toUpperCase()}${tag.slice(1)}`;
+}
+
+function getMissionSortKey(mission: Mission) {
+    const raw = mission.id || mission.arc;
+    const extraMatch = raw.match(/^(EX|ME)-?(\d+)?/i);
+
+    if (extraMatch) {
+        return {
+            chapterLetter: extraMatch[1].toUpperCase() === "EX" ? "X" : "Y",
+            arcNumber: 0,
+            missionIndex: extraMatch[2] ? Number.parseInt(extraMatch[2], 10) : 0,
+        };
+    }
+
+    const match = raw.match(/^([A-E])(\d)(?:-(\d+))?/i);
+    if (!match) {
+        return { chapterLetter: "Z", arcNumber: 99, missionIndex: 999 };
+    }
+
+    return {
+        chapterLetter: match[1].toUpperCase(),
+        arcNumber: Number.parseInt(match[2], 10),
+        missionIndex: match[3] ? Number.parseInt(match[3], 10) : 0,
+    };
+}
+
+function sortByArcAndIndex(left: Mission, right: Mission) {
+    const leftKey = getMissionSortKey(left);
+    const rightKey = getMissionSortKey(right);
+
+    return (
+        leftKey.chapterLetter.localeCompare(rightKey.chapterLetter) ||
+        leftKey.arcNumber - rightKey.arcNumber ||
+        leftKey.missionIndex - rightKey.missionIndex
+    );
 }
 
 export function MissionTabs() {
+    const { checked, setCheck } = useProgress();
+    const { isChecklistEnabled, isScopeEnabled } = useChecklistPreferences();
     const [activeArc, setActiveArc] = React.useState<ArcFilter>("ALL");
-    const [searchTerm, setSearchTerm] = React.useState("");
-    const [selectedTags, setSelectedTags] = React.useState<MissionTag[]>([]);
-    const [showTagFilters, setShowTagFilters] = React.useState(false);
-    const [showArcFilters, setShowArcFilters] = React.useState(false);
     const [completionFilter, setCompletionFilter] =
         React.useState<CompletionFilter>("ALL");
-    const [showCompletionFilters, setShowCompletionFilters] =
-        React.useState(false);
+    const [filtersOpen, setFiltersOpen] = React.useState(false);
     const [missableRetrosOnly, setMissableRetrosOnly] = React.useState(false);
+    const [searchTerm, setSearchTerm] = React.useState("");
+    const [selectedMissionId, setSelectedMissionId] = React.useState("");
+    const [selectedTags, setSelectedTags] = React.useState<MissionTag[]>([]);
+    const [visibleCount, setVisibleCount] = React.useState(MOBILE_BATCH_SIZE);
+    const detailRef = React.useRef<HTMLDivElement>(null);
+    const filterId = React.useId();
 
-    const { checked } = useProgress();
-
+    const missionTrackingEnabled =
+        isChecklistEnabled("missions") &&
+        (isScopeEnabled("missions", "quest-report") ||
+            isScopeEnabled("missions", "other-missions"));
     const normalizedSearch = searchTerm.trim().toLowerCase();
 
     const missableRetroMissionIds = React.useMemo(() => {
         const ids = new Set<string>();
-
         for (const [missionId, achievements] of Object.entries(
             RETRO_ACHIEVEMENTS_BY_MISSION_ID,
         )) {
@@ -145,302 +146,384 @@ export function MissionTabs() {
                 ids.add(missionId);
             }
         }
-
         return ids;
     }, []);
 
-    const allMissions = React.useMemo<Mission[]>(() => {
-        return [...ALL_MISSIONS].sort(sortByArcAndIndex);
-    }, []);
-
-    const toggleTag = (tag: MissionTag) => {
-        setSelectedTags((prev) =>
-            prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
-        );
-    };
+    const allMissions = React.useMemo(
+        () => [...ALL_MISSIONS].sort(sortByArcAndIndex),
+        [],
+    );
 
     const missions = React.useMemo(() => {
-        let filtered = allMissions
-            .map((mission: Mission) => {
-                if (activeArc !== "ALL") {
-                    if (mission.arc !== activeArc) return null;
+        let filtered = allMissions.flatMap((mission) => {
+            if (activeArc !== "ALL" && mission.arc !== activeArc) return [];
+            if (
+                missableRetrosOnly &&
+                !missableRetroMissionIds.has(mission.id)
+            ) {
+                return [];
+            }
+
+            const mergedTags = getMergedMissionTags(mission);
+            if (
+                selectedTags.length > 0 &&
+                !mergedTags.some((tag) =>
+                    selectedTags.includes(tag as MissionTag),
+                )
+            ) {
+                return [];
+            }
+
+            let searchScore = 0;
+            if (normalizedSearch) {
+                const score = getMissionSearchScore(
+                    mission,
+                    normalizedSearch,
+                    mergedTags,
+                );
+                if (score == null) return [];
+                searchScore = score;
+            }
+
+            if (completionFilter !== "ALL") {
+                if (!isScopeEnabled("missions", missionScopeId(mission))) {
+                    return [];
                 }
+                const completed = Boolean(checked[`mission:${mission.id}`]);
+                if (completionFilter === "COMPLETED" && !completed) return [];
+                if (completionFilter === "NOT_COMPLETED" && completed) return [];
+            }
 
-                if (
-                    missableRetrosOnly &&
-                    !missableRetroMissionIds.has(mission.id)
-                ) {
-                    return null;
-                }
+            return [{ mission, searchScore }];
+        });
 
-                const mergedTags = getMergedMissionTags(mission);
-
-                if (selectedTags.length > 0) {
-                    const hasAny = mergedTags.some((tag) =>
-                        selectedTags.includes(tag as MissionTag),
-                    );
-                    if (!hasAny) return null;
-                }
-
-                let searchScore = 0;
-                if (normalizedSearch.length > 0) {
-                    const score = getMissionSearchScore(
-                        mission,
-                        normalizedSearch,
-                        mergedTags,
-                    );
-                    if (score == null) return null;
-                    searchScore = score;
-                }
-
-                if (completionFilter !== "ALL") {
-                    const key = `mission:${mission.id}`;
-                    const isCompleted = !!checked[key];
-
-                    if (completionFilter === "COMPLETED" && !isCompleted) {
-                        return null;
-                    }
-
-                    if (completionFilter === "NOT_COMPLETED" && isCompleted) {
-                        return null;
-                    }
-                }
-
-                return { mission, searchScore };
-            })
-            .filter(
-                (entry): entry is { mission: Mission; searchScore: number } =>
-                    entry !== null,
-            );
-
-        if (normalizedSearch.length > 0) {
+        if (normalizedSearch) {
             const bestScore = filtered.reduce(
                 (best, entry) => Math.max(best, entry.searchScore),
                 0,
             );
-
             if (bestScore >= 900) {
                 filtered = filtered.filter((entry) => entry.searchScore >= 820);
             }
-
-            filtered.sort((a, b) => {
-                if (b.searchScore !== a.searchScore) {
-                    return b.searchScore - a.searchScore;
-                }
-                return sortByArcAndIndex(a.mission, b.mission);
-            });
+            filtered.sort(
+                (left, right) =>
+                    right.searchScore - left.searchScore ||
+                    sortByArcAndIndex(left.mission, right.mission),
+            );
         }
 
         return filtered.map((entry) => entry.mission);
     }, [
-        allMissions,
         activeArc,
+        allMissions,
+        checked,
+        completionFilter,
+        isScopeEnabled,
+        missableRetroMissionIds,
+        missableRetrosOnly,
         normalizedSearch,
         selectedTags,
-        completionFilter,
-        missableRetrosOnly,
-        missableRetroMissionIds,
-        checked,
     ]);
+
+    React.useEffect(() => {
+        setVisibleCount(MOBILE_BATCH_SIZE);
+    }, [activeArc, completionFilter, missableRetrosOnly, normalizedSearch, selectedTags]);
+
+    React.useEffect(() => {
+        if (!missionTrackingEnabled) setCompletionFilter("ALL");
+    }, [missionTrackingEnabled]);
+
+    const selectedMission =
+        missions.find((mission) => mission.id === selectedMissionId) ??
+        missions[0] ??
+        null;
+    const visibleMissions = missions.slice(0, visibleCount);
+    const remainingMissions = Math.max(
+        0,
+        missions.length - visibleMissions.length,
+    );
+    const activeFilterCount =
+        (activeArc === "ALL" ? 0 : 1) +
+        (completionFilter === "ALL" ? 0 : 1) +
+        (missableRetrosOnly ? 1 : 0) +
+        selectedTags.length;
+
+    const toggleTag = (tag: MissionTag) => {
+        setSelectedTags((current) =>
+            current.includes(tag)
+                ? current.filter((candidate) => candidate !== tag)
+                : [...current, tag],
+        );
+    };
+
+    const resetFilters = () => {
+        setActiveArc("ALL");
+        setCompletionFilter("ALL");
+        setMissableRetrosOnly(false);
+        setSelectedTags([]);
+    };
+
+    const selectMission = (missionId: string) => {
+        setSelectedMissionId(missionId);
+        detailRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     return (
         <div className="space-y-4">
-            {/* Filters left / Search right */}
-            <div className="flex flex-col gap-3">
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    {/* Filters LEFT */}
-                    <div className="flex flex-wrap items-center gap-2 justify-between sm:justify-start w-full sm:w-auto">
-                        {/* Filter by Arc */}
-                        <button
-                            type="button"
-                            onClick={() => setShowArcFilters((prev) => !prev)}
-                            className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
-                                showArcFilters
-                                    ? "border-rose-500/80 bg-rose-900/60 text-rose-100"
-                                    : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
-                            }`}
-                        >
-                            Filter by Arc
-                            {activeArc !== "ALL" && (
-                                <span className="ml-1 text-[0.65rem] opacity-80">
-                                    ({activeArc})
-                                </span>
-                            )}
-                        </button>
+            <div className="grid gap-2 md:grid-cols-[minmax(0,1fr)_auto]">
+                <label className="relative block">
+                    <span className="sr-only">Search missions</span>
+                    <Search
+                        aria-hidden="true"
+                        className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500"
+                    />
+                    <input
+                        type="search"
+                        value={searchTerm}
+                        onChange={(event) => setSearchTerm(event.target.value)}
+                        placeholder="Search missions, objectives, rewards, or recruits"
+                        className="min-h-11 w-full rounded-md border border-zinc-700 bg-zinc-950 py-2 pl-10 pr-3 text-base text-zinc-100 placeholder:text-zinc-500 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/70 sm:text-sm"
+                    />
+                </label>
+                <button
+                    type="button"
+                    aria-controls={filterId}
+                    aria-expanded={filtersOpen}
+                    onClick={() => setFiltersOpen((open) => !open)}
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-zinc-700 bg-zinc-900 px-3 py-2 text-sm font-semibold text-zinc-200 transition-colors hover:border-zinc-500 hover:bg-zinc-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
+                >
+                    <SlidersHorizontal aria-hidden="true" className="h-4 w-4" />
+                    Filters
+                    {activeFilterCount > 0 ? (
+                        <span className="min-w-5 rounded-full bg-violet-400 px-1.5 py-0.5 text-center text-xs font-bold tabular-nums text-violet-950">
+                            {activeFilterCount}
+                        </span>
+                    ) : null}
+                </button>
+            </div>
 
-                        {/* Filter by Tag */}
-                        <button
-                            type="button"
-                            onClick={() => setShowTagFilters((prev) => !prev)}
-                            className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
-                                showTagFilters
-                                    ? "border-emerald-400/80 bg-emerald-900/60 text-emerald-50"
-                                    : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
-                            }`}
-                        >
-                            Filter by Tag
-                            {selectedTags.length > 0 && (
-                                <span className="ml-1 text-[0.65rem] opacity-80">
-                                    ({selectedTags.length})
-                                </span>
-                            )}
-                        </button>
-
-                        {/* Filter by Completion */}
-                        <button
-                            type="button"
-                            onClick={() =>
-                                setShowCompletionFilters((prev) => !prev)
-                            }
-                            className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
-                                showCompletionFilters
-                                    ? "border-sky-500/80 bg-sky-900/60 text-sky-100"
-                                    : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
-                            }`}
-                        >
-                            Filter by Completion
-                            {completionFilter !== "ALL" && (
-                                <span className="ml-1 text-[0.65rem] opacity-80">
-                                    (
-                                    {completionFilter === "COMPLETED"
-                                        ? "✓"
-                                        : "✗"}
-                                    )
-                                </span>
-                            )}
-                        </button>
-
-                        <button
-                            type="button"
-                            onClick={() =>
-                                setMissableRetrosOnly((prev) => !prev)
-                            }
-                            aria-pressed={missableRetrosOnly}
-                            className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
-                                missableRetrosOnly
-                                    ? "border-amber-400/80 bg-amber-900/60 text-amber-100"
-                                    : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
-                            }`}
-                        >
-                            Missable Retros
-                            {missableRetrosOnly && (
-                                <span className="ml-1 text-[0.65rem] opacity-80">
-                                    ({missableRetroMissionIds.size})
-                                </span>
-                            )}
-                        </button>
-                    </div>
-
-                    {/* Search RIGHT */}
-                    <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
-                        <input
-                            type="text"
-                            className="w-full sm:w-72 rounded-xl border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70"
-                            placeholder="Search missions (name, objective, rewards...)"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-                    </div>
-                </div>
-
-                {/* Arc filter pills */}
-                {showArcFilters && (
-                    <div className="flex flex-wrap gap-1.5">
-                        {ARC_FILTERS.map((arc) => {
-                            const isActive = activeArc === arc;
-                            return (
-                                <button
-                                    key={arc}
-                                    type="button"
-                                    onClick={() => setActiveArc(arc)}
-                                    className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
-                                        isActive
-                                            ? "border-rose-500/80 bg-rose-900/60 text-rose-100"
-                                            : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
-                                    }`}
-                                >
-                                    {arc === "ALL" ? "All" : arc}
-                                </button>
-                            );
-                        })}
-                    </div>
-                )}
-
-                {/* Tag pills */}
-                {showTagFilters && (
-                    <div className="flex flex-wrap gap-1.5">
-                        {TAG_FILTERS.map((tag) => {
-                            const isActive = selectedTags.includes(tag);
-                            return (
-                                <button
-                                    key={tag}
-                                    type="button"
-                                    onClick={() => toggleTag(tag)}
-                                    className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.65rem] uppercase tracking-[0.16em] ${
-                                        isActive
-                                            ? "border-emerald-400/80 bg-emerald-900/60 text-emerald-50"
-                                            : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
-                                    }`}
-                                >
-                                    {getTagLabel(tag)}
-                                </button>
-                            );
-                        })}
-
-                        {selectedTags.length > 0 && (
-                            <button
-                                type="button"
-                                onClick={() => setSelectedTags([])}
-                                className="ml-1 inline-flex items-center rounded-full border border-zinc-700/80 bg-zinc-900/80 px-2.5 py-1 text-[0.65rem] uppercase tracking-[0.16em] text-zinc-400 hover:border-zinc-500"
+            {filtersOpen ? (
+                <div id={filterId} className="border-y border-zinc-800 py-3">
+                    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                        <label className="text-xs font-semibold text-zinc-400">
+                            Arc
+                            <select
+                                value={activeArc}
+                                onChange={(event) =>
+                                    setActiveArc(event.target.value as ArcFilter)
+                                }
+                                className="mt-1 min-h-11 w-full rounded-md border border-zinc-700 bg-zinc-950 px-3 py-2 text-base font-normal text-zinc-100 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-400 sm:text-sm"
                             >
-                                Clear Tags
-                            </button>
-                        )}
-                    </div>
-                )}
+                                {ARC_FILTERS.map((arc) => (
+                                    <option key={arc} value={arc}>
+                                        {arc === "ALL" ? "All arcs" : arc}
+                                    </option>
+                                ))}
+                            </select>
+                        </label>
 
-                {/* Completion pills */}
-                {showCompletionFilters && (
-                    <div className="flex flex-wrap gap-1.5">
-                        {COMPLETION_FILTERS.map((value) => {
-                            const isActive = completionFilter === value;
-                            const label =
-                                value === "ALL"
-                                    ? "All"
-                                    : value === "COMPLETED"
-                                    ? "✓"
-                                    : "✗";
-                            return (
-                                <button
-                                    key={value}
-                                    type="button"
-                                    onClick={() => setCompletionFilter(value)}
-                                    className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.16em] ${
-                                        isActive
-                                            ? "border-sky-500/80 bg-sky-900/60 text-sky-100"
-                                            : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
-                                    }`}
+                        {missionTrackingEnabled ? (
+                            <label className="text-xs font-semibold text-zinc-400">
+                                Completion
+                                <select
+                                    value={completionFilter}
+                                    onChange={(event) =>
+                                        setCompletionFilter(
+                                            event.target.value as CompletionFilter,
+                                        )
+                                    }
+                                    className="mt-1 min-h-11 w-full rounded-md border border-zinc-700 bg-zinc-950 px-3 py-2 text-base font-normal text-zinc-100 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-400 sm:text-sm"
                                 >
-                                    {label}
-                                </button>
-                            );
-                        })}
+                                    <option value="ALL">All missions</option>
+                                    <option value="NOT_COMPLETED">Not completed</option>
+                                    <option value="COMPLETED">Completed</option>
+                                </select>
+                            </label>
+                        ) : null}
+
+                        <label className="flex min-h-11 cursor-pointer items-center gap-2 self-end rounded-md px-2 text-sm text-zinc-200 hover:bg-zinc-900 focus-within:ring-2 focus-within:ring-amber-300">
+                            <input
+                                type="checkbox"
+                                checked={missableRetrosOnly}
+                                onChange={(event) =>
+                                    setMissableRetrosOnly(event.target.checked)
+                                }
+                                className="h-5 w-5 rounded border-zinc-500 accent-amber-400"
+                            />
+                            Missable RetroAchievements
+                        </label>
+
+                        <button
+                            type="button"
+                            onClick={resetFilters}
+                            disabled={activeFilterCount === 0}
+                            className="inline-flex min-h-11 items-center justify-center gap-2 self-end rounded-md px-3 py-2 text-sm font-semibold text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-zinc-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 disabled:cursor-not-allowed disabled:opacity-40"
+                        >
+                            <RotateCcw aria-hidden="true" className="h-4 w-4" />
+                            Reset filters
+                        </button>
                     </div>
-                )}
+
+                    <fieldset className="mt-4 border-t border-zinc-800 pt-3">
+                        <legend className="px-1 text-xs font-semibold text-zinc-400">
+                            Tags
+                        </legend>
+                        <div className="mt-2 grid grid-cols-2 gap-x-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+                            {TAG_FILTERS.map((tag) => (
+                                <label
+                                    key={tag}
+                                    className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md px-2 text-xs text-zinc-300 transition-colors hover:bg-zinc-900 focus-within:ring-2 focus-within:ring-emerald-300"
+                                >
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedTags.includes(tag)}
+                                        onChange={() => toggleTag(tag)}
+                                        className="h-4 w-4 shrink-0 rounded border-zinc-500 accent-emerald-400"
+                                    />
+                                    <span>{getTagLabel(tag)}</span>
+                                </label>
+                            ))}
+                        </div>
+                    </fieldset>
+                </div>
+            ) : null}
+
+            <div
+                className="flex flex-wrap items-center justify-between gap-2 border-y border-zinc-800 py-2 text-xs text-zinc-400"
+                aria-live="polite"
+            >
+                <span>
+                    <span className="font-semibold tabular-nums text-zinc-100">
+                        {missions.length}
+                    </span>{" "}
+                    result{missions.length === 1 ? "" : "s"}
+                </span>
+                {missions.length > visibleMissions.length ? (
+                    <span className="tabular-nums lg:hidden">
+                        Showing {visibleMissions.length}
+                    </span>
+                ) : null}
             </div>
 
-            {/* Mission list */}
-            <div className="space-y-3">
-                {missions.map((mission) => (
-                    <MissionCard key={mission.id} mission={mission} />
-                ))}
+            {missions.length === 0 ? (
+                <p role="status" className="py-6 text-center text-sm text-zinc-400">
+                    No missions match the current search and filters.
+                </p>
+            ) : (
+                <>
+                    <div className="space-y-2 lg:hidden">
+                        {visibleMissions.map((mission) => (
+                            <MissionCard key={mission.id} mission={mission} />
+                        ))}
+                        {remainingMissions > 0 ? (
+                            <div className="grid gap-2 border-t border-zinc-800 pt-3 sm:grid-cols-2">
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        setVisibleCount((count) =>
+                                            Math.min(
+                                                count + MOBILE_BATCH_SIZE,
+                                                missions.length,
+                                            ),
+                                        )
+                                    }
+                                    className="inline-flex min-h-11 items-center justify-center rounded-md border border-violet-700 bg-violet-950/40 px-4 py-2 text-sm font-semibold text-violet-100 hover:border-violet-500 hover:bg-violet-900/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
+                                >
+                                    Show next {Math.min(MOBILE_BATCH_SIZE, remainingMissions)}
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setVisibleCount(missions.length)}
+                                    className="inline-flex min-h-11 items-center justify-center rounded-md px-4 py-2 text-sm font-semibold text-zinc-300 hover:bg-zinc-800 hover:text-zinc-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+                                >
+                                    Show all {missions.length}
+                                </button>
+                            </div>
+                        ) : null}
+                    </div>
 
-                {missions.length === 0 && (
-                    <p className="text-xs sm:text-sm text-zinc-400 italic">
-                        No missions match the current filters.
-                    </p>
-                )}
-            </div>
+                    <div className="hidden h-[75vh] min-h-[38rem] max-h-[48rem] grid-cols-[minmax(18rem,0.85fr)_minmax(0,1.65fr)] overflow-hidden border-y border-zinc-800 lg:grid">
+                        <nav
+                            aria-label="Mission results"
+                            className="min-h-0 overflow-y-auto border-r border-zinc-800"
+                        >
+                            <ol>
+                                {missions.map((mission) => {
+                                    const selected = selectedMission?.id === mission.id;
+                                    const completed = Boolean(
+                                        checked[`mission:${mission.id}`],
+                                    );
+                                    const rowTrackingEnabled = isScopeEnabled(
+                                        "missions",
+                                        missionScopeId(mission),
+                                    );
+                                    return (
+                                        <li
+                                            key={mission.id}
+                                            className={`grid border-b border-zinc-800/80 ${
+                                                rowTrackingEnabled
+                                                    ? "grid-cols-[3rem_minmax(0,1fr)]"
+                                                    : "grid-cols-1"
+                                            } ${
+                                                selected
+                                                    ? "bg-violet-950/60 text-zinc-50"
+                                                    : "text-zinc-200 hover:bg-zinc-900"
+                                            }`}
+                                        >
+                                            {rowTrackingEnabled ? (
+                                                <label className="flex min-h-16 cursor-pointer items-center justify-center border-r border-zinc-800/80 focus-within:ring-2 focus-within:ring-inset focus-within:ring-emerald-300">
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={completed}
+                                                        onChange={(event) =>
+                                                            setCheck(
+                                                                `mission:${mission.id}`,
+                                                                event.target.checked,
+                                                            )
+                                                        }
+                                                        className="h-5 w-5 rounded border-zinc-500 accent-emerald-500 focus:ring-2 focus:ring-emerald-300"
+                                                        aria-label={`Mark ${mission.name} complete`}
+                                                    />
+                                                </label>
+                                            ) : null}
+                                            <button
+                                                type="button"
+                                                aria-current={selected ? "true" : undefined}
+                                                onClick={() => selectMission(mission.id)}
+                                                className="grid min-h-16 w-full min-w-0 grid-cols-1 items-center px-3 py-2.5 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-300"
+                                            >
+                                                <span className="min-w-0">
+                                                    <span className="flex items-baseline gap-2">
+                                                        <span className="shrink-0 font-mono text-xs text-zinc-500">
+                                                            {mission.id}
+                                                        </span>
+                                                        <span className="truncate text-sm font-semibold">
+                                                            {mission.name}
+                                                        </span>
+                                                    </span>
+                                                    <span className="mt-1 block truncate text-xs text-zinc-500">
+                                                        {[mission.questType, mission.region]
+                                                            .filter(Boolean)
+                                                            .join(" | ")}
+                                                    </span>
+                                                </span>
+                                            </button>
+                                        </li>
+                                    );
+                                })}
+                            </ol>
+                        </nav>
+                        <div
+                            ref={detailRef}
+                            className="min-h-0 min-w-0 overflow-y-auto"
+                        >
+                            {selectedMission ? (
+                                <MissionCard mission={selectedMission} mode="detail" />
+                            ) : null}
+                        </div>
+                    </div>
+                </>
+            )}
         </div>
     );
 }

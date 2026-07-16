@@ -2,6 +2,7 @@
 // Arc B2 optional missions, accurately transcribed from Side_Quests.txt
 
 import type { Mission } from "../../types/ffta2";
+import { CLAN_MATES_RECRUITMENT_GUIDE } from "./clanMatesRecruitment";
 
 export const OPTIONAL_MISSIONS_B2: Mission[] = [
     {
@@ -244,11 +245,11 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         { name: "Lang Brother", job: "Fighter", quantity: 1, notes: "Eldest brother and main threat; Air Render makes him the priority target." },
         { name: "Lang Brother", job: "Thief", quantity: 1, notes: "Knife-fighter support." },
         { name: "Lang Brother", job: "Archer", quantity: 1, notes: "Ranged brother." },
-        { name: "Lang Brother", job: "Black Mage", quantity: 1, notes: "Magick brother, but only uses low-level magicks in the guide's assessment." },
+        { name: "Lang Brother", job: "Black Mage", quantity: 1, notes: "Magick-focused brother who uses only low-level spells." },
         ],
         strategy: [
             "Defeat the four Lang Brothers: Fighter, Thief, Archer, and Black Mage.",
-            "Focus the Fighter first because Air Render is the only major threat called out in the guide.",            "The Black Mage only has low-level magicks, so clean up the remaining brothers after the Fighter falls.",
+            "Focus the Fighter first because Air Render is the only major immediate threat.",            "The Black Mage only has low-level magicks, so clean up the remaining brothers after the Fighter falls.",
         ],
         rewards: {
             gil: 3380,
@@ -360,7 +361,7 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
         id: "B2-14",
         arc: "B2",
         name: "Clan Mates",
-        description: "Looking for a new clan member to round out your roster? Your search is ended! The more the merrier, to be sure, but we go one further, providing you with a companion chosen to suit your clan's needs. Seek us out in Targ Wood. -Chan Mates Adventurer's Guild",
+        description: "Looking for a new clan member to round out your roster? Your search is ended! The more the merrier, to be sure, but we go one further, providing you with a companion chosen to suit your clan's needs. Seek us out in Targ Wood. -Clan Mates Adventurer's Guild",
         rank: 1,
         region: "Targ Wood",
         fee: 100,
@@ -376,15 +377,21 @@ export const OPTIONAL_MISSIONS_B2: Mission[] = [
             teamwork: 0,
             adaptability: 0,
         },
-    enemies: [],
-        strategy: [       ],
+        enemies: [],
+        strategy: [
+            "The month and your four answers determine the prospective clan member; use the recruitment matrix to match the race and class you want.",
+            "Some clan members are unavailable until their job class is unlocked, so unlock as many classes as possible before starting.",
+            "You need to accept someone to finish the mission. Save first if you want to retry until you get the candidate you want.",
+        ],
         rewards: {
             gil: 0,
             cp: 0,
-            loot: ""
+            loot: "",
+            other: "A recruited clan member",
         },
         notes: "",
-        tags: ["optional", "recruit"]
+        tags: ["optional", "recruit"],
+        recruitmentGuide: CLAN_MATES_RECRUITMENT_GUIDE,
     },
     {
         id: "B2-15",

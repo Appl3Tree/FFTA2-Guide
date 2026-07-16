@@ -1026,8 +1026,10 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "EX-01",
         arc: "EX",
         name: "The Two Grimoires",
+        description: "The Grimoire of the Rift empowers Illua for a final confrontation while monsters continue to pour into the Inner Sanctum.",
         rank: 48,
         region: "The Ruins of Delgantua (Inner Sanctum)",
+        questType: "Finale Battle",
         objective: "Defeat Illua!",
         law: "Buffs: abilities and actions that raise stats or apply positive status effects are forbidden.",
         enemies: [
@@ -1038,7 +1040,11 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Powered up by the Grimoire of the Rift. Very dangerous — she is even more formidable than the previous encounter."
             },
         ],
-        strategy: [     ],
+        strategy: [
+            "Ignore the continuing reinforcements and concentrate damage on Illua; defeating her is the only win condition.",
+            "Illua is a fast mover, so equip Ninja Tabi to keep up. Send the strongest attackers directly and keep a ranged attacker and healer ready.",
+            "Buffs are forbidden. Build around direct damage and healing while concentrating solely on Illua.",
+        ],
         rewards: {
             gil: 0,
             cp: 0,
@@ -1050,8 +1056,10 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
         id: "EX-02",
         arc: "EX",
         name: "From the Rift",
+        description: "Clan Gully faces the Neukhia across three connected components: a moving Wisp, a dangerous Pod, and the final Core.",
         rank: 49,
         region: "The Rift",
+        questType: "Finale Battle",
         objective: "Defeat the Neukhia!",
         law: "Reaction Abilities: abilities that trigger as reactions are forbidden.",
         enemies: [
@@ -1074,7 +1082,11 @@ export const STORY_MAIN_MISSIONS: Mission[] = [
                 notes: "Final phase. Can summon crystals — destroying the crystals damages the Core and prevents them from punishing the party."
             },
         ],
-        strategy: [   ],
+        strategy: [
+            "Spread mobile units toward the Wisp's three possible positions. Damage the Wisp until it moves, follow it, and destroy it before trying to attack the Core.",
+            "The Pod is slow but its Syphonja is dangerous. Keep recovery ready while the Core heals the Wisp, then remove the Pod before committing everyone to the Core.",
+            "When the Core creates dark crystals with Rewind, reclaim or destroy them before its next turn to weaken the incoming full-party attack. Unequip reaction abilities before the battle.",
+        ],
         rewards: {
             gil: 0,
             cp: 0,

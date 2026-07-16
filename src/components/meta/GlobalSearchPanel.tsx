@@ -1,5 +1,6 @@
 // src/components/meta/GlobalSearchPanel.tsx
 import React from "react";
+import { ChevronDown, ChevronUp, Search, X } from "lucide-react";
 import type { Mission } from "../../types/ffta2";
 import { ALL_MISSIONS } from "../../data/missions/allMissions";
 import {
@@ -22,6 +23,7 @@ import {
 } from "../../data/retroAchievements";
 import type { GlobalRetroAchievement } from "../../types/ffta2";
 import { BAZAAR_RECIPES } from "../../data/bazaarRecipes";
+import { isRepeatCraftResult } from "../../data/bazaarRepeatCraft";
 import { resolveEnemyLoadout } from "../../utils/resolveAbilities";
 import { resolveEnemyEquipment } from "../../utils/resolveEquipment";
 import { useProgress } from "../ProgressContext";
@@ -31,8 +33,16 @@ import {
     getMissionSearchScore,
     type MissionSearchResult,
 } from "../../utils/missionSearch";
+import { useChecklistPreferences } from "../ChecklistPreferencesContext";
+import { RepeatCraftBadge } from "../ui/RepeatCraftBadge";
+import {
+    globalRetroScopeId,
+    missionScopeId,
+} from "../../data/checklistScopes";
 
 type TabKey = "missions" | "equipment" | "abilities" | "bazaar" | "retros";
+
+const GLOBAL_SEARCH_RESULT_LIMIT = 50;
 
 interface EquipmentWithBlob {
     item: EquipmentMeta;
@@ -249,6 +259,9 @@ function bazaarBlob(r: BazaarRecipe): string {
     if (Array.isArray(r.loot)) {
         parts.push(...r.loot);
     }
+    if (isRepeatCraftResult(r.result)) {
+        parts.push("repeat craft", "multi craft", "one stock");
+    }
     return parts.join(" ").toLowerCase();
 }
 
@@ -420,36 +433,17 @@ function CollapsibleSection({
             <button
                 type="button"
                 onClick={() => setOpen((v) => !v)}
-                className="w-full px-2 py-1.5 flex items-center justify-between gap-2 text-left"
+                aria-expanded={open}
+                className="flex min-h-11 w-full items-center justify-between gap-2 px-2 py-1.5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-300"
             >
                 <span className="text-xs font-semibold text-zinc-100">
                     {title}
                 </span>
                 <span className="flex items-center gap-1 text-[0.65rem] text-zinc-400">
                     {open ? (
-                        <svg
-                            className="h-3 w-3 text-zinc-400"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path d="m18 15-6-6-6 6" />
-                        </svg>
+                        <ChevronUp className="h-3.5 w-3.5 text-zinc-400" />
                     ) : (
-                        <svg
-                            className="h-3 w-3 text-zinc-400"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
+                        <ChevronDown className="h-3.5 w-3.5 text-zinc-400" />
                     )}
                 </span>
             </button>
@@ -464,38 +458,26 @@ function CollapsibleSection({
 
 function renderChevron(open: boolean) {
     return open ? (
-        <svg
-            className="h-3 w-3 text-zinc-400"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="m18 15-6-6-6 6" />
-        </svg>
+        <ChevronUp className="h-3.5 w-3.5 text-zinc-400" />
     ) : (
-        <svg
-            className="h-3 w-3 text-zinc-400"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="m6 9 6 6 6-6" />
-        </svg>
+        <ChevronDown className="h-3.5 w-3.5 text-zinc-400" />
     );
 }
 
-export function GlobalSearchPanel() {
+export function GlobalSearchPanel({
+    initialOpen = false,
+}: {
+    initialOpen?: boolean;
+}) {
     const { checked, setCheck } = useProgress();
+    const { isScopeEnabled } = useChecklistPreferences();
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(initialOpen);
     const [activeTab, setActiveTab] = React.useState<TabKey>("missions");
     const [query, setQuery] = React.useState("");
+    const triggerRef = React.useRef<HTMLButtonElement>(null);
+    const dialogRef = React.useRef<HTMLDivElement>(null);
+    const searchInputRef = React.useRef<HTMLInputElement>(null);
 
     const [openMissions, setOpenMissions] = React.useState<
         Record<string, boolean>
@@ -515,6 +497,52 @@ export function GlobalSearchPanel() {
     const [openEnemies, setOpenEnemies] = React.useState<
         Record<string, boolean>
     >({});
+
+    React.useEffect(() => {
+        if (!open) return;
+
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        const focusFrame = window.requestAnimationFrame(() =>
+            searchInputRef.current?.focus(),
+        );
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                event.preventDefault();
+                setOpen(false);
+                return;
+            }
+
+            if (event.key !== "Tab" || !dialogRef.current) return;
+
+            const focusable = Array.from(
+                dialogRef.current.querySelectorAll<HTMLElement>(
+                    'button:not([disabled]), input:not([disabled]), [href], [tabindex]:not([tabindex="-1"])',
+                ),
+            ).filter((element) => !element.hasAttribute("hidden"));
+
+            if (focusable.length === 0) return;
+
+            const first = focusable[0]!;
+            const last = focusable[focusable.length - 1]!;
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+            window.cancelAnimationFrame(focusFrame);
+            document.body.style.overflow = previousOverflow;
+            document.removeEventListener("keydown", handleKeyDown);
+            triggerRef.current?.focus();
+        };
+    }, [open]);
 
     // Missable Retro IDs (from any source)
     const missableRetroIds = React.useMemo(() => {
@@ -716,6 +744,10 @@ export function GlobalSearchPanel() {
         (acc, s) => acc + s.recipes.length,
         0,
     );
+    const visibleMissions = filteredMissions.slice(0, GLOBAL_SEARCH_RESULT_LIMIT);
+    const visibleEquipment = filteredEquipment.slice(0, GLOBAL_SEARCH_RESULT_LIMIT);
+    const visibleAbilities = filteredAbilities.slice(0, GLOBAL_SEARCH_RESULT_LIMIT);
+    const visibleRetros = filteredRetros.slice(0, GLOBAL_SEARCH_RESULT_LIMIT);
 
     const tabCounts: Record<TabKey, number> = {
         missions: missionsCount,
@@ -732,107 +764,95 @@ export function GlobalSearchPanel() {
         bazaar: "Bazaar",
         retros: "RetroAchievements",
     };
+    const visibleTabCounts: Record<TabKey, number> = {
+        missions: visibleMissions.length,
+        equipment: visibleEquipment.length,
+        abilities: visibleAbilities.length,
+        bazaar: bazaarCount,
+        retros: visibleRetros.length,
+    };
 
     if (!open) {
         return (
             <button
+                ref={triggerRef}
                 type="button"
                 onClick={() => setOpen(true)}
-                className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-emerald-600/90 hover:bg-emerald-500 px-3 py-1.5 text-xs font-semibold text-white shadow-lg shadow-emerald-500/30 border border-emerald-300/50"
+                aria-expanded={false}
+                aria-haspopup="dialog"
+                aria-label="Open global search"
+                title="Global search"
+                className="fixed z-40 inline-flex h-12 w-12 items-center justify-center rounded-full border border-emerald-300/50 bg-emerald-600/95 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition-colors hover:bg-emerald-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200 sm:min-h-11 sm:w-auto sm:gap-2 sm:px-4"
+                style={{
+                    bottom: "max(1rem, env(safe-area-inset-bottom))",
+                    right: "max(1rem, env(safe-area-inset-right))",
+                }}
             >
-                <svg
-                    className="h-3.5 w-3.5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                >
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="m21 21-4.3-4.3" />
-                </svg>
-                <span>Global search</span>
+                <Search className="h-4 w-4" />
+                <span className="hidden sm:inline">Global search</span>
             </button>
         );
     }
 
     return (
-        <div className="fixed inset-0 z-40 flex items-end sm:items-center justify-center">
+        <div className="fixed inset-0 z-40 flex items-end justify-center sm:items-center">
             <div
                 className="absolute inset-0 bg-black/50 backdrop-blur-sm"
                 onClick={() => setOpen(false)}
+                aria-hidden="true"
             />
-            <div className="relative w-full max-w-5xl max-h-[90vh] rounded-t-2xl sm:rounded-2xl bg-zinc-950/95 border border-zinc-800 shadow-2xl shadow-black/60 overflow-hidden flex flex-col">
+            <div
+                ref={dialogRef}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="global-search-title"
+                className="relative flex max-h-[calc(100dvh-0.75rem)] w-full max-w-5xl flex-col overflow-hidden rounded-t-lg border border-zinc-800 bg-zinc-950/95 shadow-2xl shadow-black/60 sm:max-h-[90dvh] sm:rounded-lg"
+            >
                 {/* Header */}
-                <div className="flex items-center gap-3 px-4 sm:px-5 py-3 border-b border-zinc-800/80 bg-zinc-950">
-                    <svg
-                        className="h-4 w-4 text-emerald-300"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    >
-                        <circle cx="11" cy="11" r="8" />
-                        <path d="m21 21-4.3-4.3" />
-                    </svg>
-                    <div className="flex-1 flex flex-col gap-1">
-                        <div className="flex items-center gap-2">
-                            <h2 className="text-xs sm:text-sm font-semibold text-zinc-100">
+                <div className="flex items-start gap-3 px-4 py-3 border-b border-zinc-800/80 bg-zinc-950 sm:items-center sm:px-5">
+                    <Search className="mt-0.5 h-4 w-4 shrink-0 text-emerald-300 sm:mt-0" />
+                    <div className="flex-1 flex flex-col gap-2">
+                        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-2">
+                            <h2
+                                id="global-search-title"
+                                className="text-sm font-semibold text-zinc-100"
+                            >
                                 Global search
                             </h2>
-                            <span className="text-[0.6rem] uppercase tracking-[0.16em] text-emerald-300">
+                            <span className="text-xs text-emerald-300">
                                 Missions • Equipment • Abilities • Bazaar • RetroAchievements
                             </span>
                         </div>
-                        <div className="flex items-center gap-2 bg-zinc-900/80 border border-zinc-800/80 rounded-md px-2 py-1">
-                            <svg
-                                className="h-3.5 w-3.5 text-zinc-500"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <circle cx="11" cy="11" r="8" />
-                                <path d="m21 21-4.3-4.3" />
-                            </svg>
+                        <div className="flex min-h-11 items-center gap-2 rounded-md border border-zinc-800/80 bg-zinc-900/80 px-3 py-1">
+                            <Search className="h-4 w-4 shrink-0 text-zinc-500" />
                             <input
-                                type="text"
+                                ref={searchInputRef}
+                                type="search"
+                                aria-label="Search all app content"
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                                 placeholder="Search missions, equipment, abilities, bazaar recipes, and RetroAchievements..."
-                                className="bg-transparent border-none outline-none text-xs sm:text-sm text-zinc-100 placeholder:text-zinc-500 flex-1"
-                                autoFocus
+                                className="min-w-0 flex-1 border-none bg-transparent text-sm text-zinc-100 outline-none placeholder:text-zinc-500"
                             />
                         </div>
                     </div>
                     <button
                         type="button"
                         onClick={() => setOpen(false)}
-                        className="ml-2 rounded-md p-1.5 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/80"
+                        className="ml-1 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-zinc-400 hover:bg-zinc-800/80 hover:text-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 sm:ml-2"
+                        aria-label="Close global search"
                     >
-                        <svg
-                            className="h-4 w-4"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path d="M18 6 6 18" />
-                            <path d="m6 6 12 12" />
-                        </svg>
+                        <X className="h-4 w-4" />
                     </button>
                 </div>
 
                 {/* Tabs */}
                 <div className="border-b border-zinc-800/80 bg-zinc-950/90 px-4 sm:px-5">
-                    <div className="flex gap-2 py-2 text-[0.7rem] sm:text-xs">
+                    <div
+                        className="flex gap-2 overflow-x-auto py-2 text-xs"
+                        role="tablist"
+                        aria-label="Global search categories"
+                    >
                         {(["missions", "equipment", "abilities", "bazaar", "retros"] as TabKey[]).map(
                             (key) => {
                                 const active = activeTab === key;
@@ -842,8 +862,12 @@ export function GlobalSearchPanel() {
                                         key={key}
                                         type="button"
                                         onClick={() => setActiveTab(key)}
+                                        id={`global-search-tab-${key}`}
+                                        role="tab"
+                                        aria-controls="global-search-results"
+                                        aria-selected={active}
                                         className={[
-                                            "px-2.5 py-1 rounded-full border text-[0.7rem]",
+                                            "min-h-11 shrink-0 rounded-md border px-3 py-1.5 text-xs font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300",
                                             active
                                                 ? "border-emerald-400 bg-emerald-500/20 text-emerald-100"
                                                 : "border-zinc-700/80 bg-zinc-900/70 text-zinc-300 hover:border-zinc-500",
@@ -858,7 +882,22 @@ export function GlobalSearchPanel() {
                 </div>
 
                 {/* Body */}
-                <div className="flex-1 overflow-y-auto px-4 sm:px-5 py-3 space-y-3 text-[0.75rem]">
+                <div
+                    id="global-search-results"
+                    role="tabpanel"
+                    aria-labelledby={`global-search-tab-${activeTab}`}
+                    className="flex-1 space-y-3 overflow-y-auto px-4 py-3 text-[0.8125rem] sm:px-5 sm:text-sm"
+                >
+                    {tabCounts[activeTab] > visibleTabCounts[activeTab] ? (
+                        <p
+                            role="status"
+                            className="rounded-md border border-zinc-800 bg-zinc-900/70 px-3 py-2 text-xs text-zinc-300"
+                        >
+                            Showing the first {visibleTabCounts[activeTab]} of{" "}
+                            {tabCounts[activeTab]} results. Refine the search to narrow
+                            the list.
+                        </p>
+                    ) : null}
                     {/* MISSIONS */}
                     {activeTab === "missions" && (
                         <>
@@ -868,12 +907,22 @@ export function GlobalSearchPanel() {
                                 </p>
                             ) : (
                                 <ul className="space-y-1.5">
-                                    {filteredMissions.map(({ mission }) => {
+                                    {visibleMissions.map(({ mission }) => {
                                         const isOpen =
                                             openMissions[mission.id] ?? false;
                                         const missionKey = `mission:${mission.id}`;
                                         const isMissionChecked =
                                             !!checked[missionKey];
+                                        const missionTrackingEnabled =
+                                            isScopeEnabled(
+                                                "missions",
+                                                missionScopeId(mission),
+                                            );
+                                        const missionRetroTrackingEnabled =
+                                            isScopeEnabled(
+                                                "retroAchievements",
+                                                "mission-linked",
+                                            );
 
                                         const hasDispatch =
                                             !!mission.requiredItems ||
@@ -964,19 +1013,21 @@ export function GlobalSearchPanel() {
                                                 key={mission.id}
                                                 className="border border-zinc-800/80 rounded-md bg-zinc-950/60"
                                             >
-                                                <button
-                                                    type="button"
-                                                    onClick={() =>
-                                                        setOpenMissions(
-                                                            (prev) => ({
-                                                                ...prev,
-                                                                [mission.id]:
-                                                                    !isOpen,
-                                                            }),
-                                                        )
-                                                    }
-                                                    className="w-full px-2.5 py-2 flex items-center justify-between gap-2 text-left"
-                                                >
+                                                <div className="flex items-stretch">
+                                                    <button
+                                                        type="button"
+                                                        aria-expanded={isOpen}
+                                                        onClick={() =>
+                                                            setOpenMissions(
+                                                                (prev) => ({
+                                                                    ...prev,
+                                                                    [mission.id]:
+                                                                        !isOpen,
+                                                                }),
+                                                            )
+                                                        }
+                                                        className="flex min-h-11 min-w-0 flex-1 items-center justify-between gap-2 px-2.5 py-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-300"
+                                                    >
                                                     <div className="flex flex-col gap-0.5">
                                                         <div className="flex flex-wrap items-center gap-1.5">
                                                             <span className="text-[0.65rem] font-mono text-zinc-400">
@@ -988,24 +1039,24 @@ export function GlobalSearchPanel() {
                                                         </div>
                                                         <div className="flex flex-wrap items-center gap-1.5">
                                                             {mission.questType && (
-                                                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] tracking-[0.14em] text-zinc-300">
+                                                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] text-zinc-300">
                                                                     Type: {
                                                                         mission.questType
                                                                     }
                                                                 </span>
                                                             )}
                                                             {mission.region && (
-                                                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] tracking-[0.14em] text-zinc-300">
+                                                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] text-zinc-300">
                                                                     Region: {
                                                                         mission.region
                                                                     }
                                                                 </span>
                                                             )}
-                                                            <span className="inline-flex items-center rounded-full border border-amber-500/80 bg-amber-500/10 px-1.5 py-px text-[0.6rem] font-semibold tracking-[0.14em] text-zinc-300">
+                                                            <span className="inline-flex items-center rounded-full border border-amber-500/80 bg-amber-500/10 px-1.5 py-px text-[0.6rem] font-semibold text-zinc-300">
                                                                 Rec. Lv.: {displayRank}
                                                             </span>
                                                             {mission.missable && (
-                                                                <span className="inline-flex items-center rounded-full border border-rose-400/70 bg-rose-500/10 px-1.5 py-px text-[0.6rem] font-semibold tracking-[0.14em] text-rose-300">
+                                                                <span className="inline-flex items-center rounded-full border border-rose-400/70 bg-rose-500/10 px-1.5 py-px text-[0.6rem] font-semibold text-rose-300">
                                                                     Missable
                                                                 </span>
                                                             )}
@@ -1055,44 +1106,43 @@ export function GlobalSearchPanel() {
                                                             </div>
                                                         )}
                                                     </div>
-                                                    <div className="flex items-center gap-2">
-                                                        <input
-                                                            type="checkbox"
-                                                            aria-label="Mark mission complete"
-                                                            className="h-3.5 w-3.5 rounded border-zinc-500 text-emerald-500 focus:ring-emerald-500/70"
-                                                            checked={isMissionChecked}
-                                                            onChange={() => {
-                                                                setCheck(
-                                                                    missionKey,
-                                                                );
-                                                                if (
-                                                                    !isMissionChecked
-                                                                ) {
-                                                                    setOpenMissions(
-                                                                        (
-                                                                            prev,
-                                                                        ) => ({
-                                                                            ...prev,
-                                                                            [mission
-                                                                                .id]:
-                                                                                false,
-                                                                        }),
-                                                                    );
-                                                                }
-                                                            }}
-                                                            onClick={(e) =>
-                                                                e.stopPropagation()
-                                                            }
-                                                        />
-                                                        <span className="flex items-center gap-1 text-[0.65rem] text-zinc-400">
-                                                            <span>
-                                                            </span>
-                                                            {renderChevron(
-                                                                isOpen,
-                                                            )}
+                                                        <span className="shrink-0 text-zinc-400">
+                                                            {renderChevron(isOpen)}
                                                         </span>
-                                                    </div>
-                                                </button>
+                                                    </button>
+                                                    {missionTrackingEnabled ? (
+                                                        <label className="flex min-w-11 cursor-pointer items-center justify-center border-l border-zinc-800 px-3 focus-within:ring-2 focus-within:ring-inset focus-within:ring-emerald-300">
+                                                            <input
+                                                                type="checkbox"
+                                                                aria-label={`Mark ${mission.name} complete`}
+                                                                className="h-5 w-5 rounded border-zinc-500 text-emerald-500 focus:ring-emerald-500/70"
+                                                                checked={isMissionChecked}
+                                                                onChange={(event) => {
+                                                                    setCheck(
+                                                                        missionKey,
+                                                                        event.target
+                                                                            .checked,
+                                                                    );
+                                                                    if (
+                                                                        event.target
+                                                                            .checked
+                                                                    ) {
+                                                                        setOpenMissions(
+                                                                            (
+                                                                                prev,
+                                                                            ) => ({
+                                                                                ...prev,
+                                                                                [mission
+                                                                                    .id]:
+                                                                                    false,
+                                                                            }),
+                                                                        );
+                                                                    }
+                                                                }}
+                                                            />
+                                                        </label>
+                                                    ) : null}
+                                                </div>
 
                                                 {isOpen && (
                                                     <div className="px-2.5 pb-2 pt-0.5 space-y-2 border-t border-zinc-800/80">
@@ -1143,7 +1193,7 @@ export function GlobalSearchPanel() {
                                                                                         key={phase.key}
                                                                                         className="rounded-md border border-zinc-800/80 bg-zinc-950/50 px-2 py-1.5"
                                                                                     >
-                                                                                        <div className="mb-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-zinc-400">
+                                                                                        <div className="mb-0.5 text-[0.6rem] font-semibold uppercase text-zinc-400">
                                                                                             {phase.title}
                                                                                         </div>
                                                                                         {phase.strategy.length > 0 ? (
@@ -1370,6 +1420,10 @@ export function GlobalSearchPanel() {
                                                                                 !!checked[
                                                                                     key
                                                                                 ];
+                                                                            const RetroWrapper =
+                                                                                missionRetroTrackingEnabled
+                                                                                    ? "label"
+                                                                                    : "div";
 
                                                                             return (
                                                                                 <li
@@ -1377,10 +1431,11 @@ export function GlobalSearchPanel() {
                                                                                         ach.id
                                                                                     }
                                                                                 >
-                                                                                    <label className="flex items-start gap-2 cursor-pointer">
+                                                                                    <RetroWrapper className={`flex min-h-11 items-start gap-2 rounded-md px-1 py-1.5 ${missionRetroTrackingEnabled ? "cursor-pointer focus-within:ring-2 focus-within:ring-indigo-300" : ""}`}>
+                                                                                        {missionRetroTrackingEnabled ? (
                                                                                         <input
                                                                                             type="checkbox"
-                                                                                            className="mt-0.5 h-3.5 w-3.5 rounded border-zinc-400 text-emerald-500 focus:ring-emerald-500/70"
+                                                                                            className="mt-0.5 h-5 w-5 shrink-0 rounded border-zinc-400 text-emerald-500 focus:ring-emerald-500/70"
                                                                                             checked={
                                                                                                 isChecked
                                                                                             }
@@ -1394,12 +1449,8 @@ export function GlobalSearchPanel() {
                                                                                                         .checked,
                                                                                                 )
                                                                                             }
-                                                                                            onClick={(
-                                                                                                e,
-                                                                                            ) =>
-                                                                                                e.stopPropagation()
-                                                                                            }
                                                                                         />
+                                                                                        ) : null}
                                                                                         <div>
                                                                                             <div className="flex flex-wrap items-center gap-1">
                                                                                                 <span className="font-medium">
@@ -1408,7 +1459,7 @@ export function GlobalSearchPanel() {
                                                                                                     }
                                                                                                 </span>
                                                                                                 {ach.missable && (
-                                                                                                    <span className="inline-flex items-center rounded-full border border-rose-400/70 bg-rose-500/10 px-1.5 py-px text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-rose-300">
+                                                                                                    <span className="inline-flex items-center rounded-full border border-rose-400/70 bg-rose-500/10 px-1.5 py-px text-[0.6rem] font-semibold uppercase text-rose-300">
                                                                                                         Missable
                                                                                                     </span>
                                                                                                 )}
@@ -1419,7 +1470,7 @@ export function GlobalSearchPanel() {
                                                                                                 }
                                                                                             </p>
                                                                                         </div>
-                                                                                    </label>
+                                                                                    </RetroWrapper>
                                                                                 </li>
                                                                             );
                                                                         },
@@ -1439,7 +1490,7 @@ export function GlobalSearchPanel() {
                                                                                     className="border border-amber-700/50 rounded-md bg-amber-950/20 px-2 py-1.5"
                                                                                 >
                                                                                     <div className="flex flex-wrap items-baseline justify-between gap-2">
-                                                                                        <span className="font-semibold uppercase tracking-[0.14em] text-amber-200">
+                                                                                        <span className="font-semibold uppercase text-amber-200">
                                                                                             {row.phase.title}
                                                                                         </span>
                                                                                         <span className="text-[0.6rem] text-amber-100/70">
@@ -1503,19 +1554,19 @@ export function GlobalSearchPanel() {
                                                                                         </span>
 
                                                                                         {showRacePill && (
-                                                                                            <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                                                                            <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase text-zinc-300">
                                                                                                 {enemy.race}
                                                                                             </span>
                                                                                         )}
 
                                                                                         {showJobPill && (
-                                                                                            <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                                                                            <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase text-zinc-300">
                                                                                                 {enemy.job}
                                                                                             </span>
                                                                                         )}
 
                                                                                         {quantity > 1 && (
-                                                                                            <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                                                                            <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase text-zinc-300">
                                                                                                 ×{quantity}
                                                                                             </span>
                                                                                         )}
@@ -1654,7 +1705,7 @@ export function GlobalSearchPanel() {
                                                                                                                                         }
                                                                                                                                     </span>
                                                                                                                                     {isBlueMagic && (
-                                                                                                                                        <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase tracking-[0.14em] text-blue-200">
+                                                                                                                                        <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase text-blue-200">
                                                                                                                                             Blue Magic
                                                                                                                                         </span>
                                                                                                                                     )}
@@ -1705,7 +1756,7 @@ export function GlobalSearchPanel() {
                                                                                                                                         }
                                                                                                                                     </span>
                                                                                                                                     {isBlueMagic && (
-                                                                                                                                        <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase tracking-[0.14em] text-blue-200">
+                                                                                                                                        <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.55rem] uppercase text-blue-200">
                                                                                                                                             Blue Magic
                                                                                                                                         </span>
                                                                                                                                     )}
@@ -1928,7 +1979,7 @@ export function GlobalSearchPanel() {
                                 </p>
                             ) : (
                                 <ul className="space-y-1.5">
-                                    {filteredEquipment.map(({ item }) => {
+                                    {visibleEquipment.map(({ item }) => {
                                         const isOpen =
                                             openEquipment[item.id] ?? false;
 
@@ -2061,7 +2112,7 @@ export function GlobalSearchPanel() {
                                                 key: "basics",
                                                 content: (
                                                     <>
-                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                             <u>BASICS</u>
                                                         </h4>
                                                         <div className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
@@ -2118,7 +2169,7 @@ export function GlobalSearchPanel() {
                                                 key: "stats",
                                                 content: (
                                                     <>
-                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                             <u>STATS</u>
                                                         </h4>
                                                         <div className="grid grid-cols-3 gap-x-3 gap-y-0.5 text-[0.7rem] sm:text-xs text-zinc-200">
@@ -2170,7 +2221,7 @@ export function GlobalSearchPanel() {
                                                 key: "effects",
                                                 content: (
                                                     <>
-                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                             <u>EFFECTS</u>
                                                         </h4>
                                                         <div className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
@@ -2308,7 +2359,7 @@ export function GlobalSearchPanel() {
                                                 key: "rules",
                                                 content: (
                                                     <>
-                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                             <u>EQUIP RULES</u>
                                                         </h4>
                                                         <div className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
@@ -2383,7 +2434,7 @@ export function GlobalSearchPanel() {
                                                 key: "range",
                                                 content: (
                                                     <>
-                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                             <u>RANGE & MOVEMENT</u>
                                                         </h4>
                                                         <div className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
@@ -2438,7 +2489,7 @@ export function GlobalSearchPanel() {
                                                 key: "additionalEffect",
                                                 content: (
                                                     <>
-                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                             <u>ADDITIONAL EFFECT</u>
                                                         </h4>
                                                         <div className="text-[0.7rem] sm:text-xs text-zinc-200">
@@ -2454,7 +2505,7 @@ export function GlobalSearchPanel() {
                                                 key: "gender",
                                                 content: (
                                                     <>
-                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                             <u>GENDER RESTRICTION</u>
                                                         </h4>
                                                         <div className="text-[0.7rem] sm:text-xs text-zinc-200">
@@ -2470,7 +2521,7 @@ export function GlobalSearchPanel() {
                                                 key: "teaches",
                                                 content: (
                                                     <>
-                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                        <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                             <u>TEACHES</u>
                                                         </h4>
                                                         <ul className="space-y-0.5 text-[0.7rem] sm:text-xs text-zinc-200">
@@ -2619,7 +2670,7 @@ export function GlobalSearchPanel() {
                                                                                 isLast;
 
                                                                             const sectionClass =
-                                                                                "rounded-2xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3" +
+                                                                                "rounded-lg border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3" +
                                                                                 (shouldSpan
                                                                                     ? " md:col-span-2"
                                                                                     : "");
@@ -2661,7 +2712,7 @@ export function GlobalSearchPanel() {
                                 </p>
                             ) : (
                                 <ul className="space-y-1.5">
-    {filteredAbilities.map(({ set, ability }) => {
+    {visibleAbilities.map(({ set, ability }) => {
         // Open/close state keyed by ability so there is only one row per ability
         const key = ability.id;
         const isOpen = openAbilities[key] ?? false;
@@ -2700,24 +2751,24 @@ export function GlobalSearchPanel() {
                             {allSets.map((s) => (
                                 <span
                                     key={s.id}
-                                    className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300"
+                                    className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase text-zinc-300"
                                 >
                                     {s.name}
                                 </span>
                             ))}
 
                             {ability.blueMagic && (
-                                <span className="inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-blue-200">
+                                <span className="inline-flex items-center rounded-full bg-blue-900/40 border border-blue-500/70 px-1.5 py-px text-[0.6rem] uppercase text-blue-200">
                                     Blue Magic
                                 </span>
                             )}
                             {ability.job && (
-                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase text-zinc-300">
                                     {ability.job}
                                 </span>
                             )}
                             {(ability as any).ap != null && (
-                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase text-zinc-300">
                                     {(ability as any).ap} AP
                                 </span>
                             )}
@@ -2750,19 +2801,19 @@ export function GlobalSearchPanel() {
                             ability.immune) && (
                             <div className="flex flex-wrap gap-1">
                                 {ability.element && (
-                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase text-zinc-300">
                                         Element:{" "}
                                         {ability.element.join(", ")}
                                     </span>
                                 )}
                                 {ability.inflicts && (
-                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase text-zinc-300">
                                         Inflicts:{" "}
                                         {ability.inflicts.join(", ")}
                                     </span>
                                 )}
                                 {ability.immune && (
-                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase tracking-[0.14em] text-zinc-300">
+                                    <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase text-zinc-300">
                                         Grants immunity to:{" "}
                                         {ability.immune.join(", ")}
                                     </span>
@@ -2961,7 +3012,7 @@ export function GlobalSearchPanel() {
                                                                         key: "basics",
                                                                         content: (
                                                                             <>
-                                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                                     <u>BASICS</u>
                                                                                 </h4>
                                                                                 <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
@@ -3015,7 +3066,7 @@ export function GlobalSearchPanel() {
                                                                         key: "stats",
                                                                         content: (
                                                                             <>
-                                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                                     <u>STATS</u>
                                                                                 </h4>
                                                                                 <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
@@ -3049,7 +3100,7 @@ export function GlobalSearchPanel() {
                                                                         key: "rules",
                                                                         content: (
                                                                             <>
-                                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                                     <u>RULES</u>
                                                                                 </h4>
                                                                                 <dl className={dlRulesClass}>
@@ -3077,7 +3128,7 @@ export function GlobalSearchPanel() {
                                                                         key: "teaches",
                                                                         content: (
                                                                             <>
-                                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                                     <u>TEACHES</u>
                                                                                 </h4>
                                                                                 <div className="mt-0.5 text-[0.7rem] sm:text-xs text-zinc-300">
@@ -3152,10 +3203,15 @@ export function GlobalSearchPanel() {
                                                                                     {r.result}
                                                                                 </span>
                                                                                 {r.rank && (
-                                                                                    <span className="inline-flex items-center rounded-full bg-emerald-100/10 border border-emerald-500/70 px-1.5 py-px text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                                                                                    <span className="inline-flex items-center rounded-full bg-emerald-100/10 border border-emerald-500/70 px-1.5 py-px text-[0.65rem] font-semibold uppercase text-emerald-300">
                                                                                         {r.rank}
                                                                                     </span>
                                                                                 )}
+                                                                                {isRepeatCraftResult(
+                                                                                    r.result,
+                                                                                ) ? (
+                                                                                    <RepeatCraftBadge />
+                                                                                ) : null}
                                                                             </div>
                                                                             <div className="mt-0.5 text-[0.75rem] text-zinc-400">
                                                                                 Loot Required:{" "}
@@ -3193,7 +3249,7 @@ export function GlobalSearchPanel() {
                                                                                                     isLast;
 
                                                                                                 const sectionClass =
-                                                                                                    "rounded-2xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3" +
+                                                                                                    "rounded-lg border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3" +
                                                                                                     (shouldSpan
                                                                                                         ? " md:col-span-2"
                                                                                                         : "");
@@ -3235,31 +3291,40 @@ export function GlobalSearchPanel() {
                                 </p>
                             ) : (
                                 <ul className="space-y-1.5">
-                                    {filteredRetros.map((entry) => {
+                                    {visibleRetros.map((entry) => {
                                         const { key, ach } = entry;
                                         const isOpen =
                                             openRetros[key] ?? false;
                                         const isChecked =
                                             !!checked[`retro:${ach.id}`];
+                                        const retroTrackingEnabled =
+                                            isScopeEnabled(
+                                                "retroAchievements",
+                                                globalRetroScopeId(
+                                                    ach as GlobalRetroAchievement,
+                                                ),
+                                            );
 
                                         return (
                                             <li
                                                 key={key}
                                                 className="border border-zinc-800/80 rounded-md bg-zinc-950/60"
                                             >
-                                                <button
-                                                    type="button"
-                                                    onClick={() =>
-                                                        setOpenRetros(
-                                                            (prev) => ({
-                                                                ...prev,
-                                                                [key]:
-                                                                    !isOpen,
-                                                            }),
-                                                        )
-                                                    }
-                                                    className="w-full px-2.5 py-2 flex items-center justify-between gap-2 text-left"
-                                                >
+                                                <div className="flex items-stretch">
+                                                    <button
+                                                        type="button"
+                                                        aria-expanded={isOpen}
+                                                        onClick={() =>
+                                                            setOpenRetros(
+                                                                (prev) => ({
+                                                                    ...prev,
+                                                                    [key]:
+                                                                        !isOpen,
+                                                                }),
+                                                            )
+                                                        }
+                                                        className="flex min-h-11 min-w-0 flex-1 items-center justify-between gap-2 px-2.5 py-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-300"
+                                                    >
                                                     <div className="flex flex-col gap-0.5 items-start">
                                                         <span className="font-semibold text-zinc-50">
                                                             {ach.name}
@@ -3270,39 +3335,38 @@ export function GlobalSearchPanel() {
                                                         )}
                                                         </span>
                                                         {ach.missable && (
-                                                            <span className="inline-flex items-center rounded-full border border-rose-400/70 bg-rose-500/10 px-1.5 py-px text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-rose-300">
+                                                            <span className="inline-flex items-center rounded-full border border-rose-400/70 bg-rose-500/10 px-1.5 py-px text-[0.6rem] font-semibold uppercase text-rose-300">
                                                                 Missable
                                                             </span>
                                                         )}
                                                     </div>
-                                                    <div className="flex items-center gap-2">
-                                                        <input
-                                                            type="checkbox"
-                                                            className="h-3.5 w-3.5 rounded border-zinc-500 text-emerald-500 focus:ring-emerald-500/70"
-                                                            checked={isChecked}
-                                                            onChange={(e) =>
-                                                                setCheck(
-                                                                    `retro:${ach.id}`,
-                                                                    e.target
-                                                                        .checked,
-                                                                )
-                                                            }
-                                                            onClick={(e) =>
-                                                                e.stopPropagation()
-                                                            }
-                                                        />
-                                                        <span className="flex items-center gap-1 text-[0.65rem] text-zinc-400">
-                                                            <span>
+                                                        <span className="flex shrink-0 items-center gap-1 text-xs text-zinc-400">
+                                                            <span className="hidden sm:inline">
                                                                 {isOpen
                                                                     ? "Hide details"
                                                                     : "Show details"}
                                                             </span>
-                                                            {renderChevron(
-                                                                isOpen,
-                                                            )}
+                                                            {renderChevron(isOpen)}
                                                         </span>
-                                                    </div>
-                                                </button>
+                                                    </button>
+                                                    {retroTrackingEnabled ? (
+                                                        <label className="flex min-w-11 cursor-pointer items-center justify-center border-l border-zinc-800 px-3 focus-within:ring-2 focus-within:ring-inset focus-within:ring-emerald-300">
+                                                            <input
+                                                                type="checkbox"
+                                                                aria-label={`Mark RetroAchievement ${ach.name} complete`}
+                                                                className="h-5 w-5 rounded border-zinc-500 text-emerald-500 focus:ring-emerald-500/70"
+                                                                checked={isChecked}
+                                                                onChange={(event) =>
+                                                                    setCheck(
+                                                                        `retro:${ach.id}`,
+                                                                        event.target
+                                                                            .checked,
+                                                                    )
+                                                                }
+                                                            />
+                                                        </label>
+                                                    ) : null}
+                                                </div>
 
                                                 {isOpen && (
                                                     <div className="px-2.5 pb-2 pt-0.5 space-y-1.5 border-t border-zinc-800/80">

@@ -429,7 +429,11 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Randomized Monster", quantity: 10, notes: "A varied mix with no fixed pattern; defeat 10 total. They surround you — make a last stand." },
     ],
-        strategy: [       ],
+        strategy: [
+            "Keep the clan in the same general area and focus attacks on one monster at a time, but leave enough space to limit Sandstorm and Bad Breath area effects.",
+            "Bring ranged pressure and status recovery. New monsters arrive throughout the fight, so remove Lamias, Malboros, and other disabling threats before the group is overwhelmed.",
+            "Defeat ten monsters to finish; there is no fixed spawn pattern, so adapt target priority to each wave.",
+        ],
         rewards: {
             gil: 9240,
             cp: 42,
@@ -463,7 +467,13 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
     enemies: [
         { name: "Randomized Name", job: "Randomized Monster", quantity: 6, notes: "Monster level scales to clan average. Endless reinforcements — focus on gathering, not killing. Stand adjacent to red-dotted fruit trees and use the Gather command." },
     ],
-        strategy: [       ],
+        strategy: [
+            "Bring fast, mobile units and consider the Speed Up clan privilege: there are six fruit trees and only four rounds.",
+            "Move to all six orchard trees and choose Gather within four rounds. Send mobile units in different directions so every tree is reached in time.",
+            "Monsters keep arriving, so do not try to clear the field. Check enemy levels before attacking under Harming the Weak, then spend most actions moving and gathering.",
+            "Prioritize Bloody Orbs, Ahrimans, and any arriving Liliths when they block a route: their status attacks, Roulette, and Eternal Sleep are more dangerous than the other reinforcements.",
+            "Gather from as many trees as possible because the prize improves with the amount of fruit collected; reaching all six gives the best result.",
+        ],
         rewards: {
             gil: 12830,
             cp: 50,

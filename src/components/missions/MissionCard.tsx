@@ -9,6 +9,8 @@ import { RETRO_ACHIEVEMENTS_BY_MISSION_ID } from "../../data/retroAchievements";
 import { useProgress } from "../ProgressContext";
 import { getEnemyMetaForJob } from "../../data/bestiary/bestiary";
 import { getMissionPhaseSummary } from "../../utils/missionPhases";
+import { useChecklistPreferences } from "../ChecklistPreferencesContext";
+import { missionScopeId } from "../../data/checklistScopes";
 
 function isGenericEnemyName(name?: string | null): boolean {
     if (!name) return true;
@@ -164,8 +166,17 @@ function getLawGuidance(law?: string): string | null {
     return "Law reminder: build your actions around the listed forbidden condition.";
 }
 
-export function MissionCard({ mission }: { mission: Mission }) {
-    const [open, setOpen] = React.useState(false);
+export function MissionCard({
+    mission,
+    mode = "accordion",
+}: {
+    mission: Mission;
+    mode?: "accordion" | "detail";
+}) {
+    const [accordionOpen, setAccordionOpen] = React.useState(false);
+    const open = mode === "detail" || accordionOpen;
+    const cardId = React.useId();
+    const contentId = `${cardId}-content`;
 
     const {
         id,
@@ -191,9 +202,19 @@ export function MissionCard({ mission }: { mission: Mission }) {
         rewards,
         notes,
         tags,
+        recruitmentGuide,
     } = mission;
 
     const { checked, setCheck } = useProgress();
+    const { isScopeEnabled } = useChecklistPreferences();
+    const missionTrackingEnabled = isScopeEnabled(
+        "missions",
+        missionScopeId(mission),
+    );
+    const retroTrackingEnabled = isScopeEnabled(
+        "retroAchievements",
+        "mission-linked",
+    );
 
     const missionKey = `mission:${id}`;
     const isMissionChecked = !!checked[missionKey];
@@ -242,87 +263,97 @@ export function MissionCard({ mission }: { mission: Mission }) {
         RETRO_ACHIEVEMENTS_BY_MISSION_ID[id] ?? [];
     const hasRetroAchievements = retroAchievements.length > 0;
 
-    // How many “primary” mid-row sections exist?
-    const numPrimarySections =
-        (hasRequirements ? 1 : 0) +
-        (hasStrategy ? 1 : 0) +
-        (hasRetroAchievements ? 1 : 0);
-
-    const midGridClass =
-        numPrimarySections <= 1
-            ? "grid grid-cols-1 gap-3 sm:gap-4"
-            : "grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4";
+    const midGridClass = "divide-y divide-zinc-800 border-y border-zinc-800";
 
     const displayRank = rank != null ? `~${rank}` : "N/A";
+    const headerSummary = (
+        <div className="min-w-0 flex-1">
+            <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                <span className="shrink-0 font-mono text-xs text-zinc-400">
+                    {id}
+                </span>
+                <h3 className="min-w-0 text-sm font-semibold text-zinc-50 sm:text-base">
+                    {name}
+                </h3>
+            </div>
+            <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs leading-snug text-zinc-400">
+                {questType ? <span>{questType}</span> : null}
+                {region ? <span>{region}</span> : null}
+                {rank != null ? (
+                    <span
+                        className="text-amber-300"
+                        aria-label={`Recommended level ${displayRank}`}
+                    >
+                        Lv. {displayRank}
+                    </span>
+                ) : null}
+            </p>
+        </div>
+    );
 
     return (
-        <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/80 overflow-hidden shadow-sm">
-            {/* Header */}
-            <div className="flex items-stretch bg-zinc-900/40">
-                <button
-                    type="button"
-                    onClick={() => setOpen((prev) => !prev)}
-                    className="flex-1 w-full flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 transition-colors text-left"
-                >
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                        <span className="inline-flex items-center rounded-full px-2 py-0.5 text-[0.7rem] sm:text-xs font-mono tracking-tight text-zinc-100 border border-zinc-700/80">
-                            {id}
-                        </span>
-                        <h3 className="text-sm sm:text-base font-semibold text-zinc-50">
-                            {name}
-                        </h3>
+        <article
+            className={
+                mode === "detail"
+                    ? "min-h-full bg-zinc-950"
+                    : `overflow-hidden rounded-md border bg-zinc-900/80 shadow-sm transition-colors ${
+                          missionTrackingEnabled && isMissionChecked
+                              ? "border-emerald-700/80"
+                              : "border-zinc-800/80"
+                      }`
+            }
+        >
+            <div
+                className={`flex items-stretch border-b border-zinc-800 bg-zinc-900/90 ${
+                    mode === "detail" ? "sticky top-0 z-10" : ""
+                }`}
+            >
+                {mode === "detail" ? (
+                    <div className="flex min-w-0 flex-1 items-center gap-3 px-4 py-3 sm:px-5">
+                        {headerSummary}
                     </div>
-
-                    <div className="flex flex-wrap items-center gap-2 text-[0.7rem] sm:text-xs">
-                        {questType && (
-                            <span className="inline-flex items-center rounded-full bg-zinc-800/90 text-zinc-100 px-2 py-0.5 border border-zinc-700/80">
-                                <span className="mr-1 opacity-70">Type:</span>
-                                {questType}
-                            </span>
-                        )}
-                        {region && (
-                            <span className="inline-flex items-center rounded-full bg-zinc-800/90 text-zinc-100 px-2 py-0.5 border border-zinc-700/80">
-                                <span className="mr-1 opacity-70">Region:</span>
-                                {region}
-                            </span>
-                        )}
-                        {rank != null && (
-                            <span className="inline-flex items-center rounded-full bg-amber-700/90 text-amber-50 px-2 py-0.5 border border-amber-500/80">
-                                <span className="mr-1 opacity-80">Rec. Lv.</span>
-                                {displayRank}
-                            </span>
-                        )}
+                ) : (
+                    <button
+                        type="button"
+                        onClick={() => setAccordionOpen((current) => !current)}
+                        aria-controls={contentId}
+                        aria-expanded={open}
+                        className="flex min-w-0 flex-1 items-center gap-3 px-3 py-3 text-left transition-colors hover:bg-zinc-800/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-300 sm:px-5"
+                    >
+                        {headerSummary}
                         {open ? (
-                            <ChevronUp className="h-4 w-4 text-zinc-200 shrink-0" />
+                            <ChevronUp className="h-4 w-4 shrink-0 text-zinc-200" />
                         ) : (
-                            <ChevronDown className="h-4 w-4 text-zinc-200 shrink-0" />
+                            <ChevronDown className="h-4 w-4 shrink-0 text-zinc-200" />
                         )}
-                    </div>
-                </button>
+                    </button>
+                )}
 
-                <div className="pr-4 sm:pr-5 pl-2 sm:pl-3 py-3 sm:py-4 flex items-start">
+                {missionTrackingEnabled && mode === "accordion" ? (
+                <label className="flex min-w-11 cursor-pointer items-start justify-center border-l border-zinc-800/80 px-3 py-3 transition-colors hover:bg-emerald-950/30 focus-within:bg-emerald-950/30 sm:min-w-12 sm:px-4">
                     <input
                         type="checkbox"
-                        aria-label="Mark mission complete"
-                        className="mt-0.5 h-4 w-4 accent-emerald-500 dark:accent-emerald-400"
+                        className="mt-0.5 h-5 w-5 rounded accent-emerald-500 focus:ring-2 focus:ring-emerald-300 dark:accent-emerald-400"
                         checked={isMissionChecked}
                         onChange={() => {
                             setCheck(missionKey);
-                            // If we just marked this as complete, collapse the details.
-                            if (!isMissionChecked) {
-                                setOpen(false);
+                            if (!isMissionChecked && mode === "accordion") {
+                                setAccordionOpen(false);
                             }
                         }}
-                        onClick={(e) => {
-                            // Don’t let the checkbox click toggle the card open/closed.
-                            e.stopPropagation();
-                        }}
                     />
-                </div>
+                    <span className="sr-only">Mark {name} complete</span>
+                </label>
+                ) : null}
             </div>
 
             {open && (
-                <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-3 sm:pt-4 space-y-4 bg-zinc-950/95">
+                <div
+                    id={contentId}
+                    className={`space-y-4 bg-zinc-950/95 px-4 pb-4 pt-3 sm:px-6 sm:pb-6 sm:pt-4 ${
+                        mode === "detail" ? "min-h-[calc(100%-4.5rem)]" : ""
+                    }`}
+                >
                     {/* Description / flavor text */}
                     {description && (
                         <p className="text-xs sm:text-sm text-zinc-200/90 italic">
@@ -347,9 +378,9 @@ export function MissionCard({ mission }: { mission: Mission }) {
                     </div>
 
                     {/* Top meta grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
-                        <section className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3">
-                            <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                    <div className="grid grid-cols-1 divide-y divide-zinc-800 border-y border-zinc-800 md:grid-cols-3 md:divide-x md:divide-y-0">
+                        <section className="py-4 md:pr-4">
+                            <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                 <u>QUEST BASICS</u>
                             </h4>
                             <dl className="space-y-1 text-xs sm:text-sm text-zinc-100">
@@ -390,8 +421,8 @@ export function MissionCard({ mission }: { mission: Mission }) {
                             </dl>
                         </section>
 
-                        <section className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3">
-                            <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                        <section className="py-4 md:px-4">
+                            <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                 <u>CONTRACT</u>
                             </h4>
                             <dl className="space-y-1 text-xs sm:text-sm text-zinc-100">
@@ -432,8 +463,8 @@ export function MissionCard({ mission }: { mission: Mission }) {
                             </dl>
                         </section>
 
-                        <section className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3">
-                            <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                        <section className="py-4 md:pl-4">
+                            <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                 <u>REWARDS</u>
                             </h4>
                             <dl className="space-y-1 text-xs sm:text-sm text-zinc-100">
@@ -489,11 +520,15 @@ export function MissionCard({ mission }: { mission: Mission }) {
                         </section>
                     </div>
 
+                    {recruitmentGuide ? (
+                        <RecruitmentGuideSection guide={recruitmentGuide} />
+                    ) : null}
+
                     {/* Requirements + Strategy + RetroAchievements + Enemies / Notes */}
                     <div className={midGridClass}>
                         {hasRequirements && (
-                            <section className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3">
-                                <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                            <section className="py-4">
+                                <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                     <u>REQUIREMENTS</u>
                                 </h4>
                                 <div className="space-y-1.5 text-xs sm:text-sm text-zinc-100">
@@ -605,8 +640,8 @@ export function MissionCard({ mission }: { mission: Mission }) {
                         )}
 
                         {hasStrategy && (
-                            <section className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3">
-                                <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                            <section className="py-4">
+                                <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                     <u>STRATEGY</u>
                                 </h4>
                                 {lawGuidance && (
@@ -630,7 +665,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                     key={phase.key}
                                                     className="rounded-lg border border-zinc-800/70 bg-zinc-950/40 px-2.5 py-2"
                                                 >
-                                                    <div className="mb-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-zinc-400">
+                                                    <div className="mb-1 text-[0.65rem] font-semibold uppercase text-zinc-400">
                                                         {phase.title}
                                                     </div>
                                                     {phase.strategy.length > 0 ? (
@@ -659,30 +694,44 @@ export function MissionCard({ mission }: { mission: Mission }) {
                         )}
 
                         {hasRetroAchievements && (
-                            <section className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3">
-                                <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                            <section className="py-4">
+                                <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                     <u>RETROACHIEVEMENTS</u>
                                 </h4>
                                 <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-100">
                                     {retroAchievements.map((ach) => (
-                                        <li key={ach.id} className="flex items-start gap-2">
-                                            <input
-                                                type="checkbox"
-                                                aria-label={`Mark RetroAchievement "${ach.name}" complete`}
-                                                className="mt-0.5 h-3.5 w-3.5 accent-indigo-500 dark:accent-indigo-400"
-                                                checked={!!checked[`retro:${ach.id}`]}
-                                                onChange={() => setCheck(`retro:${ach.id}`)}
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                }}
-                                            />
-                                            <div className="flex-1">
+                                        <li key={ach.id}>
+                                            <label
+                                                className={`flex min-h-11 items-start gap-2 rounded-md px-1 py-1.5 ${
+                                                    retroTrackingEnabled
+                                                        ? "cursor-pointer hover:bg-zinc-800/60 focus-within:ring-2 focus-within:ring-indigo-300"
+                                                        : ""
+                                                }`}
+                                            >
+                                                {retroTrackingEnabled ? (
+                                                    <input
+                                                        type="checkbox"
+                                                        className="mt-0.5 h-5 w-5 shrink-0 rounded border-zinc-500 accent-indigo-500 focus:ring-indigo-400 dark:accent-indigo-400"
+                                                        checked={
+                                                            !!checked[
+                                                                `retro:${ach.id}`
+                                                            ]
+                                                        }
+                                                        onChange={(event) =>
+                                                            setCheck(
+                                                                `retro:${ach.id}`,
+                                                                event.target.checked,
+                                                            )
+                                                        }
+                                                    />
+                                                ) : null}
+                                                <div className="min-w-0 flex-1">
                                                 <div className="flex items-center gap-1.5">
                                                     <span className="font-semibold">
                                                         {ach.name}
                                                     </span>
                                                     {ach.missable && (
-                                                        <span className="inline-flex items-center rounded-full bg-rose-700 text-rose-50 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em]">
+                                                        <span className="inline-flex items-center rounded-full bg-rose-700 text-rose-50 px-1.5 py-0.5 text-[0.6rem] uppercase">
                                                             Missable
                                                         </span>
                                                     )}
@@ -695,7 +744,8 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                         {ach.notes}
                                                     </div>
                                                 )}
-                                            </div>
+                                                </div>
+                                            </label>
                                         </li>
                                     ))}
                                 </ul>
@@ -710,8 +760,8 @@ export function MissionCard({ mission }: { mission: Mission }) {
                         )}
 
                         {hasEnemies && (
-                            <section className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3 md:col-span-2">
-                                <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                            <section className="py-4">
+                                <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                     <u>ENEMIES</u>
                                 </h4>
                                 <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-100">
@@ -720,10 +770,10 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                             return (
                                                 <li
                                                     key={`phase:${row.key}`}
-                                                    className="rounded-xl border border-amber-700/50 bg-amber-950/20 px-2.5 py-2 sm:px-3"
+                                                    className="rounded-lg border border-amber-700/50 bg-amber-950/20 px-2.5 py-2 sm:px-3"
                                                 >
                                                     <div className="flex flex-wrap items-baseline justify-between gap-2">
-                                                        <span className="text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-amber-200">
+                                                        <span className="text-[0.65rem] font-semibold uppercase text-amber-200">
                                                             {row.phase.title}
                                                         </span>
                                                         <span className="text-[0.65rem] text-amber-100/70">
@@ -766,7 +816,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                         return (
                                             <li
                                                 key={row.key}
-                                                className="rounded-xl border border-zinc-800/80 bg-zinc-950/60 px-2.5 py-2.5 sm:px-3 sm:py-3 space-y-1.5"
+                                                className="rounded-lg border border-zinc-800/80 bg-zinc-950/60 px-2.5 py-2.5 sm:px-3 sm:py-3 space-y-1.5"
                                             >
                                                 {/* header row */}
                                                 <div className="flex items-center justify-between gap-2">
@@ -775,19 +825,19 @@ export function MissionCard({ mission }: { mission: Mission }) {
                                                             {enemyDisplayName}
                                                         </span>
                                                         {showRacePill && (
-                                                            <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-zinc-300">
+                                                            <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-0.5 text-[0.6rem] uppercase text-zinc-300">
                                                                 {enemy.race}
                                                             </span>
                                                         )}
                                                         {showJobPill && (
-                                                            <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-zinc-300">
+                                                            <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-0.5 text-[0.6rem] uppercase text-zinc-300">
                                                                 {enemy.job}
                                                             </span>
                                                         )}
 
                                                         {/* Quantity pill (only show when > 1) */}
                                                         {quantity > 1 && (
-                                                            <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.16em] text-zinc-300">
+                                                            <span className="inline-flex items-center rounded-full border border-zinc-700/80 px-1.5 py-0.5 text-[0.6rem] uppercase text-zinc-300">
                                                                 ×{quantity}
                                                             </span>
                                                         )}
@@ -844,8 +894,8 @@ export function MissionCard({ mission }: { mission: Mission }) {
                         )}
 
                         {hasNotes && (
-                            <section className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3 md:col-span-2">
-                                <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                            <section className="py-4">
+                                <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                     <u>NOTES</u>
                                 </h4>
                                 <p className="text-xs sm:text-sm text-zinc-100 whitespace-pre-line">
@@ -861,7 +911,7 @@ export function MissionCard({ mission }: { mission: Mission }) {
                             {visibleTags.map((tag) => (
                                 <span
                                     key={tag}
-                                    className="inline-flex items-center rounded-full border border-zinc-700/80 bg-zinc-900/80 px-2 py-0.5 text-[0.65rem] sm:text-[0.7rem] uppercase tracking-[0.16em] text-zinc-300"
+                                    className="inline-flex items-center rounded-full border border-zinc-700/80 bg-zinc-900/80 px-2 py-0.5 text-[0.65rem] sm:text-[0.7rem] uppercase text-zinc-300"
                                 >
                                     {tag}
                                 </span>
@@ -870,6 +920,107 @@ export function MissionCard({ mission }: { mission: Mission }) {
                     )}
                 </div>
             )}
-        </div>
+        </article>
+    );
+}
+
+function RecruitmentGuideSection({
+    guide,
+}: {
+    guide: NonNullable<Mission["recruitmentGuide"]>;
+}) {
+    return (
+        <section
+            className="border-y border-zinc-800 py-4"
+            aria-labelledby="clan-mates-planner"
+        >
+            <header>
+                <h4
+                    id="clan-mates-planner"
+                    className="text-sm font-semibold text-zinc-50"
+                >
+                    Recruitment planner
+                </h4>
+                <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+                    Choose the completion month first, then use one answer
+                    sequence for the job you want.
+                </p>
+            </header>
+
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-xs leading-relaxed text-zinc-200 sm:text-sm">
+                {guide.instructions.map((instruction) => (
+                    <li key={instruction}>{instruction}</li>
+                ))}
+            </ul>
+
+            <div className="mt-4 border-t border-zinc-800">
+                {guide.groups.map((group) => {
+                    const headingId = `clan-mates-${group.race
+                        .toLowerCase()
+                        .replace(/[^a-z0-9]+/g, "-")}`;
+
+                    return (
+                        <section
+                            key={group.race}
+                            className="border-b border-zinc-800 py-3"
+                            aria-labelledby={headingId}
+                        >
+                            <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                                <h5
+                                    id={headingId}
+                                    className="text-sm font-semibold text-zinc-100"
+                                >
+                                    {group.race}
+                                </h5>
+                                <p className="text-xs text-zinc-400">
+                                    {group.months.join(" / ")}
+                                </p>
+                            </div>
+
+                            <table className="mt-2 w-full table-fixed text-left text-xs sm:text-sm">
+                                <caption className="sr-only">
+                                    {group.race} Clan Mates answer sequences
+                                </caption>
+                                <thead className="text-xs text-zinc-500">
+                                    <tr>
+                                        <th
+                                            scope="col"
+                                            className="w-[44%] py-1 pr-3 font-semibold"
+                                        >
+                                            Job
+                                        </th>
+                                        <th scope="col" className="py-1 font-semibold">
+                                            Answer sequence
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-zinc-900">
+                                    {group.results.map((result) => (
+                                        <tr
+                                            key={`${result.race ?? group.race}:${result.job}`}
+                                        >
+                                            <th
+                                                scope="row"
+                                                className="py-1.5 pr-3 font-medium text-zinc-200"
+                                            >
+                                                {result.job}
+                                                {result.race ? (
+                                                    <span className="ml-1 text-xs font-normal text-zinc-500">
+                                                        ({result.race})
+                                                    </span>
+                                                ) : null}
+                                            </th>
+                                            <td className="break-words py-1.5 font-mono text-xs text-violet-200">
+                                                {result.answers.join(" / ")}
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </section>
+                    );
+                })}
+            </div>
+        </section>
     );
 }

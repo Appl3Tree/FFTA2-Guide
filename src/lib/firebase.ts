@@ -1,28 +1,28 @@
 import { initializeApp, type FirebaseApp } from "firebase/app";
 import {
+    createUserWithEmailAndPassword,
     getAuth,
     GoogleAuthProvider,
+    onAuthStateChanged,
+    sendPasswordResetEmail,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut as firebaseSignOut,
     type Auth,
 } from "firebase/auth";
-import { getFirestore, type Firestore } from "firebase/firestore";
-
-export const GUIDE_SLUG = import.meta.env.VITE_GUIDE_SLUG ?? "ffta2";
-
-const firebaseConfig = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.VITE_FIREBASE_APP_ID,
-    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
-};
-
-export const firebaseEnabled =
-    Boolean(firebaseConfig.apiKey) &&
-    Boolean(firebaseConfig.authDomain) &&
-    Boolean(firebaseConfig.projectId) &&
-    Boolean(firebaseConfig.appId);
+import {
+    doc,
+    getDoc,
+    getFirestore,
+    serverTimestamp,
+    setDoc,
+    type Firestore,
+} from "firebase/firestore";
+import {
+    firebaseConfig,
+    firebaseEnabled,
+    GUIDE_SLUG,
+} from "./firebaseConfig";
 
 let app: FirebaseApp | undefined;
 let auth: Auth | undefined;
@@ -36,4 +36,21 @@ if (firebaseEnabled) {
     googleProvider = new GoogleAuthProvider();
 }
 
-export { app, auth, db, googleProvider };
+export {
+    app,
+    auth,
+    createUserWithEmailAndPassword,
+    db,
+    doc,
+    firebaseEnabled,
+    firebaseSignOut,
+    getDoc,
+    googleProvider,
+    GUIDE_SLUG,
+    onAuthStateChanged,
+    sendPasswordResetEmail,
+    serverTimestamp,
+    setDoc,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+};

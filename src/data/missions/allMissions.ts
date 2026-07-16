@@ -1,5 +1,6 @@
 // src/data/missions/allMissions.ts
 import type { Mission } from "../../types/ffta2";
+import { withMissionGuidance } from "../../utils/missionGuidance";
 import { STORY_MAIN_MISSIONS } from "./storyMain";
 import { STORY_OPTIONAL_MISSIONS } from "./storyOptional";
 
@@ -48,4 +49,4 @@ export function mergeMissionsById(
 export const ALL_MISSIONS: Mission[] = mergeMissionsById(
     STORY_MAIN_MISSIONS,
     STORY_OPTIONAL_MISSIONS,
-);
+).map(withMissionGuidance);

@@ -1,4 +1,5 @@
 import React from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import {
     EQUIPMENT,
     HELMET_RULES,
@@ -8,6 +9,11 @@ import {
     type EquipmentMeta,
 } from "../../data/equipment/equipment";
 import { ABILITIES, ABILITY_SETS } from "../../data/abilities/abilities";
+import { equipmentScopeId } from "../../data/checklistScopes";
+import { useChecklistPreferences } from "../ChecklistPreferencesContext";
+import { useProgress } from "../ProgressContext";
+import { Panel } from "../ui/Panel";
+import { PanelProgress } from "../ui/PanelProgress";
 
 function buildSubtypeLabel(item: EquipmentMeta): string | null {
     const cat = item.category;
@@ -255,8 +261,43 @@ function itemToSearchBlob(item: EquipmentMeta): string {
     return parts.join(" ").toLowerCase();
 }
 
+export function EquipmentHubPanel() {
+    const { checked } = useProgress();
+    const { isChecklistEnabled, isScopeEnabled } = useChecklistPreferences();
+    const trackingEnabled = isChecklistEnabled("equipment");
+    const trackedItems = Object.values(EQUIPMENT).filter((item) =>
+        isScopeEnabled("equipment", equipmentScopeId(item)),
+    );
+    const completedItems = trackedItems.filter(
+        (item) => checked[`equipment:${item.id}`],
+    ).length;
+
+    return (
+        <Panel
+            title="Equipment Hub"
+            subtitle="Browse weapons, armor, accessories, stats, and taught abilities."
+            tone="emerald"
+            headerAddon={
+                trackingEnabled && trackedItems.length > 0 ? (
+                    <PanelProgress
+                        completed={completedItems}
+                        label="Collected"
+                        tone="cyan"
+                        total={trackedItems.length}
+                    />
+                ) : undefined
+            }
+        >
+            <EquipmentHub />
+        </Panel>
+    );
+}
+
 export function EquipmentHub() {
+    const { checked, setCheck } = useProgress();
+    const { isScopeEnabled } = useChecklistPreferences();
     const [query, setQuery] = React.useState("");
+    const searchId = React.useId();
 
     const items = React.useMemo(
         () =>
@@ -315,15 +356,19 @@ export function EquipmentHub() {
         <div className="space-y-3 sm:space-y-4 text-xs sm:text-sm text-zinc-100">
             {/* Search bar */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-1">
-                <label className="text-[0.7rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 uppercase">
+                <label
+                    htmlFor={searchId}
+                    className="text-xs font-semibold uppercase text-zinc-400"
+                >
                     Search Equipment
                 </label>
                 <input
-                    type="text"
+                    id={searchId}
+                    type="search"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Search by name, type, job, ability, or effects..."
-                    className="w-full sm:w-72 rounded-md border border-zinc-700/80 bg-zinc-950/70 px-2.5 py-1.5 text-xs sm:text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:ring-1 focus:ring-emerald-500/70 focus:border-emerald-500/70"
+                    className="min-h-11 w-full rounded-md border border-zinc-700/80 bg-zinc-950/70 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-emerald-500/70 focus:outline-none focus:ring-2 focus:ring-emerald-500/70 sm:w-72"
                 />
             </div>
 
@@ -335,6 +380,12 @@ export function EquipmentHub() {
 
             {categories.map(([category, list]) => {
                 const isOpen = !!openSections[category];
+                const trackedCategoryItems = list.filter((item) =>
+                    isScopeEnabled("equipment", equipmentScopeId(item)),
+                );
+                const completedCategoryItems = trackedCategoryItems.filter(
+                    (item) => checked[`equipment:${item.id}`],
+                ).length;
 
                 // Build subcategories within this main category
                 const subMap: Record<string, EquipmentMeta[]> = {};
@@ -352,50 +403,34 @@ export function EquipmentHub() {
                 return (
                     <section
                         key={category}
-                        className="rounded-xl border border-zinc-800/80 bg-zinc-950/60 overflow-hidden"
+                        className="overflow-hidden rounded-lg border border-zinc-800/80 bg-zinc-950/60"
                     >
                         <button
                             type="button"
                             onClick={() => toggleSection(category)}
-                            className="w-full flex items-center justify-between px-3 py-2.5 sm:px-4 sm:py-3 bg-zinc-900/80 text-left"
+                            aria-expanded={isOpen}
+                            className="flex min-h-11 w-full items-center justify-between bg-zinc-900/80 px-3 py-2.5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-300 sm:px-4 sm:py-3"
                         >
                             <div className="flex items-baseline gap-2">
-                                <h5 className="text-sm sm:text-base font-semibold text-zinc-50">
+                                <h3 className="text-sm sm:text-base font-semibold text-zinc-50">
                                     {category}
-                                </h5>
+                                </h3>
                                 <span className="text-[0.7rem] text-zinc-400">
                                     {list.length} item
                                     {list.length === 1 ? "" : "s"}
+                                    {trackedCategoryItems.length > 0
+                                        ? ` | ${completedCategoryItems}/${trackedCategoryItems.length} collected`
+                                        : ""}
                                 </span>
                             </div>
-                            <span className="flex items-center gap-1 text-[0.65rem] text-zinc-300 uppercase tracking-[0.16em]">
+                            <span className="flex items-center gap-1 text-[0.65rem] text-zinc-300 uppercase">
                                 <span className="hidden sm:inline">
                                     {isOpen ? "Hide" : "Show"}
                                 </span>
                                 {isOpen ? (
-                                    <svg
-                                        className="h-3.5 w-3.5"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <path d="m18 15-6-6-6 6" />
-                                    </svg>
+                                    <ChevronUp className="h-3.5 w-3.5" />
                                 ) : (
-                                    <svg
-                                        className="h-3.5 w-3.5"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <path d="m6 9 6 6 6-6" />
-                                    </svg>
+                                    <ChevronDown className="h-3.5 w-3.5" />
                                 )}
                             </span>
                         </button>
@@ -418,11 +453,12 @@ export function EquipmentHub() {
                                                         subLabel,
                                                     )
                                                 }
-                                                className="w-full px-3 py-2 sm:px-4 sm:py-2.5 bg-zinc-950/70 flex items-center justify-between"
+                                                aria-expanded={subOpen}
+                                                className="flex min-h-11 w-full items-center justify-between bg-zinc-950/70 px-3 py-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-300 sm:px-4 sm:py-2.5"
                                             >
-                                                <span className="text-[0.7rem] sm:text-xs font-semibold uppercase tracking-[0.16em] text-zinc-400">
+                                                <h4 className="text-[0.7rem] sm:text-xs font-semibold uppercase text-zinc-400">
                                                     {subLabel}
-                                                </span>
+                                                </h4>
                                                 <span className="flex items-center gap-2">
                                                     <span className="text-[0.65rem] text-zinc-500">
                                                         {subItems.length} item
@@ -431,29 +467,9 @@ export function EquipmentHub() {
                                                             : "s"}
                                                     </span>
                                                     {subOpen ? (
-                                                        <svg
-                                                            className="h-3 w-3 text-zinc-400"
-                                                            viewBox="0 0 24 24"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            strokeWidth="2"
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                        >
-                                                            <path d="m18 15-6-6-6 6" />
-                                                        </svg>
+                                                        <ChevronUp className="h-3.5 w-3.5 text-zinc-400" />
                                                     ) : (
-                                                        <svg
-                                                            className="h-3 w-3 text-zinc-400"
-                                                            viewBox="0 0 24 24"
-                                                            fill="none"
-                                                            stroke="currentColor"
-                                                            strokeWidth="2"
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                        >
-                                                            <path d="m6 9 6 6 6-6" />
-                                                        </svg>
+                                                        <ChevronDown className="h-3.5 w-3.5 text-zinc-400" />
                                                     )}
                                                 </span>
                                             </button>
@@ -461,6 +477,19 @@ export function EquipmentHub() {
                                             {subOpen && (
                                                 <ul className="divide-y divide-zinc-800/70">
                                                     {subItems.map((item) => {
+                                                        const itemProgressKey =
+                                                            `equipment:${item.id}`;
+                                                        const itemTrackingEnabled =
+                                                            isScopeEnabled(
+                                                                "equipment",
+                                                                equipmentScopeId(
+                                                                    item,
+                                                                ),
+                                                            );
+                                                        const itemComplete =
+                                                            !!checked[
+                                                                itemProgressKey
+                                                            ];
                                                         const subtypeLabel =
                                                             buildSubtypeLabel(
                                                                 item,
@@ -587,11 +616,11 @@ export function EquipmentHub() {
                                                                 key: "basics",
                                                                 content: (
                                                                     <>
-                                                                        <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                        <h5 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                             <u>
                                                                                 BASICS
                                                                             </u>
-                                                                        </h4>
+                                                                        </h5>
                                                                         <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                                             {subtypeLabel && (
                                                                                 <div className="flex justify-between gap-2">
@@ -650,11 +679,11 @@ export function EquipmentHub() {
                                                                 key: "stats",
                                                                 content: (
                                                                     <>
-                                                                        <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                        <h5 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                             <u>
                                                                                 STATS
                                                                             </u>
-                                                                        </h4>
+                                                                        </h5>
                                                                         <dl className={dlStatsClass}>
                                                                             {statEntries.map(
                                                                                 (
@@ -690,11 +719,11 @@ export function EquipmentHub() {
                                                                 key: "effects",
                                                                 content: (
                                                                     <>
-                                                                        <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                        <h5 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                             <u>
                                                                                 EFFECTS
                                                                             </u>
-                                                                        </h4>
+                                                                        </h5>
                                                                         <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                                             {item.immunity &&
                                                                                 item
@@ -818,11 +847,11 @@ export function EquipmentHub() {
                                                                 key: "rules",
                                                                 content: (
                                                                     <>
-                                                                        <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                        <h5 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                             <u>
                                                                                 RULES
                                                                             </u>
-                                                                        </h4>
+                                                                        </h5>
                                                                         <dl className={dlRulesClass}>
                                                                             {ruleEntries.map(
                                                                                 (
@@ -858,11 +887,11 @@ export function EquipmentHub() {
                                                                 key: "teaches",
                                                                 content: (
                                                                     <>
-                                                                        <h4 className="text-[0.65rem] sm:text-xs font-semibold tracking-[0.16em] text-zinc-400 mb-1.5">
+                                                                        <h5 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
                                                                             <u>
                                                                                 TEACHES
                                                                             </u>
-                                                                        </h4>
+                                                                        </h5>
                                                                         <div className="mt-0.5 text-[0.7rem] sm:text-xs text-zinc-300">
                                                                             <ul className="list-disc list-inside space-y-0.5">
                                                                                 {Object.entries(
@@ -944,19 +973,46 @@ export function EquipmentHub() {
                                                                 className="px-3 py-2.5 sm:px-4 sm:py-3 space-y-1.5"
                                                             >
                                                                 <div className="flex flex-col gap-0.5">
-                                                                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                                                                    <div className="flex items-start justify-between gap-3">
                                                                         <span className="font-semibold text-zinc-50">
                                                                             {
                                                                                 item.name
                                                                             }
                                                                         </span>
-                                                                        {subtypeLabel && (
-                                                                            <span className="text-[0.7rem] text-zinc-400">
-                                                                                {
-                                                                                    subtypeLabel
-                                                                                }
-                                                                            </span>
-                                                                        )}
+                                                                        <div className="flex shrink-0 items-center gap-2">
+                                                                            {subtypeLabel && (
+                                                                                <span className="hidden text-[0.7rem] text-zinc-400 sm:inline">
+                                                                                    {
+                                                                                        subtypeLabel
+                                                                                    }
+                                                                                </span>
+                                                                            )}
+                                                                            {itemTrackingEnabled ? (
+                                                                                <label className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md px-2 text-xs font-semibold text-zinc-300 hover:bg-zinc-900/70 focus-within:ring-2 focus-within:ring-emerald-300">
+                                                                                    <input
+                                                                                        type="checkbox"
+                                                                                        aria-label={`Mark ${item.name} collected`}
+                                                                                        checked={
+                                                                                            itemComplete
+                                                                                        }
+                                                                                        onChange={(
+                                                                                            event,
+                                                                                        ) =>
+                                                                                            setCheck(
+                                                                                                itemProgressKey,
+                                                                                                event
+                                                                                                    .target
+                                                                                                    .checked,
+                                                                                            )
+                                                                                        }
+                                                                                        className="h-5 w-5 rounded border-zinc-500 text-emerald-500 focus:ring-emerald-400"
+                                                                                    />
+                                                                                    <span className="hidden sm:inline">
+                                                                                        Collected
+                                                                                    </span>
+                                                                                </label>
+                                                                            ) : null}
+                                                                        </div>
                                                                     </div>
 
                                                                     {item.description && (
@@ -996,7 +1052,7 @@ export function EquipmentHub() {
                                                                                     isLast;
 
                                                                                 const sectionClass =
-                                                                                    "rounded-xl border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3" +
+                                                                                    "rounded-md border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3" +
                                                                                     (shouldSpan
                                                                                         ? " md:col-span-2"
                                                                                         : "");
@@ -1035,4 +1091,3 @@ export function EquipmentHub() {
         </div>
     );
 }
-

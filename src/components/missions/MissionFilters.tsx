@@ -21,7 +21,7 @@ export function MissionFilters({
     );
 
     return (
-        <div className="rounded-xl border border-zinc-300/70 dark:border-zinc-700/70 bg-zinc-50/60 dark:bg-zinc-900/60 px-3 py-3 sm:px-4 sm:py-4 space-y-2">
+        <div className="rounded-lg border border-zinc-300/70 dark:border-zinc-700/70 bg-zinc-50/60 dark:bg-zinc-900/60 px-3 py-3 sm:px-4 sm:py-4 space-y-2">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-700 dark:text-zinc-200">
                     <Filter className="h-4 w-4" />

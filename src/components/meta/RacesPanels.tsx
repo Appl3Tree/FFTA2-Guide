@@ -21,7 +21,7 @@ export function RacesPanels() {
                     return (
                         <section
                             key={entry.race}
-                            className="border border-zinc-200/70 dark:border-zinc-700/70 rounded-xl p-3 sm:p-4 bg-white/70 dark:bg-zinc-900/60"
+                            className="border border-zinc-200/70 dark:border-zinc-700/70 rounded-lg p-3 sm:p-4 bg-white/70 dark:bg-zinc-900/60"
                         >
                             <button
                                 type="button"
@@ -31,7 +31,8 @@ export function RacesPanels() {
                                         [entry.race]: !isOpen,
                                     }))
                                 }
-                                className="w-full flex items-center justify-between gap-3 text-left"
+                                aria-expanded={isOpen}
+                                className="flex min-h-11 w-full items-center justify-between gap-3 rounded-md text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300"
                             >
                                 <div>
                                     <h3 className="text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-50">

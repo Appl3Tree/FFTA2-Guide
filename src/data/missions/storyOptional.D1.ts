@@ -31,7 +31,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         { name: "Randomized Name", job: "Ranger", quantity: 1, notes: "Only encountered if handling the Goug leg manually instead of dispatching." },
     ],
         strategy: [
-            "Accept this quest in Goug to save travel time. The first stop starts with a Viking and Ranger, but the guide says to wander for two rounds and do not attack them.",            "Dispatch units to the other three locations after the Goug event; the 6-day limit is too tight to finish all four stops manually.",
+            "Accept this quest in Goug to save travel time. At the first stop, move around for two rounds without attacking the Viking or Ranger.",            "Dispatch units to the other three locations after the Goug event; the 6-day limit is too tight to finish all four stops manually.",
         ],
         rewards: {
             gil: 2930,
@@ -145,7 +145,7 @@ export const OPTIONAL_MISSIONS_D1: Mission[] = [
         { name: "House Bowen: Ravager", job: "Ravager", quantity: 1, notes: "Heavy physical attacker from House Bowen. Keep it tied up after the Assassin and Illusionist are controlled." },
         { name: "House Bowen: Fighter", job: "Fighter", quantity: 1, notes: "Melee bruiser from House Bowen. Lower priority than the status and all-field threats." },
         { name: "House Bowen: Assassin", job: "Assassin", quantity: 1, notes: "Dangerous, but often a later target because Vanish makes her hard to pin down." },
-        { name: "House Bowen: Illusionist", job: "Illusionist", quantity: 1, notes: "Primary priority; the guide calls out its damaging abilities." },
+        { name: "House Bowen: Illusionist", job: "Illusionist", quantity: 1, notes: "Primary priority because its damaging abilities can pressure the entire field." },
     ],
         strategy: [      ],
         rewards: {
