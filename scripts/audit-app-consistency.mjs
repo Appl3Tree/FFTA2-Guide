@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import ts from "typescript";
+import { build } from "esbuild";
 
 const root = process.cwd();
 const srcDir = path.join(root, "src");
@@ -129,6 +130,19 @@ function arrayEntries(file, exportName) {
     };
 }
 
+async function loadTypeScriptModule(relativePath) {
+    const result = await build({
+        entryPoints: [path.join(root, relativePath)],
+        bundle: true,
+        format: "esm",
+        platform: "node",
+        write: false,
+        logLevel: "silent",
+    });
+    const source = result.outputFiles[0].text;
+    return import(`data:text/javascript;base64,${Buffer.from(source).toString("base64")}`);
+}
+
 function normalizeName(value) {
     return (value ?? "")
         .toLowerCase()
@@ -165,6 +179,7 @@ function collectAbilities() {
             setId: stringValue(propNode(entry.node, "setId", sourceFile)),
             otherSetIds: stringArray(propNode(entry.node, "otherSetIds", sourceFile)),
             name: stringValue(propNode(entry.node, "name", sourceFile)),
+            blueMagic: booleanValue(propNode(entry.node, "blueMagic", sourceFile)) ?? false,
             description: stringArray(propNode(entry.node, "description", sourceFile)),
             equipmentRequired: stringArray(propNode(entry.node, "equipmentRequired", sourceFile)),
         };
@@ -412,7 +427,19 @@ function collectRetroAchievements() {
 
 function collectClanTrials() {
     const file = path.join(dataDir, "meta", "clanTrials.ts");
-    const trials = arrayEntries(file, "CLAN_TRIALS");
+    const trials = arrayEntries(file, "CLAN_TRIAL_BASES");
+    const context = objectEntries(file, "CLAN_TRIAL_CONTEXT");
+    const contextById = new Map();
+    for (const entry of context.entries) {
+        if (!ts.isObjectLiteralExpression(entry.node)) continue;
+        contextById.set(entry.key, {
+            file: path.relative(root, file),
+            line: entry.line,
+            id: entry.key,
+            members: numberValue(propNode(entry.node, "members", context.sourceFile)),
+            unlock: stringValue(propNode(entry.node, "unlock", context.sourceFile)),
+        });
+    }
     const trialRows = [];
     for (const entry of trials.entries) {
         if (!ts.isObjectLiteralExpression(entry.node)) continue;
@@ -435,6 +462,15 @@ function collectClanTrials() {
             id: stringValue(propNode(entry.node, "id", trials.sourceFile)),
             name: stringValue(propNode(entry.node, "name", trials.sourceFile)),
             law: stringValue(propNode(entry.node, "law", trials.sourceFile)),
+            requiredTalents: stringValue(propNode(entry.node, "requiredTalents", trials.sourceFile)),
+            lawRequirement: stringValue(propNode(entry.node, "lawRequirement", trials.sourceFile)),
+            challenge: stringValue(propNode(entry.node, "challenge", trials.sourceFile)),
+            members: contextById.get(
+                stringValue(propNode(entry.node, "id", trials.sourceFile)),
+            )?.members,
+            unlock: contextById.get(
+                stringValue(propNode(entry.node, "id", trials.sourceFile)),
+            )?.unlock,
             titles,
         });
     }
@@ -451,7 +487,7 @@ function collectClanTrials() {
             title: stringValue(propNode(entry.node, "title", roadmap.sourceFile)),
         }));
 
-    return { trialRows, roadmapRows };
+    return { trialRows, roadmapRows, contextRows: [...contextById.values()] };
 }
 
 function collectMetaArrays() {
@@ -506,6 +542,220 @@ const missions = collectMissions();
 const retro = collectRetroAchievements();
 const clanTrials = collectClanTrials();
 const metaRows = collectMetaArrays();
+const missionRewardModule = await loadTypeScriptModule(
+    "src/data/missions/missionCompletionRewards.ts",
+);
+const jobReferenceModule = await loadTypeScriptModule(
+    "src/data/jobReferenceDetails.ts",
+);
+const blueMagickModule = await loadTypeScriptModule(
+    "src/data/blueMagickReference.ts",
+);
+const clanTrialModule = await loadTypeScriptModule(
+    "src/data/meta/clanTrials.ts",
+);
+
+const missionCompletionRewards =
+    missionRewardModule.MISSION_COMPLETION_REWARDS;
+const realMissionIds = [...missions.keys()].filter((id) =>
+    /^[A-E][1-5]-\d{2}$/.test(id),
+);
+const completionRewardIds = Object.keys(missionCompletionRewards);
+
+if (realMissionIds.length !== 300 || completionRewardIds.length !== 300) {
+    add(findings, {
+        type: "mission-completion-reward-count",
+        realMissions: realMissionIds.length,
+        rewardRecords: completionRewardIds.length,
+    });
+}
+
+for (const missionId of realMissionIds) {
+    if (!missionCompletionRewards[missionId]) {
+        add(findings, {
+            type: "mission-completion-reward-missing",
+            missionId,
+        });
+    }
+}
+
+for (const [missionId, reward] of Object.entries(missionCompletionRewards)) {
+    if (!missions.has(missionId)) {
+        add(findings, {
+            type: "mission-completion-reward-orphan",
+            missionId,
+        });
+    }
+    if (
+        !Number.isInteger(reward.abilityPoints) ||
+        reward.abilityPoints <= 0 ||
+        !Number.isInteger(reward.clanPoints) ||
+        reward.clanPoints < 0
+    ) {
+        add(findings, {
+            type: "mission-completion-reward-invalid",
+            missionId,
+            reward,
+        });
+    }
+    if (reward.abilityPointBreakdown?.length) {
+        const breakdownTotal = reward.abilityPointBreakdown.reduce(
+            (total, entry) => total + entry.amount,
+            0,
+        );
+        if (
+            breakdownTotal !== reward.abilityPoints ||
+            reward.abilityPointBreakdown.some(
+                (entry) => !entry.label || !Number.isInteger(entry.amount) || entry.amount <= 0,
+            )
+        ) {
+            add(findings, {
+                type: "mission-ability-point-breakdown-invalid",
+                missionId,
+                reward,
+            });
+        }
+    }
+    for (const [talent, amount] of Object.entries(reward.talentChanges ?? {})) {
+        if (
+            !["negotiation", "aptitude", "teamwork", "adaptability"].includes(talent) ||
+            !Number.isInteger(amount) ||
+            amount <= 0
+        ) {
+            add(findings, {
+                type: "mission-clan-talent-reward-invalid",
+                missionId,
+                talent,
+                amount,
+            });
+        }
+    }
+}
+
+const jobReferenceDetails = jobReferenceModule.JOB_REFERENCE_DETAILS;
+const jobReferenceEntries = Object.entries(jobReferenceDetails);
+const detailedAbilityCount = jobReferenceEntries.reduce(
+    (total, [, detail]) => total + Object.keys(detail.abilities).length,
+    0,
+);
+if (jobReferenceEntries.length !== 56 || detailedAbilityCount !== 574) {
+    add(findings, {
+        type: "job-reference-coverage",
+        jobs: jobReferenceEntries.length,
+        abilities: detailedAbilityCount,
+    });
+}
+
+for (const [job, detail] of jobReferenceEntries) {
+    for (const [abilityId, reference] of Object.entries(detail.abilities)) {
+        if (!abilities.abilities.has(abilityId)) {
+            add(findings, {
+                type: "job-reference-missing-ability",
+                job,
+                abilityId,
+            });
+        }
+        if (
+            !["Action", "Reaction", "Passive"].includes(reference.type) ||
+            (reference.mp != null && (!Number.isInteger(reference.mp) || reference.mp < 0)) ||
+            (reference.ap != null && (!Number.isInteger(reference.ap) || reference.ap <= 0)) ||
+            (reference.range != null && !String(reference.range).trim()) ||
+            (reference.item != null && !String(reference.item).trim())
+        ) {
+            add(findings, {
+                type: "job-reference-invalid",
+                job,
+                abilityId,
+                reference,
+            });
+        }
+    }
+}
+
+const blueMagickReferences = blueMagickModule.BLUE_MAGICK_REFERENCE;
+if (Object.keys(blueMagickReferences).length !== 20) {
+    add(findings, {
+        type: "blue-magick-player-source-count",
+        count: Object.keys(blueMagickReferences).length,
+    });
+}
+for (const ability of abilities.abilityRows.filter((row) => row.blueMagic)) {
+    const reference = blueMagickModule.getBlueMagickReference(ability.id);
+    if (
+        !reference?.sources?.length ||
+        new Set(reference.sources).size !== reference.sources.length
+    ) {
+        add(findings, {
+            type: "blue-magick-source-invalid",
+            abilityId: ability.id,
+            reference,
+        });
+    }
+    if (ability.description.some((line) => /learned from/i.test(line))) {
+        add(findings, {
+            type: "blue-magick-stale-inline-source",
+            abilityId: ability.id,
+            file: ability.file,
+            line: ability.line,
+        });
+    }
+}
+
+const expectedClanRankLadders = new Map([
+    ["adaptability-i", [6, 12, 18, 24, 30]],
+    ["aptitude-i", [6, 12, 18, 24, 30]],
+    ["negotiation-i", [6, 12, 18, 24, 30]],
+    ["teamwork-i", [6, 12, 18, 24, 30]],
+    ["adaptability-ii", [36, 42, 48, 54, 60]],
+    ["aptitude-ii", [36, 42, 48, 54, 60]],
+    ["negotiation-ii", [36, 42, 48, 54, 60]],
+    ["teamwork-ii", [36, 42, 48, 54, 60]],
+    ["adaptability-negotiation", [12, 24, 36, 48, 60]],
+    ["aptitude-adaptability", [12, 24, 36, 48, 60]],
+    ["negotiation-teamwork", [12, 24, 36, 48, 60]],
+    ["teamwork-aptitude", [12, 24, 36, 48, 60]],
+    ["general-training-i", [10, 20, 30, 40, 50]],
+    ["general-training-ii", [60, 70, 80, 90, 100]],
+]);
+
+if (
+    clanTrialModule.CLAN_TRIALS.length !== 14 ||
+    clanTrials.contextRows.length !== 14
+) {
+    add(findings, {
+        type: "clan-trial-context-count",
+        trials: clanTrialModule.CLAN_TRIALS.length,
+        contexts: clanTrials.contextRows.length,
+    });
+}
+
+for (const trial of clanTrialModule.CLAN_TRIALS) {
+    if (
+        !Number.isInteger(trial.members) ||
+        trial.members < 1 ||
+        trial.members > 6 ||
+        !trial.unlock?.trim()
+    ) {
+        add(findings, {
+            type: "clan-trial-runtime-context-invalid",
+            trialId: trial.id,
+            members: trial.members,
+            unlock: trial.unlock,
+        });
+    }
+    const expected = expectedClanRankLadders.get(trial.id);
+    const actual = trial.titles.map((_, index) =>
+        clanTrialModule.getClanRankForTrialTitle(trial.id, index),
+    );
+    if (!expected || JSON.stringify(actual) !== JSON.stringify(expected)) {
+        add(findings, {
+            type: "clan-trial-rank-ladder-mismatch",
+            trialId: trial.id,
+            expected,
+            actual,
+        });
+    }
+}
 
 for (const ability of abilities.abilityRows) {
     if (ability.key !== ability.id) {
@@ -709,8 +959,20 @@ function roadmapTrialExists(name) {
 }
 
 for (const trial of clanTrials.trialRows) {
-    if (!trial.id || !trial.name || !trial.law || trial.titles.length !== 5) {
+    if (
+        !trial.id ||
+        !trial.name ||
+        !trial.law ||
+        !trial.requiredTalents ||
+        !trial.challenge ||
+        !Number.isInteger(trial.members) ||
+        !trial.unlock ||
+        trial.titles.length !== 5
+    ) {
         add(findings, { type: "clan-trial-incomplete", ...trial });
+    }
+    if (!new Set(["Must obey", "Can break if needed"]).has(trial.lawRequirement)) {
+        add(findings, { type: "clan-trial-unresolved-law-requirement", ...trial });
     }
     for (const title of trial.titles) {
             if (!title.title || !title.objective) {
@@ -753,9 +1015,15 @@ const report = {
         raceJobs: raceJobs.jobs.size,
         bestiary: bestiary.enemies.size,
         missions: missions.size,
-        retroAchievements: retro.all.length,
+        missionCompletionRewards: completionRewardIds.length,
+        retroAchievements: new Set(retro.all.map((achievement) => achievement.id)).size,
+        retroAchievementMissionLinks: retro.all.filter((achievement) => achievement.scope === "mission").length,
         clanTrials: clanTrials.trialRows.length,
+        clanTrialContexts: clanTrials.contextRows.length,
         clanRoadmapItems: clanTrials.roadmapRows.length,
+        jobReferenceJobs: jobReferenceEntries.length,
+        jobReferenceAbilities: detailedAbilityCount,
+        blueMagickPlayerSources: Object.keys(blueMagickReferences).length,
         metaRows: metaRows.length,
         findings: findings.length,
     },

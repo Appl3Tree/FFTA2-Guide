@@ -32,10 +32,8 @@ export function MissionsPanel() {
     const completedOtherMissions = trackedOtherMissions.filter(
         (mission) => checked[`mission:${mission.id}`],
     ).length;
-    const completedMissions =
-        completedQuestReportMissions + completedOtherMissions;
-    const trackedMissionTotal =
-        trackedQuestReportMissions.length + trackedOtherMissions.length;
+    const hasTrackedMissions =
+        trackedQuestReportMissions.length > 0 || trackedOtherMissions.length > 0;
 
     return (
         <Panel
@@ -44,13 +42,25 @@ export function MissionsPanel() {
             tone="purple"
             defaultOpen
             collapsible={false}
-            headerAddon={trackingEnabled && trackedMissionTotal > 0 ? (
-                <PanelProgress
-                    completed={completedMissions}
-                    label="Missions"
-                    tone="violet"
-                    total={trackedMissionTotal}
-                />
+            headerAddon={trackingEnabled && hasTrackedMissions ? (
+                <div className="grid gap-2.5">
+                    {trackedQuestReportMissions.length > 0 ? (
+                        <PanelProgress
+                            completed={completedQuestReportMissions}
+                            label="Quest Report"
+                            tone="violet"
+                            total={trackedQuestReportMissions.length}
+                        />
+                    ) : null}
+                    {trackedOtherMissions.length > 0 ? (
+                        <PanelProgress
+                            completed={completedOtherMissions}
+                            label="Other missions & map events"
+                            tone="amber"
+                            total={trackedOtherMissions.length}
+                        />
+                    ) : null}
+                </div>
             ) : undefined}
         >
             <MissionTabs />

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import type { PanelTone } from "../../types/ffta2";
+import { useProgress } from "../ProgressContext";
 
 const toneClasses: Record<
     PanelTone,
@@ -110,6 +111,7 @@ export function Panel({
     headerAddon,
     defaultOpen = false,
     collapsible = true,
+    preferenceKey,
     children,
 }: {
     title: string;
@@ -118,11 +120,21 @@ export function Panel({
     headerAddon?: React.ReactNode;
     defaultOpen?: boolean;
     collapsible?: boolean;
+    preferenceKey?: string;
     children: React.ReactNode;
 }) {
-    const [open, setOpen] = useState(collapsible ? defaultOpen : true);
+    const { preferences, setPreference } = useProgress();
+    const storedOpen = preferenceKey
+        ? preferences[`panel.${preferenceKey}`]
+        : undefined;
+    const [localOpen, setLocalOpen] = useState(defaultOpen);
+    const open = collapsible
+        ? typeof storedOpen === "boolean"
+            ? storedOpen
+            : localOpen
+        : true;
     const [hasOpened, setHasOpened] = useState(
-        collapsible ? defaultOpen : true,
+        collapsible ? open : true,
     );
     const panelId = React.useId();
     const titleId = `${panelId}-title`;
@@ -130,11 +142,17 @@ export function Panel({
     const contentId = `${panelId}-content`;
     const t = toneClasses[tone];
 
+    React.useEffect(() => {
+        if (open) setHasOpened(true);
+    }, [open]);
+
     const toggleOpen = () => {
-        if (!open) {
-            setHasOpened(true);
+        const nextOpen = !open;
+        if (preferenceKey) {
+            setPreference(`panel.${preferenceKey}`, nextOpen);
+        } else {
+            setLocalOpen(nextOpen);
         }
-        setOpen((value) => !value);
     };
 
     return (
@@ -212,7 +230,7 @@ export function Panel({
                         <button
                             type="button"
                             onClick={toggleOpen}
-                            aria-controls={contentId}
+                            aria-controls={hasOpened ? contentId : undefined}
                             aria-describedby={subtitleId}
                             aria-expanded={open}
                             aria-labelledby={titleId}

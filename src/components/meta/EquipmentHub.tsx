@@ -8,12 +8,16 @@ import {
     WEAPON_RULES,
     type EquipmentMeta,
 } from "../../data/equipment/equipment";
-import { ABILITIES, ABILITY_SETS } from "../../data/abilities/abilities";
 import { equipmentScopeId } from "../../data/checklistScopes";
 import { useChecklistPreferences } from "../ChecklistPreferencesContext";
-import { useProgress } from "../ProgressContext";
+import { useGuidePreference, useProgress } from "../ProgressContext";
 import { Panel } from "../ui/Panel";
 import { PanelProgress } from "../ui/PanelProgress";
+import { getAbilityTeachingLabel } from "../../utils/abilityPresentation";
+
+const DEFAULT_OPEN_EQUIPMENT_SECTIONS: Record<string, boolean> = {};
+const DEFAULT_OPEN_EQUIPMENT_SUBSECTIONS: Record<string, boolean> = {};
+const DEFAULT_OPEN_EQUIPMENT_ITEMS: Record<string, boolean> = {};
 
 function buildSubtypeLabel(item: EquipmentMeta): string | null {
     const cat = item.category;
@@ -242,18 +246,7 @@ function itemToSearchBlob(item: EquipmentMeta): string {
         for (const [job, abilityIds] of Object.entries(item.teaches)) {
             parts.push(job);
             for (const id of abilityIds) {
-                const ab = ABILITIES[id];
-                if (ab) {
-                    parts.push(ab.name);
-                    const set = ABILITY_SETS[ab.setId];
-                    if (set) {
-                        parts.push(set.name);
-                    } else {
-                        parts.push(ab.setId);
-                    }
-                } else {
-                    parts.push(id);
-                }
+                parts.push(getAbilityTeachingLabel(job, id));
             }
         }
     }
@@ -277,6 +270,7 @@ export function EquipmentHubPanel() {
             title="Equipment Hub"
             subtitle="Browse weapons, armor, accessories, stats, and taught abilities."
             tone="emerald"
+            preferenceKey="collection.equipment"
             headerAddon={
                 trackingEnabled && trackedItems.length > 0 ? (
                     <PanelProgress
@@ -296,7 +290,10 @@ export function EquipmentHubPanel() {
 export function EquipmentHub() {
     const { checked, setCheck } = useProgress();
     const { isScopeEnabled } = useChecklistPreferences();
-    const [query, setQuery] = React.useState("");
+    const [query, setQuery] = useGuidePreference(
+        "filters.equipment.query",
+        "",
+    );
     const searchId = React.useId();
 
     const items = React.useMemo(
@@ -316,6 +313,7 @@ export function EquipmentHub() {
             return blob.includes(q);
         });
     }, [items, query]);
+    const searching = query.trim().length > 0;
 
     // Top-level: Weapon / Helmet / Armor / Accessory / Shield / Other
     const categories = React.useMemo(() => {
@@ -330,12 +328,18 @@ export function EquipmentHub() {
         return Object.entries(map).sort(([a], [b]) => a.localeCompare(b));
     }, [filteredItems]);
 
-    const [openSections, setOpenSections] = React.useState<
+    const [openSections, setOpenSections] = useGuidePreference<
         Record<string, boolean>
-    >({});
-    const [openSubsections, setOpenSubsections] = React.useState<
+    >("disclosure.equipment.sections", DEFAULT_OPEN_EQUIPMENT_SECTIONS);
+    const [openSubsections, setOpenSubsections] = useGuidePreference<
         Record<string, boolean>
-    >({});
+    >(
+        "disclosure.equipment.subsections",
+        DEFAULT_OPEN_EQUIPMENT_SUBSECTIONS,
+    );
+    const [openItems, setOpenItems] = useGuidePreference<
+        Record<string, boolean>
+    >("disclosure.equipment.items", DEFAULT_OPEN_EQUIPMENT_ITEMS);
 
     const toggleSection = (category: string) => {
         setOpenSections((prev) => ({
@@ -349,6 +353,13 @@ export function EquipmentHub() {
         setOpenSubsections((prev) => ({
             ...prev,
             [key]: !prev[key],
+        }));
+    };
+
+    const toggleItem = (itemId: string) => {
+        setOpenItems((current) => ({
+            ...current,
+            [itemId]: !current[itemId],
         }));
     };
 
@@ -368,7 +379,7 @@ export function EquipmentHub() {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Search by name, type, job, ability, or effects..."
-                    className="min-h-11 w-full rounded-md border border-zinc-700/80 bg-zinc-950/70 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-emerald-500/70 focus:outline-none focus:ring-2 focus:ring-emerald-500/70 sm:w-72"
+                    className="min-h-11 w-full rounded-md border border-zinc-700/80 bg-zinc-950/70 px-3 py-2 text-base text-zinc-100 placeholder:text-zinc-500 focus:border-emerald-500/70 focus:outline-none focus:ring-2 focus:ring-emerald-500/70 sm:w-72 sm:text-sm"
                 />
             </div>
 
@@ -378,8 +389,10 @@ export function EquipmentHub() {
                 </p>
             )}
 
+            {categories.length > 0 ? (
+            <div className="space-y-3 lg:max-h-[70vh] lg:overflow-y-auto lg:pr-2">
             {categories.map(([category, list]) => {
-                const isOpen = !!openSections[category];
+                const isOpen = searching || !!openSections[category];
                 const trackedCategoryItems = list.filter((item) =>
                     isScopeEnabled("equipment", equipmentScopeId(item)),
                 );
@@ -440,7 +453,8 @@ export function EquipmentHub() {
                                 {subcategories.map(([subLabel, subItems]) => {
                                     const subKey = `${category}::${subLabel}`;
                                     const subOpen =
-                                        openSubsections[subKey] ?? false;
+                                        searching ||
+                                        (openSubsections[subKey] ?? false);
 
                                     return (
                                         <div key={subLabel}>
@@ -490,6 +504,8 @@ export function EquipmentHub() {
                                                             !!checked[
                                                                 itemProgressKey
                                                             ];
+                                                        const itemOpen =
+                                                            openItems[item.id] === true;
                                                         const subtypeLabel =
                                                             buildSubtypeLabel(
                                                                 item,
@@ -617,9 +633,7 @@ export function EquipmentHub() {
                                                                 content: (
                                                                     <>
                                                                         <h5 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                            <u>
-                                                                                BASICS
-                                                                            </u>
+                                                                            BASICS
                                                                         </h5>
                                                                         <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                                             {subtypeLabel && (
@@ -653,9 +667,7 @@ export function EquipmentHub() {
                                                                                         Purchase
                                                                                     </dt>
                                                                                     <dd className="font-medium text-right">
-                                                                                        {
-                                                                                            item.price
-                                                                                        }{" "}
+                                                                                        {item.price.toLocaleString()}{" "}
                                                                                         gil
                                                                                     </dd>
                                                                                 </div>
@@ -680,9 +692,7 @@ export function EquipmentHub() {
                                                                 content: (
                                                                     <>
                                                                         <h5 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                            <u>
-                                                                                STATS
-                                                                            </u>
+                                                                            STATS
                                                                         </h5>
                                                                         <dl className={dlStatsClass}>
                                                                             {statEntries.map(
@@ -720,9 +730,7 @@ export function EquipmentHub() {
                                                                 content: (
                                                                     <>
                                                                         <h5 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                            <u>
-                                                                                EFFECTS
-                                                                            </u>
+                                                                            EFFECTS
                                                                         </h5>
                                                                         <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                                             {item.immunity &&
@@ -848,9 +856,7 @@ export function EquipmentHub() {
                                                                 content: (
                                                                     <>
                                                                         <h5 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                            <u>
-                                                                                RULES
-                                                                            </u>
+                                                                            RULES
                                                                         </h5>
                                                                         <dl className={dlRulesClass}>
                                                                             {ruleEntries.map(
@@ -888,9 +894,7 @@ export function EquipmentHub() {
                                                                 content: (
                                                                     <>
                                                                         <h5 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                            <u>
-                                                                                TEACHES
-                                                                            </u>
+                                                                            TEACHES
                                                                         </h5>
                                                                         <div className="mt-0.5 text-[0.7rem] sm:text-xs text-zinc-300">
                                                                             <ul className="list-disc list-inside space-y-0.5">
@@ -908,25 +912,10 @@ export function EquipmentHub() {
                                                                                                     (
                                                                                                         id,
                                                                                                     ) => {
-                                                                                                        const ab =
-                                                                                                            ABILITIES[
-                                                                                                                id
-                                                                                                            ];
-                                                                                                        if (
-                                                                                                            !ab
-                                                                                                        ) {
-                                                                                                            return id;
-                                                                                                        }
-                                                                                                        const set =
-                                                                                                            ABILITY_SETS[
-                                                                                                                ab
-                                                                                                                    .setId
-                                                                                                            ];
-                                                                                                        const setName =
-                                                                                                            set
-                                                                                                                ?.name ??
-                                                                                                            ab.setId;
-                                                                                                        return `${ab.name} (${setName})`;
+                                                                                                        return getAbilityTeachingLabel(
+                                                                                                            job,
+                                                                                                            id,
+                                                                                                        );
                                                                                                     },
                                                                                                 )
                                                                                                 .join(
@@ -970,69 +959,86 @@ export function EquipmentHub() {
                                                         return (
                                                             <li
                                                                 key={item.id}
-                                                                className="px-3 py-2.5 sm:px-4 sm:py-3 space-y-1.5"
+                                                                className="bg-zinc-950/20"
                                                             >
-                                                                <div className="flex flex-col gap-0.5">
-                                                                    <div className="flex items-start justify-between gap-3">
-                                                                        <span className="font-semibold text-zinc-50">
-                                                                            {
-                                                                                item.name
-                                                                            }
-                                                                        </span>
-                                                                        <div className="flex shrink-0 items-center gap-2">
-                                                                            {subtypeLabel && (
-                                                                                <span className="hidden text-[0.7rem] text-zinc-400 sm:inline">
-                                                                                    {
-                                                                                        subtypeLabel
-                                                                                    }
+                                                                <div
+                                                                    className={`grid items-stretch ${
+                                                                        itemTrackingEnabled
+                                                                            ? "grid-cols-[minmax(0,1fr)_auto]"
+                                                                            : "grid-cols-1"
+                                                                    }`}
+                                                                >
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() =>
+                                                                            toggleItem(
+                                                                                item.id,
+                                                                            )
+                                                                        }
+                                                                        aria-expanded={
+                                                                            itemOpen
+                                                                        }
+                                                                        className="flex min-h-14 min-w-0 items-center justify-between gap-3 px-3 py-2.5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-300 sm:px-4"
+                                                                    >
+                                                                        <span className="min-w-0">
+                                                                            <span className="block font-semibold text-zinc-50">
+                                                                                {item.name}
+                                                                            </span>
+                                                                            {subtypeLabel ? (
+                                                                                <span className="mt-1 block text-[0.7rem] text-zinc-400">
+                                                                                    {subtypeLabel}
                                                                                 </span>
-                                                                            )}
-                                                                            {itemTrackingEnabled ? (
-                                                                                <label className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md px-2 text-xs font-semibold text-zinc-300 hover:bg-zinc-900/70 focus-within:ring-2 focus-within:ring-emerald-300">
-                                                                                    <input
-                                                                                        type="checkbox"
-                                                                                        aria-label={`Mark ${item.name} collected`}
-                                                                                        checked={
-                                                                                            itemComplete
-                                                                                        }
-                                                                                        onChange={(
-                                                                                            event,
-                                                                                        ) =>
-                                                                                            setCheck(
-                                                                                                itemProgressKey,
-                                                                                                event
-                                                                                                    .target
-                                                                                                    .checked,
-                                                                                            )
-                                                                                        }
-                                                                                        className="h-5 w-5 rounded border-zinc-500 text-emerald-500 focus:ring-emerald-400"
-                                                                                    />
-                                                                                    <span className="hidden sm:inline">
-                                                                                        Collected
-                                                                                    </span>
-                                                                                </label>
                                                                             ) : null}
-                                                                        </div>
-                                                                    </div>
-
-                                                                    {item.description && (
-                                                                        <p className="text-[0.7rem] sm:text-xs text-zinc-300">
-                                                                            {
-                                                                                item.description
-                                                                            }
-                                                                        </p>
-                                                                    )}
-
-                                                                    {item.notes && (
-                                                                        <p className="text-[0.7rem] sm:text-xs text-zinc-400">
-                                                                            {
-                                                                                item.notes
-                                                                            }
-                                                                        </p>
-                                                                    )}
+                                                                        </span>
+                                                                        <ChevronDown
+                                                                            aria-hidden="true"
+                                                                            className={`h-4 w-4 shrink-0 text-zinc-500 transition-transform ${
+                                                                                itemOpen
+                                                                                    ? "rotate-180"
+                                                                                    : ""
+                                                                            }`}
+                                                                        />
+                                                                    </button>
+                                                                    {itemTrackingEnabled ? (
+                                                                        <label className="flex min-h-14 cursor-pointer items-center gap-2 border-l border-zinc-800/70 px-3 text-xs font-semibold text-zinc-300 hover:bg-zinc-900/70 focus-within:ring-2 focus-within:ring-inset focus-within:ring-emerald-300">
+                                                                            <input
+                                                                                type="checkbox"
+                                                                                aria-label={`Mark ${item.name} collected`}
+                                                                                checked={
+                                                                                    itemComplete
+                                                                                }
+                                                                                onChange={(
+                                                                                    event,
+                                                                                ) =>
+                                                                                    setCheck(
+                                                                                        itemProgressKey,
+                                                                                        event
+                                                                                            .target
+                                                                                            .checked,
+                                                                                    )
+                                                                                }
+                                                                                className="h-5 w-5 rounded border-zinc-500 text-emerald-500 focus:ring-emerald-400"
+                                                                            />
+                                                                            <span className="hidden sm:inline">
+                                                                                Collected
+                                                                            </span>
+                                                                        </label>
+                                                                    ) : null}
                                                                 </div>
 
-                                                                {hasAnyModules && (
+                                                                {itemOpen ? (
+                                                                <div className="border-t border-zinc-800/70 px-3 pb-3 pt-2.5 sm:px-4">
+                                                                    {item.description ? (
+                                                                        <p className="text-xs leading-relaxed text-zinc-300">
+                                                                            {item.description}
+                                                                        </p>
+                                                                    ) : null}
+                                                                    {item.notes ? (
+                                                                        <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+                                                                            {item.notes}
+                                                                        </p>
+                                                                    ) : null}
+                                                                {hasAnyModules ? (
                                                                     <div className={gridClass}>
                                                                         {modules.map(
                                                                             (
@@ -1052,7 +1058,7 @@ export function EquipmentHub() {
                                                                                     isLast;
 
                                                                                 const sectionClass =
-                                                                                    "rounded-md border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3" +
+                                                                                    "border-t border-zinc-800/80 px-1 py-2.5 sm:py-3" +
                                                                                     (shouldSpan
                                                                                         ? " md:col-span-2"
                                                                                         : "");
@@ -1074,7 +1080,9 @@ export function EquipmentHub() {
                                                                             },
                                                                         )}
                                                                     </div>
-                                                                )}
+                                                                ) : null}
+                                                                </div>
+                                                                ) : null}
                                                             </li>
                                                         );
                                                     })}
@@ -1088,6 +1096,8 @@ export function EquipmentHub() {
                     </section>
                 );
             })}
+            </div>
+            ) : null}
         </div>
     );
 }

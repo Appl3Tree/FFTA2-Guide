@@ -493,10 +493,10 @@ export const ABILITY_SETS: Record<AbilitySetId, AbilitySetMeta> = {
         name: "Wyrmcraft",
         description: "Few, if any, can stand before the might of the great wyrms and prevail.",
     },
-    "???": {
-        id: "???",
-        name: "???",
-        description: "Few can say just what a magick pot will do...",
+    "magick-pot-commands": {
+        id: "magick-pot-commands",
+        name: "Magick Pot Commands",
+        description: "Magick Pots request an Elixir, then punish refusal or reward the gift.",
     },
 };
 
@@ -508,7 +508,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Roulette",
         description: [
             "Randomly KOs a unit on the field.",
-			"Learned from Ahriman.",
         ],
         blueMagic: true
     },
@@ -559,7 +558,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Sandstorm",
         description: [
             "Deals Earth damage and inflicts Blind.",
-			"Learned from Antlion.",
         ],
         blueMagic: true
     },
@@ -618,7 +616,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Magick Hammer",
         description: [
             "Smite foe with a mysterious hammer. Depletes target's MP.",
-			"Learned from Baknamykind.",
         ],
         blueMagic: true
     },
@@ -669,7 +666,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Self-Destruct",
         description: [
             "KOs self to deal massive damage.",
-			"Learned from Bomb.",
         ],
         blueMagic: true
     },
@@ -848,7 +844,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Doom",
         description: [
             "Inflicts Doom.",
-			"Learned from Deathscythe.",
         ],
         blueMagic: true
     },
@@ -998,7 +993,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Expose Weakness",
         description: [
             "Lowers target's Defense and Magick Resistance.",
-			"Learned from Fire Drake.",
         ],
         blueMagic: true
     },
@@ -1009,7 +1003,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Mighty Guard",
         description: [
             "Raises target's Defense and Magick Resistance.",
-			"Learned from Thunder Drake.",
         ],
         blueMagic: true
     },
@@ -1020,7 +1013,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Dragon Force",
         description: [
             "Raises target's Attack and Magick Attack.",
-			"Learned from Ice Drake.",
         ],
         blueMagic: true
     },
@@ -1055,7 +1047,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "War Dance",
         description: [
             "A dance that boosts the morale of units in a small area. Raises ATTACK.",
-			"Learned from Dreamhare.",
         ],
         blueMagic: true
     },
@@ -1090,7 +1081,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Unction",
         description: [
             "Inflicts Oil debuff.",
-			"Learned from Red Marshmallow (Flan).",
         ],
         blueMagic: true
     },
@@ -1197,7 +1187,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Quake",
         description: [
             "Deals Earth damage in an area.",
-			"Learned from Headlesskind.",
         ],
         blueMagic: true
     },
@@ -1240,7 +1229,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Night",
         description: [
             "Puts all units to sleep.",
-			"Learned from Lamiakind.",
         ],
         blueMagic: true
     },
@@ -1294,7 +1282,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     pester: {
         id: "pester",
-        setId: "???",
+        setId: "magick-pot-commands",
         name: "Pester",
         description: [
             "Asks for an Elixir.",
@@ -1302,7 +1290,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     punish: {
         id: "punish",
-        setId: "???",
+        setId: "magick-pot-commands",
         name: "Punish",
         description: [
             "Deals 999 damage to target. 100% Accuracy.",
@@ -1310,7 +1298,7 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
     },
     reward: {
         id: "reward",
-        setId: "???",
+        setId: "magick-pot-commands",
         name: "Reward",
         description: [
             "KOs self.",
@@ -1323,7 +1311,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Bad Breath",
         description: [
             "Inflicts Blind, Poison, and Silence.",
-			"Learned from Malborokind.",
         ],
         blueMagic: true
     },
@@ -1334,7 +1321,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Eerie Sound Wave",
         description: [
             "Dispels buffs on one unit.",
-			"Learned from Malborokind.",
         ],
         blueMagic: true
     },
@@ -1521,7 +1507,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         description: [
             "Deals 999 damage to one target with 100% Accuracy if user's HP is in single digits.",
             "AKA Cornered.",
-			"Learned from Great Tortoise."
         ],
         blueMagic: true
     },
@@ -1532,7 +1517,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Matra Magic",
         description: [
             "Switches one target's HP and MP.",
-			"Learned from Adamantitan.",
         ],
         blueMagic: true
     },
@@ -1583,7 +1567,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "White Wind",
         description: [
             "Restores HP equal to the caster's current HP in an area.",
-			"Learned from Sprite.",
         ],
         blueMagic: true
     },
@@ -1594,7 +1577,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Angel Whisper",
         description: [
             "Heals one target's HP and bestows Reraise. Holy-elemental.",
-			"Learned from Sprite.",
         ],
         blueMagic: true
     },
@@ -1741,7 +1723,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Roar",
         description: [
             "Dispels buffs from all other units on the field.",
-			"Learned from Werewolfkind.",
         ],
         blueMagic: true
     },
@@ -1786,7 +1767,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         name: "Screech",
         description: [
             "Damages one unit and inflicts Confuse.",
-			"Learned from Wolfkind.",
         ],
         blueMagic: true
     },
@@ -2217,7 +2197,6 @@ export const ABILITIES: Record<AbilityId, AbilityMeta> = {
         description: [
             "Deals 999 damage to one target with 100% Accuracy if user's HP is in single digits.",
             "AKA Limit Glove.",
-			"Learned from Great Tortoise."
         ],
         blueMagic: true
     },

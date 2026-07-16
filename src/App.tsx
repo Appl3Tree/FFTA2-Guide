@@ -4,7 +4,9 @@ import {
     BookOpen,
     CheckCircle2,
     Cloud,
+    Coffee,
     GitMerge,
+    Github,
     HardDrive,
     Info,
     LogIn,
@@ -22,6 +24,7 @@ import {
 } from "lucide-react";
 import {
     ProgressProvider,
+    useGuidePreference,
     useProgress,
     type SyncConflict,
     type SyncConflictChoice,
@@ -78,8 +81,6 @@ const ChecklistSettingsDialog = React.lazy(() =>
         default: module.ChecklistSettingsDialog,
     })),
 );
-
-const STORAGE_KEY_WIDE_LAYOUT = "ffta2-guide:wide-layout";
 
 type AppView =
     | "guide"
@@ -144,37 +145,49 @@ function isAppView(value: string): value is AppView {
     return APP_VIEWS.some((view) => view.id === value);
 }
 
+function ViewReady({
+    onReady,
+    view,
+}: {
+    onReady: () => void;
+    view: AppView;
+}) {
+    React.useLayoutEffect(() => {
+        onReady();
+    }, [onReady, view]);
+
+    return null;
+}
+
 export default function App() {
     return (
-        <ChecklistPreferencesProvider>
-            <ProgressProvider>
+        <ProgressProvider>
+            <ChecklistPreferencesProvider>
                 <AppInner />
-            </ProgressProvider>
-        </ChecklistPreferencesProvider>
+            </ChecklistPreferencesProvider>
+        </ProgressProvider>
     );
 }
 
 function AppInner() {
     const { resolveSyncConflict, syncConflict } = useProgress();
     const [settingsOpen, setSettingsOpen] = React.useState(false);
+    const [globalSearchOpen, setGlobalSearchOpen] = React.useState(false);
+    const globalSearchTriggerRef = React.useRef<HTMLButtonElement>(null);
+    const navPointerScrollRef = React.useRef<number | null>(null);
+    const pendingViewScrollRef = React.useRef<{
+        previousOverflowAnchor: string;
+        y: number;
+    } | null>(null);
     const [activeView, setActiveView] = React.useState<AppView>(() => {
         if (typeof window === "undefined") return "guide";
         const hashView = window.location.hash.replace(/^#/, "");
         return isAppView(hashView) ? hashView : "guide";
     });
-    const viewTopRef = React.useRef<HTMLElement>(null);
-    const pendingViewScrollRef = React.useRef(false);
-    const [wideLayout, setWideLayout] = React.useState(() => {
-        if (typeof window === "undefined") return false;
-        return window.localStorage.getItem(STORAGE_KEY_WIDE_LAYOUT) === "true";
-    });
-
-    React.useEffect(() => {
-        window.localStorage.setItem(
-            STORAGE_KEY_WIDE_LAYOUT,
-            String(wideLayout),
-        );
-    }, [wideLayout]);
+    const [wideLayout, setWideLayout] = useGuidePreference(
+        "layout.wide",
+        false,
+    );
 
     React.useEffect(() => {
         const syncViewFromLocation = () => {
@@ -190,18 +203,51 @@ function AppInner() {
         };
     }, []);
 
+    const completeViewTransition = React.useCallback(() => {
+        const pending = pendingViewScrollRef.current;
+        if (!pending) return;
+
+        const restorePosition = () => {
+            if (pendingViewScrollRef.current !== pending) return;
+            const maxScroll = Math.max(
+                0,
+                document.documentElement.scrollHeight - window.innerHeight,
+            );
+            window.scrollTo({
+                behavior: "auto",
+                left: 0,
+                top: Math.min(pending.y, maxScroll),
+            });
+        };
+
+        restorePosition();
+        window.requestAnimationFrame(() => {
+            restorePosition();
+        });
+        window.setTimeout(restorePosition, 80);
+        window.setTimeout(() => {
+            if (pendingViewScrollRef.current !== pending) return;
+            restorePosition();
+            document.documentElement.style.setProperty(
+                "overflow-anchor",
+                pending.previousOverflowAnchor,
+            );
+            pendingViewScrollRef.current = null;
+        }, 220);
+    }, []);
+
     const selectView = (view: AppView) => {
         if (view === activeView) return;
-        pendingViewScrollRef.current = true;
-        setActiveView(view);
+        const root = document.documentElement;
+        pendingViewScrollRef.current = {
+            previousOverflowAnchor: root.style.getPropertyValue("overflow-anchor"),
+            y: navPointerScrollRef.current ?? window.scrollY,
+        };
+        navPointerScrollRef.current = null;
+        root.style.setProperty("overflow-anchor", "none");
         window.history.pushState(null, "", `#${view}`);
+        React.startTransition(() => setActiveView(view));
     };
-
-    const handleViewReady = React.useCallback(() => {
-        if (!pendingViewScrollRef.current) return;
-        pendingViewScrollRef.current = false;
-        viewTopRef.current?.scrollIntoView({ block: "start" });
-    }, []);
 
     const activeViewMeta =
         APP_VIEWS.find((view) => view.id === activeView) ?? APP_VIEWS[0]!;
@@ -279,9 +325,9 @@ function AppInner() {
 
                     <nav
                         aria-label="Primary guide sections"
-                        className="sticky top-0 z-30 border-x border-b border-zinc-800 bg-zinc-950/95 shadow-lg shadow-black/20 backdrop-blur"
+                        className="sticky top-0 z-30 flex border-x border-b border-zinc-800 bg-zinc-950/95 shadow-lg shadow-black/20 backdrop-blur"
                     >
-                        <div className="grid auto-cols-[minmax(6.5rem,1fr)] grid-flow-col overflow-x-auto lg:grid-flow-row lg:grid-cols-6">
+                        <div className="grid min-w-0 flex-1 auto-cols-[minmax(6.5rem,1fr)] grid-flow-col overflow-x-auto lg:grid-flow-row lg:grid-cols-6">
                             {APP_VIEWS.map((view) => {
                                 const Icon = view.icon;
                                 const selected = activeView === view.id;
@@ -291,6 +337,9 @@ function AppInner() {
                                         key={view.id}
                                         type="button"
                                         aria-current={selected ? "page" : undefined}
+                                        onPointerDown={() => {
+                                            navPointerScrollRef.current = window.scrollY;
+                                        }}
                                         onClick={() => selectView(view.id)}
                                         className={`flex min-h-14 items-center justify-center gap-2 border-b-2 px-3 text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sky-300 sm:text-sm ${
                                             selected
@@ -304,12 +353,23 @@ function AppInner() {
                                 );
                             })}
                         </div>
+                        <button
+                            ref={globalSearchTriggerRef}
+                            type="button"
+                            onClick={() => setGlobalSearchOpen(true)}
+                            aria-expanded={globalSearchOpen}
+                            aria-haspopup="dialog"
+                            aria-label="Open global search"
+                            title="Global search"
+                            className="inline-flex h-14 w-14 shrink-0 items-center justify-center border-l border-zinc-800 text-emerald-300 transition-colors hover:bg-zinc-900 hover:text-emerald-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-300"
+                        >
+                            <Search aria-hidden="true" className="h-5 w-5" />
+                        </button>
                     </nav>
 
                     <section
-                        ref={viewTopRef}
                         aria-labelledby="active-view-title"
-                        className="min-h-[60vh] scroll-mt-16 pb-6 pt-5 sm:pb-8 sm:pt-7"
+                        className="min-h-[60vh] pb-6 pt-5 sm:pb-8 sm:pt-7"
                     >
                         <header className="mb-5 border-b border-zinc-800 pb-4 sm:mb-6">
                             <div className="flex items-start gap-3">
@@ -351,7 +411,7 @@ function AppInner() {
                                 ) : null}
                                 {activeView === "missions" ? <MissionsPanel /> : null}
                                 <ViewReady
-                                    onReady={handleViewReady}
+                                    onReady={completeViewTransition}
                                     view={activeView}
                                 />
                             </React.Suspense>
@@ -360,12 +420,38 @@ function AppInner() {
                 </div>
             </main>
 
-            <footer className="mb-6 mt-12 flex items-center justify-center text-xs text-zinc-600 dark:text-zinc-400">
+            <footer className="mb-6 mt-12 flex flex-wrap items-center justify-center gap-x-3 text-xs text-zinc-600 dark:text-zinc-400">
                 <span>Final Fantasy Tactics A2 play companion</span>
+                <span aria-hidden="true" className="text-zinc-700">
+                    |
+                </span>
+                <a
+                    href="https://github.com/appl3tree/FFTA2-Guide/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View the source code on GitHub (opens in a new tab)"
+                    className="inline-flex min-h-11 items-center gap-1.5 px-1 font-medium text-zinc-400 transition-colors hover:text-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                >
+                    <Github aria-hidden="true" className="h-4 w-4" />
+                    <span>Source</span>
+                </a>
+                <a
+                    href="https://ko-fi.com/appl3tree"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Support the guide on Ko-fi (opens in a new tab)"
+                    className="inline-flex min-h-11 items-center gap-1.5 px-1 font-medium text-zinc-400 transition-colors hover:text-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                >
+                    <Coffee aria-hidden="true" className="h-4 w-4" />
+                    <span>Ko-fi</span>
+                </a>
             </footer>
 
-            {/* Floating global search drawer */}
-            <DeferredGlobalSearch />
+            <DeferredGlobalSearch
+                open={globalSearchOpen}
+                onOpenChange={setGlobalSearchOpen}
+                returnFocusRef={globalSearchTriggerRef}
+            />
             {settingsOpen ? (
                 <React.Suspense fallback={<SettingsLoadingDialog />}>
                     <ChecklistSettingsDialog
@@ -398,17 +484,6 @@ function SectionLoading() {
     );
 }
 
-function ViewReady({
-    onReady,
-    view,
-}: {
-    onReady: () => void;
-    view: AppView;
-}) {
-    React.useLayoutEffect(() => onReady(), [onReady, view]);
-    return null;
-}
-
 function SettingsLoadingDialog() {
     return (
         <div
@@ -423,51 +498,47 @@ function SettingsLoadingDialog() {
     );
 }
 
-const globalSearchTriggerClass =
-    "fixed z-40 inline-flex h-12 w-12 items-center justify-center rounded-full border border-emerald-300/50 bg-emerald-600/95 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition-colors hover:bg-emerald-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200 sm:min-h-11 sm:w-auto sm:gap-2 sm:px-4";
+function DeferredGlobalSearch({
+    onOpenChange,
+    open,
+    returnFocusRef,
+}: {
+    onOpenChange: (open: boolean) => void;
+    open: boolean;
+    returnFocusRef: React.RefObject<HTMLButtonElement>;
+}) {
+    const [requested, setRequested] = React.useState(open);
 
-const globalSearchTriggerStyle: React.CSSProperties = {
-    bottom: "max(1rem, env(safe-area-inset-bottom))",
-    right: "max(1rem, env(safe-area-inset-right))",
-};
+    React.useEffect(() => {
+        if (open) setRequested(true);
+    }, [open]);
 
-function DeferredGlobalSearch() {
-    const [requested, setRequested] = React.useState(false);
-
-    if (!requested) {
-        return (
-            <button
-                type="button"
-                onClick={() => setRequested(true)}
-                aria-expanded={false}
-                aria-haspopup="dialog"
-                aria-label="Open global search"
-                title="Global search"
-                className={globalSearchTriggerClass}
-                style={globalSearchTriggerStyle}
-            >
-                <Search className="h-4 w-4" />
-                <span className="hidden sm:inline">Global search</span>
-            </button>
-        );
-    }
+    if (!requested) return null;
 
     return (
         <React.Suspense
-            fallback={
-                <div
-                    role="status"
-                    aria-label="Loading global search"
-                    className={globalSearchTriggerClass}
-                    style={globalSearchTriggerStyle}
-                >
-                    <Search className="h-4 w-4" />
-                    <span className="hidden sm:inline">Loading search</span>
-                </div>
-            }
+            fallback={open ? <SearchLoadingDialog /> : null}
         >
-            <GlobalSearchPanel initialOpen />
+            <GlobalSearchPanel
+                onOpenChange={onOpenChange}
+                open={open}
+                returnFocusRef={returnFocusRef}
+            />
         </React.Suspense>
+    );
+}
+
+function SearchLoadingDialog() {
+    return (
+        <div
+            className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 sm:items-center sm:p-4"
+            role="status"
+            aria-label="Loading global search"
+        >
+            <div className="w-full max-w-5xl rounded-t-lg border border-zinc-800 bg-zinc-950 px-5 py-6 text-sm text-zinc-300 shadow-2xl sm:rounded-lg">
+                Loading global search...
+            </div>
+        </div>
     );
 }
 
@@ -487,18 +558,18 @@ function AuthSyncControl() {
         ? syncConflict
             ? "Choose progress source"
             : syncStatus === "loading"
-            ? "Loading cloud progress"
+            ? "Loading cloud data"
             : syncStatus === "syncing"
               ? "Syncing to cloud"
               : syncStatus === "saved"
-                ? "Cloud progress saved"
+                ? "Cloud data saved"
                 : syncStatus === "error"
                   ? "Cloud sync issue"
                   : "Cloud sync ready"
-        : "Progress saved locally";
+        : "Guide data saved locally";
     const storageHelpText = user
-        ? "Signed-in progress is synced to Firebase under your account. Firestore security rules restrict each user to their own app progress."
-        : "Progress is saved locally in this browser by default. Sign in to sync progress to your account through Firebase.";
+        ? "Your checked progress, filters, checklist choices, and display preferences sync to Firebase under your account. Firestore security rules restrict each user to their own guide data."
+        : "Checked progress, filters, checklist choices, and display preferences are saved in this browser. Sign in to sync them across devices.";
 
     const statusIcon =
         syncStatus === "error" ? (
@@ -522,7 +593,7 @@ function AuthSyncControl() {
         return (
             <div className="relative inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900/90 px-3 py-2 text-xs text-zinc-300">
                 <Cloud className="h-3.5 w-3.5 text-zinc-500" />
-                <span>Progress saved locally</span>
+                <span>Guide data saved locally</span>
                 <StorageHelpTooltip text={storageHelpText} />
             </div>
         );
@@ -534,7 +605,7 @@ function AuthSyncControl() {
                 <span className="inline-flex min-w-0 items-center gap-2">
                     {statusIcon}
                     <span className="truncate">
-                        {user?.email ?? "Progress saved locally"}
+                        {user?.email ?? "Guide data saved locally"}
                     </span>
                     <StorageHelpTooltip text={storageHelpText} />
                 </span>
@@ -716,7 +787,7 @@ function AuthDialog({ onClose }: { onClose: () => void }) {
             >
                 <div className="border-b border-zinc-800 px-4 py-4 sm:px-5">
                     <p className="text-[0.7rem] font-semibold uppercase text-sky-300">
-                        Cloud progress
+                        Cloud sync
                     </p>
                     <h2
                         id="auth-dialog-title"
@@ -728,8 +799,8 @@ function AuthDialog({ onClose }: { onClose: () => void }) {
                         id="auth-dialog-description"
                         className="mt-2 text-sm leading-relaxed text-zinc-300"
                     >
-                        Use an account to sync this app&apos;s progress across
-                        browsers and devices.
+                        Use an account to sync checked progress, filters, and
+                        display preferences across browsers and devices.
                     </p>
                 </div>
 
@@ -1118,16 +1189,20 @@ function friendlyId(value: string): string {
 }
 
 function StorageHelpTooltip({ text }: { text: string }) {
+    const tooltipId = React.useId();
+
     return (
         <span className="group/help relative inline-flex shrink-0">
             <button
                 type="button"
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                aria-describedby={tooltipId}
                 aria-label="How progress storage works"
             >
                 <Info className="h-3.5 w-3.5" />
             </button>
             <span
+                id={tooltipId}
                 role="tooltip"
                 className="pointer-events-none fixed left-1/2 top-28 z-20 mt-2 w-72 max-w-[calc(100vw-2rem)] -translate-x-1/2 rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-left text-[0.72rem] font-normal leading-relaxed text-zinc-200 opacity-0 shadow-xl shadow-black/30 ring-1 ring-white/10 transition-opacity group-hover/help:opacity-100 group-focus-within/help:opacity-100 sm:absolute sm:left-auto sm:right-0 sm:top-full sm:translate-x-0"
             >

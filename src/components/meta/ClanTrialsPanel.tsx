@@ -1,11 +1,12 @@
 import React from "react";
-import { Check, Search } from "lucide-react";
+import { Check, ChevronDown, Search } from "lucide-react";
 import {
     CLAN_TRIAL_GUIDE,
     CLAN_TRIALS,
+    getClanRankForTrialTitle,
 } from "../../data/meta/clanTrials";
 import { Panel } from "../ui/Panel";
-import { useProgress } from "../ProgressContext";
+import { useGuidePreference, useProgress } from "../ProgressContext";
 import { PanelProgress } from "../ui/PanelProgress";
 import { useChecklistPreferences } from "../ChecklistPreferencesContext";
 
@@ -15,7 +16,7 @@ const START_TAKEAWAYS: Record<string, string> = {
     "what-they-are":
         "Spend Clan Points, choose one title row, clear the judge's challenge, and watch whether that trial fails on law-breaking.",
     "title-system":
-        "Each title row is its own clear; upgradeable privileges climb one tier at a time, even when you clear a high difficulty.",
+        "Each title row is its own clear; the highest Clan Rank reached controls recruit quality, while upgradeable privileges climb one tier at a time.",
     talents:
         "Quest and trial requirements use four clan talents; trial rows can raise some values and lower others.",
 };
@@ -76,9 +77,22 @@ export function ClanTrialsPanel() {
     const { checked } = useProgress();
     const { isChecklistEnabled, isScopeEnabled } = useChecklistPreferences();
     const trackingEnabled = isChecklistEnabled("clanTrials");
-    const [activeTrialId, setActiveTrialId] = React.useState("adaptability-i");
-    const [rankFilter, setRankFilter] = React.useState<RankFilter>("All");
-    const [trialSearch, setTrialSearch] = React.useState("");
+    const [activeTrialId, setActiveTrialId] = useGuidePreference(
+        "selection.clan.trial",
+        "",
+    );
+    const [rankFilter, setRankFilter] = useGuidePreference<RankFilter>(
+        "filters.clan.rank",
+        "All",
+    );
+    const [trialSearch, setTrialSearch] = useGuidePreference(
+        "filters.clan.query",
+        "",
+    );
+    const [guideOpen, setGuideOpen] = useGuidePreference(
+        "disclosure.clan.guide",
+        false,
+    );
     const trackedProgressKeys = CLAN_TRIALS.filter((trial) =>
         isScopeEnabled("clanTrials", trial.id),
     ).flatMap((trial) =>
@@ -101,6 +115,9 @@ export function ClanTrialsPanel() {
                 trial.law,
                 trial.location,
                 trial.requiredTalents,
+                trial.unlock,
+                `party limit ${trial.members}`,
+                `quest rank ${trial.rank}`,
                 trial.challenge,
                 ...trial.notes,
                 ...trial.completionTips,
@@ -129,16 +146,14 @@ export function ClanTrialsPanel() {
     }, [filteredTrials]);
 
     const activeTrial =
-        filteredTrials.find((trial) => trial.id === activeTrialId) ??
-        filteredTrials[0] ??
-        null;
+        filteredTrials.find((trial) => trial.id === activeTrialId) ?? null;
 
     React.useEffect(() => {
         if (
-            filteredTrials.length > 0 &&
+            activeTrialId &&
             !filteredTrials.some((trial) => trial.id === activeTrialId)
         ) {
-            setActiveTrialId(filteredTrials[0]!.id);
+            setActiveTrialId("");
         }
     }, [activeTrialId, filteredTrials]);
 
@@ -159,24 +174,49 @@ export function ClanTrialsPanel() {
             ) : undefined}
         >
             <div className="space-y-4 sm:space-y-5" data-testid="clan-trials-content">
-                <section className="space-y-3" aria-labelledby="clan-trials-start">
-                    <header>
-                        <h3
-                            id="clan-trials-start"
-                            className="text-sm font-semibold text-zinc-950 dark:text-zinc-50"
-                        >
-                            Start Here
-                        </h3>
-                        <p className="text-xs text-zinc-600 dark:text-zinc-300">
-                            The short version before you spend Clan Points.
-                        </p>
-                    </header>
+                <section
+                    className="border-y border-zinc-200/80 dark:border-zinc-800"
+                    aria-labelledby="clan-trials-guide"
+                >
+                    <button
+                        type="button"
+                        aria-expanded={guideOpen}
+                        aria-controls={
+                            guideOpen
+                                ? "clan-trials-guide-content"
+                                : undefined
+                        }
+                        onClick={() => setGuideOpen((open) => !open)}
+                        className="flex min-h-11 w-full items-center justify-between gap-3 py-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-300"
+                    >
+                        <span>
+                            <span
+                                id="clan-trials-guide"
+                                className="block text-sm font-semibold text-zinc-950 dark:text-zinc-50"
+                            >
+                                How trials work
+                            </span>
+                            <span className="mt-0.5 block text-xs text-zinc-600 dark:text-zinc-300">
+                                Clan Points, title clears, privileges, and talent tradeoffs.
+                            </span>
+                        </span>
+                        <ChevronDown
+                            aria-hidden="true"
+                            className={`h-4 w-4 shrink-0 text-zinc-500 transition-transform ${
+                                guideOpen ? "rotate-180" : ""
+                            }`}
+                        />
+                    </button>
 
-                    <div className="grid gap-2 lg:grid-cols-3">
+                    {guideOpen ? (
+                    <div
+                        id="clan-trials-guide-content"
+                        className="grid divide-y divide-zinc-200/80 border-t border-zinc-200/80 lg:grid-cols-3 lg:divide-x lg:divide-y-0 dark:divide-zinc-800 dark:border-zinc-800"
+                    >
                         {keyGuideSections.map((section) => (
                             <article
                                 key={section.id}
-                                className="rounded-lg border border-zinc-200/80 bg-white/80 p-2.5 sm:p-3 dark:border-zinc-700/70 dark:bg-zinc-900/40"
+                                className="px-1 py-3 sm:p-3"
                             >
                                 <h4 className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
                                     {section.title}
@@ -195,7 +235,7 @@ export function ClanTrialsPanel() {
                             </article>
                         ))}
                     </div>
-
+                    ) : null}
                 </section>
 
                 <section className="space-y-3" aria-labelledby="trial-browser">
@@ -207,12 +247,8 @@ export function ClanTrialsPanel() {
                             Trial Browser
                         </h3>
                         <p className="text-xs text-zinc-600 dark:text-zinc-300">
-                            Browse by trial rank, then open a trial to inspect its
-                            five title difficulties.
-                        </p>
-                        <p className="mt-1 hidden text-xs text-zinc-500 sm:block dark:text-zinc-400">
-                            Use the search box for rewards, laws, enemies, or tactical
-                            terms like Roulette, Slow, Mirror Item, and barrels.
+                            {CLAN_TRIALS.length} trials grouped by quest rank,
+                            with objectives, laws, rewards, and talent shifts.
                         </p>
                     </header>
 
@@ -225,13 +261,13 @@ export function ClanTrialsPanel() {
                                 value={trialSearch}
                                 onChange={(event) => setTrialSearch(event.target.value)}
                                 placeholder="Search Bonus AP, barrels, Tonberries, Move..."
-                                className="min-h-11 w-full rounded-lg border border-zinc-300/80 bg-white px-9 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-300/60 dark:border-zinc-700 dark:bg-zinc-950/70 dark:text-zinc-50 dark:placeholder:text-zinc-500 dark:focus:border-cyan-500"
+                                className="min-h-11 w-full rounded-lg border border-zinc-300/80 bg-white px-9 py-2 text-base text-zinc-900 placeholder:text-zinc-400 focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-300/60 dark:border-zinc-700 dark:bg-zinc-950/70 dark:text-zinc-50 dark:placeholder:text-zinc-500 dark:focus:border-cyan-500 sm:text-sm"
                             />
                         </label>
 
                         <div
                             className="flex gap-2 overflow-x-auto pb-1"
-                            aria-label="Clan trial rank filters"
+                            aria-label="Clan trial quest rank filters"
                             role="group"
                         >
                             {(["All", ...TRIAL_RANKS] as const).map((filter) => (
@@ -246,29 +282,31 @@ export function ClanTrialsPanel() {
                                             : "border-zinc-300 bg-white text-zinc-600 hover:border-zinc-400 dark:border-zinc-700 dark:bg-zinc-950/50 dark:text-zinc-300 dark:hover:border-zinc-600"
                                     }`}
                                 >
-                                    {filter === "All" ? "All ranks" : `Rank ${filter}`}
+                                    {filter === "All"
+                                        ? "All quest ranks"
+                                        : `Quest rank ${filter}`}
                                 </button>
                             ))}
                         </div>
                     </div>
 
-                    {activeTrial ? (
-                    <div className="grid gap-3 xl:grid-cols-[minmax(16rem,0.8fr)_minmax(0,1.2fr)]">
-                        <div className="grid content-start gap-3">
+                    {filteredTrials.length > 0 ? (
+                        <div className="grid gap-3 lg:h-[75vh] lg:min-h-[38rem] lg:max-h-[48rem] lg:grid-cols-[minmax(16rem,0.8fr)_minmax(0,1.2fr)] lg:gap-0 lg:overflow-hidden lg:border-y lg:border-zinc-700/70">
+                            <div className="grid content-start gap-3 lg:min-h-0 lg:overflow-y-auto lg:border-r lg:border-zinc-700/70 lg:py-3 lg:pr-3">
                             {groupedTrials.map((group) => (
                                 <section key={group.rank} className="space-y-2">
                                     <div className="flex items-center justify-between gap-2 border-b border-zinc-200/80 pb-1 dark:border-zinc-700/70">
                                         <h4 className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
-                                            Rank {group.rank}
+                                            Quest rank {group.rank}
                                         </h4>
                                         <span className="text-[0.68rem] text-zinc-500 dark:text-zinc-400">
                                             {group.trials.length} trial
                                             {group.trials.length === 1 ? "" : "s"}
                                         </span>
                                     </div>
-                                    <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-1">
+                                    <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-1">
                                         {group.trials.map((trial) => {
-                                            const isActive = trial.id === activeTrial.id;
+                                            const isActive = trial.id === activeTrial?.id;
                                             const trialTrackingEnabled =
                                                 isScopeEnabled(
                                                     "clanTrials",
@@ -286,25 +324,31 @@ export function ClanTrialsPanel() {
 
                                             return (
                                                 <React.Fragment key={trial.id}>
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setActiveTrialId(trial.id)}
-                                                    aria-pressed={isActive}
-                                                    className={`rounded-lg border p-3 text-left transition-colors ${
-                                                        isActive
-                                                            ? "border-cyan-400 bg-cyan-50/80 ring-1 ring-cyan-200 dark:border-cyan-600/80 dark:bg-cyan-950/30 dark:ring-cyan-900/50"
-                                                            : isComplete
-                                                              ? "border-emerald-300 bg-emerald-50/75 hover:border-emerald-400 hover:bg-emerald-50 dark:border-emerald-800/80 dark:bg-emerald-950/20 dark:hover:border-emerald-700"
-                                                            : "border-zinc-200/80 bg-white/80 hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700/70 dark:bg-zinc-900/40 dark:hover:border-zinc-600"
-                                                    }`}
-                                                >
+                                                    <button
+                                                        type="button"
+                                                        onClick={() =>
+                                                            setActiveTrialId((current) =>
+                                                                current === trial.id
+                                                                    ? ""
+                                                                    : trial.id,
+                                                            )
+                                                        }
+                                                        aria-expanded={isActive}
+                                                        className={`rounded-lg border p-3 text-left transition-colors ${
+                                                            isActive
+                                                                ? "border-cyan-400 bg-cyan-50/80 ring-1 ring-cyan-200 dark:border-cyan-600/80 dark:bg-cyan-950/30 dark:ring-cyan-900/50"
+                                                                : isComplete
+                                                                  ? "border-emerald-300 bg-emerald-50/75 hover:border-emerald-400 hover:bg-emerald-50 dark:border-emerald-800/80 dark:bg-emerald-950/20 dark:hover:border-emerald-700"
+                                                                : "border-zinc-200/80 bg-white/80 hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700/70 dark:bg-zinc-900/40 dark:hover:border-zinc-600"
+                                                        }`}
+                                                    >
                                                     <div className="flex items-start justify-between gap-3">
                                                         <div>
                                                             <h5 className="text-sm font-semibold text-zinc-950 dark:text-zinc-50">
                                                                 {trial.name}
                                                             </h5>
                                                             <p className="mt-1 text-xs leading-snug text-zinc-600 dark:text-zinc-300">
-                                                                {trial.location} · {trial.law}
+                                                                {trial.location} · Quest rank {trial.rank} · {trial.law}
                                                             </p>
                                                         </div>
                                                         {trialTrackingEnabled ? (
@@ -339,17 +383,17 @@ export function ClanTrialsPanel() {
                                                             </span>
                                                         ))}
                                                     </div>
-                                                </button>
-                                                {isActive ? (
-                                                    <div className="md:col-span-2 xl:hidden">
-                                                        <TrialDetail
-                                                            trial={trial}
-                                                            trackingEnabled={
-                                                                trialTrackingEnabled
-                                                            }
-                                                        />
-                                                    </div>
-                                                ) : null}
+                                                    </button>
+                                                    {isActive ? (
+                                                        <div className="md:col-span-2 lg:hidden">
+                                                            <TrialDetail
+                                                                trial={trial}
+                                                                trackingEnabled={
+                                                                    trialTrackingEnabled
+                                                                }
+                                                            />
+                                                        </div>
+                                                    ) : null}
                                                 </React.Fragment>
                                             );
                                         })}
@@ -358,16 +402,22 @@ export function ClanTrialsPanel() {
                             ))}
                         </div>
 
-                        <div className="hidden xl:block">
-                            <TrialDetail
-                                trial={activeTrial}
-                                trackingEnabled={isScopeEnabled(
-                                    "clanTrials",
-                                    activeTrial.id,
+                            <div className="hidden min-h-0 overflow-y-auto p-3 lg:block">
+                                {activeTrial ? (
+                                    <TrialDetail
+                                        trial={activeTrial}
+                                        trackingEnabled={isScopeEnabled(
+                                            "clanTrials",
+                                            activeTrial.id,
+                                        )}
+                                    />
+                                ) : (
+                                    <div className="grid h-full place-items-center text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                                        No trial selected
+                                    </div>
                                 )}
-                            />
+                            </div>
                         </div>
-                    </div>
                     ) : (
                         <div
                             role="status"
@@ -403,7 +453,7 @@ function TrialDetail({
                         {trial.name}
                     </h4>
                     <p className="mt-1 text-xs leading-snug text-zinc-600 dark:text-zinc-300">
-                        Rank {trial.rank} · {trial.location} · {trial.price} ·{" "}
+                        Quest rank {trial.rank} · {trial.location} · {trial.price} ·{" "}
                         {trial.days} days
                     </p>
                 </div>
@@ -417,7 +467,7 @@ function TrialDetail({
             </p>
             ) : null}
 
-            <dl className="mt-3 grid gap-3 sm:grid-cols-[minmax(0,0.75fr)_minmax(10rem,1.4fr)_minmax(7rem,0.8fr)]">
+            <dl className="mt-3 grid gap-x-5 gap-y-3 border-y border-zinc-200/80 py-3 sm:grid-cols-2 xl:grid-cols-3 dark:border-zinc-800">
                 <div>
                     <dt className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
                         Law
@@ -436,10 +486,26 @@ function TrialDetail({
                 </div>
                 <div>
                     <dt className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
-                        Titles
+                        Party limit
                     </dt>
                     <dd className="mt-0.5 text-sm text-zinc-700 dark:text-zinc-200">
-                        {trial.titles.length} title rewards
+                        {trial.members} clan members
+                    </dd>
+                </div>
+                <div className="sm:col-span-2">
+                    <dt className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+                        Unlock condition
+                    </dt>
+                    <dd className="mt-0.5 text-sm text-zinc-700 dark:text-zinc-200">
+                        {trial.unlock}
+                    </dd>
+                </div>
+                <div>
+                    <dt className="text-[0.68rem] font-semibold uppercase text-zinc-500 dark:text-zinc-400">
+                        Title rewards
+                    </dt>
+                    <dd className="mt-0.5 text-sm text-zinc-700 dark:text-zinc-200">
+                        {trial.titles.length} difficulties
                     </dd>
                 </div>
             </dl>
@@ -460,26 +526,46 @@ function TrialDetail({
                                 className="bg-white/70 px-3 py-3 text-sm text-zinc-700 dark:bg-zinc-900/30 dark:text-zinc-200"
                             >
                                 {trackingEnabled ? (
-                                    <label className="flex min-h-11 cursor-pointer items-center gap-2 rounded-md font-semibold text-zinc-950 focus-within:ring-2 focus-within:ring-cyan-300 dark:text-zinc-50">
+                                    <label className="grid min-h-11 cursor-pointer grid-cols-[1.5rem_minmax(0,1fr)_auto] items-center gap-2 rounded-md font-semibold text-zinc-950 focus-within:ring-2 focus-within:ring-cyan-300 dark:text-zinc-50">
                                         <input
                                             type="checkbox"
                                             checked={isComplete}
                                             onChange={(event) =>
                                                 setCheck(progressKey, event.target.checked)
                                             }
-                                            className="h-5 w-5 shrink-0 rounded border-zinc-300 text-cyan-600 focus:ring-cyan-400 dark:border-zinc-600 dark:bg-zinc-950"
+                                            className="h-6 w-6 shrink-0 rounded border-zinc-300 text-cyan-600 focus:ring-cyan-400 dark:border-zinc-600 dark:bg-zinc-950"
                                             aria-label={`Mark ${trial.name} - ${title.title} complete`}
                                         />
                                         <span>{title.title}</span>
-                                        <span className="ml-auto text-xs font-normal tabular-nums text-zinc-500 dark:text-zinc-400">
-                                            {titleIndex + 1} of {trial.titles.length}
+                                        <span className="min-w-[5rem] text-right text-xs font-normal tabular-nums text-zinc-500 dark:text-zinc-400">
+                                            <span className="block font-semibold text-cyan-700 dark:text-cyan-300">
+                                                Clan rank{" "}
+                                                {getClanRankForTrialTitle(
+                                                    trial.id,
+                                                    titleIndex,
+                                                )}
+                                            </span>
+                                            <span className="block">
+                                                Tier {titleIndex + 1} of{" "}
+                                                {trial.titles.length}
+                                            </span>
                                         </span>
                                     </label>
                                 ) : (
                                     <div className="flex min-h-11 items-center justify-between gap-3 font-semibold text-zinc-950 dark:text-zinc-50">
                                         <span>{title.title}</span>
-                                        <span className="text-xs font-normal tabular-nums text-zinc-500 dark:text-zinc-400">
-                                            {titleIndex + 1} of {trial.titles.length}
+                                        <span className="min-w-[5rem] text-right text-xs font-normal tabular-nums text-zinc-500 dark:text-zinc-400">
+                                            <span className="block font-semibold text-cyan-700 dark:text-cyan-300">
+                                                Clan rank{" "}
+                                                {getClanRankForTrialTitle(
+                                                    trial.id,
+                                                    titleIndex,
+                                                )}
+                                            </span>
+                                            <span className="block">
+                                                Tier {titleIndex + 1} of{" "}
+                                                {trial.titles.length}
+                                            </span>
                                         </span>
                                     </div>
                                 )}

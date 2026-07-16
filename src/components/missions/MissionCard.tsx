@@ -11,6 +11,32 @@ import { getEnemyMetaForJob } from "../../data/bestiary/bestiary";
 import { getMissionPhaseSummary } from "../../utils/missionPhases";
 import { useChecklistPreferences } from "../ChecklistPreferencesContext";
 import { missionScopeId } from "../../data/checklistScopes";
+import {
+    getClanTalentChangeEntries,
+    splitRewardEntries,
+} from "../../utils/rewardPresentation";
+
+const NUMBER_FORMAT = new Intl.NumberFormat("en-US");
+
+function splitPrerequisites(value: string): string[] {
+    return value
+        .split(";")
+        .map((part) => part.trim())
+        .filter(Boolean);
+}
+
+function RewardList({ value }: { value?: string | string[] | null }) {
+    const entries = splitRewardEntries(value);
+    if (entries.length === 0) return null;
+
+    return (
+        <ul className="space-y-0.5">
+            {entries.map((entry, index) => (
+                <li key={`${entry}:${index}`}>{entry}</li>
+            ))}
+        </ul>
+    );
+}
 
 function isGenericEnemyName(name?: string | null): boolean {
     if (!name) return true;
@@ -218,6 +244,8 @@ export function MissionCard({
 
     const missionKey = `mission:${id}`;
     const isMissionChecked = !!checked[missionKey];
+    const clanPoints = rewards?.cp ?? rewards?.clanPoints;
+    const talentChanges = getClanTalentChangeEntries(rewards?.talentChanges);
 
     // Merge tags from the mission data with overlay tags from MISSION_TAGS
     const explicitTags = (tags ?? []) as string[];
@@ -265,7 +293,6 @@ export function MissionCard({
 
     const midGridClass = "divide-y divide-zinc-800 border-y border-zinc-800";
 
-    const displayRank = rank != null ? `~${rank}` : "N/A";
     const headerSummary = (
         <div className="min-w-0 flex-1">
             <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-0.5">
@@ -282,9 +309,9 @@ export function MissionCard({
                 {rank != null ? (
                     <span
                         className="text-amber-300"
-                        aria-label={`Recommended level ${displayRank}`}
+                        aria-label={`Recommended level approximately ${rank}`}
                     >
-                        Lv. {displayRank}
+                        Rec. Lv. ~{rank}
                     </span>
                 ) : null}
             </p>
@@ -316,7 +343,7 @@ export function MissionCard({
                     <button
                         type="button"
                         onClick={() => setAccordionOpen((current) => !current)}
-                        aria-controls={contentId}
+                        aria-controls={open ? contentId : undefined}
                         aria-expanded={open}
                         className="flex min-w-0 flex-1 items-center gap-3 px-3 py-3 text-left transition-colors hover:bg-zinc-800/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-300 sm:px-5"
                     >
@@ -337,9 +364,6 @@ export function MissionCard({
                         checked={isMissionChecked}
                         onChange={() => {
                             setCheck(missionKey);
-                            if (!isMissionChecked && mode === "accordion") {
-                                setAccordionOpen(false);
-                            }
                         }}
                     />
                     <span className="sr-only">Mark {name} complete</span>
@@ -354,25 +378,38 @@ export function MissionCard({
                         mode === "detail" ? "min-h-[calc(100%-4.5rem)]" : ""
                     }`}
                 >
-                    {/* Description / flavor text */}
+                    {/* Request text */}
                     {description && (
-                        <p className="text-xs sm:text-sm text-zinc-200/90 italic">
-                            {description}
-                        </p>
+                        <section className="border-l-2 border-zinc-700 pl-3">
+                            <h4 className="text-[0.65rem] font-semibold uppercase text-zinc-500 sm:text-xs">
+                                Request
+                            </h4>
+                            <p className="mt-1 text-xs italic leading-relaxed text-zinc-200/90 sm:text-sm">
+                                {description}
+                            </p>
+                        </section>
                     )}
 
-                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-[0.7rem] text-zinc-100">
+                    <div className="grid divide-y divide-zinc-800 border-y border-zinc-800 text-xs text-zinc-100 sm:grid-cols-2 sm:divide-x sm:divide-y-0 sm:text-sm">
                         {objective && (
-                            <div>
-                                <span className="text-zinc-400">Objective:</span>{" "}
-                                <span className="font-medium">{objective}</span>
+                            <div className="py-3 sm:pr-4">
+                                <div className="text-[0.65rem] font-semibold uppercase text-zinc-500 sm:text-xs">
+                                    Objective
+                                </div>
+                                <div className="mt-1 font-medium leading-relaxed">
+                                    {objective}
+                                </div>
                             </div>
                         )}
 
                         {law && (
-                            <div>
-                                <span className="text-zinc-400">Law:</span>{" "}
-                                <span className="font-medium">{law}</span>
+                            <div className="py-3 sm:pl-4">
+                                <div className="text-[0.65rem] font-semibold uppercase text-zinc-500 sm:text-xs">
+                                    Law
+                                </div>
+                                <div className="mt-1 font-medium leading-relaxed">
+                                    {law}
+                                </div>
                             </div>
                         )}
                     </div>
@@ -381,7 +418,7 @@ export function MissionCard({
                     <div className="grid grid-cols-1 divide-y divide-zinc-800 border-y border-zinc-800 md:grid-cols-3 md:divide-x md:divide-y-0">
                         <section className="py-4 md:pr-4">
                             <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                <u>QUEST BASICS</u>
+                                QUEST BASICS
                             </h4>
                             <dl className="space-y-1 text-xs sm:text-sm text-zinc-100">
                                 <div className="flex justify-between gap-2">
@@ -408,13 +445,31 @@ export function MissionCard({
                                         </dd>
                                     </div>
                                 )}
+                                {typeof rank === "number" && (
+                                    <div className="flex justify-between gap-2">
+                                        <dt className="text-zinc-400">
+                                            Recommended level
+                                        </dt>
+                                        <dd className="font-medium">
+                                            ~{rank}
+                                        </dd>
+                                    </div>
+                                )}
                                 {prerequisite && (
                                     <div className="flex flex-col gap-0.5 pt-1">
                                         <dt className="text-zinc-400">
-                                            Prerequisite
+                                            Prerequisites
                                         </dt>
-                                        <dd className="font-medium">
-                                            {prerequisite}
+                                        <dd className="font-medium leading-relaxed">
+                                            <ul className="space-y-0.5">
+                                                {splitPrerequisites(prerequisite).map(
+                                                    (entry, index) => (
+                                                        <li key={`${entry}:${index}`}>
+                                                            {entry}
+                                                        </li>
+                                                    ),
+                                                )}
+                                            </ul>
                                         </dd>
                                     </div>
                                 )}
@@ -423,14 +478,14 @@ export function MissionCard({
 
                         <section className="py-4 md:px-4">
                             <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                <u>CONTRACT</u>
+                                CONTRACT
                             </h4>
                             <dl className="space-y-1 text-xs sm:text-sm text-zinc-100">
                                 {typeof fee === "number" && (
                                     <div className="flex justify-between gap-2">
                                         <dt className="text-zinc-400">Fee</dt>
                                         <dd className="font-medium">
-                                            {fee} gil
+                                            {NUMBER_FORMAT.format(fee)} gil
                                         </dd>
                                     </div>
                                 )}
@@ -465,24 +520,75 @@ export function MissionCard({
 
                         <section className="py-4 md:pl-4">
                             <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                <u>REWARDS</u>
+                                REWARDS
                             </h4>
                             <dl className="space-y-1 text-xs sm:text-sm text-zinc-100">
                                 {rewards?.gil != null && (
                                     <div className="flex justify-between gap-2">
                                         <dt className="text-zinc-400">Gil</dt>
                                         <dd className="font-medium">
-                                            {rewards.gil}
+                                            {NUMBER_FORMAT.format(rewards.gil)}
                                         </dd>
                                     </div>
                                 )}
-                                {rewards?.cp != null && (
+                                {rewards?.abilityPoints != null && (
+                                    <div className="flex flex-col gap-0.5">
+                                        <div className="flex justify-between gap-2">
+                                            <dt className="text-zinc-400">
+                                                Ability Points
+                                            </dt>
+                                            <dd className="font-medium">
+                                                {rewards.abilityPoints}
+                                            </dd>
+                                        </div>
+                                        {rewards.abilityPointBreakdown?.length ? (
+                                            <dd className="pl-2 text-[0.7rem] text-zinc-300 sm:text-xs">
+                                                <ul className="space-y-0.5 border-l border-zinc-700 pl-2">
+                                                    {rewards.abilityPointBreakdown.map(
+                                                        (entry) => (
+                                                            <li
+                                                                key={entry.label}
+                                                                className="flex justify-between gap-2"
+                                                            >
+                                                                <span>{entry.label}</span>
+                                                                <span>{entry.amount}</span>
+                                                            </li>
+                                                        ),
+                                                    )}
+                                                </ul>
+                                            </dd>
+                                        ) : null}
+                                    </div>
+                                )}
+                                {clanPoints != null && (
                                     <div className="flex justify-between gap-2">
                                         <dt className="text-zinc-400">
                                             Clan Points
                                         </dt>
                                         <dd className="font-medium">
-                                            {rewards.cp}
+                                            {clanPoints}
+                                        </dd>
+                                    </div>
+                                )}
+                                {talentChanges.length > 0 && (
+                                    <div className="flex flex-col gap-0.5 pt-1">
+                                        <dt className="text-zinc-400">
+                                            Clan talent gains
+                                        </dt>
+                                        <dd>
+                                            <ul className="space-y-0.5">
+                                                {talentChanges.map((entry) => (
+                                                    <li
+                                                        key={entry.key}
+                                                        className="flex justify-between gap-2"
+                                                    >
+                                                        <span>{entry.label}</span>
+                                                        <span className="font-medium text-emerald-300">
+                                                            +{entry.amount}
+                                                        </span>
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </dd>
                                     </div>
                                 )}
@@ -492,7 +598,7 @@ export function MissionCard({
                                             Loot
                                         </dt>
                                         <dd className="font-medium">
-                                            {rewards.loot}
+                                            <RewardList value={rewards.loot} />
                                         </dd>
                                     </div>
                                 )}
@@ -502,7 +608,7 @@ export function MissionCard({
                                             Items
                                         </dt>
                                         <dd className="font-medium">
-                                            {rewards.items}
+                                            <RewardList value={rewards.items} />
                                         </dd>
                                     </div>
                                 )}
@@ -512,7 +618,7 @@ export function MissionCard({
                                             Other
                                         </dt>
                                         <dd className="font-medium">
-                                            {rewards.other}
+                                            <RewardList value={rewards.other} />
                                         </dd>
                                     </div>
                                 )}
@@ -529,7 +635,7 @@ export function MissionCard({
                         {hasRequirements && (
                             <section className="py-4">
                                 <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                    <u>REQUIREMENTS</u>
+                                    REQUIREMENTS
                                 </h4>
                                 <div className="space-y-1.5 text-xs sm:text-sm text-zinc-100">
                                     {requiredItems &&
@@ -642,7 +748,7 @@ export function MissionCard({
                         {hasStrategy && (
                             <section className="py-4">
                                 <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                    <u>STRATEGY</u>
+                                    STRATEGY
                                 </h4>
                                 {lawGuidance && (
                                     <p className="mb-2 rounded-md border border-amber-700/50 bg-amber-950/30 px-2.5 py-1.5 text-[0.7rem] sm:text-xs text-amber-100">
@@ -696,7 +802,7 @@ export function MissionCard({
                         {hasRetroAchievements && (
                             <section className="py-4">
                                 <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                    <u>RETROACHIEVEMENTS</u>
+                                    RETROACHIEVEMENTS
                                 </h4>
                                 <ul className="space-y-1.5 text-xs sm:text-sm text-zinc-100">
                                     {retroAchievements.map((ach) => (
@@ -762,7 +868,7 @@ export function MissionCard({
                         {hasEnemies && (
                             <section className="py-4">
                                 <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                    <u>ENEMIES</u>
+                                    ENEMIES
                                 </h4>
                                 <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-100">
                                     {enemyRows.map((row, idx) => {
@@ -896,7 +1002,7 @@ export function MissionCard({
                         {hasNotes && (
                             <section className="py-4">
                                 <h4 className="text-[0.65rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                    <u>NOTES</u>
+                                    NOTES
                                 </h4>
                                 <p className="text-xs sm:text-sm text-zinc-100 whitespace-pre-line">
                                     {notes}

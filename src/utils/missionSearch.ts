@@ -58,6 +58,20 @@ export function getMissionSearchScore(
     const id = normalize(mission.id);
     const arc = normalize(mission.arc);
     const tagText = mergedTags.map((tag) => tag.replace(/-/g, " "));
+    const recommendedLevelText = mission.rank != null
+        ? [`recommended level ${mission.rank}`, `rec lv ${mission.rank}`, `rank ${mission.rank}`]
+        : [];
+    const rewardText = [
+        mission.rewards?.abilityPoints != null
+            ? `${mission.rewards.abilityPoints} ap ability points`
+            : "",
+        (mission.rewards?.cp ?? mission.rewards?.clanPoints) != null
+            ? `${mission.rewards.cp ?? mission.rewards.clanPoints} clan points cp`
+            : "",
+        ...Object.entries(mission.rewards?.talentChanges ?? {}).map(
+            ([talent, amount]) => `${talent} plus ${amount}`,
+        ),
+    ];
 
     if (name === q) return 1000;
     if (name.startsWith(q)) return 950;
@@ -69,7 +83,7 @@ export function getMissionSearchScore(
 
     if (fieldIncludes(q, mission.objective, mission.questType)) return 760;
     if (fieldIncludes(q, mergedTags, tagText)) return 730;
-    if (fieldIncludes(q, mission.region)) return 700;
+    if (fieldIncludes(q, mission.region, recommendedLevelText)) return 700;
 
     if (
         mission.enemies.some((enemy) =>
@@ -86,6 +100,7 @@ export function getMissionSearchScore(
             mission.rewards?.items,
             mission.rewards?.abilities,
             mission.rewards?.other,
+            rewardText,
         )
     ) {
         return 560;
@@ -98,7 +113,7 @@ export function getMissionSearchScore(
                 q,
                 Object.entries(mission.requiredTalents)
                     .filter(([, value]) => !!value)
-                    .map(([talent]) => talent),
+                    .map(([talent, value]) => `${talent} ${value}`),
             ))
     ) {
         return 500;
@@ -106,6 +121,19 @@ export function getMissionSearchScore(
 
     if (fieldIncludes(q, mission.description, mission.law, mission.strategy, mission.notes)) {
         return 380;
+    }
+
+    if (
+        fieldIncludes(
+            q,
+            mission.members != null ? `${mission.members} members party` : "",
+            mission.fee != null ? `${mission.fee} gil fee` : "",
+            mission.days != null ? `${mission.days} days` : "",
+            mission.canDispatch ? "dispatch allowed" : "dispatch not allowed",
+            mission.canCancel ? "cancel allowed" : "cancel not allowed",
+        )
+    ) {
+        return 300;
     }
 
     if (fieldIncludes(q, mission.prerequisite)) return 120;

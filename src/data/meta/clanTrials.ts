@@ -20,13 +20,13 @@ export const CLAN_TRIAL_GUIDE: ClanTrialGuideSection[] = [
     {
         id: "title-system",
         title: "Titles and privilege upgrades",
-        body: "Each trial offers five title tiers. Higher tiers usually mean tighter round limits, more enemies, or harsher conditions, and each title has its own talent changes, fee discounts, and privilege line. The printed privilege row matters, but upgradeable privileges are sequential: clearing one high row does not grant every lower tier or every lower row's reward.",
+        body: "Each trial offers five title tiers. Higher tiers usually mean tighter round limits, more enemies, or harsher conditions, and each title has its own talent changes, fee discounts, privilege line, and recruitment Clan Rank. The printed privilege row matters, but upgradeable privileges are sequential: clearing one high row does not grant every lower tier or every lower row's reward.",
         bullets: [
             "If you have no Power privilege, clearing the Dab Hands row starts the Power upgrade sequence at Power 1 rather than granting Power 3 immediately.",
             "Repeat or clear eligible rows to advance an upgradeable privilege one tier at a time.",
             "A title grants its own talent and discount row, but upgradeable privileges advance one step at a time.",
-            "Clan titles can be replaced as your visible name, but earned benefits stay stacked.",
-            "The visible title is the most recently completed trial title and functions as a display label.",
+            "Recruitment Clan Rank uses the highest rank you have reached; rank values do not add together and do not drop when your displayed title changes.",
+            "The displayed clan title is the most recently completed trial title, while earned talent, discount, and privilege effects remain available.",
         ],
     },
     {
@@ -67,7 +67,7 @@ export const CLAN_TALENTS: ClanTalentGuide[] = [
     },
 ];
 
-export const CLAN_TRIALS: ClanTrial[] = [
+const CLAN_TRIAL_BASES: Array<Omit<ClanTrial, "members" | "unlock">> = [
     {
         id: "adaptability-i",
         name: "Adaptability I",
@@ -154,7 +154,7 @@ export const CLAN_TRIALS: ClanTrial[] = [
         days: 20,
         price: "10 CP",
         requiredTalents: "Aptitude 1",
-        lawRequirement: "Unknown",
+        lawRequirement: "Can break if needed",
         challenge: "The judge places barrels around the field. Examine the winning barrel before the round limit. You only have three units, so routing matters.",
         titles: [
             { title: "Grease Monkeys", talents: "Aptitude +4, Negotiation -3", privilege: "Empowered Bangaa", discount: "None", objective: "Find the winning barrel among 4 barrels in 3 rounds." },
@@ -181,7 +181,7 @@ export const CLAN_TRIALS: ClanTrial[] = [
         days: 20,
         price: "10 CP",
         requiredTalents: "Aptitude 20",
-        lawRequirement: "Unknown",
+        lawRequirement: "Can break if needed",
         challenge: "Find the winning barrel while Bombs float around the map. The Bombs do not have to be defeated.",
         titles: [
             { title: "Craftsmen", talents: "Aptitude +19, Negotiation -8", privilege: "Empowered Seeq", discount: "-1%", objective: "Find the winning barrel among 4 barrels with 2 Bombs in 3 rounds." },
@@ -207,7 +207,7 @@ export const CLAN_TRIALS: ClanTrial[] = [
         days: 20,
         price: "10 CP",
         requiredTalents: "Aptitude 10, Adaptability 10",
-        lawRequirement: "Unknown",
+        lawRequirement: "Can break if needed",
         challenge: "Examine all shifting lights while enemies occupy the field. Each examined light moves the remaining lights, so map coverage matters more than kills.",
         titles: [
             { title: "Travelers", talents: "Adaptability +5, Aptitude +7, Negotiation -4, Teamwork -3", privilege: "Debuff Resistance 1", discount: "None", objective: "Examine 3 lights in 4 rounds with 3 enemies present." },
@@ -227,14 +227,14 @@ export const CLAN_TRIALS: ClanTrial[] = [
     {
         id: "general-training-i",
         name: "General Training I",
-        law: "Missing",
+        law: "Missing with an action",
         rank: 15,
         location: "Baptiste Hill",
         days: 20,
         price: "10 CP",
         requiredTalents: "All talents 1",
         lawRequirement: "Can break if needed",
-        challenge: "Defeat the listed number of Sprites within the title row's round limit while obeying the Missing law.",
+        challenge: "Defeat the listed number of Sprites within the title row's round limit. Missing with an action breaks the law, but does not fail this trial.",
         titles: [
             { title: "Novices", talents: "All +4", privilege: "Empowered Humes", discount: "-1%", objective: "Defeat 4 Sprites." },
             { title: "Trainees", talents: "All +8", privilege: "Bonus CP 1", discount: "-2%", objective: "Defeat 5 Sprites." },
@@ -319,7 +319,7 @@ export const CLAN_TRIALS: ClanTrial[] = [
             { title: "Counselors", talents: "Aptitude -9, Negotiation +21", privilege: "None", discount: "-7%", objective: "Defeat 3 Deadly Nightshades." },
             { title: "Conciliators", talents: "Aptitude -10, Negotiation +24", privilege: "Luck 4", discount: "-8%", objective: "Defeat 4 Deadly Nightshades." },
             { title: "Arbiters", talents: "Aptitude -11, Negotiation +27", privilege: "None", discount: "-9%", objective: "Defeat 5 Deadly Nightshades in 4 rounds." },
-            { title: "Master Negotiators", talents: "Aptitude -12, Negotiation +30", privilege: "Luck 6", discount: "-10%", objective: "Defeat 6 Deadly Nightshades in 3 rounds." },
+            { title: "Master Negotiators", talents: "Aptitude -12, Negotiation +30", privilege: "Luck 5", discount: "-10%", objective: "Defeat 6 Deadly Nightshades in 3 rounds." },
         ],
         notes: [
             "Ending next to any unit breaks the challenge. That includes allies and enemies.",
@@ -415,7 +415,7 @@ export const CLAN_TRIALS: ClanTrial[] = [
         days: 20,
         price: "10 CP",
         requiredTalents: "Teamwork 10, Aptitude 10",
-        lawRequirement: "Unknown",
+        lawRequirement: "Can break if needed",
         challenge: "Examine the teleporting magick urn the required number of times while Ahrimans guard the field. Killing Ahrimans is optional.",
         titles: [
             { title: "Hands of Steel", talents: "Adaptability -4, Aptitude +5, Negotiation -3, Teamwork +7", privilege: "Bonus EXP 1", discount: "None", objective: "Examine the urn 4 times in 4 rounds with 4 Ahrimans present." },
@@ -437,6 +437,126 @@ export const CLAN_TRIALS: ClanTrial[] = [
         ],
     },
 ];
+
+const CLAN_TRIAL_CONTEXT: Readonly<
+    Record<string, Pick<ClanTrial, "members" | "unlock">>
+> = {
+    "adaptability-i": {
+        members: 6,
+        unlock: "Complete The Yellow Wings.",
+    },
+    "adaptability-ii": {
+        members: 6,
+        unlock: "Complete Grounded!, then travel to Moorabella by airship.",
+    },
+    "adaptability-negotiation": {
+        members: 6,
+        unlock: "Complete Now That's a Fire!.",
+    },
+    "aptitude-i": {
+        members: 3,
+        unlock: "Complete The Yellow Wings.",
+    },
+    "aptitude-ii": {
+        members: 4,
+        unlock: "Complete Grounded!, then travel to Moorabella by airship.",
+    },
+    "aptitude-adaptability": {
+        members: 6,
+        unlock: "Complete Now That's a Fire!.",
+    },
+    "general-training-i": {
+        members: 6,
+        unlock: "Complete You Say Tomato.",
+    },
+    "general-training-ii": {
+        members: 6,
+        unlock: "Complete Now That's a Fire! and win an auction.",
+    },
+    "negotiation-i": {
+        members: 6,
+        unlock: "Complete The Yellow Wings.",
+    },
+    "negotiation-ii": {
+        members: 6,
+        unlock: "Complete Grounded!, then travel to Moorabella by airship.",
+    },
+    "negotiation-teamwork": {
+        members: 6,
+        unlock: "Complete Now That's a Fire!.",
+    },
+    "teamwork-i": {
+        members: 6,
+        unlock: "Complete The Yellow Wings.",
+    },
+    "teamwork-ii": {
+        members: 6,
+        unlock: "Complete Grounded!, then travel to Moorabella by airship.",
+    },
+    "teamwork-aptitude": {
+        members: 6,
+        unlock: "Complete Now That's a Fire!.",
+    },
+};
+
+const CLAN_RANK_LADDERS = {
+    singleI: [6, 12, 18, 24, 30],
+    singleII: [36, 42, 48, 54, 60],
+    mixed: [12, 24, 36, 48, 60],
+    generalI: [10, 20, 30, 40, 50],
+    generalII: [60, 70, 80, 90, 100],
+} as const;
+
+const SINGLE_I_TRIALS = new Set([
+    "adaptability-i",
+    "aptitude-i",
+    "negotiation-i",
+    "teamwork-i",
+]);
+const SINGLE_II_TRIALS = new Set([
+    "adaptability-ii",
+    "aptitude-ii",
+    "negotiation-ii",
+    "teamwork-ii",
+]);
+const MIXED_TRIALS = new Set([
+    "adaptability-negotiation",
+    "aptitude-adaptability",
+    "negotiation-teamwork",
+    "teamwork-aptitude",
+]);
+
+export function getClanRankForTrialTitle(
+    trialId: string,
+    titleIndex: number,
+): number {
+    const ladder = SINGLE_I_TRIALS.has(trialId)
+        ? CLAN_RANK_LADDERS.singleI
+        : SINGLE_II_TRIALS.has(trialId)
+          ? CLAN_RANK_LADDERS.singleII
+          : MIXED_TRIALS.has(trialId)
+            ? CLAN_RANK_LADDERS.mixed
+            : trialId === "general-training-i"
+              ? CLAN_RANK_LADDERS.generalI
+              : trialId === "general-training-ii"
+                ? CLAN_RANK_LADDERS.generalII
+                : null;
+
+    const clanRank = ladder?.[titleIndex];
+    if (clanRank == null) {
+        throw new Error(`Missing Clan Rank for ${trialId} title ${titleIndex + 1}.`);
+    }
+    return clanRank;
+}
+
+export const CLAN_TRIALS: ClanTrial[] = CLAN_TRIAL_BASES.map((trial) => {
+    const context = CLAN_TRIAL_CONTEXT[trial.id];
+    if (!context) {
+        throw new Error(`Missing Clan Trial context for ${trial.id}.`);
+    }
+
+    return { ...trial, ...context };
+});
 
 export const CLAN_PRIVILEGE_ROADMAP: ClanPrivilegeRoadmapItem[] = [
     {

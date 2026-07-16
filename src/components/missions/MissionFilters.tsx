@@ -47,7 +47,7 @@ export function MissionFilters({
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         placeholder="Search..."
-                        className="w-full rounded-lg border border-zinc-300/70 dark:border-zinc-700/70 bg-white/80 dark:bg-zinc-900/80 px-3 py-1.5 text-xs sm:text-sm text-zinc-900 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70 focus:border-emerald-500/70"
+                        className="w-full rounded-lg border border-zinc-300/70 dark:border-zinc-700/70 bg-white/80 dark:bg-zinc-900/80 px-3 py-1.5 text-base sm:text-sm text-zinc-900 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/70 focus:border-emerald-500/70"
                     />
                 </div>
             </div>
@@ -82,4 +82,3 @@ export function MissionFilters({
         </div>
     );
 }
-

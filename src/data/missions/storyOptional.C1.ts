@@ -472,7 +472,6 @@ export const OPTIONAL_MISSIONS_C1: Mission[] = [
             "Move to all six orchard trees and choose Gather within four rounds. Send mobile units in different directions so every tree is reached in time.",
             "Monsters keep arriving, so do not try to clear the field. Check enemy levels before attacking under Harming the Weak, then spend most actions moving and gathering.",
             "Prioritize Bloody Orbs, Ahrimans, and any arriving Liliths when they block a route: their status attacks, Roulette, and Eternal Sleep are more dangerous than the other reinforcements.",
-            "Gather from as many trees as possible because the prize improves with the amount of fruit collected; reaching all six gives the best result.",
         ],
         rewards: {
             gil: 12830,

@@ -515,7 +515,7 @@ function parseWarfreakClanTrials() {
 
 function collectClanTrials() {
     const file = path.join(root, "src/data/meta/clanTrials.ts");
-    return arrayRows(file, "CLAN_TRIALS").map((row) => {
+    return arrayRows(file, "CLAN_TRIAL_BASES").map((row) => {
         const value = (field) => scalar(propertyNode(row.node, field, row.sourceFile));
         const strings = (field) => stringArray(propertyNode(row.node, field, row.sourceFile));
         const titlesNode = propertyNode(row.node, "titles", row.sourceFile);

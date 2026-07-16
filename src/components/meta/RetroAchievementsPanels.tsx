@@ -6,16 +6,21 @@ import {
     RETRO_ACHIEVEMENTS_BY_MISSION_ID,
 } from "../../data/retroAchievements";
 import type { GlobalRetroAchievement } from "../../types/ffta2";
-import { useProgress } from "../ProgressContext";
+import { useGuidePreference, useProgress } from "../ProgressContext";
 import { PanelProgress } from "../ui/PanelProgress";
 import { useChecklistPreferences } from "../ChecklistPreferencesContext";
 import { globalRetroScopeId } from "../../data/checklistScopes";
+
+const DEFAULT_OPEN_CATEGORIES: Record<string, boolean> = {};
 
 export function RetroAchievementsPanels() {
     const { checked, setCheck } = useProgress();
     const { isChecklistEnabled, isScopeEnabled } = useChecklistPreferences();
     const trackingEnabled = isChecklistEnabled("retroAchievements");
-    const [missableOnly, setMissableOnly] = React.useState(false);
+    const [missableOnly, setMissableOnly] = useGuidePreference(
+        "filters.achievements.missable-only",
+        false,
+    );
 
     // Build a set of missable IDs from BOTH sources
     const MISSABLE_RETRO_IDS = React.useMemo(() => {
@@ -58,27 +63,32 @@ export function RetroAchievementsPanels() {
     );
 
     // Track collapsed/expanded categories
-    const [openCategories, setOpenCategories] = React.useState<
+    const [openCategories, setOpenCategories] = useGuidePreference<
         Record<string, boolean>
-    >({});
+    >("disclosure.achievements.categories", DEFAULT_OPEN_CATEGORIES);
 
-    const trackedGlobalAchievements = GLOBAL_RETRO_ACHIEVEMENTS.filter(
+    const missionLinkedAchievementIds = React.useMemo(
+        () =>
+            new Set(
+                Object.values(RETRO_ACHIEVEMENTS_BY_MISSION_ID)
+                    .flat()
+                    .map((achievement) => achievement.id),
+            ),
+        [],
+    );
+    const missionLinkedTrackingEnabled = isScopeEnabled(
+        "retroAchievements",
+        "mission-linked",
+    );
+    const trackedAchievements = GLOBAL_RETRO_ACHIEVEMENTS.filter(
         (achievement) =>
             isScopeEnabled(
                 "retroAchievements",
                 globalRetroScopeId(achievement),
-            ),
+            ) ||
+            (missionLinkedTrackingEnabled &&
+                missionLinkedAchievementIds.has(achievement.id)),
     );
-    const trackedMissionAchievements = isScopeEnabled(
-        "retroAchievements",
-        "mission-linked",
-    )
-        ? Object.values(RETRO_ACHIEVEMENTS_BY_MISSION_ID).flat()
-        : [];
-    const trackedAchievements = [
-        ...trackedGlobalAchievements,
-        ...trackedMissionAchievements,
-    ];
     const totalAchievements = trackedAchievements.length;
     const totalMissableAchievements = GLOBAL_RETRO_ACHIEVEMENTS.filter(
         (ach) => ach.missable || MISSABLE_RETRO_IDS.has(ach.id),
@@ -110,23 +120,28 @@ export function RetroAchievementsPanels() {
         >
             <div className="space-y-4 mt-2">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                    <button
-                        type="button"
-                        onClick={() => setMissableOnly((prev) => !prev)}
-                        aria-pressed={missableOnly}
-                        className={`inline-flex min-h-11 items-center rounded-md border px-3 py-1.5 text-xs font-semibold uppercase focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 ${
+                    <label
+                        className={`inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-md border px-3 py-1.5 text-xs font-semibold uppercase focus-within:ring-2 focus-within:ring-amber-300 ${
                             missableOnly
                                 ? "border-amber-400/80 bg-amber-900/60 text-amber-100"
                                 : "border-zinc-700/80 bg-zinc-900/60 text-zinc-300 hover:border-zinc-500"
                         }`}
                     >
+                        <input
+                            type="checkbox"
+                            checked={missableOnly}
+                            onChange={(event) =>
+                                setMissableOnly(event.target.checked)
+                            }
+                            className="h-4 w-4 rounded border-zinc-500 accent-amber-400"
+                        />
                         Missable only
                         {missableOnly && (
                             <span className="ml-1 text-[0.65rem] opacity-80">
                                 ({totalMissableAchievements})
                             </span>
                         )}
-                    </button>
+                    </label>
 
                     {missableOnly && (
                         <span className="text-[0.7rem] text-zinc-500 dark:text-zinc-400">
@@ -135,6 +150,7 @@ export function RetroAchievementsPanels() {
                     )}
                 </div>
 
+                <div className="divide-y divide-zinc-800 border-y border-zinc-800">
                 {orderedCategories.map((category) => {
                     const list = missableOnly
                         ? byCategory[category]!.filter(
@@ -150,7 +166,7 @@ export function RetroAchievementsPanels() {
                     return (
                         <section
                             key={category}
-                            className="rounded-lg border border-zinc-200/70 bg-white/70 p-3 dark:border-zinc-700/70 dark:bg-zinc-900/60 sm:p-4"
+                            className="bg-white/40 dark:bg-zinc-950/20"
                         >
                             <button
                                 type="button"
@@ -160,19 +176,19 @@ export function RetroAchievementsPanels() {
                                         [category]: !isOpen,
                                     }))
                                 }
-                                className="mb-2 flex min-h-11 w-full items-center justify-between gap-1 rounded-md px-1 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+                                className="flex min-h-14 w-full items-center justify-between gap-3 px-3 py-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-amber-300"
                                 aria-expanded={isOpen}
                             >
-                                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 w-full">
+                                <div className="flex w-full items-center justify-between gap-3">
                                     <div>
-                                        <h3 className="text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-50">
+                                        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">
                                             {category}
                                         </h3>
                                         <p className="text-[0.7rem] sm:text-xs text-zinc-500 dark:text-zinc-400">
                                             {list.length} achievements
                                         </p>
                                     </div>
-                                    <span className="inline-flex items-center gap-1 text-[0.7rem] text-zinc-500 dark:text-zinc-400">
+                                    <span className="inline-flex shrink-0 items-center gap-1 text-[0.7rem] text-zinc-500 dark:text-zinc-400">
                                         <span className="hidden sm:inline">
                                             {isOpen
                                                 ? "Hide"
@@ -188,7 +204,7 @@ export function RetroAchievementsPanels() {
                             </button>
 
                             {isOpen && (
-                                <ul className="space-y-1.5">
+                                <ul className="divide-y divide-zinc-200/70 border-t border-zinc-200/70 px-2 dark:divide-zinc-800 dark:border-zinc-800">
                                     {list.map((ach) => {
                                         const key = `retro:${ach.id}`;
                                         const isChecked = !!checked[key];
@@ -259,6 +275,7 @@ export function RetroAchievementsPanels() {
                         </section>
                     );
                 })}
+                </div>
             </div>
         </Panel>
     );

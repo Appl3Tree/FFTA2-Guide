@@ -1,12 +1,12 @@
 {
-  "guidePath": "/tmp/ffta2-dev-guide-full.txt",
+  "guidePath": "/Users/forrest/Repos/FFTA2-Guide/audit/source-snapshots/gamefaqs-dev-53627-browser-fullbody.txt",
   "guideEnemies": 78,
-  "appEnemies": 98,
+  "appEnemies": 97,
   "mismatchCount": 0,
   "mismatches": [],
   "missingInAppCount": 0,
   "missingInApp": [],
-  "missingInGuideCount": 20,
+  "missingInGuideCount": 19,
   "missingInGuide": [
     "Asp",
     "Blackwind",
@@ -20,7 +20,6 @@
     "Kukunoch",
     "Magick Weapon",
     "Nemeshis",
-    "Neukhia Core",
     "Neukhia Pod",
     "Neukhia Wisp",
     "Opion",

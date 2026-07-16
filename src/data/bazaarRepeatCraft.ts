@@ -1,8 +1,7 @@
 /**
  * Bazaar results that stock one copy per recipe submission.
  *
- * Source snapshot: audit/source-snapshots/fandom-bazaar.json. The source
- * marks these result rows in bold and the Bazaar audit verifies this list.
+ * The Bazaar audit verifies this list against the stored validation snapshot.
  */
 export const REPEAT_CRAFT_RESULTS = [
     "Shining Lute",

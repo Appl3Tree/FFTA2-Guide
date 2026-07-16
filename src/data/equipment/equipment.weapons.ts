@@ -420,7 +420,8 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
             Soldier: ["provoke"],
             Spellblade: ["poison-blade"],
         },
-        description: "On Hit: Steal HP Copious quantities of blood have stained this sword's blade a rich crimson.",
+        additionalEffect: "On hit: Steal HP",
+        description: "Copious quantities of blood have stained this sword's blade a rich crimson.",
     },
     blueSaber: {
         id: "blueSaber",
@@ -1906,7 +1907,8 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
             Summoner: ["kirin"],
             "White Mage": ["cura"],
         },
-        description: "On Hit: Restore HP Some staves are made for harming, others for mending those who have come to harm.",
+        additionalEffect: "On hit: Restore HP",
+        description: "Some staves are made for harming, others for mending those who have come to harm.",
     },
     hereticRod: {
         id: "hereticRod",
@@ -4756,7 +4758,8 @@ export const WEAPON_EQUIPMENT: Record<EquipmentId, EquipmentMeta> = {
         teaches: {
             "White Mage": ["cure"],
         },
-        description: "On Hit: Remove Doom This pure ivory staff was blessed by a white mage of the highest rank.",
+        additionalEffect: "On hit: Remove Doom",
+        description: "This pure ivory staff was blessed by a white mage of the highest rank.",
     },
     windslashBow: {
         id: "windslashBow",

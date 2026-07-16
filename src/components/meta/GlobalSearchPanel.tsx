@@ -26,7 +26,7 @@ import { BAZAAR_RECIPES } from "../../data/bazaarRecipes";
 import { isRepeatCraftResult } from "../../data/bazaarRepeatCraft";
 import { resolveEnemyLoadout } from "../../utils/resolveAbilities";
 import { resolveEnemyEquipment } from "../../utils/resolveEquipment";
-import { useProgress } from "../ProgressContext";
+import { useGuidePreference, useProgress } from "../ProgressContext";
 import { getEnemyMetaForJob } from "../../data/bestiary/bestiary";
 import { getMissionPhaseSummary } from "../../utils/missionPhases";
 import {
@@ -39,8 +39,25 @@ import {
     globalRetroScopeId,
     missionScopeId,
 } from "../../data/checklistScopes";
+import {
+    getClanTalentChangeEntries,
+    splitRewardEntries,
+} from "../../utils/rewardPresentation";
+import { getAbilityTeachingLabel } from "../../utils/abilityPresentation";
+import { getAbilityJobReferences } from "../../data/jobReferenceDetails";
+import { getBlueMagickReference } from "../../data/blueMagickReference";
+import {
+    CLAN_TRIALS,
+    getClanRankForTrialTitle,
+} from "../../data/meta/clanTrials";
 
-type TabKey = "missions" | "equipment" | "abilities" | "bazaar" | "retros";
+type TabKey =
+    | "missions"
+    | "clan"
+    | "equipment"
+    | "abilities"
+    | "bazaar"
+    | "retros";
 
 const GLOBAL_SEARCH_RESULT_LIMIT = 50;
 
@@ -80,6 +97,11 @@ interface BazaarSection {
     recipes: BazaarRecipeWithBlob[];
 }
 
+interface ClanTrialWithBlob {
+    trial: (typeof CLAN_TRIALS)[number];
+    blob: string;
+}
+
 function pushText(parts: string[], value?: string | string[] | null) {
     if (!value) return;
     if (Array.isArray(value)) {
@@ -87,6 +109,10 @@ function pushText(parts: string[], value?: string | string[] | null) {
     } else {
         parts.push(value);
     }
+}
+
+function matchesSearchTerms(blob: string, query: string): boolean {
+    return query.split(/\s+/).every((term) => blob.includes(term));
 }
 
 function isGenericEnemyName(name?: string | null): boolean {
@@ -194,12 +220,7 @@ function equipmentBlob(e: EquipmentMeta): string {
         )) {
             parts.push(job);
             for (const id of ids) {
-                const ab = ABILITIES[id];
-                if (!ab) continue;
-                const set = ABILITY_SETS[ab.setId];
-                parts.push(
-                    `${ab.name} (${set?.name ?? set?.id ?? ab.setId})`,
-                );
+                parts.push(getAbilityTeachingLabel(job, id));
             }
         }
     }
@@ -241,6 +262,20 @@ function abilityBlob(a: AbilityMeta, primarySet: AbilitySetMeta): string {
         parts.push("blue magic", "blue magick");
     }
 
+    for (const { job, reference } of getAbilityJobReferences(a.id)) {
+        parts.push(job, reference.type);
+        if (!a.blueMagic && reference.item) parts.push(reference.item);
+        if (reference.ap != null) parts.push(`${reference.ap} ap`);
+        if (reference.mp != null) parts.push(`${reference.mp} mp`);
+        if (reference.range) parts.push(`range ${reference.range}`);
+    }
+
+    const blueReference = getBlueMagickReference(a.id);
+    if (blueReference) {
+        parts.push(...blueReference.sources);
+        if (blueReference.note) parts.push(blueReference.note);
+    }
+
     return parts.join(" ").toLowerCase();
 }
 
@@ -263,6 +298,34 @@ function bazaarBlob(r: BazaarRecipe): string {
         parts.push("repeat craft", "multi craft", "one stock");
     }
     return parts.join(" ").toLowerCase();
+}
+
+function clanTrialBlob(trial: (typeof CLAN_TRIALS)[number]): string {
+    return [
+        trial.name,
+        trial.law,
+        trial.lawRequirement,
+        trial.location,
+        trial.price,
+        `${trial.days} days`,
+        `${trial.members} members party limit`,
+        `quest rank ${trial.rank}`,
+        trial.requiredTalents,
+        trial.unlock,
+        trial.challenge,
+        ...trial.notes,
+        ...trial.completionTips,
+        ...trial.titles.flatMap((title, index) => [
+            title.title,
+            title.talents,
+            title.privilege,
+            title.discount,
+            title.objective,
+            `clan rank ${getClanRankForTrialTitle(trial.id, index)}`,
+        ]),
+    ]
+        .join(" ")
+        .toLowerCase();
 }
 
 type RuleDetails = {
@@ -465,16 +528,41 @@ function renderChevron(open: boolean) {
 }
 
 export function GlobalSearchPanel({
+    open: controlledOpen,
     initialOpen = false,
+    onOpenChange,
+    returnFocusRef,
 }: {
     initialOpen?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    open?: boolean;
+    returnFocusRef?: React.RefObject<HTMLButtonElement>;
 }) {
     const { checked, setCheck } = useProgress();
     const { isScopeEnabled } = useChecklistPreferences();
 
-    const [open, setOpen] = React.useState(initialOpen);
-    const [activeTab, setActiveTab] = React.useState<TabKey>("missions");
-    const [query, setQuery] = React.useState("");
+    const [internalOpen, setInternalOpen] = React.useState(initialOpen);
+    const open = controlledOpen ?? internalOpen;
+    const setOpen = React.useCallback(
+        (value: React.SetStateAction<boolean>) => {
+            const nextOpen =
+                typeof value === "function" ? value(open) : value;
+            if (controlledOpen !== undefined) {
+                onOpenChange?.(nextOpen);
+            } else {
+                setInternalOpen(nextOpen);
+            }
+        },
+        [controlledOpen, onOpenChange, open],
+    );
+    const [activeTab, setActiveTab] = useGuidePreference<TabKey>(
+        "selection.global-search.tab",
+        "missions",
+    );
+    const [query, setQuery] = useGuidePreference(
+        "filters.global-search.query",
+        "",
+    );
     const triggerRef = React.useRef<HTMLButtonElement>(null);
     const dialogRef = React.useRef<HTMLDivElement>(null);
     const searchInputRef = React.useRef<HTMLInputElement>(null);
@@ -483,6 +571,9 @@ export function GlobalSearchPanel({
         Record<string, boolean>
     >({});
     const [openEquipment, setOpenEquipment] = React.useState<
+        Record<string, boolean>
+    >({});
+    const [openClanTrials, setOpenClanTrials] = React.useState<
         Record<string, boolean>
     >({});
     const [openAbilities, setOpenAbilities] = React.useState<
@@ -540,9 +631,9 @@ export function GlobalSearchPanel({
             window.cancelAnimationFrame(focusFrame);
             document.body.style.overflow = previousOverflow;
             document.removeEventListener("keydown", handleKeyDown);
-            triggerRef.current?.focus();
+            (returnFocusRef?.current ?? triggerRef.current)?.focus();
         };
-    }, [open]);
+    }, [open, returnFocusRef, setOpen]);
 
     // Missable Retro IDs (from any source)
     const missableRetroIds = React.useMemo(() => {
@@ -563,6 +654,21 @@ export function GlobalSearchPanel({
                 .map((mission) => ({
                     mission,
                     score: 0,
+                })),
+        [],
+    );
+
+    const clanTrialsWithBlob: ClanTrialWithBlob[] = React.useMemo(
+        () =>
+            [...CLAN_TRIALS]
+                .sort(
+                    (left, right) =>
+                        left.rank - right.rank ||
+                        left.name.localeCompare(right.name),
+                )
+                .map((trial) => ({
+                    trial,
+                    blob: clanTrialBlob(trial),
                 })),
         [],
     );
@@ -701,15 +807,29 @@ export function GlobalSearchPanel({
         () =>
             !q
                 ? equipmentWithBlob
-                : equipmentWithBlob.filter((e) => e.blob.includes(q)),
+                : equipmentWithBlob.filter((e) =>
+                      matchesSearchTerms(e.blob, q),
+                  ),
         [equipmentWithBlob, q],
+    );
+
+    const filteredClanTrials = React.useMemo(
+        () =>
+            !q
+                ? clanTrialsWithBlob
+                : clanTrialsWithBlob.filter((entry) =>
+                      matchesSearchTerms(entry.blob, q),
+                  ),
+        [clanTrialsWithBlob, q],
     );
 
     const filteredAbilities = React.useMemo(
         () =>
             !q
                 ? abilitiesWithBlob
-                : abilitiesWithBlob.filter((a) => a.blob.includes(q)),
+                : abilitiesWithBlob.filter((a) =>
+                      matchesSearchTerms(a.blob, q),
+                  ),
         [abilitiesWithBlob, q],
     );
 
@@ -717,7 +837,9 @@ export function GlobalSearchPanel({
         () =>
             !q
                 ? retroEntries
-                : retroEntries.filter((r) => r.blob.includes(q)),
+                : retroEntries.filter((r) =>
+                      matchesSearchTerms(r.blob, q),
+                  ),
         [retroEntries, q],
     );
 
@@ -728,7 +850,7 @@ export function GlobalSearchPanel({
                 : bazaarSections
                       .map((section) => {
                           const recipes = section.recipes.filter((r) =>
-                              r.blob.includes(q),
+                              matchesSearchTerms(r.blob, q),
                           );
                           return { ...section, recipes };
                       })
@@ -737,6 +859,7 @@ export function GlobalSearchPanel({
     );
 
     const missionsCount = filteredMissions.length;
+    const clanTrialsCount = filteredClanTrials.length;
     const equipmentCount = filteredEquipment.length;
     const abilitiesCount = filteredAbilities.length;
     const retrosCount = filteredRetros.length;
@@ -745,12 +868,17 @@ export function GlobalSearchPanel({
         0,
     );
     const visibleMissions = filteredMissions.slice(0, GLOBAL_SEARCH_RESULT_LIMIT);
+    const visibleClanTrials = filteredClanTrials.slice(
+        0,
+        GLOBAL_SEARCH_RESULT_LIMIT,
+    );
     const visibleEquipment = filteredEquipment.slice(0, GLOBAL_SEARCH_RESULT_LIMIT);
     const visibleAbilities = filteredAbilities.slice(0, GLOBAL_SEARCH_RESULT_LIMIT);
     const visibleRetros = filteredRetros.slice(0, GLOBAL_SEARCH_RESULT_LIMIT);
 
     const tabCounts: Record<TabKey, number> = {
         missions: missionsCount,
+        clan: clanTrialsCount,
         equipment: equipmentCount,
         abilities: abilitiesCount,
         bazaar: bazaarCount,
@@ -759,6 +887,7 @@ export function GlobalSearchPanel({
 
     const tabLabels: Record<TabKey, string> = {
         missions: "Missions",
+        clan: "Clan Trials",
         equipment: "Equipment",
         abilities: "Abilities",
         bazaar: "Bazaar",
@@ -766,6 +895,7 @@ export function GlobalSearchPanel({
     };
     const visibleTabCounts: Record<TabKey, number> = {
         missions: visibleMissions.length,
+        clan: visibleClanTrials.length,
         equipment: visibleEquipment.length,
         abilities: visibleAbilities.length,
         bazaar: bazaarCount,
@@ -773,6 +903,8 @@ export function GlobalSearchPanel({
     };
 
     if (!open) {
+        if (controlledOpen !== undefined) return null;
+
         return (
             <button
                 ref={triggerRef}
@@ -820,7 +952,7 @@ export function GlobalSearchPanel({
                                 Global search
                             </h2>
                             <span className="text-xs text-emerald-300">
-                                Missions • Equipment • Abilities • Bazaar • RetroAchievements
+                                Missions • Clan Trials • Equipment • Abilities • Bazaar • RetroAchievements
                             </span>
                         </div>
                         <div className="flex min-h-11 items-center gap-2 rounded-md border border-zinc-800/80 bg-zinc-900/80 px-3 py-1">
@@ -831,8 +963,8 @@ export function GlobalSearchPanel({
                                 aria-label="Search all app content"
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
-                                placeholder="Search missions, equipment, abilities, bazaar recipes, and RetroAchievements..."
-                                className="min-w-0 flex-1 border-none bg-transparent text-sm text-zinc-100 outline-none placeholder:text-zinc-500"
+                                placeholder="Search missions, trials, equipment, abilities, recipes, and achievements..."
+                                className="min-w-0 flex-1 border-none bg-transparent text-base text-zinc-100 outline-none placeholder:text-zinc-500 sm:text-sm"
                             />
                         </div>
                     </div>
@@ -853,7 +985,7 @@ export function GlobalSearchPanel({
                         role="tablist"
                         aria-label="Global search categories"
                     >
-                        {(["missions", "equipment", "abilities", "bazaar", "retros"] as TabKey[]).map(
+                        {(["missions", "clan", "equipment", "abilities", "bazaar", "retros"] as TabKey[]).map(
                             (key) => {
                                 const active = activeTab === key;
                                 const label = `${tabLabels[key]} (${tabCounts[key] ?? 0})`;
@@ -944,6 +1076,13 @@ export function GlobalSearchPanel({
                                             );
 
                                         const hasRewards = !!mission.rewards;
+                                        const clanPoints =
+                                            mission.rewards?.cp ??
+                                            mission.rewards?.clanPoints;
+                                        const talentChanges =
+                                            getClanTalentChangeEntries(
+                                                mission.rewards?.talentChanges,
+                                            );
                                         const hasEnemies =
                                             mission.enemies &&
                                             mission.enemies.length > 0;
@@ -982,10 +1121,8 @@ export function GlobalSearchPanel({
 
                                         const displayRank =
                                             (mission as any).rank != null
-                                                ? `~${String(
-                                                      (mission as any).rank,
-                                                  )}`
-                                                : "N/A";
+                                                ? String((mission as any).rank)
+                                                : null;
 
                                         const arcLabel = (mission as any)
                                             .arc
@@ -1052,9 +1189,11 @@ export function GlobalSearchPanel({
                                                                     }
                                                                 </span>
                                                             )}
-                                                            <span className="inline-flex items-center rounded-full border border-amber-500/80 bg-amber-500/10 px-1.5 py-px text-[0.6rem] font-semibold text-zinc-300">
-                                                                Rec. Lv.: {displayRank}
-                                                            </span>
+                                                            {displayRank ? (
+                                                                <span className="inline-flex items-center rounded-full border border-amber-500/80 bg-amber-500/10 px-1.5 py-px text-[0.6rem] font-semibold text-zinc-300">
+                                                                    Rec. Lv. ~{displayRank}
+                                                                </span>
+                                                            ) : null}
                                                             {mission.missable && (
                                                                 <span className="inline-flex items-center rounded-full border border-rose-400/70 bg-rose-500/10 px-1.5 py-px text-[0.6rem] font-semibold text-rose-300">
                                                                     Missable
@@ -1071,7 +1210,7 @@ export function GlobalSearchPanel({
                                                                     <span>
                                                                         Fee:{" "}
                                                                         <span className="text-zinc-100 font-medium">
-                                                                            {fee} gil
+                                                                            {fee.toLocaleString()} gil
                                                                         </span>
                                                                     </span>
                                                                 )}
@@ -1346,35 +1485,155 @@ export function GlobalSearchPanel({
                                                                             {
                                                                                 mission
                                                                                     .rewards
-                                                                                    .gil
+                                                                                    .gil.toLocaleString()
                                                                             }
                                                                         </span>
                                                                     </div>
                                                                 )}
-                                                                {(mission.rewards as any)
-                                                                    ?.cp != null && (
+                                                                {mission.rewards
+                                                                    ?.abilityPoints != null && (
+                                                                    <div className="flex justify-between gap-2">
+                                                                        <span className="text-zinc-400">
+                                                                            Ability points
+                                                                        </span>
+                                                                        <span className="font-medium">
+                                                                            {
+                                                                                mission
+                                                                                    .rewards
+                                                                                    .abilityPoints
+                                                                            }
+                                                                        </span>
+                                                                    </div>
+                                                                )}
+                                                                {mission.rewards
+                                                                    ?.abilityPointBreakdown
+                                                                    ?.length ? (
+                                                                    <ul className="border-l border-zinc-700 pl-2 text-zinc-300">
+                                                                        {mission.rewards.abilityPointBreakdown.map(
+                                                                            (
+                                                                                entry,
+                                                                            ) => (
+                                                                                <li
+                                                                                    key={
+                                                                                        entry.label
+                                                                                    }
+                                                                                    className="flex justify-between gap-2"
+                                                                                >
+                                                                                    <span>
+                                                                                        {
+                                                                                            entry.label
+                                                                                        }
+                                                                                    </span>
+                                                                                    <span>
+                                                                                        {
+                                                                                            entry.amount
+                                                                                        }
+                                                                                    </span>
+                                                                                </li>
+                                                                            ),
+                                                                        )}
+                                                                    </ul>
+                                                                ) : null}
+                                                                {clanPoints != null && (
                                                                     <div className="flex justify-between gap-2">
                                                                         <span className="text-zinc-400">
                                                                             Clan points
                                                                         </span>
                                                                         <span className="font-medium">
-                                                                            {
-                                                                                (mission.rewards as any)
-                                                                                    .cp
-                                                                            }
+                                                                            {clanPoints}
                                                                         </span>
+                                                                    </div>
+                                                                )}
+                                                                {talentChanges.length >
+                                                                    0 && (
+                                                                    <div className="pt-1">
+                                                                        <div className="text-zinc-400">
+                                                                            Clan talent gains
+                                                                        </div>
+                                                                        <ul className="mt-0.5 space-y-0.5">
+                                                                            {talentChanges.map(
+                                                                                (
+                                                                                    entry,
+                                                                                ) => (
+                                                                                    <li
+                                                                                        key={
+                                                                                            entry.key
+                                                                                        }
+                                                                                        className="flex justify-between gap-2"
+                                                                                    >
+                                                                                        <span>
+                                                                                            {
+                                                                                                entry.label
+                                                                                            }
+                                                                                        </span>
+                                                                                        <span className="font-medium text-emerald-300">
+                                                                                            +
+                                                                                            {
+                                                                                                entry.amount
+                                                                                            }
+                                                                                        </span>
+                                                                                    </li>
+                                                                                ),
+                                                                            )}
+                                                                        </ul>
                                                                     </div>
                                                                 )}
                                                                 {mission
                                                                     .rewards
                                                                     ?.loot && (
-                                                                    <div className="flex justify-between gap-2">
+                                                                    <div>
                                                                         <span className="text-zinc-400">
                                                                             Items
                                                                         </span>
-                                                                        <span className="font-medium text-right">
-                                                                            {mission.rewards.loot}
+                                                                        <ul className="mt-0.5 space-y-0.5 font-medium">
+                                                                            {splitRewardEntries(
+                                                                                mission
+                                                                                    .rewards
+                                                                                    .loot,
+                                                                            ).map(
+                                                                                (
+                                                                                    entry,
+                                                                                    index,
+                                                                                ) => (
+                                                                                    <li
+                                                                                        key={`${entry}:${index}`}
+                                                                                    >
+                                                                                        {
+                                                                                            entry
+                                                                                        }
+                                                                                    </li>
+                                                                                ),
+                                                                            )}
+                                                                        </ul>
+                                                                    </div>
+                                                                )}
+                                                                {mission
+                                                                    .rewards
+                                                                    ?.items && (
+                                                                    <div>
+                                                                        <span className="text-zinc-400">
+                                                                            Granted items
                                                                         </span>
+                                                                        <ul className="mt-0.5 space-y-0.5 font-medium">
+                                                                            {splitRewardEntries(
+                                                                                mission
+                                                                                    .rewards
+                                                                                    .items,
+                                                                            ).map(
+                                                                                (
+                                                                                    entry,
+                                                                                    index,
+                                                                                ) => (
+                                                                                    <li
+                                                                                        key={`${entry}:${index}`}
+                                                                                    >
+                                                                                        {
+                                                                                            entry
+                                                                                        }
+                                                                                    </li>
+                                                                                ),
+                                                                            )}
+                                                                        </ul>
                                                                     </div>
                                                                 )}
                                                                 {mission
@@ -1898,24 +2157,10 @@ export function GlobalSearchPanel({
                                                                                                                                                     (
                                                                                                                                                         id,
                                                                                                                                                     ) => {
-                                                                                                                                                        const ability =
-                                                                                                                                                            ABILITIES[
-                                                                                                                                                                id
-                                                                                                                                                            ];
-                                                                                                                                                        if (
-                                                                                                                                                            !ability
-                                                                                                                                                        )
-                                                                                                                                                            return id;
-                                                                                                                                                        const set =
-                                                                                                                                                            ABILITY_SETS[
-                                                                                                                                                                ability
-                                                                                                                                                                    .setId
-                                                                                                                                                            ];
-                                                                                                                                                        const setName =
-                                                                                                                                                            set?.name ??
-                                                                                                                                                            ability
-                                                                                                                                                                .setId;
-                                                                                                                                                        return `${ability.name} (${setName})`;
+                                                                                                                                                        return getAbilityTeachingLabel(
+                                                                                                                                                            job,
+                                                                                                                                                            id,
+                                                                                                                                                        );
                                                                                                                                                     },
                                                                                                                                                 )
                                                                                                                                                 .join(
@@ -1962,6 +2207,363 @@ export function GlobalSearchPanel({
 
                                                     </div>
                                                 )}
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            )}
+                        </>
+                    )}
+
+                    {/* CLAN TRIALS */}
+                    {activeTab === "clan" && (
+                        <>
+                            {clanTrialsCount === 0 ? (
+                                <p className="text-zinc-500">
+                                    No Clan Trials match your search.
+                                </p>
+                            ) : (
+                                <ul className="space-y-1.5">
+                                    {visibleClanTrials.map(({ trial }) => {
+                                        const isOpen =
+                                            openClanTrials[trial.id] ?? false;
+                                        const trackingEnabled = isScopeEnabled(
+                                            "clanTrials",
+                                            trial.id,
+                                        );
+                                        const completedTitles = trial.titles.filter(
+                                            (title) =>
+                                                checked[
+                                                    `trial:${trial.id}:${title.title}`
+                                                ],
+                                        ).length;
+
+                                        return (
+                                            <li
+                                                key={trial.id}
+                                                className="overflow-hidden rounded-md border border-zinc-800/80 bg-zinc-950/60"
+                                            >
+                                                <button
+                                                    type="button"
+                                                    aria-controls={
+                                                        isOpen
+                                                            ? `global-clan-trial-${trial.id}`
+                                                            : undefined
+                                                    }
+                                                    aria-expanded={isOpen}
+                                                    onClick={() =>
+                                                        setOpenClanTrials(
+                                                            (current) => ({
+                                                                ...current,
+                                                                [trial.id]: !isOpen,
+                                                            }),
+                                                        )
+                                                    }
+                                                    className="flex min-h-11 w-full items-center justify-between gap-3 px-3 py-2.5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-emerald-300"
+                                                >
+                                                    <span className="min-w-0">
+                                                        <span className="block font-semibold text-zinc-50">
+                                                            {trial.name}
+                                                        </span>
+                                                        <span className="mt-0.5 block text-xs leading-relaxed text-zinc-400">
+                                                            Quest rank {trial.rank} |{" "}
+                                                            {trial.location} |{" "}
+                                                            {trial.law}
+                                                        </span>
+                                                    </span>
+                                                    <span className="flex shrink-0 items-center gap-2 text-xs text-zinc-400">
+                                                        {trackingEnabled
+                                                            ? `${completedTitles}/${trial.titles.length}`
+                                                            : trial.titles.length}
+                                                        {renderChevron(isOpen)}
+                                                    </span>
+                                                </button>
+
+                                                {isOpen ? (
+                                                    <div
+                                                        id={`global-clan-trial-${trial.id}`}
+                                                        className="space-y-3 border-t border-zinc-800 px-3 py-3 text-xs leading-relaxed text-zinc-200"
+                                                    >
+                                                        <dl className="grid gap-x-5 gap-y-2 sm:grid-cols-2">
+                                                            <div className="flex justify-between gap-3">
+                                                                <dt className="text-zinc-400">
+                                                                    Entry fee
+                                                                </dt>
+                                                                <dd className="font-medium">
+                                                                    {trial.price}
+                                                                </dd>
+                                                            </div>
+                                                            <div className="flex justify-between gap-3">
+                                                                <dt className="text-zinc-400">
+                                                                    Time limit
+                                                                </dt>
+                                                                <dd className="font-medium">
+                                                                    {trial.days} days
+                                                                </dd>
+                                                            </div>
+                                                            <div className="flex justify-between gap-3">
+                                                                <dt className="text-zinc-400">
+                                                                    Party limit
+                                                                </dt>
+                                                                <dd className="font-medium">
+                                                                    {trial.members}
+                                                                </dd>
+                                                            </div>
+                                                            <div className="flex justify-between gap-3">
+                                                                <dt className="text-zinc-400">
+                                                                    Law rule
+                                                                </dt>
+                                                                <dd className="font-medium">
+                                                                    {
+                                                                        trial.lawRequirement
+                                                                    }
+                                                                </dd>
+                                                            </div>
+                                                            <div className="sm:col-span-2">
+                                                                <dt className="text-zinc-400">
+                                                                    Unlock
+                                                                </dt>
+                                                                <dd className="font-medium text-zinc-200">
+                                                                    {trial.unlock}
+                                                                </dd>
+                                                            </div>
+                                                            <div className="sm:col-span-2">
+                                                                <dt className="text-zinc-400">
+                                                                    Required talents
+                                                                </dt>
+                                                                <dd className="font-medium text-zinc-200">
+                                                                    {
+                                                                        trial.requiredTalents
+                                                                    }
+                                                                </dd>
+                                                            </div>
+                                                        </dl>
+
+                                                        <section className="border-l-2 border-cyan-700 pl-2.5">
+                                                            <h4 className="font-semibold uppercase text-cyan-300">
+                                                                Challenge
+                                                            </h4>
+                                                            <p className="mt-0.5 text-zinc-300">
+                                                                {trial.challenge}
+                                                            </p>
+                                                        </section>
+
+                                                        <section>
+                                                            <h4 className="font-semibold uppercase text-zinc-400">
+                                                                Title rewards and Clan Rank
+                                                            </h4>
+                                                            <ul className="mt-1 divide-y divide-zinc-800 border-y border-zinc-800">
+                                                                {trial.titles.map(
+                                                                    (
+                                                                        title,
+                                                                        titleIndex,
+                                                                    ) => {
+                                                                        const progressKey = `trial:${trial.id}:${title.title}`;
+                                                                        const titleComplete =
+                                                                            !!checked[
+                                                                                progressKey
+                                                                            ];
+                                                                        const header = (
+                                                                            <>
+                                                                                <span className="min-w-0 font-semibold text-zinc-100">
+                                                                                    {
+                                                                                        title.title
+                                                                                    }
+                                                                                </span>
+                                                                                <span className="ml-auto shrink-0 text-right text-[0.68rem] text-zinc-400">
+                                                                                    <span className="block font-semibold text-cyan-300">
+                                                                                        Clan rank{" "}
+                                                                                        {getClanRankForTrialTitle(
+                                                                                            trial.id,
+                                                                                            titleIndex,
+                                                                                        )}
+                                                                                    </span>
+                                                                                    <span className="block">
+                                                                                        Tier{" "}
+                                                                                        {titleIndex +
+                                                                                            1}
+                                                                                        /{
+                                                                                            trial
+                                                                                                .titles
+                                                                                                .length
+                                                                                        }
+                                                                                    </span>
+                                                                                </span>
+                                                                            </>
+                                                                        );
+
+                                                                        return (
+                                                                            <li
+                                                                                key={
+                                                                                    title.title
+                                                                                }
+                                                                                className="py-2.5"
+                                                                            >
+                                                                                {trackingEnabled ? (
+                                                                                    <label className="flex min-h-11 cursor-pointer items-center gap-2 rounded-sm focus-within:ring-2 focus-within:ring-emerald-300">
+                                                                                        <input
+                                                                                            type="checkbox"
+                                                                                            checked={
+                                                                                                titleComplete
+                                                                                            }
+                                                                                            onChange={(
+                                                                                                event,
+                                                                                            ) =>
+                                                                                                setCheck(
+                                                                                                    progressKey,
+                                                                                                    event
+                                                                                                        .target
+                                                                                                        .checked,
+                                                                                                )
+                                                                                            }
+                                                                                            className="h-5 w-5 shrink-0 rounded border-zinc-600 accent-cyan-500"
+                                                                                        />
+                                                                                        {
+                                                                                            header
+                                                                                        }
+                                                                                    </label>
+                                                                                ) : (
+                                                                                    <div className="flex min-h-11 items-center gap-2">
+                                                                                        {
+                                                                                            header
+                                                                                        }
+                                                                                    </div>
+                                                                                )}
+
+                                                                                <div className="mt-1.5">
+                                                                                    <span className="text-zinc-400">
+                                                                                        Talent shift
+                                                                                    </span>
+                                                                                    <ul className="mt-1 flex flex-wrap gap-1">
+                                                                                        {title.talents
+                                                                                            .split(
+                                                                                                ",",
+                                                                                            )
+                                                                                            .map(
+                                                                                                (
+                                                                                                    value,
+                                                                                                ) =>
+                                                                                                    value.trim(),
+                                                                                            )
+                                                                                            .filter(
+                                                                                                Boolean,
+                                                                                            )
+                                                                                            .map(
+                                                                                                (
+                                                                                                    value,
+                                                                                                ) => (
+                                                                                                    <li
+                                                                                                        key={
+                                                                                                            value
+                                                                                                        }
+                                                                                                        className="rounded-sm border border-zinc-700 px-1.5 py-0.5 text-[0.68rem] font-medium text-zinc-200"
+                                                                                                    >
+                                                                                                        {
+                                                                                                            value
+                                                                                                        }
+                                                                                                    </li>
+                                                                                                ),
+                                                                                            )}
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <dl className="mt-2 grid gap-x-5 gap-y-1 sm:grid-cols-2">
+                                                                                    <div>
+                                                                                        <dt className="text-zinc-400">
+                                                                                            Privilege
+                                                                                        </dt>
+                                                                                        <dd className="font-medium">
+                                                                                            {
+                                                                                                title.privilege
+                                                                                            }
+                                                                                        </dd>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <dt className="text-zinc-400">
+                                                                                            Discount
+                                                                                        </dt>
+                                                                                        <dd className="font-medium">
+                                                                                            {
+                                                                                                title.discount
+                                                                                            }
+                                                                                        </dd>
+                                                                                    </div>
+                                                                                    <div className="sm:col-span-2">
+                                                                                        <dt className="text-zinc-400">
+                                                                                            Objective
+                                                                                        </dt>
+                                                                                        <dd className="font-medium">
+                                                                                            {
+                                                                                                title.objective
+                                                                                            }
+                                                                                        </dd>
+                                                                                    </div>
+                                                                                </dl>
+                                                                            </li>
+                                                                        );
+                                                                    },
+                                                                )}
+                                                            </ul>
+                                                        </section>
+
+                                                        {(trial.notes.length > 0 ||
+                                                            trial.completionTips
+                                                                .length > 0) && (
+                                                            <div className="grid gap-3 sm:grid-cols-2">
+                                                                {trial.notes.length >
+                                                                    0 && (
+                                                                    <section>
+                                                                        <h4 className="font-semibold uppercase text-zinc-400">
+                                                                            Notes
+                                                                        </h4>
+                                                                        <ul className="mt-1 list-disc space-y-0.5 pl-4 text-zinc-300">
+                                                                            {trial.notes.map(
+                                                                                (
+                                                                                    note,
+                                                                                ) => (
+                                                                                    <li
+                                                                                        key={
+                                                                                            note
+                                                                                        }
+                                                                                    >
+                                                                                        {
+                                                                                            note
+                                                                                        }
+                                                                                    </li>
+                                                                                ),
+                                                                            )}
+                                                                        </ul>
+                                                                    </section>
+                                                                )}
+                                                                {trial
+                                                                    .completionTips
+                                                                    .length > 0 && (
+                                                                    <section>
+                                                                        <h4 className="font-semibold uppercase text-zinc-400">
+                                                                            How to beat it
+                                                                        </h4>
+                                                                        <ul className="mt-1 list-disc space-y-0.5 pl-4 text-zinc-300">
+                                                                            {trial.completionTips.map(
+                                                                                (
+                                                                                    tip,
+                                                                                ) => (
+                                                                                    <li
+                                                                                        key={
+                                                                                            tip
+                                                                                        }
+                                                                                    >
+                                                                                        {
+                                                                                            tip
+                                                                                        }
+                                                                                    </li>
+                                                                                ),
+                                                                            )}
+                                                                        </ul>
+                                                                    </section>
+                                                                )}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                ) : null}
                                             </li>
                                         );
                                     })}
@@ -2113,7 +2715,7 @@ export function GlobalSearchPanel({
                                                 content: (
                                                     <>
                                                         <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                            <u>BASICS</u>
+                                                            BASICS
                                                         </h4>
                                                         <div className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                             {subtypeLabel && (
@@ -2150,10 +2752,10 @@ export function GlobalSearchPanel({
                                                                         Purchase
                                                                     </span>
                                                                     <span className="font-medium text-right">
-                                                                        {
+                                                                        {Number(
                                                                             (item as any)
-                                                                                .price
-                                                                        }{" "}
+                                                                                .price,
+                                                                        ).toLocaleString()} {" "}
                                                                         gil
                                                                     </span>
                                                                 </div>
@@ -2170,7 +2772,7 @@ export function GlobalSearchPanel({
                                                 content: (
                                                     <>
                                                         <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                            <u>STATS</u>
+                                                            STATS
                                                         </h4>
                                                         <div className="grid grid-cols-3 gap-x-3 gap-y-0.5 text-[0.7rem] sm:text-xs text-zinc-200">
                                                             {[
@@ -2222,7 +2824,7 @@ export function GlobalSearchPanel({
                                                 content: (
                                                     <>
                                                         <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                            <u>EFFECTS</u>
+                                                            EFFECTS
                                                         </h4>
                                                         <div className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                             {(item as any)
@@ -2360,7 +2962,7 @@ export function GlobalSearchPanel({
                                                 content: (
                                                     <>
                                                         <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                            <u>EQUIP RULES</u>
+                                                            EQUIP RULES
                                                         </h4>
                                                         <div className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                             {ruleDetails.jobs && (
@@ -2435,7 +3037,7 @@ export function GlobalSearchPanel({
                                                 content: (
                                                     <>
                                                         <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                            <u>RANGE & MOVEMENT</u>
+                                                            RANGE & MOVEMENT
                                                         </h4>
                                                         <div className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                             {(item as any).rangeMin != null && (
@@ -2490,7 +3092,7 @@ export function GlobalSearchPanel({
                                                 content: (
                                                     <>
                                                         <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                            <u>ADDITIONAL EFFECT</u>
+                                                            ADDITIONAL EFFECT
                                                         </h4>
                                                         <div className="text-[0.7rem] sm:text-xs text-zinc-200">
                                                             {(item as any).additionalEffect}
@@ -2506,7 +3108,7 @@ export function GlobalSearchPanel({
                                                 content: (
                                                     <>
                                                         <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                            <u>GENDER RESTRICTION</u>
+                                                            GENDER RESTRICTION
                                                         </h4>
                                                         <div className="text-[0.7rem] sm:text-xs text-zinc-200">
                                                             {(item as any).gender}
@@ -2522,7 +3124,7 @@ export function GlobalSearchPanel({
                                                 content: (
                                                     <>
                                                         <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                            <u>TEACHES</u>
+                                                            TEACHES
                                                         </h4>
                                                         <ul className="space-y-0.5 text-[0.7rem] sm:text-xs text-zinc-200">
                                                             {Object.entries(
@@ -2537,26 +3139,10 @@ export function GlobalSearchPanel({
                                                                             (
                                                                                 id,
                                                                             ) => {
-                                                                                const ab =
-                                                                                    ABILITIES[
-                                                                                        id
-                                                                                    ];
-                                                                                if (
-                                                                                    !ab
-                                                                                )
-                                                                                    return id;
-                                                                                const set =
-                                                                                    ABILITY_SETS[
-                                                                                        ab
-                                                                                            .setId
-                                                                                    ];
-                                                                                const setName =
-                                                                                    set
-                                                                                        ?.name ??
-                                                                                    set
-                                                                                        ?.id ??
-                                                                                    ab.setId;
-                                                                                return `${ab.name} (${setName})`;
+                                                                                return getAbilityTeachingLabel(
+                                                                                    job,
+                                                                                    id,
+                                                                                );
                                                                             },
                                                                         );
                                                                     return (
@@ -2726,6 +3312,8 @@ export function GlobalSearchPanel({
         const allSets = allSetIds
             .map((setId) => ABILITY_SETS[setId])
             .filter((s): s is AbilitySetMeta => !!s);
+        const learningReferences = getAbilityJobReferences(ability.id);
+        const blueReference = getBlueMagickReference(ability.id);
 
         return (
             <li
@@ -2762,14 +3350,9 @@ export function GlobalSearchPanel({
                                     Blue Magic
                                 </span>
                             )}
-                            {ability.job && (
+                            {learningReferences.length > 0 && (
                                 <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase text-zinc-300">
-                                    {ability.job}
-                                </span>
-                            )}
-                            {(ability as any).ap != null && (
-                                <span className="inline-flex items-center rounded-full bg-zinc-900/80 border border-zinc-700/80 px-1.5 py-px text-[0.6rem] uppercase text-zinc-300">
-                                    {(ability as any).ap} AP
+                                    {learningReferences.length} player {learningReferences.length === 1 ? "job" : "jobs"}
                                 </span>
                             )}
                         </div>
@@ -2847,6 +3430,69 @@ export function GlobalSearchPanel({
                                     </div>
                                 )}
                             </div>
+                        )}
+
+                        {learningReferences.length > 0 && (
+                            <section className="border-t border-zinc-800 pt-2">
+                                <h4 className="font-semibold uppercase text-zinc-400">
+                                    Player learning
+                                </h4>
+                                <ul className="mt-1 space-y-1 border-l border-zinc-700 pl-2.5">
+                                    {learningReferences.map(
+                                        ({ job, reference }) => {
+                                            const details = [
+                                                reference.type,
+                                                reference.type === "Action"
+                                                    ? reference.mp == null
+                                                        ? "No MP cost"
+                                                        : `${reference.mp} MP`
+                                                    : null,
+                                                reference.range
+                                                    ? `Range ${reference.range}`
+                                                    : null,
+                                                reference.ap != null
+                                                    ? `${reference.ap} AP`
+                                                    : ability.blueMagic
+                                                      ? "Learned from monsters"
+                                                      : "Not AP-mastered",
+                                                !ability.blueMagic &&
+                                                reference.item
+                                                    ? `Teaching item: ${reference.item}`
+                                                    : null,
+                                            ].filter(Boolean);
+
+                                            return (
+                                                <li key={job}>
+                                                    <span className="font-semibold text-zinc-200">
+                                                        {job}
+                                                    </span>
+                                                    <span className="block text-zinc-400">
+                                                        {details.join(" | ")}
+                                                    </span>
+                                                </li>
+                                            );
+                                        },
+                                    )}
+                                </ul>
+                            </section>
+                        )}
+
+                        {blueReference && (
+                            <section className="border-t border-zinc-800 pt-2">
+                                <h4 className="font-semibold uppercase text-sky-300">
+                                    Known monster sources
+                                </h4>
+                                <ul className="mt-1 grid list-disc gap-x-4 gap-y-0.5 pl-4 text-zinc-300 sm:grid-cols-2">
+                                    {blueReference.sources.map((source) => (
+                                        <li key={source}>{source}</li>
+                                    ))}
+                                </ul>
+                                {blueReference.note ? (
+                                    <p className="mt-1.5 border-l-2 border-amber-600/70 pl-2 text-amber-100">
+                                        {blueReference.note}
+                                    </p>
+                                ) : null}
+                            </section>
                         )}
                     </div>
                 )}
@@ -3013,7 +3659,7 @@ export function GlobalSearchPanel({
                                                                         content: (
                                                                             <>
                                                                                 <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                                    <u>BASICS</u>
+                                                                                    BASICS
                                                                                 </h4>
                                                                                 <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                                                     {subtypeLabel && (
@@ -3047,10 +3693,10 @@ export function GlobalSearchPanel({
                                                                                                 Purchase
                                                                                             </dt>
                                                                                             <dd className="font-medium text-right">
-                                                                                                {
+                                                                                                {Number(
                                                                                                     (equip as any)
-                                                                                                        .price
-                                                                                                }{" "}
+                                                                                                        .price,
+                                                                                                ).toLocaleString()} {" "}
                                                                                                 gil
                                                                                             </dd>
                                                                                         </div>
@@ -3067,7 +3713,7 @@ export function GlobalSearchPanel({
                                                                         content: (
                                                                             <>
                                                                                 <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                                    <u>STATS</u>
+                                                                                    STATS
                                                                                 </h4>
                                                                                 <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                                                     {statEntries!.map((entry) => (
@@ -3101,7 +3747,7 @@ export function GlobalSearchPanel({
                                                                         content: (
                                                                             <>
                                                                                 <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                                    <u>RULES</u>
+                                                                                    RULES
                                                                                 </h4>
                                                                                 <dl className={dlRulesClass}>
                                                                                     {ruleEntries.map((entry) => (
@@ -3129,7 +3775,7 @@ export function GlobalSearchPanel({
                                                                         content: (
                                                                             <>
                                                                                 <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                                    <u>TEACHES</u>
+                                                                                    TEACHES
                                                                                 </h4>
                                                                                 <div className="mt-0.5 text-[0.7rem] sm:text-xs text-zinc-300">
                                                                                     <ul className="list-disc list-inside space-y-0.5">
@@ -3150,22 +3796,10 @@ export function GlobalSearchPanel({
                                                                                                             (
                                                                                                                 id,
                                                                                                             ) => {
-                                                                                                                const ab =
-                                                                                                                    ABILITIES[
-                                                                                                                        id
-                                                                                                                    ];
-                                                                                                                if (!ab) {
-                                                                                                                    return id;
-                                                                                                                }
-                                                                                                                const set =
-                                                                                                                    ABILITY_SETS[
-                                                                                                                        ab
-                                                                                                                            .setId
-                                                                                                                    ];
-                                                                                                                const setName =
-                                                                                                                    set?.name ??
-                                                                                                                    ab.setId;
-                                                                                                                return `${ab.name} (${setName})`;
+                                                                                                                return getAbilityTeachingLabel(
+                                                                                                                    job,
+                                                                                                                    id,
+                                                                                                                );
                                                                                                             },
                                                                                                         )
                                                                                                         .join(", ");
@@ -3330,7 +3964,7 @@ export function GlobalSearchPanel({
                                                             {ach.name}
                                                         {ach.category && (
                                                             <span className="text-[0.65rem] text-zinc-400">
-                                                                {" {"}{ach.category}{")"}
+                                                                {" ("}{ach.category}{")"}
                                                             </span>
                                                         )}
                                                         </span>

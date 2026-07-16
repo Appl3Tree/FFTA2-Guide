@@ -13,6 +13,13 @@ import { firebaseEnabled, GUIDE_SLUG } from "../lib/firebaseConfig";
 type FirebaseRuntime = typeof import("../lib/firebase");
 
 type ProgressMap = Record<string, boolean>;
+export type GuidePreferences = Record<string, unknown>;
+type PreferenceTimestamps = Record<string, number>;
+type PreferenceState = {
+    values: GuidePreferences;
+    updatedAt: PreferenceTimestamps;
+};
+type PreferenceValue<T> = T | ((current: T | undefined) => T);
 type AuthStatus = "disabled" | "loading" | "signed-out" | "signed-in";
 type SyncStatus = "local-only" | "idle" | "loading" | "syncing" | "saved" | "error";
 export type SyncConflictChoice = "local" | "cloud" | "merge";
@@ -30,7 +37,9 @@ export interface SyncConflict {
 
 export interface ProgressContextValue {
     checked: ProgressMap;
+    preferences: GuidePreferences;
     setCheck: (key: string, next?: boolean) => void;
+    setPreference: <T>(key: string, next: PreferenceValue<T>) => void;
     user: User | null;
     authStatus: AuthStatus;
     syncStatus: SyncStatus;
@@ -49,6 +58,10 @@ const ProgressContext = createContext<ProgressContextValue | undefined>(
 );
 
 const STORAGE_KEY_CHECKED = "ffta2Guide.checked";
+const STORAGE_KEY_PREFERENCES = "ffta2Guide.preferences.v1";
+const LEGACY_CHECKLIST_PREFERENCES_KEY =
+    "ffta2-guide:checklist-preferences:v1";
+const LEGACY_WIDE_LAYOUT_KEY = "ffta2-guide:wide-layout";
 const SYNC_DEBOUNCE_MS = 1000;
 
 function readLocalProgress(): ProgressMap {
@@ -72,6 +85,130 @@ function writeLocalProgress(checked: ProgressMap) {
     } catch {
         // Local persistence is best-effort; cloud sync still gets a chance.
     }
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+    return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function readLocalPreferences(): PreferenceState {
+    const empty: PreferenceState = { values: {}, updatedAt: {} };
+    if (typeof window === "undefined") return empty;
+
+    let state = empty;
+    try {
+        const raw = window.localStorage.getItem(STORAGE_KEY_PREFERENCES);
+        if (raw) {
+            const parsed = JSON.parse(raw) as unknown;
+            if (isRecord(parsed)) {
+                const values = isRecord(parsed.values) ? parsed.values : {};
+                const rawTimestamps = isRecord(parsed.updatedAt)
+                    ? parsed.updatedAt
+                    : {};
+                const updatedAt = Object.fromEntries(
+                    Object.entries(rawTimestamps).flatMap(([key, value]) =>
+                        typeof value === "number" && Number.isFinite(value)
+                            ? [[key, value]]
+                            : [],
+                    ),
+                );
+                state = { values, updatedAt };
+            }
+        }
+    } catch {
+        state = empty;
+    }
+
+    const values = { ...state.values };
+    const updatedAt = { ...state.updatedAt };
+    const migratedAt = Date.now();
+
+    if (!("checklists" in values)) {
+        try {
+            const legacy = window.localStorage.getItem(
+                LEGACY_CHECKLIST_PREFERENCES_KEY,
+            );
+            if (legacy) {
+                const parsed = JSON.parse(legacy) as unknown;
+                if (isRecord(parsed)) {
+                    values.checklists = parsed;
+                    updatedAt.checklists = migratedAt;
+                }
+            }
+        } catch {
+            // Ignore malformed legacy data and use the current defaults.
+        }
+    }
+
+    if (!("layout.wide" in values)) {
+        const legacy = window.localStorage.getItem(LEGACY_WIDE_LAYOUT_KEY);
+        if (legacy === "true" || legacy === "false") {
+            values["layout.wide"] = legacy === "true";
+            updatedAt["layout.wide"] = migratedAt;
+        }
+    }
+
+    return { values, updatedAt };
+}
+
+function writeLocalPreferences(state: PreferenceState) {
+    if (typeof window === "undefined") return;
+    try {
+        window.localStorage.setItem(
+            STORAGE_KEY_PREFERENCES,
+            JSON.stringify(state),
+        );
+    } catch {
+        // Local persistence is best-effort; cloud sync still gets a chance.
+    }
+}
+
+function mergePreferenceStates(
+    local: PreferenceState,
+    remote: PreferenceState,
+): PreferenceState {
+    const values: GuidePreferences = {};
+    const updatedAt: PreferenceTimestamps = {};
+    const keys = new Set([
+        ...Object.keys(remote.values),
+        ...Object.keys(local.values),
+    ]);
+
+    for (const key of keys) {
+        const hasLocal = Object.prototype.hasOwnProperty.call(
+            local.values,
+            key,
+        );
+        const hasRemote = Object.prototype.hasOwnProperty.call(
+            remote.values,
+            key,
+        );
+        const localTimestamp = local.updatedAt[key] ?? 0;
+        const remoteTimestamp = remote.updatedAt[key] ?? 0;
+        const useLocal =
+            hasLocal &&
+            (!hasRemote || localTimestamp >= remoteTimestamp);
+
+        values[key] = useLocal ? local.values[key] : remote.values[key];
+        updatedAt[key] = useLocal ? localTimestamp : remoteTimestamp;
+    }
+
+    return { values, updatedAt };
+}
+
+function parseRemotePreferences(data: Record<string, unknown>): PreferenceState {
+    const values = isRecord(data.preferences) ? data.preferences : {};
+    const rawTimestamps = isRecord(data.preferenceUpdatedAt)
+        ? data.preferenceUpdatedAt
+        : {};
+    const updatedAt = Object.fromEntries(
+        Object.entries(rawTimestamps).flatMap(([key, value]) =>
+            typeof value === "number" && Number.isFinite(value)
+                ? [[key, value]]
+                : [],
+        ),
+    );
+    return { values, updatedAt };
 }
 
 function mergeProgress(local: ProgressMap, remote: ProgressMap): ProgressMap {
@@ -130,7 +267,10 @@ function progressDocRef(runtime: FirebaseRuntime, userId: string) {
 
 export function ProgressProvider({ children }: { children: React.ReactNode }) {
     const [checked, setChecked] = useState<ProgressMap>(readLocalProgress);
+    const [preferenceState, setPreferenceState] =
+        useState<PreferenceState>(readLocalPreferences);
     const checkedRef = useRef(checked);
+    const preferenceStateRef = useRef(preferenceState);
     const firebaseRuntimeRef = useRef<FirebaseRuntime | null>(null);
     const [user, setUser] = useState<User | null>(null);
     const [authStatus, setAuthStatus] = useState<AuthStatus>(
@@ -148,6 +288,25 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         checkedRef.current = checked;
         writeLocalProgress(checked);
     }, [checked]);
+
+    useEffect(() => {
+        preferenceStateRef.current = preferenceState;
+        writeLocalPreferences(preferenceState);
+    }, [preferenceState]);
+
+    useEffect(() => {
+        const handleStorage = (event: StorageEvent) => {
+            if (event.key === STORAGE_KEY_CHECKED) {
+                setChecked(readLocalProgress());
+            }
+            if (event.key === STORAGE_KEY_PREFERENCES) {
+                setPreferenceState(readLocalPreferences());
+            }
+        };
+
+        window.addEventListener("storage", handleStorage);
+        return () => window.removeEventListener("storage", handleStorage);
+    }, []);
 
     useEffect(() => {
         let active = true;
@@ -197,12 +356,21 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
                             );
                             if (!active) return;
 
-                            const remoteChecked = snapshot.exists()
-                                ? ((snapshot.data().checked ?? {}) as ProgressMap)
+                            const snapshotData = snapshot.exists()
+                                ? (snapshot.data() as Record<string, unknown>)
                                 : {};
+                            const remoteChecked = isRecord(snapshotData.checked)
+                                ? (snapshotData.checked as ProgressMap)
+                                : {};
+                            const mergedPreferences = mergePreferenceStates(
+                                preferenceStateRef.current,
+                                parseRemotePreferences(snapshotData),
+                            );
                             const localChecked = checkedRef.current;
                             const localCount = progressCount(localChecked);
                             const cloudCount = progressCount(remoteChecked);
+
+                            setPreferenceState(mergedPreferences);
 
                             if (
                                 localCount > 0 &&
@@ -268,8 +436,10 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
                     progressDocRef(runtime, user.uid),
                     {
                         checked,
+                        preferences: preferenceState.values,
+                        preferenceUpdatedAt: preferenceState.updatedAt,
                         guideSlug: GUIDE_SLUG,
-                        schemaVersion: 1,
+                        schemaVersion: 2,
                         updatedAt: runtime.serverTimestamp(),
                     },
                 );
@@ -285,7 +455,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         }, SYNC_DEBOUNCE_MS);
 
         return () => window.clearTimeout(timeout);
-    }, [checked, remoteReady, syncRevision, user]);
+    }, [checked, preferenceState, remoteReady, syncRevision, user]);
 
     const setCheck = useCallback((key: string, next?: boolean) => {
         setChecked((prev) => {
@@ -298,6 +468,30 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
             return { ...prev, [key]: value };
         });
     }, []);
+
+    const setPreference = useCallback(
+        <T,>(key: string, next: PreferenceValue<T>) => {
+            setPreferenceState((current) => {
+                const currentValue = current.values[key] as T | undefined;
+                const nextValue =
+                    typeof next === "function"
+                        ? (next as (value: T | undefined) => T)(currentValue)
+                        : next;
+
+                return {
+                    values: {
+                        ...current.values,
+                        [key]: nextValue,
+                    },
+                    updatedAt: {
+                        ...current.updatedAt,
+                        [key]: Date.now(),
+                    },
+                };
+            });
+        },
+        [],
+    );
 
     const resolveSyncConflict = useCallback((choice: SyncConflictChoice) => {
         setSyncConflict((current) => {
@@ -433,7 +627,9 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     const value = useMemo(
         () => ({
             checked,
+            preferences: preferenceState.values,
             setCheck,
+            setPreference,
             user,
             authStatus,
             syncStatus,
@@ -457,9 +653,11 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
             handleSignOut,
             resolveSyncConflict,
             setCheck,
+            setPreference,
             syncConflict,
             syncStatus,
             user,
+            preferenceState.values,
         ],
     );
 
@@ -476,4 +674,28 @@ export function useProgress(): ProgressContextValue {
         throw new Error("useProgress must be used within a ProgressProvider");
     }
     return ctx;
+}
+
+export function useGuidePreference<T>(
+    key: string,
+    defaultValue: T,
+): [T, React.Dispatch<React.SetStateAction<T>>] {
+    const { preferences, setPreference } = useProgress();
+    const storedValue = Object.prototype.hasOwnProperty.call(preferences, key)
+        ? (preferences[key] as T)
+        : defaultValue;
+
+    const setStoredValue = useCallback<React.Dispatch<React.SetStateAction<T>>>(
+        (next) => {
+            setPreference<T>(key, (current) => {
+                const resolvedCurrent = current ?? defaultValue;
+                return typeof next === "function"
+                    ? (next as (value: T) => T)(resolvedCurrent)
+                    : next;
+            });
+        },
+        [defaultValue, key, setPreference],
+    );
+
+    return [storedValue, setStoredValue];
 }

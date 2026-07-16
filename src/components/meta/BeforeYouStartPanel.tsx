@@ -4,6 +4,9 @@ import { Panel } from "../ui/Panel";
 import { INTRO_PANELS } from "../../data/meta/introPanels";
 import { SYSTEMS_PANELS } from "../../data/meta/systemsPanels";
 import type { MetaPanel } from "../../types/ffta2";
+import { useGuidePreference } from "../ProgressContext";
+
+const DEFAULT_OPEN_TOPICS: Record<string, boolean> = {};
 
 function matchesPanel(panel: MetaPanel, query: string) {
     if (!query) return true;
@@ -20,9 +23,15 @@ function matchesPanel(panel: MetaPanel, query: string) {
 }
 
 export function BeforeYouStartPanel() {
-    const [query, setQuery] = React.useState("");
-    const [openTopics, setOpenTopics] = React.useState<Record<string, boolean>>(
-        {},
+    const [query, setQuery] = useGuidePreference(
+        "filters.start.query",
+        "",
+    );
+    const [openTopics, setOpenTopics] = useGuidePreference<
+        Record<string, boolean>
+    >(
+        "disclosure.start.topics",
+        DEFAULT_OPEN_TOPICS,
     );
     const normalizedQuery = query.trim().toLowerCase();
     const introPanels = React.useMemo(
@@ -40,7 +49,7 @@ export function BeforeYouStartPanel() {
             title="Before You Start"
             subtitle="Heads-up notes and systems to keep in mind as you begin your FFTA2 run."
             tone="pink"
-            defaultOpen
+            preferenceKey="start.before-you-start"
         >
             <div className="space-y-4">
                 <label className="relative block">
@@ -58,7 +67,7 @@ export function BeforeYouStartPanel() {
                 <p role="status" className="text-xs text-zinc-400">
                     {normalizedQuery
                         ? `${matchCount} of ${INTRO_PANELS.length + SYSTEMS_PANELS.length} topics match.`
-                        : `${INTRO_PANELS.length + SYSTEMS_PANELS.length} focused topics. Open only what you need.`}
+                        : `${INTRO_PANELS.length + SYSTEMS_PANELS.length} topics.`}
                 </p>
 
                 {matchCount === 0 ? (
@@ -76,6 +85,7 @@ export function BeforeYouStartPanel() {
                                 }))
                             }
                             openTopics={openTopics}
+                            searching={normalizedQuery.length > 0}
                             topics={introPanels}
                         />
                         <TopicGroup
@@ -87,6 +97,7 @@ export function BeforeYouStartPanel() {
                                 }))
                             }
                             openTopics={openTopics}
+                            searching={normalizedQuery.length > 0}
                             topics={systemsPanels}
                         />
                     </div>
@@ -100,11 +111,13 @@ function TopicGroup({
     label,
     onToggle,
     openTopics,
+    searching,
     topics,
 }: {
     label: string;
     onToggle: (topicId: string) => void;
     openTopics: Record<string, boolean>;
+    searching: boolean;
     topics: MetaPanel[];
 }) {
     if (topics.length === 0) return null;
@@ -116,14 +129,14 @@ function TopicGroup({
             </h3>
             <div className="divide-y divide-zinc-800 border-y border-zinc-800">
                 {topics.map((topic) => {
-                    const isOpen = openTopics[topic.id] === true;
+                    const isOpen = searching || openTopics[topic.id] === true;
                     const contentId = `guide-topic-${topic.id}`;
 
                     return (
                         <article key={topic.id}>
                             <button
                                 type="button"
-                                aria-controls={contentId}
+                                aria-controls={isOpen ? contentId : undefined}
                                 aria-expanded={isOpen}
                                 onClick={() => onToggle(topic.id)}
                                 className="flex min-h-14 w-full items-center justify-between gap-3 px-2 py-2.5 text-left transition-colors hover:bg-zinc-900/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fuchsia-300"

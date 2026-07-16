@@ -4,7 +4,13 @@ import ts from "typescript";
 
 const root = process.cwd();
 const guidePath =
-    process.env.FFTA2_GUIDE_SOURCE ?? "/tmp/ffta2-dev-guide-full.txt";
+    process.env.FFTA2_GUIDE_SOURCE ??
+    path.join(
+        root,
+        "audit",
+        "source-snapshots",
+        "gamefaqs-dev-53627-browser-fullbody.txt",
+    );
 const guide = fs.readFileSync(guidePath, "utf8");
 
 function parseGuideBazaarRows() {

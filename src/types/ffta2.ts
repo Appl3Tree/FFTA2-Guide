@@ -31,10 +31,25 @@ export interface Enemy {
     notes?: string;
 }
 
+export interface ClanTalentChanges {
+    negotiation?: number;
+    aptitude?: number;
+    teamwork?: number;
+    adaptability?: number;
+}
+
+export interface RewardAmountBreakdown {
+    label: string;
+    amount: number;
+}
+
 export interface Reward {
     gil: number;
     cp?: number;
     clanPoints?: number;
+    abilityPoints?: number;
+    abilityPointBreakdown?: readonly RewardAmountBreakdown[];
+    talentChanges?: ClanTalentChanges;
     items?: string[] | string;
     loot?: string[] | string;
     abilities?: string[];
@@ -44,12 +59,7 @@ export interface Reward {
 
 export type MissionTag = string;
 
-export interface RequiredTalents {
-    negotiation?: number;
-    aptitude?: number;
-    teamwork?: number;
-    adaptability?: number;
-}
+export interface RequiredTalents extends ClanTalentChanges {}
 
 export interface MissionRecruitmentResult {
     job: string;
@@ -325,9 +335,11 @@ export interface ClanTrial {
     rank: number;
     location: string;
     days: number;
+    members: number;
+    unlock: string;
     price: string;
     requiredTalents: string;
-    lawRequirement: "Must obey" | "Can break if needed" | "Unknown";
+    lawRequirement: "Must obey" | "Can break if needed";
     challenge: string;
     titles: ClanTrialTitle[];
     notes: string[];

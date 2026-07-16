@@ -14,7 +14,7 @@ import {
     getMissionSearchScore,
 } from "../../utils/missionSearch";
 import { useChecklistPreferences } from "../ChecklistPreferencesContext";
-import { useProgress } from "../ProgressContext";
+import { useGuidePreference, useProgress } from "../ProgressContext";
 import { MissionCard } from "./MissionCard";
 
 type ArcFilter =
@@ -76,6 +76,7 @@ const TAG_LABELS: Partial<Record<MissionTag, string>> = {
 };
 
 const MOBILE_BATCH_SIZE = 30;
+const DEFAULT_MISSION_TAGS: MissionTag[] = [];
 
 function getTagLabel(tag: MissionTag): string {
     return TAG_LABELS[tag] ?? `${tag.charAt(0).toUpperCase()}${tag.slice(1)}`;
@@ -119,14 +120,35 @@ function sortByArcAndIndex(left: Mission, right: Mission) {
 export function MissionTabs() {
     const { checked, setCheck } = useProgress();
     const { isChecklistEnabled, isScopeEnabled } = useChecklistPreferences();
-    const [activeArc, setActiveArc] = React.useState<ArcFilter>("ALL");
+    const [activeArc, setActiveArc] = useGuidePreference<ArcFilter>(
+        "filters.missions.arc",
+        "ALL",
+    );
     const [completionFilter, setCompletionFilter] =
-        React.useState<CompletionFilter>("ALL");
-    const [filtersOpen, setFiltersOpen] = React.useState(false);
-    const [missableRetrosOnly, setMissableRetrosOnly] = React.useState(false);
-    const [searchTerm, setSearchTerm] = React.useState("");
-    const [selectedMissionId, setSelectedMissionId] = React.useState("");
-    const [selectedTags, setSelectedTags] = React.useState<MissionTag[]>([]);
+        useGuidePreference<CompletionFilter>(
+            "filters.missions.completion",
+            "ALL",
+        );
+    const [filtersOpen, setFiltersOpen] = useGuidePreference(
+        "disclosure.missions.filters",
+        false,
+    );
+    const [missableRetrosOnly, setMissableRetrosOnly] = useGuidePreference(
+        "filters.missions.missable-retros",
+        false,
+    );
+    const [searchTerm, setSearchTerm] = useGuidePreference(
+        "filters.missions.query",
+        "",
+    );
+    const [selectedMissionId, setSelectedMissionId] = useGuidePreference(
+        "selection.missions.active",
+        "",
+    );
+    const [selectedTags, setSelectedTags] = useGuidePreference<MissionTag[]>(
+        "filters.missions.tags",
+        DEFAULT_MISSION_TAGS,
+    );
     const [visibleCount, setVisibleCount] = React.useState(MOBILE_BATCH_SIZE);
     const detailRef = React.useRef<HTMLDivElement>(null);
     const filterId = React.useId();
@@ -234,9 +256,7 @@ export function MissionTabs() {
     }, [missionTrackingEnabled]);
 
     const selectedMission =
-        missions.find((mission) => mission.id === selectedMissionId) ??
-        missions[0] ??
-        null;
+        missions.find((mission) => mission.id === selectedMissionId) ?? null;
     const visibleMissions = missions.slice(0, visibleCount);
     const remainingMissions = Math.max(
         0,
@@ -264,7 +284,9 @@ export function MissionTabs() {
     };
 
     const selectMission = (missionId: string) => {
-        setSelectedMissionId(missionId);
+        setSelectedMissionId((current) =>
+            current === missionId ? "" : missionId,
+        );
         detailRef.current?.scrollTo({ top: 0, behavior: "smooth" });
     };
 
@@ -287,7 +309,7 @@ export function MissionTabs() {
                 </label>
                 <button
                     type="button"
-                    aria-controls={filterId}
+                    aria-controls={filtersOpen ? filterId : undefined}
                     aria-expanded={filtersOpen}
                     onClick={() => setFiltersOpen((open) => !open)}
                     className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-zinc-700 bg-zinc-900 px-3 py-2 text-sm font-semibold text-zinc-200 transition-colors hover:border-zinc-500 hover:bg-zinc-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-300"
@@ -501,10 +523,20 @@ export function MissionTabs() {
                                                             {mission.name}
                                                         </span>
                                                     </span>
-                                                    <span className="mt-1 block truncate text-xs text-zinc-500">
-                                                        {[mission.questType, mission.region]
-                                                            .filter(Boolean)
-                                                            .join(" | ")}
+                                                    <span className="mt-1 flex min-w-0 items-center gap-2 text-xs text-zinc-500">
+                                                        <span className="min-w-0 flex-1 truncate">
+                                                            {[mission.questType, mission.region]
+                                                                .filter(Boolean)
+                                                                .join(" | ")}
+                                                        </span>
+                                                        {mission.rank != null ? (
+                                                            <span
+                                                                aria-label={`Recommended level approximately ${mission.rank}`}
+                                                                className="shrink-0 rounded border border-zinc-700/80 bg-zinc-950/70 px-1.5 py-0.5 font-semibold tabular-nums text-zinc-300"
+                                                            >
+                                                                Rec. Lv. ~{mission.rank}
+                                                            </span>
+                                                        ) : null}
                                                     </span>
                                                 </span>
                                             </button>
@@ -519,7 +551,14 @@ export function MissionTabs() {
                         >
                             {selectedMission ? (
                                 <MissionCard mission={selectedMission} mode="detail" />
-                            ) : null}
+                            ) : (
+                                <p
+                                    role="status"
+                                    className="grid min-h-full place-items-center p-6 text-sm font-medium text-zinc-500"
+                                >
+                                    No mission selected.
+                                </p>
+                            )}
                         </div>
                     </div>
                 </>

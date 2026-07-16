@@ -1,4 +1,5 @@
 import React from "react";
+import { ChevronDown } from "lucide-react";
 import { BAZAAR_RECIPES } from "../../data/bazaarRecipes";
 import { isRepeatCraftResult } from "../../data/bazaarRepeatCraft";
 import {
@@ -9,13 +10,15 @@ import {
     SHIELD_RULE,
     type EquipmentMeta,
 } from "../../data/equipment/equipment";
-import { ABILITIES, ABILITY_SETS } from "../../data/abilities/abilities";
 import { bazaarScopeId } from "../../data/checklistScopes";
 import { useChecklistPreferences } from "../ChecklistPreferencesContext";
-import { useProgress } from "../ProgressContext";
+import { useGuidePreference, useProgress } from "../ProgressContext";
 import { Panel } from "../ui/Panel";
 import { PanelProgress } from "../ui/PanelProgress";
 import { RepeatCraftBadge } from "../ui/RepeatCraftBadge";
+import { getAbilityTeachingLabel } from "../../utils/abilityPresentation";
+
+const DEFAULT_OPEN_BAZAAR_SECTIONS: Record<string, boolean> = {};
 
 type RuleDetails = {
     jobs?: string;
@@ -211,7 +214,7 @@ export function BazaarRecipesPanel() {
             title="Bazaar Recipes"
             subtitle="Use loot to unlock shop stock, then buy or re-craft extra copies."
             tone="lime"
-            defaultOpen
+            preferenceKey="collection.bazaar"
             headerAddon={
                 trackingEnabled && trackedRecipes.length > 0 ? (
                     <PanelProgress
@@ -232,7 +235,10 @@ export default function BazaarPanel() {
     const { checked, setCheck } = useProgress();
     const { isChecklistEnabled, isScopeEnabled } = useChecklistPreferences();
     const trackingEnabled = isChecklistEnabled("bazaar");
-    const [query, setQuery] = React.useState("");
+    const [query, setQuery] = useGuidePreference(
+        "filters.bazaar.query",
+        "",
+    );
     const searchId = React.useId();
 
     const sections = React.useMemo<BazaarSection[]>(() => {
@@ -296,10 +302,17 @@ export default function BazaarPanel() {
             }))
             .filter((section) => section.recipes.length > 0);
     }, [query, sections]);
+    const searching = query.trim().length > 0;
 
-    const [openSections, setOpenSections] = React.useState<Record<string, boolean>>(
-        {},
+    const [openSections, setOpenSections] = useGuidePreference<
+        Record<string, boolean>
+    >(
+        "disclosure.bazaar.sections",
+        DEFAULT_OPEN_BAZAAR_SECTIONS,
     );
+    const [openRecipes, setOpenRecipes] = useGuidePreference<
+        Record<string, boolean>
+    >("disclosure.bazaar.recipes", {});
 
     const toggleSection = (sectionName: string) => {
         setOpenSections((prev) => {
@@ -309,6 +322,13 @@ export default function BazaarPanel() {
                 [sectionName]: !current, // flip closed/open
             };
         });
+    };
+
+    const toggleRecipe = (recipeId: string) => {
+        setOpenRecipes((current) => ({
+            ...current,
+            [recipeId]: !current[recipeId],
+        }));
     };
 
     return (
@@ -330,7 +350,7 @@ export default function BazaarPanel() {
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="Search by result, loot, section, or rank…"
-                        className="min-h-11 w-full rounded-md border border-zinc-700 bg-zinc-900/60 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-emerald-500/70 focus:outline-none focus:ring-2 focus:ring-emerald-500/70 sm:w-80"
+                        className="min-h-11 w-full rounded-md border border-zinc-700 bg-zinc-900/60 px-3 py-2 text-base text-zinc-100 placeholder:text-zinc-500 focus:border-emerald-500/70 focus:outline-none focus:ring-2 focus:ring-emerald-500/70 sm:w-80 sm:text-sm"
                     />
                 </div>
             </div>
@@ -340,9 +360,10 @@ export default function BazaarPanel() {
                     No bazaar recipes match your search.
                 </p>
             ) : (
-                <div className="space-y-3">
+                <div className="space-y-3 lg:max-h-[70vh] lg:overflow-y-auto lg:pr-2">
                     {filteredSections.map((section) => {
-                        const isOpen = openSections[section.section] === true;
+                        const isOpen =
+                            searching || openSections[section.section] === true;
                         const trackedSectionRecipes = section.recipes.filter(
                             (recipe) =>
                                 isScopeEnabled(
@@ -396,6 +417,8 @@ export default function BazaarPanel() {
                                                     );
                                                 const recipeComplete =
                                                     !!checked[recipeKey];
+                                                const isRecipeOpen =
+                                                    openRecipes[recipe.id] === true;
                                                 const subtypeLabel =
                                                     equip && buildSubtypeLabel(equip);
                                                 const ruleDetails =
@@ -484,7 +507,7 @@ export default function BazaarPanel() {
                                                         content: (
                                                             <>
                                                                 <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                    <u>BASICS</u>
+                                                                    BASICS
                                                                 </h4>
                                                                 <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                                     {subtypeLabel && (
@@ -516,7 +539,7 @@ export default function BazaarPanel() {
                                                                                 Purchase
                                                                             </dt>
                                                                             <dd className="font-medium text-right">
-                                                                                {equip.price} gil
+                                                                                {equip.price.toLocaleString()} gil
                                                                             </dd>
                                                                         </div>
                                                                     )}
@@ -532,7 +555,7 @@ export default function BazaarPanel() {
                                                         content: (
                                                             <>
                                                                 <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                    <u>STATS</u>
+                                                                    STATS
                                                                 </h4>
                                                                 <dl className="space-y-1 text-[0.7rem] sm:text-xs text-zinc-200">
                                                                     {statEntries!.map((entry) => (
@@ -566,7 +589,7 @@ export default function BazaarPanel() {
                                                         content: (
                                                             <>
                                                                 <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                    <u>RULES</u>
+                                                                    RULES
                                                                 </h4>
                                                                 <dl className={dlRulesClass}>
                                                                     {ruleEntries.map((entry) => (
@@ -594,7 +617,7 @@ export default function BazaarPanel() {
                                                         content: (
                                                             <>
                                                                 <h4 className="text-[0.7rem] sm:text-xs font-semibold text-zinc-400 mb-1.5">
-                                                                    <u>TEACHES</u>
+                                                                    TEACHES
                                                                 </h4>
                                                                 <div className="mt-0.5 text-[0.7rem] sm:text-xs text-zinc-300">
                                                                     <ul className="list-disc list-inside space-y-0.5">
@@ -605,20 +628,10 @@ export default function BazaarPanel() {
                                                                                 ids as string[]
                                                                             )
                                                                                 .map((id) => {
-                                                                                    const ab =
-                                                                                        ABILITIES[
-                                                                                            id
-                                                                                        ];
-                                                                                    if (!ab)
-                                                                                        return id;
-                                                                                    const set =
-                                                                                        ABILITY_SETS[
-                                                                                            ab.setId
-                                                                                        ];
-                                                                                    const setName =
-                                                                                        set?.name ??
-                                                                                        ab.setId;
-                                                                                    return `${ab.name} (${setName})`;
+                                                                                    return getAbilityTeachingLabel(
+                                                                                        job,
+                                                                                        id,
+                                                                                    );
                                                                                 })
                                                                                 .join(", ");
 
@@ -646,46 +659,81 @@ export default function BazaarPanel() {
                                                 return (
                                                     <li
                                                         key={recipe.id}
-                                                        className="flex flex-col gap-1.5"
+                                                        className="border-b border-zinc-800/70 last:border-b-0"
                                                     >
-                                                        <div>
-                                                            <div className="flex items-start justify-between gap-3">
-                                                                <div className="flex min-w-0 flex-wrap items-center gap-1.5">
-                                                                    <span className="font-semibold text-zinc-50">
-                                                                        {recipe.result}
-                                                                    </span>
-                                                                    <span className="inline-flex items-center rounded-full bg-emerald-100/10 border border-emerald-500/70 px-1.5 py-px text-[0.65rem] font-semibold uppercase text-emerald-300">
-                                                                        {recipe.rank}
-                                                                    </span>
-                                                                    {recipe.repeatCraft ? (
-                                                                        <RepeatCraftBadge />
-                                                                    ) : null}
-                                                                </div>
-                                                                {recipeTrackingEnabled ? (
-                                                                    <label className="flex min-h-11 shrink-0 cursor-pointer items-center gap-2 rounded-md px-2 text-xs font-semibold text-zinc-300 hover:bg-zinc-900/70 focus-within:ring-2 focus-within:ring-lime-300">
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            aria-label={`Mark ${recipe.result} crafted`}
-                                                                            checked={recipeComplete}
-                                                                            onChange={(event) =>
-                                                                                setCheck(
-                                                                                    recipeKey,
-                                                                                    event.target.checked,
-                                                                                )
-                                                                            }
-                                                                            className="h-5 w-5 rounded border-zinc-500 text-lime-500 focus:ring-lime-400"
-                                                                        />
-                                                                        <span className="hidden sm:inline">
-                                                                            Crafted
+                                                        <div
+                                                            className={`grid items-stretch ${
+                                                                recipeTrackingEnabled
+                                                                    ? "grid-cols-[minmax(0,1fr)_auto]"
+                                                                    : "grid-cols-1"
+                                                            }`}
+                                                        >
+                                                            <button
+                                                                type="button"
+                                                                onClick={() =>
+                                                                    toggleRecipe(recipe.id)
+                                                                }
+                                                                aria-expanded={isRecipeOpen}
+                                                                className="flex min-h-14 min-w-0 items-center justify-between gap-3 px-2 py-2.5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-lime-300"
+                                                            >
+                                                                <span className="min-w-0">
+                                                                    <span className="flex min-w-0 flex-wrap items-center gap-1.5">
+                                                                        <span className="font-semibold text-zinc-50">
+                                                                            {recipe.result}
                                                                         </span>
-                                                                    </label>
-                                                                ) : null}
-                                                            </div>
-                                                            <div className="mt-0.5 text-[0.75rem] text-zinc-400">
-                                                                Loot Required:{" "}
-                                                                <span className="font-medium text-zinc-200">
-                                                                    {recipe.loot.join(", ")}
+                                                                        <span className="inline-flex items-center rounded-full border border-emerald-500/70 bg-emerald-100/10 px-1.5 py-px text-[0.65rem] font-semibold uppercase text-emerald-300">
+                                                                            {recipe.rank}
+                                                                        </span>
+                                                                        {recipe.repeatCraft ? (
+                                                                            <RepeatCraftBadge />
+                                                                        ) : null}
+                                                                    </span>
+                                                                    {subtypeLabel ? (
+                                                                        <span className="mt-1 block text-[0.7rem] text-zinc-400">
+                                                                            {subtypeLabel}
+                                                                        </span>
+                                                                    ) : null}
                                                                 </span>
+                                                                <ChevronDown
+                                                                    aria-hidden="true"
+                                                                    className={`h-4 w-4 shrink-0 text-zinc-500 transition-transform ${
+                                                                        isRecipeOpen
+                                                                            ? "rotate-180"
+                                                                            : ""
+                                                                    }`}
+                                                                />
+                                                            </button>
+                                                            {recipeTrackingEnabled ? (
+                                                                <label className="flex min-h-14 shrink-0 cursor-pointer items-center gap-2 border-l border-zinc-800/70 px-3 text-xs font-semibold text-zinc-300 hover:bg-zinc-900/70 focus-within:ring-2 focus-within:ring-inset focus-within:ring-lime-300">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        aria-label={`Mark ${recipe.result} crafted`}
+                                                                        checked={recipeComplete}
+                                                                        onChange={(event) =>
+                                                                            setCheck(
+                                                                                recipeKey,
+                                                                                event.target.checked,
+                                                                            )
+                                                                        }
+                                                                        className="h-5 w-5 rounded border-zinc-500 text-lime-500 focus:ring-lime-400"
+                                                                    />
+                                                                    <span className="hidden sm:inline">
+                                                                        Crafted
+                                                                    </span>
+                                                                </label>
+                                                            ) : null}
+                                                        </div>
+                                                        {isRecipeOpen ? (
+                                                        <div className="border-t border-zinc-800/70 px-2 pb-3 pt-2.5">
+                                                            <div className="mt-1 grid grid-cols-[auto_minmax(0,1fr)] gap-x-3 text-[0.75rem]">
+                                                                <span className="text-zinc-400">
+                                                                    Loot required
+                                                                </span>
+                                                                <ul className="space-y-0.5 font-medium text-zinc-200">
+                                                                    {recipe.loot.map((loot) => (
+                                                                        <li key={loot}>{loot}</li>
+                                                                    ))}
+                                                                </ul>
                                                             </div>
 
                                                             {equip && (
@@ -728,7 +776,7 @@ export default function BazaarPanel() {
                                                                                             isLast;
 
                                                                                         const sectionClass =
-                                                                                            "rounded-md border border-zinc-800/80 bg-zinc-900/40 px-3 py-2.5 sm:px-4 sm:py-3" +
+                                                                                            "border-t border-zinc-800/80 px-1 py-2.5 sm:py-3" +
                                                                                             (shouldSpan
                                                                                                 ? " md:col-span-2"
                                                                                                 : "");
@@ -754,6 +802,7 @@ export default function BazaarPanel() {
                                                                 </>
                                                             )}
                                                         </div>
+                                                        ) : null}
                                                     </li>
                                                 );
                                             })}

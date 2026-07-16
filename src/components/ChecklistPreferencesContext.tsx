@@ -1,4 +1,5 @@
 import React from "react";
+import { useProgress } from "./ProgressContext";
 
 export type ChecklistKey =
     | "missions"
@@ -29,8 +30,6 @@ interface ChecklistPreferencesValue extends ChecklistPreferences {
     setTrackingEnabled: (enabled: boolean) => void;
 }
 
-const STORAGE_KEY = "ffta2-guide:checklist-preferences:v1";
-
 const DEFAULT_CHECKLISTS: ChecklistState = {
     missions: true,
     clanTrials: true,
@@ -56,11 +55,11 @@ const DEFAULT_PREFERENCES: ChecklistPreferences = {
 const ChecklistPreferencesContext =
     React.createContext<ChecklistPreferencesValue | null>(null);
 
-function parsePreferences(raw: string | null): ChecklistPreferences {
-    if (!raw) return DEFAULT_PREFERENCES;
+function parsePreferences(raw: unknown): ChecklistPreferences {
+    if (!raw || typeof raw !== "object") return DEFAULT_PREFERENCES;
 
     try {
-        const parsed = JSON.parse(raw) as Partial<ChecklistPreferences>;
+        const parsed = raw as Partial<ChecklistPreferences>;
         const storedChecklists: Partial<ChecklistState> =
             parsed.checklists ?? {};
         const storedScopes =
@@ -105,38 +104,35 @@ export function ChecklistPreferencesProvider({
 }: {
     children: React.ReactNode;
 }) {
-    const [preferences, setPreferences] = React.useState<ChecklistPreferences>(
-        () => {
-            if (typeof window === "undefined") return DEFAULT_PREFERENCES;
-            return parsePreferences(window.localStorage.getItem(STORAGE_KEY));
-        },
+    const { preferences: guidePreferences, setPreference } = useProgress();
+    const preferences = React.useMemo(
+        () => parsePreferences(guidePreferences.checklists ?? null),
+        [guidePreferences.checklists],
     );
 
-    React.useEffect(() => {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(preferences));
-    }, [preferences]);
-
-    React.useEffect(() => {
-        const handleStorage = (event: StorageEvent) => {
-            if (event.key === STORAGE_KEY) {
-                setPreferences(parsePreferences(event.newValue));
-            }
-        };
-
-        window.addEventListener("storage", handleStorage);
-        return () => window.removeEventListener("storage", handleStorage);
-    }, []);
+    const updatePreferences = React.useCallback(
+        (
+            update: (
+                current: ChecklistPreferences,
+            ) => ChecklistPreferences,
+        ) => {
+            setPreference<ChecklistPreferences>("checklists", (current) =>
+                update(parsePreferences(current ?? null)),
+            );
+        },
+        [setPreference],
+    );
 
     const setTrackingEnabled = React.useCallback((enabled: boolean) => {
-        setPreferences((current) => ({
+        updatePreferences((current) => ({
             ...current,
             trackingEnabled: enabled,
         }));
-    }, []);
+    }, [updatePreferences]);
 
     const setChecklistEnabled = React.useCallback(
         (key: ChecklistKey, enabled: boolean) => {
-            setPreferences((current) => ({
+            updatePreferences((current) => ({
                 ...current,
                 checklists: {
                     ...current.checklists,
@@ -144,12 +140,12 @@ export function ChecklistPreferencesProvider({
                 },
             }));
         },
-        [],
+        [updatePreferences],
     );
 
     const setScopeEnabled = React.useCallback(
         (key: ChecklistKey, scopeId: string, enabled: boolean) => {
-            setPreferences((current) => ({
+            updatePreferences((current) => ({
                 ...current,
                 scopes: {
                     ...current.scopes,
@@ -160,7 +156,7 @@ export function ChecklistPreferencesProvider({
                 },
             }));
         },
-        [],
+        [updatePreferences],
     );
 
     const isChecklistEnabled = React.useCallback(

@@ -18,15 +18,43 @@ import {
     type ChecklistKey,
     useChecklistPreferences,
 } from "../ChecklistPreferencesContext";
-import { useProgress } from "../ProgressContext";
+import { useGuidePreference, useProgress } from "../ProgressContext";
 import { Panel } from "../ui/Panel";
 import { PanelProgress } from "../ui/PanelProgress";
+import {
+    BLUE_MAGICK_GUIDANCE,
+    getBlueMagickReference,
+} from "../../data/blueMagickReference";
+import {
+    JOB_REFERENCE_DETAILS,
+    getAbilityJobReferences,
+    getJobAbilityReference,
+    type JobAbilityReference,
+} from "../../data/jobReferenceDetails";
 
 type AbilityHubMode = "browse" | "race" | "characters";
 type ProgressKeyFactory = (targetId: string, abilityId: string) => string;
+const DEFAULT_OPEN_ABILITY_SETS: Record<string, boolean> = {};
+const DEFAULT_OPEN_ABILITY_JOBS: Record<string, boolean> = {};
 
 function abilitySearchText(ability: AbilityMeta, set: AbilitySetMeta): string {
-    const parts = [set.name, set.description, ability.name];
+    const references = getAbilityJobReferences(ability.id);
+    const blueReference = getBlueMagickReference(ability.id);
+    const parts = [
+        set.name,
+        set.description,
+        ability.name,
+        ...references.flatMap(({ job, reference }) => [
+            job,
+            reference.type,
+            ability.blueMagic ? null : reference.item,
+            reference.ap != null ? `${reference.ap} ap` : null,
+            reference.mp != null ? `${reference.mp} mp` : null,
+            reference.range,
+        ]),
+        ...(blueReference?.sources ?? []),
+        blueReference?.note,
+    ];
     if (ability.description) parts.push(...ability.description);
     if (ability.blueMagic) parts.push("blue", "blue magic", "blue-magic");
     return parts.filter(Boolean).join(" ").toLowerCase();
@@ -34,10 +62,19 @@ function abilitySearchText(ability: AbilityMeta, set: AbilitySetMeta): string {
 
 function trackingAbilitySearchText(ability: AbilityMeta, job: string): string {
     const set = ABILITY_SETS[ability.setId];
+    const reference = getJobAbilityReference(job, ability.id);
+    const blueReference = getBlueMagickReference(ability.id);
     return [
         job,
         set?.name,
         ability.name,
+        reference?.type,
+        ability.blueMagic ? "" : reference?.item,
+        reference?.ap != null ? `${reference.ap} ap` : "",
+        reference?.mp != null ? `${reference.mp} mp` : "",
+        reference?.range,
+        ...(blueReference?.sources ?? []),
+        blueReference?.note,
         ...(ability.description ?? []),
         ability.blueMagic ? "blue magic" : "",
     ]
@@ -104,8 +141,14 @@ export function AbilityHubPanel() {
 }
 
 export function AbilityHub() {
-    const [mode, setMode] = React.useState<AbilityHubMode>("browse");
-    const [query, setQuery] = React.useState("");
+    const [mode, setMode] = useGuidePreference<AbilityHubMode>(
+        "selection.abilities.mode",
+        "race",
+    );
+    const [query, setQuery] = useGuidePreference(
+        "filters.abilities.query",
+        "",
+    );
     const searchId = React.useId();
 
     const raceTargets = RACE_ABILITY_TARGETS;
@@ -121,7 +164,7 @@ export function AbilityHub() {
                     <ModeTab
                         active={mode === "browse"}
                         icon={<List className="h-4 w-4" />}
-                        label="Browse"
+                        label="All abilities"
                         onClick={() => setMode("browse")}
                         panelId="ability-panel-browse"
                     />
@@ -154,7 +197,7 @@ export function AbilityHub() {
                     value={query}
                     onChange={(event) => setQuery(event.target.value)}
                     placeholder="Search by job, set, ability, or effect..."
-                    className="min-h-11 w-full rounded-md border border-zinc-700/80 bg-zinc-950/70 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-500 focus:border-sky-500/70 focus:outline-none focus:ring-2 focus:ring-sky-500/70 sm:w-80"
+                    className="min-h-11 w-full rounded-md border border-zinc-700/80 bg-zinc-950/70 px-3 py-2 text-base text-zinc-100 placeholder:text-zinc-500 focus:border-sky-500/70 focus:outline-none focus:ring-2 focus:ring-sky-500/70 sm:w-80 sm:text-sm"
                 />
             </div>
 
@@ -200,7 +243,7 @@ function ModeTab({
         <button
             type="button"
             role="tab"
-            aria-controls={panelId}
+            aria-controls={active ? panelId : undefined}
             aria-selected={active}
             disabled={disabled}
             onClick={onClick}
@@ -217,7 +260,9 @@ function ModeTab({
 }
 
 function BrowseAbilities({ query }: { query: string }) {
-    const [openSets, setOpenSets] = React.useState<Record<string, boolean>>({});
+    const [openSets, setOpenSets] = useGuidePreference<
+        Record<string, boolean>
+    >("disclosure.abilities.sets", DEFAULT_OPEN_ABILITY_SETS);
 
     const setsWithAbilities = React.useMemo(() => {
         const map: Record<string, AbilityMeta[]> = {};
@@ -278,7 +323,7 @@ function BrowseAbilities({ query }: { query: string }) {
         <div
             id="ability-panel-browse"
             role="tabpanel"
-            className="space-y-3"
+            className="space-y-3 lg:max-h-[70vh] lg:overflow-y-auto lg:pr-2"
         >
             <p className="sr-only" role="status">
                 {filtered.length} matching ability sets.
@@ -323,14 +368,19 @@ function BrowseAbilities({ query }: { query: string }) {
                         </button>
 
                         {isOpen ? (
-                            <ul className="divide-y divide-zinc-800/70">
-                                {abilities.map((ability) => (
-                                    <AbilityDescription
-                                        key={ability.id}
-                                        ability={ability}
-                                    />
-                                ))}
-                            </ul>
+                            <>
+                                {set.id === "blue-magick" ? (
+                                    <BlueMagickGuidance />
+                                ) : null}
+                                <ul className="divide-y divide-zinc-800/70">
+                                    {abilities.map((ability) => (
+                                        <AbilityDescription
+                                            key={ability.id}
+                                            ability={ability}
+                                        />
+                                    ))}
+                                </ul>
+                            </>
                         ) : null}
                     </section>
                 );
@@ -354,8 +404,18 @@ function AbilityChecklistView({
 }) {
     const { checked, setCheck } = useProgress();
     const { isScopeEnabled } = useChecklistPreferences();
-    const [selectedId, setSelectedId] = React.useState(targets[0]?.id ?? "");
-    const [openJobs, setOpenJobs] = React.useState<Record<string, boolean>>({});
+    const preferenceScope =
+        checklistKey === "abilityRace" ? "race" : "characters";
+    const [selectedId, setSelectedId] = useGuidePreference(
+        `selection.abilities.${preferenceScope}`,
+        targets[0]?.id ?? "",
+    );
+    const [openJobs, setOpenJobs] = useGuidePreference<
+        Record<string, boolean>
+    >(
+        `disclosure.abilities.${preferenceScope}.jobs`,
+        DEFAULT_OPEN_ABILITY_JOBS,
+    );
     const selectId = React.useId();
 
     React.useEffect(() => {
@@ -458,7 +518,7 @@ function AbilityChecklistView({
                     No abilities match your search for {target.label}.
                 </p>
             ) : (
-                <div className="space-y-3">
+                <div className="space-y-3 lg:max-h-[64vh] lg:overflow-y-auto lg:pr-2">
                     {groups.map((group) => {
                         if (group.abilities.length === 0) {
                             return (
@@ -495,6 +555,7 @@ function AbilityChecklistView({
                         const groupComplete = group.abilities.filter((ability) =>
                             checked[progressKey(target.id, ability.id)],
                         ).length;
+                        const jobReference = JOB_REFERENCE_DETAILS[group.job];
 
                         return (
                             <section
@@ -540,6 +601,21 @@ function AbilityChecklistView({
                                 </button>
 
                                 {isOpen ? (
+                                    <>
+                                    <div className="space-y-2 border-b border-zinc-800 bg-zinc-950/80 px-3 py-2.5 text-xs leading-relaxed sm:px-4">
+                                        <p>
+                                            <span className="font-semibold text-zinc-300">
+                                                Unlock:
+                                            </span>{" "}
+                                            <span className="text-zinc-400">
+                                                {jobReference?.prerequisites ??
+                                                    "Available immediately"}
+                                            </span>
+                                        </p>
+                                        {group.job === "Blue Mage" ? (
+                                            <BlueMagickGuidance embedded />
+                                        ) : null}
+                                    </div>
                                     <ul className="divide-y divide-zinc-800/70">
                                         {group.abilities.map((ability) => {
                                             const key = progressKey(
@@ -549,6 +625,11 @@ function AbilityChecklistView({
                                             const setName =
                                                 ABILITY_SETS[ability.setId]?.name ??
                                                 ability.setId;
+                                            const reference =
+                                                getJobAbilityReference(
+                                                    group.job,
+                                                    ability.id,
+                                                );
 
                                             const ItemWrapper =
                                                 targetTrackingEnabled
@@ -584,15 +665,41 @@ function AbilityChecklistView({
                                                                 </span>
                                                                 <span className="text-xs text-zinc-500">
                                                                     {setName}
-                                                                    {ability.ap != null
-                                                                        ? ` | ${ability.ap} AP`
-                                                                        : ""}
                                                                 </span>
                                                             </span>
-                                                            {ability.description?.[0] ? (
-                                                                <span className="mt-0.5 block text-xs leading-relaxed text-zinc-400">
-                                                                    {ability.description[0]}
+                                                            {ability.description?.length ? (
+                                                                <span className="mt-0.5 block space-y-0.5 text-xs leading-relaxed text-zinc-400">
+                                                                    {ability.description.map(
+                                                                        (
+                                                                            line,
+                                                                            index,
+                                                                        ) => (
+                                                                            <span
+                                                                                key={`${ability.id}:${index}`}
+                                                                                className="block"
+                                                                            >
+                                                                                {
+                                                                                    line
+                                                                                }
+                                                                            </span>
+                                                                        ),
+                                                                    )}
                                                                 </span>
+                                                            ) : null}
+                                                            {reference ? (
+                                                                <AbilityReferenceLine
+                                                                    ability={ability}
+                                                                    reference={
+                                                                        reference
+                                                                    }
+                                                                />
+                                                            ) : null}
+                                                            {ability.blueMagic ? (
+                                                                <BlueMagickLearning
+                                                                    abilityId={
+                                                                        ability.id
+                                                                    }
+                                                                />
                                                             ) : null}
                                                         </span>
                                                     </ItemWrapper>
@@ -600,6 +707,7 @@ function AbilityChecklistView({
                                             );
                                         })}
                                     </ul>
+                                    </>
                                 ) : null}
                             </section>
                         );
@@ -611,6 +719,8 @@ function AbilityChecklistView({
 }
 
 function AbilityDescription({ ability }: { ability: AbilityMeta }) {
+    const references = getAbilityJobReferences(ability.id);
+
     return (
         <li className="px-3 py-2.5 sm:px-4 sm:py-3">
             <div className="flex flex-wrap items-center gap-1.5 font-medium text-zinc-50">
@@ -628,6 +738,96 @@ function AbilityDescription({ ability }: { ability: AbilityMeta }) {
                     ))}
                 </div>
             ) : null}
+            {references.length > 0 ? (
+                <div className="mt-2 space-y-1 border-l border-zinc-700 pl-2.5">
+                    {references.map(({ job, reference }) => (
+                        <div key={job} className="text-xs leading-relaxed">
+                            <span className="font-semibold text-zinc-300">
+                                {job}
+                            </span>
+                            <AbilityReferenceLine
+                                ability={ability}
+                                reference={reference}
+                            />
+                        </div>
+                    ))}
+                </div>
+            ) : null}
+            {ability.blueMagic ? (
+                <BlueMagickLearning abilityId={ability.id} />
+            ) : null}
         </li>
+    );
+}
+
+function AbilityReferenceLine({
+    ability,
+    reference,
+}: {
+    ability: AbilityMeta;
+    reference: JobAbilityReference;
+}) {
+    const details = [
+        reference.type,
+        reference.type === "Action"
+            ? reference.mp == null
+                ? "No MP cost"
+                : `${reference.mp} MP`
+            : null,
+        reference.range ? `Range ${reference.range}` : null,
+        reference.ap != null
+            ? `${reference.ap} AP`
+            : ability.blueMagic
+              ? "Learned from monsters"
+              : "Not AP-mastered",
+        !ability.blueMagic && reference.item
+            ? `Teaching item: ${reference.item}`
+            : null,
+    ].filter((value): value is string => Boolean(value));
+
+    return (
+        <span className="mt-0.5 block text-xs leading-relaxed text-zinc-500">
+            {details.join(" | ")}
+        </span>
+    );
+}
+
+function BlueMagickGuidance({ embedded = false }: { embedded?: boolean }) {
+    return (
+        <div
+            className={
+                embedded
+                    ? "text-sky-200"
+                    : "border-b border-zinc-800 bg-sky-950/20 px-3 py-2.5 text-xs leading-relaxed text-sky-100 sm:px-4"
+            }
+        >
+            <p className="font-semibold">Learning setup</p>
+            <ul className="mt-1 list-disc space-y-0.5 pl-4">
+                {BLUE_MAGICK_GUIDANCE.map((line) => (
+                    <li key={line}>{line}</li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+function BlueMagickLearning({ abilityId }: { abilityId: string }) {
+    const reference = getBlueMagickReference(abilityId);
+    if (!reference) return null;
+
+    return (
+        <div className="mt-2 text-xs leading-relaxed">
+            <p className="font-semibold text-sky-300">Known monster sources</p>
+            <ul className="mt-0.5 grid list-disc gap-x-5 gap-y-0.5 pl-4 text-zinc-300 sm:grid-cols-2">
+                {reference.sources.map((source) => (
+                    <li key={source}>{source}</li>
+                ))}
+            </ul>
+            {reference.note ? (
+                <p className="mt-1.5 border-l-2 border-amber-600/70 pl-2 text-amber-100">
+                    {reference.note}
+                </p>
+            ) : null}
+        </div>
     );
 }

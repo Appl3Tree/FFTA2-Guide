@@ -275,7 +275,7 @@ function AdvancedScopeSettings({
         <div className="pb-2 pl-2 pr-2">
             <button
                 type="button"
-                aria-controls={regionId}
+                aria-controls={open ? regionId : undefined}
                 aria-expanded={open}
                 disabled={disabled}
                 onClick={() => onOpenChange(!open)}
@@ -334,34 +334,49 @@ function ToggleRow({
     onChange: (checked: boolean) => void;
     prominent?: boolean;
 }) {
+    const controlId = React.useId();
+    const labelId = `${controlId}-label`;
+    const descriptionId = `${controlId}-description`;
+
     return (
-        <label
-            className={`flex min-h-16 cursor-pointer items-center justify-between gap-4 px-2 py-3 transition-colors focus-within:ring-2 focus-within:ring-sky-300 ${
+        <button
+            type="button"
+            role="switch"
+            aria-checked={checked}
+            aria-describedby={descriptionId}
+            aria-labelledby={labelId}
+            disabled={disabled}
+            onClick={() => onChange(!checked)}
+            className={`flex min-h-16 w-full items-center justify-between gap-4 px-2 py-3 text-left transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 ${
                 prominent ? "rounded-lg bg-zinc-900/80 px-3" : ""
             } ${disabled ? "cursor-not-allowed opacity-50" : "hover:bg-zinc-900/60"}`}
         >
             <span className="min-w-0">
-                <span className="block text-sm font-semibold text-zinc-100">
+                <span
+                    id={labelId}
+                    className="block text-sm font-semibold text-zinc-100"
+                >
                     {label}
                 </span>
-                <span className="mt-0.5 block text-xs leading-relaxed text-zinc-400">
+                <span
+                    id={descriptionId}
+                    className="mt-0.5 block text-xs leading-relaxed text-zinc-400"
+                >
                     {description}
                 </span>
             </span>
-            <input
-                type="checkbox"
-                role="switch"
-                checked={checked}
-                disabled={disabled}
-                onChange={(event) => onChange(event.target.checked)}
-                className="peer sr-only"
-            />
             <span
                 aria-hidden="true"
-                className="relative h-6 w-11 shrink-0 rounded-full bg-zinc-700 transition-colors peer-checked:bg-sky-500 peer-checked:[&>span]:translate-x-5 peer-focus-visible:ring-2 peer-focus-visible:ring-sky-300 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-zinc-950 peer-disabled:opacity-60"
+                className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${
+                    checked ? "bg-sky-500" : "bg-zinc-700"
+                }`}
             >
-                <span className="absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow-sm transition-transform" />
+                <span
+                    className={`absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow-sm transition-transform ${
+                        checked ? "translate-x-5" : ""
+                    }`}
+                />
             </span>
-        </label>
+        </button>
     );
 }

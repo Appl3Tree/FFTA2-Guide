@@ -3,6 +3,7 @@ import type { Mission } from "../../types/ffta2";
 import { withMissionGuidance } from "../../utils/missionGuidance";
 import { STORY_MAIN_MISSIONS } from "./storyMain";
 import { STORY_OPTIONAL_MISSIONS } from "./storyOptional";
+import { MISSION_COMPLETION_REWARDS } from "./missionCompletionRewards";
 
 function mergeMissionTags(a: Mission, b: Mission): string[] | undefined {
     const tags = Array.from(new Set([...(a.tags ?? []), ...(b.tags ?? [])]));
@@ -49,4 +50,20 @@ export function mergeMissionsById(
 export const ALL_MISSIONS: Mission[] = mergeMissionsById(
     STORY_MAIN_MISSIONS,
     STORY_OPTIONAL_MISSIONS,
-).map(withMissionGuidance);
+).map((mission) => {
+    const completion = MISSION_COMPLETION_REWARDS[mission.id];
+    const enriched = completion
+        ? {
+              ...mission,
+              rewards: {
+                  ...mission.rewards,
+                  cp: completion.clanPoints,
+                  abilityPoints: completion.abilityPoints,
+                  abilityPointBreakdown: completion.abilityPointBreakdown,
+                  talentChanges: completion.talentChanges,
+              },
+          }
+        : mission;
+
+    return withMissionGuidance(enriched);
+});

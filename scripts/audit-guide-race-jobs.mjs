@@ -4,7 +4,13 @@ import ts from "typescript";
 
 const root = process.cwd();
 const guidePath =
-    process.env.FFTA2_GUIDE_SOURCE ?? "/tmp/ffta2-dev-guide-full.txt";
+    process.env.FFTA2_GUIDE_SOURCE ??
+    path.join(
+        root,
+        "audit",
+        "source-snapshots",
+        "gamefaqs-dev-53627-browser-fullbody.txt",
+    );
 const reportPath =
     process.env.FFTA2_RACE_JOBS_REPORT ??
     path.join(root, "audit", "guide-race-jobs-audit.json");
