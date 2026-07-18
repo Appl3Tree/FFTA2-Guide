@@ -82,6 +82,8 @@ export interface Mission {
     id: string;
     arc: string;
     name: string;
+    series?: string;
+    searchAliases?: string[];
     description?: string;
     rank?: number;
     recommendedLevel?: string;

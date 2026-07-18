@@ -1,11 +1,10 @@
 {
-  "sourceUrl": "https://retroachievements.org/game/4958",
-  "capturedAt": "2026-07-15",
   "counts": {
-    "sourceAchievements": 185,
-    "appAchievements": 185,
+    "achievements": 185,
+    "linkedMissions": 47,
     "missionLinkedAchievements": 111,
     "findings": 0
   },
+  "byType": {},
   "findings": []
 }

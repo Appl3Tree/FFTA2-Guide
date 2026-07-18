@@ -1,4 +1,4 @@
-export const SOURCE_VALIDATED_MISSION_GUIDANCE: Readonly<
+export const CURATED_MISSION_GUIDANCE: Readonly<
     Record<string, readonly string[]>
 > = {
     "A1-02": [

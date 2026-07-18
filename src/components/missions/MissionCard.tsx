@@ -208,6 +208,7 @@ export function MissionCard({
         id,
         arc,
         name,
+        series,
         description,
         objective,
         law,
@@ -432,6 +433,16 @@ export function MissionCard({
                                         </dt>
                                         <dd className="font-medium">
                                             {questType}
+                                        </dd>
+                                    </div>
+                                )}
+                                {series && (
+                                    <div className="flex justify-between gap-2">
+                                        <dt className="text-zinc-400">
+                                            Series
+                                        </dt>
+                                        <dd className="text-right font-medium">
+                                            {series}
                                         </dd>
                                     </div>
                                 )}

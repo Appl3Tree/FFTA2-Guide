@@ -1,29 +1,11 @@
 {
-  "generatedAt": "2026-07-16T18:48:32.388Z",
-  "sources": [
-    {
-      "name": "GameFAQs guide by Dev, version 1.25",
-      "url": "https://gamefaqs.gamespot.com/ds/937330-final-fantasy-tactics-a2-grimoire-of-the-rift/faqs/53627",
-      "coverage": "Structured contract fields and walkthrough evidence for all 300 Quest Report quests."
-    },
-    {
-      "name": "Thonky all quest guides",
-      "url": "https://www.thonky.com/ffta2/all-quest-guides",
-      "coverage": "Independent title and quest-set validation for all 300 Quest Report quests."
-    },
-    {
-      "name": "GameFAQs supplemental guides by warfreak and Dark_Vortex",
-      "coverage": "Additional battle strategy, enemy, finale, and map-event evidence."
-    }
-  ],
   "counts": {
-    "canonicalMissions": 346,
+    "canonicalMissions": 347,
     "questReportMissions": 300,
-    "otherMissions": 46,
-    "missionsWithGuidance": 346,
-    "primaryStructuredQuests": 300,
-    "secondaryQuestHeadings": 300,
+    "otherMissions": 47,
+    "missionsWithGuidance": 347,
     "findings": 0
   },
+  "byType": {},
   "findings": []
 }

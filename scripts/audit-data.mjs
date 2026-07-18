@@ -348,6 +348,8 @@ const nonMissionPrerequisitePatterns = [
     /^must be\b/i,
     /^accept from\b/i,
     /^accept in\b/i,
+    /^become area champion\b/i,
+    /^become champion for life\b/i,
     /^side quest\b/i,
     /^.+\bside quest$/i,
     /^adelle\b/i,

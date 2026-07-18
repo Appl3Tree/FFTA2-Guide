@@ -85,15 +85,9 @@ The guide also includes structured reference data for:
 
 The floating global search panel searches across missions, abilities, equipment, recipes, races/jobs, and RetroAchievements.
 
-### Source Validation
+### Data Quality
 
-Mission, equipment, ability, recipe, and achievement data has been audited against the included source corpus:
-
-* GameFAQs Dev guide
-* GameFAQs warfreak guide
-* Final Fantasy Wiki / Fandom pages where needed
-
-Known source conflicts and validation decisions are recorded in `audit/validation-notes.md`.
+The validation commands check canonical counts, required fields, duplicate identifiers, cross-linked records, checklist coverage, and presentation invariants. Generated reports are written to `audit/` for review.
 
 ---
 
@@ -137,7 +131,7 @@ npm run typecheck
 npm run build
 ```
 
-`npm run audit:data` writes a generated report to `audit/data-audit.json`. That file is intentionally ignored by git; the checked-in audit trail lives in `audit/validation-notes.md`.
+`npm run audit:data` writes a generated report to `audit/data-audit.json`. That file is intentionally ignored by git; the other focused audit commands write their reports to `audit/`.
 
 ---
 
@@ -234,9 +228,7 @@ Mission names and some metadata are always visible. Detailed strategy, enemies, 
 
 Thanks to:
 
-* The **FFTA2 community** for preserving mission information
-* Wikis and archived forum posts that informed the mission data
-* The earlier **FFTA-Guide** project for structural inspiration
+* The **FFTA2 community** for testing, corrections, and feedback
 * Square Enix for creating *Final Fantasy Tactics A2*
 
 ---

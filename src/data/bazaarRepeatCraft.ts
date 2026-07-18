@@ -1,7 +1,7 @@
 /**
  * Bazaar results that stock one copy per recipe submission.
  *
- * The Bazaar audit verifies this list against the stored validation snapshot.
+ * The Bazaar audit verifies that every entry maps to one canonical recipe.
  */
 export const REPEAT_CRAFT_RESULTS = [
     "Shining Lute",

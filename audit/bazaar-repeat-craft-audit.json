@@ -1,9 +1,9 @@
 {
   "counts": {
-    "sourceRecipes": 355,
-    "appRecipes": 355,
-    "sourceRepeatCraft": 112,
-    "appRepeatCraft": 112,
+    "recipes": 355,
+    "uniqueRecipeResults": 355,
+    "repeatCraftResults": 112,
+    "uniqueRepeatCraftResults": 112,
     "findings": 0
   },
   "byType": {},

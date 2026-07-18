@@ -454,4 +454,5 @@ export const MISSION_TAGS: Record<string, MissionTag[]> = {
     "ME-42": ["optional", "map-event", "auction", "treasure"], // Master's Reward - Goug
     "ME-43": ["optional", "map-event", "treasure"], // The Luck-Stick Seller
     "ME-44": ["optional", "map-event", "treasure"], // The Luck-Stick Trader
+    "ME-45": ["optional", "map-event", "choice", "treasure"], // Galerria Jewelers
 };

@@ -19,8 +19,8 @@ async function loadFinalMissionData() {
         stdin: {
             contents: `
                 import { ALL_MISSIONS } from "./src/data/missions/allMissions.ts";
-                import { SOURCE_VALIDATED_MISSION_GUIDANCE } from "./src/data/missions/sourceValidatedGuidance.ts";
-                export default { missions: ALL_MISSIONS, sourceGuidance: SOURCE_VALIDATED_MISSION_GUIDANCE };
+                import { CURATED_MISSION_GUIDANCE } from "./src/data/missions/curatedMissionGuidance.ts";
+                export default { missions: ALL_MISSIONS, curatedGuidance: CURATED_MISSION_GUIDANCE };
             `,
             resolveDir: root,
             sourcefile: "mission-detail-audit-entry.ts",
@@ -54,7 +54,7 @@ function collectStrings(value, strings = []) {
     return strings;
 }
 
-const { missions, sourceGuidance } = await loadFinalMissionData();
+const { missions, curatedGuidance } = await loadFinalMissionData();
 const byId = new Map(missions.map((mission) => [mission.id, mission]));
 const findings = [];
 
@@ -89,8 +89,8 @@ const otherMissions = missions.filter(
 const combatMissions = missions.filter((mission) => mission.enemies.length > 0);
 const nonCombatMissions = missions.filter((mission) => mission.enemies.length === 0);
 
-if (missions.length !== 346) {
-    add("canonical-count", null, `Expected 346; found ${missions.length}.`);
+if (missions.length !== 347) {
+    add("canonical-count", null, `Expected 347; found ${missions.length}.`);
 }
 if (questReportMissions.length !== 300) {
     add(
@@ -99,14 +99,51 @@ if (questReportMissions.length !== 300) {
         `Expected 300; found ${questReportMissions.length}.`,
     );
 }
-if (otherMissions.length !== 46) {
-    add("other-mission-count", null, `Expected 46; found ${otherMissions.length}.`);
+if (otherMissions.length !== 47) {
+    add("other-mission-count", null, `Expected 47; found ${otherMissions.length}.`);
 }
 
 const duplicateIds = Object.entries(Object.groupBy(missions, (mission) => mission.id))
     .filter(([, rows]) => rows.length > 1);
 for (const [id, rows] of duplicateIds) {
     add("duplicate-id", rows[0], id);
+}
+
+const auctionRewardTitles = new Map([
+    ["ME-37", "Champ's Reward - Moorabella"],
+    ["ME-38", "Master's Reward - Graszton"],
+    ["ME-39", "Master's Reward - Camoa"],
+    ["ME-40", "Master's Rewards - Moorabella"],
+    ["ME-41", "Master's Reward - Fluorgis"],
+    ["ME-42", "Master's Reward - Goug"],
+]);
+for (const [id, expectedTitle] of auctionRewardTitles) {
+    const mission = byId.get(id);
+    if (!mission) {
+        add("auction-reward-event-missing", null, id);
+        continue;
+    }
+    if (mission.name !== expectedTitle) {
+        add("auction-reward-title-mismatch", mission, expectedTitle);
+    }
+    if (mission.series !== "Auction reward events") {
+        add("auction-reward-series-missing", mission);
+    }
+    for (const alias of ["Champ's Reward", "Master's Reward"]) {
+        if (!mission.searchAliases?.includes(alias)) {
+            add("auction-reward-search-alias-missing", mission, alias);
+        }
+    }
+    if (id === "ME-37") {
+        if (!/Area Champion of Moorabella/i.test(mission.prerequisite ?? "")) {
+            add("champ-reward-prerequisite-mismatch", mission);
+        }
+    } else if (
+        !/Champion for Life/i.test(mission.prerequisite ?? "") ||
+        !/every auction area/i.test(mission.prerequisite ?? "")
+    ) {
+        add("master-reward-prerequisite-mismatch", mission);
+    }
 }
 
 for (const mission of combatMissions) {
@@ -141,24 +178,24 @@ for (const mission of missions) {
 
     const visibleStrings = collectStrings(mission);
     const attribution = visibleStrings.find((value) =>
-        /gamefaqs|thonky|validated against|external (?:guide|source)|guide-backed|\b(?:the|this|dev's) guide(?:'s)?\b/i.test(
+        /https?:\/\/|www\.|validated (?:against|with)|\bcredit(?:s|ed)?\s+to\b/i.test(
             value,
         ),
     );
-    if (attribution) add("external-attribution-in-app-data", mission, attribution);
+    if (attribution) add("attribution-in-app-data", mission, attribution);
     const externalUrl = visibleStrings.find((value) => /https?:\/\//i.test(value));
-    if (externalUrl) add("external-url-in-app-data", mission, externalUrl);
+    if (externalUrl) add("url-in-app-data", mission, externalUrl);
 }
 
-for (const [id, expectedGuidance] of Object.entries(sourceGuidance)) {
+for (const [id, expectedGuidance] of Object.entries(curatedGuidance)) {
     const mission = byId.get(id);
     if (!mission) {
-        add("source-guidance-mission-missing", null, id);
+        add("curated-guidance-mission-missing", null, id);
         continue;
     }
     for (const step of expectedGuidance) {
         if (!mission.strategy?.includes(step)) {
-            add("source-guidance-not-applied", mission, step);
+            add("curated-guidance-not-applied", mission, step);
         }
     }
 }
@@ -247,7 +284,7 @@ if (!recruitment) {
         );
     }
     if (Object.hasOwn(recruitment, "sources")) {
-        add("clan-mates-external-sources-present", clanMates);
+        add("clan-mates-unexpected-metadata", clanMates);
     }
 
     expectPatterns(
@@ -362,7 +399,8 @@ const report = {
         otherMissions: otherMissions.length,
         combatMissions: combatMissions.length,
         nonCombatMissions: nonCombatMissions.length,
-        sourceValidatedOverrides: Object.keys(sourceGuidance).length,
+        curatedGuidanceOverrides: Object.keys(curatedGuidance).length,
+        auctionRewardEvents: auctionRewardTitles.size,
         clanMatesRaceGroups: recruitment?.groups.length ?? 0,
         clanMatesAnswerMappings:
             recruitment?.groups.reduce(
@@ -376,10 +414,11 @@ const report = {
         "Final merged mission objects, including generated guidance",
         "Combat objectives, laws, enemy identities, and multi-step strategy",
         "Noncombat mission guidance and intentional no-enemy objectives",
-        "All source-validated mission overrides",
+        "All curated mission guidance overrides",
+        "All six auction reward events, exact titles, series links, and prerequisites",
         "Clan Mates month, race, class, and answer-code coverage",
         "Known high-risk quest mechanics and missable Flutegrass routing",
-        "No external guide attribution or URLs in mission-facing data",
+        "No attribution or URLs in mission-facing data",
     ],
     byType: findings.reduce((counts, finding) => {
         counts[finding.type] = (counts[finding.type] ?? 0) + 1;

@@ -16,7 +16,7 @@ const START_TAKEAWAYS: Record<string, string> = {
     "what-they-are":
         "Spend Clan Points, choose one title row, clear the judge's challenge, and watch whether that trial fails on law-breaking.",
     "title-system":
-        "Each title row is its own clear; the highest Clan Rank reached controls recruit quality, while upgradeable privileges climb one tier at a time.",
+        "The last title you earn becomes your current title, and only that title's discount applies. Privileges and your highest Clan Rank remain unlocked. Work through accessible trials in any useful order, then finish with the best discount title you can currently complete.",
     talents:
         "Quest and trial requirements use four clan talents; trial rows can raise some values and lower others.",
 };
@@ -77,10 +77,7 @@ export function ClanTrialsPanel() {
     const { checked } = useProgress();
     const { isChecklistEnabled, isScopeEnabled } = useChecklistPreferences();
     const trackingEnabled = isChecklistEnabled("clanTrials");
-    const [activeTrialId, setActiveTrialId] = useGuidePreference(
-        "selection.clan.trial",
-        "",
-    );
+    const [activeTrialId, setActiveTrialId] = React.useState("");
     const [rankFilter, setRankFilter] = useGuidePreference<RankFilter>(
         "filters.clan.rank",
         "All",

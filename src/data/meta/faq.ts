@@ -70,13 +70,13 @@ export const FAQ_ITEMS: FaqItem[] = [
     {
         id: "clan-trials",
         question: "What are clan trials and talents actually for?",
-        answer: "Clan Trials are judge-issued challenge battles that change Negotiation, Aptitude, Teamwork, and Adaptability, award titles and fee discounts, and supply clan privileges. Each difficulty/title row is its own clear. Upgradeable privileges advance one step at a time, so a high-difficulty clear does not automatically grant every lower title reward or instantly finish the whole privilege ladder. Repeat or step through eligible rows when you want the lower titles, discounts, or missing upgrade tiers.",
+        answer: "Clan Trials are judge-issued challenge battles that change Negotiation, Aptitude, Teamwork, and Adaptability, award titles and fee discounts, and supply clan privileges. Each title row is its own clear. Upgradeable privileges advance one step at a time, so a high-difficulty clear does not automatically grant every lower row or instantly finish the privilege ladder. The last title you earn sets the active discount; when you stop running trials for now, make your final clear an accessible title whose discount you want active.",
         tags: ["Clan Trials", "Talents"],
     },
     {
         id: "clan-title-stacking",
         question: "If my clan title changes, do I lose the old benefits?",
-        answer: "No. Your visible clan title is simply the title from the most recently completed Clan Trial, while benefits already earned from other trial rows remain stacked. Talent changes and unlocked privilege upgrades also persist. Clearing a higher row does not automatically award every lower row, so clear or repeat the rows tied to the rewards and privilege upgrades you still need.",
+        answer: "The last title you earn becomes your current title, and only its discount applies. If you earn a smaller-discount title after a larger one, the smaller discount becomes active; title discounts never stack. Talent changes already applied remain reflected in your clan values, unlocked privileges remain available, and recruitment Clan Rank keeps the highest rank you have reached. Finish each round of trial progression with an accessible title whose discount you want active, then revisit that choice when stronger tiers become practical.",
         tags: ["Clan Trials", "Titles"],
     },
     {

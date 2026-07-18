@@ -55,6 +55,8 @@ export function getMissionSearchScore(
     if (!q) return 0;
 
     const name = normalize(mission.name);
+    const series = normalize(mission.series ?? "");
+    const searchAliases = mission.searchAliases ?? [];
     const id = normalize(mission.id);
     const arc = normalize(mission.arc);
     const tagText = mergedTags.map((tag) => tag.replace(/-/g, " "));
@@ -75,8 +77,12 @@ export function getMissionSearchScore(
 
     if (name === q) return 1000;
     if (name.startsWith(q)) return 950;
+    if (searchAliases.some((alias) => normalize(alias) === q)) return 940;
     if (name.includes(q)) return 900;
+    if (searchAliases.some((alias) => normalize(alias).includes(q))) return 890;
+    if (series.includes(q)) return 880;
     if (allTokensMatch(q, mission.name)) return 875;
+    if (allTokensMatch(q, mission.series, searchAliases)) return 870;
 
     if (id === q || arc === q) return 850;
     if (id.includes(q) || arc.includes(q)) return 820;

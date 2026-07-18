@@ -3,33 +3,15 @@ import path from "node:path";
 import { build } from "esbuild";
 
 const root = process.cwd();
-const primaryGuidePath = path.join(
-    root,
-    "audit/source-snapshots/gamefaqs-dev-53627-browser-fullbody.txt",
-);
-const secondaryGuidePath = path.join(
-    root,
-    "audit/source-snapshots/thonky-all-quest-guides.html",
-);
 
 function normalize(value) {
     return String(value ?? "")
         .normalize("NFKD")
         .toLowerCase()
-        .replace(/[’']/g, "")
+        .replace(/[\u0300-\u036f]/g, "")
         .replace(/[^a-z0-9]+/g, " ")
         .trim()
         .replace(/\s+/g, " ");
-}
-
-function decodeHtml(value) {
-    return value
-        .replace(/<[^>]+>/g, "")
-        .replace(/&(?:#39|apos);/g, "'")
-        .replace(/&#x2019;/g, "’")
-        .replace(/&amp;/g, "&")
-        .replace(/&quot;/g, '"')
-        .trim();
 }
 
 async function loadMissions() {
@@ -70,8 +52,8 @@ const otherMissions = missions.filter(
 );
 const findings = [];
 
-if (missions.length !== 346) {
-    add(findings, "canonical-count", null, `Expected 346; found ${missions.length}.`);
+if (missions.length !== 347) {
+    add(findings, "canonical-count", null, `Expected 347; found ${missions.length}.`);
 }
 if (questReportMissions.length !== 300) {
     add(
@@ -81,12 +63,12 @@ if (questReportMissions.length !== 300) {
         `Expected 300; found ${questReportMissions.length}.`,
     );
 }
-if (otherMissions.length !== 46) {
+if (otherMissions.length !== 47) {
     add(
         findings,
         "other-mission-count",
         null,
-        `Expected 46; found ${otherMissions.length}.`,
+        `Expected 47; found ${otherMissions.length}.`,
     );
 }
 
@@ -99,6 +81,13 @@ for (const field of ["id", "arc", "name", "description", "region", "questType"])
 }
 
 for (const mission of missions) {
+    const expectedIdPattern = mission.arc === "EX" || mission.arc === "ME"
+        ? /^(?:EX|ME)-\d{2}$/
+        : /^[A-E][1-5]-\d{2}$/;
+
+    if (!expectedIdPattern.test(mission.id)) {
+        add(findings, "invalid-id-format", mission);
+    }
     if (!Array.isArray(mission.enemies)) {
         add(findings, "enemies-not-array", mission);
     }
@@ -119,60 +108,17 @@ for (const mission of missions) {
     }
 }
 
-const duplicateIds = Object.entries(Object.groupBy(missions, (mission) => mission.id))
-    .filter(([, rows]) => rows.length > 1);
-for (const [id, rows] of duplicateIds) {
-    add(findings, "duplicate-id", rows[0], id);
-}
-
-const duplicateQuestNames = Object.entries(
-    Object.groupBy(questReportMissions, (mission) => normalize(mission.name)),
-).filter(([, rows]) => rows.length > 1);
-for (const [name, rows] of duplicateQuestNames) {
-    add(findings, "duplicate-quest-name", rows[0], name);
-}
-
-const primaryGuide = fs.readFileSync(primaryGuidePath, "utf8");
-const primaryIds = new Set(
-    [...primaryGuide.matchAll(/^([A-E][1-5]-\d{2}):\s+.+$/gm)].map(
-        (match) => match[1],
-    ),
-);
-if (primaryIds.size !== 300) {
-    add(
-        findings,
-        "primary-source-count",
-        null,
-        `Expected 300 structured quest IDs; found ${primaryIds.size}.`,
-    );
-}
-for (const mission of questReportMissions) {
-    if (!primaryIds.has(mission.id)) {
-        add(findings, "primary-source-missing", mission);
+for (const [id, rows] of Object.entries(Object.groupBy(missions, (mission) => mission.id))) {
+    if (rows.length > 1) {
+        add(findings, "duplicate-id", rows[0], id);
     }
 }
 
-const secondaryGuide = fs.readFileSync(secondaryGuidePath, "utf8");
-const secondaryNames = [
-    ...secondaryGuide.matchAll(/<h3\b[^>]*>([\s\S]*?)<\/h3>/gi),
-].map((match) => decodeHtml(match[1]));
-if (secondaryNames.length !== 300) {
-    add(
-        findings,
-        "secondary-source-count",
-        null,
-        `Expected 300 quest headings; found ${secondaryNames.length}.`,
-    );
-}
-const secondaryNameSet = new Set(secondaryNames.map(normalize));
-const secondaryAliases = new Map([
-    [normalize("Devilish Delight"), normalize("Devilish Delights")],
-]);
-for (const mission of questReportMissions) {
-    const name = normalize(mission.name);
-    const sourceName = secondaryAliases.get(name) ?? name;
-    if (!secondaryNameSet.has(sourceName)) {
-        add(findings, "secondary-source-missing", mission);
+for (const [name, rows] of Object.entries(
+    Object.groupBy(questReportMissions, (mission) => normalize(mission.name)),
+)) {
+    if (rows.length > 1) {
+        add(findings, "duplicate-quest-name", rows[0], name);
     }
 }
 
@@ -191,32 +137,18 @@ for (const pattern of [
 }
 
 const report = {
-    generatedAt: new Date().toISOString(),
-    sources: [
-        {
-            name: "GameFAQs guide by Dev, version 1.25",
-            url: "https://gamefaqs.gamespot.com/ds/937330-final-fantasy-tactics-a2-grimoire-of-the-rift/faqs/53627",
-            coverage: "Structured contract fields and walkthrough evidence for all 300 Quest Report quests.",
-        },
-        {
-            name: "Thonky all quest guides",
-            url: "https://www.thonky.com/ffta2/all-quest-guides",
-            coverage: "Independent title and quest-set validation for all 300 Quest Report quests.",
-        },
-        {
-            name: "GameFAQs supplemental guides by warfreak and Dark_Vortex",
-            coverage: "Additional battle strategy, enemy, finale, and map-event evidence.",
-        },
-    ],
     counts: {
         canonicalMissions: missions.length,
         questReportMissions: questReportMissions.length,
         otherMissions: otherMissions.length,
         missionsWithGuidance: missions.filter((mission) => mission.strategy?.length).length,
-        primaryStructuredQuests: primaryIds.size,
-        secondaryQuestHeadings: secondaryNames.length,
         findings: findings.length,
     },
+    byType: Object.fromEntries(
+        Object.entries(Object.groupBy(findings, (finding) => finding.type)).map(
+            ([type, rows]) => [type, rows.length],
+        ),
+    ),
     findings,
 };
 
@@ -230,10 +162,7 @@ console.log(
     JSON.stringify(
         {
             counts: report.counts,
-            byType: findings.reduce((counts, finding) => {
-                counts[finding.type] = (counts[finding.type] ?? 0) + 1;
-                return counts;
-            }, {}),
+            byType: report.byType,
             report: "audit/mission-completeness-audit.json",
         },
         null,

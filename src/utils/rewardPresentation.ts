@@ -12,7 +12,8 @@ export function splitRewardEntries(
 ): string[] {
     const entries = Array.isArray(value) ? value : [value ?? ""];
     return entries
-        .flatMap((entry) => entry.split(","))
+        // Keep thousands separators such as 5,000 inside one reward entry.
+        .flatMap((entry) => entry.split(/,(?!\d{3}(?:\D|$))/))
         .map((part) => part.trim())
         .filter(Boolean);
 }

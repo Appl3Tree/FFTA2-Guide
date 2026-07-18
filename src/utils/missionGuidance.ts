@@ -1,5 +1,5 @@
 import type { Mission } from "../types/ffta2";
-import { SOURCE_VALIDATED_MISSION_GUIDANCE } from "../data/missions/sourceValidatedGuidance";
+import { CURATED_MISSION_GUIDANCE } from "../data/missions/curatedMissionGuidance";
 
 const BESPOKE_GUIDANCE: Readonly<Record<string, readonly string[]>> = {
     "C1-14": [
@@ -70,7 +70,7 @@ function nonCombatGuidance(mission: Mission): string[] {
 
     if (mission.dispatchRecommended?.length) {
         guidance.push(
-            `For dispatch, the validated recommended ${mission.dispatchRecommended.length === 1 ? "job is" : "jobs are"} ${mission.dispatchRecommended.join(", ")}.`,
+            `For dispatch, the recommended ${mission.dispatchRecommended.length === 1 ? "job is" : "jobs are"} ${mission.dispatchRecommended.join(", ")}.`,
         );
     }
 
@@ -128,8 +128,8 @@ export function buildMissionGuidance(mission: Mission): string[] {
     const bespoke = BESPOKE_GUIDANCE[mission.id];
     if (bespoke) return [...bespoke];
 
-    const sourceValidated = SOURCE_VALIDATED_MISSION_GUIDANCE[mission.id];
-    if (sourceValidated) return [...sourceValidated];
+    const curatedGuidance = CURATED_MISSION_GUIDANCE[mission.id];
+    if (curatedGuidance) return [...curatedGuidance];
 
     if (!mission.enemies?.length) {
         const objective = objectiveGuidance(mission);

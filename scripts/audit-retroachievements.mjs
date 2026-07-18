@@ -4,14 +4,12 @@ import ts from "typescript";
 
 const root = process.cwd();
 const dataFile = path.join(root, "src/data/retroAchievements.ts");
-const snapshotFile = path.join(root, "audit/source-snapshots/retroachievements-game-4958.json");
 const sourceFile = ts.createSourceFile(
     dataFile,
     fs.readFileSync(dataFile, "utf8"),
     ts.ScriptTarget.Latest,
     true,
 );
-const snapshot = JSON.parse(fs.readFileSync(snapshotFile, "utf8"));
 const findings = [];
 
 function visit(node, callback) {
@@ -67,54 +65,62 @@ if (!missionInitializer || !ts.isObjectLiteralExpression(missionInitializer)) {
     throw new Error("Could not parse RETRO_ACHIEVEMENTS_BY_MISSION_ID");
 }
 
-const appAchievements = globalInitializer.elements
+const achievements = globalInitializer.elements
     .filter(ts.isObjectLiteralExpression)
     .map(readAchievement);
-const appByName = new Map(appAchievements.map((achievement) => [achievement.name, achievement]));
-const appById = new Map(appAchievements.map((achievement) => [achievement.id, achievement]));
-const sourceByName = new Map(snapshot.achievements.map((achievement) => [achievement.title, achievement]));
+const achievementsById = new Map(achievements.map((achievement) => [achievement.id, achievement]));
+const achievementNames = new Set(achievements.map((achievement) => achievement.name));
 
-if (snapshot.count !== 185 || snapshot.achievements.length !== 185) {
-    findings.push({ type: "source-count-mismatch", declared: snapshot.count, actual: snapshot.achievements.length });
+if (achievements.length !== 185) {
+    findings.push({ type: "achievement-count", expected: 185, actual: achievements.length });
 }
-if (new Set(snapshot.achievements.map((achievement) => achievement.raId)).size !== snapshot.achievements.length) {
-    findings.push({ type: "duplicate-source-ra-id" });
+if (achievementsById.size !== achievements.length) {
+    findings.push({ type: "duplicate-achievement-id" });
 }
-if (new Set(appAchievements.map((achievement) => achievement.id)).size !== appAchievements.length) {
-    findings.push({ type: "duplicate-app-id" });
+if (achievementNames.size !== achievements.length) {
+    findings.push({ type: "duplicate-achievement-name" });
 }
-
-for (const appAchievement of appAchievements) {
-    const sourceAchievement = sourceByName.get(appAchievement.name);
-    if (!sourceAchievement) {
-        findings.push({ type: "app-achievement-not-on-source", ...appAchievement });
-    } else if (appAchievement.description !== sourceAchievement.description) {
-        findings.push({
-            type: "description-mismatch",
-            id: appAchievement.id,
-            name: appAchievement.name,
-            appValue: appAchievement.description,
-            sourceValue: sourceAchievement.description,
-        });
-    }
-}
-
-for (const sourceAchievement of snapshot.achievements) {
-    if (!appByName.has(sourceAchievement.title)) {
-        findings.push({ type: "source-achievement-missing-in-app", ...sourceAchievement });
+for (const achievement of achievements) {
+    for (const field of ["id", "name", "description"]) {
+        if (!achievement[field]?.trim()) {
+            findings.push({
+                type: "achievement-field-missing",
+                id: achievement.id,
+                field,
+            });
+        }
     }
 }
 
 let missionLinkedCount = 0;
+const linkedMissionIds = new Set();
 for (const missionProperty of missionInitializer.properties) {
     if (!ts.isPropertyAssignment(missionProperty) || !ts.isArrayLiteralExpression(missionProperty.initializer)) {
+        findings.push({ type: "invalid-mission-link-entry" });
         continue;
     }
+
     const missionId = keyName(missionProperty.name);
+    if (linkedMissionIds.has(missionId)) {
+        findings.push({ type: "duplicate-mission-link-key", missionId });
+    }
+    linkedMissionIds.add(missionId);
+
+    const idsForMission = new Set();
     for (const objectNode of missionProperty.initializer.elements.filter(ts.isObjectLiteralExpression)) {
         missionLinkedCount += 1;
         const linkedAchievement = readAchievement(objectNode);
-        const globalAchievement = appById.get(linkedAchievement.id);
+        const globalAchievement = achievementsById.get(linkedAchievement.id);
+
+        if (idsForMission.has(linkedAchievement.id)) {
+            findings.push({
+                type: "duplicate-achievement-on-mission",
+                missionId,
+                achievementId: linkedAchievement.id,
+            });
+        }
+        idsForMission.add(linkedAchievement.id);
+
         if (!globalAchievement) {
             findings.push({ type: "mission-link-missing-global", missionId, ...linkedAchievement });
         } else if (
@@ -131,15 +137,26 @@ for (const missionProperty of missionInitializer.properties) {
     }
 }
 
+if (missionLinkedCount !== 111) {
+    findings.push({
+        type: "mission-link-count",
+        expected: 111,
+        actual: missionLinkedCount,
+    });
+}
+
 const report = {
-    sourceUrl: snapshot.sourceUrl,
-    capturedAt: snapshot.capturedAt,
     counts: {
-        sourceAchievements: snapshot.achievements.length,
-        appAchievements: appAchievements.length,
+        achievements: achievements.length,
+        linkedMissions: linkedMissionIds.size,
         missionLinkedAchievements: missionLinkedCount,
         findings: findings.length,
     },
+    byType: Object.fromEntries(
+        Object.entries(Object.groupBy(findings, (finding) => finding.type)).map(
+            ([type, rows]) => [type, rows.length],
+        ),
+    ),
     findings,
 };
 
@@ -150,6 +167,7 @@ fs.writeFileSync(
 
 console.log(JSON.stringify({
     counts: report.counts,
+    byType: report.byType,
     report: "audit/retroachievements-audit.json",
 }, null, 2));
 

@@ -3,63 +3,15 @@ import path from "node:path";
 import { build } from "esbuild";
 
 const root = process.cwd();
-const sourcePath = path.join(
-    root,
-    "audit/source-snapshots/fandom-bazaar.json",
-);
 
 function normalize(value) {
     return String(value ?? "")
         .normalize("NFKD")
         .toLowerCase()
         .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[\u2019']/g, "")
         .replace(/[^a-z0-9]+/g, " ")
         .trim()
         .replace(/\s+/g, " ");
-}
-
-function wikiLinkLabel(line) {
-    const match = line.match(/\[\[([^\]]+)\]\]/);
-    if (!match) return null;
-    return match[1].split("|").at(-1)?.trim() ?? null;
-}
-
-function sourceRows() {
-    const payload = JSON.parse(fs.readFileSync(sourcePath, "utf8"));
-    const wikitext = payload.parse?.wikitext?.["*"];
-    if (!wikitext) {
-        throw new Error("Fandom Bazaar snapshot has no parsed wikitext.");
-    }
-
-    const lines = wikitext.split(/\r?\n/);
-    const rows = [];
-
-    for (let index = 0; index < lines.length; index += 1) {
-        const rank = lines[index].match(
-            /^!\s*rowspan="([23])"\s*\|\s*Rank ([A-E])/,
-        );
-        if (!rank) continue;
-
-        const resultPattern = new RegExp(
-            `^\\|\\s*rowspan="${rank[1]}"\\s*\\|?`,
-        );
-        const resultLine = lines
-            .slice(index + 1, index + 5)
-            .find((line) => resultPattern.test(line));
-        const result = resultLine ? wikiLinkLabel(resultLine) : null;
-        if (!resultLine || !result) {
-            throw new Error(`Unable to parse Bazaar result near line ${index + 1}.`);
-        }
-
-        rows.push({
-            result,
-            rank: `Rank ${rank[2]}`,
-            repeatCraft: /'''/.test(resultLine),
-        });
-    }
-
-    return rows;
 }
 
 async function loadAppData() {
@@ -86,71 +38,85 @@ async function loadAppData() {
     return module.default;
 }
 
-const source = sourceRows();
 const app = await loadAppData();
 const findings = [];
-const sourceByName = new Map(source.map((row) => [normalize(row.result), row]));
-const appByName = new Map(
-    app.recipes.map((recipe) => [normalize(recipe.result), recipe]),
+const recipesByResult = Object.groupBy(
+    app.recipes,
+    (recipe) => normalize(recipe.result),
 );
-const sourceRepeat = new Set(
-    source.filter((row) => row.repeatCraft).map((row) => normalize(row.result)),
-);
-const appRepeat = new Set(app.repeatCraft.map(normalize));
+const recipesById = Object.groupBy(app.recipes, (recipe) => recipe.id);
+const normalizedRepeatCraft = app.repeatCraft.map(normalize);
+const repeatCraftSet = new Set(normalizedRepeatCraft);
 
-if (source.length !== 355 || app.recipes.length !== 355) {
+if (app.recipes.length !== 355) {
     findings.push({
         type: "recipe-count",
-        source: source.length,
-        app: app.recipes.length,
+        expected: 355,
+        actual: app.recipes.length,
     });
 }
-if (sourceRepeat.size !== 112 || appRepeat.size !== 112) {
+if (app.repeatCraft.length !== 112) {
     findings.push({
         type: "repeat-craft-count",
-        source: sourceRepeat.size,
-        app: appRepeat.size,
+        expected: 112,
+        actual: app.repeatCraft.length,
     });
 }
 
-for (const [name, row] of sourceByName) {
-    const recipe = appByName.get(name);
-    if (!recipe) {
-        findings.push({ type: "source-result-missing-in-app", result: row.result });
-    } else if (recipe.rank !== row.rank) {
+for (const recipe of app.recipes) {
+    for (const field of ["id", "section", "rank", "result"]) {
+        if (!String(recipe[field] ?? "").trim()) {
+            findings.push({ type: "required-field-missing", id: recipe.id, field });
+        }
+    }
+    if (!/^Rank [A-E]$/.test(recipe.rank)) {
+        findings.push({ type: "invalid-rank", id: recipe.id, rank: recipe.rank });
+    }
+    if (!Array.isArray(recipe.loot) || recipe.loot.length < 2 || recipe.loot.length > 3) {
+        findings.push({ type: "invalid-loot-count", id: recipe.id, loot: recipe.loot });
+    } else if (recipe.loot.some((item) => !String(item).trim())) {
+        findings.push({ type: "empty-loot-name", id: recipe.id });
+    }
+}
+
+for (const [id, rows] of Object.entries(recipesById)) {
+    if (rows.length > 1) {
+        findings.push({ type: "duplicate-recipe-id", id, count: rows.length });
+    }
+}
+for (const [result, rows] of Object.entries(recipesByResult)) {
+    if (rows.length > 1) {
         findings.push({
-            type: "rank-mismatch",
-            result: row.result,
-            source: row.rank,
-            app: recipe.rank,
+            type: "duplicate-recipe-result",
+            result,
+            ids: rows.map((recipe) => recipe.id),
         });
     }
 }
-for (const recipe of app.recipes) {
-    if (!sourceByName.has(normalize(recipe.result))) {
-        findings.push({ type: "app-result-missing-in-source", result: recipe.result });
+if (repeatCraftSet.size !== app.repeatCraft.length) {
+    findings.push({ type: "duplicate-repeat-craft-result" });
+}
+
+for (const [index, result] of app.repeatCraft.entries()) {
+    const recipes = recipesByResult[normalizedRepeatCraft[index]] ?? [];
+    if (recipes.length !== 1) {
+        findings.push({
+            type: "repeat-craft-result-mapping",
+            result,
+            matchingRecipes: recipes.length,
+        });
     }
 }
-for (const name of sourceRepeat) {
-    if (!appRepeat.has(name)) {
-        findings.push({ type: "repeat-craft-marker-missing", result: name });
-    }
-}
-for (const name of appRepeat) {
-    if (!sourceRepeat.has(name)) {
-        findings.push({ type: "unexpected-repeat-craft-marker", result: name });
-    }
-}
-if (!appRepeat.has(normalize("Battle Boots"))) {
+if (!repeatCraftSet.has(normalize("Battle Boots"))) {
     findings.push({ type: "battle-boots-not-repeat-craft" });
 }
 
 const report = {
     counts: {
-        sourceRecipes: source.length,
-        appRecipes: app.recipes.length,
-        sourceRepeatCraft: sourceRepeat.size,
-        appRepeatCraft: appRepeat.size,
+        recipes: app.recipes.length,
+        uniqueRecipeResults: Object.keys(recipesByResult).length,
+        repeatCraftResults: app.repeatCraft.length,
+        uniqueRepeatCraftResults: repeatCraftSet.size,
         findings: findings.length,
     },
     byType: Object.fromEntries(

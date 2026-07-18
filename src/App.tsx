@@ -341,7 +341,7 @@ function AppInner() {
                                             navPointerScrollRef.current = window.scrollY;
                                         }}
                                         onClick={() => selectView(view.id)}
-                                        className={`flex min-h-14 items-center justify-center gap-2 border-b-2 px-3 text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sky-300 sm:text-sm ${
+                                        className={`flex min-h-14 items-center justify-center gap-1 border-b-2 px-1.5 text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-sky-300 lg:gap-2 lg:px-3 lg:text-sm ${
                                             selected
                                                 ? "border-sky-400 bg-zinc-900 text-zinc-50"
                                                 : "border-transparent text-zinc-400 hover:bg-zinc-900/70 hover:text-zinc-100"

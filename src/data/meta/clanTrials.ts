@@ -20,13 +20,14 @@ export const CLAN_TRIAL_GUIDE: ClanTrialGuideSection[] = [
     {
         id: "title-system",
         title: "Titles and privilege upgrades",
-        body: "Each trial offers five title tiers. Higher tiers usually mean tighter round limits, more enemies, or harsher conditions, and each title has its own talent changes, fee discounts, privilege line, and recruitment Clan Rank. The printed privilege row matters, but upgradeable privileges are sequential: clearing one high row does not grant every lower tier or every lower row's reward.",
+        body: "Each trial offers five title tiers. Higher tiers usually mean tighter round limits, more enemies, or harsher conditions, and each row has its own talent changes, title discount, privilege line, and recruitment Clan Rank. Upgradeable privileges are sequential: clearing one high row does not grant every lower tier or every lower row's reward. Your newest clear sets the current title and discount, so clear order matters at every stage of the game.",
         bullets: [
+            "Earning a title with a smaller discount after one with a larger discount makes the smaller discount active; title discounts never stack.",
+            "When you are done with trials for now, make your final clear a currently accessible title whose discount you want active.",
             "If you have no Power privilege, clearing the Dab Hands row starts the Power upgrade sequence at Power 1 rather than granting Power 3 immediately.",
             "Repeat or clear eligible rows to advance an upgradeable privilege one tier at a time.",
-            "A title grants its own talent and discount row, but upgradeable privileges advance one step at a time.",
+            "Trial talent changes are applied to your clan values when you clear the row, while earned privileges remain unlocked for later battles.",
             "Recruitment Clan Rank uses the highest rank you have reached; rank values do not add together and do not drop when your displayed title changes.",
-            "The displayed clan title is the most recently completed trial title, while earned talent, discount, and privilege effects remain available.",
         ],
     },
     {
@@ -270,6 +271,7 @@ const CLAN_TRIAL_BASES: Array<Omit<ClanTrial, "members" | "unlock">> = [
         ],
         notes: [
             "Master Adventurers is the highest clan-rank target in the trial ladder.",
+            "Its -20% fee discount is the eventual maximum, but General Training II is a late-game target. Until it is practical, keep the best discount from a title you can reliably clear.",
         ],
         completionTips: [
             "Burst the starting Zaghnal immediately; clearing it before reinforcements arrive is the cleanest win path.",

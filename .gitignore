@@ -3,6 +3,9 @@ dist
 .DS_Store
 audit/data-audit.json
 
+# Keep temporary research captures outside version control.
+audit/research/
+
 # Local environment files. Keep Firebase project config and any future secrets
 # out of git; commit .env.example instead.
 .env
