@@ -14,6 +14,7 @@ export interface AbilityTrackingTarget {
     id: string;
     label: string;
     description: string;
+    raceTargetId?: string;
     groups: AbilityTrackingGroup[];
 }
 
@@ -180,6 +181,10 @@ export const RACE_ABILITY_TARGETS: AbilityTrackingTarget[] = RACE_JOBS.filter(
     groups: buildGroups(race.jobs.map((job) => job.name)),
 }));
 
+const RACE_TARGET_ID_BY_NAME = new Map(
+    RACE_ABILITY_TARGETS.map((target) => [target.label, target.id]),
+);
+
 export const NAMED_RECRUIT_ABILITY_TARGETS: AbilityTrackingTarget[] =
     NAMED_RECRUIT_DEFINITIONS.map((recruit) => {
         const raceJobs = recruit.race
@@ -195,6 +200,9 @@ export const NAMED_RECRUIT_ABILITY_TARGETS: AbilityTrackingTarget[] =
             id: recruit.id,
             label: recruit.label,
             description: recruit.description,
+            raceTargetId: recruit.race
+                ? RACE_TARGET_ID_BY_NAME.get(recruit.race)
+                : undefined,
             groups: buildGroups(jobs),
         };
     });

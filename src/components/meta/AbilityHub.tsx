@@ -403,7 +403,10 @@ function AbilityChecklistView({
     viewLabel: string;
 }) {
     const { checked, setCheck } = useProgress();
-    const { isScopeEnabled } = useChecklistPreferences();
+    const {
+        isScopeEnabled,
+        namedRecruitAbilityChecksRace,
+    } = useChecklistPreferences();
     const preferenceScope =
         checklistKey === "abilityRace" ? "race" : "characters";
     const [selectedId, setSelectedId] = useGuidePreference(
@@ -649,12 +652,47 @@ function AbilityChecklistView({
                                                         <input
                                                             type="checkbox"
                                                             checked={!!checked[key]}
-                                                            onChange={(event) =>
-                                                                setCheck(
-                                                                    key,
-                                                                    event.target.checked,
-                                                                )
-                                                            }
+                                                            onChange={(event) => {
+                                                                const learned =
+                                                                    event.target
+                                                                        .checked;
+                                                                setCheck(key, learned);
+
+                                                                if (
+                                                                    !learned ||
+                                                                    checklistKey !==
+                                                                        "abilityCharacters" ||
+                                                                    !namedRecruitAbilityChecksRace ||
+                                                                    !target.raceTargetId
+                                                                ) {
+                                                                    return;
+                                                                }
+
+                                                                const raceTarget =
+                                                                    RACE_ABILITY_TARGETS.find(
+                                                                        (candidate) =>
+                                                                            candidate.id ===
+                                                                            target.raceTargetId,
+                                                                    );
+                                                                if (
+                                                                    raceTarget &&
+                                                                    uniqueAbilitiesForTarget(
+                                                                        raceTarget,
+                                                                    ).some(
+                                                                        (racialAbility) =>
+                                                                            racialAbility.id ===
+                                                                            ability.id,
+                                                                    )
+                                                                ) {
+                                                                    setCheck(
+                                                                        raceAbilityProgressKey(
+                                                                            target.raceTargetId,
+                                                                            ability.id,
+                                                                        ),
+                                                                        true,
+                                                                    );
+                                                                }
+                                                            }}
                                                             className="mt-0.5 h-5 w-5 shrink-0 rounded border-zinc-500 text-sky-500 focus:ring-sky-400"
                                                         />
                                                         ) : null}

@@ -78,8 +78,10 @@ export function ChecklistSettingsDialog({
 }) {
     const {
         checklists,
+        namedRecruitAbilityChecksRace,
         scopes,
         setChecklistEnabled,
+        setNamedRecruitAbilityChecksRace,
         setScopeEnabled,
         setTrackingEnabled,
         trackingEnabled,
@@ -239,6 +241,17 @@ export function ChecklistSettingsDialog({
                                             </div>
                                         );
                                     })}
+                                    {group.title === "Ability mastery" ? (
+                                        <div className="border-t border-zinc-800">
+                                            <ToggleRow
+                                                checked={namedRecruitAbilityChecksRace}
+                                                description="Checking a named recruit's ability also completes that ability for their race. Race progress never checks off named recruits."
+                                                disabled={!trackingEnabled}
+                                                label="Named recruits also complete race abilities"
+                                                onChange={setNamedRecruitAbilityChecksRace}
+                                            />
+                                        </div>
+                                    ) : null}
                                 </div>
                             </fieldset>
                         ))}

@@ -14,6 +14,7 @@ type ChecklistState = Record<ChecklistKey, boolean>;
 
 interface ChecklistPreferences {
     trackingEnabled: boolean;
+    namedRecruitAbilityChecksRace: boolean;
     checklists: ChecklistState;
     scopes: Partial<Record<ChecklistKey, Record<string, boolean>>>;
 }
@@ -22,6 +23,7 @@ interface ChecklistPreferencesValue extends ChecklistPreferences {
     isChecklistEnabled: (key: ChecklistKey) => boolean;
     isScopeEnabled: (key: ChecklistKey, scopeId: string) => boolean;
     setChecklistEnabled: (key: ChecklistKey, enabled: boolean) => void;
+    setNamedRecruitAbilityChecksRace: (enabled: boolean) => void;
     setScopeEnabled: (
         key: ChecklistKey,
         scopeId: string,
@@ -48,6 +50,7 @@ const DEFAULT_SCOPES: ChecklistPreferences["scopes"] = {
 
 const DEFAULT_PREFERENCES: ChecklistPreferences = {
     trackingEnabled: true,
+    namedRecruitAbilityChecksRace: false,
     checklists: DEFAULT_CHECKLISTS,
     scopes: DEFAULT_SCOPES,
 };
@@ -85,6 +88,10 @@ function parsePreferences(raw: unknown): ChecklistPreferences {
                 typeof parsed.trackingEnabled === "boolean"
                     ? parsed.trackingEnabled
                     : true,
+            namedRecruitAbilityChecksRace:
+                typeof parsed.namedRecruitAbilityChecksRace === "boolean"
+                    ? parsed.namedRecruitAbilityChecksRace
+                    : false,
             checklists,
             scopes: {
                 ...storedScopes,
@@ -129,6 +136,16 @@ export function ChecklistPreferencesProvider({
             trackingEnabled: enabled,
         }));
     }, [updatePreferences]);
+
+    const setNamedRecruitAbilityChecksRace = React.useCallback(
+        (enabled: boolean) => {
+            updatePreferences((current) => ({
+                ...current,
+                namedRecruitAbilityChecksRace: enabled,
+            }));
+        },
+        [updatePreferences],
+    );
 
     const setChecklistEnabled = React.useCallback(
         (key: ChecklistKey, enabled: boolean) => {
@@ -183,6 +200,7 @@ export function ChecklistPreferencesProvider({
             isChecklistEnabled,
             isScopeEnabled,
             setChecklistEnabled,
+            setNamedRecruitAbilityChecksRace,
             setScopeEnabled,
             setTrackingEnabled,
         }),
@@ -191,6 +209,7 @@ export function ChecklistPreferencesProvider({
             isScopeEnabled,
             preferences,
             setChecklistEnabled,
+            setNamedRecruitAbilityChecksRace,
             setScopeEnabled,
             setTrackingEnabled,
         ],
